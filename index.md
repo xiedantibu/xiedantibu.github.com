@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 江边望海的博客!
-tagline: 久在江边站，必有望海心
+title: xiedantibu
+tagline: 。。。。
 ---
 {% include JB/setup %}
 
