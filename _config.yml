@@ -14,9 +14,9 @@ tagline: Site Tagline
 author :
   name : xiedantibu
   email : xiedantibu@126SS.com
-  github : username
-  twitter : username
-  feedburner : feedname
+  github : xiedantibu	
+  twitter : xiedantibu	
+  feedburner : xiedantibu	
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
