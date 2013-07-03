@@ -1,7 +1,7 @@
 ---
 layout: page
-title: xiedantibu
-tagline: 。。。。
+title: 开启一段精彩人生
+tagline: 像蚂蚁一样工作，像蝴蝶一样生活
 ---
 {% include JB/setup %}
 
