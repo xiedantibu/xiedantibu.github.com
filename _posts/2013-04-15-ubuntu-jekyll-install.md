@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在ubuntu搭建jekyll的运行环境"
+title: "在ubuntu搭建jekyll的运行环境(转载自江边望海)"
 description: "在ubuntu搭建jekyll的运行环境"
 category: 
 tags: [ubuntu, jekyll]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux常用命令记录（陆续更新中...）"
+title: "Linux常用命令记录（转载自江边望海）"
 description: ""
 category: 
 tags: [linux]
