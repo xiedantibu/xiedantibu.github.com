@@ -2,7 +2,6 @@
 layout: post
 title: "Markdown 基础语法"
 category : Markdown
-thread:  1
 tagline: "转载本站文章请注明作者和出处"
 tags : [Markdown]
 ---
