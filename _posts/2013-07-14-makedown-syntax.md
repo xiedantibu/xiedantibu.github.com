@@ -5,7 +5,6 @@ category : Markdown
 tagline: "转载本站文章请注明作者和出处"
 tags : [Markdown]
 ---
-{% include JB/setup %}
 
 Markdown是啥呢？还是问[度娘](http://baike.baidu.com/view/2311114.htm "Markdown")比较方便,这也是为了写博客才学点Markdown的基础语法，具体语法参考了图领社区的[Markdown语法说明（详解版）](http://www.ituring.com.cn/article/504)这篇文章。
 
