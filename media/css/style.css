@@ -137,3 +137,33 @@ background: #83BF73;
 }
 
 .weibo {float:right;margin-left:10px;padding-bottom: 5px;padding-left: 10px;}
+
+table {
+   margin-bottom: 20px;
+   margin-top:  20px;
+   max-width: 100%;
+   border-collapse: collapse;
+   transition: all 0.3s;
+   border: 1px solid rgba(50,118,177,0.167);
+
+ 
+}
+
+table thead tr th{
+border: 1px solid rgba(50,118,177,0.167);
+border-top: 0px none;
+vertical-align: middle; 
+}
+th{
+padding:4px
+}
+
+table tbody tr td{
+border: 1px solid rgba(50,118,177,0.167);
+border-top: 0px none;
+vertical-align: middle; 
+}
+
+td{
+padding:4px
+}
