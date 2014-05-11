@@ -3,7 +3,7 @@ layout: post
 title: "cocos2d-x避免手打输入项目cpp文件到android.mk里面编译(转载)"
 category : cocos2d-x
 tagline: "转载"
-tags : [cocos2d-x]
+tags : [cocos2d-x-2.2.3]
 ---
 
 只需要在android.mk里面写上这样的：  
