@@ -1,4 +1,6 @@
-markdown: rdiscount
+markdown: redcarpet
+redcarpet: 
+    extensions: ["tables"]
 permalink: /:title/
 url: http://blog.xulingmin.com/
 name: xiedantibu
