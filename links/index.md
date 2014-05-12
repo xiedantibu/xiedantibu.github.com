@@ -16,6 +16,7 @@ comments: no
 |7|cocos2d-x 博客网站推荐和牛逼教程|<http://www.cocoachina.com/bbs/read.php?tid=194754>|
 |8|cocostudio用户手册|<http://upyun.cocimg.com/CocoStudio/helpdoc/v1.0.0.0/zh/index.html>|
 |9|笨木头Cocos2d-x|<http://blog.csdn.net/column/details/mutcocos2d-x.html?page=3>|
+|10|cocos2dx游戏开发专栏|<http://blog.csdn.net/column/details/cocos2dx-itcast.html>|
 
 ####cocos2d-x源码
 
