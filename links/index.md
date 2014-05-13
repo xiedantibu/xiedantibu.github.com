@@ -33,6 +33,7 @@ comments: no
 |1|c++ API|<http://www.cplusplus.com/reference/>|
 |2|设计模式(c++)笔记|<http://blog.csdn.net/column/details/designnote.html?page=2>|
 |3|C++ Primer|<http://blog.csdn.net/column/details/cplusplusprimer.html>|
+|4|C++11 并发指南|<http://www.cnblogs.com/haippy/category/505027.html>|
 
 ####Markdown
 |序 号  |名 字   |链 接  |  
