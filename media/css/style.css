@@ -55,7 +55,7 @@ h2{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-siz
 h3{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.2em;color:#222;}
 h4{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1em;color:#333;}
 
-code,pre{padding:0 3px 2px;font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace!important;font-size:13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+code,pre{font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace!important;font-size:13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 code{background-color:#eef;color:rgba(0, 0, 0, 0.75);padding:1px 3px;font-weight: bold;}
 pre{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
 form{margin-bottom:18px;}
