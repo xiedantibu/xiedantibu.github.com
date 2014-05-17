@@ -1,0 +1,81 @@
+---
+title: 视频地址解析
+layout: page
+---
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--[if IE]><style>.testIE.IE{display:inline;}</style><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" href="/css/ie7.css" type="text/css"><![endif]-->
+<!--[if (lt IE 9)&(gt IE 7)]><style>.testIE.IE8{display:inline;}</style><![endif]-->
+<!--[if gt IE 8]><style>.testIE.IE9{display:inline;}</style><![endif]-->
+
+<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.0.3/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="http://cdn.staticfile.org/highlight.js/7.5/styles/mono-blue.min.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--[if lt IE 9]>
+   <style>article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}</style>
+   <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+   <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<link href="http://cdn.staticfile.org/respond.js/1.4.2/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+<link href="/js/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="/js/respond.proxy.js"></script>
+   <script src="http://cdn.staticfile.org/selectivizr/1.0.2/selectivizr-min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+function loadjs(c,d){var a=document.createElement("script");a.async=!0;a.type="text/javascript";a.src=c;a.charset=d||"gbk";(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(a)};
+var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+var _js2load = [];
+</script>
+
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  <div id='content' class="container">
+     <div class="page-header-wrapper">
+      <!--[if lt IE 9]><div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>提示:</strong>您的浏览器版本太低了,建议升级到 <strong><a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" title="IE9">IE9</a></strong> 以上,本站使用<a href="https://www.google.com/intl/zh-CN/chrome/">Chrome浏览器</a>可以获得最好的显示效果.</div><![endif]-->
+     </div>
+     <div class="row">
+       <div id="main-col" class="col-sx-10 col-sm-7 col-md-6 col-lg-6">
+      <section id='header_widget'></section>
+          <div id="wrapper"><article>
+<div id="page" class="page well">
+  <div class="post-content">
+
+    <section id='before_content_widget'></section>
+    <div class="entry">
+      
+        <p>获取在线视频的真实地址以便下载，支持大多数的视频站点（包括优酷土豆等），以及引用视频的页面，总之任何包含视频的网页都有可能解析出下载地址哟～</p>
+<style type="text/css">
+
+#resultbox {text-overflow: ellipsis;line-height: 2;}
+.btn-mini{color:#333;background-color:#fff;border-color:#ccc;padding: 1px 5px;margin: auto 3px;font-size: 12px;line-height: 1.5;}
+</style>
+
+<script type="text/javascript" src="/media/js/base64.js"></script>
+<script type="text/javascript" src="/media/js/getFlv.js"></script>
+<script type="text/javascript" src="/media/js/ZeroClipboard.min.js"></script>
+
+<div class="panel panel-default"><div class="panel-heading"><div class="input-group"><input type="text" name="url" id="videoPageURI" class="form-control" placeholder=" 在这里粘贴视频页面的地址...(包含 http://)" style="outline: none;"><span class="input-group-btn"><input type="button" id="fetchButton" class="btn btn-default" value="" onclick="parseFlv();" /></span></div></div><div class="panel-body" id="resultbox"><span class="pull-right" id="apiurls"></span>获取结果 (<span style="color:#cc0000"> 部分视频只能用浏览器下载” </span>)<div id="result">等待提交…<br/></div></div><div class="panel-footer">Powered by <a href="http://www.flvxz.com" target="_blank">FLVXZ</a></div></div> 
+    </div>
+    <section id='after_content_widget'></section>
+    <div class="clearfix"></div>
+  </div>
+</div>
+</article>
+
+
+    <section id='after_post_widget'></section></div><!--wapper-->
+       </div><!-- ID main-col END -->
+       
+  </div>
+  <footer>
+  </footer>
+  
+</body>
+</html>
