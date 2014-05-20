@@ -25,6 +25,13 @@ comments: no
 |1|触控|<https://github.com/chukong>|
 |2|Cocosd-x|<https://github.com/cocos2d/cocos2d-x>|
 
+####python
+
+|序 号  |名 字   |链 接  |  
+|:---:|:---:|:---:|
+|1|笨办法学 Python|<http://www.2cto.com/shouce/Pythonbbf/index.html>|
+
+
 
 ####c++
 
