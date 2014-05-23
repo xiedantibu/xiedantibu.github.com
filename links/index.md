@@ -17,6 +17,10 @@ comments: no
 |8|cocostudio用户手册|<http://upyun.cocimg.com/CocoStudio/helpdoc/v1.0.0.0/zh/index.html>|
 |9|笨木头Cocos2d-x|<http://blog.csdn.net/column/details/mutcocos2d-x.html?page=3>|
 |10|cocos2dx游戏开发专栏|<http://blog.csdn.net/column/details/cocos2dx-itcast.html>|
+|11| Cocos教程|<http://www.cocoachina.com/gamedev/cocos/>|
+|12|Cocos2dx-制作FlappyBird|<http://blog.csdn.net/column/details/flappybird.html>|
+|13|Cocos2d-X开发学习笔记|<http://blog.csdn.net/yangyu20121224/article/category/1499023>|
+|14|cocos2d-x游戏开发 跑酷|<http://blog.csdn.net/dawn_moon>|
 
 ####cocos2d-x源码
 
