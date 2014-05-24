@@ -25,7 +25,7 @@ p{padding:.5em 0;}
 li{padding:.2em 0;}
 ol,ul{list-style-position:inside;}
 ol ul, ul ol, ul ul, ol ol {margin-left:1em;}
-pre code{margin:1em 0;font-size:15px;line-height:1.8;display:block;overflow:auto;}
+
 blockquote{display:block;text-align:justify;border-left:4px solid #eeeeee;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
@@ -57,7 +57,7 @@ h3{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-siz
 h4{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1em;color:#333;}
 
 code,pre{font-family:"Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace!important;font-size:13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
-code{background-color:#eef;color:rgba(0, 0, 0, 0.75);padding:1px 3px;font-weight: bold;}
+
 pre{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
 form{margin-bottom:18px;}
 
