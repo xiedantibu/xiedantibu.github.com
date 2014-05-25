@@ -20,7 +20,7 @@ body {
   padding-top: 70px;
   background-color: #fff;
   background-color:#F1F1F1;
-  background-image: url(/assets/bg.png);
+  background-image: url(/assets/bg_html.png);
   background-attachment: fixed;
 }
 .widget ul .icon:before {
