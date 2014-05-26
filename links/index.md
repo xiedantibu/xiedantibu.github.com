@@ -46,6 +46,18 @@ comments: no
 |3|C++ Primer|<http://blog.csdn.net/column/details/cplusplusprimer.html>|
 |4|C++11 并发指南|<http://www.cnblogs.com/haippy/category/505027.html>|
 
+####工具
+|序 号  |名 字   |链 接  |  
+|:---:|:---:|:---:|
+|1|PHP傻瓜手册|<http://www.php100.com/cover/php/>|  
+|2|PHP5中文手册|<http://www.php100.com/manual/php/>|
+|3|css 3.0|<http://www.php100.com/manual/css3_0/>|  
+|4|w3school|<http://www.php100.com/manual/w3school/>|
+|5|JavaScript使用手册|<http://www.php100.com/manual/JavaScriptq.html>|  
+|6|html5|<http://www.php100.com/manual/html5/>|
+|7|正则表达式|<http://www.php100.com/manual/unze.html>|
+
+
 ####Markdown
 |序 号  |名 字   |链 接  |  
 |:---:|:---:|:---:|
@@ -60,6 +72,10 @@ comments: no
 |3|结构之法 算法之道|<http://blog.csdn.net/v_JULY_v>|
 |4|大小写转换|<http://zimu.daxiaoxie.net/>|
 |5|手机界面|<http://www.guimobile.net/>|
+|6|kuler|<https://kuler.adobe.com/create/color-wheel/>|
+|7|php100|<http://www.php100.com/>|
+
+
 
 
  
