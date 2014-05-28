@@ -198,7 +198,7 @@ CCScene的其他方法没有实质性的作用，还是先看它的类图吧：
     	m_pNextScene->retain();
     	m_pNextScene = NULL;//设置为NULL,是因为在drawScene方法中有个判断，如果m_pNextScene不为null,就执行setNextScene
 
-    	if ((! runningIsTransition) && m_pRunningScene)//当m_pRunningScene不是CCTransitionScene时候执行下面一段代码
+    	if ((! runningIsTransition) && m_pRunningScene)//当m_pRunningScene(这个m_pRunningScene指的是没有赋值前的m_pRunningScene)不是CCTransitionScene时候执行下面一段代码
 
     	{
         	m_pRunningScene->onEnter();//如果m_pRunningScene为CCTransitionScene类型(其实此时的m_pRunningScene的值为m_pNextScene，因为在前面刚刚赋值)，则会进入到CCTransitionScene子类的onEnter()中，在这方法中是真正的运行动画的实现的地方
@@ -213,7 +213,7 @@ CCScene的其他方法没有实质性的作用，还是先看它的类图吧：
 	{
     	CCTransitionScene::onEnter();//真正m_pInScene的onEnter()方法，此处m_pInScene是CCScene类型，是我们初始化CCTransitionScene的时候传进来的CCScene传给m_pInScene
 
-   		 m_pInScene->setScale(0.001f);
+   		m_pInScene->setScale(0.001f);
     	m_pOutScene->setScale(1.0f);
 
     	m_pInScene->setAnchorPoint(ccp(0.5f, 0.5f));
