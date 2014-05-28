@@ -246,23 +246,22 @@ CCScene的其他方法没有实质性的作用，还是先看它的类图吧：
     	CCDirector *director = CCDirector::sharedDirector();
     	m_bIsSendCleanupToScene = director->isSendCleanupToScene();//在replace之前事先保存是否清空Scene的标志位，因为在cleanup()方法中，通过这个标志位判断是否清空m_pOutScene这个场景
     
-    	director->replaceScene(m_pInScene);//这句话是重点的重点，这里又去执行了replaceScene(),而且m_pInScene此时就是CCScene类型，因为他是在CCTransitionScene初始化的时候传入进来的CCScene的参数。好了，我们冷静，思考下，发现了这么好玩的事情，又得去执行setNextScene方法，通过replaceScene(CCTransitionScene)或者pushScene(CCTransitionScene)切换场景竟然会出现这么神奇的情况，会出现两次把场景压入栈中，第一次replace或者push进去的是CCTransitionScene的场景，第二次是通过replace进去CCScene替换掉第一次的CCTransitionScene场景，所以也就会出现运行两次的setNextScene方法，所以setNextScene方法中的两个标志位也会出现有意思的情况，我来用具体例子来解释下把：如果现在有两个场景A,B。A跳转到B场景是通过高富帅方式跳转的，在第一次进入setNextScene方法的时候，我们会发现runningIsTransition为false,newIsTransition为true,runningIsTransition为false表示正在运行的场景m_pRunningScene不是CCTransitionScene类型？？?为啥这么说呢，我们原先可没明确说明场景A不是CCTransitionScene类型啊，确实是个疑问，等下慢慢细说。。。而newIsTransition为true,表面m_pNextScene为CCTransitionScene类型，这个确实是CCTransitionScene类型，因为刚才我们通过replaceScene或者pushScene进来的时候就是CCTransitionScene类型啊，在setNextScene中我们发现，m_pRunningScene被赋值了，变成了CCTransitionScene类型，同时m_pNextScene赋值为NULL,现在要明确点啊，运行的场景变成了CCTransitionScene类型了！！！好了，这是第一次 进入setNextScene方法。上面我们讲到由于通过replaceScene(m_pInScene),所以又第二次进入setNextScene方法，此时的话m_pRunningScene是CCTransitionScene类型，所以相应的runningIsTransition为true,而newIsTransition为false，因为m_pInScene为CCScene类型，看到了把，跟第一次比起来，两个标志位发生了改变了。在setNextScene方法中，同样的m_pRunningScene会被m_pInScene赋值，变成普通的CCScene类型，如果我们再一次切换场景，进入setNextScene方法，则m_pRunningScene就是CCScene类型，所以runningIsTransition就为false。好了这也解决了我们刚才的疑问，第一次进来的时候我很明确的就是A场景就是为CCScene类型。
+    	director->replaceScene(m_pInScene);
+    	//这句话是重点的重点，这里又去执行了replaceScene(),而且m_pInScene此时就是CCScene类型，因为他是在CCTransitionScene初始化的时候传入进来的CCScene的参数。
     	
-    	上面说了这么一大段，啰嗦的，其实可以归纳为：通过高富帅转换的时候，会两次的进入setNextScene方法，而最终转换成功后显示的场景就是CCScene类型，而不是CCTransitionScene类型。
+    	//好了，我们冷静，思考下，发现了这么好玩的事情，又得去执行setNextScene方法，通过replaceScene(CCTransitionScene)或者pushScene(CCTransitionScene)切换场景竟然会出现这么神奇的情况，会出现两次把场景压入栈中，第一次replace或者push进去的是CCTransitionScene的场景，第二次是通过replace进去CCScene替换掉第一次的CCTransitionScene场景，所以也就会出现运行两次的setNextScene方法，所以setNextScene方法中的两个标志位也会出现有意思的情况.
+    	
+    	//我来用具体例子来解释下把：如果现在有两个场景A,B。A跳转到B场景是通过高富帅方式跳转的，在第一次进入setNextScene方法的时候，我们会发现runningIsTransition为false,newIsTransition为true,runningIsTransition为false表示正在运行的场景m_pRunningScene不是CCTransitionScene类型？？?为啥这么说呢，我们原先可没明确说明场景A不是CCTransitionScene类型啊，确实是个疑问，等下慢慢细说。。。而newIsTransition为true,表面m_pNextScene为CCTransitionScene类型，这个确实是CCTransitionScene类型，因为刚才我们通过replaceScene或者pushScene进来的时候就是CCTransitionScene类型啊，在setNextScene中我们发现，m_pRunningScene被赋值了，变成了CCTransitionScene类型，同时m_pNextScene赋值为NULL,现在要明确点啊，运行的场景变成了CCTransitionScene类型了！！！好了，这是第一次 进入setNextScene方法。
+    	
+    	//上面我们讲到由于通过replaceScene(m_pInScene),所以又第二次进入setNextScene方法，此时的话m_pRunningScene是CCTransitionScene类型，所以相应的runningIsTransition为true,而newIsTransition为false，因为m_pInScene为CCScene类型，看到了把，跟第一次比起来，两个标志位发生了改变了。在setNextScene方法中，同样的m_pRunningScene会被m_pInScene赋值，变成普通的CCScene类型，如果我们再一次切换场景，进入setNextScene方法，则m_pRunningScene就是CCScene类型，所以runningIsTransition就为false。好了这也解决了我们刚才的疑问，第一次进来的时候我很明确的就是A场景就是为CCScene类型。
+    	
+    	//上面说了这么一大段，啰嗦的，其实可以归纳为：通过高富帅转换的时候，会两次的进入setNextScene方法，而最终转换成功后显示的场景就是CCScene类型，而不是CCTransitionScene类型。
     
-    // issue #267
-    m_pOutScene->setVisible(true);
-}	
+    	// issue #267
+    	m_pOutScene->setVisible(true);
+	}	
     
-接着咱具体讲讲CCTransitionScene这个类吧：
-
-	=======相关属性=======
-	CCScene    * m_pInScene;  //进入的场景
-    CCScene    * m_pOutScene; //出去的场景
-    float    m_fDuration;     //场景切换的时间
-    bool    m_bIsInSceneOnTop;  //改变进出场场景visit的顺序，是否对场景进行渲染排序，是否保证新场景在最上面
-    bool    m_bIsSendCleanupToScene;//在切换完成后是否清空旧场景
-	
+关于场景变换的相关代码解析，还是看红孩子的[Cocos2d-x 2.0 TestCpp之场景切换动画深入分析](http://blog.csdn.net/honghaier/article/details/8475341)。	
 
 
 
