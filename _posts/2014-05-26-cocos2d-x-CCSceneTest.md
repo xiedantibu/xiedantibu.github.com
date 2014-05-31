@@ -261,7 +261,36 @@ CCScene的其他方法没有实质性的作用，还是先看它的类图吧：
     	m_pOutScene->setVisible(true);
 	}	
     
-关于场景变换的相关代码解析，还是看红孩子的[Cocos2d-x 2.0 TestCpp之场景切换动画深入分析](http://blog.csdn.net/honghaier/article/details/8475341)。	
+关于场景变换的相关代码解析，还是看红孩儿的[Cocos2d-x 2.0 TestCpp之场景切换动画深入分析](http://blog.csdn.net/honghaier/article/details/8475341)。
+
+CCTransitionScene中具体的动画解析，在本文中，暂且不去伤身了，红孩儿大神已经讲的很仔细了。接下来，我还是说点我看到的知识点。
+	
+	CCRenderTexture *texture = CCRenderTexture::create((int)size.width, (int)size.height);//创建纹理
+    texture->getSprite()->setAnchorPoint(ccp(0.5f,0.5f));
+    texture->setPosition(ccp(size.width/2, size.height/2));
+    texture->setAnchorPoint(ccp(0.5f,0.5f));
+
+    // r将outScene渲染到纹理上
+    texture->clear(0, 0, 0, 1);
+    texture->begin();
+    m_pSceneToBeModified->visit();
+    texture->end();
+    
+上面这段代码主要将的是怎么将CCScene渲染到纹理上面，主要分成5部分：
+  
+1.	创建一个新的CCRenderTexture. 这里，你可以指定将要创建的纹理的宽度和高度。
+2.	调用 CCRenderTexture:begin. 这个方法会启动OpenGL，并且接下来，任何绘图的命令都会渲染到CCRenderTexture里面去，而不是画到屏幕上。  
+3.	绘制纹理. 你可以使用原始的OpenGL调用来绘图，或者你也可以使用cocos2d对象里面已经定义好的visit方法。（这个visit方法就会调用一些opengl命令来绘制cocos2d对象）  
+4.	调用 CCRenderTexture:end. 这个方法会渲染纹理，并且会关闭渲染至CCRenderTexture的通道。  
+5.	从生成的纹理中创建一个sprite. 你现在可以用CCRenderTexture的sprite.texture属性来轻松创建新的精灵了。      
+  
+上面这五个步骤摘抄自：[如何使用CCRenderTexture来创建动态纹理](http://www.cnblogs.com/andyque/archive/2011/07/01/2095479.html)，可以看看这个例子，充分利用好纹理的特性。  
+
+对了，讲了半天都忘了这标题可是CCSceneTest以及TransitionsTest，好像整篇文章都没讲这，现在还是说点把。
+有这么一句`CCDirector::sharedDirector()->setDepthTest(false)`,关闭深度测试，有时候可以解决闪屏问题。在通过CCTransitionPageTurn切换场景的时候需要打开深度测试。
+
+
+
 
 
 
