@@ -45,6 +45,7 @@ comments: no
 |2|设计模式(c++)笔记|<http://blog.csdn.net/column/details/designnote.html?page=2>|
 |3|C++ Primer|<http://blog.csdn.net/column/details/cplusplusprimer.html>|
 |4|C++11 并发指南|<http://www.cnblogs.com/haippy/category/505027.html>|
+|5|C++相关学习链接|<http://0.0.0.0:4000/c++/index.html>|
 
 ####工具
 |序 号  |名 字   |链 接  |  
