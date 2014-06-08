@@ -96,7 +96,7 @@ tags : [cocos2d-x-2.2.3,CCLayer]
     	virtual void setCascadeColorEnabled(bool cascadeColorEnabled);
     	
     	
-    	//CCLayerColor继承于CCLayerRGBA,CCBlendProtocol。
+CCLayerColor继承于CCLayerRGBA,CCBlendProtocol，下面是CCLayerColor的主要方法
     	
     	ccVertex2F m_pSquareVertices[4];//该数组是放置四个顶点的
     	ccColor4F  m_pSquareColors[4];//该数组是放置色值的rgba
@@ -121,6 +121,138 @@ tags : [cocos2d-x-2.2.3,CCLayer]
  		#define CC_BLEND_SRC GL_ONE
  		#define CC_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
  		
-        virtual void draw();
-    	
+        virtual void draw();//将位置以及颜色绘制到屏幕上
+        
+CCLayerColor的相关方法的具体实现：
+    
+    //初始化m_pSquareVertices四个顶点以及m_pSquareColors，该方法是在init()方法中回调的	bool CCLayerColor::initWithColor(const ccColor4B& color, GLfloat w, GLfloat h)
+	{
+    	if (CCLayer::init())
+    	{
+			// default blend function
+       	 	m_tBlendFunc.src = GL_SRC_ALPHA;    //BlendFunc的src赋值为GL_SRC_ALPHA
+        	m_tBlendFunc.dst = GL_ONE_MINUS_SRC_ALPHA;
+           //设置_displayedColor以及_realColor的RGB,由于在initWithColor这个方法中没有回调CCLayeRGB的updateDisplayedColor方法，所以通过create创建的CCLayerColor，在没有单独调用setColor()或者setOpacity之前_displayedColor和_realColor的值是一样的，即使cascadeOpacityEnabled为true也没用，因为没有调用updateDisplayedColor方法，话说这里是不是cocos2d-x忘了啊？？？？
+        	_displayedColor.r = _realColor.r = color.r;
+        	_displayedColor.g = _realColor.g = color.g;
+        	_displayedColor.b = _realColor.b = color.b;
+        	_displayedOpacity = _realOpacity = color.a;
+
+        	for (size_t i = 0; i<sizeof(m_pSquareVertices) / sizeof( m_pSquareVertices[0]); i++ )
+        	{
+            	m_pSquareVertices[i].x = 0.0f;
+            	m_pSquareVertices[i].y = 0.0f;
+        	}
+
+        	updateColor();//将_displayedColor赋值到m_pSquareColors
+            setContentSize(CCSizeMake(w,h)); //在该方法中将宽度以及长度赋值给m_pSquareVertices
+			setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionColor));//设置CCGLProgram，该处的CCGLProgram是通过CCShaderCache::sharedShaderCache()缓存获取的。通过CCGLProgram类来处理着色器相关操作，对当前绘图程序进行了封装
+    	}
+    	return true;
+	}
+	
+	下面接着就看下updateColor()方法，将_displayedColor赋值到m_pSquareColors方法中，在setContentSize方法也是类似的将长.宽赋值到m_pSquareVertices
+	void CCLayerColor::updateColor()
+	{
+    	for( unsigned int i=0; i < 4; i++ )
+    	{
+        	m_pSquareColors[i].r = _displayedColor.r / 255.0f;
+        	m_pSquareColors[i].g = _displayedColor.g / 255.0f;
+        	m_pSquareColors[i].b = _displayedColor.b / 255.0f;
+        	m_pSquareColors[i].a = _displayedOpacity / 255.0f;
+    	}
+	}
+	//CCLayerColor的设置颜色的方法，在其中调用了CCLayerRGBA的设置颜色方法。关于CCLayerColor的setOpacity也是相似的情况。
+	void CCLayerColor::setColor(const ccColor3B &color)
+	{
+    	CCLayerRGBA::setColor(color);//调用了CCLayerRGBA的设置颜色方法
+    	updateColor();//赋值到m_pSquareColors
+	}
+	//下面是CCLayerRGBA的设置颜色方法
+	void CCLayerRGBA::setColor(const ccColor3B& color)
+	{
+		_displayedColor = _realColor = color;
+	
+		if (_cascadeColorEnabled)//表明父类可不可以可以传递颜色给自己，,首先得判断自己可以不可以传递给子类，如果自己不可以传给其他人，不好意思，你baba也不传给你。_cascadeColorEnabled在cocos2d-x中有两个作用，但是在cocos2d-x源码注释中：whether or not color should be propagated to its children.(是否将颜色传递给子类)。在实际的代码当中，_cascadeColorEnabled有两种作用，第一种是：通过_cascadeColorEnabled来判断我接不接受父类的颜色。第二种是：我可不可以传递给子类颜色。但是这两种作用仅仅通过这一个_cascadeColorEnabled属性来判断觉得有点别扭，能不能用两个属性来判断啊？？？
+    	{
+			ccColor3B parentColor = ccWHITE;//默认父类颜色为白色
+        	CCRGBAProtocol* parent = dynamic_cast<CCRGBAProtocol*>(m_pParent);
+			if (parent && parent->isCascadeColorEnabled())//表明父类可以传递颜色给子类
+        	{
+            	parentColor = parent->getDisplayedColor();//获取父类的显示颜色
+        	}
+
+        	updateDisplayedColor(parentColor);//将父类颜色传递给到updateDisplayedColor方法,如果父类的isCascadeColorEnabled为false，则可以将默认的ccWHITE颜色传递过去
+		}
+	}
+	
+	//更新显示颜色
+	void CCLayerRGBA::updateDisplayedColor(const ccColor3B& parentColor)
+	{
+	     //将parentColor传递给子类，改变了_displayedColor的值
+		_displayedColor.r = _realColor.r * parentColor.r/255.0;
+		_displayedColor.g = _realColor.g * parentColor.g/255.0;
+		_displayedColor.b = _realColor.b * parentColor.b/255.0;
+    
+    	if (_cascadeColorEnabled)//现在的判断和CCLayerRGBA::setColor中的判断是不一样，因为下面的操作中，你将作为父类传递给子类，很明确其作用为：我可不可以传递给子类颜色
+    	{
+        	CCObject *obj = NULL;
+        	CCARRAY_FOREACH(m_pChildren, obj)//CCARRAY_FOREACH是一个宏定义，遍历m_pChildren中的CCNode,赋值给obj。其中m_pChildren是当前CCLayerRGBA的子类
+        	{
+            	CCRGBAProtocol *item = dynamic_cast<CCRGBAProtocol*>(obj);
+            	if (item)
+            	{
+                	item->updateDisplayedColor(_displayedColor);//将当前CCLayerRGBA的_displayedColor传递给其子类
+            	}
+        	}
+    	}
+	}
+   
+下面来看个例子关于CCLayerColor的问题demo???
+
+	LayerTest::onEnter();
+    CCLayerColor *ccLayer01=CCLayerColor::create(ccc4(125, 20, 240, 230), 150, 150);//创建一个长宽150*150，色值为(125，20，240，230)的正方形
+    ccLayer01->setPosition(VisibleRect::center());
+    ccLayer01->ignoreAnchorPointForPosition(false);
+    this->addChild(ccLayer01);//添加到CCLayer中
+    
+    ccLayer01->setCascadeColorEnabled(true);//表明我可以接受父类的颜色，但是父类传不传递是一回事。同时表明我可以传递颜色给子类，子类接不接受还是另一回事，好变扭啊，但就是这意思。。。对了ccLayer01的父亲是CCLayer,如果父亲不能传递给子类，那么默认其颜色也就是白色传递给ccLayer01
+    
+    CCLayerColor *ccLayer02=CCLayerColor::create(ccc4(125, 80, 150, 230), 100, 100);////创建一个长宽100*100，色值为(125，80，150，230)的正方形
+    ccLayer02->setPosition(CCPoint(0, 0));
+    ccLayer01->addChild(ccLayer02);//将ccLayer02添加到ccLayer01上
+    ccLayer02->setCascadeColorEnabled(true);//表明ccLayer02可以接受父类的颜色，同时可以传递颜色给其子类
+    ccLayer02->setColor(ccc3(125, 80, 150));//当助掉这行代码的时候，setCascadeColorEnabled为true,父类也为true，父类的颜色也传不过来，究其原因在上文已经说明，没有掉updateDisplayedColor这个方法啊，导致_displayedColor不会变化。
+如下图：  
+<div align="center">
+![image](/assets/layercolor_01.png)<br>
+图-1-父类的颜色传给ccLayer02<br>
+![image](/assets/layercolor_02.png)<br>
+图-2-ccLayer02真实颜色-也就是注释掉ccLayer02->setColor方法或者setCascadeColorEnabled(false)
+</div>
+
+下面接着看CCLayerColor的源码：
+
+	void CCLayerColor::draw()
+	{
+    	CC_NODE_DRAW_SETUP();//将矩阵设置给OpenGL是在这个宏里面做的
+
+    	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position | kCCVertexAttribFlag_Color );//通知OpenGL要修改顶点和颜色
+
+    	glVertexAttribPointer(kCCVertexAttrib_Position, 2, GL_FLOAT, GL_FALSE, 0, m_pSquareVertices);////设置顶点，m_pSquareVertices是一个4元素的数组，每个元素表示一个顶点，依次是左下角、右下角、左上角、右上角
+    	glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_FLOAT, GL_FALSE, 0, m_pSquareColors);//设置颜色
+
+    	ccGLBlendFunc( m_tBlendFunc.src, m_tBlendFunc.dst );//设置像素渲染模式，这里是 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)，即“不论叠加多少次，亮度是不变的”
+
+    	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);//绘制顶点
+
+    	CC_INCREMENT_GL_DRAWS(1);
+	}
+	 a、纹理创建的时候使用  setShaderProgram(CCShaderCache::sharedShaderCache()->programForKey(kCCShader_PositionTextureColor));  设置shader
+
+     b、draw的时候先开启颜色设置   ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position | kCCVertexAttribFlag_TexCoords | kCCVertexAttribFlag_Color);
+     
+     c、启用shader:m_pShaderProgram->use();  m_pShaderProgram->setUniformsForBuiltins();  
+      
+     d、把颜色值传入：  glVertexAttribPointer(kCCVertexAttrib_Color, 4, GL_UNSIGNED_BYTE, GL_TRUE, 0, colors);
  		

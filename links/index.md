@@ -29,6 +29,17 @@ comments: no
 |1|触控|<https://github.com/chukong>|
 |2|Cocosd-x|<https://github.com/cocos2d/cocos2d-x>|
 
+####OPENGL
+
+|序 号  |名 字   |链 接  |  
+|:---:|:---:|:---:|
+|1|西蒙iPhone-OpenGL ES 中文教程专题|<http://www.cocoachina.com/special/2010/0126/404.html>|
+|2|OpenGL ES 着色器语言|<http://blog.csdn.net/hgl868/article/category/1207789/2>|
+|3|OpenGL ES 基础知识|<http://blog.csdn.net/wangyuchun_799/article/category/1122389/4>|
+|4|线性代数|<http://www.tongji.edu.cn/~math/xxds/kcja/kcja_b/kcja_b.htm>|
+
+
+
 ####python
 
 |序 号  |名 字   |链 接  |  
@@ -64,6 +75,18 @@ comments: no
 |:---:|:---:|:---:|
 |1|Markdown 之使用表格|<http://havee.me/internet/2013-10/use-table-with-redcarpet-and-markdown-in-jekyll.html>|  
 |2|Markdown语法说明（详解版）|<http://www.ituring.com.cn/article/504>|
+
+####cmake
+|序 号  |名 字   |链 接  |  
+|:---:|:---:|:---:|
+|1|cmake 学习笔记(一)|<http://blog.csdn.net/dbzhang800/article/details/6314073>|  
+|2|cmake 学习笔记(二)|<http://blog.csdn.net/dbzhang800/article/details/6329068>|
+|3|cmake 学习笔记(三)|<http://blog.csdn.net/dbzhang800/article/details/6329314>|
+|4|cmake 学习笔记(四)|<http://blog.csdn.net/dbzhang800/article/details/6340102>|
+|5|cmake 学习笔记(五)|<http://blog.csdn.net/dbzhang800/article/details/6341029>|
+|6|cmake 学习笔记(六)|<http://blog.csdn.net/dbzhang800/article/details/6341803>|
+|7|cmake命令 安装、用法简介|<http://digdeeply.org/archives/0421949.html>|
+
 
 ####其他
 |序 号  |名 字   |链 接  |  
