@@ -86,6 +86,8 @@ comments: no
 |5|cmake 学习笔记(五)|<http://blog.csdn.net/dbzhang800/article/details/6341029>|
 |6|cmake 学习笔记(六)|<http://blog.csdn.net/dbzhang800/article/details/6341803>|
 |7|cmake命令 安装、用法简介|<http://digdeeply.org/archives/0421949.html>|
+|8|Linux makefile 教程 非常详细，且易懂|<http://blog.csdn.net/liang13664759/article/details/1771246>|
+|9|CMake的使用|<http://www.cppblog.com/tx7do/archive/2010/08/19/124000.html>|
 
 
 ####其他
