@@ -44,8 +44,8 @@ comments: no
 
 |序 号  |名 字   |链 接  |  
 |:---:|:---:|:---:|
-|1|笨办法学 Python|<http://www.2cto.com/shouce/Pythonbbf/index.html>|
-
+|1|笨办法学 Python2|<http://www.2cto.com/shouce/Pythonbbf/index.html>|
+|2|笨办法学 Python3|<http://www.jb51.net/shouce/Pythonbbf/latest/index.html>|
 
 
 ####c++
@@ -68,6 +68,7 @@ comments: no
 |5|JavaScript使用手册|<http://www.php100.com/manual/JavaScriptq.html>|  
 |6|html5|<http://www.php100.com/manual/html5/>|
 |7|正则表达式|<http://www.php100.com/manual/unze.html>|
+|8|正则表达式30分钟入门教程|<http://deerchao.net/tutorials/regex/regex.htm>|
 
 
 ####Markdown
