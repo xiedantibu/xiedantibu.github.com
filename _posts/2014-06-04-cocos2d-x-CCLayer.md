@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "cocos2d-x-2.2.3-LayerTest学习"
-category : cocos2d-x,CCLayer
+title: "cocos2d-x-2.2.3-CCLayer源码学习(一)"
+category : cocos2d-x-2.2.3,CCLayer,TestCPP
 tagline: "..."
-tags : [cocos2d-x-2.2.3,CCLayer]
+tags : [CCLayerColor,CCLayer]
 ---
-本文主要讲的是CCLayer,通过例子LayerTest来学习CCLayer。
+本文主要讲的是CCLayer,通过TestCpp来学习CCLayer。
 
 `typedef CCLayer* (*NEWTESTFUNC)();`先来学习这一段代码。还是先看下[度娘](http://baike.baidu.com/view/1283800.htm?fr=aladdin)是怎么解释`typedef`的。typedef是用来为复杂的声明定义简单的别名，与宏定义有些差异。而上面一堆代码则引入了NEWTESTFUNC类型作为函数指针的同义词，该函数没有参数，返回值是CCLayer*类型。
 	
@@ -438,6 +438,96 @@ CCLayerColor的相关方法的具体实现：
 	}
     
     以上就是CCLayerGradient的主要讲解
+下面接着就看看CCLayerMultiplex的源码吧，他继承自CCLayer
+
+	unsigned int m_nEnabledLayer;//表示当前使用的CCLayer
+    CCArray*     m_pLayers;//把CCLayer存储在CCArray*中。
+    
+    /**
+    下面这些方法都跟CCLayerMultiplex的初始化有关，主要的思想是把CCLayer加入到m_pLayers中
+    */
+    static CCLayerMultiplex* create();
+    static CCLayerMultiplex* createWithArray(CCArray* arrayOfLayers);//直接把含有CCLayer的数组添加到m_pLayers中
+    static CCLayerMultiplex * create(CCLayer* layer, ... );//初始化的时候(layer1,layer2,null)
+    static CCLayerMultiplex * createWithLayer(CCLayer* layer);
+    void addLayer(CCLayer* layer);
+    bool initWithLayers(CCLayer* layer, va_list params);
+    bool initWithArray(CCArray* arrayOfLayers);
+    bool initWithArray(CCArray* arrayOfLayers);
+    
+    void switchTo(unsigned int n);//移除原先的CCLayer,把序列号为n的CCLayer添加上去
+    void switchToAndReleaseMe(unsigned int n);移除原先的CCLayer，同时把m_pLayers数组中的CCLayer也去除，再把序列号为n的CCLayer添加上去
+    
+    下面看具体方法详解
+    CCLayerMultiplex * CCLayerMultiplex::create(CCLayer * layer, ...)
+	{
+    	va_list args;//va_list在前面的文章已经讲解过，具体看:http://blog.xulingmin.com/CCString难点方法解析/
+    	va_start(args,layer);//args指向可变参数的第一个参数
+
+    	CCLayerMultiplex * pMultiplexLayer = new CCLayerMultiplex();
+    	if(pMultiplexLayer && pMultiplexLayer->initWithLayers(layer, args))//把args指针传给initWithLayers
+    	{
+        	pMultiplexLayer->autorelease();
+        	va_end(args);//获取所有的参数之后，我们有必要将这个 args 指针关掉
+        	return pMultiplexLayer;
+    	}
+    	va_end(args);
+    	CC_SAFE_DELETE(pMultiplexLayer);
+    	return NULL;
+	}
+    
+    //在上一个方法中，我们知道传给initWithLayers方法CCLayer *以及va_list指针，
+    bool CCLayerMultiplex::initWithLayers(CCLayer *layer, va_list params)
+	{
+    	if (CCLayer::init())
+    	{
+        	m_pLayers = CCArray::createWithCapacity(5);//先创建5个空间的CCArray
+        	m_pLayers->retain();
+        	m_pLayers->addObject(layer);//把create中的第一个参数列表的layer加入到CCArray中
+
+        	CCLayer *l = va_arg(params,CCLayer*);//通过指针params指向参数列表中的下一个layer，并返回
+        	while( l ) {//判断是否为空
+            	m_pLayers->addObject(l);//加入到CCArray中
+            	l = va_arg(params,CCLayer*);
+        	}
+
+        	m_nEnabledLayer = 0;//设置添加到parent的layer序号为0
+        	this->addChild((CCNode*)m_pLayers->objectAtIndex(m_nEnabledLayer));//把序号为0的layer添加到父类中
+        	return true;
+    	}
+
+    	return false;
+	}
+    //initWithArray的方法跟initWithLayers方法类似
+	bool CCLayerMultiplex::initWithArray(CCArray* arrayOfLayers)
+	{
+    	if (CCLayer::init())
+    	{
+        	m_pLayers = CCArray::createWithCapacity(arrayOfLayers->count());//创建CCArray，空间为arrayOfLayers的个数
+        	m_pLayers->addObjectsFromArray(arrayOfLayers);//直接把arrayOfLayers赋值给m_pLayers
+        	m_pLayers->retain();
+
+        	m_nEnabledLayer = 0;//设置添加到parent的layer序号为0
+        	this->addChild((CCNode*)m_pLayers->objectAtIndex(m_nEnabledLayer));//把序号为0的layer添加到父类中
+        	return true;
+    	}
+    	return false;
+	}
+	//切换CCLayer,同时remove数组中的CCLayer
+	void CCLayerMultiplex::switchToAndReleaseMe(unsigned int n)
+	{
+    	CCAssert( n < m_pLayers->count(), "Invalid index in MultiplexLayer switchTo message" );
+
+    	this->removeChild((CCNode*)m_pLayers->objectAtIndex(m_nEnabledLayer), true);//从parent中移除序号为m_nEnabledLayer的cclayer
+    	m_pLayers->replaceObjectAtIndex(m_nEnabledLayer, NULL);//把m_nEnabledLayer序号的CCLayer置为NULL
+
+    	m_nEnabledLayer = n;//把需要转换的CCLayer序号赋值给m_nEnabledLayer
+
+    	this->addChild((CCNode*)m_pLayers->objectAtIndex(n));//把序号为n的CCLayer赋值add到parent
+	}
+	
+以上内容就是CCLayer相关类的源码解析，主要讲了CCLayer,CCLayerRGBA,CCLayerColor,CCLayerGradient四个类，下面就解读下在TestCpp中，上诉四个类的表现,参见[cocos2d-x-2.2.3-CCLayer源码学习(二)](/cocos2d-x-CCLayer-例子学习)。
+
     
 
  		
