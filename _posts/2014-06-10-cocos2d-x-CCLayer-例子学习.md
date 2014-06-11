@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cocos2d-x-2.2.3-CCLayer源码学习(二)"
-category : cocos2d-x-2.2.3,CCLayer,TestCPP
+category : cocos2d-x
 tagline: "..."
 tags : [CCLayerColor,CCLayer]
 ---
@@ -91,4 +91,171 @@ LayerTestCascadingOpacityA这个例子想说明由于父类layer1的透明度一
 <div align="center">
 ![image](/assets/cascading_color.gif)<br>
 </div>	
-LayerTestCascadingColorA这个例子想说明由于父layer1的色值一直在改变，而由于父类能把色值传递给子类，所以子类也跟着改变色值，由上图能直观的看出来，label以及sister1都没有runAction，但一直在改变自身颜色。如果在最后添加这么一句话layer1->setCascadeColorEnabled(false);，则label以及sister1是改变颜色的，因为layer1并不会把色值传递给子类。对了关于上面的两个例子我们其实并没有看到layer1的变化，虽然其一直在改变自身的色值或透明度，但一直是黑色的，为啥啊？因为他是CCLayerRGBA啊，看源码我们发现他其实跟CCLayer没啥区别，他就比CCLayer多了个CCRGBAProtocol协议，这个协议改变CCNode的色值以及透明度，但是其实他没有draw()方法，只有在其子类CCLayerColor才有draw()方法，在该类中才能，真正的显示颜色以及透明度的变化
+LayerTestCascadingColorA这个例子想说明由于父layer1的色值一直在改变，而由于父类能把色值传递给子类，所以子类也跟着改变色值，由上图能直观的看出来，label以及sister1都没有runAction，但一直在改变自身颜色。如果在最后添加这么一句话layer1->setCascadeColorEnabled(false);，则label以及sister1是改变颜色的，因为layer1并不会把色值传递给子类。对了关于上面的两个例子我们其实并没有看到layer1的变化，虽然其一直在改变自身的色值或透明度，但一直是黑色的，为啥啊？因为他是CCLayerRGBA啊，看源码我们发现他其实跟CCLayer没啥区别，他就比CCLayer多了个CCRGBAProtocol协议，这个协议改变CCNode的色值以及透明度，但是其实他没有draw()方法，只有在其子类CCLayerColor才有draw()方法，在该类中才能，真正的显示颜色以及透明度的变化。  
+
+下面来看下LayerTest1这个例子：
+
+	//在该例子中，重点方法是updateSize，对了说下layer的position的位置为ccp(s.width/2, s.height/2)
+	void LayerTest1::updateSize(CCPoint &touchLocation)
+	{    
+    	CCSize s = CCDirector::sharedDirector()->getWinSize();
+        
+    	CCSize newSize = CCSizeMake( fabs(touchLocation.x - s.width/2)*2, fabs(touchLocation.y - s.height/2)*2);//CCSizeMake是创建一个CCSize的宏定义，看定义如下：
+    	#define CCSizeMake(width, height) CCSize((float)(width), (float)(height))
+    	上诉创建出的CCSize就是以(s.width/2, s.height/2)为中心，宽为abs(touchLocation.x - s.width/2)*2，高为fabs(touchLocation.y - s.height/2)*2的长方形。
+    
+    	CCLayerColor* l = (CCLayerColor*) getChildByTag(kTagLayer);
+
+    	l->setContentSize( newSize );//设置CCLayerColor的大小
+	}
+	在ccTouchesMoved方法中，获取触摸点，回调updateSize
+	void LayerTest1::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
+	{
+    	CCTouch *touch = (CCTouch*)pTouches->anyObject();//在CCSet中获取CCTouch*，也可以通过pTouches->begin()获取，当然通过begin()返回的是CCSetIterator
+    	CCPoint touchLocation = touch->getLocation();//将CCTouch*转换成CCPoint
+
+    	updateSize(touchLocation);//坐标传入updateSize方法，改变位置
+	}
+LayerTest1效果图如下：
+<div align="center">
+![image](/assets/update_size.gif)<br>
+</div>
+LayerTest1这个例子主要学习的是移动的时候能改变CCLayerColor的大小,通过setContentSize这个方法
+
+下面来看下LayerTestBlend这个例子：
+
+	schedule( schedule_selector(LayerTestBlend::newBlend), 1.0f);//每隔一秒运行newBlend方法
+	
+	void LayerTestBlend::newBlend(float dt)
+	{
+     	CCLayerColor *layer = (CCLayerColor*)getChildByTag(kTagLayer);
+
+    	GLenum src;
+    	GLenum dst;
+
+    	if( layer->getBlendFunc().dst == GL_ZERO )
+    	{
+        	src = GL_SRC_ALPHA;
+        	dst = GL_ONE_MINUS_SRC_ALPHA;
+    	}
+    	else
+    	{
+        	src = GL_ONE_MINUS_DST_COLOR;
+        	dst = GL_ZERO;
+    	}
+
+    	ccBlendFunc bf = {src, dst};
+    	layer->setBlendFunc( bf );//把渲染的图片叠加到目标图片，关于setBlendFunc具体知识点查看：http://blog.xulingmin.com/NodeTest/
+	}
+LayerTestBlend效果图如下：
+<div align="center">
+![image](/assets/ccBlendFunc.gif)<br>
+</div>
+LayerTestBlend该例子主要还是学习setBlendFunc这个方法对于图片渲染的影响作用。
+
+下面来看下LayerGradient这个例子：  
+	
+	CCLayerGradient* layer1 = CCLayerGradient::create(ccc4(255,0,0,255), ccc4(0,255,0,120), ccp(0.9f, 0.9f));//初始化CCLayerGradient，start的颜色是(255,0,0,255),end颜色是(0,255,0,120),point是(0.9f,0.9f)。由上文我们很清楚上诉所代表意义。
+	setTouchEnabled(true);//有触摸作用，主要的效果看下面的ccTouchesMoved方法
+	...
+    CCMenuItemToggle *item = CCMenuItemToggle::createWithTarget(this, menu_selector(LayerGradient::toggleItem), item1, item2, NULL);//点击运行toggleItem方法
+    ...
+	
+	//在toggleItem主要是改变isCompressedInterpolation的状态，CompressedInterpolation有什么用处呢？其实就是改变两种色值的间距，具体看上一篇文章
+	void LayerGradient::toggleItem(CCObject *sender)
+	{
+    	CCLayerGradient *gradient = (CCLayerGradient*)getChildByTag(kTagLayer);
+    	gradient->setCompressedInterpolation(! gradient->isCompressedInterpolation());
+	}
+	
+	void LayerGradient::ccTouchesMoved(CCSet * touches, CCEvent *event)
+	{
+    	CCSize s = CCDirector::sharedDirector()->getWinSize();
+
+    	CCSetIterator it = touches->begin();//获取touches的迭代器。在上面我们应该注意到touches->anyObjec(),他返回的是(* it)
+    	CCTouch* touch = (CCTouch*)(*it);//注意(*it)，因为迭代器是个指针
+    	CCPoint start = touch->getLocation();    
+
+    	CCPoint diff = ccpSub( ccp(s.width/2,s.height/2), start);//两个point相减
+    	diff = ccpNormalize(diff);//ccpNormalize返回diff的标准化向量，就是长度为1
+
+    	CCLayerGradient *gradient = (CCLayerGradient*) getChildByTag(1);
+    	gradient->setVector(diff);//把diff赋值给m_AlongVector，而m_AlongVector是颜色向量。颜色向量的改变，最终会改变m_pSquareColors
+	}
+	
+	下面先来看看anyObject()方法，来比较下touches->begin()区别：
+	CCObject* CCSet::anyObject()
+	{
+    	if (!m_pSet || m_pSet->empty())//先来判断set是否为空
+    	{
+        	return 0;
+    	}
+    
+    	CCSetIterator it;//set的迭代器
+
+    	for( it = m_pSet->begin(); it != m_pSet->end(); ++it)//通过it迭代器循环迭代m_pset,只要(*it)不为空，就返回。我们友下面就可以很清楚的看到：m_pSet->begin()是CCSetIterator类型，而*it则是CCObject*
+    	{
+        	if (*it)
+        	{
+            	return (*it);
+        	}
+    	}
+
+    	return 0;
+	}	
+	
+	下面接着看ccpSub方法，很简单：
+	static inline CCPoint
+	ccpSub(const CCPoint& v1, const CCPoint& v2)
+	{
+    	return v1 - v2;
+	}
+	下面接着看ccpNormalize方法
+	CCPoint
+	ccpNormalize(const CCPoint& v)
+	{
+    	return v.normalize();//真正的标准化向量是通过normalize()实现的
+	}
+	接着看normalize()方法
+	inline CCPoint normalize() const {
+        float length = getLength();//获取其长度sqrtf(x*x + y*y);
+        if(length == 0.) return CCPoint(1.f, 0);
+        return *this / getLength();//返回其标准化向量(cosx,sinx)
+    };
+LayerGradient效果图如下：
+<div align="center">
+![image](/assets/LayerGradient.gif)<br>
+</div>
+关于LayerGradient的例子，其实主要是两个方法，通过触摸改变m_AlongVector，以及是否改变两种颜色的间隔距离setCompressedInterpolation()，当然上面主要讲的还有一些其他知识点，还是需要稍加学习。
+
+下面来看看LayerIgnoreAnchorPointScale例子
+
+	CCSize s = CCDirector::sharedDirector()->getWinSize();
+
+    CCLayerColor *l = CCLayerColor::create(ccc4(255, 0, 0, 255), 200, 200);//创建背景为红色，大小为200*200
+
+    l->setAnchorPoint(ccp(0.5f, 1.0f));//设置描点为(0.5f,1.0f)。注意此时虽然描点为(0.5f,1.0f)，但是由于ignoreAnchorPointForPosition为false,则还是以基准点(0,0)为描点，只有ignoreAnchorPointForPosition为true的时候，才以(0.5f,1.0f)为描点，但是以上说的仅仅针对于设置位置，关于Scale放大缩小还是以原来的的描点(0.5f,1.0f)为基准，不管ignoreAnchorPointForPosition是否为true
+    l->setPosition(ccp( s.width/2, s.height/2));
+
+    CCScaleBy *scale = CCScaleBy::create(2, 2);
+    CCScaleBy* back = (CCScaleBy*)scale->reverse();
+    CCSequence *seq = CCSequence::create(scale, back, NULL);
+
+    l->runAction(CCRepeatForever::create(seq));//CCLayerColor每隔两秒一直在放大缩小
+
+    this->addChild(l, 0, kLayerIgnoreAnchorPoint);
+
+    CCSprite *child = CCSprite::create("Images/grossini.png");
+    l->addChild(child);
+    CCSize lsize = l->getContentSize();
+    child->setPosition(ccp(lsize.width/2, lsize.height/2));//把child加入到CCLayerColor，且放在CCLayerColor的中间位置
+
+    CCMenuItemFont *item = CCMenuItemFont::create("Toogle ignore anchor point", this, menu_selector(LayerIgnoreAnchorPointScale::onToggle));//在onToggle方法中改变ignoreAnchorPointForPosition的值
+	...
+LayerIgnoreAnchorPointScale效果图如下：
+<div align="center">
+![image](/assets/LayerIgnoreAnchorPointScale.gif)<br>
+</div>
+关于LayerIgnoreAnchorPointScale的例子，主要是学习描点对于位置以及放大缩小的作用，以及ignoreAnchorPointForPosition对于位置以及放大缩小的影响。我们看到上图，不管ignoreAnchorPointForPosition怎么变，以及位置怎么改，都是以(0.5,1)放大缩小
+
+关于CCLayer的例子还有很多，在下一篇继续讲解-[cocos2d-x-2.2.3-CCLayer源码学习(三)](/cocos2d-x-CCLayer-例子学习二)
