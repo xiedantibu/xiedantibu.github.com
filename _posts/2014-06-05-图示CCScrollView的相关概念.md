@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "图示CCScrollView的相关概念"
-category : cocos2d-x,CCScrollView
+category : cocos2d-x
 tagline: "转载"
 tags : [cocos2d-x-2.2.3,CCScrollView]
 ---

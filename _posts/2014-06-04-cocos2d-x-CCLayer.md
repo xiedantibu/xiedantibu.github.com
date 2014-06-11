@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cocos2d-x-2.2.3-CCLayer源码学习(一)"
-category : cocos2d-x-2.2.3,CCLayer,TestCPP
+category : cocos2d-x
 tagline: "..."
 tags : [CCLayerColor,CCLayer]
 ---
