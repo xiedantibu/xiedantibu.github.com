@@ -36,7 +36,9 @@ comments: no
 |1|西蒙iPhone-OpenGL ES 中文教程专题|<http://www.cocoachina.com/special/2010/0126/404.html>|
 |2|OpenGL ES 着色器语言|<http://blog.csdn.net/hgl868/article/category/1207789/2>|
 |3|OpenGL ES 基础知识|<http://blog.csdn.net/wangyuchun_799/article/category/1122389/4>|
-|4|线性代数|<http://www.tongji.edu.cn/~math/xxds/kcja/kcja_b/kcja_b.htm>|
+|4|shadertoy|<https://www.shadertoy.com/>|
+|5|OpenGL学习笔记索引|<http://www.cnblogs.com/Clingingboy/category/265571.html>|
+|6|OpenGL Transformation|<http://www.songho.ca/opengl/gl_transform.html>|
 
 
 

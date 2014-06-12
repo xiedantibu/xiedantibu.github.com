@@ -211,8 +211,176 @@ tags : [CCLayerColor,CCLayer,KeypadTest,CCKeypadDelegate]
     }
 
 上面就是完整的按键回调流程，没有具体讲KeypadTest，但也差不多了！
+
+下面就看看AccelerometerTest把。看看Accelerometer的流程是啥样的？下面仅仅只针对于Android( ⊙ o ⊙ )啊！
+
+	setAccelerometerEnabled(true);//在onEnter()仅仅只需要设置这样就可以。
 	
+	//接着就可以到didAccelerate方法中接受了。该方法是CCAccelerometerDelegate中的类，CCLayer继承于CCAccelerometerDelegate中
+	void AccelerometerTest::didAccelerate(CCAcceleration* pAccelerationValue)
+	{
+
+    CCDirector* pDir = CCDirector::sharedDirector();
+
+    /*FIXME: Testing on the Nexus S sometimes m_pBall is NULL */
+    if ( m_pBall == NULL ) {
+        return;
+    }
+
+    CCSize ballSize  = m_pBall->getContentSize();//获取球球的大小
+
+    CCPoint ptNow  = m_pBall->getPosition();//获取球球的位置，由于该球直接添加到CCLayer的，所以不需要转换成世界坐标系
+    CCPoint ptTemp = pDir->convertToUI(ptNow);//直接转成UI坐标系：左上为原点，x轴向右，y轴向下
+
+    ptTemp.x += pAccelerationValue->x * 9.81f;//pAccelerationValue->x * 9.81f才是加速度
+    ptTemp.y -= pAccelerationValue->y * 9.81f;//注意是-啊
+
+    CCPoint ptNext = pDir->convertToGL(ptTemp);//转换成世界坐标系
+    FIX_POS(ptNext.x, (VisibleRect::left().x+ballSize.width / 2.0), (VisibleRect::right().x - ballSize.width / 2.0));
+    FIX_POS(ptNext.y, (VisibleRect::bottom().y+ballSize.height / 2.0), (VisibleRect::top().y - ballSize.height / 2.0));
+    m_pBall->setPosition(ptNext);//设置坐标
+	}
 	
+	//FIX_POS确保球运动不超出屏幕
+	#define FIX_POS(_pos, _min, _max) \ 
+    if (_pos < _min)        \
+    _pos = _min;        \
+	else if (_pos > _max)   \
+    _pos = _max;        \
+ 
+关于坐标转换的，参考下这:[cocos2dx进阶学习之坐标转换](http://my.oschina.net/u/555701/blog/214691)
+
+    void CCLayer::setAccelerometerEnabled(bool enabled)
+	{
+    if (enabled != m_bAccelerometerEnabled)
+    {
+        m_bAccelerometerEnabled = enabled;
+
+        if (m_bRunning)
+        {
+            CCDirector* pDirector = CCDirector::sharedDirector();
+            if (enabled)
+            {
+                pDirector->getAccelerometer()->setDelegate(this);//设置代理类，CCLayer继承于CCAccelerometerDelegate
+            }
+            else
+            {
+                pDirector->getAccelerometer()->setDelegate(NULL);//注意此处直接传的是NULL，在下面看看为啥传NULL啊
+            }
+        }
+    }
+	}
 	
+	class CCAcceleration
+	{
+	public:
+    double x;//X轴加速度
+    double y;//Y轴加速度
+    double z;//Z轴加速度
+
+    double timestamp;//时间戳
+	};
+	
+	class CC_DLL CCAccelerometerDelegate//代理类，CCLayer继承于她
+	{
+	public:
+    virtual void didAccelerate(CCAcceleration* pAccelerationValue) 	{CC_UNUSED_PARAM(pAccelerationValue);}
+	};
+	
+	下面我们就看看CCAccelerometer类
+	
+	CCAccelerometerDelegate* m_pAccelDelegate;//有他，那肯定就有setDelegate方法，否则怎么赋值啊。
+    CCAcceleration m_obAccelerationValue;//这个变量就是为了存储加速度以及时间戳的
+    
+    //好了，终于看到setDelegate了，从CCLayer一直追到这
+    void CCAccelerometer::setDelegate(CCAccelerometerDelegate* pDelegate) 
+    {
+        m_pAccelDelegate = pDelegate;
+
+        if (pDelegate)//看setDelegate设置为NULL的作用了没，为了判断运行不同的方法
+        {        
+            enableAccelerometerJNI();
+        }
+        else
+        {
+            disableAccelerometerJNI();
+        }
+    }
+    
+    下面先看enableAccelerometerJNI方法。 
+    void enableAccelerometerJNI() {
+    JniMethodInfo t;
+    
+    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "enableAccelerometer", "()V")) {
+        t.env->CallStaticVoidMethod(t.classID, t.methodID);//CLASS_NAME "org/cocos2dx/lib/Cocos2dxHelper"，会运行类名为org/cocos2dx/lib/Cocos2dxHelper下的enableAccelerometer方法。
+        t.env->DeleteLocalRef(t.classID);
+    }
+	}
+	
+	下面继续看enableAccelerometer方法
+	public static void enableAccelerometer() {
+		Cocos2dxHelper.sAccelerometerEnabled = true;
+		Cocos2dxHelper.sCocos2dxAccelerometer.enable();//继续查看
+	}
+	public void enable() {
+		this.mSensorManager.registerListener(this, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME);//注册了一个监听器，其实这都是android的知识了啊。this代表Cocos2dxAccelerometer，他实现了SensorEventListener接口，他会回调public void onSensorChanged(final SensorEvent pSensorEvent) 方法。
+	}
+	
+	//在onSensorChanged(final SensorEvent pSensorEvent)回调方法中
+	
+	@Override
+	public void onSensorChanged(final SensorEvent pSensorEvent) {
+		if (pSensorEvent.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
+			return;
+		}
+
+		float x = pSensorEvent.values[0];//获取相应方向的加速度
+		float y = pSensorEvent.values[1];
+		final float z = pSensorEvent.values[2];
+
+		final int orientation = this.mContext.getResources().getConfiguration().orientation;
+
+		if ((orientation == Configuration.ORIENTATION_LANDSCAPE) && (this.mNaturalOrientation != Surface.ROTATION_0)) {//判断旋转方向，横屏
+			final float tmp = x;
+			x = -y;
+			y = tmp;
+		} else if ((orientation == Configuration.ORIENTATION_PORTRAIT) && (this.mNaturalOrientation != Surface.ROTATION_0)) {//竖屏
+			final float tmp = x;
+			x = y;
+			y = -tmp;
+		}		
+		
+		Cocos2dxGLSurfaceView.queueAccelerometer(x,y,z,pSensorEvent.timestamp);//把加速度的值传递到queueAccelerometer
+	}
+	    //定位到queueAccelerometer
+	    public static void queueAccelerometer(final float x, final float y, final float z, final long timestamp) {	
+	   mCocos2dxGLSurfaceView.queueEvent(new Runnable() {//queueEvent可以实现主线程和渲染线程之间的交互
+		@Override
+		    public void run() {
+			    Cocos2dxAccelerometer.onSensorChanged(x, y, z, timestamp);//我们发现该方法是个native方法，在C++文件中，我们找到了具体实现
+		}
+	   });
+	 //下面就是具体实现
+	JNIEXPORT void JNICALL Java_org_cocos2dx_lib_Cocos2dxAccelerometer_onSensorChanged(JNIEnv*  env, jobject thiz, jfloat x, jfloat y, jfloat z, jlong timeStamp) {
+        CCDirector* pDirector = CCDirector::sharedDirector();
+        pDirector->getAccelerometer()->update(x, y, z, timeStamp);//我们发现又回到了CCAccelerometer，而这次是update方法，一个轮回啊。
+    }
+    
+    //下面前往CCAccelerometer的update方法。
+    void CCAccelerometer::update(float x, float y, float z, long sensorTimeStamp) 
+    {
+        if (m_pAccelDelegate)
+        {
+            m_obAccelerationValue.x = -((double)x / TG3_GRAVITY_EARTH);//TG3_GRAVITY_EARTH 9.80665f为重力加速度，感觉是为了和其他平台相适应，所以除以重力加速度
+            m_obAccelerationValue.y = -((double)y / TG3_GRAVITY_EARTH);
+            m_obAccelerationValue.z = -((double)z / TG3_GRAVITY_EARTH);
+            m_obAccelerationValue.timestamp = (double)sensorTimeStamp;
+
+            m_pAccelDelegate->didAccelerate(&m_obAccelerationValue);//看到回调了啊，就是上文，例子中处理逻辑的啊
+        }    
+    }
+    
+ 好了，关于CCAccelerometer的逻辑也讲的差不多了，通过CCAccelerometer设置setDelegate,又通过他接受返回数据。
+ 
 	
     
