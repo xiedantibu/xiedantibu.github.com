@@ -1,5 +1,9 @@
-The Swift Programming Language 中文手册
-======================================
+---
+layout: page
+title: The Swift Programming Language 中文手册
+comments: no
+thread: 8
+---
 
 # 目录
 

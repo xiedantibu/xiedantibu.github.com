@@ -1,9 +1,13 @@
+---
+layout: default
+title: 字符串和字符（Strings and Characters）
+comments: no
+thread: 10
+---
 > 翻译：wh1100717
 
 > 校对：Hawstein
 
-# 字符串和字符（Strings and Characters）
------------------
 
 本页包含内容：
 

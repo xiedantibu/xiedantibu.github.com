@@ -1,6 +1,9 @@
-Using Swift with Cocoa and Objective-C中文手册
-==============================================
-
+---
+layout: page
+title: Using Swift with Cocoa and Objective-C中文手册
+comments: no
+thread: 8
+---
 # 目录
 
 ## 开始

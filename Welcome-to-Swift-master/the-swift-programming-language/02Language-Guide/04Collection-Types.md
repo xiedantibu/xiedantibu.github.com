@@ -1,3 +1,11 @@
+---
+layout: default
+title: Collection-Types
+comments: no
+thread: 10
+---
+
+
 #集合类型（Collection Types）
 
 Swift提供了两种*集合类型*来存放多个值——数组(Array)和字典(Dictionary)。数组把相同类型的值存放在一个有序链表里。字典把相同类型的值存放在一个无序集合里，这些值可以通过唯一标识符（也就是键）来引用和查找。

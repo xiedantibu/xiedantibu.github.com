@@ -21,6 +21,8 @@ comments: no
 |12|Cocos2dx-制作FlappyBird|<http://blog.csdn.net/column/details/flappybird.html>|
 |13|Cocos2d-X开发学习笔记|<http://blog.csdn.net/yangyu20121224/article/category/1499023>|
 |14|cocos2d-x游戏开发 跑酷|<http://blog.csdn.net/dawn_moon>|
+|15|Cocos2d-x 详解坐标系统|<http://blog.csdn.net/crayondeng/article/details/11936309>|
+
 
 ####cocos2d-x源码
 
@@ -60,7 +62,7 @@ comments: no
 |4|C++11 并发指南|<http://www.cnblogs.com/haippy/category/505027.html>|
 |5|C++相关学习链接|<http://blog.xulingmin.com/c++/index.html>|
 |6|VS2010/MFC编程入门教程之目录和总结|<http://www.jizhuomi.com/software/257.html>|
-|7|C++编程入门系列之目录和总结<http://www.jizhuomi.com/software/129.html>|
+|7|C++编程入门系列之目录和总结|<http://www.jizhuomi.com/software/129.html>|
 
 
 
@@ -82,6 +84,12 @@ comments: no
 |:---:|:---:|:---:|
 |1|Markdown 之使用表格|<http://havee.me/internet/2013-10/use-table-with-redcarpet-and-markdown-in-jekyll.html>|  
 |2|Markdown语法说明（详解版）|<http://www.ituring.com.cn/article/504>|
+|3|Jekyll 的 YAML 前置数据|<http://havee.me/internet/2013-07/jekyll-yaml-front-matter.html>|
+|4|Jekyll 模板数据|<http://havee.me/internet/2013-07/jekyll-template-data.html>|
+|5|Jekyll 扩展的 Liquid 模板|<http://havee.me/internet/2013-07/jekyll-liquid-extensions.html>|
+|6|Jekyll 扩展的 Liquid 设计|<http://havee.me/internet/2013-11/jekyll-liquid-designers.html>|
+|7|Jekyll 固定链接|<http://havee.me/internet/2013-07/jekyll-permalinks.html>|
+|8|Jekyll 的配置|<http://havee.me/internet/2013-07/jekyll-configuration.html>|
 
 ####cmake
 |序 号  |名 字   |链 接  |  

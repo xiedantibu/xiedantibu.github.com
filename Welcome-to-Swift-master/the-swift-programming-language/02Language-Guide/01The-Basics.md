@@ -1,9 +1,13 @@
+---
+layout: default
+title:	基础部分
+comments: no
+thread: 10
+---
 > 翻译：numbbbbb, lyuka, JaySurplus
 
 > 校对：lslxdx
 
-# 基础部分
------------------
 
 本页包含内容：
 
