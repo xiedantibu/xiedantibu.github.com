@@ -63,6 +63,7 @@ comments: no
 |5|C++相关学习链接|<http://blog.xulingmin.com/c++/index.html>|
 |6|VS2010/MFC编程入门教程之目录和总结|<http://www.jizhuomi.com/software/257.html>|
 |7|C++编程入门系列之目录和总结|<http://www.jizhuomi.com/software/129.html>|
+|8|稳扎稳打 C++|<http://www.ilanever.com/subject/sitedetail.html?id=3>|
 
 
 
