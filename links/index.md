@@ -60,7 +60,7 @@ comments: no
 |2|设计模式(c++)笔记|<http://blog.csdn.net/column/details/designnote.html?page=2>|
 |3|C++ Primer|<http://blog.csdn.net/column/details/cplusplusprimer.html>|
 |4|C++11 并发指南|<http://www.cnblogs.com/haippy/category/505027.html>|
-|5|C++相关学习链接|<http://blog.xulingmin.com/c++/index.html>|
+|5|C++相关学习链接|<http://blog.xulingmin.com/Clearn/index.html>|
 |6|VS2010/MFC编程入门教程之目录和总结|<http://www.jizhuomi.com/software/257.html>|
 |7|C++编程入门系列之目录和总结|<http://www.jizhuomi.com/software/129.html>|
 |8|稳扎稳打 C++|<http://www.ilanever.com/subject/sitedetail.html?id=3>|
