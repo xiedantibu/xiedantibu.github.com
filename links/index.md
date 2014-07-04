@@ -7,6 +7,7 @@ comments: no
 
 |序 号  |名 字   |链 接  |  
 |:---:|:---:|:---:|
+|0|如何学习 COCOS2D-X|<http://zengrong.net/post/2100.htm>|
 |1|Cocos2dx 3.0 过渡篇|<http://blog.csdn.net/column/details/cocos2dx-star530.html>|
 |2|红孩儿的游戏编程之路|<http://blog.csdn.net/honghaier/article/category/1217322>|
 |3|cocos2d-x-LuaProxy|<http://blog.csdn.net/column/details/cocosbuilder.html>|
@@ -18,7 +19,7 @@ comments: no
 |9|笨木头Cocos2d-x|<http://blog.csdn.net/column/details/mutcocos2d-x.html?page=3>|
 |10|cocos2dx游戏开发专栏|<http://blog.csdn.net/column/details/cocos2dx-itcast.html>|
 |11| Cocos教程|<http://www.cocoachina.com/gamedev/cocos/>|
-|12|Cocos2dx-制作FlappyBird|<http://blog.csdn.net/column/details/flappybird.html>|
+|12|Cocos2dx-制作FlappyBird|<http://blog.cn.net/column/details/flappybird.html>|
 |13|Cocos2d-X开发学习笔记|<http://blog.csdn.net/yangyu20121224/article/category/1499023>|
 |14|cocos2d-x游戏开发 跑酷|<http://blog.csdn.net/dawn_moon>|
 |15|Cocos2d-x 详解坐标系统|<http://blog.csdn.net/crayondeng/article/details/11936309>|
@@ -30,6 +31,25 @@ comments: no
 |:---:|:---:|:---:|
 |1|触控|<https://github.com/chukong>|
 |2|Cocosd-x|<https://github.com/cocos2d/cocos2d-x>|
+|3|TankMultiplayer|<https://github.com/Wu-Hao/TankMultiplayer>|
+|4|FlappyBird|<https://github.com/fusijie/FlappyBird>|
+|5|EarthWarrior3D|<https://github.com/chukong/EarthWarrior3D>|
+|6|Earlybird|<https://github.com/OiteBoys/Earlybird>|
+|7|Airplane_3.0|<https://github.com/fusijie/Airplane_3.0>|
+|8|Snake|<https://github.com/fusijie/Snake>|
+|9|colormatch|<https://github.com/OiteBoys/colormatch>|
+|10|Kunonekok|<https://github.com/OiteBoys/Kunonekok>|
+|11|StreetBoy|<https://github.com/OiteBoys/StreetBoy>|
+|12|LoveClear|<https://github.com/crosslife/LoveClear>|
+|13|BlackWings|<https://github.com/yuye-liu/BlackWings>|
+|14|Kunonekok|<https://github.com/OiteBoys/Kunonekok>|
+|15|Airplane_2.2.0|<https://github.com/fusijie/Airplane_2.2.0>|
+|16|BlackWings|<https://github.com/yuye-liu/BlackWings>|
+|17|2048|<https://github.com/GeeKaven/cocos2dx-3.0-of-2048>|
+|18|2048-ai|<https://github.com/nneonneo/2048-ai>|
+|19|cocos2d-x-filters|<https://github.com/zrong/cocos2d-x-filters>|
+|19|2048-android|<https://github.com/PeterCxy/2048>|
+
 
 ####OPENGL
 
@@ -64,7 +84,8 @@ comments: no
 |6|VS2010/MFC编程入门教程之目录和总结|<http://www.jizhuomi.com/software/257.html>|
 |7|C++编程入门系列之目录和总结|<http://www.jizhuomi.com/software/129.html>|
 |8|稳扎稳打 C++|<http://www.ilanever.com/subject/sitedetail.html?id=3>|
-
+|9|C++11 FAQ中文版|<http://www.chenlq.net/cpp11-faq-chs>|
+|10|C++ 参考|<http://zh.cppreference.com/w/cpp>|
 
 
 ####工具
@@ -120,6 +141,7 @@ comments: no
 |9|Bootstrap|<http://www.bootcss.com/>|
 |10|wget下载终极用法|<http://www.360doc.com/content/12/1002/23/1317564_239220572.shtml>|
 |11|brew简单的包管理系统|<http://blog.csdn.net/camel20/article/details/6780728>|
+|12|Go语言|<http://www.yiibai.com/go>|
 
 
 
