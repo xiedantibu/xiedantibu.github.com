@@ -23,6 +23,16 @@ comments: no
 |13|Cocos2d-X开发学习笔记|<http://blog.csdn.net/yangyu20121224/article/category/1499023>|
 |14|cocos2d-x游戏开发 跑酷|<http://blog.csdn.net/dawn_moon>|
 |15|Cocos2d-x 详解坐标系统|<http://blog.csdn.net/crayondeng/article/details/11936309>|
+|16|Cocos 2d-x Console模块|<http://www.cocoachina.com/gamedev/cocos/2014/0704/9028.html>|
+|17|Cocos2d-x 多分辨率适配完全解析|<http://www.cocoachina.com/gamedev/cocos/2014/0516/8451.html>|
+|18|Cocos2d-x屏幕适配之Sprite绘制原理|<http://www.cocoachina.com/gamedev/cocos/2014/0513/8402.html>|
+|19|自动批处理（Auto-batching）|<http://www.cocoachina.com/gamedev/cocos/2014/0509/8358.html>|
+|20|纹理缓存|<http://www.cocoachina.com/gamedev/cocos/2014/0507/8344.html>|
+|21|如何基于cocos2dx3.x实现A星寻路算法|<http://www.cocoachina.com/gamedev/cocos/2014/0501/8288.html>|
+|22|Cocos2d-x 3.0多线程异步资源加载|<http://www.cocoachina.com/gamedev/cocos/2014/0429/8259.html>|
+|23|cocos-docs-v3|<https://github.com/chukong/cocos-docs/tree/master/manual/framework/native/v3>|
+
+
 
 
 ####cocos2d-x源码
@@ -56,11 +66,16 @@ comments: no
 |序 号  |名 字   |链 接  |  
 |:---:|:---:|:---:|
 |1|西蒙iPhone-OpenGL ES 中文教程专题|<http://www.cocoachina.com/special/2010/0126/404.html>|
-|2|OpenGL ES 着色器语言|<http://blog.csdn.net/hgl868/article/category/1207789/2>|
-|3|OpenGL ES 基础知识|<http://blog.csdn.net/wangyuchun_799/article/category/1122389/4>|
+|2| Cocos2D-X OpenGL ES 2.0|<http://4gamers.cn/archives/category/opengl-es-2-0>|
+|3|OpenGL ES SDK|<http://www.khronos.org/opengles/sdk/docs/man/>|
 |4|shadertoy|<https://www.shadertoy.com/>|
 |5|OpenGL学习笔记索引|<http://www.cnblogs.com/Clingingboy/category/265571.html>|
-|6|OpenGL Transformation|<http://www.songho.ca/opengl/gl_transform.html>|
+|6|OpenGL Transformation|<http://blog.csdn.net/lyx2007825/article/details/8792475>|
+|7|高效学习OpenGL|<http://blog.csdn.net/column/details/effectiveopengl.html>|
+|8|我的OpenGL学习|<http://blog.csdn.net/column/details/myopengl.html>|
+|9|OpenGL超级宝典笔记|<http://my.oschina.net/sweetdark/blog?catalog=386026>|
+|10|OpenGL|<http://www.songho.ca/opengl/index.html>|
+
 
 
 
