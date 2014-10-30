@@ -1,0 +1,1380 @@
+<!DOCTYPE html><!-- saved from url=(0053)http://zh.cppreference.com/w/cpp/preprocessor/replace --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>Replacing text macros - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactionedit" />
+<link rel="edit" title="编辑" href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactionedit" />
+<link rel="shortcut icon" href="../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=cpp/preprocessor/replace&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/preprocessor/replace","wgTitle":"cpp/preprocessor/replace","wgCurRevisionId":38397,"wgArticleId":753,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"cpp/preprocessor/replace","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_preprocessor_replace skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../mwiki/index~13521.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../mwiki/index~13522.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="replace.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../mwiki/index~13523.phpti"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplacevariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="replace.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">Replacing text macros</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../default.htm" title="cpp">cpp</a>&lrm; | <a href="default.htm" title="cpp/preprocessor">preprocessor</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../upload.cppreference.com/mwiki/images/3/31/imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../en.cppreference.com/w/cpp/preprocessor/replace" class="extiw" title="en:cpp/preprocessor/replace"> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="cpp"> C++</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../language/default.htm" title="cpp/language">语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../concept/default.htm" title="cpp/concept">概念</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../utility/default.htm" title="cpp/utility">实用工具库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../string/default.htm" title="cpp/string">字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../container/default.htm" title="cpp/container">集装箱库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm/default.htm" title="cpp/algorithm">算法库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../iterator/default.htm" title="cpp/iterator">迭代器库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric/default.htm" title="cpp/numeric">Numerics库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../io/default.htm" title="cpp/io">输入/输出库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../locale/default.htm" title="cpp/locale">本地化库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../regex/default.htm" title="cpp/regex">正则表达式库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../atomic/default.htm" title="cpp/atomic">原子操作库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../thread/default.htm" title="cpp/thread">线程的支持库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3acpp_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../language/default.htm" title="cpp/language">C++语言</a><div class="t-navbar-menu"><div><div style="display:inline-block">
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 大会的主题<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> General topics</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="default.htm" title="cpp/preprocessor">预处理器</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../comment.htm" title="cpp/comments" class="mw-redirect">评论</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../keyword/default.htm" title="cpp/keyword">关键字</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/ascii.htm" title="cpp/language/ascii">ASCII表</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/escape.htm" title="cpp/language/escape">转义序列</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/history.htm" title="cpp/language/history">C + +的历史</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 流量控制<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Flow control</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 条件执行语句<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Conditional execution statements</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/if.htm" title="cpp/language/if"> <code>if</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/switch.htm" title="cpp/language/switch"> <code>switch</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 迭代语句<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Iteration statements</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/for.htm" title="cpp/language/for"> <code>for</code> loop</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/range-for.htm" title="cpp/language/range-for"> range-<code>for</code> loop</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/while.htm" title="cpp/language/while"> <code>while</code> loop</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/do.htm" title="cpp/language/do"> <code>do-while</code> loop</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 跳转语句 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Jump statements </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/continue.htm" title="cpp/language/continue"> <code>continue</code> statement</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/break.htm" title="cpp/language/break"> <code>break</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/goto.htm" title="cpp/language/goto"> <code>goto</code> statement</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/return.htm" title="cpp/language/return"> <code>return</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 功能<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/function.htm" title="cpp/language/function">函数声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/lambda.htm" title="cpp/language/lambda">lambda函数的声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/function_template.htm" title="cpp/language/function template">函数模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/inline.htm" title="cpp/language/inline">的历史。内嵌说明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/except_spec.htm" title="cpp/language/except spec">异常规范</a> <span class="t-mark">（已弃用）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/noexcept_spec.htm" title="cpp/language/noexcept spec">noexcept说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 例外<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Exceptions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/throw.htm" title="cpp/language/throw">扔表达</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/try_catch.htm" title="cpp/language/try catch">try-catch块</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 命名空间<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Namespaces</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/namespace.htm" title="cpp/language/namespace">命名空间声明</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/namespace_alias.htm" title="cpp/language/namespace alias">命名空间的别名</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类型<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/types.htm" title="cpp/language/types">基本类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/class.htm" title="cpp/language/class">复合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/enum.htm" title="cpp/language/enum">枚举类型</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/union.htm" title="cpp/language/union">联合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/function.htm" title="cpp/language/function">函数类型</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/decltype.htm" title="cpp/language/decltype"> <code>decltype</code> specifier</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 规范<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Specifiers</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/cv.htm" title="cpp/language/cv">CV符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/storage_duration.htm" title="cpp/language/storage duration">存储时间说明符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/constexpr.htm" title="cpp/language/constexpr">constexpr说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/auto.htm" title="cpp/language/auto">汽车符</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/alignas.htm" title="cpp/language/alignas">alignas说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 初始化<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Initialization</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/default_initialization.htm" title="cpp/language/default initialization">默认的初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/value_initialization.htm" title="cpp/language/value initialization">值初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/zero_initialization.htm" title="cpp/language/zero initialization">零初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/copy_initialization.htm" title="cpp/language/copy initialization">复制初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/direct_initialization.htm" title="cpp/language/direct initialization">直接初始化</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/aggregate_initialization.htm" title="cpp/language/aggregate initialization">集合初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/list_initialization.htm" title="cpp/language/list initialization">表初始化</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/constant_initialization.htm" title="cpp/language/constant initialization">常数初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/reference_initialization.htm" title="cpp/language/reference initialization">参考电压的初始化</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+</table>
+</div>
+</div>
+<div style="display:inline-block">
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 常<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Literals</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/integer_literal.htm" title="cpp/language/integer literal">整数文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/character_literal.htm" title="cpp/language/character literal">字符文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/floating_literal.htm" title="cpp/language/floating literal">浮点文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/string_literal.htm" title="cpp/language/string literal">字符串文字</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/bool_literal.htm" title="cpp/language/bool literal">布尔文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/nullptr.htm" title="cpp/language/nullptr">nullptr</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/user_literal.htm" title="cpp/language/user literal">用户定义的</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 表达式<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Expressions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/value_category.htm" title="cpp/language/value category">价值类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/eval_order.htm" title="cpp/language/eval order">为了评价</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/operators.htm" title="cpp/language/operators">运营商</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/operator_precedence.htm" title="cpp/language/operator precedence">运算符的优先级</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/operator_alternative.htm" title="cpp/language/operator alternative">另一种表示形式</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 实用工具<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Utilities</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 类型<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/typedef.htm" title="cpp/language/typedef"> <code>typedef</code> declaration</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/type_alias.htm" title="cpp/language/type alias">声明类型别名</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/attributes.htm" title="cpp/language/attributes">属性</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 施放<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Casts</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/implicit_cast.htm" title="cpp/language/implicit cast">隐式转换</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/const_cast.htm" title="cpp/language/const cast"> <code>const_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/static_cast.htm" title="cpp/language/static cast"> <code>static_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/dynamic_cast.htm" title="cpp/language/dynamic cast"> <code>dynamic_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/reinterpret_cast.htm" title="cpp/language/reinterpret cast"> <code>reinterpret_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/explicit_cast.htm" title="cpp/language/explicit cast">C-风格和功能转换</a>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 内存分配<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Memory allocation</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/new.htm" title="cpp/language/new"> <code>new</code> expression</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/delete" title="cpp/language/delete"> <code>delete</code> expression</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Classes</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/class.htm" title="cpp/language/class">类的声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/this.htm" title="cpp/language/this"> <code>this</code> pointer</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/access.htm" title="cpp/language/access">访问符</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/friend.htm" title="cpp/language/friend">朋友说明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/initializer_list.htm" title="cpp/language/initializer list">初始化列表</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 类特定的功能特性<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Class-specific function properties</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/virtual.htm" title="cpp/language/virtual">虚函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/override.htm" title="cpp/language/override">覆盖说明</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/final.htm" title="cpp/language/final">最后说明</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/explicit.htm" title="cpp/language/explicit">明确的</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/static.htm" title="cpp/language/static">静态的</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 特殊的成员函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Special member functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/default_constructor.htm" title="cpp/language/default constructor">默认构造函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/copy_constructor.htm" title="cpp/language/copy constructor">拷贝构造函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/move_constructor.htm" title="cpp/language/move constructor">移动的构造函数</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../language/as_operator.htm" title="cpp/language/as operator">复制的任务</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/move_operator.htm" title="cpp/language/move operator">移动分配</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/destructor.htm" title="cpp/language/destructor">析构函数</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text">模板 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Templates </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/class_template.htm" title="cpp/language/class template">类模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/function_template.htm" title="cpp/language/function template">函数模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/template_specialization.htm" title="cpp/language/template specialization">模板特化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/parameter_pack.htm" title="cpp/language/parameter pack">参数包</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 杂项 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Miscellaneous </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../language/asm.htm" title="cpp/language/asm">内联汇编</a>
+</td></tr>
+</table>
+</div>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2531.phpti">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="default.htm" title="cpp/preprocessor">预处理器</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="conditional" title="cpp/preprocessor/conditional">&#35;if<br />&#35;ifdef<br />&#35;ifndef<br />&#35;else<br />&#35;elif<br />&#35;endif</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><strong class="selflink">&#35;define<br />&#35;undef<br />&#35;,&#35;&#35; operators</strong></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="include.htm" title="cpp/preprocessor/include">&#35;include</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="error.htm" title="cpp/preprocessor/error">&#35;error</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="impl.htm" title="cpp/preprocessor/impl">&#35;pragma</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="line.htm" title="cpp/preprocessor/line">&#35;line</a></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~13509.phpti">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<div class="t-tr-text">支持文本预处理器的宏替换。功能还支持文本宏替换.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The preprocessor supports text macro replacement. Function-like text macro replacement is also supported.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E8.AF.AD.E6.B3.95"><span class="tocnumber">1</span> <span class="toctext">语法</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.E8.A7.A3.E9.87.8A"><span class="tocnumber">2</span> <span class="toctext">解释</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#.C7.8A.E6.8C.87.E4.BB.A4"><span class="tocnumber">2.1</span> <span class="toctext">Ǌ指令</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#.E5.AE.8F.E5.AF.B9.E8.B1.A1"><span class="tocnumber">2.1.1</span> <span class="toctext">宏对象</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#.E5.87.BD.E6.95.B0.E5.AE.8F"><span class="tocnumber">2.1.2</span> <span class="toctext">函数宏</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#.C7.8A.E5.92.8C.C7.8A.E8.BF.90.E8.90.A5.E5.95.86"><span class="tocnumber">2.2</span> <span class="toctext">Ǌ和Ǌ运营商</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#.C7.8A.E6.8C.87.E4.BB.A4_2"><span class="tocnumber">2.3</span> <span class="toctext">Ǌ指令</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#.E9.A2.84.E5.AE.9A.E4.B9.89.E5.AE.8F"><span class="tocnumber">3</span> <span class="toctext">预定义宏</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#.E7.A4.BA.E4.BE.8B"><span class="tocnumber">4</span> <span class="toctext">示例</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection1" title="编辑章节：语法">编辑</a>]</span> <span class="mw-headline" id=".E8.AF.AD.E6.B3.95">语法</span></h3>
+<table class="t-sdsc-begin">
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr>
+<tr class="t-sdsc">
+<td> <code><b>#define</b></code> <span class="t-spar">identifier</span> <span class="t-spar">replacement-list</span>
+</td>
+<td> (1)
+</td>
+<td class="t-sdsc-nopad">
+</td></tr>
+
+
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr>
+<tr class="t-sdsc">
+<td> <code><b>#define</b></code> <span class="t-spar">identifier</span><code><b>(</b></code> <span class="t-spar">parameters</span> <code><b>)</b></code> <span class="t-spar">replacement-list</span>
+</td>
+<td> (2)
+</td>
+<td class="t-sdsc-nopad">
+</td></tr>
+
+
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr>
+<tr class="t-sdsc">
+<td> <code><b>#define</b></code> <span class="t-spar">identifier</span><code><b>(</b></code> <span class="t-spar">parameters</span><code><b>, ... )</b></code> <span class="t-spar">replacement-list</span>
+</td>
+<td> (3)
+</td>
+<td class="t-sdsc-nopad">
+</td></tr>
+
+
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr>
+<tr class="t-sdsc">
+<td> <code><b>#define</b></code> <span class="t-spar">identifier</span><code><b>( ... )</b></code> <span class="t-spar">replacement-list</span>
+</td>
+<td> (4)
+</td>
+<td class="t-sdsc-nopad">
+</td></tr>
+
+
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr>
+<tr class="t-sdsc">
+<td> <code><b>#undef </b></code> <span class="t-spar">identifier</span>
+</td>
+<td> (5)
+</td>
+<td class="t-sdsc-nopad">
+</td></tr>
+
+
+
+<tr>
+<td colspan="10" class="t-sdsc-sep">
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection2" title="编辑章节：解释">编辑</a>]</span> <span class="mw-headline" id=".e8.a7.a3.e9.87.8a.htm">解释</span></h3>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection3" title="编辑章节：Ǌ指令">编辑</a>]</span> <span class="mw-headline" id=".c7.8a.e6.8c.87.e4.bb.a4.htm">Ǌ指令</span></h4>
+<div class="t-tr-text"><code>#define</code>指令作为宏定义<span class="t-spar">identifier</span>，这是指示编译器将取代连续出现<span class="t-spar">identifier</span><span class="t-spar">replacement-list</span>，可以选择另外的处理。如果标识符已被定义为任何类型的宏，该方案是格式错误的. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The <code>#define</code> directives define the <span class="t-spar">identifier</span> as macro, that is instruct the compiler to replace all successive occurrences of <span class="t-spar">identifier</span> with <span class="t-spar">replacement-list</span>, which can be optionally additionally processed. If the identifier is already defined as any type of macro, the program is ill-formed. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h5><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection4" title="编辑章节：宏对象">编辑</a>]</span> <span class="mw-headline" id=".e5.ae.8f.e5.af.b9.e8.b1.a1.htm">宏对象</span></h5>
+<div class="t-tr-text">类似对象的宏替换出现的每一个定义<span class="t-spar">identifier</span><span class="t-spar">replacement-list</span>。版本（1）<code>#define</code>指令的行为完全一样的.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Object-like macros replace every occurrence of defined <span class="t-spar">identifier</span> with <span class="t-spar">replacement-list</span>. Version (1) of the <code>#define</code> directive behaves exactly like that.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h5><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection5" title="编辑章节：函数宏">编辑</a>]</span> <span class="mw-headline" id=".e5.87.bd.e6.95.b0.e5.ae.8f.htm">函数宏</span></h5>
+<div class="t-tr-text">函数宏的定义<span class="t-spar">identifier</span>取代每个出现<span class="t-spar">replacement-list</span>，另外一些参数，然后更换相应出现的任何<span class="t-spar">parameters</span>在<span class="t-spar">replacement-list</span>。参数的个数参数的宏定义（<span class="t-spar">parameters</span>）或程序的数量是病形成的必须是相同的。如果标识符是不是在功能符号，即没有后面的括号本身，它不会取代可言<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Function-like macros replace each occurrence of defined <span class="t-spar">identifier</span> with <span class="t-spar">replacement-list</span>, additionally taking a number of arguments, which then replace corresponding occurrences of any of the <span class="t-spar">parameters</span> in the <span class="t-spar">replacement-list</span>. The number of arguments must be the same as the number of arguments in macro definition (<span class="t-spar">parameters</span>) or the program is ill-formed. If the identifier is not in functional-notation, i.e. does not have parentheses after itself, it is not replaced at all.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">版本（2）<code>#define</code>指令定义了一个简单的函数宏.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Version (2) of the <code>#define</code> directive defines a simple function-like macro.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">版本（3）<code>#define</code>指令定义了一个函数宏与可变数目的参数。可以访问使用<code>__VA_ARGS__</code>标识符，然后将其替换带参数，供给与该标识符以被替换的附加参数.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Version (3) of the <code>#define</code> directive defines a function-like macro with variable number of arguments. The additional arguments can be accessed using <code>__VA_ARGS__</code> identifier, which is then replaced with arguments, supplied with the identifier to be replaced.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">版本（4）<code>#define</code>指令定义了一个函数宏与可变数目的参数，但没有任何一个正式的参数。 <code>__VA_ARGS__</code>标识符，然后将其替换为提供的标识符被替换的参数，这些参数可以被访问.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Version (4) of the <code>#define</code> directive defines a function-like macro with variable number of arguments, but no regular arguments. The arguments can be accessed only with <code>__VA_ARGS__</code> identifier, which is then replaced with arguments, supplied with identifier to be replaced.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection6" title="编辑章节：Ǌ和Ǌ运营商">编辑</a>]</span> <span class="mw-headline" id=".C7.8A.E5.92.8C.C7.8A.E8.BF.90.E8.90.A5.E5.95.86">Ǌ和Ǌ运营商</span></h4>
+<div class="t-tr-text">在函数宏，<code>#</code>运营商<span class="t-spar">replacement-list</span>的标识符，在运行前通过参数替换的标识符和包围在引号中，从而有效地创建一个字符串常量。此外，预处理器将backslahes逃脱引号嵌入字符串常量，如果有的话，双倍的反斜线内的字符串（如需要）。所有的开头和结尾的空格被删除，并在文本中间的任何序列的空白（但不能在嵌入式字符串文字）被折叠成一个单一的空间。此操作被称为“字串化”。如果不是一个有效的字符串文字的字串化的结果是，该行为是未定义.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">In function-like macros, a <code>#</code> operator before an identifier in the <span class="t-spar">replacement-list</span> runs the identifier through parameter replacement and encloses the result in quotes, effectively creating a string literal. In addition, the preprocessor adds backslahes to escape the quotes surrounding embedded string literals, if any, and doubles the backslashes within the string as necessary. All leading and trailing whitespace is removed, and any sequence of whitespace in the middle of the text (but not inside embedded string literals) is collapsed to a single space. This operation is called "stringification". If the result of stringification is not a valid string literal, the behavior is undefined.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">一个<code>##</code>运营商之间的任何两个连续的标识符在<span class="t-spar">replacement-list</span>运行参数替换两个标识符，然后连接结果。该操作被称为“级联”或“标记粘贴”。只有形成一个有效的令牌的令牌一起可能被粘贴，形成了长标识符：标识符，形成一个数字的，数字或运算符<code>+</code>和<code>=</code>，形成了<code>+=</code>。因为注释从文本在宏替换被认为是之前不会创建一个注释可以通过粘贴<code>/</code>和<code>*</code>。如果级联的结果是不是一个有效的令牌，该行为是未定义.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">A <code>##</code> operator between any two successive identifiers in the <span class="t-spar">replacement-list</span> runs parameter replacement on the two identifiers and then concatenates the result. This operation is called "concatenation" or "token pasting". Only tokens that form a valid token together may be pasted: identifiers that form a longer identifier, digits that form a number, or operators <code>+</code> and <code>=</code> that form a <code>+=</code>. A comment cannot be created by pasting <code>/</code> and <code>*</code> because comments are removed from text before macro substitution is considered. If the result of concatenation is not a valid token, the behavior is undefined.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection7" title="编辑章节：Ǌ指令">编辑</a>]</span> <span class="mw-headline" id=".c7.8a.e6.8c.87.e4.bb.a4_2.htm">Ǌ指令</span></h4>
+<div class="t-tr-text"><code>#undef</code>指令取消定义<span class="t-spar">identifier</span>，<span class="t-spar">identifier</span><code>#define</code>指令取消以前定义的。如果标识符不相关的宏，该指令被忽视<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The <code>#undef</code> directive undefines the <span class="t-spar">identifier</span>, that is cancels previous definition of the <span class="t-spar">identifier</span> by <code>#define</code> directive. If the identifier does not have associated macro, the directive is ignored.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection8" title="编辑章节：预定义宏">编辑</a>]</span> <span class="mw-headline" id=".e9.a2.84.e5.ae.9a.e4.b9.89.e5.ae.8f.htm">预定义宏</span></h3>
+<div class="t-tr-text">下面的宏的名称是任何翻译单元中预定义.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The following macro names are predefined in any translation unit.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__cplusplus</div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到价值199711L<span class="t-mark">（至 C++11）</span>或201103L<span class="t-mark">（C++11 起）</span><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to value 199711L<span class="t-mark">（至 C++11）</span> or 201103L<span class="t-mark">（C++11 起）</span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDC_HOSTED__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到整数常量<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>的执行，如果托管（下运行的OS），<span class="t-c"><span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span></span>独立（没有OS） <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to the integer constant <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span> if the implementation is hosted (runs under an OS), <span class="t-c"><span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span></span> if freestanding (runs without an OS) </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__FILE__</div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到当前文件的名称，作为一个字符串文字<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to the name of the current file, as a character string literal</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__LINE__</div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展的源文件中的行数，整数常量<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to the source file line number, an integer constant</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__DATE__</div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到翻译之日起，字符串文字“MMM DD YYYY”的形式。该月的名称是因为如果由<span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../chrono/c/asctime.htm"><span class="kw856">std::<span class="me2">asctime</span></span></a><span class="br0">&#40;</span><span class="br0">&#41;</span></span></span>生成<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to the date of translation, a character string literal of the form "Mmm dd yyyy". The name of the month is as if generated by <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../chrono/c/asctime.htm"><span class="kw856">std::<span class="me2">asctime</span></span></a><span class="br0">&#40;</span><span class="br0">&#41;</span></span></span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__TIME__</div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到翻译的时候，一个字符串文字的形式“HH：MM：SS”<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to the time of translation, a character string literal of the form "hh:mm:ss"</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+</table>
+<div class="t-tr-text">以下额外的宏的名称可能是预定义的实现.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The following additional macro names may be predefined by the implementations.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDC__</div></div>
+</td>
+<td>  <div class="t-tr-text"> 实现定义的值，如果存在的话<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> implementation-defined value, if present</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDC_VERSION__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 实现定义的值，如果存在的话<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> implementation-defined value, if present</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDC_ISO_10646__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到一个整数常量的形式<code>yyyymmL</code>，如果<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span></span>使用Unicode，日期显示的最新版本的Unicode支持<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to an integer constant of the form <code>yyyymmL</code>, if <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">wchar_t</span></span></span> uses Unicode, the date indicates the latest revision of Unicode supported</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDC_MB_MIGHT_NEQ_WC__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>广泛的基本字符集的字符编码​​可能不等于自己狭隘的编码<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span> if wide character encoding of the basic character set may not equal their narrow encoding</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDCPP_STRICT_POINTER_SAFETY__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>如果执行严格的<span class="t-lc">std::pointer_safety</span><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span> if the implementation has strict <span class="t-lc">std::pointer_safety</span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div>__STDCPP_THREADS__</div><div><span class="t-mark">（C++11）</span></div></div>
+</td>
+<td>  <div class="t-tr-text"> 扩展到<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span>如果该程序可以有一个以上的执行线程<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> expands to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="nu0">1</span></span></span> if the program can have more than one thread of execution</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span>
+</td></tr>
+
+</table>
+<div class="t-tr-text">这些宏的值（除<code>__FILE__</code>和<code>__LINE__</code>）保持不变，在整个​​翻译单元。试图重新定义或者取消这些宏的结果未定义的行为.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The values of these macros (except for <code>__FILE__</code> and <code>__LINE__</code>) remain constant throughout the translation unit. Attempts to redefine or undefine these macros result in undefined behavior.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">注：在每一个函数体的范围，有一个特殊的功能，本地的预定义变量名为<span class="t-c"><span class="mw-geshi cpp source-cpp">__func__</span></span><span class="t-mark">（C++11 起）</span>，定义为静态字符数组中的函数实现定义的格式的名称。这不是一个宏，但它一起使用<code>__FILE__</code>和<code>__LINE__</code>，如由<span class="t-lc">assert</span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Note: in the scope of every function body, there is a special function-local predefined variable named <span class="t-c"><span class="mw-geshi cpp source-cpp">__func__</span></span><span class="t-mark">（C++11 起）</span>, defined as a static character array holding the name of the function in implementation-defined format. It is not a preprocessor macro, but it is used together with <code>__FILE__</code> and <code>__LINE__</code>, e.g. by <span class="t-lc">assert</span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioneditsection9" title="编辑章节：示例">编辑</a>]</span> <span class="mw-headline" id=".e7.a4.ba.e4.be.8b.htm">示例</span></h3>
+<div class="t-example"><div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+&#160;
+<span class="co1">//make function factory and use it</span>
+<span class="co2">#define FUNCTION(name, a) int fun_##name() { return a;}</span>
+&#160;
+FUNCTION<span class="br0">&#40;</span>abcd, <span class="nu0">12</span><span class="br0">&#41;</span><span class="sy4">;</span>
+FUNCTION<span class="br0">&#40;</span>fff, <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy4">;</span>
+FUNCTION<span class="br0">&#40;</span>kkk, <span class="nu0">23</span><span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+<span class="co2">#undef FUNCTION</span>
+<span class="co2">#define FUNCTION 34</span>
+<span class="co2">#define OUTPUT(a) std::cout &lt;&lt; #a &lt;&lt; '\n'</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;abcd: &quot;</span> <span class="sy1">&lt;&lt;</span> fun_abcd<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;fff: &quot;</span> <span class="sy1">&lt;&lt;</span> fun_fff<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;kkk: &quot;</span> <span class="sy1">&lt;&lt;</span> fun_kkk<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> FUNCTION <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+    OUTPUT<span class="br0">&#40;</span>million<span class="br0">&#41;</span><span class="sy4">;</span>               <span class="co1">//note the lack of quotes</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>输出：
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">abcd: 12
+fff: 2
+kkk: 23
+34
+million</pre></div></div> 
+</div>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 4035/1000000
+Preprocessor generated node count: 9893/1000000
+Post‐expand include size: 240567/2097152 bytes
+Template argument size: 68737/2097152 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:753-0!*!0!!zh!2!zh!* and timestamp 20141027015949 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceoldid38397">http://zh.cppreference.com/mwiki/index.php?title=cpp/preprocessor/replace&amp;oldid=38397</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/cpp/preprocessor/replace.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/cpp/preprocessor.htm/replace" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceoldid38397" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../mwiki/index.phptitlecpp_2fpreprocessor_2freplaceactioninfo">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../de.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../en.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../es.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../fr.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../it.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../ja.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../pt.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../ru.cppreference.com/w/cpp/preprocessor/replace" title="cpp/preprocessor/replace" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2014年10月26日 (星期日) 18:59。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过1,902次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../www.mediawiki.org/default.htm"><img src="../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../qbnz.com/highlighter/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../www.tigertech.net/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 0.158 secs. -->
+	</body>
+<!-- Cached 20141027154732 -->
+</html>

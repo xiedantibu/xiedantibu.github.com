@@ -1,0 +1,1930 @@
+<!DOCTYPE html><!-- saved from url=(0061)http://zh.cppreference.com/w/cpp/language/operator_comparison --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>Comparison operators - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonactionedit" />
+<link rel="edit" title="编辑" href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonactionedit" />
+<link rel="shortcut icon" href="../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=cpp/language/operator_comparison&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/language/operator_comparison","wgTitle":"cpp/language/operator comparison","wgCurRevisionId":38225,"wgArticleId":2737,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Todo with reason"],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"cpp/language/operator_comparison","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_language_operator_comparison skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../mwiki/index~9925.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../mwiki/index~9926.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="operator_comparison.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../mwiki/index~9927.phpti"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonvariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="operator_comparison.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">Comparison operators</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../default.htm" title="cpp">cpp</a>&lrm; | <a href="default.htm" title="cpp/language">language</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../upload.cppreference.com/mwiki/images/3/31/imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../en.cppreference.com/w/cpp/language/operator_comparison" class="extiw" title="en:cpp/language/operator comparison"> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="cpp"> C++</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="default.htm" title="cpp/language">语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../concept/default.htm" title="cpp/concept">概念</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../utility/default.htm" title="cpp/utility">实用工具库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../string/default.htm" title="cpp/string">字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../container/default.htm" title="cpp/container">集装箱库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm/default.htm" title="cpp/algorithm">算法库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../iterator/default.htm" title="cpp/iterator">迭代器库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric/default.htm" title="cpp/numeric">Numerics库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../io/default.htm" title="cpp/io">输入/输出库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../locale/default.htm" title="cpp/locale">本地化库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../regex/default.htm" title="cpp/regex">正则表达式库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../atomic/default.htm" title="cpp/atomic">原子操作库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../thread/default.htm" title="cpp/thread">线程的支持库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3acpp_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="default.htm" title="cpp/language">C++语言</a><div class="t-navbar-menu"><div><div style="display:inline-block">
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 大会的主题<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> General topics</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../preprocessor/default.htm" title="cpp/preprocessor">预处理器</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../comment.htm" title="cpp/comments" class="mw-redirect">评论</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../keyword/default.htm" title="cpp/keyword">关键字</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="ascii.htm" title="cpp/language/ascii">ASCII表</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="escape.htm" title="cpp/language/escape">转义序列</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="history.htm" title="cpp/language/history">C + +的历史</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 流量控制<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Flow control</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 条件执行语句<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Conditional execution statements</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="if.htm" title="cpp/language/if"> <code>if</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="switch.htm" title="cpp/language/switch"> <code>switch</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 迭代语句<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Iteration statements</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="for.htm" title="cpp/language/for"> <code>for</code> loop</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="range-for.htm" title="cpp/language/range-for"> range-<code>for</code> loop</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="while.htm" title="cpp/language/while"> <code>while</code> loop</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="do.htm" title="cpp/language/do"> <code>do-while</code> loop</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 跳转语句 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Jump statements </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="continue.htm" title="cpp/language/continue"> <code>continue</code> statement</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="break.htm" title="cpp/language/break"> <code>break</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="goto.htm" title="cpp/language/goto"> <code>goto</code> statement</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="return.htm" title="cpp/language/return"> <code>return</code> statement</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 功能<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="function.htm" title="cpp/language/function">函数声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="lambda.htm" title="cpp/language/lambda">lambda函数的声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="function_template.htm" title="cpp/language/function template">函数模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="inline.htm" title="cpp/language/inline">的历史。内嵌说明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="except_spec.htm" title="cpp/language/except spec">异常规范</a> <span class="t-mark">（已弃用）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="noexcept_spec.htm" title="cpp/language/noexcept spec">noexcept说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 例外<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Exceptions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="throw.htm" title="cpp/language/throw">扔表达</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="try_catch.htm" title="cpp/language/try catch">try-catch块</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 命名空间<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Namespaces</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="namespace.htm" title="cpp/language/namespace">命名空间声明</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="namespace_alias.htm" title="cpp/language/namespace alias">命名空间的别名</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类型<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="types.htm" title="cpp/language/types">基本类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="class.htm" title="cpp/language/class">复合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="enum.htm" title="cpp/language/enum">枚举类型</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="union.htm" title="cpp/language/union">联合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="function.htm" title="cpp/language/function">函数类型</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="decltype.htm" title="cpp/language/decltype"> <code>decltype</code> specifier</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 规范<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Specifiers</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="cv.htm" title="cpp/language/cv">CV符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="storage_duration.htm" title="cpp/language/storage duration">存储时间说明符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="constexpr.htm" title="cpp/language/constexpr">constexpr说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="auto.htm" title="cpp/language/auto">汽车符</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="alignas.htm" title="cpp/language/alignas">alignas说明</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 初始化<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Initialization</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="default_initialization.htm" title="cpp/language/default initialization">默认的初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="value_initialization.htm" title="cpp/language/value initialization">值初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="zero_initialization.htm" title="cpp/language/zero initialization">零初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="copy_initialization.htm" title="cpp/language/copy initialization">复制初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="direct_initialization.htm" title="cpp/language/direct initialization">直接初始化</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="aggregate_initialization.htm" title="cpp/language/aggregate initialization">集合初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="list_initialization.htm" title="cpp/language/list initialization">表初始化</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="constant_initialization.htm" title="cpp/language/constant initialization">常数初始化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="reference_initialization.htm" title="cpp/language/reference initialization">参考电压的初始化</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+</table>
+</div>
+</div>
+<div style="display:inline-block">
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 常<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Literals</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="integer_literal.htm" title="cpp/language/integer literal">整数文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="character_literal.htm" title="cpp/language/character literal">字符文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="floating_literal.htm" title="cpp/language/floating literal">浮点文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="string_literal.htm" title="cpp/language/string literal">字符串文字</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="bool_literal.htm" title="cpp/language/bool literal">布尔文字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="nullptr.htm" title="cpp/language/nullptr">nullptr</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="user_literal.htm" title="cpp/language/user literal">用户定义的</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 表达式<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Expressions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="value_category.htm" title="cpp/language/value category">价值类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="eval_order.htm" title="cpp/language/eval order">为了评价</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="operators.htm" title="cpp/language/operators">运营商</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="operator_precedence.htm" title="cpp/language/operator precedence">运算符的优先级</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="operator_alternative.htm" title="cpp/language/operator alternative">另一种表示形式</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 实用工具<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Utilities</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 类型<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="typedef.htm" title="cpp/language/typedef"> <code>typedef</code> declaration</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="type_alias.htm" title="cpp/language/type alias">声明类型别名</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="attributes.htm" title="cpp/language/attributes">属性</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 施放<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Casts</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="implicit_cast.htm" title="cpp/language/implicit cast">隐式转换</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="const_cast.htm" title="cpp/language/const cast"> <code>const_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="static_cast.htm" title="cpp/language/static cast"> <code>static_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="dynamic_cast.htm" title="cpp/language/dynamic cast"> <code>dynamic_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="reinterpret_cast.htm" title="cpp/language/reinterpret cast"> <code>reinterpret_cast</code> conversion</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="explicit_cast.htm" title="cpp/language/explicit cast">C-风格和功能转换</a>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 内存分配<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Memory allocation</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="new.htm" title="cpp/language/new"> <code>new</code> expression</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="delete" title="cpp/language/delete"> <code>delete</code> expression</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Classes</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="class.htm" title="cpp/language/class">类的声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="this.htm" title="cpp/language/this"> <code>this</code> pointer</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="access.htm" title="cpp/language/access">访问符</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="friend.htm" title="cpp/language/friend">朋友说明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="initializer_list.htm" title="cpp/language/initializer list">初始化列表</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 类特定的功能特性<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Class-specific function properties</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="virtual.htm" title="cpp/language/virtual">虚函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="override.htm" title="cpp/language/override">覆盖说明</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="final.htm" title="cpp/language/final">最后说明</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="explicit.htm" title="cpp/language/explicit">明确的</a>  <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="static.htm" title="cpp/language/static">静态的</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 特殊的成员函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Special member functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="default_constructor.htm" title="cpp/language/default constructor">默认构造函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="copy_constructor.htm" title="cpp/language/copy constructor">拷贝构造函数</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="move_constructor.htm" title="cpp/language/move constructor">移动的构造函数</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="as_operator.htm" title="cpp/language/as operator">复制的任务</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="move_operator.htm" title="cpp/language/move operator">移动分配</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="destructor.htm" title="cpp/language/destructor">析构函数</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text">模板 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Templates </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="class_template.htm" title="cpp/language/class template">类模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="function_template.htm" title="cpp/language/function template">函数模板</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="template_specialization.htm" title="cpp/language/template specialization">模板特化</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="parameter_pack.htm" title="cpp/language/parameter pack">参数包</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 杂项 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Miscellaneous </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="asm.htm" title="cpp/language/asm">内联汇编</a>
+</td></tr>
+</table>
+</div>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2531.phpti">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<div class="t-tr-text">比较的参数.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Compares the arguments.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="wikitable" style="font-size:85%;">
+
+<tr>
+<th rowspan="2"> Operator name
+</th>
+<th rowspan="2"> Syntax
+</th>
+<th rowspan="2"> Over&#8203;load&#8203;able
+</th>
+<th colspan="2"> Prototype examples (for <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">class</span> T</span></span>)
+</th></tr>
+<tr>
+<th> Inside class definition
+</th>
+<th> Outside class definition
+</th></tr>
+<tr>
+<td> equal to
+</td>
+<td> <code>a == b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy1">==</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy1">==</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td> not equal to
+</td>
+<td> <code>a&#160;!= b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td> less than
+</td>
+<td> <code>a &lt; b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy1">&lt;</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy1">&lt;</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td> greater than
+</td>
+<td> <code>a &gt; b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy1">&gt;</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy1">&gt;</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td> less than or equal to
+</td>
+<td> <code>a &lt;= b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy1">&lt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy1">&lt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td> greater than or equal to
+</td>
+<td> <code>a &gt;= b</code>
+</td>
+<td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">Yes
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> T<span class="sy4">::</span><span class="me2">operator</span> <span class="sy1">&gt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span> <span class="kw4">const</span><span class="sy4">;</span></span></span>
+</td>
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator <span class="sy1">&gt;=</span><span class="br0">&#40;</span><span class="kw4">const</span> T <span class="sy3">&amp;</span>a, <span class="kw4">const</span> T2 <span class="sy3">&amp;</span>b<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</td></tr>
+<tr>
+<td colspan="5">
+<dl><dd><div class="t-tr-text"><b>注意</b><br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><b>Notes</b><br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</dd></dl>
+<ul><li> <div class="t-tr-text">所有内置在运营商返回<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span>，而大多数用户定义的重载也返回<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span>中相同的方式的内置插件，以便可以使用用户定义的运算。然而，在一个用户定义的操作符重载，任何类型都可以被用作返回类型（包括<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span>）.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">All built-in operators return <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span>, and most user-defined overloads also return <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span></span></span> so that the user-defined operators can be used in the same manner as the built-ins. However, in a user-defined operator overload, any type can be used as return type (including <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span>).</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text"><code>T2</code>可以是任何类型，包括<code>T</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><code>T2</code> can be any type including <code>T</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+</td></tr></table>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E8.A7.A3.E9.87.8A"><span class="tocnumber">1</span> <span class="toctext">解释</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#.E7.AE.97.E6.9C.AF.E6.AF.94.E8.BE.83.E6.93.8D.E4.BD.9C.E7.AC.A6"><span class="tocnumber">1.1</span> <span class="toctext">算术比较操作符</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#.E7.A4.BA.E4.BE.8B"><span class="tocnumber">2</span> <span class="toctext">示例</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#.E6.8C.87.E9.92.88.E7.9A.84.E6.AF.94.E8.BE.83.E6.93.8D.E4.BD.9C.E7.AC.A6"><span class="tocnumber">2.1</span> <span class="toctext">指针的比较操作符</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#.E7.A4.BA.E4.BE.8B_2"><span class="tocnumber">3</span> <span class="toctext">示例</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.E6.B3.A8.E9.87.8A"><span class="tocnumber">4</span> <span class="toctext">注释</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#.E6.A0.87.E5.87.86.E5.BA.93"><span class="tocnumber">5</span> <span class="toctext">标准库</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#.E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85"><span class="tocnumber">6</span> <span class="toctext">另请参阅</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9928.phpti" title="编辑章节：解释">编辑</a>]</span> <span class="mw-headline" id=".e8.a7.a3.e9.87.8a.htm">解释</span></h3>
+<div class="t-tr-text">返回布尔结果的参数，这些参数不被修改的值​​的比较.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Returns the boolean result of comparison of the values of the arguments, which are not modified.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index~9929.phpti" title="编辑章节：算术比较操作符">编辑</a>]</span> <span class="mw-headline" id=".e7.ae.97.e6.9c.af.e6.af.94.e8.be.83.e6.93.8d.e4.bd.9~1.htm">算术比较操作符</span></h4>
+<div class="t-tr-text">对于每一个对促进算术类型<code>L</code><code>R</code>，包括枚举类型，下面的函数签名参与重载决议<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">For every pair of promoted arithmetic types <code>L</code> and <code>R</code>, including enumeration types, the following function signatures participate in overload resolution:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&lt;</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&gt;</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&lt;=</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&gt;=</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span>L, R<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text">如果操作数进行算术或枚举类型（范围或无作用域），“通常的算术转换”<a href="operator_arithmetic.htm" title="cpp/language/operator arithmetic">算术运算符</a>的规则。值进行比较后的转换<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If the operands has arithmetic or enumeration type (scoped or unscoped), <i>usual arithmetic conversions</i> are performed following the rules for <a href="operator_arithmetic.htm" title="cpp/language/operator arithmetic">算术运算符</a>. The values are compared after conversions:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9930.phpti" title="编辑章节：示例">编辑</a>]</span> <span class="mw-headline" id=".e7.a4.ba.e4.be.8b.htm">示例</span></h3>
+<div class="t-example"><div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="../io/manip/boolalpha"><span class="kw1430">std::<span class="me2">boolalpha</span></span></a><span class="sy4">;</span>
+    <span class="kw4">int</span> n <span class="sy1">=</span> <span class="sy2">-</span><span class="nu0">1</span><span class="sy4">;</span>
+&#160;
+    <span class="kw4">int</span> n2 <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1 == 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">==</span> n2<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Comparing two signed values:<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &lt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&lt;</span> n2<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &gt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&gt;</span> n2<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&#160;
+    <span class="kw4">unsigned</span> <span class="kw4">int</span> u <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Comparing signed and unsigned:<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &lt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&lt;</span> u<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &gt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&gt;</span> u<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&#160;
+    <span class="kw4">unsigned</span> <span class="kw4">char</span> uc <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Comparing signed and smaller unsigned:<span class="es1">\n</span>&quot;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &lt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&lt;</span> uc<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot; -1  &gt; 1? &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>n <span class="sy1">&gt;</span> uc<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>输出：
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">-1 == 1? false
+Comparing two signed values:
+ -1  &lt; 1? true
+ -1  &gt; 1? false
+Comparing signed and unsigned:
+ -1  &lt; 1? false
+ -1  &gt; 1? true
+Comparing signed and smaller unsigned:
+ -1  &lt; 1? true
+ -1  &gt; 1? false</pre></div></div> 
+</div>
+<h4><span class="editsection">[<a href="../../../mwiki/index~9931.phpti" title="编辑章节：指针的比较操作符">编辑</a>]</span> <span class="mw-headline" id=".e6.8c.87.e9.92.88.e7.9a.84.e6.af.94.e8.be.83.e6.93.8~1.htm">指针的比较操作符</span></h4>
+<div class="t-tr-text"><code>P</code>要么是指向对象或指针到函数或<span class="t-lc">std::nullptr_t</span>每一种类型，每一种类型的<code>MP</code>这是一个成员对象或成员函数的指针的指针，下面的函数签名参与重载解析<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">For every type <code>P</code> which is either pointer to object or pointer to function or <span class="t-lc">std::nullptr_t</span>, and for every type <code>MP</code> that is a pointer to member object or pointer to member function, the following function signatures participate in overload resolution:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&lt;</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&gt;</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&lt;=</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">&gt;=</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span>P, P<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">&#40;</span>MP, MP<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">bool</span> operator<span class="sy3">!</span><span class="sy1">=</span><span class="br0">&#40;</span>MP, MP<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text">比较操作符可以用来比较两个指针（指针成员，<span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">==</span></span></span>和<span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy3">!</span><span class="sy1">=</span></span></span>只），或一个指针和一个空指针常量或两个空指针常量（但只要其中至少有一个是<span class="t-lc">std::nullptr_t</span>：NULL与NULL的比较如下算术比较规则）。 <a href="implicit_cast.htm" title="cpp/language/implicit cast">指针转换</a>（成员转换的指​​针，如果参数是指向成员的指针）和<a href="implicit_cast.htm" title="cpp/language/implicit cast">资格转换</a>适用于两个操作数，以获​​得“复合指针类型”，如下所示<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Comparison operators can be used to compare two pointers (or pointers-to-members, for <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">==</span></span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy3">!</span><span class="sy1">=</span></span></span> only), or a pointer and a null pointer constant, or two null pointer constants (but only as long as at least one of them is <span class="t-lc">std::nullptr_t</span>: comparison of NULL and NULL follows arithmetic comparison rules). <a href="implicit_cast.htm" title="cpp/language/implicit cast">指针转换</a> (pointer to member conversions if the arguments are pointers to members) and <a href="implicit_cast.htm" title="cpp/language/implicit cast">资格转换</a> are applied to both operands to obtain the <i>composite pointer type</i>, as follows</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-li1"><span class="t-li">1)</span> <div class="t-tr-text">如果两个操作数都为空指针常量，指针类型的复合<span class="t-lc">std::nullptr_t</span><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If both operands are null pointer constants, the composite pointer type is <span class="t-lc">std::nullptr_t</span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">2)</span> <div class="t-tr-text">一个空指针常量和其他如果一个操作数是一个指针，是完全的复合型指针类型<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If one operand a null pointer constant and the other is a pointer, the composite type is exactly the pointer type</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">3)</span> <div class="t-tr-text">如果两个操作数的指针同类型，同不同的CV资格，复合材料是指向相同类型的CV资格，这是一个工会的简历资格的论据.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If both operands are pointers to the same type, with different cv-qualification, the composite is pointer to the same type with cv-qualification that is a union of the cv-qualifications of the arguments.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">请注意，这意味着任何指针，可与<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span><span class="sy2">*</span></span></span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Note that this implies that any pointer can be compared with <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span><span class="sy2">*</span></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-tr-text">比较两个指针（转换）后的结果如下决定：1<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Results of comparing two pointers (after conversions) are determined as follows:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-li1"><span class="t-li">1)</span> <div class="t-tr-text">如果指针<code>p</code><code>q</code> <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If the pointers <code>p</code> and <code>q</code> </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li2"><span class="t-li">a)</span> <div class="t-tr-text">指向同一对象或函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">point to the same object or function</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li2"><span class="t-li">b)</span> <div class="t-tr-text">或指向同一数组的一个过去<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">or point one past the end of the same array</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li2"><span class="t-li">c)</span> <div class="t-tr-text">或都空指针<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">or are both null pointers</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">然后指针“比较平等”：<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">==</span>q</span></span>，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;=</span>q</span></span>，和<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;=</span>q</span></span>回报<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>，而<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span>，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;</span>q</span></span>，和<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;</span>q</span></span>回报<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">then the pointers <i>compare equal</i>: <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">==</span>q</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;=</span>q</span></span>, and <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;=</span>q</span></span> return <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>, while <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;</span>q</span></span>, and <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;</span>q</span></span> return <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>,</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">2)</span> <div class="t-tr-text">如果一个操作数是一个空指针，另一种是不，他们比较不平等的：<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">==</span>q</span></span>回报<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span>回报<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>，其他运营商的行为是不确定的.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If one of the operands is a null pointer and the other is not, they compare unequal: <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">==</span>q</span></span> returns <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span> returns <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>, the behavior of other operators is unspecified.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">3)</span> <div class="t-tr-text">如果指针<code>p</code>和<code>q</code>指向相同的数组成员的<span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#91;</span>i<span class="br0">&#93;</span></span></span><span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#91;</span>j<span class="br0">&#93;</span></span></span>或一个过去的数组，他们的结果比较指针作为比较指标的结果是一样的：如果<span class="t-c"><span class="mw-geshi cpp source-cpp">i<span class="sy1">&lt;</span>j<span class="sy1">==</span><span class="kw2">true</span></span></span>然后<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#123;</span><span class="br0">&#123;</span><span class="br0">&#123;</span><span class="nu0">1</span><span class="br0">&#125;</span><span class="br0">&#125;</span><span class="br0">&#125;</span></span></span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If the pointers <code>p</code> and <code>q</code> point to members of the same array <span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#91;</span>i<span class="br0">&#93;</span></span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#91;</span>j<span class="br0">&#93;</span></span></span> or one past the end of the array, they results of comparing the pointers is the same as the result of comparing the indexes: if <span class="t-c"><span class="mw-geshi cpp source-cpp">i<span class="sy1">&lt;</span>j<span class="sy1">==</span><span class="kw2">true</span></span></span> then <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#123;</span><span class="br0">&#123;</span><span class="br0">&#123;</span><span class="nu0">1</span><span class="br0">&#125;</span><span class="br0">&#125;</span><span class="br0">&#125;</span></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">4)</span> <div class="t-tr-text">如果指针<code>p</code>和<code>q</code>点在同一类或不同的基子对象在同一个派生类中，其成员或子对象的非静态数据成员，递归的，如果指向的成员/子对象有相同的访问控制和类（如都<code>public:</code>），是一个联盟，然后比较大于早先宣布的子对象/成员指针的指针后宣布的子对象/会员。换句话说，类成员的三种接入方式中声明的顺序在内存中的位置.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If the pointers <code>p</code> and <code>q</code> point to non-static data members within the same class or different base subobjects within the same derived class, or to their members or subobjects, recursively, and if the pointed-to members/subobjects have the same access control (e.g. both <code>public:</code>), and the class is not a union, then the pointer to the later declared subobject/member compares greater than the pointer to the earlier declared subobject/member. In other words, class members in each of the three access  modes are positioned in memory in order of declaration.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">6)</span> <div class="t-tr-text">如果指针<code>p</code>和<code>q</code>点相同<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">union</span></span></span>的成员，他们比较是相等的（通常是显式转换为<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span><span class="sy2">*</span></span></span>需要一个操作数）<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If the pointers <code>p</code> and <code>q</code> point to members of the same <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">union</span></span></span>, they compare equal (typically an explicit conversion to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span><span class="sy2">*</span></span></span> is required for one of the operands)</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">7)</span> <div class="t-tr-text">如果<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span>和两个指针指向同一个地址指针或空指针的指针之一是，他们比较相等<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If one of the pointers is a pointer to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span></span> and both pointers point to the same address or are both null pointers, they compare equal.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">8)</span> <div class="t-tr-text">如果两个空指针常量相比，他们比较相等<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If two null pointer constants are compared, they compare equal.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">9)</span> <div class="t-tr-text">如果两个操作数的指针成员（对象或函数），他们比较平等的，如果它们都指向最派生类成员相同.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If both operands are pointers to member (object or function), they compare equal if they both point to the same member of the most derived class.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">10)</span> <div class="t-tr-text">否则（如果指针指向不同的数组中的对象或不同的功能，或某些对象的成员具有不同的访问控制等），结果<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;</span>q</span></span>，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;</span>q</span></span>，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;=</span>q</span></span>，并<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;=</span>q</span></span>是不确定的，<span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span>回报<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>。<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Otherwise (if the pointers point to objects in different arrays, or to different functions, or to members of some object with different access control, etc), the results of <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;</span>q</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;</span>q</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&lt;=</span>q</span></span>, and <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy1">&gt;=</span>q</span></span> are unspecified, and <span class="t-c"><span class="mw-geshi cpp source-cpp">p<span class="sy3">!</span><span class="sy1">=</span>q</span></span> returns <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9932.phpti" title="编辑章节：示例">编辑</a>]</span> <span class="mw-headline" id=".e7.a4.ba.e4.be.8b_2.htm">示例</span></h3>
+<div class="t-example"><div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;iostream&gt;</span>
+<span class="kw1">struct</span> Foo  <span class="br0">&#123;</span> <span class="kw4">int</span> n1<span class="sy4">;</span> <span class="kw4">int</span> n2<span class="sy4">;</span> <span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="kw1">union</span> Union <span class="br0">&#123;</span> <span class="kw4">int</span> n<span class="sy4">;</span> <span class="kw4">double</span> d<span class="sy4">;</span> <span class="br0">&#125;</span><span class="sy4">;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <a href="../io/manip/boolalpha"><span class="kw1430">std::<span class="me2">boolalpha</span></span></a><span class="sy4">;</span>
+&#160;
+    <span class="kw4">char</span> a<span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span> <span class="sy1">=</span> <span class="st0">&quot;abc&quot;</span><span class="sy4">;</span>
+&#160;
+    <span class="kw4">char</span><span class="sy2">*</span> p1 <span class="sy1">=</span> <span class="sy3">&amp;</span>a<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy4">;</span>
+    <span class="kw4">char</span><span class="sy2">*</span> p2 <span class="sy1">=</span> <span class="sy3">&amp;</span>a<span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Pointers to array elements: p1 == p2 &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p1 <span class="sy1">==</span> p2<span class="br0">&#41;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, p1 &lt; p2 &quot;</span>  <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p1 <span class="sy1">&lt;</span> p2<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&#160;
+    Foo f<span class="sy4">;</span>
+    <span class="kw4">int</span><span class="sy2">*</span> p3 <span class="sy1">=</span> <span class="sy3">&amp;</span>f.<span class="me1">n1</span><span class="sy4">;</span>
+    <span class="kw4">int</span><span class="sy2">*</span> p4 <span class="sy1">=</span> <span class="sy3">&amp;</span>f.<span class="me1">n2</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Pointers to members of a class: p3 == p4 &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p3 <span class="sy1">==</span> p4<span class="br0">&#41;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, p3 &lt; p4 &quot;</span>  <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p3 <span class="sy1">&lt;</span> p4<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+&#160;
+    Union u<span class="sy4">;</span>
+    <span class="kw4">int</span><span class="sy2">*</span> p5 <span class="sy1">=</span> <span class="sy3">&amp;</span>u.<span class="me1">n</span><span class="sy4">;</span>
+    <span class="kw4">double</span><span class="sy2">*</span> p6 <span class="sy1">=</span> <span class="sy3">&amp;</span>u.<span class="me1">d</span><span class="sy4">;</span>
+    <a href="../io/basic_ostream/default.htm"><span class="kw1424">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;Pointers to members of a union: p5 == (void*)p6 &quot;</span> <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p5 <span class="sy1">==</span> <span class="br0">&#40;</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">&#41;</span>p6<span class="br0">&#41;</span>
+              <span class="sy1">&lt;&lt;</span> <span class="st0">&quot;, p5 &lt; p6 &quot;</span>  <span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>p5 <span class="sy1">&lt;</span> <span class="br0">&#40;</span><span class="kw4">void</span><span class="sy2">*</span><span class="br0">&#41;</span>p6<span class="br0">&#41;</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>输出：
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Pointers to array elements: p1 == p2 false, p1 &lt; p2 true
+Pointers to members of a class: p3 == p4 false, p3 &lt; p4 true
+Pointers to members of a union: p5 == (void*)p6 true, p5 &lt; p6 false</pre></div></div> 
+</div>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9933.phpti" title="编辑章节：注释">编辑</a>]</span> <span class="mw-headline" id=".e6.b3.a8.e9.87.8a.htm">注释</span></h3>
+<div class="t-tr-text">因为这些操作员组左到右，表达<span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="sy1">&lt;</span>b<span class="sy1">&lt;</span>c</span></span>解析<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#40;</span>a<span class="sy1">&lt;</span>b<span class="br0">&#41;</span><span class="sy1">&lt;</span>c</span></span>，而不是<span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="sy1">&lt;</span><span class="br0">&#40;</span>b<span class="sy1">&lt;</span>c<span class="br0">&#41;</span></span></span>或<span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#40;</span>a<span class="sy1">&lt;</span>b<span class="br0">&#41;</span><span class="sy3">&amp;&amp;</span><span class="br0">&#40;</span>b<span class="sy1">&lt;</span>c<span class="br0">&#41;</span></span></span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Because these operators group left-to-right, the expression <span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="sy1">&lt;</span>b<span class="sy1">&lt;</span>c</span></span> is parsed <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#40;</span>a<span class="sy1">&lt;</span>b<span class="br0">&#41;</span><span class="sy1">&lt;</span>c</span></span>, and not <span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="sy1">&lt;</span><span class="br0">&#40;</span>b<span class="sy1">&lt;</span>c<span class="br0">&#41;</span></span></span> or <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="br0">&#40;</span>a<span class="sy1">&lt;</span>b<span class="br0">&#41;</span><span class="sy3">&amp;&amp;</span><span class="br0">&#40;</span>b<span class="sy1">&lt;</span>c<span class="br0">&#41;</span></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">用户定义的一个普遍要求，<code>operator&lt;</code>是<a href="../../../../en.wikipedia.com/wiki/strict_weak_ordering" class="extiw" title="enwiki:Strict weak ordering">严格弱序</a>。尤其是，这是必需的标准算法和容器与<a href="../concept/lessthancomparable.htm" title="cpp/concept/LessThanComparable"><code>LessThanComparable</code></a>类型：<span class="t-lc">std::sort</span>，<span class="t-lc">std::max_element</span>，<span class="t-lc">std::map</span>等<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">A common requirement for user-defined <code>operator&lt;</code> is <a href="../../../../en.wikipedia.com/wiki/strict_weak_ordering" class="extiw" title="enwiki:Strict weak ordering">严格弱序</a>. In particular, this is required by the standard algorithms and containers that work with <a href="../concept/lessthancomparable.htm" title="cpp/concept/LessThanComparable"><code>LessThanComparable</code></a> types: <span class="t-lc">std::sort</span>, <span class="t-lc">std::max_element</span>, <span class="t-lc">std::map</span>, etc.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">虽然随机起源的指针（如不都指向同一个数组的成员）比较的结果是不确定的，许多实现提供了<a href="../../../../en.wikipedia.com/wiki/total_order#Strict_total_order" class="extiw" title="enwiki:Total order">严格全序</a>的指针，例如：如果它们实现为连续的虚拟地址空间内的地址。这些实现不（例如，如果不是所有位的指针是一个存储器地址的一部分，并具有用于比较被忽略，或者需要额外的计算或其他指针和不是一个整数是1对1的关系），提供一个专业化的指针<span class="t-lc">std::less</span>，保证。这使得它可以使用标准关联容器，如键的所有指针的随机起源<span class="t-lc">std::set</span>或<span class="t-lc">std::map</span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Although the results of comparing pointers of random origin (e.g. not all pointing to members of the same array) is unspecified, many implementations provide <a href="../../../../en.wikipedia.com/wiki/total_order#Strict_total_order" class="extiw" title="enwiki:Total order">严格全序</a> of pointers, e.g. if they are implemented as addresses within continuous virtual address space. Those implementations that do not (e.g. where not all bits of the pointer are part of a memory address and have to be ignored for comparison, or an additional calculation is required or otherwise pointer and integer is not a 1 to 1 relationship), provide a specialization of <span class="t-lc">std::less</span> for pointers that has that guarantee. This makes it possible to use all pointers of random origin as keys in standard associative containers such as <span class="t-lc">std::set</span> or <span class="t-lc">std::map</span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr><td class="mbox-empty-cell"></td><td class="mbox-text" style="">本章尚未完成<br />原因：equivalence vs. equality </td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9934.phpti" title="编辑章节：标准库">编辑</a>]</span> <span class="mw-headline" id=".E6.A0.87.E5.87.86.E5.BA.93">标准库</span></h3>
+<div class="t-tr-text">比较运算符重载，多类标准库中的.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Comparison operators are overloaded for many classes in the standard library.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../types/type_info/operator_cmp" title="cpp/types/type info/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>   checks whether the objects refer to the same type  <br /> <span class="t-mark">（公共成员函数of <code>std::type_info</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9935.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../error/error_code/operator_cmp.htm" title="cpp/error/error code/operator cmp"> operator==<br />operator!=<br />operator&lt;</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2<code>error_code</code>s<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two <code>error_code</code>s</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~7325.phpti" class="new" title="cpp/error/error condition/operator cmp（页面不存在）"> operator==<br />operator!=<br />operator&lt;</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较error_conditions和error_codes<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares error_conditions and error_codes</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../utility/pair/operator_cmp.htm" title="cpp/utility/pair/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>   根据字典顺序比较pair中的值  <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9936.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../utility/tuple/operator_cmp" title="cpp/utility/tuple/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>   根据字典顺序比较元组中的值  <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9937.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../utility/bitset/operator_cmp.htm" title="cpp/utility/bitset/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 的内容进行比较<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the contents</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::bitset</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9938.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../memory/allocator/operator_cmp.htm" title="cpp/memory/allocator/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text">比较两个分配器的实例<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">compares two allocator instances</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::allocator</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9939.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../memory/unique_ptr/operator_cmp.htm" title="cpp/memory/unique ptr/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 另一个<code>unique_ptr</code>比较或与<span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span> <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares to another <code>unique_ptr</code> or with <span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span> </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9940.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../memory/shared_ptr/operator_cmp.htm" title="cpp/memory/shared ptr/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 与另一个<code>shared_ptr</code>或<span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span> <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares with another <code>shared_ptr</code> or with <span class="t-c"><span class="mw-geshi cpp source-cpp">nullptr</span></span> </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9941.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../utility/functional/function/operator_cmp.htm" title="cpp/utility/functional/function/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较<span class="t-lc">std::function</span><span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">nullptr</span></span></span><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares an <span class="t-lc">std::function</span> with <span class="t-c"><span class="mw-geshi cpp source-cpp">std<span class="sy4">::</span><span class="me2">nullptr</span></span></span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../chrono/duration/operator_cmp.htm" title="cpp/chrono/duration/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个持续时间<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two durations</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~2449.phpti" class="new" title="cpp/chrono/time point/operator cmp（页面不存在）"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个时间点<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two time points</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../memory/scoped_allocator_adaptor/operator_cmp.htm" title="cpp/memory/scoped allocator adaptor/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text">比较两个scoped_allocator_adaptor情况<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">compares two scoped_allocator_adaptor instances</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::scoped_allocator_adaptor</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9942.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../types/type_index/operator_cmp.htm" title="cpp/types/type index/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较基础<span class="t-lc">std::type_info</span>对象<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the underlying <span class="t-lc">std::type_info</span> objects</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::type_index</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9943.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../string/basic_string/operator_cmp.htm" title="cpp/string/basic string/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&gt;<br />operator&lt;=<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 按字典顺序比较两个字符串 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares two strings </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9944.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../locale/locale/operator_cmp.htm" title="cpp/locale/locale/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 平等Locale对象之间的比较 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> equality comparison between locale objects </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::locale</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9945.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/array/operator_cmp.htm" title="cpp/container/array/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的array中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the array </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/deque/operator_cmp.htm" title="cpp/container/deque/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的deque中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the deque </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/forward_list/operator_cmp.htm" title="cpp/container/forward list/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的forward_list中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the forward_list </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/list/operator_cmp.htm" title="cpp/container/list/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的list中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the list </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/vector/operator_cmp.htm" title="cpp/container/vector/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的vector中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the vector </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/map/operator_cmp.htm" title="cpp/container/map/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的map中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the map </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/multimap/operator_cmp.htm" title="cpp/container/multimap/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的multimap中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the multimap </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/set/operator_cmp.htm" title="cpp/container/set/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的set中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the set </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/multiset/operator_cmp.htm" title="cpp/container/multiset/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的multiset中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the multiset </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/unordered_map/operator_cmp.htm" title="cpp/container/unordered map/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较在unordered_map值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the values in the unordered_map </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~4935.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/unordered_multimap/operator_cmp.htm" title="cpp/container/unordered multimap/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较在unordered_multimap值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the values in the unordered_multimap </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~4935.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/unordered_set/operator_cmp.htm" title="cpp/container/unordered set/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较在unordered_set值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the values in the unordered_set </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~4935.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/unordered_multiset/operator_cmp.htm" title="cpp/container/unordered multiset/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较在unordered_multiset值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the values in the unordered_multiset </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~4935.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/queue/operator_cmp.htm" title="cpp/container/queue/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的queue中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the queue </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/stack/operator_cmp.htm" title="cpp/container/stack/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 根据字典顺序比较的stack中的值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the stack </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~2738.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../iterator/reverse_iterator/operator_cmp.htm" title="cpp/iterator/reverse iterator/operator eq" class="mw-redirect"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个reverse_iterators的平等 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two reverse_iterators for equality </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../iterator/reverse_iterator/operator_cmp.htm" title="cpp/iterator/reverse iterator/operator cmp"> operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 订单reverse_iterators<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> orders reverse_iterators</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../iterator/move_iterator/operator_cmp.htm" title="cpp/iterator/move iterator/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2<code>move_iterator</code>s <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two <code>move_iterator</code>s </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9253.phpti" class="new" title="cpp/iterator/istream iterator/operator eq（页面不存在）"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2 istream_iterators <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two istream_iterators </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9267.phpti" class="new" title="cpp/iterator/istreambuf iterator/operator eq（页面不存在）"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2 istreambuf_iterators <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two istreambuf_iterators </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9946.phpti" class="new" title="cpp/numeric/complex/operator cmp（页面不存在）"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个复数或一个复杂和一个标量 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two complex numbers or a complex and a scalar </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9947.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../numeric/valarray/operator_cmp.htm" title="cpp/numeric/valarray/operator cmp"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=<br /></a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个valarrays或valarray的一个值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two valarrays or a valarray with a value </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9948.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../numeric/random/linear_congruential_engine/operator_cmp.htm" title="cpp/numeric/random/linear congruential engine/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个伪随机数引擎的内部状态的 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares the internal states of two pseudo-random number engines </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9949.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../numeric/random/poisson_distribution/operator_cmp" title="cpp/numeric/random/poisson distribution/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text">  比较两个分布对象 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">  compares two distribution objects </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9950.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9951.phpti" class="new" title="cpp/regex/sub match/operator cmp（页面不存在）"> operator==<br />operator!=<br />operator&lt;<br />operator&lt;=<br />operator&gt;<br />operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 字典在容器中的值进行比较 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the container </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9952.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../regex/match_results/operator_cmp.htm" title="cpp/regex/match results/operator cmp"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 字典的值进行比较，在这两个比赛的结果 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> lexicographically compares the values in the two match result </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9953.phpti" class="new" title="cpp/regex/regex iterator/operator cmp（页面不存在）"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2<code>regex_iterator</code>s <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two <code>regex_iterator</code>s </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../../../mwiki/index~9954.phpti" class="new" title="cpp/regex/regex token iterator/operator cmp（页面不存在）"> operator==<br />operator!=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较2<code>regex_token_iterator</code>s <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two <code>regex_token_iterator</code>s </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数模板）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../thread/thread/id/operator_cmp.htm" title="cpp/thread/thread/id/operator cmp"> operator==<br />operator!=<br />operator&lt; <br /> operator&lt;= <br /> operator&gt; <br /> operator&gt;=</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 比较两个<code>thread::id</code>对象<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> compares two <code>thread::id</code> objects</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（函数）</span>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../utility/rel_ops/operator_cmp.htm" title="cpp/utility/rel ops/operator cmp"> operator!=<br />operator&gt;<br />operator&lt;=<br />operator&gt;=</a></div></div>
+</td>
+<td>   automatically generates comparison operators based on user-defined <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">==</span></span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">operator<span class="sy1">&lt;</span></span></span>  <br /> <span class="t-mark">（函数模板）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~9955.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+<h3><span class="editsection">[<a href="../../../mwiki/index~9956.phpti" title="编辑章节：另请参阅">编辑</a>]</span> <span class="mw-headline" id=".E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85">另请参阅</span></h3>
+<p><a href="operator_precedence.htm" title="cpp/language/operator precedence">运算符优先级</a>
+</p>
+<table class="wikitable">
+
+<tr style="text-align:center">
+<th colspan="7"> Common operators
+</th></tr>
+<tr style="text-align:center">
+<td> <a href="operator_assignment.htm" title="cpp/language/operator assignment">分配</a>
+</td>
+<td> <a href="operator_incdec.htm" title="cpp/language/operator incdec">incrementǊdecrement</a>
+</td>
+<td> <a href="operator_arithmetic.htm" title="cpp/language/operator arithmetic">算术</a>
+</td>
+<td> <a href="operator_logical.htm" title="cpp/language/operator logical">合乎逻辑的</a>
+</td>
+<td> <strong class="selflink">比较</strong>
+</td>
+<td> <a href="operator_member_access.htm" title="cpp/language/operator member access">memberǊaccess</a>
+</td>
+<td> <a href="operator_other.htm" title="cpp/language/operator other">其他</a>
+</td></tr>
+<tr style="text-align:center">
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">a <span class="sy1">=</span> b<br />
+a <span class="sy1">=</span> rvalue<br />
+a <span class="sy2">+</span><span class="sy1">=</span> b<br />
+a <span class="sy2">-</span><span class="sy1">=</span> b<br />
+a <span class="sy2">*</span><span class="sy1">=</span> b<br />
+a <span class="sy2">/</span><span class="sy1">=</span> b<br />
+a <span class="sy2">%</span><span class="sy1">=</span> b<br />
+a <span class="sy3">&amp;</span><span class="sy1">=</span> b<br />
+a <span class="sy3">|</span><span class="sy1">=</span> b<br />
+a <span class="sy3">^</span><span class="sy1">=</span> b<br />
+a <span class="sy1">&lt;&lt;=</span> b<br />
+a <span class="sy1">&gt;&gt;=</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">++</span>a<br />
+<span class="sy2">--</span>a<br />
+a<span class="sy2">++</span><br />
+a<span class="sy2">--</span></span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">+</span>a<br />
+<span class="sy2">-</span>a<br />
+a <span class="sy2">+</span> b<br />
+a <span class="sy2">-</span> b<br />
+a <span class="sy2">*</span> b<br />
+a <span class="sy2">/</span> b<br />
+a <span class="sy2">%</span> b<br />
+~a<br />
+a <span class="sy3">&amp;</span> b<br />
+a <span class="sy3">|</span> b<br />
+a <span class="sy3">^</span> b<br />
+a <span class="sy1">&lt;&lt;</span> b<br />
+a <span class="sy1">&gt;&gt;</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy3">!</span>a<br />
+a <span class="sy3">&amp;&amp;</span> b<br />
+a <span class="sy3">||</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">a <span class="sy1">==</span> b<br />
+a <span class="sy3">!</span><span class="sy1">=</span> b<br />
+a <span class="sy1">&lt;</span> b<br />
+a <span class="sy1">&gt;</span> b<br />
+a <span class="sy1">&lt;=</span> b<br />
+a <span class="sy1">&gt;=</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#91;</span>b<span class="br0">&#93;</span><br />
+<span class="sy2">*</span>a<br />
+<span class="sy3">&amp;</span>a<br />
+a<span class="sy2">-</span><span class="sy1">&gt;</span>b<br />
+a.<span class="me1">b</span><br />
+a<span class="sy2">-</span><span class="sy1">&gt;</span><span class="sy2">*</span>b<br />
+a.<span class="sy2">*</span>b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp">a<span class="br0">&#40;</span>...<span class="br0">&#41;</span><br />
+a, b<br />
+<span class="br0">&#40;</span>type<span class="br0">&#41;</span> a<br />
+<span class="sy4">?</span> <span class="sy4">:</span></span></span>
+</p>
+</td></tr>
+<tr>
+<th colspan="7"> Special operators
+</th></tr>
+<tr>
+<td colspan="7">
+<div class="t-tr-text"><a href="static_cast.htm" title="cpp/language/static cast"><tt>static_cast</tt></a>将一种类型转换到另一个兼容的类型<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="static_cast.htm" title="cpp/language/static cast"><tt>static_cast</tt></a> converts one type to another compatible type <br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="dynamic_cast.htm" title="cpp/language/dynamic cast"><tt>dynamic_cast</tt></a>将虚基类到派生class<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="dynamic_cast.htm" title="cpp/language/dynamic cast"><tt>dynamic_cast</tt></a> converts virtual base class to derived class<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="const_cast.htm" title="cpp/language/const cast"><tt>const_cast</tt></a>转换类型兼容型，与不同的<a href="cv.htm" title="cpp/language/cv">cv</a>qualifiers<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="const_cast.htm" title="cpp/language/const cast"><tt>const_cast</tt></a> converts type to compatible type with different <a href="cv.htm" title="cpp/language/cv">cv</a> qualifiers<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="reinterpret_cast.htm" title="cpp/language/reinterpret cast"><tt>reinterpret_cast</tt></a>转换类型不兼容的type<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="reinterpret_cast.htm" title="cpp/language/reinterpret cast"><tt>reinterpret_cast</tt></a> converts type to incompatible type<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="../memory/new/operator_new" title="cpp/memory/new/operator new"><tt>new</tt></a>个分配memory<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="../memory/new/operator_new" title="cpp/memory/new/operator new"><tt>new</tt></a> allocates memory<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="../memory/new/operator_delete" title="cpp/memory/new/operator delete"><tt>delete</tt></a>会释放memory<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="../memory/new/operator_delete" title="cpp/memory/new/operator delete"><tt>delete</tt></a> deallocates memory<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="sizeof.htm" title="cpp/language/sizeof"><tt>sizeof</tt></a>查询的大小的type<br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="sizeof.htm" title="cpp/language/sizeof"><tt>sizeof</tt></a> queries the size of a type<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="sizeof....htm" title="cpp/language/sizeof..."><tt>sizeof...</tt></a>查询的大小的<a href="parameter_pack.htm" title="cpp/language/parameter pack">参数组</a><span class="t-mark">（C++11 起）</span><br /><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="sizeof....htm" title="cpp/language/sizeof..."><tt>sizeof...</tt></a> queries the size of a <a href="parameter_pack.htm" title="cpp/language/parameter pack">参数组</a> <span class="t-mark">（C++11 起）</span><br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="typeid.htm" title="cpp/language/typeid"><tt>typeid</tt></a>查询的类型一个type<br />信息<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="typeid.htm" title="cpp/language/typeid"><tt>typeid</tt></a> queries the type information of a type<br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="noexcept.htm" title="cpp/language/noexcept"><tt>noexcept</tt></a>进行检查，，如果的表达可以抛出一个异常<span class="t-mark">（C++11 起）</span><br />，<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="noexcept.htm" title="cpp/language/noexcept"><tt>noexcept</tt></a> checks if an expression can throw an exception <span class="t-mark">（C++11 起）</span><br /></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text"><a href="alignof.htm" title="cpp/language/alignof"><tt>alignof</tt></a>查询类型<span class="t-mark">（C++11 起）</span>对齐要求<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><a href="alignof.htm" title="cpp/language/alignof"><tt>alignof</tt></a> queries alignment requirements of a type <span class="t-mark">（C++11 起）</span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 10948/1000000
+Preprocessor generated node count: 19320/1000000
+Post‐expand include size: 546133/2097152 bytes
+Template argument size: 166322/2097152 bytes
+Highest expansion depth: 32/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:2737-0!*!0!!zh!2!zh!* and timestamp 20141027014821 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonoldid38225">http://zh.cppreference.com/mwiki/index.php?title=cpp/language/operator_comparison&amp;oldid=38225</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../../special_3a_25e9_25a1_25b5_25e9_259d_25a2_25e5_2588_25~1.htm" title="Special:页面分类">1个分类</a>：<ul><li><a href="../../../mwiki/index.phptitlecategory_3atodo_with_reasonactioneditredlink1" class="new" title="Category:Todo with reason（页面不存在）">Todo with reason</a></li></ul></div></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/cpp/language/operator_comparison.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/cpp/language/operator_comparison" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonoldid38225" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../mwiki/index.phptitlecpp_2flanguage_2foperator_comparisonactioninfo">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../de.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../en.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../es.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../fr.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../it.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../ja.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../pt.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../ru.cppreference.com/w/cpp/language/operator_comparison" title="cpp/language/operator comparison" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2014年10月26日 (星期日) 18:48。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过656次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../www.mediawiki.org/default.htm"><img src="../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../qbnz.com/highlighter/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../www.tigertech.net/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 0.175 secs. -->
+	</body>
+<!-- Cached 20141027215638 -->
+</html>

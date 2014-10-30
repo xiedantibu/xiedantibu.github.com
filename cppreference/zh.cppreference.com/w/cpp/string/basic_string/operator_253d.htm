@@ -1,0 +1,747 @@
+<!DOCTYPE html><!-- saved from url=(0065)http://zh.cppreference.com/w/cpp/string/basic_string/operator+%3d --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>std::basic_string::operator+= - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../../mwiki/index~14395.phpti" />
+<link rel="edit" title="编辑" href="../../../../mwiki/index~14395.phpti" />
+<link rel="shortcut icon" href="../../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/string/basic_string/operator+=","wgTitle":"cpp/string/basic string/operator+=","wgCurRevisionId":38551,"wgArticleId":3581,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Todo with reason"],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"cpp/string/basic_string/operator+=","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string_basic_string_operator skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../../mwiki/index~14396.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../../mwiki/index~14397.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="operator_253d.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../../mwiki/index~14398.phpti"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../../mwiki/index~14399.phpti" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../../mwiki/index~14400.phpti" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../../mwiki/index~14401.phpti" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../../mwiki/index~14402.phpti" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../../mwiki/index~14403.phpti" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../../mwiki/index~14404.phpti" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../../mwiki/index~14405.phpti" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../../mwiki/index~14406.phpti" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../../mwiki/index~14407.phpti" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="operator_253d.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../../mwiki/index~14395.phpti"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../../mwiki/index~14408.phpti"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">std::basic_string::</span>operator+=</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../../default.htm" title="cpp">cpp</a>&lrm; | <a href="../default.htm" title="cpp/string">string</a>&lrm; | <a href="default.htm" title="cpp/string/basic string">basic string</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../../upload.cppreference.com/mwiki/images/3/31/imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../../en.cppreference.com/w/cpp/string/basic_string/operator_253d" class="extiw" title="en:cpp/string/basic string/operator+="> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../../default.htm" title="cpp"> C++</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../../language/default.htm" title="cpp/language">语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../concept/default.htm" title="cpp/concept">概念</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../utility/default.htm" title="cpp/utility">实用工具库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../default.htm" title="cpp/string">字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../container/default.htm" title="cpp/container">集装箱库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../algorithm/default.htm" title="cpp/algorithm">算法库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../iterator/default.htm" title="cpp/iterator">迭代器库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../numeric/default.htm" title="cpp/numeric">Numerics库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../io/default.htm" title="cpp/io">输入/输出库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../locale/default.htm" title="cpp/locale">本地化库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../regex/default.htm" title="cpp/regex">正则表达式库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../atomic/default.htm" title="cpp/atomic">原子操作库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../thread/default.htm" title="cpp/thread">线程的支持库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.phptitletemplate_3acpp_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="cpp/string">字符串库</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> null结尾的字符串<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Null-terminated strings</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../byte/default.htm" title="cpp/string/byte">字节的字符串</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../multibyte/default.htm" title="cpp/string/multibyte">多字节字符串</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../wide/default.htm" title="cpp/string/wide">宽字符串</a>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Classes</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="default.htm" title="cpp/string/basic string">basic_string</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../char_traits/default.htm" title="cpp/string/char traits">char_traits</a></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.phptitletemplate_3acpp_2fstring_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="default.htm" title="cpp/string/basic string"><tt>std::basic_string</tt></a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 成员函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Member functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="basic_string.htm" title="cpp/string/basic string/basic string">basic_string::basic_string</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator_253d.htm" title="cpp/string/basic string/operator=">basic_string::operator=</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="assign" title="cpp/string/basic string/assign">basic_string::assign</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="get_allocator.htm" title="cpp/string/basic string/get allocator">basic_string::get_allocator</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 元素的访问<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Element access</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="at.htm" title="cpp/string/basic string/at">basic_string::at</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator_at.htm" title="cpp/string/basic string/operator at">basic_string::operator[]</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="front.htm" title="cpp/string/basic string/front">basic_string::front</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="back.htm" title="cpp/string/basic string/back">basic_string::back</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="data.htm" title="cpp/string/basic string/data">basic_string::data</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="c_str.htm" title="cpp/string/basic string/c str">basic_string::c_str</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 迭代器<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Iterators</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="begin.htm" title="cpp/string/basic string/begin">basic_string::begin<br />basic_string::cbegin</a></td><td><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="end.htm" title="cpp/string/basic string/end">basic_string::end<br />basic_string::cend</a></td><td><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="rbegin.htm" title="cpp/string/basic string/rbegin">basic_string::rbegin<br />basic_string::crbegin</a></td><td><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="rend.htm" title="cpp/string/basic string/rend">basic_string::rend<br />basic_string::crend</a></td><td><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 容量<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Capacity</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="empty.htm" title="cpp/string/basic string/empty">basic_string::empty</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="size.htm" title="cpp/string/basic string/size">basic_string::size</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="size.htm" title="cpp/string/basic string/length" class="mw-redirect">basic_string::length</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="max_size.htm" title="cpp/string/basic string/max size">basic_string::max_size</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="reserve.htm" title="cpp/string/basic string/reserve">basic_string::reserve</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="capacity.htm" title="cpp/string/basic string/capacity">basic_string::capacity</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="shrink_to_fit.htm" title="cpp/string/basic string/shrink to fit">basic_string::shrink_to_fit</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 操作<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Operations</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="clear.htm" title="cpp/string/basic string/clear">basic_string::clear</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="insert.htm" title="cpp/string/basic string/insert">basic_string::insert</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="erase.htm" title="cpp/string/basic string/erase">basic_string::erase</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="push_back.htm" title="cpp/string/basic string/push back">basic_string::push_back</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="pop_back.htm" title="cpp/string/basic string/pop back">basic_string::pop_back</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="append.htm" title="cpp/string/basic string/append">basic_string::append</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><strong class="selflink">basic_string::operator+=</strong></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="compare.htm" title="cpp/string/basic string/compare">basic_string::compare</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="replace.htm" title="cpp/string/basic string/replace">basic_string::replace</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="substr.htm" title="cpp/string/basic string/substr">basic_string::substr</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="copy.htm" title="cpp/string/basic string/copy">basic_string::copy</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="resize.htm" title="cpp/string/basic string/resize">basic_string::resize</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="swap.htm" title="cpp/string/basic string/swap">basic_string::swap</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 搜索<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Search</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="find.htm" title="cpp/string/basic string/find">basic_string::find</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="rfind.htm" title="cpp/string/basic string/rfind">basic_string::rfind</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="find_first_of.htm" title="cpp/string/basic string/find first of">basic_string::find_first_of</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="find_first_not_of.htm" title="cpp/string/basic string/find first not of">basic_string::find_first_not_of</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="find_last_of.htm" title="cpp/string/basic string/find last of">basic_string::find_last_of</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="find_last_not_of.htm" title="cpp/string/basic string/find last not of">basic_string::find_last_not_of</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 常量<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Constants</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="npos.htm" title="cpp/string/basic string/npos">basic_string::npos</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 非成员函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Non-member functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator.htm" title="cpp/string/basic string/operator+">operator+</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator_cmp.htm" title="cpp/string/basic string/operator cmp">operator==<br />operator!=<br />operator&lt;<br />operator&gt;<br />operator&lt;=<br />operator&gt;=</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="swap2.htm" title="cpp/string/basic string/swap2">swap<span class="t-dsc-small">(std::basic_string)</span></a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator_ltltgtgt.htm" title="cpp/string/basic string/operator ltltgtgt">operator&lt;&lt;<br />operator&gt;&gt;</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="getline.htm" title="cpp/string/basic string/getline">getline</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="stol.htm" title="cpp/string/basic string/stol">stoi<br />stol<br />stoll</a></td><td><span class="t-mark">（C++11）</span><br /><span class="t-mark">（C++11）</span><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="stoul.htm" title="cpp/string/basic string/stoul">stoul<br />stoull</a></td><td><span class="t-mark">（C++11）</span><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="stof.htm" title="cpp/string/basic string/stof">stof<br />stod<br />stold</a></td><td><span class="t-mark">（C++11）</span><br /><span class="t-mark">（C++11）</span><br /><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="to_string.htm" title="cpp/string/basic string/to string">to_string</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="to_wstring.htm" title="cpp/string/basic string/to wstring">to_wstring</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> Helper类<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Helper classes</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="hash.htm" title="cpp/string/basic string/hash">hash<span class="t-dsc-small">&lt;std::string&gt;</span><br />hash<span class="t-dsc-small">&lt;std::wstring&gt;</span><br />hash<span class="t-dsc-small">&lt;std::u32string&gt;</span><br />hash<span class="t-dsc-small">&lt;std::u16string&gt;</span></a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index~13976.phpti">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_string<span class="sy3">&amp;</span> operator<span class="sy2">+</span><span class="sy1">=</span><span class="br0">&#40;</span> <span class="kw4">const</span> basic_string<span class="sy3">&amp;</span> str <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (1) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_string<span class="sy3">&amp;</span> operator<span class="sy2">+</span><span class="sy1">=</span><span class="br0">&#40;</span> CharT ch <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (2) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_string<span class="sy3">&amp;</span> operator<span class="sy2">+</span><span class="sy1">=</span><span class="br0">&#40;</span> CharT<span class="sy2">*</span> s <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (3) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl t-dcl-since-cxx11">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_string<span class="sy3">&amp;</span> operator<span class="sy2">+</span><span class="sy1">=</span><span class="br0">&#40;</span> <a href="../../utility/initializer_list/default.htm"><span class="kw804">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>CharT<span class="sy1">&gt;</span> ilist <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (4) </td>
+<td> <span class="t-mark">（C++11 起）</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text">追加addinional字符的字符串.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Appends addinional characters to the string.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+1) <div class="t-tr-text">追加字符串<code>str</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Appends string <code>str</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+2) <div class="t-tr-text">追加字符<code>ch</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Appends character <code>ch</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+3) <div class="t-tr-text">追加空字符结尾的字符串所指向的<code>s</code>. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Appends the null-terminated character string pointed to by <code>s</code>. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+4) <div class="t-tr-text">在初始化列表中追加字符<code>ilist</code>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Appends characters in the initializer list <code>ilist</code>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E5.8F.82.E6.95.B0"><span class="tocnumber">1</span> <span class="toctext">参数</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.E8.BF.94.E5.9B.9E.E5.80.BC"><span class="tocnumber">2</span> <span class="toctext">返回值</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.E5.A4.8D.E6.9D.82.E5.BA.A6"><span class="tocnumber">3</span> <span class="toctext">复杂度</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.E7.A4.BA.E4.BE.8B"><span class="tocnumber">4</span> <span class="toctext">示例</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85"><span class="tocnumber">5</span> <span class="toctext">另请参阅</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../../mwiki/index~14409.phpti" title="编辑章节：参数">编辑</a>]</span> <span class="mw-headline" id=".e5.8f.82.e6.95.b0.htm">参数</span></h3>
+<table class="t-par-begin">
+
+
+<tr class="t-par">
+<td>  ch
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 要追加的字符值<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> character value to append</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  str
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 字符串追加<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> string to append</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  s
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 指针指向一个空结束的字符串附加<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> pointer to a null-terminated character string to append</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  init
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 初始化列表中附加的字符<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> initializer list with the characters to append</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../../mwiki/index~14410.phpti" title="编辑章节：返回值">编辑</a>]</span> <span class="mw-headline" id=".e8.bf.94.e5.9b.9e.e5.80.bc.htm">返回值</span></h3>
+<p><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>
+</p>
+<h3><span class="editsection">[<a href="../../../../mwiki/index~14411.phpti" title="编辑章节：复杂度">编辑</a>]</span> <span class="mw-headline" id=".e5.a4.8d.e6.9d.82.e5.ba.a6.htm">复杂度</span></h3>
+1) <div class="t-tr-text">线性大小<code>str</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">linear in size of <code>str</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+2) <div class="t-tr-text">不变<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">constant</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+3) <div class="t-tr-text">线性大小<code>s</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">linear in size of <code>s</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+4) <div class="t-tr-text">线性大小<code>init</code><div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">linear in size of <code>init</code></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../../mwiki/index~14412.phpti" title="编辑章节：示例">编辑</a>]</span> <span class="mw-headline" id=".e7.a4.ba.e4.be.8b.htm">示例</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr><td class="mbox-empty-cell"></td><td class="mbox-text" style="">本章尚未完成<br />原因：暂无示例 </td></tr></table>
+<h3><span class="editsection">[<a href="../../../../mwiki/index~14413.phpti" title="编辑章节：另请参阅">编辑</a>]</span> <span class="mw-headline" id=".E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85">另请参阅</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="assign" title="cpp/string/basic string/assign"> assign</a></div></div>
+</td>
+<td>   为字符串赋值 <br /> <span class="t-mark">（公共成员函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index~14013.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 5305/1000000
+Preprocessor generated node count: 11799/1000000
+Post‐expand include size: 145327/2097152 bytes
+Template argument size: 30250/2097152 bytes
+Highest expansion depth: 19/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:3581-0!*!0!!zh!2!zh!* and timestamp 20141027020924 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../../mwiki/index~14414.phpti">http://zh.cppreference.com/mwiki/index.php?title=cpp/string/basic_string/operator%2B%3D&amp;oldid=38551</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../../../special_3a_25e9_25a1_25b5_25e9_259d_25a2_25e5_2588_25~1.htm" title="Special:页面分类">1个分类</a>：<ul><li><a href="../../../../mwiki/index.phptitlecategory_3atodo_with_reasonactioneditredlink1" class="new" title="Category:Todo with reason（页面不存在）">Todo with reason</a></li></ul></div></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../../io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/cpp/string/basic_string/operator_253d.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/cpp/string/basic_string/operator_253d" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../../mwiki/index~14415.phpti" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../../mwiki/index~14414.phpti" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../../mwiki/index~14416.phpti">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../../de.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../../en.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../../es.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../../fr.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../../it.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../../ja.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../../pt.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../../ru.cppreference.com/w/cpp/string/basic_string/operator_253d" title="cpp/string/basic string/operator+=" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2014年10月26日 (星期日) 19:09。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过478次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../../www.mediawiki.org/default.htm"><img src="../../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../../qbnz.com/highlighter/default.htm"><img src="../../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../../www.tigertech.net/default.htm"><img src="../../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 0.190 secs. -->
+	</body>
+<!-- Cached 20141027161955 -->
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html><!-- saved from url=(0051)http://zh.cppreference.com/w/c/language/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>C语言 - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../mwiki/index.phptitlec_2flanguageactionedit" />
+<link rel="edit" title="编辑" href="../../../mwiki/index.phptitlec_2flanguageactionedit" />
+<link rel="shortcut icon" href="../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=c/language&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=c/language&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=c/language&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=c/language&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=c/language&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=c/language&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=c/language&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=c/language&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=c/language&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/language","wgTitle":"c/language","wgCurRevisionId":37470,"wgArticleId":1062,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"c/language","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #0000dd;}
+.c.source-c .kw2 {color: #0000ff;}
+.c.source-c .kw3 {color: #0000dd;}
+.c.source-c .kw4 {color: #0000ff;}
+.c.source-c .co1 {color: #909090;}
+.c.source-c .co2 {color: #339900;}
+.c.source-c .coMULTI {color: #ff0000; font-style: italic;}
+.c.source-c .es0 {color: #008000; font-weight: bold;}
+.c.source-c .es1 {color: #008000; font-weight: bold;}
+.c.source-c .es2 {color: #008000; font-weight: bold;}
+.c.source-c .es3 {color: #008000; font-weight: bold;}
+.c.source-c .es4 {color: #008000; font-weight: bold;}
+.c.source-c .es5 {color: #008000; font-weight: bold;}
+.c.source-c .br0 {color: #008000;}
+.c.source-c .sy0 {color: #008000;}
+.c.source-c .sy1 {color: #000080;}
+.c.source-c .sy2 {color: #000040;}
+.c.source-c .sy3 {color: #000040;}
+.c.source-c .sy4 {color: #008080;}
+.c.source-c .st0 {color: #008000;}
+.c.source-c .nu0 {color: #000080;}
+.c.source-c .nu6 {color:#000080;}
+.c.source-c .nu8 {color:#000080;}
+.c.source-c .nu12 {color:#000080;}
+.c.source-c .nu16 {color:#000080;}
+.c.source-c .nu17 {color:#000080;}
+.c.source-c .nu18 {color:#000080;}
+.c.source-c .nu19 {color:#000080;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_language skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../mwiki/index~312.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../mwiki/index~313.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="default.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../mwiki/index.phptitletalk_3ac_2flanguageactioneditredlink1"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../mwiki/index.phptitlec_2flanguagevariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="default.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../mwiki/index.phptitlec_2flanguageactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../mwiki/index.phptitlec_2flanguageactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">C语言</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../default.htm" title="c">c</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="c"> C</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <strong class="selflink"> 语言</strong>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../header.htm" title="c/header"> 标准库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../types/default.htm" title="c/types"> 类型支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../memory/default.htm" title="c/memory"> 动态内存管理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../error/default.htm" title="c/error"> 错误处理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../program/default.htm" title="c/program"> 程序工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../chrono/default.htm" title="c/chrono"> 日期和时间工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../string/default.htm" title="c/string"> 字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm/default.htm" title="c/algorithm"> 算法</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric/default.htm" title="c/numeric"> 数值计算</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../io/default.htm" title="c/io"> 输入/输出支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../locale/default.htm" title="c/locale"> 本地化支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../thread/default.htm" title="c/thread"> 线程支持</a> <span class="t-mark">（C11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../atomic/default.htm" title="c/atomic"> 原子操作</a> <span class="t-mark">（C11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><strong class="selflink">C语言</strong><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h1">
+<td colspan="5"> 基本主题
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../preprocessor.htm" title="c/preprocessor">预处理器</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2fcommentsactioneditredlink1" class="new" title="c/comments（页面不存在）">注释</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../keyword/default.htm" title="c/keyword">关键字</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="ascii.htm" title="c/language/ascii">ASCII码表</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fescapeactioneditredlink1" class="new" title="c/language/escape（页面不存在）">转义序列</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="history.htm" title="c/language/history">C语言历史</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 流程控制
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> 条件执行语句
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="if.htm" title="c/language/if"> <code>if</code>语句</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="switch.htm" title="c/language/switch"> <code>switch</code>语句</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> 循环语句
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="for.htm" title="c/language/for"> <code>for</code>循环</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="while.htm" title="c/language/while"> <code>while</code>循环</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="do.htm" title="c/language/do"> <code>do-while</code>循环</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> 跳转语句
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="continue.htm" title="c/language/continue"> <code>continue</code>语句</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="break.htm" title="c/language/break"> <code>break</code>语句</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="goto.htm" title="c/language/goto"> <code>goto</code>语句</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="return.htm" title="c/language/return"> <code>return</code>语句</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 函数
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2ffunctionactioneditredlink1" class="new" title="c/language/function（页面不存在）">函数声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2finlineactioneditredlink1" class="new" title="c/language/inline（页面不存在）">内联指示</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 类型
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="types.htm" title="c/language/types">基本类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fpointeractioneditredlink1" class="new" title="c/language/pointer（页面不存在）">指针类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fstructactioneditredlink1" class="new" title="c/language/struct（页面不存在）">复合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fenumactioneditredlink1" class="new" title="c/language/enum（页面不存在）">枚举类型</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2funionactioneditredlink1" class="new" title="c/language/union（页面不存在）">联合类型</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2ffunctionactioneditredlink1" class="new" title="c/language/function（页面不存在）">函数类型</a>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> 指示符
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fcvactioneditredlink1" class="new" title="c/language/cv（页面不存在）">cv指示符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="storage_class_specifiers.htm" title="c/language/storage class specifiers">存储类指示符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2falignasactioneditredlink1" class="new" title="c/language/alignas（页面不存在）">对齐指示符</a> <span class="t-mark">（C99）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index~307.phpti" class="new" title="c/language/function specifiers（页面不存在）">函数指示符</a> <span class="t-mark">（C99）</span>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> 字面值
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2finteger_literalactioneditredlink1" class="new" title="c/language/integer literal（页面不存在）">整数字面值</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fcharacter_literalactioneditredlink1" class="new" title="c/language/character literal（页面不存在）">字符字面值</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2ffloating_literalactioneditredlink1" class="new" title="c/language/floating literal（页面不存在）">浮点数字面值</a>
+</td></tr>
+</table>
+</div>
+</td>
+<td>
+<div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fstring_literalactioneditredlink1" class="new" title="c/language/string literal（页面不存在）">字符串字面值</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fbool_literalactioneditredlink1" class="new" title="c/language/bool literal（页面不存在）">布尔字面值</a><span class="t-mark">（C99）</span>
+</td></tr>
+</table>
+</div>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 表达式
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="eval_order.htm" title="c/language/eval order">计算顺序</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2foperatorsactioneditredlink1" class="new" title="c/language/operators（页面不存在）">操作符</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="operator_precedence.htm" title="c/language/operator precedence">操作符优先级</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index~254.phpti" class="new" title="c/language/operator alternative（页面不存在）">替代表示</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 工具
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2ftypedefactioneditredlink1" class="new" title="c/language/typedef（页面不存在）"> <code>typedef</code> 类型声明</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fattributesactioneditredlink1" class="new" title="c/language/attributes（页面不存在）">属性</a> <span class="t-mark">（C99）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fimplicit_castactioneditredlink1" class="new" title="c/language/implicit cast（页面不存在）">转换</a>
+</td></tr>
+
+
+<tr class="t-nv-h1">
+<td colspan="5"> 杂项
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../../mwiki/index.phptitlec_2flanguage_2fasmactioneditredlink1" class="new" title="c/language/asm（页面不存在）">内嵌汇编</a>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2flanguage_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<p>这是一份C语言结构的简明参考手册。
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E5.9F.BA.E6.9C.AC.E4.B8.BB.E9.A2.98"><span class="tocnumber">1</span> <span class="toctext">基本主题</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#.E9.A2.84.E5.A4.84.E7.90.86.E5.99.A8"><span class="tocnumber">1.1</span> <span class="toctext">预处理器</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#.E6.B3.A8.E9.87.8A"><span class="tocnumber">1.2</span> <span class="toctext">注释</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.E5.85.B3.E9.94.AE.E5.AD.97"><span class="tocnumber">1.3</span> <span class="toctext">关键字</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#ASCII.E7.A0.81.E8.A1.A8"><span class="tocnumber">1.4</span> <span class="toctext">ASCII码表</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#.E8.BD.AC.E4.B9.89.E5.BA.8F.E5.88.97"><span class="tocnumber">1.5</span> <span class="toctext">转义序列</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#C.E8.AF.AD.E8.A8.80.E5.8E.86.E5.8F.B2"><span class="tocnumber">1.6</span> <span class="toctext">C语言历史</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#.E6.B5.81.E7.A8.8B.E6.8E.A7.E5.88.B6"><span class="tocnumber">2</span> <span class="toctext">流程控制</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#.E6.9D.A1.E4.BB.B6.E6.89.A7.E8.A1.8C.E8.AF.AD.E5.8F.A5"><span class="tocnumber">2.1</span> <span class="toctext">条件执行语句</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#.E5.BE.AA.E7.8E.AF.E8.AF.AD.E5.8F.A5"><span class="tocnumber">2.2</span> <span class="toctext">循环语句</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#.E8.B7.B3.E8.BD.AC.E8.AF.AD.E5.8F.A5"><span class="tocnumber">2.3</span> <span class="toctext">跳转语句</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#.E5.87.BD.E6.95.B0"><span class="tocnumber">3</span> <span class="toctext">函数</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#.E7.B1.BB.E5.9E.8B"><span class="tocnumber">4</span> <span class="toctext">类型</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#.E6.8C.87.E7.A4.BA.E7.AC.A6"><span class="tocnumber">4.1</span> <span class="toctext">指示符</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#.E5.AD.97.E9.9D.A2.E5.80.BC"><span class="tocnumber">4.2</span> <span class="toctext">字面值</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#.E8.A1.A8.E8.BE.BE.E5.BC.8F"><span class="tocnumber">4.3</span> <span class="toctext">表达式</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#.E5.B7.A5.E5.85.B7"><span class="tocnumber">4.4</span> <span class="toctext">工具</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#.E6.9D.82.E9.A1.B9"><span class="tocnumber">5</span> <span class="toctext">杂项</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection1" title="编辑章节：基本主题">编辑</a>]</span> <span class="mw-headline" id=".E5.9F.BA.E6.9C.AC.E4.B8.BB.E9.A2.98">基本主题</span></h3>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection2" title="编辑章节：预处理器">编辑</a>]</span> <span class="mw-headline" id=".e9.a2.84.e5.a4.84.e7.90.86.e5.99.a8.htm"><a href="../../cpp/preprocessor/default.htm" title="cpp/preprocessor">预处理器</a></span></h4>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection3" title="编辑章节：注释">编辑</a>]</span> <span class="mw-headline" id=".e6.b3.a8.e9.87.8a.htm"><a href="../../cpp/comment.htm" title="cpp/comment">注释</a></span></h4>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection4" title="编辑章节：关键字">编辑</a>]</span> <span class="mw-headline" id=".E5.85.B3.E9.94.AE.E5.AD.97"><a href="../keyword/default.htm" title="c/keyword">关键字</a></span></h4>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection5" title="编辑章节：ASCII码表">编辑</a>]</span> <span class="mw-headline" id="ascii.e7.a0.81.e8.a1.a8.htm"><a href="ascii.htm" title="c/language/ascii">ASCII码表</a></span></h4>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection6" title="编辑章节：转义序列">编辑</a>]</span> <span class="mw-headline" id=".E8.BD.AC.E4.B9.89.E5.BA.8F.E5.88.97"><a href="../../cpp/language/escape.htm" title="cpp/language/escape">转义序列</a></span></h4>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection7" title="编辑章节：C语言历史">编辑</a>]</span> <span class="mw-headline" id="c.e8.af.ad.e8.a8.80.e5.8e.86.e5.8f.b2.htm"><a href="history.htm" title="c/language/history">C语言历史</a></span></h4>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection8" title="编辑章节：流程控制">编辑</a>]</span> <span class="mw-headline" id=".e6.b5.81.e7.a8.8b.e6.8e.a7.e5.88.b6.htm">流程控制</span></h3>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection9" title="编辑章节：条件执行语句">编辑</a>]</span> <span class="mw-headline" id=".e6.9d.a1.e4.bb.b6.e6.89.a7.e8.a1.8c.e8.af.ad.e5.8f.a5.htm">条件执行语句</span></h4>
+<p>根据给定的表达式的值执行不同的代码路径
+</p>
+<ul><li> <a href="if.htm" title="c/language/if">if</a> 按条件执行代码
+</li><li> <a href="switch.htm" title="c/language/switch">switch</a> 根据整型参数的值执行代码
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection10" title="编辑章节：循环语句">编辑</a>]</span> <span class="mw-headline" id=".e5.be.aa.e7.8e.af.e8.af.ad.e5.8f.a5.htm">循环语句</span></h4>
+<p>多次执行相同的代码
+</p>
+<ul><li> <a href="for.htm" title="c/language/for">for</a> 执行循环
+</li><li> <a href="while.htm" title="c/language/while">while</a> 执行循环，在每次循环之前检查条件
+</li><li> <a href="do.htm" title="c/language/do">do-while</a> 执行循环，在每次循环之后检查条件
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection11" title="编辑章节：跳转语句">编辑</a>]</span> <span class="mw-headline" id=".e8.b7.b3.e8.bd.ac.e8.af.ad.e5.8f.a5.htm">跳转语句</span></h4>
+<p>在不同的位置继续执行代码
+</p>
+<ul><li> <a href="continue.htm" title="c/language/continue">continue</a> 跳过外层循环体剩余的部分
+</li><li> <a href="break.htm" title="c/language/break">break</a> 终止外层循环
+</li><li> <a href="goto.htm" title="c/language/goto">goto</a> 在另一处位置继续执行
+</li><li> <a href="return.htm" title="c/language/return">return</a> 终止外层函数的执行
+</li></ul>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection12" title="编辑章节：函数">编辑</a>]</span> <span class="mw-headline" id=".e5.87.bd.e6.95.b0.htm">函数</span></h3>
+<p>可以在程序的不同位置重复使用同一段代码
+</p>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2ffunctionactioneditredlink1" class="new" title="c/language/function（页面不存在）"> 函数声明</a> 声明一个函数
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2finlineactioneditredlink1" class="new" title="c/language/inline（页面不存在）"> 内联指示</a> 提示编译器直接把函数主体插进调用函数的代码
+</li></ul>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection13" title="编辑章节：类型">编辑</a>]</span> <span class="mw-headline" id=".e7.b1.bb.e5.9e.8b.htm">类型</span></h3>
+<ul><li> <a href="types.htm" title="c/language/types"> 基本类型</a> 定义基本的字符、整数和浮点数类型
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fpointeractioneditredlink1" class="new" title="c/language/pointer（页面不存在）"> 指针类型</a> 存有内存中的一个位置
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fclassactioneditredlink1" class="new" title="c/language/class（页面不存在）"> 符合类型</a> 定义存有多个数据成员的类型
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fenumactioneditredlink1" class="new" title="c/language/enum（页面不存在）"> 枚举类型</a> 定义存有多个指定值之一的类型
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2funionactioneditredlink1" class="new" title="c/language/union（页面不存在）"> 联合类型</a> 定义存有可具多种表达方法的数据的类型
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2ffunctionactioneditredlink1" class="new" title="c/language/function（页面不存在）"> 函数类型</a> 定义函数调用签名，即由函数的参数和返回值类型组成的类型
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection14" title="编辑章节：指示符">编辑</a>]</span> <span class="mw-headline" id=".e6.8c.87.e7.a4.ba.e7.ac.a6.htm">指示符</span></h4>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fcvactioneditredlink1" class="new" title="c/language/cv（页面不存在）"> cv指示符</a> 指定是否为常量或易变
+</li><li> <a href="storage_class_specifiers.htm" title="c/language/storage class specifiers"> 存储类指示符</a> 指定类型的储存持续时间和访问作用域
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2falignasactioneditredlink1" class="new" title="c/language/alignas（页面不存在）"> 对齐指示符</a> 指定变量应当按指定的量对齐存储 <span class="t-mark">（C99 起）</span>
+</li><li> <a href="../../../mwiki/index~307.phpti" class="new" title="c/language/function specifiers（页面不存在）"> 函数指示符</a> 指定编译器应当如何处理一个函数 <span class="t-mark">（C99 起）</span>
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection15" title="编辑章节：字面值">编辑</a>]</span> <span class="mw-headline" id=".e5.ad.97.e9.9d.a2.e5.80.bc.htm">字面值</span></h4>
+<p>字面值是C程序源代码中表示常量的符号
+</p>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2finteger_literalactioneditredlink1" class="new" title="c/language/integer literal（页面不存在）">整数字面值</a> 是整型的十进制、八进制或十六进制数字
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fcharacter_literalactioneditredlink1" class="new" title="c/language/character literal（页面不存在）">字符字面值</a> 是<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">char</span></span></span>、<span class="t-c"><span class="mw-geshi c source-c">char16_t</span></span>、<span class="t-c"><span class="mw-geshi c source-c">char32_t</span></span>或<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">wchar_t</span></span></span>类型的单个字符
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2ffloating_literalactioneditredlink1" class="new" title="c/language/floating literal（页面不存在）">浮点数字面值</a> 是<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">float</span></span></span>、<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">double</span></span></span>或<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">long</span> <span class="kw4">double</span></span></span>类型的值
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fstring_literalactioneditredlink1" class="new" title="c/language/string literal（页面不存在）">字符串字面值</a> 是字符的序列，或窄，或宽，或为多字节
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fbool_literalactioneditredlink1" class="new" title="c/language/bool literal（页面不存在）">布尔字面值</a> 是<span class="t-c"><span class="mw-geshi c source-c">bool</span></span>类型的值, 即<span class="t-c"><span class="mw-geshi c source-c"><span class="kw2">true</span></span></span>和<span class="t-c"><span class="mw-geshi c source-c"><span class="kw2">false</span></span></span> <span class="t-mark">（C99 起）</span>
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fuser_literalactioneditredlink1" class="new" title="c/language/user literal（页面不存在）">用户定义字面值</a> 是用户定义类型的常量 <span class="t-mark">（C99 起）</span>
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection16" title="编辑章节：表达式">编辑</a>]</span> <span class="mw-headline" id=".e8.a1.a8.e8.be.be.e5.bc.8f.htm">表达式</span></h4>
+<p>表达式是由操作符和操作数组成的计算序列。表达式可以生成一个值，也可产生侧面影响。
+</p>
+<ul><li> <a href="eval_order.htm" title="c/language/eval order">计算顺序</a> 参数和字表达式的计算顺序决定了计算中的中间值被计算出的顺序。
+</li></ul>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2foperatorsactioneditredlink1" class="new" title="c/language/operators（页面不存在）">操作符</a> 包括一些数学中常用的符号
+</li></ul>
+<table class="wikitable">
+
+<tr style="text-align:center">
+<th colspan="7"> 常用操作符
+</th></tr>
+<tr style="text-align:center">
+<td> <a href="../../../mwiki/index~314.phpti" class="new" title="c/language/operator assignment（页面不存在）">赋值</a>
+</td>
+<td> <a href="../../../mwiki/index.phptitlec_2flanguage_2foperator_incdecactioneditredlink1" class="new" title="c/language/operator incdec（页面不存在）">自增<br />自减</a>
+</td>
+<td> <a href="../../../mwiki/index~315.phpti" class="new" title="c/language/operator arithmetic（页面不存在）">算术</a>
+</td>
+<td> <a href="../../../mwiki/index.phptitlec_2flanguage_2foperator_logicalactioneditredlink1" class="new" title="c/language/operator logical（页面不存在）">逻辑</a>
+</td>
+<td> <a href="../../../mwiki/index~316.phpti" class="new" title="c/language/operator comparison（页面不存在）">比较</a>
+</td>
+<td> <a href="../../../mwiki/index~317.phpti" class="new" title="c/language/operator member access（页面不存在）">成员<br />访问</a>
+</td>
+<td> <a href="../../../mwiki/index.phptitlec_2flanguage_2foperator_otheractioneditredlink1" class="new" title="c/language/operator other（页面不存在）">其他</a>
+</td></tr>
+<tr style="text-align:center">
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c">a <span class="sy1">=</span> b<br />
+a <span class="sy2">+</span><span class="sy1">=</span> b<br />
+a <span class="sy2">-</span><span class="sy1">=</span> b<br />
+a <span class="sy2">*</span><span class="sy1">=</span> b<br />
+a <span class="sy2">/</span><span class="sy1">=</span> b<br />
+a <span class="sy2">%</span><span class="sy1">=</span> b<br />
+a <span class="sy3">&amp;</span><span class="sy1">=</span> b<br />
+a <span class="sy3">|</span><span class="sy1">=</span> b<br />
+a <span class="sy3">^</span><span class="sy1">=</span> b<br />
+a <span class="sy1">&lt;&lt;=</span> b<br />
+a <span class="sy1">&gt;&gt;=</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">++</span>a<br />
+<span class="sy2">--</span>a<br />
+a<span class="sy2">++</span><br />
+a<span class="sy2">--</span></span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c"><span class="sy2">+</span>a<br />
+<span class="sy2">-</span>a<br />
+a <span class="sy2">+</span> b<br />
+a <span class="sy2">-</span> b<br />
+a <span class="sy2">*</span> b<br />
+a <span class="sy2">/</span> b<br />
+a <span class="sy2">%</span> b<br />
+~a<br />
+a <span class="sy3">&amp;</span> b<br />
+a <span class="sy3">|</span> b<br />
+a <span class="sy3">^</span> b<br />
+a <span class="sy1">&lt;&lt;</span> b<br />
+a <span class="sy1">&gt;&gt;</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c"><span class="sy3">!</span>a<br />
+a <span class="sy3">&amp;&amp;</span> b<br />
+a <span class="sy3">||</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c">a <span class="sy1">==</span> b<br />
+a <span class="sy3">!</span><span class="sy1">=</span> b<br />
+a <span class="sy1">&lt;</span> b<br />
+a <span class="sy1">&gt;</span> b<br />
+a <span class="sy1">&lt;=</span> b<br />
+a <span class="sy1">&gt;=</span> b</span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c">a<span class="br0">&#91;</span>b<span class="br0">&#93;</span><br />
+<span class="sy2">*</span>a<br />
+<span class="sy3">&amp;</span>a<br />
+a<span class="sy2">-</span><span class="sy1">&gt;</span>b<br />
+a.<span class="me1">b</span></span></span>
+</p>
+</td>
+<td>
+<p><span class="t-c"><span class="mw-geshi c source-c">a<span class="br0">&#40;</span>...<span class="br0">&#41;</span><br />
+a, b<br />
+<span class="br0">&#40;</span>type<span class="br0">&#41;</span> a<br />
+<span class="sy4">?</span> <span class="sy4">:</span><br />
+<span class="kw4">sizeof</span><br />
+_Alignof</span></span> <span class="t-mark">（C11 起）</span>
+</p>
+</td></tr>
+</table>
+<ul><li> <a href="operator_precedence.htm" title="c/language/operator precedence"> 操作符优先级</a> 是操作符和其参数结合的顺序
+</li><li> <a href="../../../mwiki/index~254.phpti" class="new" title="c/language/operator alternative（页面不存在）"> 替代表示</a> 对于某些操作符
+</li></ul>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection17" title="编辑章节：工具">编辑</a>]</span> <span class="mw-headline" id=".e5.b7.a5.e5.85.b7.htm">工具</span></h4>
+<dl><dt> 类型
+</dt></dl>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2ftypedefactioneditredlink1" class="new" title="c/language/typedef（页面不存在）"> 类型声明</a> 创建一个类型的别名
+</li><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fattributesactioneditredlink1" class="new" title="c/language/attributes（页面不存在）"> 属性</a> 定义关于变量的附加信息 <span class="t-mark">（C99 起）</span>
+</li></ul>
+<dl><dt> 转换
+</dt></dl>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fimplicit_castactioneditredlink1" class="new" title="c/language/implicit cast（页面不存在）"> 基本转换</a> 从一个类型到另一个类型的隐式转换
+</li></ul>
+<p><br />
+</p>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flanguageactioneditsection18" title="编辑章节：杂项">编辑</a>]</span> <span class="mw-headline" id=".e6.9d.82.e9.a1.b9.htm">杂项</span></h3>
+<ul><li> <a href="../../../mwiki/index.phptitlec_2flanguage_2fasmactioneditredlink1" class="new" title="c/language/asm（页面不存在）">内嵌汇编</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 1573/1000000
+Preprocessor generated node count: 3362/1000000
+Post‐expand include size: 40058/2097152 bytes
+Template argument size: 4611/2097152 bytes
+Highest expansion depth: 13/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:1062-0!*!0!!zh!*!zh!* and timestamp 20141017083533 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../mwiki/index.phptitlec_2flanguageoldid37470">http://zh.cppreference.com/mwiki/index.php?title=c/language&amp;oldid=37470</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../../cpp/io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/c/language/default.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/c/language/default.htm" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../mwiki/index.phptitlec_2flanguageprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../mwiki/index.phptitlec_2flanguageoldid37470" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../mwiki/index.phptitlec_2flanguageactioninfo">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../de.cppreference.com/w/c/language" title="c/language" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../en.cppreference.com/w/c/language" title="c/language" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../es.cppreference.com/w/c/language" title="c/language" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../fr.cppreference.com/w/c/language" title="c/language" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../it.cppreference.com/w/c/language" title="c/language" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../ja.cppreference.com/w/c/language" title="c/language" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-ko"><a href="../../../../ko.cppreference.com/w/c/language" title="c/language" lang="ko" hreflang="ko">한국어</a></li><li class="interwiki-pt"><a href="../../../../pt.cppreference.com/w/c/language" title="c/language" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../ru.cppreference.com/w/c/language" title="c/language" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2013年9月26日 (星期四) 21:42。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过1,439次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../www.mediawiki.org/default.htm"><img src="../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../qbnz.com/highlighter/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../www.tigertech.net/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 2.054 secs. -->
+	</body>
+<!-- Cached 20141017083533 -->
+</html>

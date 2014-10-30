@@ -1,0 +1,648 @@
+<!DOCTYPE html><!-- saved from url=(0050)http://zh.cppreference.com/w/c/atomic/memory_order --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>memory_order - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactionedit" />
+<link rel="edit" title="编辑" href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactionedit" />
+<link rel="shortcut icon" href="../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=c/atomic/memory_order&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/atomic/memory_order","wgTitle":"c/atomic/memory order","wgCurRevisionId":29761,"wgArticleId":939,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Todo without reason"],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"c/atomic/memory_order","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #0000dd;}
+.c.source-c .kw2 {color: #0000ff;}
+.c.source-c .kw3 {color: #0000dd;}
+.c.source-c .kw4 {color: #0000ff;}
+.c.source-c .co1 {color: #909090;}
+.c.source-c .co2 {color: #339900;}
+.c.source-c .coMULTI {color: #ff0000; font-style: italic;}
+.c.source-c .es0 {color: #008000; font-weight: bold;}
+.c.source-c .es1 {color: #008000; font-weight: bold;}
+.c.source-c .es2 {color: #008000; font-weight: bold;}
+.c.source-c .es3 {color: #008000; font-weight: bold;}
+.c.source-c .es4 {color: #008000; font-weight: bold;}
+.c.source-c .es5 {color: #008000; font-weight: bold;}
+.c.source-c .br0 {color: #008000;}
+.c.source-c .sy0 {color: #008000;}
+.c.source-c .sy1 {color: #000080;}
+.c.source-c .sy2 {color: #000040;}
+.c.source-c .sy3 {color: #000040;}
+.c.source-c .sy4 {color: #008080;}
+.c.source-c .st0 {color: #008000;}
+.c.source-c .nu0 {color: #000080;}
+.c.source-c .nu6 {color:#000080;}
+.c.source-c .nu8 {color:#000080;}
+.c.source-c .nu12 {color:#000080;}
+.c.source-c .nu16 {color:#000080;}
+.c.source-c .nu17 {color:#000080;}
+.c.source-c .nu18 {color:#000080;}
+.c.source-c .nu19 {color:#000080;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_atomic_memory_order skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../mwiki/index~94.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../mwiki/index~95.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="memory_order.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../mwiki/index.phptitletalk_3ac_2fatomic_2fmemory_orderactioneditredlink1"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_ordervariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="memory_order.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">memory_order</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../default.htm" title="c">c</a>&lrm; | <a href="default.htm" title="c/atomic">atomic</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../upload.cppreference.com/mwiki/images/3/31/imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../en.cppreference.com/w/c/atomic/memory_order" class="extiw" title="en:c/atomic/memory order"> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="c"> C</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../language/default.htm" title="c/language"> 语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../header.htm" title="c/header"> 标准库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../types/default.htm" title="c/types"> 类型支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../memory/default.htm" title="c/memory"> 动态内存管理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../error/default.htm" title="c/error"> 错误处理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../program/default.htm" title="c/program"> 程序工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../chrono/default.htm" title="c/chrono"> 日期和时间工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../string/default.htm" title="c/string"> 字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm/default.htm" title="c/algorithm"> 算法</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric/default.htm" title="c/numeric"> 数值计算</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../io/default.htm" title="c/io"> 输入/输出支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../locale/default.htm" title="c/locale"> 本地化支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../thread/default.htm" title="c/thread"> 线程支持</a> <span class="t-mark">（C11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="default.htm" title="c/atomic"> 原子操作</a> <span class="t-mark">（C11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="default.htm" title="c/atomic">原子操作库</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 类型 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><strong class="selflink">memory_order</strong></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_flag.htm" title="c/atomic/atomic flag">atomic_flag</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 宏 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Macros </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_lock_free_consts.htm" title="c/atomic/ATOMIC LOCK FREE consts">ATOMIC_***_LOCK_FREE</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_flag_init.htm" title="c/atomic/ATOMIC FLAG INIT">ATOMIC_FLAG_INIT</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_var_init.htm" title="c/atomic/ATOMIC VAR INIT">ATOMIC_VAR_INIT</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="kill_dependency.htm" title="c/atomic/kill dependency">kill_dependency</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 功能 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Functions </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_flag_test_and_set.htm" title="c/atomic/atomic flag test and set">atomic_flag_test_and_set</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_flag_clear.htm" title="c/atomic/atomic flag clear">atomic_flag_clear</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_init.htm" title="c/atomic/atomic init">atomic_init</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_is_lock_free.htm" title="c/atomic/atomic is lock free">atomic_is_lock_free</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_store.htm" title="c/atomic/atomic store">atomic_store</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_load.htm" title="c/atomic/atomic load">atomic_load</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_exchange.htm" title="c/atomic/atomic exchange">atomic_exchange</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_compare_exchange.htm" title="c/atomic/atomic compare exchange">atomic_compare_exchange</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_fetch_add.htm" title="c/atomic/atomic fetch add">atomic_fetch_add</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_fetch_sub.htm" title="c/atomic/atomic fetch sub">atomic_fetch_sub</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_fetch_or.htm" title="c/atomic/atomic fetch or">atomic_fetch_or</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_fetch_xor.htm" title="c/atomic/atomic fetch xor">atomic_fetch_xor</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_fetch_and.htm" title="c/atomic/atomic fetch and">atomic_fetch_and</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_thread_fence.htm" title="c/atomic/atomic thread fence">atomic_thread_fence</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="atomic_signal_fence.htm" title="c/atomic/atomic signal fence">atomic_signal_fence</a></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2fatomic_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>在头文件 <tt>&lt;stdatomic.h&gt;</tt> 中定义
+ </div></td>
+<td></td>
+<td></td>
+</tr><tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi c source-c"><span class="kw2">enum</span> memory_order <span class="br0">&#123;</span><br />
+<p>&#160; &#160; memory_order_relaxed,<br />
+&#160; &#160; memory_order_consume,<br />
+&#160; &#160; memory_order_acquire,<br />
+&#160; &#160; memory_order_release,<br />
+&#160; &#160; memory_order_acq_rel,<br />
+&#160; &#160; memory_order_seq_cst<br />
+</p>
+<span class="br0">&#125;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark">（C11 起）</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text"><code>memory_order</code>指定，非原子内存的访问是被下令周围的原子操作。这样做的理由是，当多个线程同时读写多核心系统上的多个变量，一个线程可能会“看到”另一个线程写入他们以不同的顺序值的变化比。此外，明显的顺序的变化可能在多个读取器线程是不同的。确保所有的内存访问原子变量是连续的，在某些情况下，可能会损害性能。 <code>std::memory_order</code>可以指定确切的限制，编译器必须执行.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"><code>memory_order</code> specifies how non-atomic memory accesses are to be ordered around an atomic operation. The rationale of this is that when several threads simultaneously read and write to several variables on multi-core systems, one thread might <i>see</i> the values change in different order than another thread has written them. Also, the apparent order of changes may be different across several reader threads. Ensuring that all memory accesses to atomic variables are sequential may hurt performance in some cases. <code>std::memory_order</code> allows to specify the exact constraints that the compiler must enforce.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">这是通过一个额外的参数，可以指定自定义的内存库中的每一个原子操作顺序。默认情况下是<span class="t-lc">std::memory_order_seq_cst</span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">It's possible to specify custom memory order for each atomic operation in the library via an additional parameter. The default is <span class="t-lc">std::memory_order_seq_cst</span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E5.B8.B8.E9.87.8F"><span class="tocnumber">1</span> <span class="toctext">常量</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#.E6.9D.BE.E6.95.A3.E6.8E.92.E5.BA.8F"><span class="tocnumber">1.1</span> <span class="toctext">松散排序</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#.E5.8F.91.E5.B8.83.E6.B6.88.E8.B4.B9"><span class="tocnumber">1.2</span> <span class="toctext">发布消费</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.E9.87.8A.E6.94.BE.E5.BA.8F.E5.88.97"><span class="tocnumber">1.3</span> <span class="toctext">释放序列</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#.E9.87.8A.E6.94.BE.E8.8E.B7.E5.BE.97.E8.AE.A2.E8.B4.AD"><span class="tocnumber">1.4</span> <span class="toctext">释放获得订购</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#.E9.A1.BA.E5.BA.8F.E4.B8.80.E8.87.B4.E7.9A.84.E9.A1.BA.E5.BA.8F"><span class="tocnumber">1.5</span> <span class="toctext">顺序一致的顺序</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#.E4.B8.8E.E6.98.93.E6.8C.A5.E5.8F.91.E7.9A.84.E5.85.B3.E7.B3.BB"><span class="tocnumber">2</span> <span class="toctext">与易挥发的关系</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#.E7.9A.84.E4.BE.8B.E5.AD.90"><span class="tocnumber">3</span> <span class="toctext">的例子</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection1" title="编辑章节：常量">编辑</a>]</span> <span class="mw-headline" id=".e5.b8.b8.e9.87.8f.htm">常量</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-header">
+<td colspan="2"> <div>在头文件 <code>&lt;atomic&gt;</code> 中定义 </div>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc-hitem">
+<td> <div class="t-tr-text"> 值 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Value </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td>
+<td>  Explanation
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_relaxed</code>
+</td>
+<td> <div class="t-tr-text"> “”轻松“的顺序：周围的原子变量的内存访问重新排序上没有任何限制.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> <b>Relaxed</b> ordering: there are no constraints on reordering of memory accesses around the atomic variable.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_consume</code>
+</td>
+<td> <div class="t-tr-text"> “”消费“的操作：在当前线程没有读的价值依赖于当前加载的可以重新排序在此之前负载。这可确保写入到其他线程释放相同的原子变量的因变量是可见在当前线程。在大多数平台上，这会影响编译器的优化而已 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> <b>Consume</b> operation: no reads in the current thread dependent on the value currently loaded can be reordered before this load. This ensures that writes to dependent variables in other threads that release the same atomic variable are visible in the current thread. On most platforms, this affects compiler optimization only. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_acquire</code>
+</td>
+<td> <div class="t-tr-text"> “”获取“的操作：在当前线程没有读，在此之前负载可以重新排序。这将确保所有写在释放相同的原子变量的其他线程在当前线程是可见的.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> <b>Acquire</b> operation: no reads in the current thread can be reordered before this load. This ensures that all writes in other threads that release the same atomic variable are visible in the current thread.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_release</code>
+</td>
+<td> <div class="t-tr-text"> “发行”的操作：可以重新排序后，这家店没有写在当前线程。这将确保所有的写操作在当前线程在其他线程获得相同的原子变量是可见的.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> <b>Release</b> operation: no writes in the current thread can be reordered after this store. This ensures that all writes in the current thread are visible in other threads that acquire the same atomic variable.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_acq_rel</code>
+</td>
+<td> <div class="t-tr-text"> “”获取释放“操作：在当前线程没有读，在此之前负载，可以重新排序，以及没有在当前线程中写道这家店后，可以重新排序。该操作是读 - 修改 - 写操作。确保所有的写操作在另一个线程释放相同的原子变量是可见的改性前的和修改是可见的其他线程中获得相同的原子变量.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> <b>Acquire-release</b> operation: no reads in the current thread can be reordered before this load as well as no writes in the current thread can be reordered after this store. The operation is read-modify-write operation. It is ensured that all writes in another threads that release the same atomic variable are visible before the modification and the modification is visible in other threads that acquire the same atomic variable.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <code>memory_order_seq_cst</code>
+</td>
+<td> <div class="t-tr-text"> <b>，顺序排列“。操作具有相同的语义获得释放操作，并且还具有顺序一致的操作顺序. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> </b>Sequential ordering<b>. The operation has the same semantics as acquire-release operation, and additionally has sequentially-consistent operation ordering. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div></b>
+</td></tr>
+
+</table>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection2" title="编辑章节：松散排序">编辑</a>]</span> <span class="mw-headline" id=".e6.9d.be.e6.95.a3.e6.8e.92.e5.ba.8f.htm">松散排序</span></h4>
+<div class="t-tr-text"><span class="t-c"><span class="mw-geshi c source-c">memory_order_relaxed</span></span>标记的原子操作具有以下性质：1<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Atomic operations tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_relaxed</span></span> exhibit the following properties:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<ul><li> <div class="t-tr-text">其他内存访问的顺序没有任何保证。这意味着它是不可能使用原子变量的多个线程同步.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No ordering of other memory accesses is ensured whatsoever. This means that it is not possible to synchronize several threads using the atomic variable.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">读取和写入原子变量本身是有序的。一旦一个线程读取一个值，后续的读取相同的对象在同一个线程不能得到较早的价值.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Reads and writes to the atomic variable itself are ordered. Once a thread reads a value, a subsequent read by the same thread from the same object can not yield an earlier value.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+<div class="t-tr-text">例如，对于<code>x</code>和<code>y</code>初始值为零<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">For example, with <code>x</code> and <code>y</code> initially zero,</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<p><span class="t-c"><span class="mw-geshi c source-c"><span class="co1">// Thread 1:</span><br />
+r1 <span class="sy1">=</span> <a href="atomic_load.htm"><span class="kw933">atomic_load_explicit</span></a><span class="br0">&#40;</span>y, memory_order_relaxed<span class="br0">&#41;</span><span class="sy4">;</span><br />
+<a href="atomic_store.htm"><span class="kw931">atomic_store_explicit</span></a><span class="br0">&#40;</span>x, r1, memory_order_relaxed<span class="br0">&#41;</span><span class="sy4">;</span><br />
+<span class="co1">// Thread 2:</span><br />
+r2 <span class="sy1">=</span> <a href="atomic_load.htm"><span class="kw933">atomic_load_explicit</span></a><span class="br0">&#40;</span>x, memory_order_relaxed<span class="br0">&#41;</span><span class="sy4">;</span><br />
+<a href="atomic_store.htm"><span class="kw931">atomic_store_explicit</span></a><span class="br0">&#40;</span>y, <span class="nu0">42</span>, memory_order_relaxed<span class="br0">&#41;</span><span class="sy4">;</span></span></span>
+</p>
+<div class="t-tr-text">被允许生产<code>r1 == r2 == 42</code>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">is allowed to produce <code>r1 == r2 == 42</code>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection3" title="编辑章节：发布消费">编辑</a>]</span> <span class="mw-headline" id=".e5.8f.91.e5.b8.83.e6.b6.88.e8.b4.b9.htm">发布消费</span></h4>
+<div class="t-tr-text">如果原子存储标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_release</span></span>从相同的变量和原子加载标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_consume</span></span>，操作具有以下性质：<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If an atomic store is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_release</span></span> and an atomic load from the same variable is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_consume</span></span>, the operations exhibit the following properties:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<ul><li> <div class="t-tr-text">没有写，写线程可以重新排序后的原子存储<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No writes in the writer thread can be reordered after the atomic store</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">没有读取或写入依赖于接收到的值从原子负荷可以重新排序前的原子负载。 “依赖于”，是指从原子的变量的值的地址或值被计算。被称为“依赖排序”这种形式的线程之间的同步.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No reads or writes dependent on the value received from atomic load can be reordered before the atomic load. "Dependent on" means that the address or value is computed from the value of the atomic variable. This form of synchronization between threads is known as "dependency ordering".</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">建立了同步时仅线程之间的“释放”和“耗费”相同的原子变量。其他线程可以看到不同的顺序比一个或两个同步线程的内存访问.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The synchronization is established only between the threads <i>releasing</i> and <i>consuming</i> the same atomic variable. Other threads can see different order of memory accesses than either or both of the synchronized threads.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">同步是传递的。也就是说，如果我们有下面的情况：<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The synchronization is transitive. That is, if we have the following situation:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+<dl><dd><dl><dd><ul><li> <div class="t-tr-text">主题<i> A</i>释放原子变量“A”.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>A</i> releases atomic variable <i>a</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题<i> B</i>消耗原子变量“A”.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>B</i> consumes atomic variable <i>a</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">原子变量“B”是依赖于“A”.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Atomic variable <i>b</i> is dependent on <i>a</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题“B”版本中的原子变量<i> B</i>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>B</i> releases atomic variable <i>b</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题“C”使用或获取原子变量<i> B</i>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>C</i> consumes or acquires atomic variable <i>b</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+</dd></dl>
+</dd><dd> <div class="t-tr-text">那么，“A”和“B”或“B”和“C”是同步的，但“A”和“C”。也就是说，所有的线程中写道：“A”，推出之前发布的“A”，这样可以保证完成一次线程“C”观察店<i> B</i>. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Then not only <i>A</i> and <i>B</i> or <i>B</i> and <i>C</i> are synchronized, but <i>A</i> and <i>C</i> also. That is, all writes by the thread <i>A</i> that were launched before the release of <i>a</i> are guaranteed to be completed once thread <i>C</i> observes the store to <i>b</i>. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</dd></dl>
+<div class="t-tr-text">在所有主流CPU，DEC的Alpha以外，依赖顺序是自动的，无需额外的CPU指令发出此同步模式，只有某些特定的编译器优化的影响（如编译器被禁止进行投机性负载的对象都参与了依赖链）<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">On all mainstream CPUs, other than DEC Alpha, dependency ordering is automatic, no additional CPU instructions are issued for this synchronization mode, only certain compiler optimizations are affected (e.g. the compiler is prohibited from performing speculative loads on the objects that are involved in the dependency chain)</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection4" title="编辑章节：释放序列">编辑</a>]</span> <span class="mw-headline" id=".E9.87.8A.E6.94.BE.E5.BA.8F.E5.88.97">释放序列</span></h4>
+<div class="t-tr-text">如果一些原子存储和其他几个线程执行读 - 修改 - 写操作的原子，“释放序列”形成的所有线程执行读 - 修改 - 写入相同的原子与第一个线程同步和即使他们有没有<code>memory_order_release</code>语义。这使得单个生产者 - 多消费者的情况下，可能没有强加不必要的个人消费者线程之间的同步.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If some atomic is store-released and several other threads perform read-modify-write operations on that atomic, a "release sequence" is formed: all threads that perform the read-modify-writes to the same atomic synchronize with the first thread and each other even if they have no <code>memory_order_release</code> semantics. This makes single producer - multiple consumers situations possible without imposing unnecessary synchronization between individual consumer threads.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection5" title="编辑章节：释放获得订购">编辑</a>]</span> <span class="mw-headline" id=".e9.87.8a.e6.94.be.e8.8e.b7.e5.be.97.e8.ae.a2.e8.b4.ad.htm">释放获得订购</span></h4>
+<div class="t-tr-text">如果原子存储标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_release</span></span>从相同的变量和原子加载标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_acquire</span></span>，操作具有以下性质：<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If an atomic store is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_release</span></span> and an atomic load from the same variable is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_acquire</span></span>, the operations exhibit the following properties:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<ul><li> <div class="t-tr-text">没有写，写线程可以重新排序后的原子存储<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No writes in the writer thread can be reordered after the atomic store</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">没有读取读取器线程可以重新排序前原子的负载. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No reads in the reader thread can be reordered before the atomic load. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">只有在线程之间的同步建立“释放”和“收购”指同一个原子变量。其他线程可以看到不同的顺序比一个或两个同步线程的内存访问.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The synchronization is established only between the threads <i>releasing</i> and <i>acquiring</i> the same atomic variable. Other threads can see different order of memory accesses than either or both of the synchronized threads.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">同步是传递的。也就是说，如果我们有下面的情况：<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The synchronization is transitive. That is, if we have the following situation:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+<dl><dd><dl><dd><ul><li> <div class="t-tr-text">主题<i> A</i>释放原子变量“A”.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>A</i> releases atomic variable <i>a</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题<i> B</i>消耗原子变量“A”.....<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>B</i> consumes atomic variable <i>a</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题“B”版本中的原子变量<i> B</i>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>B</i> releases atomic variable <i>b</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">主题“C”使用或获取原子变量<i> B</i>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Thread <i>C</i> consumes or acquires atomic variable <i>b</i>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+</dd></dl>
+</dd><dd> <div class="t-tr-text">那么，“A”和“B”或“B”和“C”是同步的，但“A”和“C”。也就是说，所有的线程中写道：“A”，推出之前发布的“A”，这样可以保证完成一次线程“C”观察店<i> B</i>. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Then not only <i>A</i> and <i>B</i> or <i>B</i> and <i>C</i> are synchronized, but <i>A</i> and <i>C</i> also. That is, all writes by the thread <i>A</i> that were launched before the release of <i>a</i> are guaranteed to be completed once thread <i>C</i> observes the store to <i>b</i>. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</dd></dl>
+<div class="t-tr-text">在强烈的有序系统（包括x86和SPARC，IBM大型机），发行收购排序是自动的。没有额外的CPU指令发出此同步模式，只有某些特定的编译器优化的影响（如编译器禁止移动的原子存储脱膜剂的非原子店过去或执行非原子负载负载获得比原子）<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">On strongly-ordered systems (x86, SPARC, IBM mainframe), release-acquire ordering is automatic. No additional CPU instructions are issued for this synchronization mode, only certain compiler optimizations are affected (e.g. the compiler is prohibited from moving non-atomic stores past the atomic store-relase or perform non-atomic loads earlier than the atomic load-acquire)</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h4><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection6" title="编辑章节：顺序一致的顺序">编辑</a>]</span> <span class="mw-headline" id=".e9.a1.ba.e5.ba.8f.e4.b8.80.e8.87.b4.e7.9a.84.e9.a1.b~1.htm">顺序一致的顺序</span></h4>
+<div class="t-tr-text">如果原子存储和标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_seq_cst</span></span>从相同的变量和原子加载标签<span class="t-c"><span class="mw-geshi c source-c">memory_order_seq_cst</span></span>，然后操作具有以下性质：<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">If an atomic store and an is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_seq_cst</span></span> and an atomic load from the same variable is tagged <span class="t-c"><span class="mw-geshi c source-c">memory_order_seq_cst</span></span>, then the operations exhibit the following properties:</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<ul><li> <div class="t-tr-text">没有写，写线程可以重新排序后的原子存储<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No writes in the writer thread can be reordered after the atomic store</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">没有读取读取器线程可以重新排序前原子的负载.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">No reads in the reader thread can be reordered before the atomic load.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li><li> <div class="t-tr-text">之间建立同步标记的原子操作<span class="t-lc">std::memory_order_seq_cst</span>。这种原子操作的所有线程使用相同的顺序内存访问.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The synchronization is established between all atomic operations tagged <span class="t-lc">std::memory_order_seq_cst</span>. All threads using such atomic operation see the same order of memory accesses.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</li></ul>
+<div class="t-tr-text">顺序排列多个生产者多个消费者的情况下，所有的消费者都必须遵守所有生产者的行为发生在相同的顺序是必要的. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Sequential ordering is necessary for many multiple producer-multiple consumer situations where all consumers must observe the actions of all producers occurring in the same order. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">总的顺序排列所有多核心系统上需要一个完整的的内存栅栏CPU指令。这可能会成为性能瓶颈，因为它迫使所有的内存访问，传播到每一个线程.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Total sequential ordering requires a full memory fence CPU instruction on all multi-core systems. This may become a performance bottleneck since it forces all memory accesses to propagate to every thread.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection7" title="编辑章节：与易挥发的关系">编辑</a>]</span> <span class="mw-headline" id=".e4.b8.8e.e6.98.93.e6.8c.a5.e5.8f.91.e7.9a.84.e5.85.b~1.htm">与易挥发的关系</span></h3>
+<div class="t-tr-text">{{{1}}}<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">{{{2}}}</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioneditsection8" title="编辑章节：的例子">编辑</a>]</span> <span class="mw-headline" id=".E7.9A.84.E4.BE.8B.E5.AD.90">的例子</span></h3>
+<table class="metadata plainlinks ambox mbox-small-left ambox-notice" style=""><tr><td class="mbox-empty-cell"></td><td class="mbox-text" style="">本章尚未完成 </td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 3079/1000000
+Preprocessor generated node count: 10516/1000000
+Post‐expand include size: 100962/2097152 bytes
+Template argument size: 35391/2097152 bytes
+Highest expansion depth: 17/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:939-0!*!0!!zh!2!zh!* and timestamp 20131001134050 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderoldid29761">http://zh.cppreference.com/mwiki/index.php?title=c/atomic/memory_order&amp;oldid=29761</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../../special_3a_25e9_25a1_25b5_25e9_259d_25a2_25e5_2588_25~1.htm" title="Special:页面分类">1个分类</a>：<ul><li><a href="../../../mwiki/index.phptitlecategory_3atodo_without_reasonactioneditredlink1" class="new" title="Category:Todo without reason（页面不存在）">Todo without reason</a></li></ul></div></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../../cpp/io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/c/atomic/memory_order.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/c/atomic/memory_order" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderoldid29761" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../mwiki/index.phptitlec_2fatomic_2fmemory_orderactioninfo">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../de.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../en.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../es.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../fr.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../it.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../ja.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../pt.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../ru.cppreference.com/w/c/atomic/memory_order" title="c/atomic/memory order" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2013年7月2日 (星期二) 07:38。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过118次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../www.mediawiki.org/default.htm"><img src="../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../qbnz.com/highlighter/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../www.tigertech.net/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 2.045 secs. -->
+	</body>
+<!-- Cached 20131001134050 -->
+</html>

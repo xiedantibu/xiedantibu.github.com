@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>std::basic_ifstream::basic_ifstream - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=edit" />
+<link rel="edit" title="编辑" href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=edit" />
+<link rel="shortcut icon" href="../../../../favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../../mwiki/index.php@title=Special_3A_25E6_259C_2580_25E8_25BF_2591_25E6_259B_25B4_25E6_2594_25B9&feed=atom" />
+<link rel="stylesheet" href="../../../../mwiki/load.php@debug=false&lang=zh&modules=ext.gadget.ShowEditLinks_257Cext.rtlcite_257Cmediawiki.legacy.commonPrint_252Cshared_257Cskins.cppreference2&only=styles&skin=cppreference2&_2A" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../../mwiki/load.php@debug=false&lang=zh&modules=site&only=styles&skin=cppreference2&_2A" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../../mwiki/load.php@debug=false&lang=zh&modules=startup&only=scripts&skin=cppreference2&_2A"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/io/basic_ifstream/basic_ifstream","wgTitle":"cpp/io/basic ifstream/basic ifstream","wgCurRevisionId":30823,"wgArticleId":2217,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"cpp/io/basic_ifstream/basic_ifstream","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_io_basic_ifstream_basic_ifstream skin-cppreference2 action-view cpp-page-template cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../../mwiki/skins/cppreference2/images/search-ltr.png@303" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../../mwiki/index.php@title=Special_3A_25E7_2594_25A8_25E6_2588_25B7_25E7_2599_25BB_25E5_25BD_2595&returnto=cpp_252Fio_252Fbasic+ifstream_252Fbasic+ifstream&type=signup">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../../mwiki/index.php@title=Special_3A_25E7_2594_25A8_25E6_2588_25B7_25E7_2599_25BB_25E5_25BD_2595&returnto=cpp_252Fio_252Fbasic+ifstream_252Fbasic+ifstream" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="basic_ifstream"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../../mwiki/index.php@title=Talk_3Acpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=edit&redlink=1"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&variant=zh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="basic_ifstream" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=edit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=history"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">std::basic_ifstream::</span>basic_ifstream</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../../../cpp" title="cpp">cpp</a>&lrm; | <a href="../../io" title="cpp/io">io</a>&lrm; | <a href="../basic_ifstream" title="cpp/io/basic ifstream">basic ifstream</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><div class="t-page-template" style="">
+<p>
+</p>
+<span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_fstream_2Fconstructor&action=edit">&#91;edit template&#93;</a></span></div><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../../upload.cppreference.com/mwiki/images/3/31/Imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../../en.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" class="extiw" title="en:cpp/io/basic ifstream/basic ifstream"> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../../../cpp" title="cpp"> C++</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../../language" title="cpp/language">语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../concept" title="cpp/concept">概念</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../utility" title="cpp/utility">实用工具库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../string" title="cpp/string">字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../container" title="cpp/container">集装箱库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../algorithm" title="cpp/algorithm">算法库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../iterator" title="cpp/iterator">迭代器库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../numeric" title="cpp/numeric">Numerics库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../io" title="cpp/io">输入/输出库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../locale" title="cpp/locale">本地化库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../regex" title="cpp/regex">正则表达式库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../atomic" title="cpp/atomic">原子操作库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../../thread" title="cpp/thread">线程的支持库</a> <span class="t-mark">（C++11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fnavbar_content&action=edit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../../io" title="cpp/io">输入/输出库</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5">  <a href="../manip" title="cpp/io/manip">I / O操纵</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../c" title="cpp/io/c">C-风格的I / O</a>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 缓冲区 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Buffers </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_streambuf" title="cpp/io/basic streambuf">basic_streambuf</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_filebuf" title="cpp/io/basic filebuf">basic_filebuf</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_stringbuf" title="cpp/io/basic stringbuf">basic_stringbuf</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../strstreambuf" title="cpp/io/strstreambuf">strstreambuf</a></td><td><span class="t-mark">（已弃用）</span></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 流 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Streams </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 抽象 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Abstractions </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../ios_base" title="cpp/io/ios base">ios_base</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_ios" title="cpp/io/basic ios">basic_ios</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_istream" title="cpp/io/basic istream">basic_istream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_ostream" title="cpp/io/basic ostream">basic_ostream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_iostream" title="cpp/io/basic iostream">basic_iostream</a></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 文件I / O <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> File I/O </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_ifstream" title="cpp/io/basic ifstream">basic_ifstream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_ofstream" title="cpp/io/basic ofstream">basic_ofstream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_fstream" title="cpp/io/basic fstream">basic_fstream</a></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 字符串I / O <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> String I/O </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_istringstream" title="cpp/io/basic istringstream">basic_istringstream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_ostringstream" title="cpp/io/basic ostringstream">basic_ostringstream</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../basic_stringstream" title="cpp/io/basic stringstream">basic_stringstream</a></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 阵列的I / O <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Array I/O </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../istrstream" title="cpp/io/istrstream">istrstream</a></td><td><span class="t-mark">（已弃用）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../ostrstream" title="cpp/io/ostrstream">ostrstream</a></td><td><span class="t-mark">（已弃用）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../strstream" title="cpp/io/strstream">strstream</a></td><td><span class="t-mark">（已弃用）</span></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 类型 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Types </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../streamoff" title="cpp/io/streamoff">streamoff</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../streamsize" title="cpp/io/streamsize">streamsize</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../fpos" title="cpp/io/fpos">fpos</a></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> Error类的接口 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Error category interface </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../iostream_category" title="cpp/io/iostream category">iostream_category</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="../io_errc" title="cpp/io/io errc">io_errc</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fnavbar_content&action=edit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../basic_ifstream" title="cpp/io/basic ifstream"><tt>std::basic_ifstream</tt></a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr class="t-nv-h1">
+<td colspan="5"> <div class="t-tr-text"> 成员函数<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Member functions</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><strong class="selflink">basic_ifstream::basic_ifstream</strong></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="operator_253D" title="cpp/io/basic ifstream/operator=">basic_ifstream::operator=</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="swap" title="cpp/io/basic ifstream/swap">basic_ifstream::swap</a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="rdbuf" title="cpp/io/basic ifstream/rdbuf">basic_ifstream::rdbuf</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 文件操作 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> File operations </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="is_open" title="cpp/io/basic ifstream/is open">basic_ifstream::is_open</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="open" title="cpp/io/basic ifstream/open">basic_ifstream::open</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="close" title="cpp/io/basic ifstream/close">basic_ifstream::close</a></td></tr></table>
+</td></tr>
+
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 非成员函数 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Non-member functions </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="swap2" title="cpp/io/basic ifstream/swap2">basic_ifstream::swap<span class="t-dsc-small">(std::basic_ifstream)</span></a></td><td><span class="t-mark">（C++11）</span></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_ifstream_2Fnavbar_content&action=edit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (1) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span> <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> filename,<br />
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; ios_base<span class="sy4">::</span><span class="me2">openmode</span> mode <span class="sy1">=</span> ios_base<span class="sy4">::</span><span class="me2">in</span> <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (2) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl t-dcl-since-cxx11">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span> <span class="kw4">const</span> string<span class="sy3">&amp;</span> filename,<br />
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; ios_base<span class="sy4">::</span><span class="me2">openmode</span> mode <span class="sy1">=</span> ios_base<span class="sy4">::</span><span class="me2">in</span> <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (3) </td>
+<td> <span class="t-mark">（C++11 起）</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl t-dcl-since-cxx11">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span> basic_ifstream<span class="sy3">&amp;&amp;</span> other <span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td> (4) </td>
+<td> <span class="t-mark">（C++11 起）</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td> <div><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span> <span class="kw4">const</span> basic_ifstream<span class="sy3">&amp;</span> rhs<span class="br0">&#41;</span> <span class="sy1">=</span> delete<span class="sy4">;</span></span></div></td>
+<td> (5) </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text">构建新的文件流.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Constructs new file stream.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+<div class="t-li1"><span class="t-li">1)</span> <div class="t-tr-text">默认的构造方法：构造一个流，不与文件关联的默认构造<span class="t-lc">std::basic_filebuf</span>和构造的基本与默认构造<span class="t-lc">std::basic_filebuf</span>成员的指针.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Default constructor: constructs a stream that is not associated with a file: default-constructs the <span class="t-lc">std::basic_filebuf</span> and constructs the base with the pointer to this default-constructed <span class="t-lc">std::basic_filebuf</span> member.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">2)</span> <div class="t-tr-text">首先，作为默认的构造函数执行相同的步骤，，然后asssociate流文件的调用<span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy2">-</span><span class="sy1">&gt;</span>open<span class="br0">&#40;</span>filename, mode <span class="sy3">|</span> <a href="../ios_base/openmode"><span class="kw1345">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">in</span></span></a><span class="br0">&#41;</span></span></span>.。如果open（）调用返回一个空指针，设置<span class="t-c"><span class="mw-geshi cpp source-cpp">setstate<span class="br0">&#40;</span>failbit<span class="br0">&#41;</span></span></span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">First, performs the same steps as the default constructor, then asssociate the stream with a file by calling <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy2">-</span><span class="sy1">&gt;</span>open<span class="br0">&#40;</span>filename, mode <span class="sy3">|</span> <a href="../ios_base/openmode"><span class="kw1345">std::<span class="me2">ios_base</span><span class="sy4">::</span><span class="me2">in</span></span></a><span class="br0">&#41;</span></span></span>.. If the open() call returns a null pointer, sets <span class="t-c"><span class="mw-geshi cpp source-cpp">setstate<span class="br0">&#40;</span>failbit<span class="br0">&#41;</span></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">3)</span> <div class="t-tr-text">同<span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span>filename.<span class="me1">c_str</span><span class="br0">&#40;</span><span class="br0">&#41;</span>, mode<span class="br0">&#41;</span></span></span>. <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Same as <span class="t-c"><span class="mw-geshi cpp source-cpp">basic_ifstream<span class="br0">&#40;</span>filename.<span class="me1">c_str</span><span class="br0">&#40;</span><span class="br0">&#41;</span>, mode<span class="br0">&#41;</span></span></span>. </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">4)</span> <div class="t-tr-text">移动的构造函数。首先，将构建<code>other</code>（不影响<code>rdbuf()</code>指针）的基类，然后将构建<span class="t-lc">std::basic_filebuf</span>成员，然后调用<span class="t-c"><span class="mw-geshi cpp source-cpp">this<span class="sy2">-</span><span class="sy1">&gt;</span>set_rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span></span></span>安装新的<code>basic_filebuf</code><span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span></span></span>在基类的指针.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Move constructor. First, move-constructs the base class from <code>other</code> (which does not affect the <code>rdbuf()</code> pointer), then move-constructs the <span class="t-lc">std::basic_filebuf</span> member, then calls <span class="t-c"><span class="mw-geshi cpp source-cpp">this<span class="sy2">-</span><span class="sy1">&gt;</span>set_rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span></span></span> to install the new <code>basic_filebuf</code> as the <span class="t-c"><span class="mw-geshi cpp source-cpp">rdbuf<span class="br0">&#40;</span><span class="br0">&#41;</span></span></span> pointer in the base class.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div></div>
+<div class="t-li1"><span class="t-li">5)</span> <div class="t-tr-text">拷贝构造函数被删除：这个类是不是复制的.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The copy-constructor is deleted: this class is not copyable.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_fstream_2Fconstructor&action=edit&section=T-1" title="Template:cpp/io/basic fstream/constructor">编辑</a>]</span> <span class="mw-headline" id=".E5.8F.82.E6.95.B0">参数</span></h3>
+<table class="t-par-begin">
+
+
+<tr class="t-par">
+<td>  filename
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 被打开的文件的名称<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> the name of the file to be opened</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  mode
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 指定流的开放模式。这是位掩码类型，有以下常量的定义：
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc-hitem">
+<td> <div class="t-tr-text"> 常数 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Constant </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td>
+<td>  Explanation
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>app</tt></a>
+</td>
+<td> <div class="t-tr-text"> 寻求每次写操作之前的数据流结束<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> seek to the end of stream before each write</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>binary</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开二进制模式<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open in binary mode</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>in</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开阅读<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open for reading</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>out</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开写作<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open for writing</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>trunc</tt></a>
+</td>
+<td> <div class="t-tr-text"> 丢弃打开时的流的内容<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> discard the contents of the stream when opening</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>ate</tt></a>
+</td>
+<td> <div class="t-tr-text"> 寻求到的数据流结束后，立即打开<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> seek to the end of stream immediately after open</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+</table> <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> specifies stream open mode. It is bitmask type, the following constants are defined:
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc-hitem">
+<td> <div class="t-tr-text"> 常数 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Constant </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td>
+<td>  Explanation
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>app</tt></a>
+</td>
+<td> <div class="t-tr-text"> 寻求每次写操作之前的数据流结束<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> seek to the end of stream before each write</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>binary</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开二进制模式<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open in binary mode</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>in</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开阅读<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open for reading</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>out</tt></a>
+</td>
+<td> <div class="t-tr-text"> 打开写作<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> open for writing</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>trunc</tt></a>
+</td>
+<td> <div class="t-tr-text"> 丢弃打开时的流的内容<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> discard the contents of the stream when opening</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <a href="../ios_base/openmode" title="cpp/io/ios base/openmode"><tt>ate</tt></a>
+</td>
+<td> <div class="t-tr-text"> 寻求到的数据流结束后，立即打开<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> seek to the end of stream immediately after open</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+</table> </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  other
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 另一个文件流作为源使用<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> another file stream to use as source</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_fstream_2Fconstructor&action=edit&section=T-2" title="Template:cpp/io/basic fstream/constructor">编辑</a>]</span> <span class="mw-headline" id=".E4.B8.BA.E4.BE.8B">为例</span></h3>
+<div class="t-example"><div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;fstream&gt;</span>
+<span class="co2">#include &lt;utility&gt;</span>
+<span class="co2">#include &lt;string&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<a href="../basic_ifstream"><span class="kw1402">std::<span class="me2">ifstream</span></span></a> f0<span class="sy4">;</span>
+    <a href="../basic_ifstream"><span class="kw1402">std::<span class="me2">ifstream</span></span></a> f1<span class="br0">&#40;</span><span class="st0">&quot;test.bin&quot;</span>, std<span class="sy4">::</span><span class="me2">ios</span><span class="sy4">::</span><span class="me2">binary</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../../string/basic_string"><span class="kw1034">std::<span class="me2">string</span></span></a> name <span class="sy1">=</span> <span class="st0">&quot;example.txt&quot;</span><span class="sy4">;</span>
+    <a href="../basic_ifstream"><span class="kw1402">std::<span class="me2">ifstream</span></span></a> f2<span class="br0">&#40;</span>name<span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../basic_ifstream"><span class="kw1402">std::<span class="me2">ifstream</span></span></a> f3<span class="br0">&#40;</span><a href="../../utility/move"><span class="kw910">std::<span class="me2">move</span></span></a><span class="br0">&#40;</span>f1<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p><br /> 
+</p>
+</div>
+<h3><span class="editsection">[<a href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_fstream_2Fconstructor&action=edit&section=T-3" title="Template:cpp/io/basic fstream/constructor">编辑</a>]</span> <span class="mw-headline" id=".E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85">另请参阅</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="open" title="cpp/io/basic ifstream/open"> open</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 打开一个文件，并将它与数据流<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> opens a file and associates it with the stream</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_fstream_2Fdsc_open&action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../basic_filebuf/open" title="cpp/io/basic filebuf/open"> open</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 打开一个文件，并将其配置为相应的字符序列<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> opens a file and configures it as the associated character sequence</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::basic_filebuf</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_filebuf_2Fdsc_open&action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../basic_ios/set_rdbuf" title="cpp/io/basic ios/set rdbuf"> set_rdbuf</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 取代了<code>rdbuf</code>不清除其错误状态<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> replaces the <code>rdbuf</code> without clearing its error state</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（受保护的成员函数）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_ios_2Fdsc_set_rdbuf&action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div t-dsc-member-nobold-div"><div><a href="../basic_istream/basic_istream" title="cpp/io/basic istream/basic istream"> (constructor)</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> 构造对象<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> constructs the object</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../../en.cppreference.com/w/Cppreference_3AMachineTranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（公共成员函数of <code>std::basic_istream</code>）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../../mwiki/index.php@title=Template_3Acpp_2Fio_2Fbasic_istream_2Fdsc_constructor&action=edit">&#91;edit&#93;</a></span>
+</td></tr>
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 4494/1000000
+Preprocessor generated node count: 9869/1000000
+Post‐expand include size: 298529/2097152 bytes
+Template argument size: 61889/2097152 bytes
+Highest expansion depth: 36/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:2217-0!*!0!!*!2!zh!* and timestamp 20131204022408 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&oldid=30823">http://zh.cppreference.com/mwiki/index.php?title=cpp/io/basic_ifstream/basic_ifstream&amp;oldid=30823</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../../_25E9_25A6_2596_25E9_25A1_25B5" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../../Cppreference_3A_25E7_25A4_25BE_25E5_258C_25BA_25E4_25B8_25BB_25E9_25A1_25B5" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../../Cppreference_3A_25E6_2596_25B0_25E9_2597_25BB_25E5_258A_25A8_25E6_2580_2581" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../../Special_3A_25E6_259C_2580_25E8_25BF_2591_25E6_259B_25B4_25E6_2594_25B9" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../../../Special_3A_25E9_259A_258F_25E6_259C_25BA_25E9_25A1_25B5_25E9_259D_25A2" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../../Help_3A_25E7_259B_25AE_25E5_25BD_2595" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../../Special_3A_25E9_2593_25BE_25E5_2585_25A5_25E9_25A1_25B5_25E9_259D_25A2/cpp/io/basic_ifstream/basic_ifstream" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../../Special_3A_25E9_2593_25BE_25E5_2587_25BA_25E6_259B_25B4_25E6_2594_25B9/cpp/io/basic_ifstream/basic_ifstream" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../../upload.cppreference.com/w/Special_3AUpload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../../Special_3A_25E7_2589_25B9_25E6_25AE_258A_25E9_25A1_25B5_25E9_259D_25A2" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&printable=yes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&oldid=30823" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../../mwiki/index.php@title=cpp_2Fio_2Fbasic_ifstream_2Fbasic_ifstream&action=info">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../../de.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../../en.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../../es.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../../fr.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../../it.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../../ja.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../../pt.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../../ru.cppreference.com/w/cpp/io/basic_ifstream/basic_ifstream" title="cpp/io/basic ifstream/basic ifstream" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2013年7月2日 (星期二) 08:10。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过112次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../../Cppreference_3A_25E9_259A_2590_25E7_25A7_2581_25E6_259D_2583_25E6_2594_25BF_25E7_25AD_2596" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../../Cppreference_3A_25E5_2585_25B3_25E4_25BA_258E" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../../Cppreference_3A_25E5_2585_258D_25E8_25B4_25A3_25E5_25A3_25B0_25E6_2598_258E" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../../www.mediawiki.org/default.htm"><img src="../../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../../qbnz.com/highlighter/default.htm"><img src="../../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../../www.tigertech.net/referral/cppreference.com"><img src="../../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../../mwiki/load.php@debug=false&lang=zh&modules=skins.cppreference2&only=scripts&skin=cppreference2&_2A"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../../mwiki/load.php@debug=false&lang=zh&modules=site&only=scripts&skin=cppreference2&_2A"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 2.934 secs. -->
+	</body>
+<!-- Cached 20131204022409 -->
+</html>

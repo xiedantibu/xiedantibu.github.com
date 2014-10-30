@@ -1,0 +1,519 @@
+<!DOCTYPE html><!-- saved from url=(0047)http://zh.cppreference.com/w/c/locale/setlocale --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>setlocale - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactionedit" />
+<link rel="edit" title="编辑" href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactionedit" />
+<link rel="shortcut icon" href="../../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=c/locale/setlocale&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"c/locale/setlocale","wgTitle":"c/locale/setlocale","wgCurRevisionId":37697,"wgArticleId":1086,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"c/locale/setlocale","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #0000dd;}
+.c.source-c .kw2 {color: #0000ff;}
+.c.source-c .kw3 {color: #0000dd;}
+.c.source-c .kw4 {color: #0000ff;}
+.c.source-c .co1 {color: #909090;}
+.c.source-c .co2 {color: #339900;}
+.c.source-c .coMULTI {color: #ff0000; font-style: italic;}
+.c.source-c .es0 {color: #008000; font-weight: bold;}
+.c.source-c .es1 {color: #008000; font-weight: bold;}
+.c.source-c .es2 {color: #008000; font-weight: bold;}
+.c.source-c .es3 {color: #008000; font-weight: bold;}
+.c.source-c .es4 {color: #008000; font-weight: bold;}
+.c.source-c .es5 {color: #008000; font-weight: bold;}
+.c.source-c .br0 {color: #008000;}
+.c.source-c .sy0 {color: #008000;}
+.c.source-c .sy1 {color: #000080;}
+.c.source-c .sy2 {color: #000040;}
+.c.source-c .sy3 {color: #000040;}
+.c.source-c .sy4 {color: #008080;}
+.c.source-c .st0 {color: #008000;}
+.c.source-c .nu0 {color: #000080;}
+.c.source-c .nu6 {color:#000080;}
+.c.source-c .nu8 {color:#000080;}
+.c.source-c .nu12 {color:#000080;}
+.c.source-c .nu16 {color:#000080;}
+.c.source-c .nu17 {color:#000080;}
+.c.source-c .nu18 {color:#000080;}
+.c.source-c .nu19 {color:#000080;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-c_locale_setlocale skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../../default.htm">
+                        cppreference.com                        </a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../../mwiki/index~377.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../../mwiki/index~378.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="setlocale.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../../mwiki/index.phptitletalk_3ac_2flocale_2fsetlocaleactioneditredlink1"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocalevariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="setlocale.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">setlocale</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../default.htm" title="c">c</a>&lrm; | <a href="default.htm" title="c/locale">locale</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><table class="plainlinks fmbox fmbox-system" style="font-size:0.9em; line-height: 1em">
+<tr>
+<td class="mbox-image">
+  <img alt="" src="../../../../upload.cppreference.com/mwiki/images/3/31/imbox_notice.png" width="40" height="40" /></td>
+<td class="mbox-text" style=""> <p>该页由英文版wiki使用<a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a>机器翻译而来。
+</p><p>
+<p>该翻译可能存在错误或用词不当。鼠标停留在文本上可以看到原版本。你可以帮助我们修正错误或改进翻译。参见说明请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>.
+</p>
+</p>
+<p class="t-tr-note-click">
+<a href="../../../../en.cppreference.com/w/c/locale/setlocale" class="extiw" title="en:c/locale/setlocale"> 点击这里参见该页的英文版本</a>
+</p> </td>
+</tr>
+</table>
+<p><!-- META_NOINDEX -->
+</p>
+<div class="t-navbar" style=""><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="../default.htm" title="c"> C</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+
+<tr>
+<td colspan="5">  <a href="../language/default.htm" title="c/language"> 语言</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../header.htm" title="c/header"> 标准库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../types/default.htm" title="c/types"> 类型支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../memory/default.htm" title="c/memory"> 动态内存管理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../error/default.htm" title="c/error"> 错误处理</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../program/default.htm" title="c/program"> 程序工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../chrono/default.htm" title="c/chrono"> 日期和时间工具</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../string/default.htm" title="c/string"> 字符串库</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../algorithm/default.htm" title="c/algorithm"> 算法</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../numeric/default.htm" title="c/numeric"> 数值计算</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../io/default.htm" title="c/io"> 输入/输出支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="default.htm" title="c/locale"> 本地化支持</a>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../thread/default.htm" title="c/thread"> 线程支持</a> <span class="t-mark">（C11）</span>
+</td></tr>
+
+<tr>
+<td colspan="5">  <a href="../atomic/default.htm" title="c/atomic"> 原子操作</a> <span class="t-mark">（C11）</span>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div><div class="t-navbar-head"><a href="default.htm" title="c/locale">本地化的支持</a><div class="t-navbar-menu"><div><div>
+<table class="t-nv-begin" cellpadding="0" style="">
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><strong class="selflink">setlocale</strong></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="localeconv.htm" title="c/locale/localeconv">localeconv</a></td></tr></table>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="lconv.htm" title="c/locale/lconv">lconv</a></td></tr></table>
+</td></tr>
+
+<tr class="t-nv-h2">
+<td colspan="5"> <div class="t-tr-text"> 语言环境种类<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> Locale categories</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+
+<tr>
+<td colspan="5"> <table class="t-nv-ln-table"><tr><td><a href="lc_categories" title="c/locale/LC categories">LC_ALL<br />LC_COLLATE<br />LC_CTYPE<br />LC_MONETARY<br />LC_NUMERIC<br />LC_TIME</a></td></tr></table>
+</td></tr>
+</table>
+</div><div><span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index.phptitletemplate_3ac_2flocale_2fnavbar_contentactionedit">&#91;edit&#93;</a></span></div></div></div></div><div class="t-navbar-sep">&#160;</div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>在头文件 <tt>&lt;locale.h&gt;</tt> 中定义
+ </div></td>
+<td></td>
+<td></td>
+</tr><tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span> setlocale<span class="br0">&#40;</span> <span class="kw4">int</span> category, <span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span> locale<span class="br0">&#41;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<div class="t-tr-text"><code>setlocale</code>功能安装指定的系统区域设置或部分作为新的C语言环境。的修改仍然有效，并影响到执行的所有语言环境敏感的C库函​​数，直到下一次调用<code>setlocale</code>。 <code>locale</code>是一个空指针，<code>setlocale</code>查询当前的C语言环境，而无需修改<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">The <code>setlocale</code> function installs the specified system locale or its portion as the new C locale. The modifications remain in effect and influences the execution of all locale-sensitive C library functions until the next call to <code>setlocale</code>. If <code>locale</code> is a null pointer, <code>setlocale</code> queries the current C locale without modifying it.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#.E5.8F.82.E6.95.B0"><span class="tocnumber">1</span> <span class="toctext">参数</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#.E8.BF.94.E5.9B.9E.E5.80.BC"><span class="tocnumber">2</span> <span class="toctext">返回值</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.E6.B3.A8.E9.87.8A"><span class="tocnumber">3</span> <span class="toctext">注释</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.E7.A4.BA.E4.BE.8B"><span class="tocnumber">4</span> <span class="toctext">示例</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85"><span class="tocnumber">5</span> <span class="toctext">另请参阅</span></a></li>
+</ul>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioneditsection1" title="编辑章节：参数">编辑</a>]</span> <span class="mw-headline" id=".e5.8f.82.e6.95.b0.htm">参数</span></h3>
+<table class="t-par-begin">
+
+
+<tr class="t-par">
+<td>  category
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 语言环境类别标识，<a href="lc_categories" title="c/locale/LC categories">&lt;div class="t-tr-text"&gt;LC_xxx<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">LC_xxx</div><div class="t-tr-dropdown-notes">这段文字是通过 [http://translate.google.com Google Translate] 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击[http://en.cppreference.com/w/Cppreference:MachineTranslations 这里]。</div></div></div></div></div></a>宏之一。可能是空的<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> locale category identifier, one of the <a href="lc_categories" title="c/locale/LC categories"><div class="t-tr-text">LC_xxx<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">LC_xxx</div><div class="t-tr-dropdown-notes">这段文字是通过 [http://translate.google.com Google Translate] 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击[http://en.cppreference.com/w/Cppreference:MachineTranslations 这里]。</div></div></div></div>&lt;/div&gt;</a> macros. May be null.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr>
+<tr class="t-par">
+<td>  locale
+</td>
+<td> -
+</td>
+<td> <div class="t-tr-text"> 系统特定的区域设置标识符。 <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;&quot;</span></span></span>为用户首选的语言环境或的最小的语言环境。<span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;C&quot;</span></span></span>功能安装指定的系统区域设置或修改的部分作为新的C语言环境。留在效果和影响所有语言环境敏感的C库函​​数的执行 <div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> system-specific locale identifier. Can be <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;&quot;</span></span></span> for the user-preferred locale or <span class="t-c"><span class="mw-geshi c source-c"><span class="st0">&quot;C&quot;</span></span></span> for the minimal locale </div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+</td></tr></table>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioneditsection2" title="编辑章节：返回值">编辑</a>]</span> <span class="mw-headline" id=".e8.bf.94.e5.9b.9e.e5.80.bc.htm">返回值</span></h3>
+<div class="t-tr-text">指针到一个狭窄的null结尾的字符串识别应用变更后的C语言环境，如果有的话，则返回null指针，失败.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">pointer to a narrow null-terminated string identifying the C locale after applying the changes, if any, or null pointer on failure.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioneditsection3" title="编辑章节：注释">编辑</a>]</span> <span class="mw-headline" id=".e6.b3.a8.e9.87.8a.htm">注释</span></h3>
+<div class="t-tr-text">在程序启动时，相当于<span class="t-c"><span class="mw-geshi c source-c">setlocale<span class="br0">&#40;</span><a href="lc_categories"><span class="kw903">LC_ALL</span></a>, <span class="st0">&quot;C&quot;</span><span class="br0">&#41;</span><span class="sy4">;</span></span></span>任何用户代码运行之前执行.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">During program startup, the equivalent of <span class="t-c"><span class="mw-geshi c source-c">setlocale<span class="br0">&#40;</span><a href="lc_categories"><span class="kw903">LC_ALL</span></a>, <span class="st0">&quot;C&quot;</span><span class="br0">&#41;</span><span class="sy4">;</span></span></span> is executed before any user code is run.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">虽然返回类型是<span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span></span></span>，修改所指向的字符是不确定的行为.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Although the return type is <span class="t-c"><span class="mw-geshi c source-c"><span class="kw4">char</span><span class="sy2">*</span></span></span>, modifying the pointed-to characters is undefined behavior.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<div class="t-tr-text">，因为<code>setlocale</code>修改全球状态，影响执行的语言环境相关的功能，它是不确定的行为从一个线程来调用它，而另一个线程正在执行以下功能：<span class="t-c"><span class="mw-geshi c source-c"><a href="../io/fprintf.htm"><span class="kw852">fprintf</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isprint.htm"><span class="kw536">isprint</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswdigit.htm"><span class="kw597">iswdigit</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="localeconv.htm"><span class="kw901">localeconv</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/tolower.htm"><span class="kw538">tolower</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../io/fscanf.htm"><span class="kw846">fscanf</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/ispunct.htm"><span class="kw537">ispunct</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswgraph.htm"><span class="kw600">iswgraph</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mblen.htm"><span class="kw575">mblen</span></a></span></span>， <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/toupper.htm"><span class="kw539">toupper</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isalnum.htm"><span class="kw526">isalnum</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isspace.htm"><span class="kw534">isspace</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswlower.htm"><span class="kw595">iswlower</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mbstowcs.htm"><span class="kw578">mbstowcs</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/towlower.htm"><span class="kw607">towlower</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isalpha.htm"><span class="kw527">isalpha</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isupper.htm"><span class="kw529">isupper</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswprint.htm"><span class="kw603">iswprint</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mbtowc.htm"><span class="kw576">mbtowc</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/towupper.htm"><span class="kw608">towupper</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isblank.htm"><span class="kw535">isblank</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswalnum"><span class="kw593">iswalnum</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswpunct.htm"><span class="kw604">iswpunct</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c">setlocale</span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcscoll.htm"><span class="kw628">wcscoll</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/iscntrl.htm"><span class="kw532">iscntrl</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswalpha.htm"><span class="kw594">iswalpha</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswspace.htm"><span class="kw601">iswspace</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strcoll.htm"><span class="kw561">strcoll</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcstof.htm"><span class="kw612">wcstod</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isdigit.htm"><span class="kw530">isdigit</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswblank.htm"><span class="kw602">iswblank</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswupper.htm"><span class="kw596">iswupper</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strerror.htm"><span class="kw574">strerror</span></a></span></span>， <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/wcstombs.htm"><span class="kw579">wcstombs</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isgraph.htm"><span class="kw533">isgraph</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswcntrl.htm"><span class="kw599">iswcntrl</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswxdigit.htm"><span class="kw598">iswxdigit</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strtof.htm"><span class="kw549">strtod</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcsxfrm.htm"><span class="kw624">wcsxfrm</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/islower.htm"><span class="kw528">islower</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswctype.htm"><span class="kw605">iswctype</span></a></span></span>，<span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isxdigit.htm"><span class="kw531">isxdigit</span></a></span></span>.<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig">Because <code>setlocale</code> modifies global state which affects execution of locale-dependent functions, it is undefined behavior to call it from one thread, while another thread is executing any of the following functions: <span class="t-c"><span class="mw-geshi c source-c"><a href="../io/fprintf.htm"><span class="kw852">fprintf</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isprint.htm"><span class="kw536">isprint</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswdigit.htm"><span class="kw597">iswdigit</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="localeconv.htm"><span class="kw901">localeconv</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/tolower.htm"><span class="kw538">tolower</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../io/fscanf.htm"><span class="kw846">fscanf</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/ispunct.htm"><span class="kw537">ispunct</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswgraph.htm"><span class="kw600">iswgraph</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mblen.htm"><span class="kw575">mblen</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/toupper.htm"><span class="kw539">toupper</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isalnum.htm"><span class="kw526">isalnum</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isspace.htm"><span class="kw534">isspace</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswlower.htm"><span class="kw595">iswlower</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mbstowcs.htm"><span class="kw578">mbstowcs</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/towlower.htm"><span class="kw607">towlower</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isalpha.htm"><span class="kw527">isalpha</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isupper.htm"><span class="kw529">isupper</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswprint.htm"><span class="kw603">iswprint</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/mbtowc.htm"><span class="kw576">mbtowc</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/towupper.htm"><span class="kw608">towupper</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isblank.htm"><span class="kw535">isblank</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswalnum"><span class="kw593">iswalnum</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswpunct.htm"><span class="kw604">iswpunct</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c">setlocale</span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcscoll.htm"><span class="kw628">wcscoll</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/iscntrl.htm"><span class="kw532">iscntrl</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswalpha.htm"><span class="kw594">iswalpha</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswspace.htm"><span class="kw601">iswspace</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strcoll.htm"><span class="kw561">strcoll</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcstof.htm"><span class="kw612">wcstod</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isdigit.htm"><span class="kw530">isdigit</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswblank.htm"><span class="kw602">iswblank</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswupper.htm"><span class="kw596">iswupper</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strerror.htm"><span class="kw574">strerror</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/multibyte/wcstombs.htm"><span class="kw579">wcstombs</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isgraph.htm"><span class="kw533">isgraph</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswcntrl.htm"><span class="kw599">iswcntrl</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswxdigit.htm"><span class="kw598">iswxdigit</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/strtof.htm"><span class="kw549">strtod</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/wcsxfrm.htm"><span class="kw624">wcsxfrm</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/islower.htm"><span class="kw528">islower</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/wide/iswctype.htm"><span class="kw605">iswctype</span></a></span></span>, <span class="t-c"><span class="mw-geshi c source-c"><a href="../string/byte/isxdigit.htm"><span class="kw531">isxdigit</span></a></span></span>.</div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioneditsection4" title="编辑章节：示例">编辑</a>]</span> <span class="mw-headline" id=".e7.a4.ba.e4.be.8b.htm">示例</span></h3>
+<div class="t-example"><div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;time.h&gt;</span>
+<span class="co2">#include &lt;locale.h&gt;</span>
+<span class="co2">#include &lt;time.h&gt;</span>
+<span class="co2">#include &lt;locale.h&gt;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <a href="../chrono/time_t.htm"><span class="kw524">time_t</span></a> now<span class="sy4">;</span>
+    <span class="kw1">struct</span> <a href="../chrono/tm.htm"><span class="kw523">tm</span></a> <span class="sy2">*</span>timeinfo<span class="sy4">;</span>
+    <span class="kw4">char</span> buf<span class="br0">&#91;</span><span class="nu0">100</span><span class="br0">&#93;</span><span class="sy4">;</span>
+&#160;
+    <a href="../chrono/time.htm"><span class="kw513">time</span></a><span class="br0">&#40;</span><span class="sy3">&amp;</span>now<span class="br0">&#41;</span><span class="sy4">;</span>
+    timeinfo <span class="sy1">=</span> <a href="../chrono/localtime.htm"><span class="kw520">localtime</span></a><span class="br0">&#40;</span><span class="sy3">&amp;</span>now<span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+    <a href="../io/fprintf.htm"><span class="kw851">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;Locale is&#160;:%s<span class="es1">\n</span>&quot;</span>, setlocale<span class="br0">&#40;</span><a href="lc_categories"><span class="kw903">LC_ALL</span></a>, <a href="../../cpp/types/null.htm"><span class="kw103">NULL</span></a><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../chrono/strftime.htm"><span class="kw517">strftime</span></a><span class="br0">&#40;</span>buf, <span class="nu0">100</span>, <span class="st0">&quot;%c&quot;</span>, timeinfo<span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../io/fprintf.htm"><span class="kw851">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;now is&#160;:%s<span class="es1">\n</span>&quot;</span>, buf<span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+    setlocale<span class="br0">&#40;</span><a href="lc_categories"><span class="kw903">LC_ALL</span></a>, <span class="st0">&quot;&quot;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../io/fprintf.htm"><span class="kw851">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;Locale is&#160;:%s<span class="es1">\n</span>&quot;</span>, setlocale<span class="br0">&#40;</span><a href="lc_categories"><span class="kw903">LC_ALL</span></a>, <a href="../../cpp/types/null.htm"><span class="kw103">NULL</span></a><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../chrono/strftime.htm"><span class="kw517">strftime</span></a><span class="br0">&#40;</span>buf, <span class="nu0">100</span>, <span class="st0">&quot;%c&quot;</span>, timeinfo<span class="br0">&#41;</span><span class="sy4">;</span>
+    <a href="../io/fprintf.htm"><span class="kw851">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;now is&#160;:%s<span class="es1">\n</span>&quot;</span>, buf<span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy4">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>输出：
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">Locale is&#160;:C
+now is&#160;:05/12/13 00:39:28
+Locale is&#160;:Chinese (Simplified)_People's Republic of China.936
+now is&#160;:2013/5/12 0:39:28</pre></div></div> 
+</div>
+<p><br />
+</p>
+<h3><span class="editsection">[<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioneditsection5" title="编辑章节：另请参阅">编辑</a>]</span> <span class="mw-headline" id=".E5.8F.A6.E8.AF.B7.E5.8F.82.E9.98.85">另请参阅</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="lc_categories" title="c/locale/LC categories"> LC_ALL<br />LC_COLLATE<br />LC_CTYPE<br />LC_MONETARY<br />LC_NUMERIC<br />LC_TIME</a></div></div>
+</td>
+<td>  <div class="t-tr-text"> <span class="t-c"><span class="mw-geshi c source-c">setlocale</span></span>的语言环境类别<div class="t-tr-dropdown"><div><div><div class="t-tr-dropdown-arrow-border"></div><div class="t-tr-dropdown-arrow"></div><div class="t-tr-dropdown-h">原文：</div><div class="t-tr-dropdown-orig"> locale categories for <span class="t-c"><span class="mw-geshi c source-c">setlocale</span></span></div><div class="t-tr-dropdown-notes">这段文字是通过 <a rel="nofollow" class="external text" href="../../../../translate.google.com/default.htm">Google Translate</a> 自动翻译生成的。<br />您可以帮助我们检查、纠正翻译中的错误。详情请点击<a rel="nofollow" class="external text" href="../../../../en.cppreference.com/w/cppreference_3amachinetranslations">这里</a>。</div></div></div></div></div> <br /> <span class="t-mark">（常量宏）</span> <span class="editsection noprint plainlinks" title="Edit this template"><a rel="nofollow" class="external text" href="../../../mwiki/index~372.phpti">&#91;edit&#93;</a></span>
+</td></tr>
+
+<tr class="t-dsc-sep">
+<td colspan="2">
+</td></tr>
+<tr class="t-dsc">
+<td colspan="2"> <div class="t-dsc-see"><span><a href="../../cpp/locale/setlocale.htm" title="cpp/locale/setlocale">C++ documentation</a></span> for <span class="t-dsc-see-tt"><span>setlocale</span></span></div>
+</td></tr>
+
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 2592/1000000
+Preprocessor generated node count: 7942/1000000
+Post‐expand include size: 61626/2097152 bytes
+Template argument size: 23094/2097152 bytes
+Highest expansion depth: 15/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:1086-0!*!0!!zh!2!zh!* and timestamp 20141027002824 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleoldid37697">http://zh.cppreference.com/mwiki/index.php?title=c/locale/setlocale&amp;oldid=37697</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="../../cpp/io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/c/locale/setlocale.htm" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/c/locale.htm/setlocale" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleoldid37697" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../../mwiki/index.phptitlec_2flocale_2fsetlocaleactioninfo">页面信息</a></li>            </ul>
+        </div>
+                        <div id="cpp-languages">
+            <div><ul><li>其他语言</li></ul></div>
+            <div><ul>
+<li class="interwiki-de"><a href="../../../../de.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="de" hreflang="de">Deutsch</a></li><li class="interwiki-en"><a href="../../../../en.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="en" hreflang="en">English</a></li><li class="interwiki-es"><a href="../../../../es.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="es" hreflang="es">Español</a></li><li class="interwiki-fr"><a href="../../../../fr.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="fr" hreflang="fr">Français</a></li><li class="interwiki-it"><a href="../../../../it.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="it" hreflang="it">Italiano</a></li><li class="interwiki-ja"><a href="../../../../ja.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="ja" hreflang="ja">日本語</a></li><li class="interwiki-pt"><a href="../../../../pt.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="pt" hreflang="pt">Português</a></li><li class="interwiki-ru"><a href="../../../../ru.cppreference.com/w/c/locale/setlocale" title="c/locale/setlocale" lang="ru" hreflang="ru">Русский</a></li>            </ul></div>
+        </div>
+            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2014年10月26日 (星期日) 17:28。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过288次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../../www.mediawiki.org/default.htm"><img src="../../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../../qbnz.com/highlighter/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../../www.tigertech.net/default.htm"><img src="../../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 0.165 secs. -->
+	</body>
+<!-- Cached 20141028131718 -->
+</html>

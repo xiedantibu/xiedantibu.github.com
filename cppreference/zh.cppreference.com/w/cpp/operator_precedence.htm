@@ -1,0 +1,631 @@
+<!DOCTYPE html><!-- saved from url=(0052)http://zh.cppreference.com/w/cpp/operator_precedence --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<title>C++ Operator Precedence - cppreference.com</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.21.2" />
+<link rel="alternate" type="application/x-wiki" title="编辑" href="../../mwiki/index.phptitlecpp_2foperator_precedenceactionedit" />
+<link rel="edit" title="编辑" href="../../mwiki/index.phptitlecpp_2foperator_precedenceactionedit" />
+<link rel="shortcut icon" href="../../favicon.ico.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="../../mwiki/opensearch_desc.php" title="cppreference.com (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://zh.cppreference.com/mwiki/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh" />
+<link rel="alternate" hreflang="zh-hans" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-hans" />
+<link rel="alternate" hreflang="zh-hant" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-hant" />
+<link rel="alternate" hreflang="zh-cn" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-cn" />
+<link rel="alternate" hreflang="zh-hk" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-hk" />
+<link rel="alternate" hreflang="zh-mo" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-mo" />
+<link rel="alternate" hreflang="zh-my" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-my" />
+<link rel="alternate" hreflang="zh-sg" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-sg" />
+<link rel="alternate" hreflang="zh-tw" href="/mwiki/index.php?title=cpp/operator_precedence&amp;variant=zh-tw" />
+<link rel="alternate" type="application/atom+xml" title="cppreference.com的Atom" href="../../mwiki/index~1.phpti" />
+<link rel="stylesheet" href="../../mwiki/load.phpdebugfalselangzhmodulesext.gadget.showeditlin~1.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../../mwiki/load.phpdebugfalselangzhmodulessiteonlystylesskincppr~1.css" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-css:7:15cea3ec788a65b5187d4018eed543bf */</style>
+
+<script src="../../mwiki/load.phpdebugfalselangzhmodulesstartuponlyscriptsskin~1.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/operator_precedence","wgTitle":"cpp/operator precedence","wgCurRevisionId":1853,"wgArticleId":810,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"cpp/operator_precedence","wgUserVariant":"zh","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"zh","language":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ShowEditLinks":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_zh_:resourceloader:filter:minify-js:7:aff3edf20b05a275fc6703031b87b0f7 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax.htm"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("../../mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_operator_precedence skin-cppreference2 action-view">
+        <!-- header -->
+        <div id="mw-head" class="noprint">
+            <div id="cpp-head-first-base">
+                <div id="cpp-head-first">
+                    <h5><a href="../../default.htm">cppreference.com</a></h5>
+                    <div id="cpp-head-search">
+                        
+<!-- 0 -->
+<div id="p-search">
+	<h5><label for="searchInput">搜索</label></h5>
+	<form action="/mwiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:搜索"/>
+				<div id="simpleSearch">
+						<input name="search" title="在cppreference.com中搜索 [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="搜索含这些文字的页面" id="searchButton"><img src="../../mwiki/skins/cppreference2/images/search-ltr.png303.png" alt="搜索" /></button>					</div>
+			</form>
+</div>
+
+<!-- /0 -->
+                    </div>
+                    <div id="cpp-head-personal">
+                        
+<!-- 0 -->
+<div id="p-personal" class="">
+<span id="pt-createaccount"><a href="../../mwiki/index~17627.phpti">创建账户</a></span>	<div class="menu">
+        <ul>
+<li id="pt-login"><a href="../../mwiki/index~17628.phpti" title="我们鼓励你登录，不过这不是强制的 [o]" accesskey="o">登录</a></li>        </ul>
+    </div>
+</div>
+
+<!-- /0 -->
+                    </div>
+
+                </div>
+            </div>
+            <div id="cpp-head-second-base">
+                <div id="cpp-head-second">
+                    <div id="cpp-head-tools-left">
+                        
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>名字空间</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="operator_precedence.htm"  title="查看内容页面 [c]" accesskey="c">页面</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="../../mwiki/index.phptitletalk_3acpp_2foperator_precedenceactioneditredlink1"  title="有关内容页面的讨论 [t]" accesskey="t">讨论</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu">
+		<h5><span>变换</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+							<li id="ca-varlang-0" class="selected"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh" >不转换</a></li>
+							<li id="ca-varlang-1"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-hans" >简体</a></li>
+							<li id="ca-varlang-2"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-hant" >繁體</a></li>
+							<li id="ca-varlang-3"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-cn" >大陆简体</a></li>
+							<li id="ca-varlang-4"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-hk" >香港繁體</a></li>
+							<li id="ca-varlang-5"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-mo" >澳門繁體</a></li>
+							<li id="ca-varlang-6"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-my" >大马简体</a></li>
+							<li id="ca-varlang-7"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-sg" >新加坡简体</a></li>
+							<li id="ca-varlang-8"><a href="../../mwiki/index.phptitlecpp_2foperator_precedencevariantzh-tw" >台灣正體</a></li>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                    <div id="cpp-head-tools-right">
+                        
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>查看</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="operator_precedence.htm" >查看</a></span></li>
+					<li id="ca-edit"><span><a href="../../mwiki/index.phptitlecpp_2foperator_precedenceactionedit"  title="你可以编辑本页面。请在保存前使用预览按钮。 [e]" accesskey="e">编辑</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="../../mwiki/index.phptitlecpp_2foperator_precedenceactionhistory"  title="本页面过去的版本 [h]" accesskey="h">历史</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>操作</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- content -->
+        <div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+                <h1 id="firstHeading" class="firstHeading">C++ Operator Precedence</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">来自cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="default.htm" title="cpp">cpp</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><p><br />
+The operators at the top of this list are evaluated first.  Operators within a group have the same precedence.  All operators have left-to-right associativity unless otherwise noted.
+</p><p><br />
+</p>
+<table class="wikitable">
+
+<tr>
+<th>  Precedence
+</th>
+<th>  Operator
+</th>
+<th>  Description
+</th>
+<th>  Example
+</th>
+<th>  Overloadable
+</th>
+<th>  Associativity
+</th></tr>
+<tr>
+<td>1
+</td>
+<td><i>::</i>
+</td>
+<td>Scope resolution operator
+</td>
+<td>Class::age = 2;
+</td>
+<td>no
+</td>
+<td>none
+</td></tr>
+<tr>
+<td>2
+</td>
+<td><i>()</i><br /> <i>()</i><br /> <i>[]</i><br /> <i>%%-&gt;%%</i><br /> <i>.</i><br /> <i>++</i><br /> <i>%%--%%</i>
+</td>
+<td>Function call<br /> Member initalization <br /> Array access<br /> Member access from a pointer<br /> Member access from an object<br /> Post-increment<br /> Post-decrement
+</td>
+<td>isdigit('1')<br />  c_tor(int x, int y)&#160;: _x(x), _y(y*10){};<br /> array[4] = 2;<br />&#160;%%ptr-&gt;age = 34;%%<br /> obj.age = 34;<br />&#160;%%for( int i = 0; i &lt; 10; i++ ) cout &lt;&lt; i;%%<br />&#160;%%for( int i = 10; i &gt; 0; i-- ) cout &lt;&lt; i;%%
+</td>
+<td>yes<br /> yes<br /> yes<br /> yes<br /> no<br /> yes<br /> yes
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>3
+</td>
+<td><i>!</i><br /> <i>not</i><br /> <i>~</i><br /> <i>compl</i><br /> <i>++</i><br /> <i>%%--%%</i><br /> <i>-</i><br /> <i>+</i><br /> <i>*</i><br /> <i>&amp;</i><br /> <i>new</i><br /> <i>new []</i><br /> <i>delete</i><br /> <i>delete []</i><br /> <i>(type)</i>
+</td>
+<td>Logical negation<br /> Alternate spelling for&#160;! <br /> Bitwise complement<br /> Alternate spelling for ~ <br /> Pre-increment<br /> Pre-decrement<br /> Unary minus<br /> Unary plus<br /> Dereference<br /> Address of<br /> Dynamic memory allocation<br /> Dynamic memory allocation of array<br /> Deallocating the memory<br /> Deallocating the memory of array<br /> Cast to a given type
+</td>
+<td>if(&#160;!done ) ...<br /> <br /> flags = ~flags;<br /> <br />&#160;%%for( i = 0; i &lt; 10; ++i ) cout &lt;&lt; i;%%<br />&#160;%%for( i = 10; i &gt; 0; --i ) cout &lt;&lt; i;%%<br /> int i = -1;<br /> int i = +1;<br /> int data = *intPtr;<br /> int *intPtr = &amp;data;<br /> long *pVar = new long; <br /> MyClass *ptr = new MyClass(args);<br />  delete pVar;<br />  delete [] array;<br /> int i = (int) floatNum;
+</td>
+<td>yes<br /> <br /> yes<br /> <br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes
+</td>
+<td>right to left
+</td></tr>
+<tr>
+<td>4
+</td>
+<td><i>%%-&gt;*%%</i><br /> <i>.*</i>
+</td>
+<td>Member pointer selector<br /> Member object selector
+</td>
+<td>%%ptr-&gt;*var = 24;%%<br /> obj.*var = 24;
+</td>
+<td>yes<br /> no
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>5
+</td>
+<td><i>*</i><br /> <i>/</i><br /> <i>%</i>
+</td>
+<td>Multiplication<br /> Division<br /> Modulus
+</td>
+<td>int i = 2 * 4;<br /> float f = 10.0 / 3.0;<br /> int rem = 4&#160;% 3;
+</td>
+<td>yes<br /> yes<br /> yes
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>6
+</td>
+<td><i>+</i><br /> <i>-</i>
+</td>
+<td>Addition<br /> Subtraction
+</td>
+<td>int i = 2 + 3;<br /> int i = 5 - 1;
+</td>
+<td>yes<br /> yes
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>7
+</td>
+<td><i>%%&lt;&lt;%%</i><br /> <i>%%&gt;&gt;%%</i>
+</td>
+<td>Bitwise shift left<br /> Bitwise shift right
+</td>
+<td>%%int flags = 33 &lt;&lt; 1;%%<br />&#160;%%int flags = 33 &gt;&gt; 1;%%
+</td>
+<td>yes<br /> yes
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>8
+</td>
+<td><i>&lt;</i><br /> <i>%%&lt;=%%</i><br /> <i>&gt;</i><br /> <i>%%&gt;=%%</i>
+</td>
+<td>Comparison less-than<br /> Comparison less-than-or-equal-to<br /> Comparison greater-than<br /> Comparison greater-than-or-equal-to
+</td>
+<td>if( i &lt; 42 ) ...<br />&#160;%%if( i &lt;= 42 ) ...%%<br /> if( i &gt; 42 ) ...<br />&#160;%%if( i &gt;= 42 ) ...%%
+</td>
+<td>yes<br /> yes<br /> yes<br /> yes
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>9
+</td>
+<td><i>%%==%%</i><br /> <i>eq</i><br /> <i>!=</i><br /> <i>not_eq</i>
+</td>
+<td>Comparison equal-to<br /> Alternate spelling for&#160;%%==%% <br /> Comparison not-equal-to<br /> Alternate spelling for&#160;!=
+</td>
+<td>%%if( i == 42 ) ...%%<br /> <br /> if( i&#160;!= 42 ) ...<br />
+</td>
+<td>yes<br /> -<br /> yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>10
+</td>
+<td><i>&amp;</i><br /> <i>bitand</i>
+</td>
+<td>Bitwise AND<br /> Alternate spelling for &amp;
+</td>
+<td>flags = flags &amp; 42;<br />
+</td>
+<td>yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>11
+</td>
+<td><i>%%</i>
+</td>
+<th>%%<i><br /> </i>xor
+</th>
+<td>Bitwise exclusive OR (XOR)<br /> Alternate spelling for&#160;%%
+</td>
+<th>%%
+</th>
+<td>%%flags = flags
+</td>
+<th> 42;%%<br />
+</th>
+<td>yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>12
+</td>
+<td><i>%%</i>
+</td>
+<td>%%<i><br /> </i>bitor
+</td>
+<td>Bitwise inclusive (normal) OR<br /> Alternate spelling for&#160;%%
+</td>
+<td>%%
+</td>
+<td>%%flags = flags
+</td>
+<td> 42;%%<br />
+</td>
+<td>yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>13
+</td>
+<td><i>&amp;&amp;</i><br /> <i>and</i>
+</td>
+<td>Logical AND<br /> Alternate spelling for &amp;&amp;
+</td>
+<td>if( conditionA &amp;&amp; conditionB ) ...<br />
+</td>
+<td>yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>14
+</td>
+<td><i>%%</i>
+</td>
+<td>
+</td>
+<td>%%<i><br /> </i>or
+</td>
+<td>Logical OR<br /> Alternate spelling for&#160;%%
+</td>
+<td>
+</td>
+<td>%%
+</td>
+<td>%%if( conditionA
+</td>
+<td>
+</td>
+<td> conditionB ) ...%%<br />
+</td>
+<td>yes<br />
+</td>
+<td>left to right
+</td></tr>
+<tr>
+<td>15
+</td>
+<td><i>?&#160;:</i>
+</td>
+<td>Ternary conditional (if-then-else)
+</td>
+<td>int i = (a &gt; b)&#160;? a&#160;: b;
+</td>
+<td>no
+</td>
+<td>right to left
+</td></tr>
+<tr>
+<td>16
+</td>
+<td><i>=</i><br /> <i>+=</i><br /> <i>-=</i><br /> <i>*=</i><br /> <i>/=</i><br /> <i>%=</i><br /> <i>&amp;=</i><br /> <i>and_eq</i><br /> <i>%%</i>
+</td>
+<th>=%%<i><br /> </i>xor_eq<i><br /> </i>%%
+</th>
+<td>=%%<i><br /> </i>or_eq<i><br /> </i>%%&lt;&lt;=%%<i><br /> </i>%%&gt;&gt;=%%
+</td>
+<td>Assignment operator<br /> Increment and assign<br /> Decrement and assign<br /> Multiply and assign<br /> Divide and assign<br /> Modulo and assign<br /> Bitwise AND and assign<br /> Alternate spelling for &amp;= <br /> Bitwise exclusive or (XOR) and assign<br /> Alternate spelling for&#160;%%
+</td>
+<th>=%% <br /> Bitwise normal OR and assign<br /> Alternate spelling for&#160;%%
+</th>
+<td>=%%<br /> Bitwise shift left and assign<br /> Bitwise shift right and assign
+</td>
+<td>int a = b;<br /> a += 3;<br /> b -= 4;<br /> a *= 5;<br /> a /= 2;<br /> a&#160;%= 3;<br /> flags &amp;= new_flags;<br /> <br />&#160;%%flags
+</td>
+<th>= new_flags;%%<br /> <br />&#160;%%flags
+</th>
+<td>= new_flags;%%<br /> <br />&#160;%%flags &lt;&lt;= 2;%%<br />&#160;%%flags &gt;&gt;= 2;%%
+</td>
+<td>yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> yes<br /> <br /> yes<br /> <br /> yes<br /> <br /> yes<br /> yes
+</td>
+<td>right to left
+</td></tr>
+<tr>
+<td>17
+</td>
+<td><i>throw</i>
+</td>
+<td>throw exception
+</td>
+<td>throw EClass("Message");
+</td>
+<td>no
+</td>
+<td>
+</td></tr>
+<tr>
+<td>18
+</td>
+<td><i>,</i>
+</td>
+<td>Sequential evaluation operator
+</td>
+<td>for( i = 0, j = 0; i &lt; 10; i++, j++ ) ...
+</td>
+<td>yes
+</td>
+<td>left to right
+</td></tr></table>
+<p>Note: I removed the following, because they're not operators but functions: <a href="keyword/const_cast.htm" title="cpp/keyword/const cast"> /keywords/const_cast</a>, <a href="keyword/dynamic_cast.htm" title="cpp/keyword/dynamic cast"> /keywords/dynamic_cast</a>, <a href="keyword/reinterpret_cast.htm" title="cpp/keyword/reinterpret cast"> /keywords/reinterpret_cast</a>, <a href="keyword/static_cast.htm" title="cpp/keyword/static cast"> /keywords/static_cast</a>, <a href="keyword/typeid.htm" title="cpp/keyword/typeid"> /keywords/typeid</a>, <a href="keyword/sizeof.htm" title="cpp/keyword/sizeof"> /keywords/sizeof</a>.
+</p>
+<h2><span class="editsection">[<a href="../../mwiki/index.phptitlecpp_2foperator_precedenceactioneditsection1" title="编辑章节：Order of Evaluation and of Side Effects">编辑</a>]</span> <span class="mw-headline" id="Order_of_Evaluation_and_of_Side_Effects">Order of Evaluation and of Side Effects</span></h2>
+<p>One important aspect of C++ that is related to operator precedence is the order
+of evaluation and the order of side effects in expressions. In some
+circumstances, the order in which things happen is not defined. For example,
+consider the following code:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1">    <span class="kw4">float</span> x <span class="sy1">=</span> <span class="nu0">1</span><span class="sy4">;</span>
+    x <span class="sy1">=</span> x <span class="sy2">/</span> <span class="sy2">++</span>x<span class="sy4">;</span></pre></div></div>
+<p>The value of x is not guaranteed to be consistent across different compilers,
+because it is not clear whether the computer should evaluate the left or the
+right side of the division first. Depending on which side is evaluated first, x
+could take a different value.
+</p><p>Furthermore, while ++x evaluates to x+1, the side effect of actually storing
+that new value in x could happen at different times, resulting in different
+values for x.
+</p><p>The bottom line is that expressions like the one above are horribly ambiguous
+and should be avoided at all costs. When in doubt, break a single ambiguous
+expression into multiple expressions to ensure that the order of evaluation is
+correct.
+</p>
+<h2><span class="editsection">[<a href="../../mwiki/index.phptitlecpp_2foperator_precedenceactioneditsection2" title="编辑章节：Overloading of Operators">编辑</a>]</span> <span class="mw-headline" id="Overloading_of_Operators">Overloading of Operators</span></h2>
+<p>Overloading of operators can be very useful and very dangerous. On one hand
+overloading operators for a class you have created can help with logistics and
+readability of code. On the other hand you can overload an operator in such a way
+that it can either obfuscate or just downright break your program. Use carefully.
+</p><p>There are two ways to over load an operator: global function or class member.
+</p><p>Example of overloading with a global function:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1">     ostream <span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>ostream <span class="sy3">&amp;</span> os, <span class="kw4">const</span> myClass <span class="sy3">&amp;</span> rhs<span class="br0">&#41;</span><span class="sy4">;</span></pre></div></div>
+<p>But to be able to reach any private data within a user defined class you have to
+declare the global function as a friend within the definition of the class.
+</p><p>Example:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1">     <span class="kw1">class</span> myClass <span class="br0">&#123;</span>
+&#160;
+       <span class="co1">// Gives the operator&lt;&lt; function access to 'myData'</span>
+       <span class="co1">// (this declaration should not go in public, private or protected)</span>
+       <span class="kw1">friend</span> ostream <span class="sy3">&amp;</span> operator<span class="sy1">&lt;&lt;</span> <span class="br0">&#40;</span>ostream <span class="sy3">&amp;</span> lhs, <span class="kw4">const</span> myClass <span class="sy3">&amp;</span> rhs<span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+       <span class="kw1">private</span><span class="sy4">:</span>
+         <span class="kw4">int</span> myData<span class="sy4">;</span>
+     <span class="br0">&#125;</span></pre></div></div>
+<p>Overloading with a class member can be done as follows:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1">     <span class="kw1">class</span> myClass <span class="br0">&#123;</span>
+&#160;
+       <span class="kw1">public</span><span class="sy4">:</span>
+         <span class="co1">// The left hand side of this operator is  a pointer to 'this'.</span>
+         <span class="kw4">int</span> operator<span class="sy2">+</span> <span class="br0">&#40;</span><span class="kw4">const</span> myClass <span class="sy3">&amp;</span> rhs<span class="br0">&#41;</span><span class="sy4">;</span>
+&#160;
+       <span class="kw1">private</span><span class="sy4">:</span>
+         <span class="kw4">int</span> myData<span class="sy4">;</span>
+     <span class="br0">&#125;</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 31/1000000
+Preprocessor generated node count: 131/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 23/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_zh_:pcache:idhash:810-0!*!0!!*!*!zh!* and timestamp 20130911085842 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    来自“<a href="../../mwiki/index.phptitlecpp_2foperator_precedenceoldid1853">http://zh.cppreference.com/mwiki/index.php?title=cpp/operator_precedence&amp;oldid=1853</a>”                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <div id='catlinks' class='catlinks catlinks-allhidden'></div>                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>导航</h5>
+            <ul>
+<li id="n-mainpage-description"><a href="../_25e9_25a6_2596_25e9_25a1_25b5.htm" title="访问首页 [z]" accesskey="z">首页</a></li><li id="n-portal"><a href="../cppreference_3a_25e7_25a4_25be_25e5_258c_25ba_25e4_25~1.htm" title="关于本项目，你可以做什么，在哪里找到你需要的事物">社区主页</a></li><li id="n-currentevents"><a href="../cppreference_3a_25e6_2596_25b0_25e9_2597_25bb_25e5_25~1.htm" title="查看当前事件的背景信息">新闻动态</a></li><li id="n-recentchanges"><a href="../special_3a_25e6_259c_2580_25e8_25bf_2591_25e6_259b_25~1.htm" title="本wiki的最近更改列表 [r]" accesskey="r">最近更改</a></li><li id="n-randompage"><a href="io/c/vfwprintf.htm" title="载入一个随机页面 [x]" accesskey="x">随机页面</a></li><li id="n-help"><a href="../help_3a_25e7_259b_25ae_25e5_25bd_2595.htm" title="查找帮助的地方">帮助</a></li>            </ul>
+        </div>
+                        <div id="cpp-toolbox">
+            <h5><span>工具箱</span><a href="#"></a></h5>
+            <ul>
+<li id="t-whatlinkshere"><a href="../special_3a_25e9_2593_25be_25e5_2585_25a5_25e9_25a1_25~1/cpp/operator_precedence" title="所有链入本页的wiki页面列表 [j]" accesskey="j">链入页面</a></li><li id="t-recentchangeslinked"><a href="../special_3a_25e9_2593_25be_25e5_2587_25ba_25e6_259b_25~1/cpp/operator_precedence" title="本页链入的页面的最近更改 [k]" accesskey="k">相关更改</a></li><li id="t-upload"><a href="../../../upload.cppreference.com/w/special_3aupload" title="上传文件 [u]" accesskey="u">上传文件</a></li><li id="t-specialpages"><a href="../special_3a_25e7_2589_25b9_25e6_25ae_258a_25e9_25a1_25~1.htm" title="所有特殊页面的列表 [q]" accesskey="q">特殊页面</a></li><li id="t-print"><a href="../../mwiki/index.phptitlecpp_2foperator_precedenceprintableyes" rel="alternate" title="本页面的可打印版本 [p]" accesskey="p">打印版本</a></li><li id="t-permalink"><a href="../../mwiki/index.phptitlecpp_2foperator_precedenceoldid1853" title="本页面该版本的永久链接">永久链接</a></li><li id="t-info"><a href="../../mwiki/index.phptitlecpp_2foperator_precedenceactioninfo">页面信息</a></li>            </ul>
+        </div>
+                            <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> 本页面最后修改于2012年5月1日 (星期二) 23:18。</li>
+                                    <li id="footer-info-viewcount">此页面已被浏览过161次。</li>
+                            </ul>
+                    <ul id="footer-places">
+                                    <li id="footer-places-privacy"><a href="../cppreference_3a_25e9_259a_2590_25e7_25a7_2581_25e6_25~1.htm" title="Cppreference:隐私权政策">隐私政策</a></li>
+                                    <li id="footer-places-about"><a href="../cppreference_3a_25e5_2585_25b3_25e4_25ba_258e.htm" title="Cppreference:关于">关于cppreference.com</a></li>
+                                    <li id="footer-places-disclaimer"><a href="../cppreference_3a_25e5_2585_258d_25e8_25b4_25a3_25e5_25~1.htm" title="Cppreference:免责声明">免责声明</a></li>
+                            </ul>
+                                    <ul id="footer-icons" class="noprint">
+                                    <li id="footer-poweredbyico">
+                                            <a href="../../../www.mediawiki.org/default.htm"><img src="../../mwiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>                                            <a href="../../../qbnz.com/highlighter/default.htm"><img src="../../../upload.cppreference.com/mwiki/images/2/2b/powered_by_geshi_88x31.png" alt="Powered by GeSHi" height="31" width="88" /></a>                                            <a href="../../../www.tigertech.net/default.htm"><img src="../../../upload.cppreference.com/mwiki/images/9/94/powered_by_tigertech_88x31.png" alt="Hosted by Tiger Technologies" height="31" width="88" /></a>                                        </li>
+                                </ul>
+                        <div style="clear:both">
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../mwiki/load.phpdebugfalselangzhmodulesskins~1.cppre"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user.htm","mediawiki.page.ready.htm","mediawiki.searchSuggest","mediawiki.hidpi.htm","ext.gadget.ShowEditLinks"], null, true);
+}</script>
+<script src="../../mwiki/load~1.phpde"></script>
+<!--ipt type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</scri-->
+<!--ipt type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2828341-1']);
+_gaq.push(['_setDomainName', 'cppreference.com']);
+_gaq.push(['_trackPageview']);
+</scri--><!-- Served in 1.098 secs. -->        
+	</body>
+<!-- Cached 20130911085842 -->
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px">
+<path d="M31.957,0.311c-8.682,0-16.322,3.213-22.226,9.203  C3.653,15.678,0.354,23.666,0.354,32c0,8.422,3.212,0CAC18EAB8"/>
+<path id="c" d="M31.635,26.734c-1.79-3.264-4.844-4.563-8.389-4.563  c-5.16,0-9.267,3.65-9.267,9.828c0,6.283,3.861,9.09ABD94AC4"/>
+<use xlink:href="#c" transform="translate(18.281)"/>
+</svg>
