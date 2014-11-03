@@ -1,0 +1,492 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146287/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Class constructors and data member initi - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Class constructors and data member initi</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Class constructors and data member initialization</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146287,root,0,-1,17,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769641"><span title="769641,148906,1023,37,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769641" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm15b5b4012c" title="Wed, 29 Oct 2014 15:04:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm15b5b4012c');</script><noscript>Oct 29, 2014 at 3:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769641">
+I recently discovered the new - new to me anyway! - feature of modern C++ that allows you to set the initial value of a data member when you declare it:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> CINTWrapper{
+<var>private</var>:
+    <var>int</var> m_iData=0;
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+This even extends to calling member functions that help with initialization I believe:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> CStringWrapper{
+<var>private</var>:
+    <var>wchar_t</var>* Allocate_Array(<var>const</var> <var>int</var> iBufferSize);
+
+    <var>wchar_t</var>* m_pString=Allocate_Array(1);
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+At first, this seemed an extremely useful piece of functionality that C++ had been lacking all along.  However, the more I thought about it the more it struck me this feature actually undermines one of the principle design elements of the language - that being the Constructor.<br>
+<br>
+As I understand it the primary purpose of the Constructor is specifically to give the programmer a place where it is guaranteed he can always initialize his data members before anything else is done with the class.  However, given the new initialization rules this is no longer necessary.  So it largely seems to me that Constructors as a whole are no longer necessary either!  I do appreciate Copy-Constructors are a special and vital case.  Admittedly when I was using them for their intended purpose I hated either the redundancy you had to introduce across multiple Constructors; those with and without arguments and so on, or alternately the fine tuning of helper-functions to do common initialization between these variants.  Now however I sort of regret this cast-iron rule has been taken away.<br>
+<br>
+As a last point, I am trying to change the way I think about programming.  I am trying to employ more objects than pure C-style ('int' or 'double', etc) data types and especially to move into templates (although absolutely NOT the Hewlett Packard template library!).  Given my current understanding of inheritance in particular it seems to me that using pre-initialized data members rather than Constructor-initialization makes object derivation even more complicated, not less so.<br>
+<br>
+What do you chaps think?  Do you still use Constructors to initialize your data members or have you shifted over to the new style of working?  If so, do you find it easier?  Does it make the 'thinking ahead' that is required for working with inheritance and polymorphism more tricky for you?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769641"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769644"><span title="769644,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769644" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1f1b6791e3" title="Wed, 29 Oct 2014 15:16:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm1f1b6791e3');</script><noscript>Oct 29, 2014 at 3:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769644">
+<br>
+are you talking about initialisation of <i>static</i> member variables?<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm159030222f" title="Wed, 29 Oct 2014 15:16:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm159030222f');</script><noscript>Oct 29, 2014 at 3:16pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769644"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769647"><span title="769647,148906,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769647" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaf8b87b062" title="Wed, 29 Oct 2014 15:20:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmaf8b87b062');</script><noscript>Oct 29, 2014 at 3:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769647">
+Not specifically, but I believe you can also initialize static data members in this same new way.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769647"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769688"><span title="769688,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769688" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm89f5c77f91" title="Wed, 29 Oct 2014 16:58:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm89f5c77f91');</script><noscript>Oct 29, 2014 at 4:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769688">
+ah, this stuff: <a href="../../../../stackoverflow.com/questions/12170160/c-initialization-of-member-variables">http://stackoverflow.com/questions/12170160/c-initialization-of-member-variables</a><br>
+<br>
+constructors all the way for me :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769688"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769692"><span title="769692,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769692" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdfd8514450" title="Wed, 29 Oct 2014 17:09:31 +0000"></span><script type="text/javascript">WhenId('CH_zTmdfd8514450');</script><noscript>Oct 29, 2014 at 5:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769692">
+Constructors for me, too.<br>
+Helps splitting implementation details (private stuff) from end-users.<br>
+Maybe I'd do that for PODs.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769692"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769694"><span title="769694,148906,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769694" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd483943fe5" title="Wed, 29 Oct 2014 17:13:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmd483943fe5');</script><noscript>Oct 29, 2014 at 5:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769694">
+THAT is a really good point EssGeEich!  I had not though of it from the data-hiding perspective.<br>
+<br>
+In that case do you use the 'mem-list':<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>ExampleClass::ExampleClass():iSize(1):iBufferLength(255)
+{
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+...style in your constructor or do you write explicit:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>ExampleClass::ExampleClass()
+{
+    iSize=1;
+    iBufferLength=255;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+...constructors?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769694"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769698"><span title="769698,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769698" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7eff0d28d0" title="Wed, 29 Oct 2014 17:21:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm7eff0d28d0');</script><noscript>Oct 29, 2014 at 5:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769698">
+Initialization list (the first, you also got it slightly wrong, it looks like: <span class="auto"><code class="source">Class::Class(<var>int</var> a, <var>char</var> b) : c(a), d(b), e(<var>new</var> <var>char</var>[a]) {}</code></span> ).<br>
+I'm a fan of one-liner functions, and init lists are my heaven.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769698"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769699"><span title="769699,148906,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769699" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4ef59d360b" title="Wed, 29 Oct 2014 17:29:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm4ef59d360b');</script><noscript>Oct 29, 2014 at 5:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769699">
+Ahh...  In THAT case you are setting your data-members by values that come in through a non-default constructor.  Can you also set them to be constants using the same format?  I am not being awkward - I genuinely don't know!<br>
+<br>
+As a follow up, do you run in to readability problems if you are using a mem-list style and have many data-members to initialize?  I ask because I was about to redo my class in initilizer list style, but then thought about how long the line of initializers would be!  I suppose there is a lesson to not have an unmanageably long list of datamembers!!!<br>
+<br>
+UPDATE:  ...and YES it seems you can use a mem-list to assign constants as well as variables that come from  constructor parameters.  This means you can use the mem-list on the default constructor also.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm338ab4531d" title="Wed, 29 Oct 2014 17:57:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm338ab4531d');</script><noscript>Oct 29, 2014 at 5:57pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769699"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769976"><span title="769976,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769976" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9c10ce92d3" title="Thu, 30 Oct 2014 10:10:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm9c10ce92d3');</script><noscript>Oct 30, 2014 at 10:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769976">
+Yes, you can.<br>
+Anyways for many members, I set one or two each line.<br>
+Remember the initialization list's order does not matter: the members' constructions happen in declaration order.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769976"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769983"><span title="769983,118111,1023,1119,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769983" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm54e69b81e2" title="Thu, 30 Oct 2014 10:36:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm54e69b81e2');</script><noscript>Oct 30, 2014 at 10:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nt3/default.htm"><b>NT3</b> (1119)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769983">
+Though, for readability purposes, you should really put the initialization list in order of declaration, otherwise you could get confusing errors if (for example) one member uses another member in it's construction.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769983"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769988"><span title="769988,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769988" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm077faf8fca" title="Thu, 30 Oct 2014 10:54:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm077faf8fca');</script><noscript>Oct 30, 2014 at 10:54am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769988">
+strictly speaking something like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br></code></pre></td>
+<td class="source"><pre><code>...
+<var>int</var> m_a;
+<var>int</var> m_b;
+
+...
+
+Wibble::Wibble(<var>int</var> a, <var>int</var> b) 
+{
+   m_a = a;
+   m_b = b;
+
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+is <i>not</i> initialisation. it's still assignment.  better to use initialisation lists.<br>
+(Scott Meyers item 4 i think)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769988"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770036"><span title="770036,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770036" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1a2fb00307" title="Thu, 30 Oct 2014 13:54:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm1a2fb00307');</script><noscript>Oct 30, 2014 at 1:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770036">
+Hi,<br>
+<br>
+Also, just to clarify, one should call all the base class constructors (in order) from the derived class initialisation list as well. This is to avoid "object slicing".<br>
+<br>
+Not completely sure on the following - might need someone to clarify this: If any of the initialisation from the initialisation list throws an exception, then the C++ standard guarantees that the object will be cleaned up (properly destructed?) so we aren't left with an invalid object. I think this is because the initialisation happens before the object is deemed to have been created. To this end, one should have a try block in the initialisation list as well (for non POD variables). Google to see how to do that.<br>
+<br>
+<b>Scott Meyers</b> also mentioned the importance of initialising <u>all </u>the member variables in the initialisation lists. Obviously you need to do this for all of your constructors - you probably have more than 1 per class.<br>
+<br>
+I do my IL 1 variable per line with indenting, like this with <b>mutexe </b>'s example:<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> Wibble {
+
+<var>private</var>:  
+
+<var>int</var> m_a;
+<var>int</var> m_b;
+
+
+Wibble(<var>int</var> a, <var>int</var> b) :  <cite>// intialisation list</cite>
+
+   m_a(a),
+   m_b(b); {}  <cite>// no code in the body so I made it inline</cite>
+
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+That way, if you have 40 of them - it's still readable.<br>
+<br>
+Regards
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770036"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770044"><span title="770044,148906,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770044" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb9b97e3df5" title="Thu, 30 Oct 2014 14:08:55 +0000"></span><script type="text/javascript">WhenId('CH_zTmb9b97e3df5');</script><noscript>Oct 30, 2014 at 2:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770044">
+Excellent suggestions here guys - this is aexactly the practical advice I was hoping to recieve!!!  MANY thanks indeed!<br>
+<br>
+I will also check out this Scott Myers dude.  I have previously been a great follower of Schildt, but recently have learned there are many who do not have a good opinion of him.  Another author who's word I can trust would be very useful indeed - maybe Myers is that guy.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770044"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770047"><span title="770047,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770047" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf25afa5ca5" title="Thu, 30 Oct 2014 14:20:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmf25afa5ca5');</script><noscript>Oct 30, 2014 at 2:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770047">
+Have a gander at Herb Sutter as well.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770047"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770050"><span title="770050,111189,1023,3222,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770050" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2b3e07fb37" title="Thu, 30 Oct 2014 14:30:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm2b3e07fb37');</script><noscript>Oct 30, 2014 at 2:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/keskiverto/default.htm"><b>keskiverto</b> (3222)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770050">
+C++11 did add new tricks: <a href="../../../../www.informit.com/articles/article.aspxp1852519">http://www.informit.com/articles/article.aspx?p=1852519</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770050"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770060"><span title="770060,148906,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770060" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm59d192ece5" title="Thu, 30 Oct 2014 14:48:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm59d192ece5');</script><noscript>Oct 30, 2014 at 2:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gemman_aster/default.htm"><b>Gemman Aster</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770060">
+I will certainly look for Herb Sutter also - I may even already have something by him that I have not got around to opening; the name sounds familiar.<br>
+<br>
+As an aside, considering books - have any of you guys heard of 'Bartosz Milewski'?  VERY sadly he only seemed to write one book called 'C++ in Action' that I have ever been able to find and in intention it is EXCELLENT.  Sadly I am pretty sure English is the author's second language - and lets just say he speaks English a DAMN SIGHT better than I do Polish!!! - but there are some areas where it perhaps gets a little hard to follow.  Also I am certain the typesetter messed up at various points because whole lines of example code are either missing or use variable names and notation that don't correspond to the rest of the example.  Nonetheless it is the only book I have ever found that covers exactly the area I want to study - that is using C++ without class libraries or CLR extensions to program for Windows.  Specifically, an aproach that is NOT just slightly tarted-up C style coding but instead all the OO features of C++ applied to Win32 from the ground up.  I have NEVER found another book that attempts this, which is ridiculous in itself.  If its windows programming its always MFC, or more recently .NET and the euphemism of 'Managed Code'.<br>
+<br>
+Have any of you chaps ever turned up a title which covers the same ground?<br>
+<br>
+And, Keskiverto it is cool you mention that blog article - I have read and bookmarked that very one myself!!!  A really good piece that covers precisely this area in a very approachable manner.<br>
+<br>
+I am also going to look in to that distinction between 'Initialization' and 'Assignment'.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770060"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770090"><span title="770090,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770090" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm83fc9b0c20" title="Thu, 30 Oct 2014 16:30:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm83fc9b0c20');</script><noscript>Oct 30, 2014 at 4:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770090">
+keskiverto, that's a great little link. Cheers.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770090"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146287,0,148906,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~332.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

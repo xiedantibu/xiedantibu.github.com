@@ -1,0 +1,169 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146223/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Multidimensional Array with rand() - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Multidimensional Array with rand()</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Multidimensional Array with rand()</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146223,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769363"><span title="769363,154099,1023,14,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769363" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7d0b4dd868" title="Tue, 28 Oct 2014 23:45:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d0b4dd868');</script><noscript>Oct 28, 2014 at 11:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bs319/default.htm"><b>bs319</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769363">
+This is part 2 of an earlier post.<br>
+I know how to create a 5x5 array. I am just having problems with part where they can occur one time. <br>
+I hope someone can help.<br>
+<br>
+In this task, you will generate a 5×5 array and fill it with random integers between 0 and 24 inclusive and each number should occur exactly once.  <br>
+<br>
+Here is what I have so far:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br></code></pre></td>
+<td class="source"><pre><code>  <var>void</var> MultiU (){
+     <var>int</var> size = 5;
+     <var>int</var> multiU[5][5];
+    srand(time(0));
+    <var>for</var> (<var>int</var> row = 0; row &lt; size; row++){  <cite>//creates the 5x5 board</cite>
+        <var>for</var> (<var>int</var> column = 0; column &lt; size; column++){ 
+           multiU[row][column] = rand() %25; 
+        
+        } 
+    } 
+    <var>for</var> (<var>int</var> row = 0; row &lt; size; row++){  <cite>//thought this would check to see if the number occurred and if it did then it would assign it a new random number but it did not work</cite>
+        <var>for</var> (<var>int</var> column = 0; column &lt; size; column++){
+            <var>if</var> (multiU[row][column]== multiU[row][column+1]){
+                   multiU[row][column] = rand() %25;   
+            }    
+        }      
+}   <cite>//where I would output the array</cite>
+        <var>for</var> (<var>int</var> row = 0; row &lt; size; row++){  
+            <var>for</var> (<var>int</var> column = 0; column &lt; size; column++){         
+                cout &lt;&lt; multiU [row][column]&lt;&lt; <kbd>' '</kbd>;
+        } 
+        cout &lt;&lt; endl;
+    } 
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm927c3c1907" title="Wed, 29 Oct 2014 14:58:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm927c3c1907');</script><noscript>Oct 29, 2014 at 2:58pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769363"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769371"><span title="769371,21217,1023,459,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769371" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme9f2a6f971" title="Wed, 29 Oct 2014 00:14:22 +0000"></span><script type="text/javascript">WhenId('CH_zTme9f2a6f971');</script><noscript>Oct 29, 2014 at 12:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kemort/default.htm"><b>kemort</b> (459)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769371">
+Hey bs319 don't post multiple questions on exactly the same topic. It's extremely selfish!!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769371"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146223,0,154099,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~257.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

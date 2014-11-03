@@ -1,0 +1,318 @@
+<!DOCTYPE html><!-- saved from url=(0055)http://www.cplusplus.com/forum/articles/416/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Dynamic allocation in C/C++ - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Articles</a></li>
+<li class="here">Dynamic allocation in C/C++</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico news" title="news">&nbsp;</div> Dynamic allocation in C/C++</h3><span id="CH_edttl"></span><span class="rootdatPost" title="416,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg1384"><span title="1384,9189,1023,15,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg1384" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1ed2eb7dbb" title="Tue, 19 Feb 2008 05:48:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm1ed2eb7dbb');</script><noscript>Feb 19, 2008 at 5:48am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/graham/default.htm"><b>Graham</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i1384">
+WHAT IT IS<br>
+----------<br>
+<br>
+Dynamic allocation is the automatic allocation of memory in C/C++, Unlike declarations, which load data onto the programs data segment, dynamic allocation creates new usable space on the programs STACK (an area of RAM specifically allocated to that program).<br>
+<br>
+It is accomplished by two functions (in C) and two operators (in C++):<br>
+malloc and free, new and delete.<br>
+<br>
+WHY YOU USE IT<br>
+--------------<br>
+<br>
+Dynamic allocation can be quite useful. For example, a dynamically sized array:<br>
+<br>
+Assume you have variable size as a variable (it is NOT defined as constant). The compiler will give you an error if you try this:<br>
+BOTH VERSIONS<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>int</var> array[size];</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+What you can do is allocate this memory dynamically. For example:<br>
+C VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> *array;
+array=(<var>int</var> *) malloc(size*<var>sizeof</var>(<var>int</var>));</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+C++ VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> *array;
+array=<var>new</var> <var>int</var>[size]l</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+NOTICE:<br>
+Since this data is pushed on the stack, not the segment, a possibility of MEMORY LEAKS occurs. Memory leaks are where allocated memory is not freed before the program returns. For example, to safely deallocate the array just created (and normally return from the program):<br>
+C VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>free(array);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+C++ VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>delete</var> [] array</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Another special notice: the brackets immediately following delete are only necessary if you allocated an array originally.<br>
+<br>
+<br>
+<br>
+Dynamic allocation is NECESSARY to there use of linked lists. Assuming self-referential structure Node has been declared with nextptr being the link:<br>
+C VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> Node *newptr;
+newptr=(<var>struct</var> Node *) malloc(<var>sizeof</var>(Node));
+<cite>/*We'll insert this into this linked list just
+ at the second item, assuming topptr is the name
+ of the top of this list.*/</cite>
+newptr-&gt;nextptr=topptr-&gt;nextptr;
+topptr-&gt;nextptr=newptr;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+C++ VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>Node *newptr;
+newptr=<var>new</var> Node;
+<cite>//We'll insert this as the second item, using topptr.</cite>
+newptr-&gt;nextptr=topptr-&gt;nextptr;
+topptr-&gt;nextptr=newptr;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Of course, in both of these examples, no other members within structure Node are used, which defeats the purpose of this linked list. To free a node:<br>
+C VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> Node *tempptr;
+<cite>/*The node we'll free is, again, the second.*/</cite>
+tempptr=topptr-&gt;nextptr;
+<cite>/*We'll unbind this node first, so as not to lose all of the rest of the list with it.*/</cite>
+topptr-&gt;nextptr=tempptr-&gt;nextptr;
+<cite>/*It's free, get rid of it.*/</cite>
+free(tempptr);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+C++ VERSION:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>Node *tempptr;
+<cite>//We'll get the second node again.</cite>
+tempptr=topptr-&gt;nextptr;
+<cite>//Unbind this node.</cite>
+topptr-&gt;nextptr=tempptr-&gt;nextptr;
+<cite>//Get rid of it.</cite>
+<var>delete</var> tempptr;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+HOW TO USE IT<br>
+-------------<br>
+<br>
+The syntax, for the C functions, is:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdlib.h&gt;</dfn>
+
+<var>void</var> *malloc(size_t size)</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+The casting in the previous examples is necessary because malloc returns a void pointer.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdlib.h&gt;</dfn>
+
+<var>void</var> free(<var>void</var> *);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+This doesn't need casting; anything passed is implicitly demoted.<br>
+<br>
+The operators in C++ are:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>NewAlloc=<var>new</var> Type;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+C++ will automatically cast for you.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>       <cite>//If this is an array</cite>
+<var>delete</var> [] NewAlloc;
+       <cite>//Otherwise</cite>
+<var>delete</var> NewAlloc;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+GOING FARTHER<br>
+-------------<br>
+<br>
+Several classes, like vector and list, use this. Implement your own!<br>
+<br>
+Understanding this article requires a good understanding of pointers and arrays (and their relationships). I know, I should put this at the top.<br>
+<br>
+Define a class (I named mine SafeSpot) that will automatically handle the deallocation of memory defined within it when the object is destroyed. This will ELIMINATE all of those unforseen memory leaks. You may want to try different scopes of this class for different scopes of allocation (don't let a temp function object exist for the whole program).<br>
+<br>
+Please reply, and tell me what you think of this article!<br>
+Thank you,<br>
+Graham Northup
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme834627ed6" title="Tue, 19 Feb 2008 05:50:54 +0000"></span><script type="text/javascript">WhenId('CH_zTme834627ed6');</script><noscript>Feb 19, 2008 at 5:50am UTC</noscript></span>
+<span class="dbtn" id="CH_btn1384"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg1547"><span title="1547,8359,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg1547" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm79d8b9a380" title="Fri, 22 Feb 2008 23:59:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm79d8b9a380');</script><noscript>Feb 22, 2008 at 11:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mayflower/default.htm"><b>Mayflower</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i1547">
+I would have been doomed with memory leaks if it wasn't for this.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><var>typedef</var> <var>unsigned</var> <var>char</var> byte;
+<var>struct</var> Color {
+     byte R;
+     byte G;
+     byte B;
+}
+
+Color * BitmapArray;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Made a dispose method for my Bitmap class... THANKS!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn1547"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg2473"><span title="2473,9828,1023,148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg2473" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmac118b5089" title="Wed, 12 Mar 2008 14:52:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmac118b5089');</script><noscript>Mar 12, 2008 at 2:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/satm2008/default.htm"><b>satm2008</b> (148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i2473">
+Graham:<br>
+  &gt;&gt;dynamic allocation creates new usable space on the programs STACK (an area of RAM specifically allocated to that program).<br>
+<br>
+Correction: Dynamic allcoation does not create/allocate space in STACK segment where as it actually allocates in HEAP segment which is different from STACK.<br>
+Every program has its own three memory segments, ie, code segment in which the compiled (object/machine) code residess, stack segment in which the local/temporary variables are stored and heap segment which is used for dynamic memory allocation. <br>
+<br>
+Stack is very volatile as it changes every function (or a code-block) enters and exits. Meaning a variable created during a function call is created and destroyed as the call exits. When the segment is not initialized, it tends to have a garbage data.<br>
+<br>
+Where as the heap is for dynamic allocation (by malloc() or new) and keeps the data until the allocation is cleared (by free() or delete). <br>
+The allocated memory belongs to the pointer pointed-by until it is freed/destroyned or the main program ends.<br>
+If the allocated memory is abandoned by its pointer then it causes a memory leak, meaning the allocated memory is abandoned (left ignored) and not allowing the same to be reused by other parts of the program. That is called a memory leak.<br>
+Please note that, malloc() or new do not guarantee that allocated space is blank and fresh hence you better use memset() or a constructor to make it fresh before using the allocated.<br>
+<br>
+Hope it is clear now.<br>
+<br>
+Good luck :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn2473"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(416,1,9189,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~593.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

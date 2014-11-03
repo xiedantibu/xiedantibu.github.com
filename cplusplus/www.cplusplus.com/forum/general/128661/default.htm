@@ -1,0 +1,701 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/128661/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Memory size of std::vector elements - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Memory size of std::vector elements</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Memory size of std::vector elements</h3><span id="CH_edttl"></span><span class="rootdatPost" title="128661,root,0,-1,17,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg695199"><span title="695199,74370,1023,30,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695199" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1262c6446f" title="Wed, 09 Apr 2014 17:08:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm1262c6446f');</script><noscript>Apr 9, 2014 at 5:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/armstrhu/default.htm"><b>armstrhu</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695199">
+Hello forum,<br>
+<br>
+I had a question about memory allocation/how iterators work for a std::vector&lt;foo&gt; of a user defined class 'foo'.  Say foo contains variables of variable size, so that each member of the std::vector&lt;foo&gt; does not require the same amount of memory space.  Does c++ allocate the same amount of memory for each element, equal to the amount of memory required for the largest element? Or does it use some sort of array of pointers pointing to the location of each element in the vector to make the iterator work?  Or does it use some other method?  I am wondering because I wrote a code which reads data from a binary files and stores most of it in std::vectors.  The code seems to be using significantly more memory than the sum of the size of all the binary files, and I am using vectors made up of the datatype within the binary files (float).  So I was wondering if internally the code was allocating space for each vector element which is the size of the largest element as a way to handle indexing/iterators.  I ran my code through a memory leak checker and it found no errors.  Thanks
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm6973a43196" title="Wed, 09 Apr 2014 17:15:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm6973a43196');</script><noscript>Apr 9, 2014 at 5:15pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695199"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695210"><span title="695210,78419,1023,5718,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695210" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm39f61ed2a0" title="Wed, 09 Apr 2014 17:28:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm39f61ed2a0');</script><noscript>Apr 9, 2014 at 5:28pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cire/default.htm"><b>cire</b> (5718)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695210">
+<table class="quote"><tr><td class="qd">Say foo contains variables of variable size, so that each member of the std::vector&lt;foo&gt; does not require the same amount of memory space.</td></tr></table><br>
+That's not possible.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695210"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695229"><span title="695229,11526,1023,1169,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695229" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm980ef6c950" title="Wed, 09 Apr 2014 17:51:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm980ef6c950');</script><noscript>Apr 9, 2014 at 5:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kempofighter/default.htm"><b>kempofighter</b> (1169)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695229">
+To be clear, elements of a vector must all be the same type.  therefore each element must be the same size.  You seem to be misunderstanding how pointers work.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br></code></pre></td>
+<td class="source"><pre><code><cite>// Each foo is the same size because the size of a char* is always the same.  </cite>
+<cite>// The length of what fooStr points to varies for each foo instance, but the size of foo does not.</cite>
+<var>struct</var> foo
+{
+   Foo::Foo(<var>const</var> <var>char</var>* inStr, <var>int</var> inInt) : fooStr(inStr), value(inInt) {}
+   <var>const</var> <var>char</var>* fooStr;
+   <var>int</var> value;
+};
+
+<cite>// Clearly the lengh of the string within each foo is different, but the size of </cite>
+<cite>// each foo is the same. </cite>
+<cite>// The vector is a template.  It doesn't have the ability to do anything with fooStr so it doesn't </cite>
+<cite>// know anything about the length of the fooStr in each object.</cite>
+std::vector&lt;foo&gt; containerOfFoo;
+foo fooMeOnce(<kbd>"hello"</kbd>, 5);
+containerOfFoo.push_back(fooMeOnce);
+
+foo fooMeTwice(<kbd>"greetings sir"</kbd>, 20);
+containerOfFoo.push_back(fooMeTwice);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695229"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695244"><span title="695244,74370,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695244" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm086447406b" title="Wed, 09 Apr 2014 18:11:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm086447406b');</script><noscript>Apr 9, 2014 at 6:11pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/armstrhu/default.htm"><b>armstrhu</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695244">
+Ok, I see how your 'foo' should always be the same size, because it contains only a pointer and an int, which are both of fixed size.  What about if I have this example...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> foo
+{
+     std::vector&lt;<var>double</var>&gt; bar;
+}
+
+<var>int</var> main()
+{
+     std::vector&lt;foo&gt; Vfoo;
+     Vfoo.resize(2);
+
+    Vfoo[0].bar.resize(20);
+    Vfoo[1].bar.resize(1);
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I would think Vfoo[0] would require more memory than Vfoo[1]?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb2d8323d1e" title="Wed, 09 Apr 2014 18:12:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmb2d8323d1e');</script><noscript>Apr 9, 2014 at 6:12pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695244"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695254"><span title="695254,72446,1023,5917,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695254" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb40bba2b74" title="Wed, 09 Apr 2014 18:52:24 +0000"></span><script type="text/javascript">WhenId('CH_zTmb40bba2b74');</script><noscript>Apr 9, 2014 at 6:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/peter87/default.htm"><b>Peter87</b> (5917)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695254">
+std::vector contains a pointer to its elements.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695254"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695259"><span title="695259,77471,1023,1729,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695259" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2b81795c71" title="Wed, 09 Apr 2014 19:00:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm2b81795c71');</script><noscript>Apr 9, 2014 at 7:00pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ihutch105/default.htm"><b>iHutch105</b> (1729)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695259">
+<table class="quote"><tr><th class="qh"><strong>Peter87</strong> wrote:</th></tr><tr><td class="qd">std::vector contains a pointer to its elements.</td></tr></table><br>
+This.<br>
+<br>
+If you do a sizeof on the std::vector, you'll get the size of the container. Not sure if this is system specific in any way, but I get 24. This will be the contribution made to any sizeof of a class or struct containing this vector.<br>
+<br>
+If you wanted to see how much memory the vector is using, you could get the product of the vector's size and the size of the elements it stores.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+
+<var>struct</var> Foo
+{
+    std::vector&lt;<var>double</var>&gt; m_doubles;
+};
+
+<var>int</var> main(<var>int</var> argc, <var>const</var> <var>char</var>* argv[])
+{
+    Foo myFoo;
+
+    std::cout &lt;&lt; <kbd>"Size of foo: "</kbd> &lt;&lt; <var>sizeof</var>(myFoo) &lt;&lt; std::endl;
+    std::cout &lt;&lt; <kbd>"Size of elements: "</kbd> &lt;&lt; myFoo.m_doubles.size() * <var>sizeof</var>(<var>double</var>) &lt;&lt; std::endl;
+
+    myFoo.m_doubles.resize(64);
+
+    std::cout &lt;&lt; <kbd>"Size of foo: "</kbd> &lt;&lt; <var>sizeof</var>(myFoo) &lt;&lt; std::endl;
+    std::cout &lt;&lt; <kbd>"Size of elements: "</kbd> &lt;&lt; myFoo.m_doubles.size() * <var>sizeof</var>(<var>double</var>) &lt;&lt; std::endl;
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Hope this helps.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm777150114f" title="Wed, 09 Apr 2014 19:01:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm777150114f');</script><noscript>Apr 9, 2014 at 7:01pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695259"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695262"><span title="695262,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695262" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9bccbf74fd" title="Wed, 09 Apr 2014 19:06:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm9bccbf74fd');</script><noscript>Apr 9, 2014 at 7:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695262">
+Because of data hiding and implementation-defined behavior, it is never possible to know how much memory is being consumed by a given object. (Unless all objects involved are POD types, of course.)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4ce577a892" title="Wed, 09 Apr 2014 19:13:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm4ce577a892');</script><noscript>Apr 9, 2014 at 7:13pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695262"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695263"><span title="695263,78419,1023,5718,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695263" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme7f8d8a8c0" title="Wed, 09 Apr 2014 19:09:58 +0000"></span><script type="text/javascript">WhenId('CH_zTme7f8d8a8c0');</script><noscript>Apr 9, 2014 at 7:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cire/default.htm"><b>cire</b> (5718)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695263">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;vector&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+
+<var>using</var> foo = std::vector&lt;<var>double</var>&gt;;
+
+<var>int</var> main()
+{
+    std::vector&lt;foo&gt; Vfoo(3);
+
+	Vfoo[0].resize(20);
+    Vfoo[1].resize(1);
+    
+    <var>for</var> ( <var>unsigned</var> i = 0; i&lt;20; ++i)
+        Vfoo[2].push_back(3.14*i) ;
+
+    std::cout &lt;&lt; <kbd>"Vfoo[0]:\n"</kbd>;    
+    std::cout &lt;&lt; <kbd>"\tsizeof = "</kbd> &lt;&lt; <var>sizeof</var>(Vfoo[0]) &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\telements stored = "</kbd> &lt;&lt; Vfoo[0].size() &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\tcapacity = "</kbd> &lt;&lt; Vfoo[0].capacity() &lt;&lt; <kbd>"\n\n"</kbd> ;
+    
+    std::cout &lt;&lt; <kbd>"Vfoo[1]:\n"</kbd>;
+    std::cout &lt;&lt; <kbd>"\tsizeof = "</kbd> &lt;&lt; <var>sizeof</var>(Vfoo[1]) &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\telements stored = "</kbd> &lt;&lt; Vfoo[1].size() &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\tcapacity = "</kbd> &lt;&lt; Vfoo[1].capacity() &lt;&lt; <kbd>"\n\n"</kbd> ;
+    
+    std::cout &lt;&lt; <kbd>"Vfoo[2]:\n"</kbd>;
+    std::cout &lt;&lt; <kbd>"\tsizeof = "</kbd> &lt;&lt; <var>sizeof</var>(Vfoo[2]) &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\telements stored = "</kbd> &lt;&lt; Vfoo[2].size() &lt;&lt; <kbd>'\n'</kbd> ;
+    std::cout &lt;&lt; <kbd>"\tcapacity = "</kbd> &lt;&lt; Vfoo[2].capacity() &lt;&lt; <kbd>'\n'</kbd> ;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<a href="../../../../ideone.com/gdtnty">http://ideone.com/GDtnTy</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695263"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695332"><span title="695332,74370,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695332" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6f7006b258" title="Wed, 09 Apr 2014 21:48:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm6f7006b258');</script><noscript>Apr 9, 2014 at 9:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/armstrhu/default.htm"><b>armstrhu</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695332">
+Interesting...<br>
+<br>
+Cire, I got your code to compile by changing<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>using</var> foo = std::vector&lt;<var>double</var>&gt;;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+to<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>typedef</var> std::vector&lt;<var>double</var>&gt;  foo;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+now, going back to my original question... it seems to me there are 2 options on how to implement in iterator for the std::vector Vfoo...<br>
+<br>
+1) allocate the same amount of memory for each element of Vfoo equal to or greater than the amount needed in the largest element.<br>
+<br>
+2) have a table of pointers to the location of the start of each element<br>
+<br>
+The first option would waste a lot of memory, but the iterator would know exactly how many bytes to skip to reach the next element of VFoo.  The second option would have the iterator skim through the table of pointers to access the various elements of VFoo. But then there would be an issue if you resized the data within an element of Vfoo since my understanding is the the memory in a std::vector is contiguous. In that case there would be no room to fit the extra data and so the memory would need to be copied somewhere else with enough space and the pointer table updated.  In case 1) the memory would only need to be copied if you added more to the element that already had the most data and didn't leave any additional buffer.<br>
+<br>
+I originally asking because it seems the memory usage in a program I wrote seems to be significantly larger than the size of the binary data I am reading in by factors of 3-5.  The binary data is stored as floats, and I am saving them in std::vector&lt;float&gt;'s so I wouldn't expect that much bloating.  That is what got me wondering if 1) is how vectors are typically implemented, which would explain the bloating.  However, based upon cires example, it seems like 2) is what is going on.  Any more input would be appreciated, or if it was already stated but I missed it/didn't understand it.  Thanks a lot you've already cleared up a bunch for me!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm3f168a73a9" title="Wed, 09 Apr 2014 22:07:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm3f168a73a9');</script><noscript>Apr 9, 2014 at 10:07pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695332"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695343"><span title="695343,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695343" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm27b453827f" title="Wed, 09 Apr 2014 22:27:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm27b453827f');</script><noscript>Apr 9, 2014 at 10:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695343">
+<table class="quote"><tr><th class="qh"><strong>armstrhu</strong> wrote:</th></tr><tr><td class="qd">Cire, I got your code to compile by changing<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>using</var> foo = std::vector&lt;<var>double</var>&gt;;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+to<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>typedef</var> std::vector&lt;<var>double</var>&gt;  foo;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+</td></tr></table>Use a C++11 compliant compiler.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695343"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695350"><span title="695350,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695350" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdb828f169e" title="Wed, 09 Apr 2014 22:38:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmdb828f169e');</script><noscript>Apr 9, 2014 at 10:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695350">
+You're still misunderstanding the nature of arrays/vectors. Each element in an array/vector <i>must</i> have the exact same size. If this wasn't the case, the structure wouldn't be an array, but rather a contiguous linked list.<br>
+This works for any value of T:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code>std::vector&lt;T&gt; v;
+fill_vector(v);
+assert(v.size() &gt; 0);
+<var>char</var> *b = (<var>char</var> *)&amp;v[0];
+<var>for</var> (size_t i = 0; i &lt; v.size(); i++){
+    T &amp;objectA = *(T *)(b + <var>sizeof</var>(T) * i);
+    T &amp;objectB = v[i];
+    assert(objectA == objectB);
+    assert(&amp;objectA == &amp;objectB);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<table class="quote"><tr><td class="qd">originally asking because it seems the memory usage in a program I wrote seems to be significantly larger than the size of the binary data I am reading in by factors of 3-5. The binary data is stored as floats, and I am saving them in std::vector&lt;float&gt;'s so I wouldn't expect that much bloating.</td></tr></table>Depending on how you populate it, a vector may use much more memory than the elements it actually contains.<br>
+Post your code. You're probably using the vectors suboptimally.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695350"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695362"><span title="695362,74370,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695362" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm952f3bfdec" title="Wed, 09 Apr 2014 22:57:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm952f3bfdec');</script><noscript>Apr 9, 2014 at 10:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/armstrhu/default.htm"><b>armstrhu</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695362">
+ok, <br>
+<br>
+So I am trying to read in some binary logfiles and store it in a class VLog, and then creatse a std::vector of these logfiles. I have multiple classes so I'll just post the variables or else it will get a bit much..<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> VLog
+{
+     <cite>//...</cite>
+
+     <var>private</var>:
+        <cite>//from binary file</cite>
+        std::string my_Signature;
+        std::string my_Version;
+        <var>int</var> my_Headsize;
+        <var>int</var> my_Sampling;
+        <var>int</var> my_NumAxis;
+        std::vector&lt;<var>int</var>&gt; my_Axis;
+        std::vector&lt;<var>int</var>&gt; my_SamplesPerAxis;
+        <var>int</var> my_AxisScale;
+        <var>int</var> my_NumSubbeams;
+        <var>int</var> my_IsTruncated;
+        <var>int</var> my_NumLeafPairs;
+        std::string my_LogType;
+        std::vector&lt;subbeam&gt; my_Subbeams;
+        <var>int</var> my_NumSnapshots;
+        std::vector&lt;snapshot&gt; my_SnapShots;
+}
+
+<var>class</var> subbeam
+{
+   <cite>//...</cite>
+
+    <var>private</var>:
+        std::string my_Name; <cite>//name of subbeam</cite>
+        <var>int</var> my_CP; <cite>//control point??</cite>
+        <var>float</var> my_MU; <cite>//monitor units</cite>
+        <var>float</var> my_Radtime;  <cite>//radiation time</cite>
+        <var>int</var> my_SeqNum; <cite>//sequence number</cite>
+}
+
+<var>class</var> snapshot
+{
+    <cite>//...</cite>
+
+    <var>private</var>:
+
+        data my_Collimator; <cite>//collimator rotation</cite>
+        data my_Gantry; <cite>//gantry rotation</cite>
+        data my_JawX1; <cite>//X1 jaw position</cite>
+        data my_JawX2; <cite>//X2 jaw position</cite>
+        data my_JawY1; <cite>//Y1 jaw position</cite>
+        data my_JawY2; <cite>//Y2 jaw position</cite>
+        data my_CouchVrt; <cite>//couch vertical position</cite>
+        data my_CouchLat; <cite>//couch lateral position</cite>
+        data my_CouchLng; <cite>//couch longitudinal position</cite>
+        data my_CouchRtn; <cite>//couch rotation angle</cite>
+        data my_MU; <cite>//monitor units</cite>
+        data my_Beamhold; <cite>//beamhold</cite>
+        data my_Controlpoint; <cite>//control point</cite>
+        data my_CarriageA; <cite>//carriageA position</cite>
+        data my_CarriageB; <cite>//carriageB position</cite>
+        std::vector&lt;leaf&gt; my_LeavesA; <cite>//leaf positions A</cite>
+        std::vector&lt;leaf&gt; my_LeavesB; <cite>//leaf positions B</cite>
+}
+
+<var>class</var> leaf
+{
+    <cite>//...</cite>
+
+    <var>private</var>:
+        data my_Pos; <cite>//leaf position</cite>
+}
+
+<var>class</var> data
+{
+    <cite>//...</cite>
+
+    <var>private</var>:
+        std::string my_ID; <cite>//data value ID</cite>
+        <var>float</var> my_Actual;  <cite>//actual value</cite>
+        <var>float</var> my_Expected;  <cite>//expected value</cite>
+        tolerence my_Tolerence; <cite>//tolerences</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+and the tolerence class isn't very important (contains 2 doubles).  So I have multiple classes going on which might make it hard for you guys to track with.  But what it boils down to is I create a std::vector&lt;VLog&gt; logs, and I am wondering what happens when one element of 'log' contains much less data and another element, does a std::vector increase the amount of memory allocated so that each element of 'log' uses the same amount of memory...this would be 1) in my above post.<br>
+<br>
+For instance, if I had 3 logfiles, one being 500kB, 2MB, and 4MB.  In that case, 500kB logfile will end up taking the same amount of memory space as a 4MB logfile when stored in a std::vector?? But if I had created 3 VLog separate variables rather than placing them in a std::vector, each VLog variable would be much closer to the size of their respective logfile?  This would explain my bloating if that's how it works.  Thanks again
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd42fb5179c" title="Wed, 09 Apr 2014 23:16:44 +0000"></span><script type="text/javascript">WhenId('CH_zTmd42fb5179c');</script><noscript>Apr 9, 2014 at 11:16pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn695362"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695372"><span title="695372,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695372" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5934f41461" title="Wed, 09 Apr 2014 23:15:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm5934f41461');</script><noscript>Apr 9, 2014 at 11:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695372">
+<table class="quote"><tr><td class="qd">I am wondering what happens when one element of 'log' contains much less data and another element, does a std::vector increase the amount of memory allocated so that each element of 'log' uses the same amount of memory</td></tr></table>Like I and other people in this thread have said, an object is of fixed size. All snapshots are always the exact same size, no matter how many leaves their vectors contain. A vector stores its data in a memory region separate from the object that contains the vector, so its size has nothing to do with the object that contains it.<br>
+<br>
+Do you ever remove elements from your vectors, particularly with pop_back()? Also, are you compiling your program with optimizations? Certain compilers generate space-inefficient vectors when making debug builds.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695372"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695383"><span title="695383,11526,1023,1169,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695383" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm751674da08" title="Wed, 09 Apr 2014 23:47:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm751674da08');</script><noscript>Apr 9, 2014 at 11:47pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kempofighter/default.htm"><b>kempofighter</b> (1169)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695383">
+<table class="quote"><tr><td class="qd">Ok, I see how your 'foo' should always be the same size, because it contains only a pointer and an int, which are both of fixed size. What about if I have this example...<br>
+<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14<br>
+struct foo<br>
+{<br>
+     std::vector&lt;double&gt; bar;<br>
+}<br>
+<br>
+int main()<br>
+{<br>
+     std::vector&lt;foo&gt; Vfoo;<br>
+     Vfoo.resize(2);<br>
+<br>
+    Vfoo[0].bar.resize(20);<br>
+    Vfoo[1].bar.resize(1);<br>
+}<br>
+<br>
+<br>
+I would think Vfoo[0] would require more memory than Vfoo[1]?</td></tr></table><br>
+<br>
+Vfoo[0] certainly has  a bigger capacity, but the vector implementation decides how it wants to expand capacity during a resize.    Read up on the reserve member function.  two different vectors could have a different size but the same capacity.  
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695383"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695403"><span title="695403,74370,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695403" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma1f585b0e3" title="Thu, 10 Apr 2014 00:31:48 +0000"></span><script type="text/javascript">WhenId('CH_zTma1f585b0e3');</script><noscript>Apr 10, 2014 at 12:31am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/armstrhu/default.htm"><b>armstrhu</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695403">
+ok, so maybe I am using bad vernacular? When I say size I am talking about the physical amount of memory required to store the data contained within an element of a vector, not the number of elements.  Maybe that is causing confusion?<br>
+<br>
+So I'll continue to use size to mean the amount if bits required to store the data....<br>
+<br>
+Based upon previous posts, I understand that the size of each vector element is the same.  However, this only answers the 'what' and I am after more of the why/how this is done.  I can think of 2 ways to implement a vector that would result in the size of each element being the same.  Assume I have 2 log files I want to read, log1 being 1kB in size and log2 being 1GB in size.<br>
+<br>
+1) the vector is implemented as a list/array of pointers to data.  In this case, the size of any element would be the same regardless of the size of the data each pointer points to as the size of the pointers are unchanged.<br>
+<br>
+2) the vector stores the actual data within itself.  In this case, there is absolutely no reason why a 1kB file must use the same amount of memory as the 1GB file.  However, if I want to store it in a container, there may (or may not, im not really sure) be very good reasons to implement something that forces this be true.  Since you cant allocate 1kB and fit the 1GB logfile within that space, the only other alternative is to allocate 1GB of data and store the 1kB logfile in there.<br>
+<br>
+Both implementations will result in each element of the vector being the same size, however the consequences in term of memory management are extremely different as the second option can easily lead to a ton of wasted memory space.  I am sure there are other ways to implement a vector which lead to different behaviour as well, but these are two that pop into mind.<br>
+<br>
+Once I read the data in I will work on it, but not modify it; so maybe there is a better way to store it.  I think I am using O2 optimization, but I'll have to check that tomorrow.  It's always difficult to notice your own ignorances, if I am completely missing the point, is there anything else you guys could point me to for some reading?  I'll check out the reserve member function after dinner.  thanks again for the help
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTma6910a3e96" title="Thu, 10 Apr 2014 00:43:45 +0000"></span><script type="text/javascript">WhenId('CH_zTma6910a3e96');</script><noscript>Apr 10, 2014 at 12:43am UTC</noscript></span>
+<span class="dbtn" id="CH_btn695403"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695411"><span title="695411,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695411" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm86565a135a" title="Thu, 10 Apr 2014 00:43:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm86565a135a');</script><noscript>Apr 10, 2014 at 12:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695411">
+Ah, yes you were using a poor choice of words. To answer your question:<table class="quote"><tr><th class="qh"><strong>LB</strong> wrote:</th></tr><tr><td class="qd">Because of data hiding and implementation-defined behavior, it is never possible to know how much memory is being consumed by a given object. (Unless all objects involved are POD types, of course.)</td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695411"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695444"><span title="695444,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695444" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc26c5545e8" title="Thu, 10 Apr 2014 02:53:09 +0000"></span><script type="text/javascript">WhenId('CH_zTmc26c5545e8');</script><noscript>Apr 10, 2014 at 2:53am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695444">
+<table class="quote"><tr><td class="qd">1) the vector is implemented as a list/array of pointers to data. In this case, the size of any element would be the same regardless of the size of the data each pointer points to as the size of the pointers are unchanged.<br>
+<br>
+2) the vector stores the actual data within itself. In this case, there is absolutely no reason why a 1kB file must use the same amount of memory as the 1GB file. However, if I want to store it in a container, there may (or may not, im not really sure) be very good reasons to implement something that forces this be true. Since you cant allocate 1kB and fit the 1GB logfile within that space, the only other alternative is to allocate 1GB of data and store the 1kB logfile in there.</td></tr></table>Neither is generally true, but #1 is possibly true for particular element types.<br>
+<br>
+Here's a basic outline of how vectors are implemented:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br></code></pre></td>
+<td class="source"><pre><code><var>template</var> &lt;<var>typename</var> T&gt;
+<var>class</var> vector{
+    T *_front;
+    <var>unsigned</var> _size, _capacity;
+<var>public</var>:
+    vector(): _front(<var>nullptr</var>), _size(0), _capacity(0){}
+	<var>void</var> push_back(<var>const</var> T &amp;new_object){
+		<var>if</var> (!<var>this</var>-&gt;_front){
+			<cite>//Note: In reality, the array will be allocated in a way that</cite>
+			<cite>//doesn't call constructors on each of the elements.</cite>
+			<var>this</var>-&gt;_front = <var>new</var> T[8];
+			<var>this</var>-&gt;_capacity = 8;
+		}
+		<var>if</var> (<var>this</var>-&gt;_size == <var>this</var>-&gt;_capacity){
+			T *temp = <var>new</var> T[<var>this</var>-&gt;_capacity *= 2];
+			std::copy(<var>this</var>-&gt;_front, <var>this</var>-&gt;_front + <var>this</var>-&gt;_size, temp);
+			<var>delete</var>[] <var>this</var>-&gt;_front;
+			<var>this</var>-&gt;_front = temp;
+		}
+		<var>this</var>-&gt;_front[<var>this</var>-&gt;_size++] = new_object;
+	}
+	<var>void</var> pop_back(){
+		assert(<var>this</var>-&gt;_size &gt; 0);
+		<cite>//In reality, the destructor would be called on this-&gt;_front[this-&gt;_size - 1]</cite>
+		<var>this</var>-&gt;_size--;
+	}
+	T &amp;<var>operator</var>[](<var>int</var> i){
+		<var>return</var> <var>this</var>-&gt;_front[i];
+	}
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+Note that:<br>
+1. sizeof(vector&lt;T&gt;), in many platforms, will equal 12 for all values of T. How many elements the vector has is irrelevant.<br>
+2. sizeof is what matters when the compiler generated the code for handling arrays and pointer arithmetic.<br>
+3. vector&lt;vector&lt;T&gt;&gt; has elements of constant sizes, even if each vector element contains a different number of element themselves. <i>This</i> situation correlates to your hypothesis #1. vector&lt;vector&lt;T&gt;&gt; is essentially a pointer to an array of pointers. But this because the element type of the outer vector is <i>another</i> vector. Other values of Y may or may not generate a vector type that's an array of pointers. For example, vector&lt;int&gt; is simply a pointer to an array of ints.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695444"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(128661,1,74370,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~353.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

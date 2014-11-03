@@ -1,0 +1,481 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/143690/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Integer division  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Integer division </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Integer division </h3><span id="CH_edttl"></span><span class="rootdatPost" title="143690,root,0,-1,11,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757997"><span title="757997,152320,1023,25,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757997" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb26143765a" title="Tue, 30 Sep 2014 22:52:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmb26143765a');</script><noscript>Sep 30, 2014 at 10:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/overthewater/default.htm"><b>overthewater</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757997">
+I'm sure this is pretty standard, but I need to make a program that uses user input to perform a selected calculation. It has multiple files (this is the functions file, it also has a main file, which is definitely correct, and a header file). My errors are that I have multiple definitions of main, even though I only used the word main once (in the main file).<br>
+Also, it says in line 6 that I have no return in a function returning non-void. How do I fix these.<br>
+It's long so this is just a section, i've only cut out a few operations though. Am I missing anything?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br></code></pre></td>
+<td class="source"><pre><code>  
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;cmath&gt;               </dfn><cite>// do I #include the header and main files here?</cite>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> Selection (){
+    <var>int</var> Sel = 0;
+    cout &lt;&lt; <kbd>"Please select a desired operation from the list below : \n\n"</kbd>;
+    cout &lt;&lt; <kbd>"1 Calculate percentage of selected number  \n\n "</kbd>;
+    cout &lt;&lt; <kbd>"2 Calculate integer division of two entered numbers."</kbd>;
+    cout &lt;&lt; <kbd>"3 Exit. \n\n Selection:"</kbd>;
+    cin &gt;&gt; Sel;
+    cout &lt;&lt; Sel;
+    <var>return</var> Sel;
+}
+
+<var>bool</var> operationSelector (<var>int</var> Sel) {
+    <var>if</var> (Sel ==1){
+        <var>double</var> N=0.0;
+        <var>double</var> P=0.0;
+        perEntNum (N,P);
+        <var>return</var> <var>true</var>;
+    }
+     <var>else</var> <var>if</var> (Sel == 2){
+        <var>double</var> N = 0.0;
+        <var>double</var> D = 0.0;
+        iDiv(N,D);
+        <var>return</var> <var>true</var>;
+    }
+    <var>else</var> {
+        <var>return</var> <var>false</var>;
+        }
+}
+
+<var>void</var> perEntNum (<var>double</var> Number, <var>double</var> Percentage){
+    <var>double</var> N = 0.0;
+    <var>double</var> P = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number: "</kbd>;
+    cin &lt;&lt; N;
+    count &lt;&lt; <kbd>"\n\n Enter Percentage out of 100: "</kbd>;
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;N*P/100&lt;&lt;endl;
+}
+
+<var>void</var> iDiv (<var>double</var> Numerator, <var>double</var> Denominator){
+    <var>double</var> N = 0.0;
+    <var>double</var> D = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number 1: "</kbd>;
+    cin &lt;&lt; N;
+    count &lt;&lt; <kbd>"\n\n Enter Number 2: "</kbd>;
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;<var>int</var>(Numerator/Denominator)&lt;&lt;endl;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm99c6f68be1" title="Wed, 01 Oct 2014 01:32:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm99c6f68be1');</script><noscript>Oct 1, 2014 at 1:32am UTC</noscript></span>
+<span class="dbtn" id="CH_btn757997"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758010"><span title="758010,152320,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758010" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4939b9da0b" title="Tue, 30 Sep 2014 23:56:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm4939b9da0b');</script><noscript>Sep 30, 2014 at 11:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/overthewater/default.htm"><b>overthewater</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758010">
+It says 'main' is first defined in my "main function" as the error, but it isn't defined here is it?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758010"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758019"><span title="758019,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758019" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd1704ccdc9" title="Wed, 01 Oct 2014 00:26:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmd1704ccdc9');</script><noscript>Oct 1, 2014 at 12:26am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758019">
+is this a header file? try making this a header file (.h) not (.cpp)<br>
+<br>
+then add a main.cpp or source.cpp to your project.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include "myfunctions.h"</dfn>
+
+<var>int</var> main ()
+{
+      <var>return</var> 0;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm24c53dd48a" title="Wed, 01 Oct 2014 00:28:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm24c53dd48a');</script><noscript>Oct 1, 2014 at 12:28am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758019"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758022"><span title="758022,29169,1023,357,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758022" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcca48fba63" title="Wed, 01 Oct 2014 00:46:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmcca48fba63');</script><noscript>Oct 1, 2014 at 12:46am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/admkrk/default.htm"><b>admkrk</b> (357)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758022">
+You obviously did define main more than once or you would not be getting that error. <br>
+I am going to guess that you tried to write main() as a list of function calls and over complicating everything in the progress also.  <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code><cite>// What purpose do the arguments serve?</cite>
+<cite>// Number and Percentage are never used.</cite>
+<var>void</var> perEntNum (<var>double</var> Number, <var>double</var> Percentage){
+    <var>double</var> N = 0.0;
+    <var>double</var> P = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number: "</kbd>;
+    cin &lt;&lt; N;
+    count &lt;&lt; <kbd>"\n\n Enter Percentage out of 100: "</kbd>;
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;N*P/100&lt;&lt;endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br></code></pre></td>
+<td class="source"><pre><code><cite>// What purpose does this function even have?</cite>
+<var>void</var> iDiv (<var>double</var> Numerator, <var>double</var> Denominator){
+    <var>double</var> N = 0.0;
+    <var>double</var> D = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number 1: "</kbd>;
+    cin &lt;&lt; N;
+    count &lt;&lt; <kbd>"\n\n Enter Number 2: "</kbd>;
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;<var>int</var>(Numerator/Denominator)&lt;&lt;endl;
+}
+
+<cite>// Could be simplified to </cite>
+<var>void</var> iDiv (<var>double</var> Numerator, <var>double</var> Denominator){
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;<var>int</var>(Numerator/Denominator)&lt;&lt;endl;
+}
+<cite>// since all it does is get unused input from the user</cite>
+<cite>// or better yet just write the cout statement in place of the function call </cite>
+<cite>// it would be easier to see that you equation is equal to 0 / 0 that way </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+With all the mismatches and unused variables in this part it is very likely that you do have more than one main function. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758022"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758029"><span title="758029,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758029" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm959972af3f" title="Wed, 01 Oct 2014 01:01:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm959972af3f');</script><noscript>Oct 1, 2014 at 1:01am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758029">
+Post your Source.cpp file..
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758029"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758043"><span title="758043,152320,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758043" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme4d1b2327c" title="Wed, 01 Oct 2014 01:32:30 +0000"></span><script type="text/javascript">WhenId('CH_zTme4d1b2327c');</script><noscript>Oct 1, 2014 at 1:32am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/overthewater/default.htm"><b>overthewater</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758043">
+Thanks. The problem was that i said #include (main file)<br>
+<br>
+<br>
+Any one know why the function at line 45 wont work? It keeps giving me a very large negative number.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758043"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758044"><span title="758044,116481,1023,377,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758044" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm26ddb7e115" title="Wed, 01 Oct 2014 01:38:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm26ddb7e115');</script><noscript>Oct 1, 2014 at 1:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ganado/default.htm"><b>Ganado</b> (377)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758044">
+What numbers are you calling iDiv with? Also, you declare variables N and D but never do anything useful with them, as admkrk pointed out.<br>
+<br>
+It'd probably be helpful if you showed what you were doing in your main function, we're only getting half the story.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb25b34c2cc" title="Wed, 01 Oct 2014 01:40:15 +0000"></span><script type="text/javascript">WhenId('CH_zTmb25b34c2cc');</script><noscript>Oct 1, 2014 at 1:40am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758044"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758046"><span title="758046,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758046" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmce36e8de11" title="Wed, 01 Oct 2014 01:51:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmce36e8de11');</script><noscript>Oct 1, 2014 at 1:51am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758046">
+You're welcome OP :) some times you can't take compiler errors for face value.<br>
+<br>
+Please post your Source File<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> iDiv (<var>double</var> Numerator, <var>double</var> Denominator){
+    <var>double</var> N = 0.0;
+    <var>double</var> D = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number 1: "</kbd>;
+    cin &lt;&lt; N;
+    <b>count</b> &lt;&lt; <kbd>"\n\n Enter Number 2: "</kbd>; <cite>// Here should be cout you have count</cite>
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;<var>int</var>(Numerator/Denominator)&lt;&lt;endl; <cite>// what are you doing here? </cite>
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> perEntNum (<var>double</var> Number, <var>double</var> Percentage){
+    <var>double</var> N = 0.0;
+    <var>double</var> P = 0.0;
+    cout &lt;&lt; <kbd>"Enter Number: "</kbd>;
+    cin &lt;&lt; N;
+    <b>count</b> &lt;&lt; <kbd>"\n\n Enter Percentage out of 100: "</kbd>;
+    cin &lt;&lt; P;
+    cout &lt;&lt; <kbd>"\n\n Resulting Amount: "</kbd> &lt;&lt;N*P/100&lt;&lt;endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc83e158524" title="Wed, 01 Oct 2014 02:04:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmc83e158524');</script><noscript>Oct 1, 2014 at 2:04am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758046"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758052"><span title="758052,152320,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758052" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7edef944e0" title="Wed, 01 Oct 2014 02:09:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm7edef944e0');</script><noscript>Oct 1, 2014 at 2:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/overthewater/default.htm"><b>overthewater</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758052">
+Unfortunately I do not have the computer with the other files with me. I think though, that they just tell this to run. It doesn't do anything different. (The spelling errors are for the same reason, I am just typing out the code here rather than copying and pasting)<br>
+<br>
+What I am trying to do there is complete a division between any two numbers and change the answer to an integer. Obviously that is not what is actually happening though
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm43389f641d" title="Wed, 01 Oct 2014 02:10:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm43389f641d');</script><noscript>Oct 1, 2014 at 2:10am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758052"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758072"><span title="758072,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758072" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9ffcb3a38f" title="Wed, 01 Oct 2014 02:58:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm9ffcb3a38f');</script><noscript>Oct 1, 2014 at 2:58am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758072">
+Ok i think i know what you mean. I gave you 2 examples on how you can structure a function. i hope you find this useful. If you have any questions please ask. <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include &lt;iostream&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+
+<var>void</var> divFrac() <cite>// no need for functions parameters here nothing going into function</cite>
+{
+    <var>int</var> N;
+    <var>int</var> D;
+    cout &lt;&lt; <kbd>"Enter first Num"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; N ;
+    cout &lt;&lt; <kbd>"Enter second Num"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; D;
+    
+    cout &lt;&lt; <kbd>"Result: "</kbd> &lt;&lt; (<var>int</var>)(N/D) &lt;&lt; endl;
+}
+
+<var>void</var> divFrac2(<var>int</var> N, <var>int</var> D) <cite>// Passing Parameters to function example</cite>
+{
+    cout &lt;&lt; <kbd>"Result "</kbd> &lt;&lt; (<var>int</var>) (N/D) &lt;&lt; endl;
+    
+}
+
+<var>int</var> main()
+{
+    <cite>// no parameters needed for this function</cite>
+    
+    divFrac();
+    
+    
+    <cite>// Passing Parameters to function example</cite>
+    
+    <var>int</var> firstnum;
+    <var>int</var> secondnum;
+    
+    
+    cout &lt;&lt; <kbd>"Enter first Num"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; firstnum ;
+    cout &lt;&lt; <kbd>"Enter second Num"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; secondnum;
+    
+    divFrac2(firstnum,secondnum); <cite>// this function takes in 2 ints (int, int)</cite>
+    
+    <var>return</var> 0;
+}
+
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8016947ed5" title="Wed, 01 Oct 2014 03:15:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm8016947ed5');</script><noscript>Oct 1, 2014 at 3:15am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758072"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758145"><span title="758145,29169,1023,357,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758145" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2c44ed3ed1" title="Wed, 01 Oct 2014 05:52:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm2c44ed3ed1');</script><noscript>Oct 1, 2014 at 5:52am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/admkrk/default.htm"><b>admkrk</b> (357)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758145">
+<table class="quote"><tr><td class="qd">The spelling errors are for the same reason, I am just typing out the code here rather than copying and pasting</td></tr></table><br>
+That is like saying "my program looks something like this" compared to "this is my program". Spelling, punctuation, case, and many other things make a big difference! You are just wasting the time of the people that are are trying to help you if you do not post what your code really is. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758145"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143690,0,152320,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~187.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

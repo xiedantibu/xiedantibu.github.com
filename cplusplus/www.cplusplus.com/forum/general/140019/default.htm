@@ -1,0 +1,248 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/140019/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cannot upload file with libcurl - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Cannot upload file with libcurl</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Cannot upload file with libcurl</h3><span id="CH_edttl"></span><span class="rootdatPost" title="140019,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg740278"><span title="740278,21946,1023,940,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg740278" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3f30577fdf" title="Wed, 06 Aug 2014 20:39:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm3f30577fdf');</script><noscript>Aug 6, 2014 at 8:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/null/default.htm"><b>Null</b> (940)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i740278">
+Hello,<br>
+I'm trying to upload a file to a FTP server with curl. The problem is that I do not know what to do after I enter the passive mode and open the specified port. I tried to send data with curl_easy_send but it simply hangs.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> Ftp::Upload(<var>const</var> <var>char</var> *local_fn,<var>const</var> <var>char</var> *remote_fn)
+{
+    <var>int</var> ret;
+    string ip;
+    <var>unsigned</var> port;
+
+    SendCmd(<kbd>"TYPE I"</kbd>);
+<cite>// Enter passive mode and get IP &amp; port</cite>
+    <var>if</var>(pasv(ip,port)==<var>false</var>)
+        <var>return</var> <var>false</var>;
+
+   cout &lt;&lt;<kbd>"IP: "</kbd>&lt;&lt;ip&lt;&lt;<kbd>" port: "</kbd>&lt;&lt;port&lt;&lt;endl;
+
+<cite>// STOR filename</cite>
+    <var>if</var>(remote_fn==0)
+        SendCmd(string(<kbd>"STOR "</kbd>)+PathParser(local_fn).GetFileName(to_string(time(0))),ftp_read_file,fp);
+    <var>else</var>
+        SendCmd(string(<kbd>"STOR "</kbd>)+remote_fn,ftp_read_file,fp);
+
+<cite>//</cite>
+<cite>// open a seocnd curl connection for file upload</cite>
+<cite>//</cite>
+    CURL *curl_up=curl_easy_init();
+    curl_easy_setopt(curl_up, CURLOPT_URL,ip.c_str()); <cite>// ip and port received with PASV</cite>
+    curl_easy_setopt(curl_up, CURLOPT_PORT,port);
+    <cite>// connect</cite>
+    <var>if</var>( (ret=curl_easy_perform(curl))!=CURLE_OK)
+    {
+        <cite>// ignore CURLE_FTP_COULDNT_RETR_FILE (19) This was either a weird reply to a 'RETR' command or a zero byte transfer complete.</cite>
+        <cite>// maybe i shouldnt ignroe it</cite>
+        <var>if</var>(ret!=19)
+        {
+            cout &lt;&lt;<kbd>"Cannot establish connection. code "</kbd>&lt;&lt;ret&lt;&lt;endl;
+            <var>return</var> <var>false</var>;
+        }
+    }
+    cout &lt;&lt;<kbd>"Begin file transfer..."</kbd>&lt;&lt;endl;
+
+<cite>// What should I do here?</cite>
+    <var>char</var> buff[]=<kbd>"this should be written to the file on FTP server"</kbd>;
+    size_t rec; <cite>// byhtes received</cite>
+
+    <var>if</var>( (ret=curl_easy_send(curl_up,buff,<var>sizeof</var>(buff),&amp;rec))!=CURLE_OK) <cite>// doesn't crash but never finishes</cite>
+    {
+        fclose(fp);
+        curl_easy_cleanup(curl_up);
+        cout &lt;&lt;<kbd>"curl_easy_send failed: "</kbd>&lt;&lt;ret&lt;&lt;endl;
+        <var>return</var> <var>false</var>;
+    }
+    fclose(fp);
+    curl_easy_cleanup(curl_up);
+    <var>return</var> <var>true</var>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+I have no idea how to send file to the server. And I also suspect I should tell the file size to the server. <br>
+<br>
+Thanks for help!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn740278"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg740311"><span title="740311,38650,1023,2007,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg740311" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2c639adbc1" title="Wed, 06 Aug 2014 21:33:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm2c639adbc1');</script><noscript>Aug 6, 2014 at 9:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/naraku9333/default.htm"><b>naraku9333</b> (2007)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i740311">
+Maybe you need <span class="auto"><code class="source">curl_easy_setopt( curl, CURLOPT_USERPWD, <kbd>"username:password"</kbd> );</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn740311"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg740388"><span title="740388,21946,1023,940,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg740388" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaa0389eb9b" title="Thu, 07 Aug 2014 07:51:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmaa0389eb9b');</script><noscript>Aug 7, 2014 at 7:51am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/null/default.htm"><b>Null</b> (940)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i740388">
+Didn't help. The last reply from server is <table class="quote"><tr><td class="qd">150 Opening data channel for file upload to server of "/test.rar"<br>
+</td></tr></table><br>
+I just need to upload the data somehow
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn740388"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg740457"><span title="740457,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg740457" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm07e2a20e79" title="Thu, 07 Aug 2014 15:31:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm07e2a20e79');</script><noscript>Aug 7, 2014 at 3:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i740457">
+Any reason why don't you use libcurl own example ?<br>
+<a href="../../../../curl.haxx.se/libcurl/c/ftpupload.html">http://curl.haxx.se/libcurl/c/ftpupload.html</a><br>
+<br>
+Passive mode is the default, it can be disabled with :<br>
+<span class="auto"><code class="source">curl_easy_setopt(curlhandle, CURLOPT_FTPPORT, <kbd>"-"</kbd>);</code></span>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2aa1e8c6f4" title="Thu, 07 Aug 2014 15:39:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm2aa1e8c6f4');</script><noscript>Aug 7, 2014 at 3:39pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn740457"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg741087"><span title="741087,21946,1023,940,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg741087" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7b31772ed7" title="Sun, 10 Aug 2014 15:19:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm7b31772ed7');</script><noscript>Aug 10, 2014 at 3:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/null/default.htm"><b>Null</b> (940)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i741087">
+<table class="quote"><tr><td class="qd">Any reason why don't you use libcurl own example ?</td></tr></table>No particular reason, just learning how things work. I'll just use libcurl example, thanks.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn741087"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(140019,1,21946,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~359.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

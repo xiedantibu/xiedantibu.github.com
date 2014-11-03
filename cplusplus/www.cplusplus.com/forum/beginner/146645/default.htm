@@ -1,0 +1,341 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146645/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Payroll Class with vectors - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Payroll Class with vectors</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Payroll Class with vectors</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146645,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771114"><span title="771114,152353,1023,8,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771114" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf2777f9d95" title="Sun, 02 Nov 2014 05:33:21 +0000"></span><script type="text/javascript">WhenId('CH_zTmf2777f9d95');</script><noscript>Nov 2, 2014 at 5:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ion93/default.htm"><b>Ion93</b> (8)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771114">
+Hey guys I'm writing a Payroll class program to calculate gross pay <br>
+<br>
+Write a program	that processes Payroll objects. The program should read	the	<br>
+employee surname,number of hours worked,and their hourly pay-rate from a file<br>
+<br>
+The file is below. <br>
+<br>
+So the part im currently having trouble with is writing a function to read in the data from the file into a vector so i can manipulate the vector and display my end results. Any help on how i can fix this would be great thank you! <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code>
+Jones   38.5     9.50
+King    40.0     9.00
+Lee     16.0     7.50
+Sanchez 40.0     8.00
+Smith   40.0    10.00
+Taylor  38.0     8.00
+Tucker  22.5     9.50</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>class</var> Payroll {
+<var>private</var>:
+
+    <var>double</var> rate;
+    <var>double</var> hours;
+    string name;
+    <var>double</var> gross;
+
+<var>public</var>:
+    Payroll();
+
+    <var>void</var> setRate(<var>double</var>);
+    <var>void</var> setHours(<var>double</var>);
+    <var>void</var> setGross(<var>double</var>);
+
+    <var>double</var> getRate() <var>const</var> {
+        <var>return</var> rate;
+    }
+    <var>double</var> getHours() <var>const</var> {
+        <var>return</var> hours;
+    }
+    <var>double</var> getGross() <var>const</var> {
+        <var>return</var> gross;
+    }
+};
+
+<cite>// Constructor</cite>
+Payroll::Payroll ()
+{
+    rate = 0;
+    hours = 0;
+    gross = 0;
+}
+
+<cite>// Vector read in function</cite>
+
+<var>void</var> readFunction(ifstream &amp;inFile, vector&lt;Payroll&gt; &amp;list);
+
+<var>int</var> main()
+{
+
+    ifstream datafile;
+    datafile.open(<kbd>"payroll.txt"</kbd>);
+    <var>if</var> (!datafile)
+        cout &lt;&lt; <kbd>"Error opening data file \n"</kbd>;
+
+    <var>return</var> 0;
+}
+
+<var>void</var> Payroll::setRate(<var>double</var> r)
+
+{
+    <var>if</var> (r &gt; 0) {
+        rate = r;
+    }
+
+}
+
+<var>void</var> Payroll::setHours(<var>double</var> h)
+
+{
+    <var>if</var> (h &gt; 0) {
+        hours = h;
+    }
+
+}
+
+<var>void</var> Payroll::setGross(<var>double</var> g)
+
+{
+
+    gross = g;
+    g = hours * rate;
+
+}
+
+<var>void</var> readFunction(ifstream &amp;inFile, vector&lt;Payroll&gt; &amp;list)
+
+{
+    string name;
+    <var>double</var> hours;
+    <var>double</var> rate;
+    <var>double</var> count;      <cite>// count number of items in the file</cite>
+
+    <var>if</var> (inFile) {
+        <var>double</var> count;      <cite>// count number of items in the file</cite>
+
+        <cite>// read the elements in the file into a vector</cite>
+        <var>while</var> ( inFile &gt;&gt; list ) {
+            list.push_back(count);
+            ++count;
+        }
+    }
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771114"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771158"><span title="771158,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771158" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0d902d172e" title="Sun, 02 Nov 2014 08:55:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm0d902d172e');</script><noscript>Nov 2, 2014 at 8:55am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771158">
+<br>
+Seems like your problem is that you're trying to read from the file directly to the vector.<br>
+try something like: <div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> readFunction( ifstream &amp;inFile, vector&lt;Payroll&gt; &amp;list )
+{
+	string name;
+	<var>double</var> hours;
+	<var>double</var> rate;
+	<var>double</var> count;      <cite>// count number of items in the file</cite>
+	Payroll temp;
+
+	<var>if</var>( inFile )
+	{
+		<var>double</var> count;      <cite>// count number of items in the file</cite>
+
+		<cite>// read the elements in the file into a vector</cite>
+		<var>while</var>( inFile &gt;&gt; temp )
+		{
+			list.push_back( temp );
+			++count;
+		}
+	}
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+  You'll need to overload the &gt;&gt; operator of Payroll for this to work.  Either that, or extract each data item into individual variables, and construct a temporary Payroll object from them.  then push_back the temp object.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTma6ae17b8e3" title="Sun, 02 Nov 2014 08:57:12 +0000"></span><script type="text/javascript">WhenId('CH_zTma6ae17b8e3');</script><noscript>Nov 2, 2014 at 8:57am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771158"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771159"><span title="771159,152353,1023,8,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771159" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1f165153aa" title="Sun, 02 Nov 2014 09:00:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm1f165153aa');</script><noscript>Nov 2, 2014 at 9:00am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ion93/default.htm"><b>Ion93</b> (8)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771159">
+still getting an error when i do that to... 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771159"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771161"><span title="771161,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771161" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm045ebb52d4" title="Sun, 02 Nov 2014 09:06:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm045ebb52d4');</script><noscript>Nov 2, 2014 at 9:06am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771161">
+did you see the edits to my above post?<br>
+<br>
+I don't have time tonight to get into the details of how to make a constructor that would read an entire record. But someone else should be able to help.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm021133406e" title="Sun, 02 Nov 2014 09:08:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm021133406e');</script><noscript>Nov 2, 2014 at 9:08am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771161"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771162"><span title="771162,152353,1023,8,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771162" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm97a06ce119" title="Sun, 02 Nov 2014 09:08:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm97a06ce119');</script><noscript>Nov 2, 2014 at 9:08am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ion93/default.htm"><b>Ion93</b> (8)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771162">
+yea just saw it now. Thanks ill work on it and get back to you still a beginner so these things take me awhile. 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd7c756b5f4" title="Sun, 02 Nov 2014 09:08:24 +0000"></span><script type="text/javascript">WhenId('CH_zTmd7c756b5f4');</script><noscript>Nov 2, 2014 at 9:08am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771162"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146645,0,152353,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~199.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

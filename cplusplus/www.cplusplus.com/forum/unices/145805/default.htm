@@ -1,0 +1,516 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/145805/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tic Tac Toe Problom - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">Tic Tac Toe Problom</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Tic Tac Toe Problom</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145805,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg767502"><span title="767502,155406,255,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767502" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm11413a5ff8" title="Fri, 24 Oct 2014 11:01:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm11413a5ff8');</script><noscript>Oct 24, 2014 at 11:01am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leeffm01/default.htm"><b>LEEFFM01</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767502">
+The program seems to run fine until you hit 1 to play again it will let you move twice then say its a tie game.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br>229<br>230<br>231<br>232<br>233<br>234<br>235<br>236<br>237<br>238<br>239<br>240<br>241<br>242<br>243<br>244<br>245<br>246<br>247<br>248<br>249<br>250<br>251<br>252<br>253<br>254<br>255<br>256<br>257<br>258<br>259<br>260<br>261<br>262<br>263<br>264<br>265<br>266<br>267<br>268<br>269<br>270<br>271<br>272<br>273<br>274<br>275<br>276<br>277<br>278<br>279<br>280<br>281<br>282<br>283<br>284<br>285<br>286<br>287<br>288<br>289<br>290<br>291<br>292<br>293<br>294<br>295<br>296<br>297<br>298<br>299<br>300<br>301<br>302<br>303<br>304<br>305<br>306<br>307<br>308<br>309<br>310<br>311<br>312<br>313<br>314<br>315<br>316<br>317<br>318<br>319<br>320<br>321<br>322<br>323<br>324<br>325<br>326<br>327<br>328<br>329<br>330<br>331<br>332<br>333<br>334<br>335<br>336<br>337<br>338<br>339<br>340<br>341<br>342<br>343<br>344<br>345<br>346<br>347<br>348<br>349<br>350<br>351<br>352<br>353<br>354<br>355<br>356<br>357<br>358<br>359<br>360<br>361<br>362<br>363<br>364<br>365<br>366<br>367<br>368<br></code></pre></td>
+<td class="source"><pre><code> <cite>// Tic_Tac_Toe</cite>
+
+<cite>// Include libraries</cite>
+<dfn>#include &lt;stdlib.h&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+
+<cite>// use standerd namespace</cite>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// Declare global values</cite>
+<var>char</var> Board[9];
+
+<cite>// Declare the funtions</cite>
+<var>void</var> play () ;
+<var>void</var> CPTicTacToe () ;
+<var>void</var> TicTacToe () ;
+<var>void</var> ShowBoard ();
+<var>bool</var> MoveIsValid (<var>int</var> m);
+<var>int</var> WhoWon (); <cite>//Returns 0 if noone won, 1 if player 1 won, and 2 if player 2 won.</cite>
+<var>int</var> Total_Moves = 0;
+
+<var>int</var> main () {
+
+	<var>int</var> More ;
+
+	<var>while</var> (More != 2) {
+
+		play () ;
+
+		ShowBoard () ;
+
+		cout &lt;&lt; <kbd>"Press 1 to play again, Press 2 to exit!"</kbd> &lt;&lt; endl ;
+		cin &gt;&gt; More ;
+
+	}
+
+}
+
+<var>void</var> play () {
+
+	<var>int</var> Multiplayer ;
+
+	cout &lt;&lt; <kbd>"Welcome to Tic Tac Toe!"</kbd> &lt;&lt; endl ;
+	cout &lt;&lt; <kbd>"Press 1 to play multiplayer, Press 2 to play against Computer!"</kbd> &lt;&lt; endl;
+	cin &gt;&gt; Multiplayer ;
+
+	<var>if</var> (Multiplayer == 1) {
+
+		TicTacToe () ;
+
+	} <var>else</var> {
+
+		CPTicTacToe () ;
+
+	}
+
+}
+
+<var>void</var> CPTicTacToe () {
+
+	<cite>// Seed the random number</cite>
+		srand (time (NULL) );
+
+		<cite>// Declare local variables</cite>
+		string Player_1_Name;
+		string Player_2_Name = <kbd>"Computer"</kbd>;
+		<var>int</var> Whose_Turn = 1; <cite>// 1 means it's player 1's turn , 2 means 2's turn</cite>
+		<var>int</var> Move; <cite>// Stores where the player wants to move.</cite>
+
+		<cite>// Assign values to playing board</cite>
+		Board [0] = <kbd>'0'</kbd>;
+		Board [1] = <kbd>'1'</kbd>;
+		Board [2] = <kbd>'2'</kbd>;
+		Board [3] = <kbd>'3'</kbd>;
+		Board [4] = <kbd>'4'</kbd>;
+		Board [5] = <kbd>'5'</kbd>;
+		Board [6] = <kbd>'6'</kbd>;
+		Board [7] = <kbd>'7'</kbd>;
+		Board [8] = <kbd>'8'</kbd>;
+
+		<cite>// get player names</cite>
+		cout &lt;&lt; <kbd>"Player 1: Please enter your name."</kbd> &lt;&lt; endl;
+		cin &gt;&gt; Player_1_Name;
+
+		<var>while</var> (WhoWon () == 0 &amp;&amp; Total_Moves &lt; 9) {
+			<cite>// Do this until the player chooses a valid move</cite>
+			<var>do</var> {
+
+
+				<var>if</var> (Whose_Turn != 2) {
+				<cite>// Show The Bored</cite>
+				ShowBoard () ;
+				}
+
+				<cite>// Tell which player to move</cite>
+				<var>if</var> (Whose_Turn == 1){
+
+					cout &lt;&lt; Player_1_Name &lt;&lt; <kbd>": It's your turn."</kbd> &lt;&lt; endl;
+				}
+
+
+				<cite>// Get the move.</cite>
+				<var>if</var> (Whose_Turn == 2) {
+
+					Move = rand()% 8+1;
+				}
+					<var>else</var> {
+
+						cout &lt;&lt; <kbd>"Enter the number of the spot you'd like to move"</kbd> &lt;&lt; endl;
+						cin &gt;&gt; Move;
+				}
+			} <var>while</var> (MoveIsValid (Move) != <var>true</var>);
+
+			<cite>// Add 1 to Total_Moves</cite>
+			Total_Moves++;
+
+			<cite>// Change whose turn it is</cite>
+			<var>switch</var> (Whose_Turn) {
+
+				<var>case</var> (1): {
+
+					Board[Move] = <kbd>'x'</kbd>;
+					Whose_Turn = 2;
+					<var>break</var>;
+				}
+				<var>case</var> (2): {
+
+					Board[Move] = <kbd>'o'</kbd>;
+					Whose_Turn = 1;
+				}
+			}
+		}
+
+		<var>if</var> (Whose_Turn != 2) {
+		<cite>// Show the board</cite>
+		ShowBoard ();
+		}
+
+		<var>if</var> (WhoWon () == 1) {
+
+			cout &lt;&lt; Player_1_Name &lt;&lt; <kbd>" has won the game!"</kbd> &lt;&lt; endl;
+		}
+			<var>else</var> <var>if</var> (WhoWon () == 2) {
+
+				cout &lt;&lt; Player_2_Name &lt;&lt; <kbd>" has won the game!"</kbd> &lt;&lt; endl;
+			}
+				<var>else</var> {
+
+					cout &lt;&lt; <kbd>"It's a tie game!"</kbd> &lt;&lt; endl;
+				}
+
+			exit ;
+
+}
+
+<var>void</var> TicTacToe () {
+
+	<cite>// Declare local variables</cite>
+		string Player_1_Name;
+		string Player_2_Name;
+		<var>int</var> Whose_Turn = 1; <cite>// 1 means it's player 1's turn , 2 means 2's turn</cite>
+		<var>int</var> Move; <cite>// Stores where the player wants to move.</cite>
+
+		<cite>// Assign values to playing board</cite>
+		Board [0] = <kbd>'0'</kbd>;
+		Board [1] = <kbd>'1'</kbd>;
+		Board [2] = <kbd>'2'</kbd>;
+		Board [3] = <kbd>'3'</kbd>;
+		Board [4] = <kbd>'4'</kbd>;
+		Board [5] = <kbd>'5'</kbd>;
+		Board [6] = <kbd>'6'</kbd>;
+		Board [7] = <kbd>'7'</kbd>;
+		Board [8] = <kbd>'8'</kbd>;
+
+		<cite>// get player names</cite>
+		cout &lt;&lt; <kbd>"Player 1: Please enter your name."</kbd> &lt;&lt; endl;
+		cin &gt;&gt; Player_1_Name;
+		cout &lt;&lt; <kbd>"Player 2: Please enter your name."</kbd> &lt;&lt; endl;
+		cin &gt;&gt; Player_2_Name;
+
+		<var>while</var> (WhoWon () == 0 &amp;&amp; Total_Moves &lt; 9) {
+			<cite>// Do this until the player chooses a valid move</cite>
+			<var>do</var> {
+
+
+				<cite>// Show The Bored</cite>
+				ShowBoard () ;
+
+				<cite>// Tell which player to move</cite>
+				<var>if</var> (Whose_Turn == 1){
+
+					cout &lt;&lt; Player_1_Name &lt;&lt; <kbd>": It's your turn."</kbd> &lt;&lt; endl;
+				}
+					<var>else</var> {
+
+						cout &lt;&lt; Player_2_Name &lt;&lt; <kbd>": It's your turn."</kbd> &lt;&lt; endl;
+					}
+
+				<cite>// Get the move.</cite>
+				cout &lt;&lt; <kbd>"Enter the number of the spot you'd like to move"</kbd> &lt;&lt; endl;
+				cin &gt;&gt; Move;
+			} <var>while</var> (MoveIsValid (Move) != <var>true</var>);
+
+			<cite>// Add 1 to Total_Moves</cite>
+			Total_Moves++;
+
+			<cite>// Change whose turn it is</cite>
+			<var>switch</var> (Whose_Turn) {
+
+				<var>case</var> (1): {
+
+					Board[Move] = <kbd>'x'</kbd>;
+					Whose_Turn = 2;
+					<var>break</var>;
+				}
+				<var>case</var> (2): {
+
+					Board[Move] = <kbd>'o'</kbd>;
+					Whose_Turn = 1;
+				}
+			}
+		}
+
+		<cite>// Show the board</cite>
+		ShowBoard ();
+
+		<var>if</var> (WhoWon () == 1) {
+
+			cout &lt;&lt; Player_1_Name &lt;&lt; <kbd>" has won the game!"</kbd> &lt;&lt; endl;
+		}
+			<var>else</var> <var>if</var> (WhoWon () == 2) {
+
+				cout &lt;&lt; Player_2_Name &lt;&lt; <kbd>" has won the game!"</kbd> &lt;&lt; endl;
+			}
+				<var>else</var> {
+
+					cout &lt;&lt; <kbd>"It's a tie game!"</kbd> &lt;&lt; endl;
+				}
+
+			exit ;
+
+}
+
+<var>void</var> ShowBoard () {
+
+	cout &lt;&lt; endl;
+	cout &lt;&lt; Board[0]&lt;&lt; <kbd>" | "</kbd> &lt;&lt; Board[1]&lt;&lt; <kbd>" | "</kbd> &lt;&lt; Board[2] &lt;&lt; endl;
+	cout &lt;&lt; <kbd>"--+---+--"</kbd> &lt;&lt; endl;
+	cout &lt;&lt; Board[3]&lt;&lt; <kbd>" | "</kbd> &lt;&lt; Board[4]&lt;&lt; <kbd>" | "</kbd> &lt;&lt; Board[5] &lt;&lt; endl;
+	cout &lt;&lt; <kbd>"--+---+--"</kbd> &lt;&lt; endl;
+	cout &lt;&lt; Board[6]&lt;&lt;<kbd>" | "</kbd> &lt;&lt; Board[7]&lt;&lt;<kbd>" | "</kbd> &lt;&lt; Board[8] &lt;&lt; endl;
+	cout &lt;&lt; endl;
+}
+
+<var>bool</var> MoveIsValid (<var>int</var> m) {
+
+	<var>if</var> (Board[m] != <kbd>'x'</kbd> &amp;&amp; Board[m] != <kbd>'o'</kbd>){
+
+		<var>return</var> <var>true</var>;
+	}
+		<var>else</var> {
+
+			<var>return</var> <var>false</var>;
+		}
+}
+
+<var>int</var> WhoWon () {
+
+	<var>if</var> (Board[0] == Board[1] &amp;&amp; Board[1] == Board[2]) {
+
+		<var>if</var> (Board[0] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[3] == Board[4] &amp;&amp; Board[4] == Board[5]) {
+
+		<var>if</var> (Board[3] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[6] == Board[7] &amp;&amp; Board[7] == Board[8]) {
+
+		<var>if</var> (Board[6] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[0] == Board[3] &amp;&amp; Board[3] == Board[6]) {
+
+		<var>if</var> (Board[0] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[1] == Board[4] &amp;&amp; Board[4] == Board[7]) {
+
+		<var>if</var> (Board[1] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[2] == Board[5] &amp;&amp; Board[5] == Board[8]) {
+
+		<var>if</var> (Board[2] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[0] == Board[4] &amp;&amp; Board[4] == Board[8]) {
+
+		<var>if</var> (Board[0] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+
+	<var>if</var> (Board[2] == Board[4] &amp;&amp; Board[4] == Board[6]) {
+
+		<var>if</var> (Board[2] == <kbd>'x'</kbd>) {
+
+			<var>return</var> 1;
+		}
+			<var>else</var> {
+
+				<var>return</var> 2;
+			}
+	}
+	<var>return</var> 0;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767502"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768255"><span title="768255,155406,255,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768255" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd200733a42" title="Sun, 26 Oct 2014 12:48:24 +0000"></span><script type="text/javascript">WhenId('CH_zTmd200733a42');</script><noscript>Oct 26, 2014 at 12:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leeffm01/default.htm"><b>LEEFFM01</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768255">
+Anyone?????
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768255"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145805,0,155406,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fu~16.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

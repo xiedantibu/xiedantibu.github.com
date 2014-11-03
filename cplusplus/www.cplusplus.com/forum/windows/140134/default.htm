@@ -1,0 +1,387 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/140134/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>inline assembly problem. - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">inline assembly problem.</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> inline assembly problem.</h3><span id="CH_edttl"></span><span class="rootdatPost" title="140134,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg740711"><span title="740711,90577,1023,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg740711" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc18a4d4801" title="Fri, 08 Aug 2014 17:13:31 +0000"></span><script type="text/javascript">WhenId('CH_zTmc18a4d4801');</script><noscript>Aug 8, 2014 at 5:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/steamerandy/default.htm"><b>steamerandy</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i740711">
+Hello.<br>
+<br>
+I am having a VS 2010 debug problem. It seams to think it is wrong to pop things off the stack.<br>
+<br>
+I had to switch to VS 2010 and now am having with problems with inline assembly code.<br>
+<br>
+Some instructions that change the stack pointer are causing an exception. It seams to be any<br>
+that pop things off the stack.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code><cite>//</cite>
+<cite>//	mov	eax,&lt;node&gt;</cite>
+<cite>//	call	_node</cite>
+<cite>//</cite>
+__declspec(naked) <var>void</var> _node() {_asm {
+
+	push	eax			<cite>// push node name string ptr</cite>
+	mov	eax,sznodeh+szptr	<cite>// size of node object</cite>
+	push	eax
+	call	malloc			<cite>// allocate a node</cite>
+	lea	esp,[esp+szinta]	<cite>// remove alloc size</cite>
+	lea	eax,[eax+sznodeh]	<cite>// object*</cite>
+	mov	PtrObjTyp_a,_TYP_node	<cite>// Set type</cite>
+	pop	dword ptr [eax]		<cite>// drop in name ptr</cite>
+	mov	ebx,NodePtr		<cite>// puting node on node stack</cite>
+	lea	ebx,[ebx-szptr]         <cite>// adjust stack ptr</cite>
+	mov	NodePtr,ebx		<cite>// ....</cite>
+	mov	[ebx],eax		<cite>// Put node pointer on stack.</cite>
+	ret
+}}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+In the above the lea instruction is causing a "0xC0000005: Access violation".<br>
+<br>
+Tried "pop ecx" same problem.<br>
+<br>
+I was using CodeWorrior but it is now having problems on Windows 7.  It is getting a random "unknown error" when starting a debug session. But when it does work I do not have any problems with the stack. I can change the esp with an add, lea or a pop.<br>
+<br>
+Is there anyway to disable this exception in VS 2010. Does 2013 have have the same problem?<br>
+<br>
+Is there another debuger that will work on a windows 7 64 bit AMD processor.<br>
+<br>
+Thanks<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm6795d1f057" title="Fri, 08 Aug 2014 17:50:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm6795d1f057');</script><noscript>Aug 8, 2014 at 5:50pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn740711"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg755783"><span title="755783,76935,1023,19,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg755783" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6b78ead445" title="Wed, 24 Sep 2014 21:48:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm6b78ead445');</script><noscript>Sep 24, 2014 at 9:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/igor1985/default.htm"><b>igor1985</b> (19)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i755783">
+add another pop instruction.<br>
+you must have same amount of PUSHs and POPs to align the stack. (as far as i know)<br>
+the RET address is on the stack also, so if you push two values and pop only one, then RET is corrupted.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm366085eff3" title="Wed, 24 Sep 2014 21:53:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm366085eff3');</script><noscript>Sep 24, 2014 at 9:53pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn755783"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg755932"><span title="755932,90577,1023,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg755932" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd0ce63231a" title="Thu, 25 Sep 2014 05:29:32 +0000"></span><script type="text/javascript">WhenId('CH_zTmd0ce63231a');</script><noscript>Sep 25, 2014 at 5:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/steamerandy/default.htm"><b>steamerandy</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i755932">
+igor1985 Thanks for the response. But the stack as you are explaining is not the problem. <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>	push	word ptr a1		<cite>// pushes a word 2 bytes data</cite>
+	push	offset a2		<cite>// pushes an address 4 bytes</cite>
+	call	something
+	add	esp,6			<cite>// adjust stack for 6 bytes pushed </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+The code above shows a valid way of removing passed arguments. At least on older versions of windows and using CodeWarrior 8 ide.  However CodeWarrior is an old program and I have to keep closing it and reloading and eventually reloading windows to get it to compile and debug. I get a windows pop up system error caused by CodeWarior. Usually when starting a debug. Sometimes when starting a build. With VC2010 when debugging I get a run time error on the stack adjustments.<br>
+<br>
+This is part meta compiler compiler I am implementing.  It is basically all assembly code. Not standard c or c++. The functions are naked assembly function like the above. ebp is used to mark a parser backup point. Not the normal uses as a base pointer. <br>
+<br>
+Syntax rules are compiled into machine code not a table. I am hand compiling the compiler into IA86 code. I have been programming sense 1965. Mostly in assembly. I assure you that I know what I am doing with the stack. It is not the standard C usage. This has to do with VC2010 debugger. <br>
+<br>
+The following library routines illustrate stack manipulation.  Hopefully the comments are enough explanation:<br>
+<br>
+The success or failure of a match is returned in the zero flag.<br>
+  call &lt;rule&gt;<br>
+  je &lt;success&gt;<br>
+or<br>
+  jne &lt;failure&gt;<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br></code></pre></td>
+<td class="source"><pre><code><cite>/************** Set up functions for cc matching function **************\
+*									*
+*  cc matching function are called by token making and grammer rules to *
+*  match strings and characters in the input stream.			*
+*									*
+*		!! This s assembly code in a C++ wraper !!!!		*
+*									*
+*  __savePntrs is called on entry by string match function to save the	*
+*  input stream state required to Back Track a failed match. The back	*
+*  tracking does not have to handle reentricy or stacked states. Objects*
+*  are not put on the parse stack or node stack by them. Back Tracking	*
+*  is only done when they fail so only the input stream state is saved	*
+*  staticly.								*
+*									*
+*  On success a match function simply returns success. On failure it	*
+*  must restore the input stream state. To restore the input stream	*
+*  use the folowing:							*
+*									*
+*	jmp	__rstrPntrs						*
+*									*
+*  __rstrPntrs is alwayse jumped to on failure by a matching		*
+*  function and only restores the input stream state			*
+*									*
+*  The token skipclass skiping is also affected by matching functions   *
+*  When called from a token rule a match will set the partial match	*
+*  flag that prevents further skipclass skipping. The flag may only be	*
+*  set when a token rule is active.					*
+*									*
+\***********************************************************************/</cite>
+
+__declspec(naked) <var>void</var> __savePntrs(){_asm{  <cite>// crazy stack minipulation!!</cite>
+
+<cite>/***********************************************************************\
+* __savePntrs saves input stream state for string match function call: 	*
+*									*
+*	push	offset &lt;string address&gt;	// string to match		*
+*	call	_match_function_	// _CmpStr _KeepStr _NotStr	*
+*  &lt;return eq: success ne: failure: i.e. je someware // on success&gt;	*
+*									*
+*	on entry a match function calls __savePntrs			*
+*									*
+*__declspec(naked) void _match_function_() {_asm{			*
+*	call	__savePntrs						*
+*    &lt;return from __savePntrs&gt;						*
+*									*
+* stack on entry to __savePntrs:					*
+* [esp+8]	&lt;string ptr&gt;						*
+* [esp+4]	&lt;return from _matching function_&gt;			*
+* [esp+0]	&lt;return from __savePntrs&gt; to _matching function_ 	*
+*									*
+*     rearange stack: Stack on entry as above				*
+*									*
+*    preserving the calling rule's ecx					*
+\***********************************************************************/</cite>
+
+	xchg	ecx,[esp+4]     <cite>// swap ecx for _matching function_'s return</cite>
+	xchg	ecx,[esp+8]     <cite>// swap return for char* str</cite>
+
+<cite>/********************* stack is not arranged so: ***********************\
+* [esp+8]	&lt;return from _matching function_&gt;			*
+* [esp+4]	callers saved ecx					*
+* [esp+0]	&lt;return from __savePntrs&gt; to _matching function_ 	*
+*   ecx		&lt;string address&gt; pointer				*
+*									*
+* Stack now as above with ecx *string parameter from [esp+8] on entry	*
+*									*
+\***********************************************************************/</cite>
+
+	mov	strng_parm,ecx		<cite>// save string parameter pointer</cite>
+	mov	ecx,InPutFCB		<cite>// point ecx at FCB</cite>
+
+&lt;file control block saved, code not shown &gt;
+
+	...
+
+	mov	al,TokenFlg		<cite>// save corrent flags state</cite>
+	mov	token_stats,al		<cite>// so can be restored on fail</cite>
+
+<cite>//  Got TokenFlg skipclass state. Matching can not skip skipclass once any </cite>
+<cite>//  characters have been matchd. That state is pased back to the matching </cite>
+<cite>//  function in the zero status flag by the following test instruction.</cite>
+
+	mov	eax,FCB_dataptr(ecx)	<cite>// </cite>
+	movzx	eax,byte ptr [eax]	<cite>// get input stream character</cite>
+
+	mov	ecx,strng_parm		<cite>// point ecx at string parameter</cite>
+	ret
+
+<cite>/***********************************************************************\
+*									*
+*    Stack on return to match function:					*
+*									*
+* [esp+4]      origional &lt;return from _matching function_&gt;		*
+* [esp+0]      callers saved ecx   &lt;must be poped by functon&gt;		*
+*   ecx        points at string to match &lt;string address&gt;		*
+*   NOTE.  __rstrPntrs  will restore callers ecx. Do not pop ecx	*
+*									*
+*   ecx only need be poped on success before a return.			*
+*	pop	ecx		// needs restoring			*
+*	ret			// before a successful return		*
+*									*
+* NO POP ECX before:							*
+*	jmp	__rstrPntrs	// ecx will be restored by __rstrPntrs 	*
+*									*
+*    Input stream state saved.						*
+\***********************************************************************/</cite>
+}}
+
+<cite>// **************************************************************</cite>
+<cite>// *********  NEVER EVER CALL THIS FUNCTION EVER NEVER  *********</cite>
+<cite>//</cite>
+__declspec(naked) <var>void</var> __rstrPntrs(){_asm{ <cite>// match string reset input stream.</cite>
+
+<cite>//   !*!*!*!*!*!*!*!*!  COMMON FAIL EXIT CODE  !*!*!*!*!*!*!*!*!</cite>
+<cite>//   !*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!</cite>
+<cite>//   !*!*!*!  __rstrPntrs is always jumped to with saved !*!*!*!</cite>
+<cite>//   !*!*!*!  ecx left on the stack to restore on exit.  !*!*!*!</cite>
+<cite>//   !*!*!*!       THIS FUNCTION IS ALWAYS JMPed to      !*!*!*!</cite>
+<cite>//   !*!*!*!      NEVER EVER !! CALLED !!  NEVER EVER    !*!*!*!</cite>
+<cite>//   !*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!</cite>
+<cite>//   !*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!</cite>
+
+
+&lt;file control block restored, code not shown data pointer excepted&gt;
+
+	mov	eax,markdataptr		<cite>// get daved data pointer</cite>
+	mov	FCB_dataptr(ecx),eax	<cite>// restore to stream pointer</cite>
+
+	movzx	eax,byte ptr [ecx]	<cite>// eax:curent stream character</cite>
+	pop	ecx			<cite>// ecx of match functions restored</cite>
+	ret				<cite>// return failure. ne condition</cite>
+}}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Grammar rules are extended bnf parsing tree/list building rules:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>  expr = term $((<kbd>'+'</kbd>:ADD|<kbd>'-'</kbd>:SUB) tern!2);
+  term = factor $((<kbd>'*'</kbd>:MPY|<kbd>'/'</kbd>:DIV) factor!2);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+the expresion<br>
+  a*b+(c/5-d);<br>
+trnasforms to<br>
+  ADD[MPY[a,b],SUB[DIV[c,5],d]]<br>
+The tree processing language:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>arith(ADD[arith(x),arith(y)])=&gt; &lt;add x,y;&gt;;
+arith(SUB[arith(x),arith(y)])=&gt; &lt;sub x,y;&gt;;
+arith(MPY[arith(x),arith(y)])=&gt; &lt;mpy x,y;&gt;;
+arith(DIV[arith(x),arith(y)])=&gt; &lt;div x,y;&gt;;
+
+arith(x)=&gt; %r1=asignreg()=&gt;	%r1=assignreg();
+				&lt;loadreg %r1,x&gt;;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Sorry if I made this sound like a coding problem.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn755932"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(140134,1,90577,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~525.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/144873/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>passing pointer into template function - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">passing pointer into template function</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> passing pointer into template function</h3><span id="CH_edttl"></span><span class="rootdatPost" title="144873,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg763309"><span title="763309,122319,1023,85,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763309" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3c46ab7fdd" title="Tue, 14 Oct 2014 05:49:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm3c46ab7fdd');</script><noscript>Oct 14, 2014 at 5:49am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/toast9/default.htm"><b>toast9</b> (85)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763309">
+I'm trying to pass the pointer of a dynamic array into a template function, but it keeps telling me there is no matching function to call because the parameters I'm passing in are wrong. I can't figure out how to make the function accept the pointer.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br></code></pre></td>
+<td class="source"><pre><code>
+<cite>//main</cite>
+<var>int</var> main()
+{
+   srand(<var>unsigned</var>(time(NULL)));
+   
+   <var>int</var> size;
+   <var>int</var> *list;
+   <var>int</var> *listCopy;
+   
+   size = checkNum&lt;<var>int</var>&gt;();
+   
+   list = <var>new</var> <var>int</var>[size];
+   listCopy = <var>new</var> <var>int</var>[size];
+   
+   generateRandom(listCopy, size);
+   copyArray(list, listCopy, size);
+   cout &lt;&lt; <kbd>"Original List\n"</kbd>;
+   displayArray(list, size);
+
+   <var>delete</var> [] list;
+   <var>delete</var> [] listCopy;
+   list = 0;
+   listCopy = 0;
+   
+   <var>return</var> 0;
+}
+
+<cite>//functions</cite>
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>int</var> checkNum(){
+   <var>int</var> size;
+   
+   cout &lt;&lt; <kbd>"Enter Size: "</kbd>;
+   cin &gt;&gt; size;
+   
+   <var>while</var> (size &lt; 0 &amp;&amp; !cin){
+      cout &lt;&lt; <kbd>"Invalide input\n"</kbd> &lt;&lt; <kbd>"Enter Size: "</kbd>;
+      cin &gt;&gt; size;
+   }
+   
+   <var>return</var> size;
+}
+
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> copyArray(T *list[], T *listCopy[], <var>int</var> size)
+{
+   <var>for</var>(<var>int</var> i = 0; i &lt; size; i++)
+   {
+      list[i] = listCopy[i];
+   }
+}
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> displayArray(T *list[], <var>int</var> size)
+{
+   <var>for</var>(<var>int</var> i = 0; i &lt; size; i++)
+   {
+      cout &lt;&lt; list[i] &lt;&lt; <kbd>" "</kbd>;
+   }
+   cout &lt;&lt; endl;
+}
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> generateRandom(T *list[], <var>int</var> size){
+   <var>int</var> num = 0;
+   
+   <var>for</var>(<var>int</var> i = 0; i &lt; size; i++)
+   {
+      num = rand() % 100;
+      list[i] = num;
+   }
+   
+}
+
+
+
+<cite>//header</cite>
+<var>using</var> <var>namespace</var> std;
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>int</var> checkNum();
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> copyArray(T* list[], T* listCopy[], <var>int</var> size);
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> displayArray(T* list[], <var>int</var> size);
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>void</var> generateRandom(T* list[], <var>int</var> size);
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763309"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763316"><span title="763316,11103,1023,4148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763316" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3534986d14" title="Tue, 14 Oct 2014 06:15:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm3534986d14');</script><noscript>Oct 14, 2014 at 6:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zhuge/default.htm"><b>Zhuge</b> (4148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763316">
+Your functions take arrays of pointers to (arrays of) T, while you are simply passing them pointers to (arrays of) T. In other words, the type of <span class="auto"><code class="source">list</code></span>, for example, is <span class="auto"><code class="source"><var>int</var>*</code></span>. You try to pass this to a function expecting a <span class="auto"><code class="source">T*[]</code></span>; there is no way to substitute a type into T to make them match. Perhaps you meant simply <span class="auto"><code class="source">T list[]</code></span>, etc. in your functions? Additional, checkNum() doesn't need to be a template function as it doesn't use the template parameter at all.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763316"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763323"><span title="763323,122319,1023,85,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763323" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3fc50342c1" title="Tue, 14 Oct 2014 06:32:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm3fc50342c1');</script><noscript>Oct 14, 2014 at 6:32am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/toast9/default.htm"><b>toast9</b> (85)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763323">
+yes I tried having the function parameter just <span class="auto"><code class="source">T list[] </code></span> and got a ton of linker errors, one for each of my functions:<br>
+<br>
+Undefined symbols for architecture x86_64:<br>
+  "void copyArray&lt;int&gt;(int*, int*, int)", referenced from:<br>
+      _main in main.o<br>
+<br>
+And yah you're right about checkNum not needing to be a template.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763323"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763325"><span title="763325,122319,1023,85,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763325" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf9ba49ddba" title="Tue, 14 Oct 2014 06:34:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmf9ba49ddba');</script><noscript>Oct 14, 2014 at 6:34am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/toast9/default.htm"><b>toast9</b> (85)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763325">
+In regular functions I've always put the pointer in the prototype and function parameters and it worked fine. I don't understand why templates won't accept the pointer. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763325"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763629"><span title="763629,11103,1023,4148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763629" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9040d4b637" title="Tue, 14 Oct 2014 23:19:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm9040d4b637');</script><noscript>Oct 14, 2014 at 11:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zhuge/default.htm"><b>Zhuge</b> (4148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763629">
+Try using <span class="auto"><code class="source">T* list</code></span>, as you are passing pointers to arrays. Or is that something you already tried?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763629"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(144873,0,122319,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~452.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

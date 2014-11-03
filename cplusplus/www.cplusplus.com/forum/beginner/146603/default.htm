@@ -1,0 +1,230 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146603/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Problem with reading integers from .txt- - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Problem with reading integers from .txt-</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Problem with reading integers from .txt-file to array </h3><span id="CH_edttl"></span><span class="rootdatPost" title="146603,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770930"><span title="770930,156250,255,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770930" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdd80fcac6f" title="Sat, 01 Nov 2014 20:06:23 +0000"></span><script type="text/javascript">WhenId('CH_zTmdd80fcac6f');</script><noscript>Nov 1, 2014 at 8:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bekinect/default.htm"><b>BeKinect</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770930">
+I'm working on two programs. The first generates a maze and saves the maze in a .txt-file. The maze in the .txt-file looks like this:<br>
+11111111111111111<br>
+19999999199999991<br>
+19191119991919191<br>
+11111111111111111<br>
+<br>
+The second program uses the a-star algorithm to solves the maze. Therefore the program opens the file and reads the maze into a one-dimensional array.<br>
+To read the maze into the array I use the following code.<br>
+First the file is checked to calculate the needed size of the array. Then the maze should be transfered to the array.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br></code></pre></td>
+<td class="source"><pre><code>  ifstream myfile(<kbd>"BLOCK_style_maze.txt"</kbd>);
+    string line;
+    <var>int</var> colCount=0;
+    <var>int</var> rowCount=0;
+    <var>int</var> temp=0;
+
+    <var>if</var>(myfile.is_open())
+    {
+		<var>if</var>(getline(myfile,line))
+        {
+			rowCount++;
+            <var>int</var> i=0;
+            <var>for</var>(i=0;i&lt;line.length();i++)
+            {
+				<var>if</var>(line.at(i)==<kbd>'1'</kbd> || line.at(i)==<kbd>'9'</kbd>) colCount++;
+            }
+        }
+        <var>while</var>(getline(myfile, line))
+        {
+            rowCount++;
+        }
+        cout &lt;&lt; <kbd>"R:"</kbd>&lt;&lt; rowCount &lt;&lt; endl &lt;&lt; <kbd>"C:"</kbd> &lt;&lt; colCount &lt;&lt; endl;
+        myfile.close();
+    }
+    <var>else</var>
+    {
+        cout &lt;&lt; <kbd>"Unabale to open maze file"</kbd>;
+    }
+
+    MAP_WIDTH = colCount;
+    MAP_HEIGHT = rowCount;
+
+    map=<var>new</var> <var>int</var> [MAP_WIDTH*MAP_HEIGHT];
+    <var>int</var> k=MAP_WIDTH*MAP_HEIGHT;
+    <var>int</var> j=0;
+
+    <var>if</var> (myfile.is_open())
+    {
+        <var>while</var>(myfile &gt;&gt; temp)
+        {
+           map[j++] = temp;
+        }
+    }
+
+    <var>for</var>(<var>int</var> i=0; i&lt;=k; i++ )
+    {
+        cout &lt;&lt; map[i]&lt;&lt; endl;
+    }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+To check if everything is working I tried to print the array on the console but I just go 0 as output, but I expected only 1's and 9's. Since I'm not really experienced with programming in C++ I can't find my mistake.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770930"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770945"><span title="770945,90783,1023,1010,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770945" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3644185e55" title="Sat, 01 Nov 2014 20:55:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm3644185e55');</script><noscript>Nov 1, 2014 at 8:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/aceix/default.htm"><b>Aceix</b> (1010)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770945">
+My guess is that the get pointer of <tt>myfile </tt>has reached the EOF, so use the <tt>seekg()</tt> function to move it back to the beginning.<br>
+<br>
+Aceix.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770945"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771285"><span title="771285,156250,255,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771285" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmafc6651b76" title="Sun, 02 Nov 2014 18:33:29 +0000"></span><script type="text/javascript">WhenId('CH_zTmafc6651b76');</script><noscript>Nov 2, 2014 at 6:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bekinect/default.htm"><b>BeKinect</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771285">
+@ Aceix: Thanks for your tip. But how can I implement the seekg() function in my program, or better where is my mistake. I mean I still don't get what I'm doing wrong.<br>
+So I tried it with a small test example like<br>
+1919191919<br>
+9191919191<br>
+But the output of the array was:<br>
+9993200<br>
+0<br>
+9992096<br>
+0<br>
+778398825<br>
+...<br>
+So I think I just get, what is left in the RAM as output, and so my function for reading to the array must be wrong<br>
+My thought were: First count the columns and rows to know how big the int-array have to be, than create the array in the heap, and at last open the file again read the integers character by character from the file and store it in the array. <br>
+Do you have another tip for me<br>
+<br>
+Bernhard
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm5ed6fa3dae" title="Sun, 02 Nov 2014 20:18:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm5ed6fa3dae');</script><noscript>Nov 2, 2014 at 8:18pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771285"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146603,0,156250,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~209.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/144130/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TCHAR array initialization - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">TCHAR array initialization</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> TCHAR array initialization</h3><span id="CH_edttl"></span><span class="rootdatPost" title="144130,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg760066"><span title="760066,133863,1023,34,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760066" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm33e2372a4d" title="Mon, 06 Oct 2014 04:00:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm33e2372a4d');</script><noscript>Oct 6, 2014 at 4:00am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tec23/default.htm"><b>tec23</b> (34)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760066">
+If I have this<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>TCHAR lpString[9] = TEXT(<kbd>"MainMenu"</kbd>);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Will lpString be null terminated?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760066"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760073"><span title="760073,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760073" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm913728360c" title="Mon, 06 Oct 2014 04:31:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm913728360c');</script><noscript>Oct 6, 2014 at 4:31am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760073">
+Yes.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760073"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760106"><span title="760106,133863,1023,34,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760106" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmea5df0f8ae" title="Mon, 06 Oct 2014 06:34:56 +0000"></span><script type="text/javascript">WhenId('CH_zTmea5df0f8ae');</script><noscript>Oct 6, 2014 at 6:34am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tec23/default.htm"><b>tec23</b> (34)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760106">
+I know that if i had a pointer to a TCHAR it would be null terminated<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>TCHAR *lpString = TEXT(<kbd>"MainMenu"</kbd>);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+but why is TCHAR lpString[9] = TEXT("MainMenu"); null terminated too?<br>
+Is it because i'm using TEXT()?<br>
+<br>
+<br>
+<br>
+What if I had this without TEXT()<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>char</var> lpString[9] = <kbd>"MainMenu"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Would this be null terminated too?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmdb04bbd985" title="Mon, 06 Oct 2014 06:37:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmdb04bbd985');</script><noscript>Oct 6, 2014 at 6:37am UTC</noscript></span>
+<span class="dbtn" id="CH_btn760106"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760159"><span title="760159,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760159" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc5f4e2b766" title="Mon, 06 Oct 2014 11:38:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmc5f4e2b766');</script><noscript>Oct 6, 2014 at 11:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760159">
+Yes. String literals are null-terminated.<br>
+<br>
+On a side note, I hate whenever I see someone using TCHARs. It's 2014, not 1995. What purpose do TCHAR's serve anymore?<br>
+<br>
+It's better to use unicode when possible and ansi when necessary. Explicitly call the unicode versions of functions and ignore TCHARs altogether. There are two good reasons that I know of why you should do this: 1) when you call an ansi function all it does is convert your string to unicode and call the unicode version of the function, and 2) modern API's in windows use COM, and COM uses unicode exclusively.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760159"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760221"><span title="760221,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760221" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme35f01dbe7" title="Mon, 06 Oct 2014 14:47:32 +0000"></span><script type="text/javascript">WhenId('CH_zTme35f01dbe7');</script><noscript>Oct 6, 2014 at 2:47pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760221">
+<table class="quote"><tr><td class="qd">Yes. String literals are null-terminated.</td></tr></table><br>
+<br>
+<br>
+This.<br>
+<br>
+Using the TEXT macro has nothing to do with it.  It's because you are using "double quotes".  Anything in double quotes is null terminated.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760221"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760406"><span title="760406,133863,1023,34,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760406" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme41db6fe0f" title="Mon, 06 Oct 2014 23:04:34 +0000"></span><script type="text/javascript">WhenId('CH_zTme41db6fe0f');</script><noscript>Oct 6, 2014 at 11:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tec23/default.htm"><b>tec23</b> (34)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760406">
+What if my program is running on a version of windows that's not using unicode?<br>
+<br>
+I could code the program in ANSI and windows will convert it to unicode.<br>
+But the question is: does this conversion take place at compile time or while program is running?<br>
+<br>
+Cause if it takes place while program is running, then that will slow down my program and I want it to be as fast as possible<br>
+<br>
+On a side note:<br>
+My project is unicode. Since I'm using TCHAR, when does the conversion to unicode take place, at compile time or run time?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760406"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760551"><span title="760551,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760551" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmadca14bbb6" title="Tue, 07 Oct 2014 05:19:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmadca14bbb6');</script><noscript>Oct 7, 2014 at 5:19am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760551">
+Anything inside double quotes is going to be null terminated.  Always.<br>
+<br>
+It doesn't matter if it's by itself... with a 'L' prefix, or inside a TEXT macro.  If it has double quotes, it is null terminated.<br>
+<br>
+<table class="quote"><tr><td class="qd">What if my program is running on a version of windows that's not using unicode?</td></tr></table><br>
+<br>
+Windows has been using Unicode under the hood since WinNT.  Unless you are targetting Win9x machines I wouldn't worry about it.<br>
+<br>
+<table class="quote"><tr><td class="qd">But the question is: does this conversion take place at compile time or while program is running?</td></tr></table><br>
+<br>
+That depends on you.<br>
+<br>
+If you have UNICODE/_UNICODE defined, then it's compile time.  If not, then it'll be converted at runtime after you pass the ANSI string to any WinAPI function.<br>
+<br>
+<table class="quote"><tr><td class="qd">Cause if it takes place while program is running, then that will slow down my program and I want it to be as fast as possible</td></tr></table><br>
+<br>
+It won't slow down your program in any noticeable way unless you are doing TONS of conversions.  Don't sweat the small stuff.<br>
+<br>
+Besides... working with wide characters might be slower because it means using more memory and moving more memory around.  It's not always as simple as "Unicode is faster" or "Unicode is slower".  There are lots of other factors.<br>
+<br>
+<table class="quote"><tr><td class="qd">Since I'm using TCHAR</td></tr></table><br>
+<br>
+TCHARs are retarded.  But if you must use them... then they are effectively a typedef of either <span class="auto"><code class="source"><var>char</var></code></span> or <span class="auto"><code class="source"><var>wchar_t</var></code></span> depending on whether or not UNICODE/_UNICODE macros are defined.<br>
+<br>
+If you are "using Unicode" (meaning you have UNICODE/_UNICODE defined), then TCHAR==wchar_t... and MessageBox==MessageBoxW, etc.  IE:  it's all UTF-16 and the conversion is done at compile time.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760551"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762213"><span title="762213,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762213" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm530b3a8e40" title="Sat, 11 Oct 2014 10:03:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm530b3a8e40');</script><noscript>Oct 11, 2014 at 10:03am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762213">
+<table class="quote"><tr><td class="qd">I could code the program in ANSI and windows will convert it to unicode.<br>
+But the question is: does this conversion take place at compile time or while program is running?</td></tr></table><br>
+Like I said, whenever you call an ANSI function(MessageBoxA(), CreateWindowA(), etc) there is a conversion to unicode, and this happens at run-time because that's how those functions are implemented(in Vista and later): they do nothing except convert your ANSI strings to Unicode and call the unicode functions(MessageBoxW(), CreateWindowW()).<br>
+<br>
+Here's a quote from the book Windows via C/C++:<br>
+<table class="quote"><tr><td class="qd">Microsoft's source code for CreateWindowExA is simply a translation layer that allocates memory to convert ANSI strings to Unicode strings; the code then calls CreateWindowExW, passing the converted strings. When CreateWindowExW returns, CreateWindowExA  frees its memory buffers and returns the window handle to you. So, for functions that fill buffers with strings, the system must convert from Unicode to non-Unicode equivalents before your application can process the string. Because the system must perform all these conversions, your application requires more memory and runs slower. You can make your application perform more efficiently by developing your application using Unicode from the start. Also, Windows has been known to have some bugs in these translation functions, so avoiding them also eliminates some potential <br>
+bugs.</td></tr></table>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTma8b3dbfcb8" title="Sat, 11 Oct 2014 10:30:57 +0000"></span><script type="text/javascript">WhenId('CH_zTma8b3dbfcb8');</script><noscript>Oct 11, 2014 at 10:30am UTC</noscript></span>
+<span class="dbtn" id="CH_btn762213"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764092"><span title="764092,133863,1023,34,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764092" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdef7e28882" title="Wed, 15 Oct 2014 20:07:32 +0000"></span><script type="text/javascript">WhenId('CH_zTmdef7e28882');</script><noscript>Oct 15, 2014 at 8:07pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tec23/default.htm"><b>tec23</b> (34)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764092">
+I agree with what disch says here. I too think the conversion takes place at compile time<br>
+<table class="quote"><tr><td class="qd"><br>
+If you are "using Unicode" (meaning you have UNICODE/_UNICODE defined), then TCHAR==wchar_t... and MessageBox==MessageBoxW, etc. IE: it's all UTF-16 and the conversion is done at compile time.<br>
+</td></tr></table><br>
+<br>
+But knn9 you say it takes place at compile time. Is that only in vista and later?<br>
+Why are you introducing confusion knn9?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb9a9cd858f" title="Wed, 15 Oct 2014 20:08:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmb9a9cd858f');</script><noscript>Oct 15, 2014 at 8:08pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn764092"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764366"><span title="764366,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764366" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmccf9fd146a" title="Thu, 16 Oct 2014 08:15:23 +0000"></span><script type="text/javascript">WhenId('CH_zTmccf9fd146a');</script><noscript>Oct 16, 2014 at 8:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764366">
+Me and Disch are talking about different things. What's confusing about it?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764366"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(144130,0,133863,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~505.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

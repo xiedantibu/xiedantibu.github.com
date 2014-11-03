@@ -1,0 +1,269 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/143604/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>concatenate two char arrays into single  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">concatenate two char arrays into single </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> concatenate two char arrays into single char array..</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143604,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757606"><span title="757606,151057,1023,5,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757606" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf92577bdd8" title="Mon, 29 Sep 2014 18:29:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmf92577bdd8');</script><noscript>Sep 29, 2014 at 6:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mattimo/default.htm"><b>mattimo</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757606">
+I am trying to concatenate two words from a file together. ex: "joe" "bob" into "joe bob". I have provided my function(s) below. I am somehow obtaining the terminal readout below. I have initialized my memory (I have to use dynamic, dont suggest fixing that). I have set up my char arrays (I HAVE TO USE CHAR ARRAYS (c-style string) DONT SUGGEST STRINGS) I know this is a weird way to do this, but it is academic. I am currently stuck. My file will read in to my tempfName and templName and will concatenate correctly into my tempName, but I am unable to correctly get into my (*playerPtr).name. Please help!! I cant figure out what is wrong..i think I am going out of bounds with the pointer somehow....<br>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br></code></pre></td>
+<td class="source"><pre><code><cite>/* this is my terminal readout
+joe bob
+           &lt;- nothing is put into (*playerPtr).name, why not?
+joe bob joe bob
+seg fault*/</cite>
+<cite>/****************************************************************/</cite>
+<cite>//This is here to show my struct/playerInit</cite>
+<cite>////////////////////</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<dfn>#include &lt;stdlib.h&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>struct</var> player{
+<var>char</var> *name;
+};
+<cite>////////////////</cite>
+<cite>/*here isetup readin file*/</cite>
+<var>int</var> main()
+{
+<var>int</var> numPlayers = 5;
+player * playerPtr = <var>new</var> player[numPlayers];
+player * playerHome = playerPtr;
+<var>for</var>(<var>int</var> i=0;i&lt;numPlayers;i++
+   {
+     (*playerPtr).name = <var>new</var> <var>char</var>[40];
+     playerPtr++;
+   }
+<var>char</var> *finName2 = <var>new</var> <var>char</var>[11];
+playerPtr = playerHome;
+cout &lt;&lt; <kbd>"Enter file name...(Players.txt)"</kbd> &lt;&lt; endl;
+cin &gt;&gt; finName2;
+readPlayer(finName2,playerPtr,numPlayers);
+<var>delete</var>[]finName2;
+}
+
+<cite>/*************************************************************/</cite>
+<cite>//The problem occurs in this function I have noted where</cite>
+
+<var>void</var> readPlayer(<var>char</var> *finName2, player *playerPtr,<var>int</var> numPlayers)
+{
+player *playerHome = playerPtr;
+ifstream fin;
+<var>char</var> *tempfName= <var>new</var> <var>char</var>[20];
+<var>char</var> *templName= <var>new</var> <var>char</var>[20];
+<var>char</var> *tempN = <var>new</var> <var>char</var>[40];
+cout &lt;&lt; numPlayers &lt;&lt; endl;
+<var>char</var> *tempfHome = tempfName;
+<var>char</var> *templHome = templName;
+<var>char</var> *tempHome = tempN;
+fin.open(finName2);
+
+<var>if</var>(!fin.good())
+{
+cout &lt;&lt; <kbd>"Error with player file!"</kbd> &lt;&lt; endl;       
+}
+<var>else</var>
+{
+fin &gt;&gt; tempfName;
+fin &gt;&gt; templName;
+
+<cite>//cout &lt;&lt; tempfName &lt;&lt; " " &lt;&lt; templName &lt;&lt; endl;</cite>
+<var>while</var>(fin.good())
+{
+  <var>for</var>(<var>int</var> i =0;i&lt;1;i++)
+  {
+      strconcat(tempN,tempfName);
+      strconcat(tempN,templName);
+      strcopy((*playerPtr).name,tempfName); <cite>//this doesnt work :(</cite>
+      cout &lt;&lt; tempN &lt;&lt; endl;
+      playerPtr++;
+      tempN = tempHome;
+      tempfName = tempfHome;
+      templName = templHome;
+  <cite>//fin &gt;&gt; tempfName;</cite>
+ <cite>// fin &gt;&gt; templName;</cite>
+      cout &lt;&lt; (*playerPtr).name &lt;&lt;  endl;
+
+      }
+   }
+}
+
+}
+<cite>/**************************************************/</cite>
+<cite>//these are my custom strcpy/strcat functions (we had to make them, this is academic)</cite>
+<var>void</var> strconcat(<var>char</var> *dest, <var>const</var> <var>char</var> *source)
+{
+  <var>while</var>(*dest != <kbd>'\0'</kbd>)
+       {
+         dest++;
+       }  
+  *dest = <kbd>' '</kbd>;
+  dest++;
+  <var>while</var>((*dest++ = *source++) != <kbd>'\0'</kbd>);
+}
+
+<var>char</var> * strcopy(<var>char</var> *destination, <var>const</var> <var>char</var>* source)
+{
+   <var>char</var> *p = destination;
+   <var>while</var>(*p++ = *source++);
+   <var>return</var> destination;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757606"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757869"><span title="757869,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757869" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm63125e73f5" title="Tue, 30 Sep 2014 14:39:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm63125e73f5');</script><noscript>Sep 30, 2014 at 2:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757869">
+Unclear how you're getting a segfault because your program won't compile.<br>
+<br>
+<table class="quote"><tr><td class="qd"><br>
+1&gt;.\main.cpp(27) : error C2143: syntax error : missing ')' before '{'<br>
+1&gt;.\main.cpp(35) : error C3861: 'readPlayer': identifier not found<br>
+1&gt;.\main.cpp(69) : error C3861: 'strconcat': identifier not found<br>
+1&gt;.\main.cpp(70) : error C3861: 'strconcat': identifier not found<br>
+1&gt;.\main.cpp(71) : error C3861: 'strcopy': identifier not found<br>
+</td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757869"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757873"><span title="757873,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757873" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcc06d5ad6f" title="Tue, 30 Sep 2014 14:52:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmcc06d5ad6f');</script><noscript>Sep 30, 2014 at 2:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757873">
+@ OP: After you add the forward declarations and the other stuff that <b>AbstractionAnon</b> mentioned, your segfault is from your strconcat() function. Or more accurately from the fact that you are not reading from your source file from within your for loop on Line 67, so you are never reaching the end of that file and therefore never exiting the while loop. This is causing your program to repeatedly write to your 'tempN' variable until you over run the buffer you set aside for it.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd8f4126337" title="Tue, 30 Sep 2014 14:53:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmd8f4126337');</script><noscript>Sep 30, 2014 at 2:53pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn757873"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143604,1,151057,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~408.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/146212/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SDL - Trouble with derivated classes - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">SDL - Trouble with derivated classes</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> SDL - Trouble with derivated classes</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146212,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769264"><span title="769264,155738,255,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769264" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7d8df44c4d" title="Tue, 28 Oct 2014 21:54:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d8df44c4d');</script><noscript>Oct 28, 2014 at 9:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/redevilgames/default.htm"><b>ReDevilGames</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769264">
+Hi at all! I'm making some kind of game just to learn the SDL library.<br>
+I made two vectors where I respectively store pointers and some constants that I need. All was going fine until I made a function to check collision boxes.<br>
+I made a class named "Instance" which represents all the game components such as players, blocks, enemies, etc... and derivated classes like the Player, which is derivated from Instance. So, in the function collide_rect (the name collide_rect because of SDL_Rect) I pass two pointers which, in this case, are the two instances of the class Player, which are derivated from Instance. So, since I want to "generalize" the function, I declare local pointers of the function with the "Instance" type, and not "Player" type. When I compile, errors are vague for me because I don't have much experience. I'm just learning from myself.<br>
+<br>
+I uploaded the project here:<br>
+<a href="../../../../github.com/redevilgames/test">http://github.com/ReDevilGames/test</a><br>
+<br>
+Also there is a PNG which contains the game sprites but I think it's not important...<br>
+<br>
+Anyway, can some of you tell me what is the error?<br>
+<br>
+Thanks in advance!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm07310d77e4" title="Wed, 29 Oct 2014 15:48:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm07310d77e4');</script><noscript>Oct 29, 2014 at 3:48pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769264"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769270"><span title="769270,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769270" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0e344b6b8f" title="Tue, 28 Oct 2014 22:01:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm0e344b6b8f');</script><noscript>Oct 28, 2014 at 10:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769270">
+"The repository is empty."<br>
+Anyways, from what I know, you're probably trying to access Player-only stuff when working with Instance types.<br>
+This is not really possible, you should request Players in the first place and leave Instances aside.<br>
+<br>
+EDIT:<br>
+You can also post (hopefully short) code within code tags ( <tt>[ code][ /code]</tt> ).<br>
+Errors should be (hopefully <u>short but descriptive</u>: we don't need your file paths and C#### error code,<br>
+but the description and the line of where it happens) within output ( <tt>[ output][ /output]</tt> ) tags.<br>
+<br>
+RE-EDIT:<br>
+Just found out it's actually here:<br>
+<a href="../../../../httpsgithub.com/redevilgames/test">https://github.com/ReDevilGames/test</a><br>
+In the hope that this is the actual project, i'm giving it an eye.<br>
+<br>
+RE-EDIT:<br>
+The collide_rect on its own doesn't seem to be the issue.<br>
+The problem is probably around Player.h.<br>
+Are you using simple C++ or C++11?<br>
+On the regular C++ you cannot do this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> Player : <var>public</var> Instance
+{
+    <var>public</var>:
+        SDL_Texture *curTexture = <var>nullptr</var>;
+        SDL_Rect playerRect, playerPos;
+        <var>int</var> player;
+        <var>int</var> dirh = 1; <cite>// &lt;- no</cite>
+        <var>float</var> x = 0; <cite>// &lt;- no</cite>
+        <var>float</var> hspeed = 0; <cite>// &lt;- no</cite>
+        <var>float</var> animx = 0; <cite>// &lt;- no</cite>
+        Player(SDL_Renderer *renderTarget, <var>int</var> player);
+        ~Player();
+        <var>void</var> stepEvent(<var>const</var> Uint8 *keyState);
+        <var>void</var> endStepEvent();
+        <var>void</var> drawEvent(SDL_Renderer *renderTarget);
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Instead, you must put them in the constructor.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2cc277db13" title="Tue, 28 Oct 2014 22:08:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm2cc277db13');</script><noscript>Oct 28, 2014 at 10:08pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769270"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769669"><span title="769669,155738,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769669" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf568f8be5d" title="Wed, 29 Oct 2014 16:07:21 +0000"></span><script type="text/javascript">WhenId('CH_zTmf568f8be5d');</script><noscript>Oct 29, 2014 at 4:07pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/redevilgames/default.htm"><b>ReDevilGames</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769669">
+I'm using CodeBlocks with the GCC Compiler and the C++11 argument setted.<br>
+The errors are:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>\obj\Debug\src\instance.o - In function `ZN8InstanceC2Ev':
+instance.cpp |3| undefined reference to `vtable for Instance'
+obj\Debug\src\instance.o - In function `ZN8InstanceD2Ev':
+instance.cpp |5| undefined reference to `vtable for Instance'|
+Build finished: 2 errors, 0 warnings (0 minutes, 5 seconds)</samp></pre></td></tr></table></div><br>
+I really don't know what is this "vtable". I also tried searching around the Internet but nothing worked...<br>
+Please, can you help me?<br>
+Thanks in advance!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmaf06eb5908" title="Wed, 29 Oct 2014 16:09:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmaf06eb5908');</script><noscript>Oct 29, 2014 at 4:09pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769669"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769687"><span title="769687,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769687" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm82267402db" title="Wed, 29 Oct 2014 16:51:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm82267402db');</script><noscript>Oct 29, 2014 at 4:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769687">
+Just found out in Instance.h you declare three virtual functions you don't define.<br>
+Virtual functions are stored into vtables, so undefined reference to vtable means a virtual function has no body.<br>
+You can EITHER add an empty body, OR you can make them pure virtual functions as follows:<br>
+<span class="auto"><code class="source"><var>virtual</var> <var>void</var> function() =0;</code></span><br>
+Note: if you make them virtual, ALL derived classes must override that function, otherwise you'll get "Abstract Class"-like errors.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769687"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769945"><span title="769945,155738,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769945" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfc34d4a7c9" title="Thu, 30 Oct 2014 07:56:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmfc34d4a7c9');</script><noscript>Oct 30, 2014 at 7:56am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/redevilgames/default.htm"><b>ReDevilGames</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769945">
+I thought I had to override these three functions since I have derivated classes. Ok, I have understood the mistake. Thanks to you all!!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme61e9e468a" title="Thu, 30 Oct 2014 07:57:02 +0000"></span><script type="text/javascript">WhenId('CH_zTme61e9e468a');</script><noscript>Oct 30, 2014 at 7:57am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769945"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769978"><span title="769978,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769978" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm081e27b661" title="Thu, 30 Oct 2014 10:16:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm081e27b661');</script><noscript>Oct 30, 2014 at 10:16am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769978">
+You can, but in your way, you are able to NOT redefine one, and the default body (Instance::function) will be called.<br>
+Again, to avoid having a default body, you have to put =0, but this forces ALL derived classes to redefine the function, or it won't compile.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769978"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146212,0,155738,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fwi~8.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

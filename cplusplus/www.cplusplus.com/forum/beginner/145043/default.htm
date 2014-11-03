@@ -1,0 +1,664 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/145043/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>vector array function question - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">vector array function question</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> vector array function question</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145043,root,0,-1,18,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg764209"><span title="764209,134526,1023,83,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764209" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6b5488fcf3" title="Thu, 16 Oct 2014 01:45:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm6b5488fcf3');</script><noscript>Oct 16, 2014 at 1:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764209">
+came back with other question about vector array function I am writing. I need some hints on how to return the number next to the interesting number I am looking for??<br>
+<br>
+cull's job is to call your interesting function to create and return an array<br>
+that consists of all the interesting elements of v together will all the<br>
+elements of v that are next to interesting numbers.<br>
+For example, if your interesting function returns true for numbers that are<br>
+multiples of 10, and v held {9, 5, 10, 20, 8, 47, 63, 1, 70},<br>
+then cull would return a vector that held {5, 10, 20, 8, 1, 70}<br>
+Your cull function should work properly for any interesting function,<br>
+<br>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> interesting(<var>unsigned</var> n)
+{
+	<var>return</var> (n % 10 == 0);
+}
+
+vector&lt;<var>unsigned</var>&gt; cull(<var>const</var> vector&lt;<var>unsigned</var>&gt; &amp; v)
+{
+	vector&lt;<var>unsigned</var>&gt; x;
+	<var>unsigned</var> temp;
+	<var>for</var> (<var>unsigned</var> i = 0; i &lt; v.size(); i++)
+	{
+		<var>if</var> (interesting(v[i]))
+			x.push_back(v[i]);
+	}
+	<var>return</var> x;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+obviously this only output 10,20,70<br>
+do I need to use two loops or some other variables ??
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764209"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764352"><span title="764352,134526,1023,83,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764352" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm82a7ece355" title="Thu, 16 Oct 2014 07:34:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm82a7ece355');</script><noscript>Oct 16, 2014 at 7:34am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764352">
+Please any hints 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764352"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764354"><span title="764354,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764354" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfce745e1de" title="Thu, 16 Oct 2014 07:43:11 +0000"></span><script type="text/javascript">WhenId('CH_zTmfce745e1de');</script><noscript>Oct 16, 2014 at 7:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764354">
+<table class="quote"><tr><td class="qd">For example, if your interesting function returns true for numbers that are<br>
+multiples of 10</td></tr></table>
+<table class="quote"><tr><td class="qd">then cull would return a vector that held {5, 10, 20, 8, 1, 70}</td></tr></table><br>
+<br>
+Is 8 a multiple of 10.??<br>
+<br>
+To have a closer ouput, i looked at it as multiple OR factor of 10.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>if</var>(n &gt;= 10)
+   <var>return</var>(n%10 == 0)
+<var>else</var>
+   <var>return</var> (10%n == 0)</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Even so, where does 8 belong??
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764354"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764356"><span title="764356,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764356" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2e0422c41f" title="Thu, 16 Oct 2014 07:48:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm2e0422c41f');</script><noscript>Oct 16, 2014 at 7:48am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764356">
+Aside from v[i], you should check both if v[i+1] and v[i-1] are interesting.<br>
+Note that when your current index (i) is 0 you should not check v[i-1] and when it size()-1 you should not check v[i+1] (or you will have out of range access).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764356"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764357"><span title="764357,134526,1023,83,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764357" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm56347f1ca1" title="Thu, 16 Oct 2014 07:48:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm56347f1ca1');</script><noscript>Oct 16, 2014 at 7:48am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764357">
+<table class="quote"><tr><td class="qd"> return an array<br>
+that consists of all the interesting elements of v together will all the<br>
+elements of v that are next to interesting numbers.</td></tr></table><br>
+<br>
+this is my main point 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1a833c4244" title="Thu, 16 Oct 2014 07:59:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm1a833c4244');</script><noscript>Oct 16, 2014 at 7:59am UTC</noscript></span>
+<span class="dbtn" id="CH_btn764357"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764360"><span title="764360,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764360" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3030b1c3e5" title="Thu, 16 Oct 2014 07:52:24 +0000"></span><script type="text/javascript">WhenId('CH_zTm3030b1c3e5');</script><noscript>Oct 16, 2014 at 7:52am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764360">
+Oh sorry, i forgot that part. hihi..
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764360"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764365"><span title="764365,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764365" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5a659cc24d" title="Thu, 16 Oct 2014 08:10:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm5a659cc24d');</script><noscript>Oct 16, 2014 at 8:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764365">
+This should do the job.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;vector&gt;</dfn>
+<dfn>#include &lt;algorithm&gt;</dfn>
+<dfn>#include &lt;iterator&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+vector&lt;<var>unsigned</var>&gt; cull(<var>const</var> vector&lt;<var>unsigned</var>&gt; &amp; vec)
+{
+	vector&lt;<var>unsigned</var>&gt; x;
+	<var>for</var>(size_t i = 0 ;i &lt; vec.size(); i++)
+	{
+		<var>if</var>(interesting(vec.at(i)))
+		{
+			x.push_back(vec.at(i));
+			<var>if</var>(i &gt; 0 &amp;&amp; i &lt; vec.size() - 1)
+			{
+				<var>if</var>(intereting(vec.at(i-1)))
+					x.push_back(vec.at(i -1));
+				<var>if</var>(interesting(vec.at(i+1)))
+					x.push_back(vec.at(i+1));
+			}
+		}
+	}
+	vector&lt;<var>unsigned</var>&gt;::iterator it;
+	it = unique(x.begin(),x.end());
+	x.resize(distance(x.begin(),it));
+<var>return</var> x;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764365"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764367"><span title="764367,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764367" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5beca59efc" title="Thu, 16 Oct 2014 08:15:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm5beca59efc');</script><noscript>Oct 16, 2014 at 8:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764367">
+@shadowCODE, your code will fail on <span class="auto"><code class="source">1, 10, 3</code></span> array.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764367"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764371"><span title="764371,134526,1023,83,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764371" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdd8ae6301b" title="Thu, 16 Oct 2014 08:22:46 +0000"></span><script type="text/javascript">WhenId('CH_zTmdd8ae6301b');</script><noscript>Oct 16, 2014 at 8:22am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764371">
+thanks @shadowCODE for your help but I am not used to write codes the way your. <br>
+<br>
+anyway I understood the idea but the implementation kind of tricky 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764371"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764378"><span title="764378,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764378" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma256140380" title="Thu, 16 Oct 2014 08:59:07 +0000"></span><script type="text/javascript">WhenId('CH_zTma256140380');</script><noscript>Oct 16, 2014 at 8:59am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764378">
+<b>@MiiNippa</b><br>
+It works for your input. I realized i didnt need to check <span class="auto"><code class="source"> <var>if</var>(interesting()) </code></span> for the elements besides the interesting ones.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;iterator&gt;</dfn>
+<dfn>#include &lt;algorithm&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>bool</var> interesting(<var>unsigned</var> n)
+{
+	<var>return</var> (n % 10 == 0);
+}
+
+vector&lt;<var>unsigned</var>&gt; cull(<var>const</var> vector&lt;<var>unsigned</var>&gt; &amp; vec)
+{
+	vector&lt;<var>unsigned</var>&gt; x;
+	<var>for</var>(size_t i = 0 ;i &lt; vec.size(); i++)
+	{
+		<var>if</var>(interesting(vec.at(i)))
+		{
+			x.push_back(vec.at(i));
+			<var>if</var>(i &gt; 0 &amp;&amp; i &lt; vec.size() - 1)
+			{
+					x.push_back(vec.at(i-1));
+					x.push_back(vec.at(i+1));
+			}
+		}
+	}
+	vector&lt;<var>unsigned</var>&gt;::iterator it;
+	it = unique(x.begin(),x.end());
+	x.resize(distance(x.begin(),it));
+<var>return</var> x;
+}
+<var>int</var> main()
+{
+	vector&lt;<var>unsigned</var>&gt; vec;
+	vec.push_back(1);
+	vec.push_back(10);
+	vec.push_back(3);
+
+	vector&lt;<var>unsigned</var>&gt; test;
+	test = cull(vec);
+
+	copy(test.begin(),test.end(),ostream_iterator&lt;<var>unsigned</var>&gt;(cout,<kbd>" "</kbd>));
+	cout&lt;&lt;endl;
+	system(<kbd>"pause"</kbd>);
+	<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>10 1 3 </samp></pre></td></tr></table></div>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8f3f9b9cd3" title="Thu, 16 Oct 2014 09:00:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm8f3f9b9cd3');</script><noscript>Oct 16, 2014 at 9:00am UTC</noscript></span>
+<span class="dbtn" id="CH_btn764378"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764381"><span title="764381,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764381" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm70ae7e843f" title="Thu, 16 Oct 2014 09:04:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm70ae7e843f');</script><noscript>Oct 16, 2014 at 9:04am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764381">
+1) It reorders elements.<br>
+2) On vector <span class="auto"><code class="source">3 10 3 20</code></span> it skips second <tt>3</tt><br>
+<br>
+And use more common and understood erase-remove idiom:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><cite>//vector&lt;unsigned&gt;::iterator it;</cite>
+<cite>//it = unique(x.begin(),x.end());</cite>
+<cite>//x.resize(distance(x.begin(),it));</cite>
+x.erase(unique(x.begin(), x.end()), x.end());</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764381"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764384"><span title="764384,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764384" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd0a79f5fa9" title="Thu, 16 Oct 2014 09:12:37 +0000"></span><script type="text/javascript">WhenId('CH_zTmd0a79f5fa9');</script><noscript>Oct 16, 2014 at 9:12am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764384">
+<b>@MiiNippa</b><br>
+is there a difference between,<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>vector&lt;<var>unsigned</var>&gt;::iterator it;
+it = unique(x.begin(),x.end());
+x.resize(distance(x.begin(),it));</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ <br>
+AND<br>
+<span class="auto"><code class="source">x.erase(unique(x.begin(), x.end()), x.end());</code></span><br>
+??<br>
+<br>
+Also, the <span class="auto"><code class="source"> <var>for</var> loop</code></span> goes through every element in the vector. I dont know why you say it skips the <b> second </b> 3 in <br>
+<span class="auto"><code class="source"> 3 10 3 20 </code></span>..<br>
+<br>
+Also made this change:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><var>if</var>(interesting(vec.at(i)))
+{
+    x.push_back(vec.at(i));
+    <var>if</var>(i &gt; 0)
+        x.push_back(vec.at(i-1));
+    <var>if</var>(i &lt; vec.size() - 1)
+	x.push_back(vec.at(i+1));
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm805381a6d7" title="Thu, 16 Oct 2014 09:17:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm805381a6d7');</script><noscript>Oct 16, 2014 at 9:17am UTC</noscript></span>
+<span class="dbtn" id="CH_btn764384"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764386"><span title="764386,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764386" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5f1c7624aa" title="Thu, 16 Oct 2014 09:23:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm5f1c7624aa');</script><noscript>Oct 16, 2014 at 9:23am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764386">
+<table class="quote"><tr><td class="qd">is there a difference between,</td></tr></table>No, aside from that second one is more common form.<br>
+<br>
+<table class="quote"><tr><td class="qd">I dont know why you say it skips the second 3 in </td></tr></table>Yeah, faulty vectors is not that predictable, but <span class="auto"><code class="source">3, 10, 3</code></span> still skips: <a href="../../../../ideone.com/mifat4">http://ideone.com/mIfaT4</a><br>
+<br>
+<table class="quote"><tr><td class="qd">Also made this change</td></tr></table>Good, now you need only one change and get rid of unique().
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764386"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764398"><span title="764398,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764398" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbd1c7f9ebe" title="Thu, 16 Oct 2014 10:05:22 +0000"></span><script type="text/javascript">WhenId('CH_zTmbd1c7f9ebe');</script><noscript>Oct 16, 2014 at 10:05am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764398">
+<b>@MiiNipaa</b><br>
+I think i have fixed everything and gotten rid of <span class="auto"><code class="source"> unique </code></span>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code>vector&lt;<var>unsigned</var>&gt; cull(<var>const</var> vector&lt;<var>unsigned</var>&gt; &amp; vec)
+{
+	vector&lt;<var>unsigned</var>&gt; x;
+	<var>for</var>(size_t i = 0 ;i &lt; vec.size(); i++)
+	{
+		<var>if</var>(interesting(vec.at(i)))
+		{
+			<var>if</var>(i &gt; 0)
+				<var>if</var>(!binary_search(x.begin(),x.end(),vec.at(i-1)))
+					x.push_back(vec.at(i-1));
+
+			<var>if</var>(!binary_search(x.begin(),x.end(),vec.at(i)))
+				x.push_back(vec.at(i));
+
+			<var>if</var>(i &lt; vec.size() - 1)
+				x.push_back(vec.at(i+1));
+		}
+	}
+	<var>return</var> x;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I thought i had solved this problem from the beginning. Thank you
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmcd290a30c6" title="Thu, 16 Oct 2014 10:08:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmcd290a30c6');</script><noscript>Oct 16, 2014 at 10:08am UTC</noscript></span>
+<span class="dbtn" id="CH_btn764398"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764400"><span title="764400,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764400" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm242dfaa3d0" title="Thu, 16 Oct 2014 10:11:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm242dfaa3d0');</script><noscript>Oct 16, 2014 at 10:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764400">
+1) binary search works only for sorted sequences.<br>
+2) The aim is to allow repeating variables and you are trying to explicitely prohibit this<br>
+3) if(i &gt; 0) and if(i &lt; vec.size() - 1) should not be nested<br>
+4) Do not use checked access if all indices are guaranteed to fall into vector.<br>
+<br>
+Now you have duplicates <b>and </b>losses<br>
+<a href="../../../../ideone.com/du6i6e">http://ideone.com/Du6I6e</a><br>
+<br>
+Just think, what conditions should be true for number to be pushed into resulting vector?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc95f9d972e" title="Thu, 16 Oct 2014 10:15:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmc95f9d972e');</script><noscript>Oct 16, 2014 at 10:15am UTC</noscript></span>
+<span class="dbtn" id="CH_btn764400"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764523"><span title="764523,134526,1023,83,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764523" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme8cfb98d79" title="Thu, 16 Oct 2014 16:44:55 +0000"></span><script type="text/javascript">WhenId('CH_zTme8cfb98d79');</script><noscript>Oct 16, 2014 at 4:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764523">
+Thank you guys!<br>
+<br>
+this what I am getting <br>
+<br>
+<table class="quote"><tr><td class="qd">10 5 20 20 10 8 70 1</td></tr></table><br>
+<br>
+10 and 20 duplicated <br>
+<br>
+seems hard problem to me 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764523"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764525"><span title="764525,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764525" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3e610f7462" title="Thu, 16 Oct 2014 16:57:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm3e610f7462');</script><noscript>Oct 16, 2014 at 4:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764525">
+It is not hard if you do it straigtforward way:<br>
+<br>
+You need to save element if:<br>
+<b>*</b> It is interesting  <br>
+      <b>or</b>  <br>
+<b>*</b> Previous element is interesting  <br>
+      <b>or</b>  <br>
+<b>*</b> Next element is interesting  <br>
+<br>
+So you can write:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> save =
+    interesting(in[ i ])
+        ||
+    interesting(in[i-1])
+        ||
+    interesting(in[i+1]);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+We still need to deal with possible out of bound access. So this is a good place to use ternary operator: <span class="auto"><code class="source">(i&gt;0 ? interesting(in[i-1]):<var>false</var>)</code></span> — if <tt>i == 0</tt> then apparently previous value should not be counted as interesting<br>
+<br>
+So our condition looks like:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> save =    interesting(in[ i ])       ||
+      (i&gt;0   ? interesting(in[i-1]):<var>false</var>)||
+      (i&lt;sz-1? interesting(in[i+1]):<var>false</var>);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Alternative approach (without ternary operator):<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> save = interesting(in[ i ]);
+<var>if</var>(i&gt;0)
+    save = save || interesting[i-1];
+<var>if</var>(i&lt;sz-1)
+    save = save || interesting(in[i+1]);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Then you just need to do:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>if</var>(save)
+    x.push_back(in[i]);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmdcb350e74f" title="Thu, 16 Oct 2014 16:57:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmdcb350e74f');</script><noscript>Oct 16, 2014 at 4:57pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn764525"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764785"><span title="764785,134526,1023,83,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764785" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf97721ddb9" title="Fri, 17 Oct 2014 07:06:13 +0000"></span><script type="text/javascript">WhenId('CH_zTmf97721ddb9');</script><noscript>Oct 17, 2014 at 7:06am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764785">
+Thanks, I hope this will work even if the interesting function is dealing with different thing <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code>vector&lt;<var>unsigned</var>&gt; cull(<var>const</var> vector&lt;<var>unsigned</var>&gt; &amp; v)
+{
+	vector&lt;<var>unsigned</var>&gt; x;
+	<var>bool</var> save;
+	
+	<var>for</var> (<var>unsigned</var> i = 0; i &lt; v.size(); i++)
+	{
+		 	
+
+			save = interesting(v[i]);
+			<var>if</var> (i&gt;0)
+				save = save || interesting(v[i - 1]);
+			<var>if</var> (i&lt;v.size() - 1)
+				save = save || interesting(v[i + 1]);
+
+		<var>if</var> (save)
+			x.push_back(v[i]);
+	}
+	<var>return</var> x;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764785"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145043,0,134526,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~250.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

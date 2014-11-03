@@ -1,0 +1,243 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/general/84469/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Predefined Data - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Predefined Data</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Predefined Data</h3><span id="CH_edttl"></span><span class="rootdatPost" title="84469,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg452816"><span title="452816,34589,1023,239,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg452816" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7f15f618d9" title="Fri, 09 Nov 2012 19:13:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm7f15f618d9');</script><noscript>Nov 9, 2012 at 7:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/awsdert/default.htm"><b>awsdert</b> (239)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i452816">
+I was just wandering about whether the values such as GLOBAL_H defined at start of headers is actually included in the memory of the compiled app or not.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn452816"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg452950"><span title="452950,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg452950" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd5ae5acb36" title="Sat, 10 Nov 2012 00:41:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmd5ae5acb36');</script><noscript>Nov 10, 2012 at 12:41am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i452950">
+No.  That is a preprocessor symbol.  Storage does not get allocated for it. <br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn452950"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg452960"><span title="452960,53221,1023,1383,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg452960" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm680d603d8a" title="Sat, 10 Nov 2012 01:02:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm680d603d8a');</script><noscript>Nov 10, 2012 at 1:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/xander314/default.htm"><b>Xander314</b> (1383)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i452960">
+Yes, this means that every reference to <span class="auto"><code class="source">GLOBAL_H</code></span> in your code is simply replaced with it's value by the preprocessor <i>before</i> the compiler runs. So the following code<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code><dfn>#define VALUE 5</dfn>
+
+<var>int</var> main()
+{
+  cout &lt;&lt; VALUE &lt;&lt; endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+would effectively be turned into<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main()
+{
+  cout &lt;&lt; 5 &lt;&lt; endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+That said, the value 5 itself must be stored somewhere in the program. So, in summary:<br>
+1) GLOBAL_H is not stored in memory like a variable, it is substituted for its value at compile time<br>
+2) The value of GLOBAL_H, if used in the program will become part of the program, in the same way that all constants (integer, string literal, etc) in your program will.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn452960"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg453834"><span title="453834,34589,1023,239,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg453834" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9332cfb107" title="Sun, 11 Nov 2012 21:21:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm9332cfb107');</script><noscript>Nov 11, 2012 at 9:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/awsdert/default.htm"><b>awsdert</b> (239)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i453834">
+Thank you Xander, I wasn't entirely sure, is it possible to use bitwise operators on them in the <span class="auto"><code class="source"><dfn>#if </dfn></code></span> statements?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn453834"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg453878"><span title="453878,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg453878" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm32594a8848" title="Mon, 12 Nov 2012 00:00:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm32594a8848');</script><noscript>Nov 12, 2012 at 12:00am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i453878">
+To be clear, it all depends on how you use the preprocessor symbol.<br>
+<br>
+In the example you gave using GLOBAL_H, that naming convention is usually used to provide a guard symbol to prevent a header file from being included multiple times. <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><cite>// global.h header file</cite>
+<dfn>#ifndef GLOBAL_H</dfn>
+<dfn>#define GLOBAL_H</dfn>
+<cite>// declarations </cite>
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ <br>
+In this case, GLOBAL_H is only known to the compiler, and should the header file get included a second time, its contents would be skipped.  As stated earlier, no storage would be allocated in the program for GLOBALS_H.<br>
+<br>
+You can use expressions with #if as long as the preprocessor symbols are constants. <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><dfn>#define SOME_BITS 3 </dfn>
+<dfn>#define FLAG1 1</dfn>
+<dfn>#if SOME_BITS &amp; FLAG1</dfn>
+<cite>// some code</cite>
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn453878"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg454963"><span title="454963,34589,1023,239,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg454963" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdfc662f115" title="Tue, 13 Nov 2012 23:52:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmdfc662f115');</script><noscript>Nov 13, 2012 at 11:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/awsdert/default.htm"><b>awsdert</b> (239)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i454963">
+Thanks, I was thinking that those guards were going to bloat my app unnecessarily.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn454963"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(84469,1,34589,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~345.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

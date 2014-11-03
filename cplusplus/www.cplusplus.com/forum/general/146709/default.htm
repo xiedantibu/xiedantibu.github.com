@@ -1,0 +1,343 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146709/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Please Help meeeee!!!!! - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Please Help meeeee!!!!!</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Please Help meeeee!!!!!</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146709,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771347"><span title="771347,156329,255,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771347" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm98a5f9d5b2" title="Sun, 02 Nov 2014 22:29:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm98a5f9d5b2');</script><noscript>Nov 2, 2014 at 10:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bc10000/default.htm"><b>bc10000</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771347">
+Guys, i have spent 2 whole days on this program and I just cant get it to work correctly.<br>
+<br>
+So it compiles just fine but I cant get the right output to the values i am seeking.<br>
+<br>
+Please help me :<br>
+==============================================================================<br>
+<br>
+#include &lt;iostream&gt;<br>
+#include &lt;string&gt;<br>
+#include &lt;cstdlib&gt;<br>
+#include &lt;ctime&gt;<br>
+#include &lt;cstddef&gt;<br>
+using namespace std;<br>
+<br>
+class Random {<br>
+  public:<br>
+    Random(int low, int high); //constructor<br>
+    int get(void) const;<br>
+  private:<br>
+    int low;<br>
+    int diff;<br>
+    static void seed(void);<br>
+    static int seedcount;<br>
+};<br>
+<br>
+int Random::seedcount=0;<br>
+<br>
+void Random::seed(void)<br>
+{<br>
+  if(seedcount) return; //we only want to seed once<br>
+  seedcount=1;<br>
+  srand((int)time(0)); //seeds the random number generator<br>
+}<br>
+<br>
+Random::Random(int l, int h) : low(l), diff(abs(h-l)+1)<br>
+{<br>
+  seed();<br>
+}<br>
+<br>
+int Random::get(void) const<br>
+{<br>
+  return int((float)rand()/RAND_MAX*diff+low);<br>
+}<br>
+<br>
+<br>
+class weapon<br>
+{<br>
+  private:<br>
+    string type;<br>
+    int hit_chance;<br>
+    int stamina_required;<br>
+<br>
+  public:<br>
+      weapon();<br>
+      weapon(string,int,int);<br>
+      void display();<br>
+      int display_stamina();<br>
+      bool did_you_hit();<br>
+};<br>
+<br>
+bool weapon::did_you_hit()<br>
+{<br>
+        Random r1(1,100);<br>
+        if(r1.get()&lt;=hit_chance){return true;}<br>
+        else{return false;}<br>
+}<br>
+<br>
+weapon::weapon(string t,int x, int y):type(t), hit_chance(x), stamina_required(y){}// initilization list<br>
+<br>
+weapon::weapon(){}<br>
+<br>
+void weapon::display()<br>
+{<br>
+    cout&lt;&lt; "weapon type: "&lt;&lt;type&lt;&lt;endl;<br>
+	cout&lt;&lt; "hit chance: "&lt;&lt;hit_chance&lt;&lt;endl;<br>
+	cout&lt;&lt; "stamina required "&lt;&lt;stamina_required&lt;&lt;endl;<br>
+}<br>
+int weapon::display_stamina()<br>
+{<br>
+    return stamina_required;<br>
+}<br>
+<br>
+//=====================================================================<br>
+//=====================================================================<br>
+class knight<br>
+{<br>
+ private:<br>
+  string name;<br>
+  int stamina;<br>
+  bool on_horse;<br>
+<br>
+ public:<br>
+<br>
+     knight();<br>
+     knight(string,int,bool);<br>
+     int stamina_remaining();<br>
+     bool are_you_exhuasted();<br>
+     void display();<br>
+};<br>
+int knight::stamina_remaining()<br>
+{    weapon r;<br>
+    stamina=stamina-(r.display_stamina());<br>
+    return stamina;<br>
+}<br>
+<br>
+bool knight::are_you_exhuasted()<br>
+{<br>
+         if(stamina&lt;=0){on_horse=false;}<br>
+         else{on_horse=true;}<br>
+}<br>
+knight::knight(string n, int s, bool x): name(n), stamina(s), on_horse(x){}<br>
+knight::knight(){}<br>
+<br>
+void knight::display()<br>
+{<br>
+    cout&lt;&lt; "Knight stamina remaining "&lt;&lt;stamina&lt;&lt;endl;<br>
+	cout&lt;&lt; "on horse "&lt;&lt;on_horse&lt;&lt;endl;<br>
+	cout&lt;&lt; "name= "&lt;&lt;name&lt;&lt;endl;<br>
+	weapon rt;<br>
+	rt.display();<br>
+}<br>
+//=======================================================================<br>
+//=======================================================================<br>
+<br>
+<br>
+<br>
+int main()<br>
+{<br>
+    string weapon_type1,weapon_type2,name1,name2,f;<br>
+    int hc1,hc2,sr1,sr2,stamina1,stamina2;<br>
+<br>
+cout &lt;&lt; "What is the first knights name?" &lt;&lt; endl;<br>
+cin&gt;&gt; name1;<br>
+cout &lt;&lt; "What is " &lt;&lt; name1 &lt;&lt; " stamina?" &lt;&lt; endl;<br>
+cin&gt;&gt;stamina1;<br>
+cout &lt;&lt; "What is "&lt;&lt;name1&lt;&lt;" weapon?" &lt;&lt; endl;<br>
+cin&gt;&gt; weapon_type1;<br>
+cout &lt;&lt; "What is the weapon's hit chance?" &lt;&lt; endl;<br>
+cin&gt;&gt; hc1;<br>
+cout &lt;&lt; "What is the weapon's stamina required to use?" &lt;&lt; endl;<br>
+cin &gt;&gt; sr1;<br>
+cout &lt;&lt; "What is the second knights name?" &lt;&lt; endl;<br>
+cin&gt;&gt; name2;<br>
+cout &lt;&lt; "What is " &lt;&lt; name2 &lt;&lt; " stamina?" &lt;&lt; endl;<br>
+cin&gt;&gt;stamina2;<br>
+cout &lt;&lt; "What is "&lt;&lt;name2&lt;&lt;" weapon?" &lt;&lt; endl;<br>
+cin&gt;&gt; weapon_type2;<br>
+cout &lt;&lt; "What is the weapon's hit chance?" &lt;&lt; endl;<br>
+cin&gt;&gt; hc2;<br>
+cout &lt;&lt; "What is the weapon's stamina required to use?" &lt;&lt; endl;<br>
+cin &gt;&gt; sr2;<br>
+weapon w1(weapon_type1,hc1,sr1);<br>
+weapon w2(weapon_type2,hc2,sr2);<br>
+knight k1(name1, stamina1, true);<br>
+knight k2(name2, stamina2, true);<br>
+<br>
+cout&lt;&lt;"Press any key to begin the Joust"&lt;&lt;endl;<br>
+cin&gt;&gt;f;<br>
+do<br>
+{<br>
+    if(w1.did_you_hit()==true){cout&lt;&lt;"knight 2 is off the horse"&lt;&lt;endl;}<br>
+    if(w2.did_you_hit()==true){cout&lt;&lt;"knight 1 is off the horse"&lt;&lt;endl;}<br>
+    if(k1.stamina_remaining()&lt;=0){cout&lt;&lt;"knight 1 is exhausted"&lt;&lt;endl;}<br>
+    if(k2.stamina_remaining()&lt;=0){cout&lt;&lt;"knight 2 is exhausted"&lt;&lt;endl;}<br>
+    cout&lt;&lt;"=============================="&lt;&lt;endl;<br>
+    knight cool;<br>
+    cool.display();<br>
+}<br>
+while(k1.stamina_remaining()&gt;0 &amp;&amp; k2.stamina_remaining()&gt;0 &amp;&amp; w1.did_you_hit()==false &amp;&amp; w2.did_you_hit()==false);<br>
+return 0;<br>
+}<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771347"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771370"><span title="771370,156329,255,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771370" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm34184ebc21" title="Sun, 02 Nov 2014 23:49:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm34184ebc21');</script><noscript>Nov 2, 2014 at 11:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bc10000/default.htm"><b>bc10000</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771370">
+so i guess no help???
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771370"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771372"><span title="771372,109286,1023,591,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771372" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma3154c76b7" title="Sun, 02 Nov 2014 23:56:13 +0000"></span><script type="text/javascript">WhenId('CH_zTma3154c76b7');</script><noscript>Nov 2, 2014 at 11:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ispil/default.htm"><b>Ispil</b> (591)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771372">
+It's been an hour. Try putting your code in code tags- it might make it a bit easier to read.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771372"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771377"><span title="771377,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771377" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm058c7642dc" title="Mon, 03 Nov 2014 00:13:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm058c7642dc');</script><noscript>Nov 3, 2014 at 12:13am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771377">
+<table class="quote"><tr><td class="qd">so i guess no help??? </td></tr></table> Saw the original post.  No code tags so there is no indentation.  So the code is not readable.  <br>
+<br>
+You said with the original <table class="quote"><tr><td class="qd">I cant get the right output to the values i am seeking</td></tr></table>  Then you gave no indication of what output you are getting and no indication of what output you are expecting.  <br>
+<br>
+Then the code I can see uses features that I am not as good as others around here.  So I chose to look at other threads with my free time.  
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbdc427e2e2" title="Mon, 03 Nov 2014 00:15:11 +0000"></span><script type="text/javascript">WhenId('CH_zTmbdc427e2e2');</script><noscript>Nov 3, 2014 at 12:15am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771377"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146709,0,156329,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fg~13.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

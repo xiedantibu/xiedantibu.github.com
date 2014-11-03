@@ -1,0 +1,497 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/146076/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>question on building a C++ library - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">question on building a C++ library</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> question on building a C++ library</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146076,root,0,-1,17,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg768661"><span title="768661,105234,1023,13,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768661" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc57d1d572d" title="Mon, 27 Oct 2014 12:22:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmc57d1d572d');</script><noscript>Oct 27, 2014 at 12:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bostjanv/default.htm"><b>bostjanv</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768661">
+Hello,<br>
+<br>
+I have about 80 short C++ programs (without main) which I would like to<br>
+combine into a library. Each has the following structure:<br>
+<br>
++++start of program<br>
+#include "includefnm.h"<br>
+<br>
+...<br>
+<br>
++++end of program<br>
+<br>
+includefnm.h has some templates so that (I presume) when I compile the<br>
+programs individually some code gets copied into the .o file (about<br>
+20K). Therefore, when I use the ar program to build a library, I get a<br>
+really huge file.<br>
+<br>
+QUESTION: is there a way to copy the code from "includefnm.h" only<br>
+once (e.g. with some linker instructions); or is the only solution to<br>
+combine by hand the individual programs into one single program with<br>
+only one include?<br>
+<br>
+Regards,<br>
+bostjanv<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768661"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768671"><span title="768671,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768671" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm81a31ab275" title="Mon, 27 Oct 2014 12:44:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm81a31ab275');</script><noscript>Oct 27, 2014 at 12:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768671">
+If you have template-based classes and functions, you cannot put their code in a library.<br>
+As a generic rule, building a library usually makes your program bigger than leaving your code split in headers/sources.<br>
+This is because of some optimizations your compiler may take advantage of, since it knows which functions are needed and which functions can be omitted at link-time (not possible with shared libraries, probably possible with static libraries? not sure)<br>
+The memory-saving of libraries is usually a RAM-based save, and usually only for shared libraries.<br>
+<br>
+Tips when trying to make your application smaller:<br>
+1. Avoid templates (or use as few templates as possible).<br>
+Consider a class that requires a template parameter.<br>
+For each parameterlist combination, an entirely new class is generated (!!!).<br>
+2. Use virtual inheritance instead of templates where possible.<br>
+Using virtual inheritance you can make that common code reusable.<br>
+3. Reusable code.<br>
+Make tiny functions. Try to keep them under 20 Lines of Code. They can call other tiny functions.<br>
+4. No inline.<br>
+Inline = bigger program = faster program.<br>
+5. Do not make it smaller.<br>
+Unless you're working with an embedded environment, there's usually no need to make your program smaller.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768671"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768713"><span title="768713,105234,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768713" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm89d6679de4" title="Mon, 27 Oct 2014 14:37:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm89d6679de4');</script><noscript>Oct 27, 2014 at 2:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bostjanv/default.htm"><b>bostjanv</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768713">
+Thanks a lot for the advice. Regards, bostjanv
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768713"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768755"><span title="768755,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768755" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm792b014b6c" title="Mon, 27 Oct 2014 17:01:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm792b014b6c');</script><noscript>Oct 27, 2014 at 5:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768755">
+I thing ESSGeEich is mistaken about libraries. On Solaris, you want to add your files to the library with <table class="quote"><tr><td class="qd">CC -xar -o <i>libname yourObjectFile</i></td></tr></table>. This will include the instantiated template functions, but only if needed: if a copy already exists in the library then it will be left out. There is probably a similar option for your compiler if it's different.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768755"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769396"><span title="769396,131601,1023,331,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769396" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5078ff1e8b" title="Wed, 29 Oct 2014 01:45:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm5078ff1e8b');</script><noscript>Oct 29, 2014 at 1:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/avilius/default.htm"><b>Avilius</b> (331)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769396">
+Disclaimer: What I'm about to write is probably irrelevant to you, and to most library writers.<br>
+<br>
+I'm assuming that this code you plan on putting into a library isn't really performance critical, but when building code that is called often, the overhead that virtual functions might not be ideal. 90 percent of the time it shouldn't matter, but when working on low-level systems such as 3D Game Engine renderers where you're sending a large quantity of data to a renderer that sorts out the data and sends it to the GPU in the most cost-effective way as possible. An example of a library that has poor performance due to this (and countless other things) is the rendering engine Orge, which is notorious for having poor performance under heavy loads.<br>
+<br>
+Dynamic memory allocations (using new, or containers of any type (generally)), should probably be kept to a minimum.<br>
+__________________________________________<br>
+<br>
+As I said, <b>usually</b> this will not be relevant to you, or your library (depending on the uses for it), but if you do plan to create such a library, I feel you should know this.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm30e09d1224" title="Wed, 29 Oct 2014 01:52:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm30e09d1224');</script><noscript>Oct 29, 2014 at 1:52am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769396"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769481"><span title="769481,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769481" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm67e96caad8" title="Wed, 29 Oct 2014 07:25:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm67e96caad8');</script><noscript>Oct 29, 2014 at 7:25am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769481">
+<table class="quote"><tr><td class="qd">2. Use virtual inheritance instead of templates where possible.<br>
+Using virtual inheritance you can make that common code reusable.</td></tr></table><br>
+How do you do that?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769481"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769595"><span title="769595,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769595" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm22a9c1bef9" title="Wed, 29 Oct 2014 13:32:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm22a9c1bef9');</script><noscript>Oct 29, 2014 at 1:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769595">
+@kbw: In one of the books I have recently read, inheritance was used to sacrifice typesafety in a vector-like class, by deriving from a void*-based class as follows:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> BaseVector {
+    <var>void</var>* m_data;
+    std::uint32_t m_size;
+    std::uint32_t m_alloc;
+<var>protected</var>:
+    <var>void</var> push_back(<var>void</var>*);
+    <var>void</var>* at(std::uint32_t) <var>const</var>;
+};
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>class</var> Vector : <var>public</var> BaseVector {
+    <cite>// ... use BaseVector, casting the void* to T* where required</cite>
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+This obviously makes you remake push_back and at in Vector to make it public, but the code inside the function now is so short it can be easily inlined.<br>
+<br>
+(Perhaps, "virtual" inheritance wasn't really "virtual", at least not in this example)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769595"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769981"><span title="769981,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769981" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb8bc62996e" title="Thu, 30 Oct 2014 10:31:20 +0000"></span><script type="text/javascript">WhenId('CH_zTmb8bc62996e');</script><noscript>Oct 30, 2014 at 10:31am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769981">
+Interesting.<br>
+<br>
+But as the inheritance is a mechanism to ensure the right heap is used, and not an interface, it should probably be private inheritance.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769981"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770004"><span title="770004,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770004" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm88578c9fa5" title="Thu, 30 Oct 2014 12:38:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm88578c9fa5');</script><noscript>Oct 30, 2014 at 12:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770004">
+Members are private, functions protected, so it shouldn't matter a lot, but yes, it should be.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770004"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770181"><span title="770181,105234,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770181" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma7d34a3000" title="Thu, 30 Oct 2014 20:49:22 +0000"></span><script type="text/javascript">WhenId('CH_zTma7d34a3000');</script><noscript>Oct 30, 2014 at 8:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bostjanv/default.htm"><b>bostjanv</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770181">
+Hello,<br>
+Thanks for all the answers. I've probably received so much information that<br>
+I will need some time to digest it all. However, I wonder whether I can<br>
+make some immediate progress. So let me reiterate my immediate goal:<br>
+<br>
+I would like to reduce the size of the C++ static library I am building.<br>
+Using the most direct method of building a static library (produce .o <br>
+files, then use ar to collect them into a library) I get a file of<br>
+size about 2.3M. On the other hand, a related library with much greater<br>
+capabilities written in C has size about 250K. Thus, I have a substantial<br>
+"C++ penalty", most  probably due to the use of templates.<br>
+<br>
+Regarding that I have received basically two proposals:<br>
+<br>
+(1) (EssGeEich) remove templates from the library; and<br>
+(2) (dhayden) use something like<br>
+       CC -xar -o libname yourObjectFile<br>
+    in Solaris<br>
+<br>
+Even though (1) is probably the soundest advice, it would require the<br>
+rewriting of a lot of code; therefore I would like to investigate the<br>
+possibilities of (2).<br>
+<br>
+Since I am using gcc, I looked through the gcc manual, and found that<br>
+(one way) to reduce the amount of code generated by the use of templates<br>
+is to use the -frepo gcc option. I did that; but I could not determine<br>
+what are the further steps in building a static library, once the .rpo<br>
+files are generated. The use of ar, as was done previously, reduced the<br>
+size of the resulting library only by an insignificant amount. Any<br>
+further information would be appreciated.<br>
+Regards,<br>
+bostjanv
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmfa854bfbcd" title="Fri, 31 Oct 2014 07:58:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmfa854bfbcd');</script><noscript>Oct 31, 2014 at 7:58am UTC</noscript></span>
+<span class="dbtn" id="CH_btn770181"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770280"><span title="770280,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770280" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2a47b41cd6" title="Fri, 31 Oct 2014 02:21:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm2a47b41cd6');</script><noscript>Oct 31, 2014 at 2:21am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770280">
+Let's take a step back. Why do you want to reduce the size of the library?  What really matters is the size of the executable and I don't think that will change.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770280"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770355"><span title="770355,105234,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770355" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4cce6990ca" title="Fri, 31 Oct 2014 08:05:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm4cce6990ca');</script><noscript>Oct 31, 2014 at 8:05am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bostjanv/default.htm"><b>bostjanv</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770355">
+Actually, yours is a good question. I suppose that what I want is a feeling<br>
+that I'm using the best possible solution; i.e, one that can't be improved<br>
+upon significantly. So, if I've reached that point I will simply take it<br>
+as a learned lesson in C++.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770355"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770362"><span title="770362,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770362" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm601ebb23b7" title="Fri, 31 Oct 2014 08:46:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm601ebb23b7');</script><noscript>Oct 31, 2014 at 8:46am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770362">
+If I may ask a related question? Hopefully the OP won't mind.<br>
+<br>
+What happens if I write a program that only uses a sin() function, I link to the math library: Does the rest of all the stuff in the math library get optimised out? I am hoping the answer is yes.<br>
+<br>
+If this question turns out to be epic, I will start my own topic.<br>
+<br>
+Cheers
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770362"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770429"><span title="770429,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770429" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0c00d84422" title="Fri, 31 Oct 2014 12:50:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm0c00d84422');</script><noscript>Oct 31, 2014 at 12:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770429">
+Usually the linker just throw away the rest of functions in that library.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770429"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770432"><span title="770432,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770432" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm15e444349b" title="Fri, 31 Oct 2014 12:56:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm15e444349b');</script><noscript>Oct 31, 2014 at 12:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770432">
+<table class="quote"><tr><td class="qd">What happens if I write a program that only uses a sin() function, I link to the math library: Does the rest of all the stuff in the math library get optimised out?</td></tr></table><br>
+It depends on the compilation environment I suppose but I think the basic unit in a library is the individual object file.  So if you use sin() then your program will include everything whatever file sin() is defined in, but not the rest of the library (unless of course sin() refers to other symbols that are defined in other files in the library).<br>
+<br>
+The same is true with your own programs: if you include an object file, the program will include everything in that object file.  This is an important point since the effect can snowball in a large system: You use some class for a simple purpose. But the class is defined in one file and includes a complicated bit of code. That code in turn refers to some other bit of complicated code. Next thing you know, your 10 line program has included code for an entire web server.<br>
+<br>
+For this reason sometimes it's worthwhile to break up the implementation of a class into individual files.  I wrote an extreme case where a tool actually breaks the implementation files into one method per file so the user program will contain only what is actually needed. This is for code running on a hand-held calculator (the HP-50g).<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770432"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770507"><span title="770507,37152,1023,7003,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770507" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme6d0ff1aef" title="Fri, 31 Oct 2014 17:29:37 +0000"></span><script type="text/javascript">WhenId('CH_zTme6d0ff1aef');</script><noscript>Oct 31, 2014 at 5:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ne555/default.htm"><b>ne555</b> (7003)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770507">
+&gt; I would like to reduce the size<br>
+¿have you already did this <a href="../../../../stackoverflow.com/a/15314861">http://stackoverflow.com/a/15314861</a> ?<br>
+<br>
+<br>
+&gt; a tool actually breaks the implementation files into one method per file <br>
+&gt; so the user program will contain only what is actually needed.<br>
+<a href="../../general/114172/default.htm">http://www.cplusplus.com/forum/general/114172/</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770507"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770736"><span title="770736,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770736" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmba8ac80a5f" title="Sat, 01 Nov 2014 07:49:55 +0000"></span><script type="text/javascript">WhenId('CH_zTmba8ac80a5f');</script><noscript>Nov 1, 2014 at 7:49am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770736">
+thanks to modoran, dhayden and ne555 for your informative answers :+)<br>
+<br>
+And I have a HP-50-g ! Cheers
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770736"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146076,0,105234,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fu~17.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

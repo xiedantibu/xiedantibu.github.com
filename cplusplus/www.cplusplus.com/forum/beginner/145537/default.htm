@@ -1,0 +1,338 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/145537/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>unique book id in a library database - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">unique book id in a library database</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> unique book id in a library database</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145537,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg766301"><span title="766301,144684,1023,30,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766301" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm61321c6fb1" title="Tue, 21 Oct 2014 06:09:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm61321c6fb1');</script><noscript>Oct 21, 2014 at 6:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/omkarborkar95/default.htm"><b>omkarborkar95</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766301">
+I am writing a library database management software.<br>
+I want to make sure that the the book id of one book won't be equal to book id of another book.<br>
+This is similar to the primary key from sql. <br>
+Is there any way to ensure that?<br>
+<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766301"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766313"><span title="766313,111189,1023,3222,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766313" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf7d1eed502" title="Tue, 21 Oct 2014 06:33:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmf7d1eed502');</script><noscript>Oct 21, 2014 at 6:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/keskiverto/default.htm"><b>keskiverto</b> (3222)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766313">
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>you have a list of books and a newbook
+
+WHILE list contains newbook
+  modify newbook.id
+
+append newbook to list</samp></pre></td></tr></table></div>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmed59288d2b" title="Tue, 21 Oct 2014 06:33:31 +0000"></span><script type="text/javascript">WhenId('CH_zTmed59288d2b');</script><noscript>Oct 21, 2014 at 6:33am UTC</noscript></span>
+<span class="dbtn" id="CH_btn766313"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766320"><span title="766320,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766320" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3d0d75e444" title="Tue, 21 Oct 2014 07:44:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm3d0d75e444');</script><noscript>Oct 21, 2014 at 7:44am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766320">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>while</var>(newBook.id is already contained in the data base)
+    give newBook a unique idea
+add newBook to database</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766320"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766344"><span title="766344,144684,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766344" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9c180f99c2" title="Tue, 21 Oct 2014 11:27:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm9c180f99c2');</script><noscript>Oct 21, 2014 at 11:27am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/omkarborkar95/default.htm"><b>omkarborkar95</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766344">
+Could any of you give me some actual code. <br>
+I am a beginner and even though i have studied till inheritance and stuff..I don't have any practice in that area.<br>
+Any help appreciated.<br>
+Pl write a comment for each code line..
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766344"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766349"><span title="766349,99640,1023,602,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766349" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm82ecf8e670" title="Tue, 21 Oct 2014 12:10:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm82ecf8e670');</script><noscript>Oct 21, 2014 at 12:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ajh32/default.htm"><b>ajh32</b> (602)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766349">
+std::map
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766349"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766351"><span title="766351,144684,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766351" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1965c16709" title="Tue, 21 Oct 2014 12:19:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm1965c16709');</script><noscript>Oct 21, 2014 at 12:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/omkarborkar95/default.htm"><b>omkarborkar95</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766351">
+Okay! working on it...i think std::map might be the fix.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766351"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766353"><span title="766353,111189,1023,3222,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766353" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmccc3066f66" title="Tue, 21 Oct 2014 12:26:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmccc3066f66');</script><noscript>Oct 21, 2014 at 12:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/keskiverto/default.htm"><b>keskiverto</b> (3222)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766353">
+<table class="quote"><tr><td class="qd">I am writing a library database management software.</td></tr></table><br>
+Sounds like reinventing wheel.<br>
+<table class="quote"><tr><td class="qd">I am a beginner ...I don't have any practice in that area.<br>
+Pl write a comment for each code line.</td></tr></table><br>
+Homework then.  Purpose of homework is to learn by doing.  Spoon-feeding code does not help much in the process; it actually makes things worse (IMHO).<br>
+<br>
+You are creating a database within the C++ program.  You must have some vision about how to do it.  What is in your "one book"?  How are you storing multiple books now?  Why is there an book ID? What will it be used for? What are the "management operations" that you have to implement?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766353"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770446"><span title="770446,144684,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770446" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5aaa5be76e" title="Fri, 31 Oct 2014 13:53:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm5aaa5be76e');</script><noscript>Oct 31, 2014 at 1:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/omkarborkar95/default.htm"><b>omkarborkar95</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770446">
+<br>
+1)<table class="quote"><tr><td class="qd">Homework then. Purpose of homework is to learn by doing</td></tr></table> <br>
+Its not homework. I am doing it because i saw it as a project on some website.But i do understand what you are trying to say.<br>
+<br>
+2) <table class="quote"><tr><td class="qd">You are creating a database within the C++ program. You must have some vision about how to do it.</td></tr></table><br>
+I am creating the database by using fstream class. I will create one file each for each book entered in the library by the librarian.<br>
+<br>
+3) <table class="quote"><tr><td class="qd"> How are you storing multiple books now?</td></tr></table><br>
+I am using a structure of book, like so: <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> book
+{
+string name;
+string author;
+string id;
+<var>int</var> qty
+}bk[1000];</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+So i will store the name of the first book by using bk[0].name. Get it?<br>
+<br>
+4) <table class="quote"><tr><td class="qd">Why is there an book ID? What will it be used for?</td></tr></table><br>
+The book id is there, so that the librarian can issue the correct book to the student. In case there are two books with the same name but differing by the year of publication, then the librarian can differentiate between them.<br>
+<br>
+5)<table class="quote"><tr><td class="qd">What are the "management operations" that you have to implement?</td></tr></table><br>
+I librarian can:<br>
+a. Add a student to the library(1 year subscription)<br>
+b. Remove a student from the library(if subscription not renewed)<br>
+c. Add a book to the library.<br>
+d. Remove a book from the library.<br>
+e. Issue a book to a student.<br>
+f. Return a book(by the student).<br>
+<br>
+When the librarian is issuing a book i want him/her to be able to search the book by any substring that forms a part of the book's name, author,year,edition.<br>
+And i will return multiple entries with their book name, author name and book id.<br>
+Then i will ask the librarian one final time for the book code of the book. And thus i will issue that book with the matching book id.<br>
+<br>
+6) <table class="quote"><tr><td class="qd">Spoon-feeding code does not help much in the process; it actually makes things worse (IMHO).</td></tr></table><br>
+Thanks for the tip. I am new to c++ and am trying out a lot of new ways of learning to code, and to make the learning process interesting.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd27ec9743b" title="Fri, 31 Oct 2014 13:56:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmd27ec9743b');</script><noscript>Oct 31, 2014 at 1:56pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770446"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770452"><span title="770452,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770452" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7a4be3f300" title="Fri, 31 Oct 2014 14:09:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm7a4be3f300');</script><noscript>Oct 31, 2014 at 2:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770452">
+<table class="quote"><tr><td class="qd">The book id is there, so that the librarian can issue the correct book to the student. In case there are two books with the same name but differing by the year of publication, then the librarian can differentiate between them.</td></tr></table><br>
+Useful variable names help us understand what your trying to do OP. If you mean the ISBN then just call the variable that.<br>
+<br>
+It sounds like you also need a class to represent a student. Probably just a name, a date of subscription and a container for the books that they have out from the sound of it. You could then store these in an std::vector to make adding and removing them simpler for yourself.<br>
+<br>
+<table class="quote"><tr><td class="qd">When the librarian is issuing a book i want him/her to be able to search the book by any substring that forms a part of the book's name, author,year,edition.</td></tr></table><br>
+That would be what is called a regex. Get the aspirin ready.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770452"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770472"><span title="770472,144684,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770472" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm68bbbad6a2" title="Fri, 31 Oct 2014 15:27:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm68bbbad6a2');</script><noscript>Oct 31, 2014 at 3:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/omkarborkar95/default.htm"><b>omkarborkar95</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770472">
+<table class="quote"><tr><td class="qd">Get the aspirin ready.</td></tr></table><br>
+hahahaha thanks for the help.<br>
+<br>
+Working on regex...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770472"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145537,0,144684,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~181.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

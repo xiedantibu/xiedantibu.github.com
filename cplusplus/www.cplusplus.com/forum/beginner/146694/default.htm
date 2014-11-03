@@ -1,0 +1,530 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146694/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>how to make a priority queue/min heap - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">how to make a priority queue/min heap</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> how to make a priority queue/min heap</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146694,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771276"><span title="771276,153351,1023,23,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771276" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma28b7411e8" title="Sun, 02 Nov 2014 18:11:25 +0000"></span><script type="text/javascript">WhenId('CH_zTma28b7411e8');</script><noscript>Nov 2, 2014 at 6:11pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771276">
+im working on a program and what i have to do is pass in process time of jobs into a priority queue processing min time jobs first. there is also a high priority job which should stop everything and be processed right away which is the 30 with priority 1 job. im stuck on how to do this i have my jobs being created and their processing times done. i am trying to make a function where i would pass thoe processing times in along with priority to put them into the queue to be processed but i have no idea how to implement this. this is my code so far creating all the jobs and process times. ive never used priority queues or heaps and i tried googling it to learn but i just dont understand if any1 can exaplin what to do or how i can achieve this that would be great.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> createjobs(<var>int</var> start)
+{
+
+	<var>int</var> randnum=0;
+	<var>int</var> endtime = 200;
+	srand(time(0));
+	<var>for</var> (<var>int</var> time = 1; 0 &lt; endtime; time++)
+	{
+		<var>int</var> temp1 = 4, temp2 = 9, temp3 = 24, temp4 = 25;
+		<var>if</var> (time % 5 == 0 &amp;&amp; time % 10 == 0 &amp;&amp; time % 25 == 0 &amp;&amp; time % 30==0)
+		{
+			cout &lt;&lt; <kbd>"job 4 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime10(time);
+			randnum = rand() % (3);
+			temp2 = temp2 + randnum;
+			endtime = endtime - temp2;
+			cout &lt;&lt; <kbd>"job 10 temp 2: "</kbd> &lt;&lt; temp2 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime25(time);
+			randnum = rand() % (3);
+			temp3 = temp3 + randnum;
+			endtime = endtime - temp3;
+			cout &lt;&lt; <kbd>"job 25 "</kbd> &lt;&lt; temp3 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 5 == 0 &amp;&amp; time % 10 == 0 &amp;&amp; time % 30 == 0)
+		{
+			cout &lt;&lt; <kbd>"job 6 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5  temp1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime10(time);
+			randnum = rand() % (3);
+			temp2 = temp2 + randnum;
+			endtime = endtime - temp2;
+			cout &lt;&lt; <kbd>"job 10 temp2: "</kbd> &lt;&lt; temp2 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 5 == 0 &amp;&amp; time % 25 == 0 &amp;&amp; time % 30==0)
+		{
+			cout &lt;&lt; <kbd>"job 7 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime25(time);
+			randnum = rand() % (3);
+			temp3 = temp3 + randnum;
+			endtime = endtime - temp3;
+			cout &lt;&lt; <kbd>"job 25 "</kbd> &lt;&lt; temp3 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 5 == 0 &amp;&amp; time % 30==0)
+		{
+			cout &lt;&lt; <kbd>"job 8 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp 1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 5 == 0 &amp;&amp; time % 25==0)
+		{
+			cout &lt;&lt; <kbd>"job 12 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime25(time);
+			randnum = rand() % (3);
+			temp3 = temp3 + randnum;
+			endtime = endtime - temp3;
+			cout &lt;&lt; <kbd>"job 25 "</kbd> &lt;&lt; temp3 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+
+		<var>else</var> <var>if</var> (time % 5 == 0 &amp;&amp; time % 10==0)
+		{
+			cout &lt;&lt; <kbd>"job 13 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp1:  "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime10(time);
+			randnum = rand() % (3);
+			temp2 = temp2 + randnum;
+			endtime = endtime - temp2;
+			cout &lt;&lt; <kbd>"job 10 temp2: "</kbd> &lt;&lt; temp2 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 10 == 0 &amp;&amp; time % 30==0)
+		{
+			cout &lt;&lt; <kbd>"job 9 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime10(time);
+			randnum = rand() % (3);
+			temp2 = temp2 + randnum;
+			endtime = endtime - temp2;
+			cout &lt;&lt; <kbd>"job 10 temp 2: "</kbd> &lt;&lt; temp2 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 10 == 0)
+		{
+			cout &lt;&lt; <kbd>"job 16 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime10(time);
+			randnum = rand() % (3);
+			temp2 = temp2 + randnum;
+			endtime = endtime - temp2;
+			cout &lt;&lt; <kbd>"job 10 temp2 : "</kbd> &lt;&lt; temp2 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 25 == 0)
+		{
+			cout &lt;&lt; <kbd>"job 11 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime25(time);
+			randnum = rand() % (3);
+			temp3 = temp3 + randnum;
+			endtime = endtime - temp3;
+			cout &lt;&lt; <kbd>"job 25 "</kbd> &lt;&lt; temp3 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 5 == 0)
+		{
+			cout &lt;&lt; <kbd>"job 18 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime5(time);
+			randnum = rand() % (3);
+			temp1 = temp1 + randnum;
+			endtime = endtime - temp1;
+			cout &lt;&lt; <kbd>"job 5 temp1: "</kbd> &lt;&lt; temp1 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var> <var>if</var> (time % 30 == 0)
+		{
+			cout &lt;&lt; <kbd>"job 122 time "</kbd> &lt;&lt; time &lt;&lt; endl;
+			addjobtime30(time);
+			randnum = rand() % (11);
+			temp4 = temp4 + randnum;
+			endtime = endtime - temp4;
+			cout &lt;&lt; <kbd>"job 30 "</kbd> &lt;&lt; temp4 &lt;&lt; <kbd>"  randy "</kbd> &lt;&lt; randnum &lt;&lt; <kbd>"end "</kbd> &lt;&lt; endtime &lt;&lt; endl;
+		}
+		<var>else</var>
+		{
+			cout &lt;&lt; <kbd>"shit"</kbd> &lt;&lt; endl;
+		
+		}
+	}
+}
+
+<var>void</var> addjobtime5(<var>int</var> time)
+{
+	<var>int</var> process5time = 1;
+	<var>int</var> randnum = rand() % (6);
+	process5time = process5time + randnum;
+	pass2queue(process5time, 2);
+	cout &lt;&lt; <kbd>"processing time for job 1: "</kbd> &lt;&lt; process5time &lt;&lt; <kbd>"= 1 + "</kbd> &lt;&lt; randnum &lt;&lt; endl;
+	<cite>//cout &lt;&lt; "job 5 time YO ITS DIVISIBLE BY 5-&gt;" &lt;&lt; time &lt;&lt; endl;</cite>
+}
+
+<var>void</var> addjobtime10(<var>int</var> time)
+{
+	<var>int</var> process10time = 6;
+	<var>int</var> randnum = rand() % (6);
+	process10time = process10time + randnum;
+	pass2queue(process10time, 2);
+	cout &lt;&lt; <kbd>"processing time for job 2: "</kbd> &lt;&lt; process10time &lt;&lt; <kbd>"= 6 + "</kbd> &lt;&lt; randnum &lt;&lt; endl;
+	<cite>//cout &lt;&lt; "job 10 time YO ITS DIVISIBLE BY 10 -&gt; " &lt;&lt; time &lt;&lt; endl;</cite>
+}
+
+<var>void</var> addjobtime25(<var>int</var> time)
+{
+	<var>int</var> process25time = 11;
+	<var>int</var> randnum = rand() % (6);
+	process25time = process25time + randnum;
+	pass2queue(process25time, 2);
+	cout &lt;&lt; <kbd>"processing time for job 3: "</kbd> &lt;&lt; process25time &lt;&lt; <kbd>"= 11 + "</kbd> &lt;&lt; randnum &lt;&lt; endl;
+	<cite>//cout &lt;&lt; "job 25 time YO ITS DIVISIBLE BY 25-&gt;" &lt;&lt; time &lt;&lt; endl;</cite>
+}
+<var>void</var> addjobtime30(<var>int</var> time)
+{
+	<var>int</var> process30time = 8;
+	<var>int</var> randnum = rand() % (6);
+	process30time = process30time + randnum;
+	pass2queue(process30time, 1);
+	cout &lt;&lt; <kbd>"processing time for job 4:  "</kbd> &lt;&lt; process30time &lt;&lt; <kbd>"= 8 + "</kbd> &lt;&lt; randnum &lt;&lt; endl;
+	<cite>//cout &lt;&lt; "job 30 time YO ITS DIVISIBLE BY 30-&gt;" &lt;&lt; time &lt;&lt; endl;</cite>
+}
+
+<var>void</var> pass2queue(<var>int</var> processtime, <var>int</var> priority)
+{
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771276"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771300"><span title="771300,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771300" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7f2e09db00" title="Sun, 02 Nov 2014 19:31:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm7f2e09db00');</script><noscript>Nov 2, 2014 at 7:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771300">
+priority_queue is part of the STL. Just use that.<br>
+<a href="../../../reference/queue/priority_queue/default.htm">http://www.cplusplus.com/reference/queue/priority_queue/</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771300"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771306"><span title="771306,153351,1023,23,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771306" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4b3454d4d7" title="Sun, 02 Nov 2014 19:36:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm4b3454d4d7');</script><noscript>Nov 2, 2014 at 7:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771306">
+@dhayden<br>
+i was trying to do that but it didnt work with me i was just trying to store it in a regular queue and that wasnt really working when im trying to print it out<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> pass2queue(<var>int</var> processtime, <var>int</var> priority, <var>int</var> endtime)
+{
+	<var>int</var> holder = endtime;
+	<var>int</var> protime = processtime;
+	cout &lt;&lt; <kbd>" THE DAM FUCKIN END TIME "</kbd> &lt;&lt; holder &lt;&lt; <kbd>" pro time "</kbd> &lt;&lt; protime &lt;&lt; endl;
+	queue&lt;<var>int</var>&gt;myqueue;
+	<var>if</var> (holder &gt;= 0)
+	{
+		cout &lt;&lt; <kbd>"stored "</kbd> &lt;&lt; protime &lt;&lt; <kbd>" in queue "</kbd> &lt;&lt; endl;
+		myqueue.push(protime);
+	}
+	<var>else</var> <var>if</var> (holder &lt; 0)
+	{
+		printqueue(myqueue);
+	}
+}
+
+<var>void</var> printqueue(queue&lt;<var>int</var>&gt; myqueue)
+{
+	cout &lt;&lt; <kbd>" WE OUTH ERE "</kbd> &lt;&lt; endl;
+	queue&lt;<var>int</var>&gt;holderq = myqueue;
+	cout &lt;&lt; myqueue.front() &lt;&lt; <kbd>"   fsf "</kbd> &lt;&lt; endl;
+	<var>while</var> (!holderq.empty())
+	{
+		cout &lt;&lt; holderq.front() &lt;&lt; <kbd>" top of queue"</kbd> &lt;&lt; endl;
+		holderq.pop();
+	}
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771306"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771312"><span title="771312,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771312" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf4feda2735" title="Sun, 02 Nov 2014 19:51:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmf4feda2735');</script><noscript>Nov 2, 2014 at 7:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771312">
+In your example, myqueue is a local variable and you are either adding something to it (lines 9-10) or printing it out (line 14) but not both, so you're guaranteed to print an empty queue only.<br>
+<br>
+Your priority queue must be part of the class or passed into pass2queue by reference etc.  Also, what's in the priority queue probably has to be a class containing the process priority, remaining process runtime, maybe process id. You might call it class Process :).  Add an <span class="auto"><code class="source"><var>operator</var> &lt;()</code></span> to sort the Jobs by priority.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771312"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771319"><span title="771319,153421,1023,6,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771319" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm569e217d3f" title="Sun, 02 Nov 2014 20:07:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm569e217d3f');</script><noscript>Nov 2, 2014 at 8:07pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/danghotties/default.htm"><b>danghotties</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771319">
+As dhayden suggested, you can modify the STL priority queue. You can declare a modified priority queue like:<br>
+<span class="auto"><code class="source">priority_queue&lt;Job, vector&lt;Job&gt;, <kbd>"Some comparative here"</kbd>&gt; myQueue;</code></span><br>
+This means that the priority queue is filled with a class Job, which can have your different times and priority in it; it uses a vector for queue storage, and the last one is the comparing method on how to sort things within the queue.<br>
+You can make your own operator overload class function to tell the queue how you want things sorted. Since you said by processing times, you can make a class function that overloads () and takes in two types of jobs, compares their processing time, and return true/false if one job is lower processing time than the other.<br>
+<br>
+Check out this website: <a href="../../../../comsci.liu.edu/~jrodriguez/cs631sp08/cpriorityqueue.html">http://comsci.liu.edu/~jrodriguez/cs631sp08/c++priorityqueue.html</a><br>
+About half way down the page is what I'm talking about.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmfc608cc305" title="Sun, 02 Nov 2014 20:09:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmfc608cc305');</script><noscript>Nov 2, 2014 at 8:09pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771319"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771320"><span title="771320,153351,1023,23,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771320" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma4e1b0dcc6" title="Sun, 02 Nov 2014 20:09:16 +0000"></span><script type="text/javascript">WhenId('CH_zTma4e1b0dcc6');</script><noscript>Nov 2, 2014 at 8:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771320">
+@dhayden <br>
+ok so i think my first problem is i dont have a class. never learned them too well so i need a class to make the priority queue to work?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771320"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771322"><span title="771322,153351,1023,23,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771322" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd85f2acdc6" title="Sun, 02 Nov 2014 20:10:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmd85f2acdc6');</script><noscript>Nov 2, 2014 at 8:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771322">
+what i was trying to do it while the endtime is greater than 0 add the stuff to the queue then when the endtime goes below 0 it would print it all out 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771322"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771327"><span title="771327,153351,1023,23,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771327" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm19991a90f6" title="Sun, 02 Nov 2014 20:29:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm19991a90f6');</script><noscript>Nov 2, 2014 at 8:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771327">
+@danghotties<br>
+so like when you delcare all those things inside the priority queue and class it will automatically run those each time some thing is put into it automatically storing it??
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771327"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771343"><span title="771343,153421,1023,6,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771343" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm15f3533022" title="Sun, 02 Nov 2014 21:58:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm15f3533022');</script><noscript>Nov 2, 2014 at 9:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/danghotties/default.htm"><b>danghotties</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771343">
+Yes, any time you push/pop to/from queue it will adjust itself based on the specifications you made when declared.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771343"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771353"><span title="771353,153351,1023,23,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771353" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3e921c40de" title="Sun, 02 Nov 2014 23:01:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm3e921c40de');</script><noscript>Nov 2, 2014 at 11:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andrewthecoder/default.htm"><b>andrewthecoder</b> (23)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771353">
+@danghotties <br>
+Ok now it's starting to make more sense ima go try it see what I can do :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771353"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146694,0,153351,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~219.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

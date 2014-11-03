@@ -1,0 +1,253 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/general/77963/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C++ - Dynamic memory allocation and clas - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">C++ - Dynamic memory allocation and clas</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> C++ - Dynamic memory allocation and class composition</h3><span id="CH_edttl"></span><span class="rootdatPost" title="77963,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg419883"><span title="419883,71739,1023,43,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg419883" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm94a480790d" title="Tue, 28 Aug 2012 07:45:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm94a480790d');</script><noscript>Aug 28, 2012 at 7:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/henri_korpela/default.htm"><b>Henri Korpela</b> (43)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i419883">
+Hello!<br>
+<br>
+Lately I have wondered how should a composition be implemented when it comes to adding objects within an object. Here's a simple piece of code to demonstrate the use:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>X x;
+Y y;
+x.insert(y);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+As you can see, object y will be inserted into object x. But how? This is what I'm wondering. Here's the implementation of class X:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> X{
+<var>public</var>:
+	<cite>/// Constructors &amp; destructors:</cite>
+	X(<var>void</var>) : _m_opY(<var>nullptr</var>){
+	
+	}
+	~X(<var>void</var>){
+		<var>if</var>(_m_opY != <var>nullptr</var>)
+			<var>delete</var> _m_opY;
+	}
+	<cite>/// Member functions:</cite>
+	X&amp; extract(Y <var>const</var>&amp; y){
+		<var>delete</var> _m_opY;
+		_m_opY = <var>nullptr</var>;
+	}
+	X&amp; insert(Y <var>const</var>&amp; y){
+		_m_opY = <var>new</var> Y(y);
+	}
+<var>private</var>:
+	<cite>/// Member data:</cite>
+	Y* _m_opY;
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now, is this a good idea? I've heard that the use of dynamic memory allocation should be avoided whenever possible. Prefer stack, right? Well, if that's the case here, there might some kind of danger when it comes to using this class. Can you guess what the problem is? It's the problem that appears after the object y falls out scope:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>X x;
+Y y;
+x.insert(y);
+
+<cite>// Y goes out scope, x points to a non-existing object if I'd use stack instead of heap. </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+So, is the use of heap justified here?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn419883"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg419893"><span title="419893,39415,1023,4153,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg419893" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5462139f6d" title="Tue, 28 Aug 2012 08:08:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm5462139f6d');</script><noscript>Aug 28, 2012 at 8:08am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/coder777/default.htm"><b>coder777</b> (4153)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i419893">
+<table class="quote"><tr><td class="qd">So, is the use of heap justified here?</td></tr></table>I depends.<br>
+The issue isn't stack vs heap. The issue is whether to copy the data or not.<br>
+<br>
+You can copy the data if it's not too much.<br>
+You must not copy the data when the data contains pointer or inheritance is involved.<br>
+<br>
+When it comes to variable size data you do not have a choice but to use dynamic memory allocation.<br>
+<br>
+<table class="quote"><tr><td class="qd">Y goes out scope, x points to a non-existing object if I'd use stack instead of heap.</td></tr></table>In your scenario x goes out of scope as well. Even if not. if line 21 would look like <span class="auto"><code class="source">Y _m_opY;</code></span> you had a copy of y. So no problem<br>
+<br>
+[EDIT]<br>
+by the way:<br>
+This is a copy anyway: <span class="auto"><code class="source">_m_opY = <var>new</var> Y(y);</code></span><br>
+[/EDIT]
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm02621aab93" title="Tue, 28 Aug 2012 08:25:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm02621aab93');</script><noscript>Aug 28, 2012 at 8:25am UTC</noscript></span>
+<span class="dbtn" id="CH_btn419893"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg420035"><span title="420035,71739,1023,43,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg420035" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd59d24afb8" title="Tue, 28 Aug 2012 15:13:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmd59d24afb8');</script><noscript>Aug 28, 2012 at 3:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/henri_korpela/default.htm"><b>Henri Korpela</b> (43)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i420035">
+Thanks, <b>coder777</b>. I forgot to specify that object x is supposed to contain object y by reference. That way I can modify object y and see the effects also in object x. Here's an example:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code>Character bob;
+Health health;
+
+bob.insert(health);
+
+health -= 15; <cite>// Affects object "bob". </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And here's a little fix (should be correct now):<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>X&amp; insert(Y <var>const</var>&amp; y){
+	_m_opY = <var>new</var> Y;
+	_m_opY = &amp;y;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+So, should I use dynamic memory allocation in this case?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc337c74155" title="Tue, 28 Aug 2012 15:44:52 +0000"></span><script type="text/javascript">WhenId('CH_zTmc337c74155');</script><noscript>Aug 28, 2012 at 3:44pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn420035"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg420048"><span title="420048,34858,1023,4466,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg420048" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd306efa092" title="Tue, 28 Aug 2012 15:35:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmd306efa092');</script><noscript>Aug 28, 2012 at 3:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/athar/default.htm"><b>Athar</b> (4466)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i420048">
+<table class="quote"><tr><td class="qd">And here's a little fix (should be correct now):</td></tr></table><br>
+No, you're allocating memory and you lose the pointer to it in the next line. That's a classic memory leak.<br>
+Drop the first line, it's pointless.<br>
+<br>
+<table class="quote"><tr><td class="qd">So, should I use dynamic memory allocation in this case? </td></tr></table><br>
+That depends on whether "health" outlives "bob". As I see it, health should be a member of Character.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn420048"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(77963,1,71739,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~336.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

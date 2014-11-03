@@ -1,0 +1,241 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/139169/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>@ limburger Parsing Text File Contents - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">@ limburger Parsing Text File Contents</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico comment" title="comment">&nbsp;</div> @ limburger Parsing Text File Contents</h3><span id="CH_edttl"></span><span class="rootdatPost" title="139169,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg736322"><span title="736322,94088,1023,4423,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736322" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1f7f197f99" title="Fri, 25 Jul 2014 16:03:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm1f7f197f99');</script><noscript>Jul 25, 2014 at 4:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736322">
+Sorry I had to start a new thread. There's a forum bug which blocks me from replying in the original thread:<br>
+<a href="../139091/default.htm">http://www.cplusplus.com/forum/windows/139091/</a><br>
+<br>
+<br>
+I was hoping to find a complete compilable, runnable program, such as this:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;windows.h&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+
+<var>int</var> WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, <var>int</var> nCmdShow) 
+{
+    std::ifstream ifs(<kbd>"E:\\StateFile.txt"</kbd>);
+    
+    <var>if</var> (ifs.is_open())    
+        MessageBoxA(NULL, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_ICONINFORMATION);
+    <var>else</var>
+        MessageBoxA(NULL, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);
+     
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now that code works ok. However, If I add an extra line, like this:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;windows.h&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+
+<var>int</var> WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, <var>int</var> nCmdShow) 
+{
+
+<b>    HANDLE StateFile = CreateFile(<kbd>"E:\\StateFile.txt"</kbd>, GENERIC_ALL, 0, NULL, 
+        OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, SECURITY_ANONYMOUS);</b> 
+
+    std::ifstream ifs(<kbd>"E:\\StateFile.txt"</kbd>);
+    
+    <var>if</var> (ifs.is_open())    
+        MessageBoxA(NULL, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_ICONINFORMATION);
+    <var>else</var>
+        MessageBoxA(NULL, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);
+     
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ then it will fail. There's no reason to use both the Windows as well as the C++ stream to access the file. The <span class="auto"><code class="source">CreateFile()</code></span> here grabs exclusive control of the file, thus preventing any other access. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736322"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736329"><span title="736329,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736329" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0e537e5a31" title="Fri, 25 Jul 2014 16:21:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm0e537e5a31');</script><noscript>Jul 25, 2014 at 4:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736329">
+hmm I took out the statefile script and it still failed on reboot.  did you want me to post the entire code?  Its about 300 lines haha.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736329"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736339"><span title="736339,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736339" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0164e13fcf" title="Fri, 25 Jul 2014 16:34:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm0164e13fcf');</script><noscript>Jul 25, 2014 at 4:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736339">
+<table class="quote"><tr><td class="qd">did you want me to post the entire code? Its about 300 lines haha.</td></tr></table><br>
+I was hoping you would post the entire code, with all the non-relevant parts removed. As it is, the code which I'm running is not the same as the code which you are running, so there's little chance of finding a solution. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736339"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736340"><span title="736340,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736340" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm243de9ea12" title="Fri, 25 Jul 2014 16:41:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm243de9ea12');</script><noscript>Jul 25, 2014 at 4:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736340">
+hmm did you maybe want to pm me your email address and i can send you the .cpp?  I don't want giving you anything that might be important, up to you otherwise I can post the script in here.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736340"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736346"><span title="736346,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736346" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1a3c0c52d2" title="Fri, 25 Jul 2014 17:06:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm1a3c0c52d2');</script><noscript>Jul 25, 2014 at 5:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736346">
+actually I tested it a few more times after that and it is opening the statefile and reporting the values so I think that part is good.  Is there a way that following it reading those values I can have it go to the CASE ID_INSTALL:?  Or is there some other way I should have it initilize installing again?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736346"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736554"><span title="736554,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736554" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc6eb5dfca3" title="Sat, 26 Jul 2014 07:43:09 +0000"></span><script type="text/javascript">WhenId('CH_zTmc6eb5dfca3');</script><noscript>Jul 26, 2014 at 7:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736554">
+I'm glad that the original problem is apparently resolved. <br>
+<br>
+As for the follow-up question, i feel I'm out of my depth here. Either my knowledge of Windows software development isn't great enough (others here may be better placed), or a lack of a clear view of the code as a whole leaves me a bit out of my depth here. I was certainly willing to follow up on the original question, but maybe it's time for me to withdraw, rather than promise something I can't deliver. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736554"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(139169,1,94088,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~546.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

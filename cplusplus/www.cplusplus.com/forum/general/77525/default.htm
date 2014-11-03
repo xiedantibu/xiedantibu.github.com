@@ -1,0 +1,528 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/general/77525/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>help with unhandled exception - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">help with unhandled exception</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> help with unhandled exception</h3><span id="CH_edttl"></span><span class="rootdatPost" title="77525,root,0,-1,17,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg417175"><span title="417175,92079,1023,14,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417175" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmddb1c92c2f" title="Mon, 20 Aug 2012 08:19:13 +0000"></span><script type="text/javascript">WhenId('CH_zTmddb1c92c2f');</script><noscript>Aug 20, 2012 at 8:19am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417175">
+Hi,<br>
+I'm working with a code that I found online. After I resolved all the errors I tried to run the program, but it keeps giving me an unhandled exception. <br>
+<br>
+This is everything that is standing in the output window:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>
+'test.exe': Loaded 'C:\Users\dorien\Documents\school\masterproef\freecell\solver\test\Debug\test.exe', Symbols loaded.
+'test.exe': Loaded 'C:\Windows\SysWOW64\ntdll.dll', Cannot find or open the PDB file
+'test.exe': Loaded 'C:\Windows\SysWOW64\kernel32.dll', Cannot find or open the PDB file
+'test.exe': Loaded 'C:\Windows\SysWOW64\KernelBase.dll', Cannot find or open the PDB file
+'test.exe': Loaded 'C:\Windows\SysWOW64\msvcr100d.dll', Symbols loaded.
+First-chance exception at 0x011b68b0 in test.exe: 0xC0000005: Access violation reading location 0xcdcdcedd.
+Unhandled exception at 0x76f415de in test.exe: 0xC0000005: Access violation reading location 0xcdcdcedd.
+The program '[3092] test.exe: Native' has exited with code -1073741819 (0xc0000005).
+</samp></pre></td></tr></table></div><br>
+<br>
+Does anyone know what the problem is?<br>
+Or what is located at reading location 0xcdcdcedd?<br>
+<br>
+Any help is welcome.<br>
+<br>
+Cheers,<br>
+Dorien
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417175"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417178"><span title="417178,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417178" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf61e065db7" title="Mon, 20 Aug 2012 08:30:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmf61e065db7');</script><noscript>Aug 20, 2012 at 8:30am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417178">
+It's program error.  You'll have to post the relevant part of your code.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417178"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417181"><span title="417181,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417181" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm69c62772fe" title="Mon, 20 Aug 2012 08:50:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm69c62772fe');</script><noscript>Aug 20, 2012 at 8:50am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417181">
+This is the part that gives the exception:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code><var>for</var> (j=0; j&lt;2; j++) {
+			Loc where1 = Where(via, onto) + 1;
+			<var>if</var> (AtBottom(via, onto) &amp;&amp; OkayToMove(via, moved, where1)) {
+				TryMove(via, moved, where1, MV_TFULL);
+				intab |= (1 &lt;&lt; i);
+			}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417181"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417183"><span title="417183,53221,1023,1383,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417183" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf4329efb6" title="Mon, 20 Aug 2012 08:58:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf4329efb6');</script><noscript>Aug 20, 2012 at 8:58am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/xander314/default.htm"><b>Xander314</b> (1383)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417183">
+We'll need to see some more code than that. As a starting point, we could need to see the functions <span class="auto"><code class="source">Where, AtButtom, OkayToMove</code></span> and <span class="auto"><code class="source">TryMove</code></span>.<br>
+<br>
+Before you show us the code though, perhaps you could use your debugger to work out exactly which line is causing a problem.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417183"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417193"><span title="417193,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417193" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8a673e1b18" title="Mon, 20 Aug 2012 09:14:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm8a673e1b18');</script><noscript>Aug 20, 2012 at 9:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417193">
+I debugged the code again and it gives the same error message, but now it stops in crtexe.c at this code:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>void</var>
+        )
+{
+        <cite>/*
+         * The /GS security cookie must be initialized before any exception
+         * handling targetting the current image is registered.  No function
+         * using exception handling can be called in the current image until
+         * after __security_init_cookie has been called.
+         */</cite>
+        __security_init_cookie();
+
+        <var>return</var> __tmainCRTStartup();
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+This is the last part of code that it executed.<br>
+<br>
+<span class="auto"><code class="source"><var>return</var> __tmainCRTStartup();</code></span>	<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417193"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417195"><span title="417195,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417195" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1e89fbecf4" title="Mon, 20 Aug 2012 09:33:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm1e89fbecf4');</script><noscript>Aug 20, 2012 at 9:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417195">
+You need the program to stop in the debugger.  Once that's happened, look at the call stack, you should recognise some part of your program very near the top of the call stack.<br>
+<br>
+If the an exception has been thrown, then you will loose that context.  But we don't think that's what's happening here.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417195"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417196"><span title="417196,49329,1023,5981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417196" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm177dec10d2" title="Mon, 20 Aug 2012 09:40:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm177dec10d2');</script><noscript>Aug 20, 2012 at 9:40am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/moschops/default.htm"><b>Moschops</b> (5981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417196">
+The value 0xCDCDCDCD is used by Microsoft's C++ debugging runtime library to mark uninitialised heap memory. You are trying to read a location suspiciously similar to that, which suggests to me that you are interpreting uninitialised heap memory as a pointer, carrying out some kind of pointer arithmetic (adding 0x110, or 272 in decimal), and then trying to dereference the pointer, which now has the value 0xcdcdcedd - and then the OS stops you from reading that location, as it should.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417196"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417201"><span title="417201,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417201" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1cc9f295ff" title="Mon, 20 Aug 2012 09:55:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm1cc9f295ff');</script><noscript>Aug 20, 2012 at 9:55am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417201">
+This is the upper line of the call stack:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>test.exe!DFS(pos_struct * via)  Line 3761 + 0x18 bytes	</samp></pre></td></tr></table></div><br>
+If I doubleclick it, it jumps to this part of the code:<br>
+<br>
+<span class="auto"><code class="source">TryMove(via, moved, where1, MV_TFULL)</code></span><br>
+<br>
+The second line of the call stack :<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>test.exe!Search(int permuted)  Line 3936 + 0x11 bytes	
+
+</samp></pre></td></tr></table></div><br>
+<br>
+If I doubleclick this it jumps to this part of the code:<br>
+<span class="auto"><code class="source"><var>if</var> (success == IMPOSSIBLE <cite>/* i.e., 0 */</cite>) DFS(pos0);</code></span><br>
+<br>
+This is the prototype of the DFS function:<br>
+<span class="auto"><code class="source"><var>static</var> <var>void</var> DFS(Position *pos);</code></span><br>
+<br>
+This is the DFS function:<br>
+<span class="auto"><code class="source"><var>static</var> <var>void</var> DFS(Position *via) </code></span><br>
+<br>
+Does this help?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417201"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417212"><span title="417212,49329,1023,5981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417212" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm244ea76f83" title="Mon, 20 Aug 2012 10:44:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm244ea76f83');</script><noscript>Aug 20, 2012 at 10:44am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/moschops/default.htm"><b>Moschops</b> (5981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417212">
+If you build with debug symbols included, you'll get more information. Ideally, you should debug the code and interrogate the vale of the parameters being used at the bad line - one or more of them is a bad value.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417212"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417636"><span title="417636,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417636" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm77aa55bdef" title="Tue, 21 Aug 2012 11:19:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm77aa55bdef');</script><noscript>Aug 21, 2012 at 11:19am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417636">
+I figured out where the error is located, it's in the TryMove function:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>static</var> <var>void</var> TryMove(Position *via, Card card, Loc whither, <var>int</var> whatType)
+    <cite>/* Position *via; Card card; Loc whither; int whatType;*/</cite>
+{
+	<var>int</var> dup = <var>false</var>;
+	<var>int</var> atEntry;
+	Position *pos;
+	Position *temp;
+
+	depth++;
+	<var>if</var> (via-&gt;deeper == NULL) {
+		via-&gt;deeper = (Position *)malloc(<var>sizeof</var>(Position));
+		via-&gt;deeper-&gt;deeper = NULL;
+	}
+	pos = via-&gt;deeper;
+
+	temp = pos-&gt;deeper;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+The program stops while trying to perform the last line.<br>
+I think that the malloc function returns a null pointer and than pos is also turned into a null pointer. So the program crashes when it tries to use pos as a pointer.<br>
+<br>
+Does anyone now how I can solve this problem?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417636"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417659"><span title="417659,49329,1023,5981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417659" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf5c5c91b27" title="Tue, 21 Aug 2012 13:01:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmf5c5c91b27');</script><noscript>Aug 21, 2012 at 1:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/moschops/default.htm"><b>Moschops</b> (5981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417659">
+malloc returns null if it can't get enough memory. Either require less memory, or increase the amount of memory the OS has to hand out.<br>
+<br>
+Also, I'd put this in once<br>
+<span class="auto"><code class="source">cout &lt;&lt; <var>sizeof</var>(Position); </code></span><br>
+to check that you're not asking for some utterly ridiculous amount of memory.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417659"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417669"><span title="417669,39415,1023,4153,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417669" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbbe73d4e78" title="Tue, 21 Aug 2012 13:39:13 +0000"></span><script type="text/javascript">WhenId('CH_zTmbbe73d4e78');</script><noscript>Aug 21, 2012 at 1:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/coder777/default.htm"><b>coder777</b> (4153)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417669">
+Reading <span class="auto"><code class="source">pos_struct</code></span> make me think that it does not initialize it's members (like <span class="auto"><code class="source">deeper</code></span>) and so <span class="auto"><code class="source">deeper</code></span> is always non null.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417669"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417917"><span title="417917,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417917" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm724aff8b87" title="Wed, 22 Aug 2012 07:35:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm724aff8b87');</script><noscript>Aug 22, 2012 at 7:35am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417917">
+<table class="quote"><tr><td class="qd">Also, I'd put this in once<br>
+ cout &lt;&lt; sizeof(Position); <br>
+to check that you're not asking for some utterly ridiculous amount of memory.</td></tr></table><br>
+<br>
+I've checked the size of Position and this is 276. So I don't think that this is the cause of my problem.<br>
+<br>
+<table class="quote"><tr><td class="qd">Reading pos_struct make me think that it does not initialize it's members (like deeper) and so deeper is always non null. </td></tr></table><br>
+<br>
+This is the code of pos_struct:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>typedef</var> <var>struct</var> pos_struct {
+	uchar	foundations[4];
+	Card	hold[4];
+	uchar	colSeq[8];	<cite>/* sorted order for tableau columns */</cite>
+	Column	tableau[8];
+	Loc	location[52];
+	Move	how;		<cite>/* move that got us here */</cite>
+	uchar	dontMoveTo;	<cite>/* bitmap: cols that must shrink b4 growing */</cite>
+	uchar	dontMoveFrom;	<cite>/* bitmap: cols that must grow b4 shrinking */</cite>
+	uchar	goodcols;	<cite>/* columns w/ potential forced found'n moves */</cite>
+	<var>long</var>	swappable;	<cite>/* bitmap of swappable pairs */</cite>
+	<var>long</var>	swapped;	<cite>/* pairs that have been swapped */</cite>
+	<var>struct</var> pos_struct *via;	  <cite>/* position from which this was reached */</cite>
+	TreeEntry *tree;	<cite>/* hash table entry for this position */</cite>
+	<var>struct</var> pos_struct *deeper; <cite>/* where to build next deeper position */</cite>
+} Position;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I think that there is something wrong with via and deeper. While debugging they both have things like bad pointer standing in the locals window.<br>
+ I've never worked with struct before, so I don't really know how to solve this.<br>
+<br>
+Can anyone help me with this?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417917"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417922"><span title="417922,39415,1023,4153,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417922" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmace388cde3" title="Wed, 22 Aug 2012 07:43:10 +0000"></span><script type="text/javascript">WhenId('CH_zTmace388cde3');</script><noscript>Aug 22, 2012 at 7:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/coder777/default.htm"><b>coder777</b> (4153)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417922">
+when creating a variable of type <span class="auto"><code class="source">Position</code></span> always set it to zero, like so:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>Position *pos = (Position *)malloc(<var>sizeof</var>(Position));
+memset(pos, 0, <var>sizeof</var>(Position));
+...
+via-&gt;deeper = (Position *)malloc(<var>sizeof</var>(Position));
+memset(via-&gt;deeper, 0, <var>sizeof</var>(Position));</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+This way you will ever have reliable values.<br>
+<br>
+See: <a href="../../../../cplusplus.com/reference/clibrary/cstring/memset/default.htm">http://cplusplus.com/reference/clibrary/cstring/memset/</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417922"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417928"><span title="417928,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417928" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2507b937ac" title="Wed, 22 Aug 2012 08:33:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm2507b937ac');</script><noscript>Aug 22, 2012 at 8:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417928">
+I've changed the code like you said, but this doesn't solve the error.<br>
+Only pos changes: it goes from 0xcccccccc to 0x00564c80.<br>
+But via -&gt; deeper stays 0xcdcdcdcd. <br>
+So after this code: <span class="auto"><code class="source">pos = via-&gt;deeper;</code></span><br>
+pos is also changed into 0xcdcdcdcd.<br>
+<br>
+The problem is that pos-&gt;via, pos-&gt;deeper, via-&gt;via and via-&gt;deeper are wrong. They either have the value 0x00000000 or 0xcdcdcdcd.<br>
+<br>
+I don't know how to solve this, all the rest of the struct pos_struct is loading fine. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417928"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417935"><span title="417935,39415,1023,4153,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417935" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb5ed40f6c6" title="Wed, 22 Aug 2012 09:09:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmb5ed40f6c6');</script><noscript>Aug 22, 2012 at 9:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/coder777/default.htm"><b>coder777</b> (4153)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417935">
+The problem is that there are more uninitialzed objects. You know that when you see 0xcdcdcdcd. The compiler fills (in debug mode) an uninitialzed variable with 0xcdcdcdcd.<br>
+<br>
+You need to find all places where objects are created and not set to 0. That's the problem when a struct/class doesn't initialize it's members.<br>
+<br>
+When you delete/free such an object you must make sure that all variables that contain a pointer to this object (i.e. via/deeper) are set to NULL.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417935"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg417961"><span title="417961,92079,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg417961" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcd5e9414a3" title="Wed, 22 Aug 2012 11:56:54 +0000"></span><script type="text/javascript">WhenId('CH_zTmcd5e9414a3');</script><noscript>Aug 22, 2012 at 11:56am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dorien/default.htm"><b>dorien</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i417961">
+I found the problem: I accidentally changed 1 line into comment. This line happened to be the initialisation of 1 of the objects.<br>
+<br>
+Thanks for all of your help!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn417961"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(77525,1,92079,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~346.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

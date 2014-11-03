@@ -1,0 +1,439 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/articles/4860/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>strtok uses - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Articles</a></li>
+<li class="here">strtok uses</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> strtok uses</h3><span id="CH_edttl"></span><span class="rootdatPost" title="4860,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg21217"><span title="21217,15483,1023,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg21217" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0eb7e6c63c" title="Wed, 15 Oct 2008 05:39:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm0eb7e6c63c');</script><noscript>Oct 15, 2008 at 5:39am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/spacemanjones/default.htm"><b>spacemanjones</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i21217">
+First off, I visit this site quite regularly, but I've never posted. I find lots of help here and thought I'd return the favor. I recently worked on a project that required I use the strtok function. A problem I was running into was that the strtok was changing my original variable. I finally was able to fix my problem to get a successful copy to tokenize without changing the original. <br>
+<br>
+<br>
+<br>
+A little background: This is set up as a function of a child class. The char variable is obviously declared elsewhere, but I showed it for the sake of clarity. Also, strcpy_s was used because I have VS, however strcpy works also (parameters would be different). Hopefully with the comments, the rest of the code is clear enough to be understood easily:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>char</var> decimalNumber[] = <kbd>"12.34"</kbd>;
+
+<var>int</var> ChildClass::getNumberBeforeDecimal()
+{
+	<var>char</var> numBeforeDecimal[6]=<kbd>""</kbd>;
+	<var>char</var>* token; 
+
+	strcpy_s(numBeforeDecimal,                   <cite>//copying decimalNumber</cite>
+            <var>sizeof</var>(numBeforeDecimal),decimalNumber); <cite>//to numBeforeDecimal</cite>
+                                                
+
+	strtok(numBeforeDecimal, <kbd>"."</kbd>);
+	token = strtok(NULL, <kbd>"."</kbd>); <cite>//should assign "12" to token</cite>
+	
+	<var>return</var> atoi(token);  <cite>//converts the token and returns 12</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now, I haven't tested this <i>exact</i> code (feel free to correct it if I made a mistake). I took the code that I originally had written (yes, it worked!) and tried to make it generic enough to be understood without screwing it up. Oh, and <b>I know there's an easier way of getting numbers before a decimal.</b> This is just for the purpose of helping understand one use of strtok. With little effort this could be used to return the numbers after the decimal.<br>
+<br>
+Feel free to post other uses of strtok if you want.<br>
+<br>
+Peace,<br>
+S. Jones
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn21217"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg21279"><span title="21279,11177,1023,2730,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg21279" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm61ea4a2bda" title="Wed, 15 Oct 2008 18:39:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm61ea4a2bda');</script><noscript>Oct 15, 2008 at 6:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zaita/default.htm"><b>Zaita</b> (2730)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i21279">
+If you wanted to have a copy of it before you used <span class="auto"><code class="source">strtok()</code></span> you could've just done.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>string copy = original;
+strtok(original, <kbd>"."</kbd>);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn21279"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg23356"><span title="23356,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg23356" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9c55cb3260" title="Sun, 02 Nov 2008 02:39:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm9c55cb3260');</script><noscript>Nov 2, 2008 at 2:39am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i23356">
+I think that is exactly the part that trips most people up, and the reason for the OP's post. The documentation really should have an x-large, bold text in strobing read and orange that says:<br>
+<br>
+<div class="centertext"><b>strtok</b>()<b> <i>changes</i> your string!</b></div><br>
+<br>
+This can be a particular problem if you are messing with const or const-reference data, and just tell the C++ compiler to shut-up about the argument type warning.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn23356"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg23831"><span title="23831,16192,255,1,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg23831" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm13f057e5b1" title="Thu, 06 Nov 2008 20:21:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm13f057e5b1');</script><noscript>Nov 6, 2008 at 8:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/maaxiim/default.htm"><b>maaxiim</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i23831">
+I think you would be better refactoring the code to use strtok_r instead of strtok as it is inherently thread-unsafe (strtok that is). For an example of why strtok_r would be better, consider this SSCCE:<br>
+<br>
+(I changed use of strcpy_s to the more widely implemented strlcpy)<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;strings.h&gt;</dfn>
+
+<var>int</var> getNumberBeforeDecimal(<var>char</var> *decimalNumber)
+{
+	<var>char</var> numBeforeDecimal[6]=<kbd>""</kbd>;
+	<var>char</var>* token; 
+
+	strlcpy(numBeforeDecimal,decimalNumber, <var>sizeof</var>(numBeforeDecimal));
+
+	strtok(numBeforeDecimal, <kbd>"."</kbd>);
+	token = strtok(NULL, <kbd>"."</kbd>);
+	
+	<var>return</var> atoi(token);
+}
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+  <var>char</var> s[] = <kbd>"14.23:23.41"</kbd>;
+  
+  <var>char</var> *tok = strtok(s,<kbd>":"</kbd>);
+  <var>while</var>(tok!=NULL) {
+     <var>int</var> num = getNumberBeforeDecimal(tok);
+     tok = strtok(NULL, <kbd>":"</kbd>);
+     printf(<kbd>"pre-decimal: %d\n"</kbd>, num); 
+  }
+  
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+All going well, you would expect to see:<br>
+<br>
+pre-decimal: 23<br>
+pre-decimal: 41<br>
+<br>
+but instead you see<br>
+<br>
+pre-decimal: 23<br>
+<br>
+This is because the inner nested strtok call of your method overwrote the outer strtok cursor (strtok uses a static char * to keep a ref to the cursor).<br>
+<br>
+A better solution would be:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;strings.h&gt;</dfn>
+
+<var>int</var> getNumberBeforeDecimal(<var>char</var> *decimalNumber)
+{
+	<var>char</var> numBeforeDecimal[6]=<kbd>""</kbd>;
+	<var>char</var> *token, *p; 
+
+	strlcpy(numBeforeDecimal,decimalNumber, <var>sizeof</var>(numBeforeDecimal));
+
+	strtok_r(numBeforeDecimal, <kbd>"."</kbd>, &amp;p);
+	token = strtok_r(NULL, <kbd>"."</kbd>, &amp;p);
+	
+	<var>return</var> atoi(token);
+}
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+  <var>char</var> s[] = <kbd>"14.23:23.41"</kbd>, *p;
+  
+  <var>char</var> *tok = strtok_r(s,<kbd>":"</kbd>, &amp;p);
+  <var>while</var>(tok!=NULL) {
+     <var>int</var> num = getNumberBeforeDecimal(tok);
+     tok = strtok_r(NULL, <kbd>":"</kbd>, &amp;p);
+     printf(<kbd>"pre-decimal: %d\n"</kbd>, num); 
+  }
+  
+  <var>return</var> 0;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now, as expected, the output is:<br>
+<br>
+[mackco00:/prv/src] $ ./testTok<br>
+pre-decimal: 23<br>
+pre-decimal: 41
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn23831"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg27665"><span title="27665,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg27665" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm43ff5a0319" title="Fri, 05 Dec 2008 00:14:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm43ff5a0319');</script><noscript>Dec 5, 2008 at 12:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i27665">
+Except that strtok_r() and strtok_s() and the like are MS-specific extensions --meaning that they are completely unportable.<br>
+<br>
+Personally, I think that strtok() is a pathetic function to begin with --one that can easily be rewritten to be much more intelligent (and safe).<br>
+<br>
+The <b>strspn</b>() and <b>strcspn</b>() are much more ideally suited to deal with this stuff.<br>
+<br>
+Off the top of my head:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdlib.h&gt;</dfn>
+<dfn>#include &lt;string.h&gt;</dfn>
+
+<var>typedef</var> <var>struct</var>
+  {
+  <var>const</var> <var>char</var>* result;
+  <var>const</var> <var>char</var>* source;
+  <var>const</var> <var>char</var>* delimiters;
+  }
+  token_t;
+
+token_t tokinit( <var>const</var> <var>char</var>* source, <var>const</var> <var>char</var>* delimiters )
+  {
+  token_t result;
+
+  result.source     = source;
+  result.delimiters = delimiters;
+  result.result     = (<var>const</var> <var>char</var>*)malloc( strlen( source ) +1 );
+
+  <var>return</var> result;
+  }
+
+<var>const</var> <var>char</var>* toknext( token_t* tok )
+  {
+  size_t n;
+
+  <var>if</var> (!tok || !(tok-&gt;source) || !(tok-&gt;delimiters) || !(tok-&gt;result))
+    <var>return</var> NULL;
+
+  tok-&gt;source += strspn( tok-&gt;source, tok-&gt;delimiters );
+  n = strcspn( tok-&gt;source, tok-&gt;delimiters );
+  strncpy( (<var>char</var>*)(tok-&gt;result), tok-&gt;source, n );
+  *((<var>char</var>*)(tok-&gt;result) +n) = <kbd>'\0'</kbd>;
+  tok-&gt;source += n;
+
+  <var>return</var> tok-&gt;result;
+  }
+
+<var>void</var> tokend( token_t* tok )
+  {
+  <var>if</var> (tok)
+    {
+    <var>if</var> (tok-&gt;result)
+      free( (<var>void</var>*)(tok-&gt;result) );
+    tok-&gt;result     =
+    tok-&gt;source     = 
+    tok-&gt;delimiters = NULL;
+    }
+  }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+
+<var>int</var> getNumberBeforeDecimal( <var>const</var> <var>char</var>* decimalNumber )
+  {
+  <var>char</var> numBeforeDecimal[ 6 ] = {<kbd>'\0'</kbd>};
+  token_t tok;
+  <var>int</var> result;
+
+  strncpy( numBeforeDecimal, decimalNumber, <var>sizeof</var>( numBeforeDecimal ) -1 );
+
+  tok = tokinit( numBeforeDecimal, <kbd>"."</kbd> );
+  result = atoi( toknext( &amp;tok ) );
+  tokend( &amp;tok );
+
+  <var>return</var> result;
+  }
+
+<var>int</var> main()
+  {
+  <var>char</var> s[] = <kbd>"14.23:23.41"</kbd>;
+
+  token_t tok = tokinit( s, <kbd>":"</kbd> );
+  <var>while</var> (*toknext( &amp;tok ))
+    {
+    <var>int</var> num = getNumberBeforeDecimal( tok.result );
+    printf( <kbd>"pre-decimal: %d, from \"%s\"\n"</kbd>, num, tok.result );
+    }
+  tokend( &amp;tok );
+
+  <var>return</var> 0;
+  }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+In C++, there is never any valid need to use <b>strtok</b>() --avoid it like the plague.<br>
+<br>
+My $0.02.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn27665"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg30435"><span title="30435,17709,255,1,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg30435" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm468c9afc70" title="Sun, 28 Dec 2008 22:11:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm468c9afc70');</script><noscript>Dec 28, 2008 at 10:11pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zeeme/default.htm"><b>zeeme</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i30435">
+It's much clearer to use regular expressions to stuff like this. Esp. in a larger context, like the real one you're using it, not just this simplified example.<br>
+<br>
+You can get an excellent regular expression library from boost.org<br>
+<br>
+#include &lt;boost/regex&gt;<br>
+using boost_regex;<br>
+const regex token("\\G(\\d+\\.\\d+)(:|$)");<br>
+regex_match m;<br>
+while ( regex_match(s, m, token) ) {<br>
+<br>
+and so forth... There a few more details.<br>
+<br>
+Admittedly, sometimes regular expressions are overkill.<br>
+<br>
+It is my programming philosophy that if the input comes a source that is not 100% reliable (such as the user), then you should not make any assumptions about its structure or correctness. It's always a judgment call about how loosely you may interpret the input, but, for example, if someone enters a telephone number as "617-55512-12", don't just strip out the dashes, assume that he made an error and that there is a very good chance that the number itself is not what the user intended. How anal you get about this depends in large part on the consequences of bad input, in other words, are you writing a flight simulator or controlling the flight of real planes with real humans in them.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn30435"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(4860,1,15483,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~598.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

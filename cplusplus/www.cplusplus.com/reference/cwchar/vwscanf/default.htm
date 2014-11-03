@@ -1,0 +1,357 @@
+<!DOCTYPE html><!-- saved from url=(0061)http://www.cplusplus.com/reference/cwchar/vwscanf/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>vwscanf - C++ Reference</title>
+<link rel="canonical" href="default.htm">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Reference</a></li>
+<li><a href="../default.htm">&lt;cwchar&gt; </a></li>
+<li class="here">vwscanf</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<div class="C_doc">
+<div id="I_type">function</div>
+<div id="I_file">&lt;cwchar&gt;</div>
+<h1>vwscanf<span class="C_ico cpp11warning" title="This page describes a feature introduced by the latest revision of the C++ standard (2011). Older compilers may not support it." alt="This page describes a feature introduced by the latest revision of the C++ standard (2011). Older compilers may not support it."></span></h1>
+<div class="C_prototype"><pre>int vwscanf ( const wchar_t * format, va_list arg );</pre></div><div id="I_description">Read formatted data into variable argument list</div>
+<section id="description">
+Reads data from the standard input (<a href="../../cstdio/stdin/default.htm">stdin</a>) and stores them according to the C wide string <i>format</i> into the locations pointed by the elements in the variable argument list identified by <i>arg</i>.<br>
+<br>
+Internally, the function retrieves arguments from the list identified by <i>arg</i> as if <a href="../../cstdarg/va_arg/default.htm">va_arg</a> was used on it, and thus the state of <i>arg</i> is likely to be altered by the call.<br>
+<br>
+In any case, <i>arg</i> should have been initialized by <a href="../../cstdarg/va_start/default.htm">va_start</a> at some point before the call, and it is expected to be released by <a href="../../cstdarg/va_end/default.htm">va_end</a> at some point after the call.<br>
+<br>
+The external representation of wide characters in <tt>stdin</tt> are multibyte characters: These are translated as if <a href="../../../mbrtowc">mbrtowc</a> was called (using the <i>stream</i>'s internal <a href="../mbstate_t/default.htm">mbstate_t</a> object).<br>
+<br>
+This is the <i>wide character</i> equivalent of <a href="../../../vscanf">vscanf</a> (<a href="../../cstdio/default.htm">&lt;cstdio&gt;</a>).<br>
+</section>
+<br>
+<section id="parameters">
+<h3>Parameters</h3>
+<dl>
+<dt>format</dt>
+<dd>C wide string that contains a format string that follows the same specifications as <i>format</i> in <a href="../../cstdio/scanf/default.htm">scanf</a> (see <a href="../../cstdio/scanf/default.htm">scanf</a> for details).<br>
+Notice though, that all format specifiers have the same meaning as in <a href="../../cstdio/scanf/default.htm">scanf</a>; therefore, <tt>%lc</tt> shall be used to read a wide character (and not <tt>%c</tt>), as well as <tt>%ls</tt> shall be used for wide strings (and not <tt>%s</tt>).</dd>
+<dt>arg</dt>
+<dd>A value identifying a variable arguments list initialized with <a href="../../cstdarg/va_start/default.htm">va_start</a>.<br>
+<a href="../../cstdarg/va_list/default.htm">va_list</a> is a special type defined in <a href="../../../cstdarg">&lt;cstdarg&gt;</a>.</dd>
+</dl>
+</section>
+<br>
+<section id="return">
+<h3>Return Value</h3>
+On success, the function returns the number of items of the argument list successfully filled. This count can match the expected number of items or be less (even zero) due to a matching failure, a reading error, or the reach of the <i>end-of-file</i>.<br>
+<br>
+If a reading error happens or the <i>end-of-file</i> is reached while reading, the proper indicator is set (<a href="../../cstdio/feof/default.htm">feof</a> or <a href="../../cstdio/ferror/default.htm">ferror</a>). And, if either happens before any data could be successfully read, <a href="../../../eof">EOF</a> is returned.<br>
+<br>
+If an encoding error happens interpreting wide characters, the function sets <a href="../../cerrno/errno/default.htm">errno</a> to <tt>EILSEQ</tt>.<br>
+</section>
+<br>
+<section id="example">
+<h3>Example</h3>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br></code></pre></td>
+<td class="source"><pre><code><cite>/* vwscanf example */</cite>
+<dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;stdarg.h&gt;</dfn>
+<dfn>#include &lt;wchar.h&gt;</dfn>
+
+<var>void</var> GetWideMatches ( <var>const</var> <var>wchar_t</var> * format, ... )
+{
+  va_list args;
+  va_start (args, format);
+  vwscanf (format, args);
+  va_end (args);
+}
+
+<var>int</var> main ()
+{
+  <var>int</var> val;
+  <var>wchar_t</var> str[100];
+
+  wprintf (L<kbd>"Please enter a number and a word: "</kbd>);
+  GetWideMatches (L<kbd>"%d %l[aeiou]"</kbd>, &amp;val, str);
+  wprintf (L<kbd>"Number read: %d\nFirst vowels read: %ls\n"</kbd>, val, str);
+
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Possible output:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>Please enter a number and a word: 112 outperforming
+Number read: 112
+First vowels read: ou
+</samp></pre></td></tr></table></div>
+</section>
+<br>
+<section id="see">
+<h3>See also</h3>
+<dl class="links"><dt><a href= "../../cstdio/vscanf/default.htm"><b>vscanf</b></a></dt><dd>Read formatted data into variable argument list <span class="typ">(function)</span></dd></dl><dl class="links"><dt><a href= "../wscanf/default.htm"><b>wscanf</b></a></dt><dd>Read formatted data from stdin <span class="typ">(function)</span></dd></dl><dl class="links"><dt><a href= "../../cstdio/fscanf/default.htm"><b>fscanf</b></a></dt><dd>Read formatted data from stream <span class="typ">(function)</span></dd></dl><dl class="links"><dt><a href= "../../cstdio/scanf/default.htm"><b>scanf</b></a></dt><dd>Read formatted data from stdin <span class="typ">(function)</span></dd></dl>
+</section></div><div id="CH_bb"></div></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder selected reference"><a href="../../default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder forum"><a href="../../../forum/default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="../../default.htm">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable"><h4><a href="../../clibrary/default.htm">C library:</a></h4><ul>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cassert/default.htm"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cctype/default.htm"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cerrno/default.htm"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cfenv/default.htm"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cfloat/default.htm"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cinttypes/default.htm"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ciso646/default.htm"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../climits/default.htm"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../clocale/default.htm"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cmath/default.htm"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csetjmp/default.htm"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csignal/default.htm"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdarg/default.htm"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cstdbool/default.htm"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstddef/default.htm"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cstdint/default.htm"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdio/default.htm"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdlib/default.htm"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstring/default.htm"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../ctgmath/default.htm"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ctime/default.htm"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cuchar/default.htm"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 selected folder"><a href="../default.htm"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cwctype/default.htm"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../stl/default.htm">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../array/default.htm"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../deque/default.htm"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../forward_list/default.htm"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../list/default.htm"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../map/default.htm"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../queue/default.htm"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../set/default.htm"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stack/default.htm"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_map/default.htm"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_set/default.htm"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../vector/default.htm"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../iolibrary/default.htm">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../fstream/default.htm"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iomanip/default.htm"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ios/default.htm"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iosfwd/default.htm"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iostream/default.htm"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../istream/default.htm"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ostream/default.htm"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../sstream/default.htm"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../streambuf/default.htm"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../multithreading/default.htm">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../atomic/default.htm"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../condition_variable/default.htm"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../future/default.htm"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../mutex/default.htm"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../thread/default.htm"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../std/default.htm">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../algorithm/default.htm"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../bitset/default.htm"><span>&lt;bitset&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../chrono/default.htm"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../codecvt/default.htm"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../complex/default.htm"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../exception/default.htm"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../functional/default.htm"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../initializer_list/default.htm"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iterator/default.htm"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../limits/default.htm"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../locale/default.htm"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../memory/default.htm"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../new/default.htm"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../numeric/default.htm"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../random/default.htm"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../ratio/default.htm"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../regex/default.htm"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stdexcept/default.htm"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../string/default.htm"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../system_error/default.htm"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../tuple/default.htm"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../typeindex/default.htm"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../typeinfo/default.htm"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../type_traits/default.htm"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../utility/default.htm"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../valarray/default.htm"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect c90 c99 arm cpp98 cpp11" id="cwchar_box">
+<h3><b><a href="../default.htm">&lt;cwchar&gt; (wchar.h)</a></b></h3>
+<ul>
+<li class="C_Collapsable"><h4>functions:</h4><ul>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../btowc/default.htm"><span>btowc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fgetwc/default.htm"><span>fgetwc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fgetws/default.htm"><span>fgetws</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fputwc/default.htm"><span>fputwc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fputws/default.htm"><span>fputws</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fwide/default.htm"><span>fwide</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fwprintf/default.htm"><span>fwprintf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../fwscanf/default.htm"><span>fwscanf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../getwc/default.htm"><span>getwc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../getwchar/default.htm"><span>getwchar</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../mbrlen/default.htm"><span>mbrlen</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../mbrtowc/default.htm"><span>mbrtowc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../mbsinit/default.htm"><span>mbsinit</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../mbsrtowcs/default.htm"><span>mbsrtowcs</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../putwc/default.htm"><span>putwc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../putwchar/default.htm"><span>putwchar</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../swprintf/default.htm"><span>swprintf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../swscanf/default.htm"><span>swscanf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../ungetwc/default.htm"><span>ungetwc</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../vfwprintf/default.htm"><span>vfwprintf</span></a></li>
+<li class="c99 cpp11"><a href="../vfwscanf/default.htm"><span>vfwscanf</span></a></li>
+<li class="c99 cpp11"><a href="../vswprintf/default.htm"><span>vswprintf</span></a></li>
+<li class="c99 cpp11"><a href="../vswscanf/default.htm"><span>vswscanf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../vwprintf/default.htm"><span>vwprintf</span></a></li>
+<li class="c99 cpp11 selected"><a href="default.htm"><span>vwscanf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcrtomb/default.htm"><span>wcrtomb</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcscat/default.htm"><span>wcscat</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcschr/default.htm"><span>wcschr</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcscmp/default.htm"><span>wcscmp</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcscoll/default.htm"><span>wcscoll</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcscpy/default.htm"><span>wcscpy</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcscspn/default.htm"><span>wcscspn</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsftime/default.htm"><span>wcsftime</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcslen/default.htm"><span>wcslen</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsncat/default.htm"><span>wcsncat</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsncmp/default.htm"><span>wcsncmp</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsncpy/default.htm"><span>wcsncpy</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcspbrk/default.htm"><span>wcspbrk</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsrchr/default.htm"><span>wcsrchr</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsrtombs/default.htm"><span>wcsrtombs</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsspn/default.htm"><span>wcsspn</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsstr/default.htm"><span>wcsstr</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcstod/default.htm"><span>wcstod</span></a></li>
+<li class="c99 cpp11"><a href="../wcstof/default.htm"><span>wcstof</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcstok/default.htm"><span>wcstok</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcstol/default.htm"><span>wcstol</span></a></li>
+<li class="c99 cpp11"><a href="../wcstold/default.htm"><span>wcstold</span></a></li>
+<li class="c99 cpp11"><a href="../wcstoll/default.htm"><span>wcstoll</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcstoul/default.htm"><span>wcstoul</span></a></li>
+<li class="c99 cpp11"><a href="../wcstoull/default.htm"><span>wcstoull</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wcsxfrm/default.htm"><span>wcsxfrm</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wctob/default.htm"><span>wctob</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wmemchr/default.htm"><span>wmemchr</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wmemcmp/default.htm"><span>wmemcmp</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wmemcpy/default.htm"><span>wmemcpy</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wmemmove/default.htm"><span>wmemmove</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wmemset/default.htm"><span>wmemset</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wprintf/default.htm"><span>wprintf</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wscanf/default.htm"><span>wscanf</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>types:</h4><ul>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../mbstate_t/default.htm"><span>mbstate_t</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../size_t/default.htm"><span>size_t</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../tm/default.htm"><span>struct tm</span></a></li>
+<li class="c99"><a href="../wchar_t/default.htm"><span>wchar_t</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wint_t/default.htm"><span>wint_t</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>macro constants:</h4><ul>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../null/default.htm"><span>NULL</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wchar_max/default.htm"><span>WCHAR_MAX</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../wchar_min/default.htm"><span>WCHAR_MIN</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11"><a href="../weof/default.htm"><span>WEOF</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~1303.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			
+			el.appendChild(btn('Edit Page','Edit Page','edit','../../edit.cgiacwcharvwscanf'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='../../delete.cgiacwcharvwscanf'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

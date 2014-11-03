@@ -1,0 +1,198 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146707/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Need help with Structs - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Need help with Structs</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Need help with Structs</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146707,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771321"><span title="771321,134526,1023,83,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771321" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm781415cb9a" title="Sun, 02 Nov 2014 20:09:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm781415cb9a');</script><noscript>Nov 2, 2014 at 8:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csharp/default.htm"><b>csharp</b> (83)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771321">
+Hello,<br>
+<br>
+I have to write structs with some functions, and I am not sure if did them correctly!<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br></code></pre></td>
+<td class="source"><pre><code>  <var>struct</var> ABC	{
+	string s;
+	<var>unsigned</var> n;
+			};
+
+<var>bool</var> same(<var>const</var> ABC &amp; a, <var>const</var> ABC &amp; b);
+<cite>//same's job is to return whether the 2 args agree in at least one field;</cite>
+<cite>//in other words, return true if the s fields are the same or if the n fields are //the same(or both)</cite>
+
+
+<var>void</var> set(ABC &amp; abc, <var>const</var> string &amp; sVal, <var>unsigned</var> nVal);
+<cite>//set's job is to set abc's s field to the second arg, and its n field to the third //arg.</cite>
+
+<var>void</var> show(<var>const</var> ABC abc[], <var>unsigned</var> els, <var>unsigned</var> threshold);
+<cite>//show is only interested in ABC's whose n is &gt;= threshold.</cite>
+<cite>//For those ABC's, it outputs both fields, one struct per line.</cite>
+
+
+
+<var>int</var> main()
+{
+	ABC abc = { <kbd>"Tom"</kbd>,1 };
+	ABC abc2 = { <kbd>"Jack"</kbd>, 1 };
+	ABC abc3[] = { <kbd>"Sam"</kbd>, 3 };
+	cout &lt;&lt; <kbd>"True or False: "</kbd> &lt;&lt; same(abc,abc2) &lt;&lt; endl;
+	set(abc,<kbd>"Jack"</kbd>,2);
+	show(abc3, 1, 1);
+}
+
+<var>bool</var> same(<var>const</var> ABC &amp; a, <var>const</var> ABC &amp; b)
+{
+	
+	<var>if</var> (a.s == b.s)
+		<var>return</var> 1;
+	<var>if</var> (a.n == b.n)
+		<var>return</var> 1;
+	<var>if</var> (a.s == b.s &amp;&amp; a.n == b.n)
+		<var>return</var> 1;
+	
+	<var>return</var> 0;
+}
+
+<var>void</var> set(ABC &amp; abc, <var>const</var> string &amp; sVal, <var>unsigned</var> nVal)
+{
+	abc.s = sVal;
+	abc.n = nVal;
+	cout &lt;&lt; <kbd>"abc's s field: "</kbd> &lt;&lt; abc.s &lt;&lt; <kbd>", abc's n field: "</kbd> &lt;&lt; abc.n &lt;&lt; endl;
+}
+
+<var>void</var> show(<var>const</var> ABC abc[], <var>unsigned</var> els, <var>unsigned</var> threshold)
+{
+	<var>for</var> (<var>unsigned</var> i = 0; i &lt; els; i++)
+		<var>if</var> (abc[i].n &gt;= threshold)
+		cout &lt;&lt; <kbd>"Field 1: "</kbd> &lt;&lt;abc[i].s &lt;&lt;endl&lt;&lt; <kbd>"Field 2: "</kbd> &lt;&lt; abc[i].n &lt;&lt; endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm74d16504dc" title="Sun, 02 Nov 2014 21:40:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm74d16504dc');</script><noscript>Nov 2, 2014 at 9:40pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771321"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771383"><span title="771383,144576,1023,79,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771383" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm050e9bea61" title="Mon, 03 Nov 2014 00:25:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm050e9bea61');</script><noscript>Nov 3, 2014 at 12:25am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/icestorm/default.htm"><b>IceStorm</b> (79)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771383">
+So what is the problem?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771383"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146707,0,134526,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fbe~7.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

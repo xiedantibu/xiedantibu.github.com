@@ -1,0 +1,473 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/145814/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linked list remove node...I am banging m - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Linked list remove node...I am banging m</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Linked list remove node...I am banging my head!!</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145814,root,0,-1,12,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg767546"><span title="767546,142758,1023,161,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767546" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb91175fd91" title="Fri, 24 Oct 2014 13:35:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmb91175fd91');</script><noscript>Oct 24, 2014 at 1:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767546">
+pls help me. how to remove node from linked list. I am trying to implement this in a file record to remove data from struct..I dont know how addressing in linked list work for structs;<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include&lt;fstream&gt;</dfn>
+<dfn>#include&lt;cstring&gt;</dfn>
+<dfn>#include&lt;cstdlib&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+<var>struct</var> node{
+
+	<var>int</var> val;
+	node* next;
+
+};
+
+
+<var>void</var> remove(<var>int</var>, node*);
+<var>void</var> remove(<var>int</var> val, node* some){
+
+	
+	node* curr;
+	curr=some;
+	
+	<var>for</var>(<var>int</var> i=0;i&lt;3;i++){
+		curr=curr-&gt;next;
+		<var>if</var>(i==val){
+			<var>delete</var> curr;
+		
+		}
+	
+	}
+	
+	
+}
+
+<var>int</var> main(){
+	
+	node ptc[3];
+	node* head=<var>new</var> node;
+	<var>int</var> val=2;
+	<var>for</var>(<var>int</var> i=0; i&lt;3;i++){
+		ptc[i].val=i;
+	
+	}
+	
+	remove(val, head);
+	
+	<var>for</var>(<var>int</var> i=0; i&lt;3;i++){
+		cout&lt;&lt;ptc[i].val&lt;&lt;endl;
+	
+	}
+	<var>return</var> 0;
+	
+	
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+segmentation fault
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2d8a80923d" title="Fri, 24 Oct 2014 13:36:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm2d8a80923d');</script><noscript>Oct 24, 2014 at 1:36pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn767546"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767556"><span title="767556,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767556" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc81d0a38a2" title="Fri, 24 Oct 2014 14:30:16 +0000"></span><script type="text/javascript">WhenId('CH_zTmc81d0a38a2');</script><noscript>Oct 24, 2014 at 2:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767556">
+<span class="auto"><code class="source">node* head=<var>new</var> node;</code></span> <tt>head-&gt;next</tt> is not initialized and pointing to random memory.<br>
+<br>
+<span class="auto"><code class="source">curr=curr-&gt;next;</code></span> And here you are using it, creating segfault.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767556"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767559"><span title="767559,52082,1023,453,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767559" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6aaebcef5e" title="Fri, 24 Oct 2014 14:41:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm6aaebcef5e');</script><noscript>Oct 24, 2014 at 2:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/doug4/default.htm"><b>doug4</b> (453)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767559">
+First of all, you are confused as to what a linked list is.  There is no array in a linked list, so you can get rid of all references to ptc.<br>
+<br>
+A linked list is a set of nodes.  Each node has a value and a pointer to the next node in the list.  That is what you defined in lines 6 - 12.<br>
+<br>
+Before you can delete nodes from a linked list, you have to add nodes to the linked list first.  When you add a node, you must allocate the node (using new), assign the "next" pointer of the previous node to the address of the new node, and assign the "next" pointer of the new node to what the previous node used to point to.<br>
+<br>
+There is also the special case of inserting a node as the first element of an existing list (including the first element of an empty list).<br>
+<br>
+I would suggest the following starting point:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><cite>/* various includes */</cite>
+<var>struct</var> node ... <cite>/* same as what you have */</cite>
+
+<var>void</var> addToBack(node** theList, <var>int</var> value)
+{
+    .... <cite>/* This is what you have to implement */</cite>
+}
+
+<var>int</var> main()
+{
+    node* head = NULL;  <cite>/* Start with an empty list */</cite>
+    <var>for</var> (<var>int</var> i = 0; i &lt; 3; ++i)
+    {
+        addToBack(&amp;head, i);
+    }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Figure out how to add nodes to the list, and then print them out to make sure you have them inserted properly.  After that you can start thinking about removing the nodes.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767559"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767562"><span title="767562,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767562" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb711c7cc2b" title="Fri, 24 Oct 2014 14:48:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmb711c7cc2b');</script><noscript>Oct 24, 2014 at 2:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767562">
+Am I correct in assigning the first node as this address?<br>
+<br>
+node* curr;<br>
+curr=some;//same as head=new node. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767562"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767575"><span title="767575,52082,1023,453,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767575" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm71963faf4e" title="Fri, 24 Oct 2014 14:59:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm71963faf4e');</script><noscript>Oct 24, 2014 at 2:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/doug4/default.htm"><b>doug4</b> (453)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767575">
+In what context?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767575"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767578"><span title="767578,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767578" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm56c06375b5" title="Fri, 24 Oct 2014 15:03:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm56c06375b5');</script><noscript>Oct 24, 2014 at 3:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767578">
+To remove a node from the tail (i.e. any element after the first) of a singly-linked list:<br>
+1. let prev be the element before the one being removed<br>
+2. let tmp = prev-&gt;next<br>
+3. prev-&gt;next = tmp-&gt;next (for the last element, tmp-&gt;next will be NULL, but we aren't going to dereference it)<br>
+4. delete tmp<br>
+<br>
+Here's a visualisation of deleting the 3rd element in a four-element linked-list:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>1. +-------+------+------+------+------+
+   | Elem: | Head | 2nd  | 3rd  | 4th  |
+   +-------+------+------+------+------+
+   | Ptr:  | 2nd  | 3rd  | 4th  | null |
+   +-------+------+------+------+------+
+2. +-------+------+------+------+------+
+   | Elem: | Head | 2nd  | 3rd  | 4th  |
+   +-------+------+------+------+------+
+   | Ptr:  | 2nd  | 4th  | 4th  | null |
+   +-------+------+------+------+------+
+3. +-------+------+------+------+
+   | Elem: | Head | 2nd  | 4th  |
+   +-------+------+------+------+
+   | Ptr:  | 2nd  | 4th  | null |
+   +-------+------+------+------+</samp></pre></td></tr></table></div><br>
+<br>
+To remove the head (i.e. first) element:<br>
+1. let next = head-&gt;next<br>
+2. delete head<br>
+3. head = next
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb4600b665f" title="Fri, 24 Oct 2014 15:09:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmb4600b665f');</script><noscript>Oct 24, 2014 at 3:09pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn767578"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768208"><span title="768208,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768208" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7df400a997" title="Sun, 26 Oct 2014 08:18:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm7df400a997');</script><noscript>Oct 26, 2014 at 8:18am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768208">
+Is my destructor for linked list ok the way I wrote it ?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code>linkedlist::~linkedlist(){
+
+    <var>if</var>(head==NULL){
+
+       <cite>//do nothing</cite>
+    }
+
+    <var>else</var>{
+        nodeptr tmp, cur;
+
+        cur-&gt;next=head;
+        tmp-&gt;next=head;
+
+        <var>while</var>(cur-&gt;next){
+            cur=cur-&gt;next;
+            <var>delete</var> tmp;
+            tmp=cur-&gt;next;
+        }
+        <var>delete</var> tmp;
+        <var>delete</var> head;
+        tmp=NULL;
+        cur=NULL;
+        head=NULL;
+    }
+
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0702359bc4" title="Sun, 26 Oct 2014 08:18:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm0702359bc4');</script><noscript>Oct 26, 2014 at 8:18am UTC</noscript></span>
+<span class="dbtn" id="CH_btn768208"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768301"><span title="768301,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768301" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm228d84a6d5" title="Sun, 26 Oct 2014 15:12:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm228d84a6d5');</script><noscript>Oct 26, 2014 at 3:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768301">
+No. You don't initialize cur or tmp, so lines 11 and 12 set random bits of memory to head.  Even if that didn't cause a problem I think you're deleting the head twice and you aren't deleting the second item.<br>
+<br>
+You've made it much too complicated. You can simply do<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>while</var> (head) {
+    nodeptr tmp=head-&gt;next;
+    <var>delete</var> head;
+    head = tmp;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768301"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768587"><span title="768587,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768587" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8c53cc87f1" title="Mon, 27 Oct 2014 06:38:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm8c53cc87f1');</script><noscript>Oct 27, 2014 at 6:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768587">
+whats the difference between <br>
+<br>
+var1-&gt;next=var2 and var1=var2-&gt;next and var1=var2
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm97a0de6889" title="Mon, 27 Oct 2014 06:38:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm97a0de6889');</script><noscript>Oct 27, 2014 at 6:38am UTC</noscript></span>
+<span class="dbtn" id="CH_btn768587"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768644"><span title="768644,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768644" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm50ecc84966" title="Mon, 27 Oct 2014 10:51:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm50ecc84966');</script><noscript>Oct 27, 2014 at 10:51am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768644">
+Refer back to the definition of a node:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> node{
+	<var>int</var> val;
+	node* next;
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+This will be too hard to explain without a diagram, but it's critical that you understand the difference. See here: <a href="../../../../en.wikipedia.org/wiki/linked_list#Linearly_linked_lists">http://en.wikipedia.org/wiki/Linked_list#Linearly_linked_lists</a><br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768644"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg768645"><span title="768645,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768645" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdb92db1b9c" title="Mon, 27 Oct 2014 10:52:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmdb92db1b9c');</script><noscript>Oct 27, 2014 at 10:52am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768645">
+It sounds like you don't really get how linked lists work.  See this article for some goo material:<br>
+<a href="../../../../en.wikipedia.org/wiki/linked_list#Linearly_linked_lists">http://en.wikipedia.org/wiki/Linked_list#Linearly_linked_lists</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn768645"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769974"><span title="769974,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769974" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8c033ceef3" title="Thu, 30 Oct 2014 10:03:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm8c033ceef3');</script><noscript>Oct 30, 2014 at 10:03am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769974">
+thanks..data structure is new to me
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769974"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145814,0,142758,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~333.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

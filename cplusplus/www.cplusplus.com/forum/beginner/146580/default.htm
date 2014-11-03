@@ -1,0 +1,389 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146580/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Basic inventory problems - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Basic inventory problems</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Basic inventory problems</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146580,root,0,-1,8,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770838"><span title="770838,156234,255,18,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770838" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm58a798900b" title="Sat, 01 Nov 2014 16:22:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm58a798900b');</script><noscript>Nov 1, 2014 at 4:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770838">
+I am having some unexpected trouble with a game I'm working on.<br>
+Basically I  have a function with a parameter called flag, and judging by the flag I generate a specific menu.Whenever I run the program with a value for  flag different from 0 it crashes.With flag = 0 it works perfectly.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> Inventory::init(<var>int</var> X,<var>int</var> Y,<var>int</var> ROWS,<var>int</var> SLOTS_PER_ROW,<var>int</var> flag,<var>const</var> <var>char</var>* ADDR)
+{
+    [...]
+
+    n = 0;
+    x=X;
+    y=Y;
+    visible = <var>false</var>;
+    FLAG = flag;
+
+    <var>if</var>(FLAG == 0)
+    {
+        <cite>//do something</cite>
+    }
+
+    <var>else</var>
+    {
+       <cite>//do something else</cite>
+    }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770838"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770840"><span title="770840,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770840" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5b7d99be2a" title="Sat, 01 Nov 2014 16:30:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm5b7d99be2a');</script><noscript>Nov 1, 2014 at 4:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770840">
+without seeing more of the code, we can't really determine what's causing the crash
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770840"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770841"><span title="770841,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770841" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm78149716a4" title="Sat, 01 Nov 2014 16:32:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm78149716a4');</script><noscript>Nov 1, 2014 at 4:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770841">
+The crash is likely somewhere in your "do something else" section.<br>
+<br>
+<br>
+If you are running with a debugger... it should tell you exactly which line the crash is occurring on.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770841"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770844"><span title="770844,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770844" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8d7c6c6321" title="Sat, 01 Nov 2014 16:35:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm8d7c6c6321');</script><noscript>Nov 1, 2014 at 4:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770844">
+here you go:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> Inventory::init(<var>int</var> X,<var>int</var> Y,<var>int</var> ROWS,<var>int</var> SLOTS_PER_ROW,<var>int</var> flag,<var>const</var> <var>char</var>* ADDR)
+{
+    tiles = <var>new</var> InvTile[MAX_SIZE];
+    n = 0;
+    x=X;
+    y=Y;
+    visible = <var>false</var>;
+    FLAG = flag;
+
+    <var>if</var>(flag == 0)
+    {
+        <var>for</var>(<var>int</var> x1=X;x1&lt;X+SLOTS_PER_ROW*32;x1+=32)
+        {
+            <var>for</var>(<var>int</var> y1=Y;y1&lt;Y+ROWS*32;y1+=32)
+            {
+                tiles[n] = (InvTile)InvTile(x1,y1,32,32,ADDR);
+                n++;
+            }
+        }
+    }
+    <var>if</var>(flag == 1)
+    {
+       <var>for</var>(<var>int</var> x1=X;x1&lt;X+SLOTS_PER_ROW*32;x1+=32)
+        {
+            <var>for</var>(<var>int</var> y1=Y;y1&lt;Y+ROWS*32;y1+=32)
+            {
+                tiles[n] = (InvTile)InvTile(x1,y1,32,32,ADDR);
+                n++;
+            }
+        }
+    }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+This is the member of the class.<br>
+<br>
+And this is the class:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> Inventory
+{
+<var>private</var>:
+    <var>int</var> n;
+    <var>int</var> x,y;
+    <var>bool</var> visible;
+    <var>int</var> FLAG;
+<var>public</var>:
+    InvTile* tiles;
+
+    <var>void</var> init(<var>int</var>,<var>int</var>,<var>int</var>,<var>int</var>,<var>int</var>,<var>const</var> <var>char</var>*);
+    <var>void</var> draw(SDL_Surface* window);
+    <var>void</var> show();
+    <var>void</var> hide();
+    <var>void</var> add_xy(<var>int</var>,<var>int</var>,<var>const</var> <var>char</var>*);
+    <var>void</var> add_in_slot(<var>int</var>,<var>int</var>,<var>const</var> <var>char</var>*);
+    <var>void</var> add_in_next_slot(<var>const</var> <var>char</var>*);
+    <var>void</var> remove_xy(<var>int</var>,<var>int</var>);
+    <var>void</var> remove_from_slot(<var>int</var>,<var>int</var>);
+    <var>void</var> remove_last();
+    <var>void</var> update(SDL_Event event);
+
+    <var>int</var> getN();
+    <var>int</var> getFlag();
+
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And this is my main function:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main(<var>int</var> argc ,<var>char</var>* argv[])
+{
+    init();
+    inv.init(64,32,3,5,1,<kbd>"./resources/tile.png"</kbd>);
+    inv.add_in_next_slot(<kbd>"./resources/chest.png"</kbd>);
+    inv.add_in_next_slot(<kbd>"./resources/test_sword.png"</kbd>);
+    inv.show();
+
+    <var>while</var>(running)<cite>///MAIN GAME LOOP</cite>
+    {
+        update();
+        inv.update(currentEvent);
+        draw();
+        inv.draw(window);
+        processFPS();
+        SDL_Flip(window);
+    }
+
+    SDL_FreeSurface(window);<cite>///DISPOSING THE WINDOW</cite>
+    SDL_Quit();<cite>///STOPPING SDL</cite>
+
+    <var>return</var> EXIT;<cite>///EXITING THE PROGRAM</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+BTW I'm running with SDL.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770844"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770845"><span title="770845,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770845" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7760b81d7d" title="Sat, 01 Nov 2014 16:36:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm7760b81d7d');</script><noscript>Nov 1, 2014 at 4:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770845">
+I tried copy-pasting the code from the if statement to the else statement.<br>
+Still crashing.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770845"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770848"><span title="770848,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770848" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd31ef21228" title="Sat, 01 Nov 2014 16:44:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmd31ef21228');</script><noscript>Nov 1, 2014 at 4:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770848">
+what are MAX_SIZE, ROWS, and SLOTS_PER_ROW?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770848"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770849"><span title="770849,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770849" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6ce3b1959e" title="Sat, 01 Nov 2014 16:47:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm6ce3b1959e');</script><noscript>Nov 1, 2014 at 4:47pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770849">
+are x and y pixel dimensions of the image?<br>
+<br>
+*nevermind, they look like coordinates for placement.  all the x y  x1 y1 business gets muddy.  You might want to rename some variables.  Or maybe I should get more caffeine first
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme722aa7b3f" title="Sat, 01 Nov 2014 16:52:21 +0000"></span><script type="text/javascript">WhenId('CH_zTme722aa7b3f');</script><noscript>Nov 1, 2014 at 4:52pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770849"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770851"><span title="770851,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770851" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme96f2aab1a" title="Sat, 01 Nov 2014 16:52:35 +0000"></span><script type="text/javascript">WhenId('CH_zTme96f2aab1a');</script><noscript>Nov 1, 2014 at 4:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770851">
+Nevermind i solved it.<br>
+I changed:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><var>if</var>(flag == 0)
+{
+    
+}
+<var>else</var>
+{
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+to:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code><var>for</var>(<var>int</var> x1=X;x1&lt;X+SLOTS_PER_ROW*32;x1+=32)
+        {
+            <var>for</var>(<var>int</var> y1=Y;y1&lt;Y+ROWS*32;y1+=32)
+            {
+                tiles[n] = (InvTile)InvTile(x1,y1,32,32,ADDR);
+                n++;
+                <var>if</var>(flag == 1)
+                {
+                  <cite>//do stuff</cite>
+                 }
+            }
+        }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Thank you all for the support!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770851"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146580,0,156234,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~178.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146279/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Homework- Include Arithmetic and Trignom - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Homework- Include Arithmetic and Trignom</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Homework- Include Arithmetic and Trignometric Functions in a calculator- Please help!</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146279,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769602"><span title="769602,153019,1023,5,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769602" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1c88b8723a" title="Wed, 29 Oct 2014 13:51:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm1c88b8723a');</script><noscript>Oct 29, 2014 at 1:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rgillooly91/default.htm"><b>Rgillooly91</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769602">
+Hello,<br>
+<br>
+I'm a beginner in an entry level C++ class.  Currently, I have an assignment due tomorrow in which I must write code to use function, and switch statements in a C++ program which can perform arithmetic and trignometric functions depending on the user's input..below I displayed the actual text of the assignment<br>
+<br>
+"In this project, you will program a simple calculator which does basic arithmetic, trigonometric and operations. In this program, you will exercise “function”, “switch” statements in C++ program. (Your program should contain “switch” statement which accepts user input for either “arithmetic” or “trigonometric” calculations.)  <br>
+Once user input is selected, proper function is called. For example, “arith( )” for arithmetic calculations and “trigono( )” for “trigonometric ones.  <br>
+Once those functions are called, user is asked to enter his/her desired computation through another case statement. Based on user input, your calculator performs proper computation after accepting user input numbers. The output from computation should be displayed to your monitor. <br>
+<br>
+My actual code that I have done so far is below, I know it is the arithmetic portion...can someone please help me correct any errors I have created and someone help me include trigonometric functions.  I'm lost how to include trigonometric functions if someone can help me please :(<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br></code></pre></td>
+<td class="source"><pre><code>  <cite>//Project Homework #3</cite>
+<dfn>#include &lt;math.h&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main () {
+
+	cout &lt;&lt;<kbd>"Welcome to Robert's calculator."</kbd> &lt;&lt;endl;
+	<var>int</var> 1,2; <cite>//declaring variables</cite>
+	<var>int</var> result;  <cite>//look for result</cite>
+	<var>int</var> arith(), <var>int</var> trigono()
+	cout &lt;&lt;<kbd>"Press 1 for Arithmetic and 2 for Trignometric Calculation: "</kbd>;  <cite>//states to user press 1 to use arithmetic calculator and 2 for Trignometric Calculator</cite>
+	cin  &gt;&gt; 1;  
+	cin  &gt;&gt; 2;
+}
+
+<var>int</var> main()
+{
+	<var>double</var> Operand1, Operand2, Result;
+	<var>char</var> Operator;
+
+	cout &lt;&lt; <kbd>"This program allows you to perform an operation on two numbers\n"</kbd>;
+	cout &lt;&lt; <kbd>"To proceed, enter a number, an operator, and a number:\n"</kbd>;
+	cin &gt;&gt; Operand1 &gt;&gt; Operator &gt;&gt; Operand2;
+
+	<var>switch</var>(Operator)
+	{
+	<var>case</var> <kbd>'+'</kbd>:
+		Result = Operand1 + Operand2;
+		<var>break</var>;
+
+	<var>case</var> <kbd>'-'</kbd>:
+		Result = Operand1 - Operand2;
+		<var>break</var>;
+
+	<var>case</var> <kbd>'*'</kbd>:
+		Result = Operand1 * Operand2;
+		<var>break</var>;
+
+	<var>case</var> <kbd>'/'</kbd>:
+		Result = Operand1 / Operand2;
+		<var>break</var>;
+		
+	}
+
+	cout &lt;&lt; <kbd>"\n"</kbd> &lt;&lt; Operand1 &lt;&lt; <kbd>" "</kbd> &lt;&lt; Operator &lt;&lt; <kbd>" "</kbd>
+		 &lt;&lt; Operand2 &lt;&lt; <kbd>" = "</kbd> &lt;&lt; Result;
+
+	cout &lt;&lt; <kbd>"\n\n"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769602"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769615"><span title="769615,118111,1023,1119,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769615" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm737174f35d" title="Wed, 29 Oct 2014 14:22:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm737174f35d');</script><noscript>Oct 29, 2014 at 2:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nt3/default.htm"><b>NT3</b> (1119)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769615">
+For starters, prefer <tt>&lt;cmath&gt;</tt> to <tt>&lt;math.h&gt;</tt>. You have to <tt>main</tt> functions, I presume the bottom one was meant to be <tt>arith</tt>? You can't declare variable names starting with a number, so 9 is wrong. Line 10 is also unnecessary, and ideally line 11 should be removed and function prototypes go into the global scope. <br>
+<br>
+Inputting whether 1 or 2 for arithmetic/trigonometric should be done using just a single <tt>int</tt>, which you can then use an <tt>if</tt> statement to determine which function should be called. Also, in your code you neglected calling either of them...<br>
+<br>
+For the trigonometric functions, it should work the same way. Preferably you should use a <tt>std::string</tt> to determine the function they want, but using an <tt>int</tt> and giving a list of numbered options is more appropriate for use with a <tt>switch</tt> statement.<br>
+<br>
+If you have any more problems, feel free to ask. Also, make sure to test your code (always a good idea)!<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769615"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769627"><span title="769627,153010,1023,54,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769627" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm92438838cd" title="Wed, 29 Oct 2014 14:45:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm92438838cd');</script><noscript>Oct 29, 2014 at 2:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pcrumley48/default.htm"><b>PCrumley48</b> (54)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769627">
+Not just test your code, but test it in small bits - each code block, and even as you build code blocks, to  make sure you didn't put a typo somewhere.  If you're using a compiler with debug features, it's great, but you can use "poor-man's" debugging by cout &lt;&lt; [expectedresult]; periodically, to check your results before continuing to add more programming.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769627"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769630"><span title="769630,153019,1023,5,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769630" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2209d3b393" title="Wed, 29 Oct 2014 14:49:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm2209d3b393');</script><noscript>Oct 29, 2014 at 2:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rgillooly91/default.htm"><b>Rgillooly91</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769630">
+Unfortunately, my professor did not teach us how to incorporate trig functions, so when it comes to Trig I am completely lost?  Can anyone help me with that please :(?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769630"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769652"><span title="769652,153019,1023,5,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769652" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm50a4b589c7" title="Wed, 29 Oct 2014 15:32:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm50a4b589c7');</script><noscript>Oct 29, 2014 at 3:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rgillooly91/default.htm"><b>Rgillooly91</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769652">
+I actually cleaned up my code a bit!!! I am just getting one error in Visual Studio that says :Error C: 1083 "Error	1	error C1083: Cannot open include file: 'header.hpp': No such file or directory	<br>
+<br>
+The code now is the following:  #include "stdafx.h"<br>
+#include "header.hpp"<br>
+#include &lt;math.h&gt;<br>
+#include &lt;iostream&gt;<br>
+using namespace std;<br>
+<br>
+int main () {<br>
+	cout &lt;&lt;"Welcome to Robert's calculator." &lt;&lt;endl;<br>
+	int arith(),trig();<br>
+}<br>
+int main ()<br>
+{<br>
+	double Operand1, Operand2, Result;<br>
+	char Operator;<br>
+<br>
+	cout &lt;&lt;"This Program allows you to perform an operation on two numbers\n";<br>
+	cout &lt;&lt;"To proceed, enter a number, an operator, and a number\n";<br>
+	cin &gt;&gt; Operand1 &gt;&gt; Operator &gt;&gt; Operand2;<br>
+}<br>
+	switch (Operator)<br>
+	{<br>
+	case '+':<br>
+		Result= Operand1 + Operand2;<br>
+		break;<br>
+<br>
+	case '-':<br>
+		Result= Operand1 - Operand2;<br>
+		break;<br>
+<br>
+	case '*':<br>
+		Result = Operand1 * Operand2;<br>
+		break;<br>
+<br>
+	case '/':<br>
+		Result = Operand1 / Operand2;<br>
+		break;<br>
+<br>
+	}<br>
+<br>
+    cout &lt;&lt;"\n" &lt;&lt;Operand1 &lt;&lt; " " &lt;&lt; Operator &lt;&lt; " "<br>
+		&lt;&lt; Operand2 &lt;&lt; " = " &lt;&lt;Result;<br>
+<br>
+	cout &lt;&lt; "\n\n";<br>
+<br>
+<br>
+NOTE: Can someone please help me and tell me what I'm doing wrong to have the arithmetic portion of the calculator working?  I would like to get that part completely right first before I proceed onto the Trignometric part.  Again, any help at all I would appreciate it so much, as this assignment is due in the morning tomorrow!<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769652"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769821"><span title="769821,118111,1023,1119,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769821" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcc50fd0d74" title="Wed, 29 Oct 2014 22:40:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmcc50fd0d74');</script><noscript>Oct 29, 2014 at 10:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nt3/default.htm"><b>NT3</b> (1119)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769821">
+You still haven't fixed a bunch of the things that I suggested. If you want, I'll show you how you can use functions:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+
+<cite>// function prototypes</cite>
+<var>void</var> arith();
+<var>void</var> trig();
+
+<var>int</var> main() {
+    std::cout &lt;&lt; <kbd>"Welcome to Robert's Calculator.\n"</kbd>;
+    
+    <var>int</var> choice;
+    std::cout &lt;&lt; <kbd>"Enter 1 for Arithmetic and 2 for Trigonometric: "</kbd>;
+    std::cin &gt;&gt; choice;
+
+    <var>if</var> (choice == 1)
+        arith();
+    <var>else</var> <var>if</var> (choice == 2)
+        trig();
+    <var>else</var>
+        std::cout &lt;&lt; <kbd>"That wasn't an option.\n"</kbd>;
+
+    <var>return</var> 0;
+}
+
+<var>void</var> arith() {
+    <cite>// ...</cite>
+}
+
+<var>void</var> trig() {
+    <cite>// ...</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769821"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146279,0,153019,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~163.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

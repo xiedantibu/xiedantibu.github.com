@@ -1,0 +1,493 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/143605/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C++ Debug Help - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">C++ Debug Help</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> C++ Debug Help</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143605,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757608"><span title="757608,152479,1023,13,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757608" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmac0dd5c2c8" title="Mon, 29 Sep 2014 18:35:54 +0000"></span><script type="text/javascript">WhenId('CH_zTmac0dd5c2c8');</script><noscript>Sep 29, 2014 at 6:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jodytj/default.htm"><b>jodytj</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757608">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br>229<br>230<br>231<br>232<br>233<br>234<br>235<br>236<br>237<br>238<br>239<br>240<br>241<br>242<br>243<br>244<br>245<br>246<br>247<br>248<br></code></pre></td>
+<td class="source"><pre><code><cite>// I am getting the following errors when I try to compile my program...</cite>
+<cite>/*C:\Users\aurjagui\Desktop\Program\driver.cpp In function `int main()': 
+84 C:\Users\aurjagui\Desktop\Program\driver.cpp no match for 'operator*' in 'value * q' */</cite>
+<cite>//driver.cpp-----------------------------------------------------------------</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+<dfn>#include "Quadratic.h"</dfn>
+<var>using</var> <var>namespace</var> std;
+<cite>//***************************************************************</cite>
+<cite>// Function: main</cite>
+<cite>//***************************************************************</cite>
+<var>int</var> main()
+{
+     <cite>//create object of type class Quadratic</cite>
+     Quadratic q,res;
+     <var>double</var> a, b, c, value;
+     <var>char</var> ch = <kbd>'y'</kbd>;
+     <var>do</var>
+     {
+          <cite>//prompt the user to enter values of a, b, and c</cite>
+          <cite>//read the values entered by the uses</cite>
+          cout&lt;&lt;<kbd>"Enter values of co-efficient of quadratic equation..."</kbd>&lt;endl;
+          cout&lt;&lt;<kbd>"a: "</kbd>;
+          cin&gt;&gt;a;
+          cout&lt;&lt;<kbd>"b: "</kbd>;
+          cin&gt;&gt;b;
+          cout&lt;&lt;<kbd>"c: "</kbd>;
+          cin&gt;&gt;c;
+          <cite>//assign the values</cite>
+          q.set(a,b,c);
+          <cite>//display quadratic equation</cite>
+          cout&lt;&lt;<kbd>"The quadratic equation is "</kbd>;
+          q.display();
+          cout&lt;&lt;<kbd>" ...!"</kbd>&lt;&lt;endl;
+          <cite>//display roots</cite>
+          cout&lt;&lt;<kbd>"Larger root is : "</kbd>&lt;&lt;q.larger_root()&lt;&lt;endl;
+          cout&lt;&lt;<kbd>"Smaller root is : "</kbd>&lt;&lt;q.smaller_root()&lt;&lt;endl;
+          cout&lt;&lt;<kbd>"Do you want to find roots to another equation "</kbd>
+              &lt;&lt;<kbd>"(press 'y' to continue) : "</kbd>;
+          cin&gt;&gt;ch;
+     }
+     <var>while</var>(ch==<kbd>'y'</kbd>||ch==<kbd>'Y'</kbd>);
+     <cite>//display quadratic equation</cite>
+     cout&lt;&lt;<kbd>"The quadratic equation is "</kbd>;
+     q.display();
+     cout&lt;&lt;<kbd>"!"</kbd>&lt;&lt;endl;
+     cout&lt;&lt;<kbd>"Enter a value to multiply : "</kbd>;
+     cin&gt;&gt;value;
+     res = value*q;
+     cout&lt;&lt;<kbd>"The resultant quadratic equation is "</kbd>;
+     res.display();
+     cout&lt;&lt;<kbd>" ...!"</kbd>&lt;&lt;endl;
+     cout&lt;&lt;<kbd>"Enter a value to evaluate : "</kbd>;
+     cin&gt;&gt;value;
+     cout&lt;&lt;<kbd>"The result is "</kbd>&lt;&lt;q.evaluate(value)&lt;&lt;endl;
+     <cite>//to halt the system</cite>
+     system(<kbd>"PAUSE"</kbd>);
+     <var>return</var> 0;
+}
+<cite>//Quadratic.cpp-------------------------------------------------------------</cite>
+<dfn>#include "Quadratic.h"</dfn>
+<dfn>#include &lt;assert.h&gt;</dfn>
+<cite>//constructor to initialize the private variables</cite>
+<cite>//pre: values to be assigned (zeros) to a, b, and c are passed</cite>
+<cite>//post: Initialize the values of a, b, and c with 0's</cite>
+Quadratic::Quadratic() : a(0), b(0), c(0) {}
+<cite>//Function to set the value of the member variables</cite>
+<cite>//pre: values to be assigned to a, b, and c are passed</cite>
+<cite>//post: Initialize the values of a, b, and c with passed values</cite>
+<var>void</var> Quadratic::set(<var>double</var> cdblA, <var>double</var> cdblB, <var>double</var> cdblC)
+{    a = cdblA;
+     b = cdblB;
+     c = cdblC;
+}
+<cite>//Function to get the value of the member variable a</cite>
+<cite>//post: Return the value stored in variable a</cite>
+<var>double</var> Quadratic::get_a() <var>const</var>
+{
+     <var>return</var> a;
+}
+<cite>//Function to get the value of the member variable b</cite>
+<cite>//post: Return the value stored in variable b</cite>
+<var>double</var> Quadratic::get_b() <var>const</var>
+{
+     <var>return</var> b;
+}
+<cite>//Function to get the value of the member variable c</cite>
+<cite>//post: Return the value stored in variable c</cite>
+<var>double</var> Quadratic::get_c() <var>const</var>
+{
+    <var>return</var> c;
+}
+<cite>//Function to evaluate the value of the quadratic expression</cite>
+<cite>//for given value of x</cite>
+<cite>//pre: The parameter is value x</cite>
+<cite>//post: Evaluate the quadratic expression and return the value</cite>
+<var>double</var> Quadratic::evaluate(<var>double</var> x) <var>const</var>
+{
+     <var>return</var> (a * x * x) + (b * x) + c;
+}
+<cite>//Function to add two quadratic expressions</cite>
+<cite>//pre: The parameter the objects q1 and q2</cite>
+<cite>//post: Add q1 and q2 and store the result in object q</cite>
+Quadratic <var>operator</var>+(<var>const</var> Quadratic &amp; q1, <var>const</var> Quadratic &amp; q2)
+{
+     <var>double</var> a = q1.get_a() + q2.get_a();
+     <var>double</var> b = q1.get_b() + q2.get_b();
+     <var>double</var> c = q1.get_c() + q2.get_c();
+     Quadratic q;
+     q.set(a, b, c);
+     <var>return</var> q;
+}
+<cite>//Function to multiply the quadratic expression with a constant</cite>
+<cite>//pre: r has been assigned</cite>
+<cite>//post: Multiply q with a constant r and store it in q1, return q1</cite>
+Quadratic <var>operator</var>*(<var>double</var> r, <var>const</var> Quadratic &amp; q )
+{
+     <var>double</var> a = r * q.get_a();
+     <var>double</var> b = r * q.get_b();
+     <var>double</var> c = r * q.get_c();
+     Quadratic q1;
+     q1.set(a, b, c);
+     <var>return</var> q1;
+}
+<cite>//Function to find the number of real roots to the quadratic equation</cite>
+<cite>//post: Return the number of real roots</cite>
+<var>int</var> Quadratic::real_root() <var>const</var>
+{
+     <var>double</var> x1 = 0.0;
+     <var>double</var> x2 = 0.0;
+     <var>int</var> real_root;
+     <cite>//If a, b and c are all zero, then every value of x is a real root.</cite>
+     <var>if</var>(a == 0 &amp;&amp; b == 0 &amp;&amp; c == 0)
+     {
+          real_root = -1;
+     }
+     <cite>//If a and b are zero and c is non-zero, then there are no real roots.</cite>
+     <var>else</var> <var>if</var>(a == 0 &amp;&amp; b == 0 &amp;&amp; c != 0)
+     {
+          real_root = 0;
+     }
+     <cite>//If a is zero and b is non-zero, then the only real root is x = -c/b.</cite>
+     <var>else</var> <var>if</var>(a == 0 &amp;&amp; b != 0)
+     {
+          real_root = 1;
+     }
+     <cite>//If a is non-zero and b^2 &lt; 4ac, then there are no real roots.</cite>
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b &lt; (4*a*c))
+     {
+          real_root = 0;
+     }
+     <cite>//If a is non-zero and b^2 = 4ac, then there is one real root x = -b/2a.</cite>
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b == (4*a*c))
+     {
+          real_root = 1;
+     }
+     <cite>//If a is non-zero and b2 &gt; 4ac, then there are two real roots.</cite>
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b &gt; (4*a*c))
+     {
+          real_root = 2;
+    }
+     <var>return</var> real_root;
+}
+<cite>//Function to find larger real root of the quadratic equation</cite>
+<cite>//post: Return the larger real root</cite>
+<var>double</var> Quadratic::larger_root() <var>const</var>
+{
+     <var>double</var> larger;
+     assert(real_root()&gt;0);
+     <cite>//If a is zero and b is non-zero, then the only real root is x = -c/b.</cite>
+     <var>if</var>(a == 0 &amp;&amp; b != 0)
+          larger = -c/b;
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b == (4*a*c))
+          larger = -b/2*a;
+     <cite>//If a is non-zero and b2 &gt; 4ac, then there are two real roots.</cite>
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b &gt; (4*a*c))
+          larger = (-b + (sqrt(pow(b,2)-(4*a*c))))/(2*a);
+     <var>return</var> larger;
+}
+<cite>//Function to find smaller real root of the quadratic equation</cite>
+<cite>//post: Return the smaller real root</cite>
+<var>double</var> Quadratic::smaller_root()<var>const</var>
+{
+     <var>double</var> smaller;
+     assert(real_root()&gt;0);
+     <cite>//If a is zero and b is non-zero, then the only real root is x = -c/b.</cite>
+     <var>if</var>(a == 0 &amp;&amp; b != 0)
+          smaller = -c/b;
+    <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b == (4*a*c))
+          smaller = -b/2*a;
+     <cite>//If a is non-zero and b2 &gt; 4ac, then there are two real roots.</cite>
+     <var>else</var> <var>if</var>(a != 0 &amp;&amp; b*b &gt; (4*a*c))
+          smaller = (-b - (sqrt(pow(b,2)-(4*a*c))))/(2*a);
+     <var>return</var> smaller;
+}
+<cite>//Function to display quadratic equation</cite>
+<cite>//post: display the quadratic equation in standard form</cite>
+<var>void</var> Quadratic::display() <var>const</var>
+{
+     cout &lt;&lt; a &lt;&lt; <kbd>" X^2 + "</kbd>&lt;&lt; b &lt;&lt; <kbd>" X + "</kbd> &lt;&lt;c;
+}
+<cite>//Quadratic.h---------------------------------------------------------------</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+<cite>// class Quadratic declaration</cite>
+<var>class</var> Quadratic
+{
+<var>private</var>:
+     <var>double</var> a, b, c;
+<var>public</var>:
+     <cite>//constructor to initialize the private variables</cite>
+     <cite>//post: Initialize the values of a, b, and c with 0's</cite>
+       Quadratic();
+     <cite>//Function to set the value of the member variables</cite>
+     <cite>//pre: The parameters are values to be assigned to variables a, b, and c</cite>
+     <cite>//post: Initialize the values of a, b, and c with passed values</cite>
+     <var>void</var> set(<var>double</var> cdblA, <var>double</var> cdblB, <var>double</var> cdblC);
+     <cite>//Function to get the value of the member variable a</cite>
+     <cite>//post: Return the value stored in variable a</cite>
+     <var>double</var> get_a() <var>const</var>;
+      <cite>//Function to get the value of the member variable b</cite>
+     <cite>//post: Return the value stored in variable b</cite>
+     <var>double</var> get_b() <var>const</var>;
+     <cite>//Function to get the value of the member variable c</cite>
+     <cite>//post: Return the value stored in variable c</cite>
+          <var>double</var> get_c() <var>const</var>;
+     <cite>//Function to evaluate the value of the quadratic expression</cite>
+     <cite>//for given value of x</cite>
+     <cite>//pre: The parameter is value x</cite>
+     <cite>//post: Evaluate the quadratic expression and return the value</cite>
+          <var>double</var> evaluate(<var>double</var> x) <var>const</var>;
+     <cite>//Function to find the number of real roots to the quadratic equation</cite>
+     <cite>//post: Return the number of real roots</cite>
+      <var>int</var> real_root () <var>const</var>;
+      <cite>//Function to find larger real root of the quadratic equation</cite>
+      <cite>//post: Return the larger real root</cite>
+      <var>double</var> larger_root () <var>const</var>;
+      <cite>//Function to find smaller real root of the quadratic equation</cite>
+      <cite>//post: Return the smaller real root</cite>
+      <var>double</var> smaller_root () <var>const</var>;
+     <var>void</var> display() <var>const</var>;
+Quadratic <var>operator</var> + (<var>const</var> Quadratic &amp; rhs);
+Quadratic <var>operator</var> * (<var>const</var> <var>double</var>);
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757608"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757612"><span title="757612,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757612" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6a9cc18724" title="Mon, 29 Sep 2014 18:50:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a9cc18724');</script><noscript>Sep 29, 2014 at 6:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757612">
+Declaration <span class="auto"><code class="source">Quadratic <var>operator</var> * (<var>const</var> <var>double</var>);</code></span> Should match definition <span class="auto"><code class="source">Quadratic <var>operator</var>*(<var>double</var> r, <var>const</var> Quadratic &amp; q )</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757612"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757615"><span title="757615,152479,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757615" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6c1522e05b" title="Mon, 29 Sep 2014 19:06:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm6c1522e05b');</script><noscript>Sep 29, 2014 at 7:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jodytj/default.htm"><b>jodytj</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757615">
+When I make that change it now gives me an error for that line as well:<br>
+Quadratic operator*(double r, const Quadratic &amp; q )<br>
+86 C:\Users\aurjagui\Desktop\Quadratic.h `Quadratic Quadratic::operator*(double, const Quadratic&amp;)' must take either zero or one argument <br>
+ C:\Users\aurjagui\Desktop\driver.cpp In function `int main()': <br>
+54 C:\Users\aurjagui\Desktop\driver.cpp no match for 'operator*' in 'value * q' 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm3ff5889dc5" title="Mon, 29 Sep 2014 19:06:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm3ff5889dc5');</script><noscript>Sep 29, 2014 at 7:06pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn757615"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757621"><span title="757621,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757621" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmadcda421d7" title="Mon, 29 Sep 2014 19:26:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmadcda421d7');</script><noscript>Sep 29, 2014 at 7:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757621">
+And you have to make it non-member (move declaration outside of the class)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757621"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757628"><span title="757628,152479,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757628" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfe91c1b9ce" title="Mon, 29 Sep 2014 19:58:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmfe91c1b9ce');</script><noscript>Sep 29, 2014 at 7:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jodytj/default.htm"><b>jodytj</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757628">
+I did that so I have:<br>
+Quadratic operator +(const Quadratic &amp; rhs);<br>
+};<br>
+Quadratic operator*(double r, const Quadratic &amp; q );<br>
+<br>
+but now I am getting this:<br>
+  [Linker error] undefined reference to `Quadratic::Quadratic()' <br>
+  [Linker error] undefined reference to `Quadratic::Quadratic()' <br>
+  [Linker error] undefined reference to `Quadratic::set(double, double, double)' <br>
+  [Linker error] undefined reference to `Quadratic::display() const' <br>
+  [Linker error] undefined reference to `Quadratic::larger_root() const' <br>
+  [Linker error] undefined reference to `Quadratic::smaller_root() const' <br>
+  [Linker error] undefined reference to `Quadratic::display() const' <br>
+  [Linker error] undefined reference to `operator*(double, Quadratic const&amp;)' <br>
+  [Linker error] undefined reference to `Quadratic::display() const' <br>
+  [Linker error] undefined reference to `Quadratic::evaluate(double) const' <br>
+  ld returned 1 exit status 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757628"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757630"><span title="757630,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757630" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm89e0d9b53c" title="Mon, 29 Sep 2014 20:00:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm89e0d9b53c');</script><noscript>Sep 29, 2014 at 8:00pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757630">
+Now it looks like you did not add your cpp file to the to-compile list.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757630"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757876"><span title="757876,152479,1023,13,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757876" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf5c5b32cb3" title="Tue, 30 Sep 2014 15:22:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmf5c5b32cb3');</script><noscript>Sep 30, 2014 at 3:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jodytj/default.htm"><b>jodytj</b> (13)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757876">
+I have it compiling now but get a run time error. when I compile it:<br>
+<br>
+<br>
+I am getting an error where I use  assert.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757876"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143605,1,152479,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~409.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

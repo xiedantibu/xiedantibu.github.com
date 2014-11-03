@@ -1,0 +1,453 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/145451/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tic Tac toe - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Tic Tac toe</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Tic Tac toe</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145451,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg765905"><span title="765905,154987,255,8,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765905" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb0ea1b2b0f" title="Mon, 20 Oct 2014 06:22:54 +0000"></span><script type="text/javascript">WhenId('CH_zTmb0ea1b2b0f');</script><noscript>Oct 20, 2014 at 6:22am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/japperx/default.htm"><b>japperx</b> (8)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765905">
+ I am trying to make my code look like the following:<br>
+New Game: X goes first.<br>
+-----------------<br>
+|R\C| 0 | 1 | 2 |<br>
+-----------------<br>
+|0||||<br>
+-----------------<br>
+|1||||<br>
+-----------------<br>
+|2||||<br>
+-----------------<br>
+X's turn.<br>
+Where do you want your X placed?<br>
+Please enter row number and column number separated by a space.<br>
+00<br>
+You have entered row #0<br>
+and column #0<br>
+Thank you for your selection.<br>
+-----------------<br>
+|R\C| 0 | 1 | 2 |<br>
+-----------------<br>
+|0|X| | |<br>
+-----------------<br>
+|1||||<br>
+-----------------<br>
+|2||||<br>
+-----------------<br>
+￼O's turn.<br>
+￼Where do you want your O placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼33<br>
+￼You have entered row #3<br>
+￼and column #3<br>
+￼Invalid entry: try again.<br>
+￼Row &amp; column numbers must be either 0, 1, or 2.<br>
+￼O's turn.<br>
+￼Where do you want your O placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼00<br>
+￼You have entered row #0<br>
+￼and column #0<br>
+￼That cell is already taken.<br>
+￼Please make another selection.<br>
+￼O's turn.<br>
+￼Where do you want your O placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼11<br>
+￼You have entered row #1<br>
+￼and column #1<br>
+￼Thank you for your selection.<br>
+￼-----------------<br>
+￼|R\C| 0 | 1 | 2 |<br>
+￼-----------------<br>
+￼|0|X| | |<br>
+￼-----------------<br>
+￼|1| |O| |<br>
+￼-----------------<br>
+￼|2||||<br>
+￼-----------------<br>
+￼X's turn.<br>
+￼Where do you want your X placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼10<br>
+￼You have entered row #1<br>
+￼and column #0<br>
+￼Thank you for your selection.<br>
+￼-----------------<br>
+￼|R\C| 0 | 1 | 2 |<br>
+￼-----------------<br>
+￼|0|X| | |<br>
+￼-----------------<br>
+￼|1|X|O| |<br>
+￼-----------------<br>
+￼|2||||<br>
+￼-----------------<br>
+￼O's turn.<br>
+￼Where do you want your O placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼01<br>
+￼You have entered row #0<br>
+￼and column #1<br>
+￼Thank you for your selection.<br>
+￼-----------------<br>
+￼|R\C| 0 | 1 | 2 |<br>
+￼-----------------<br>
+￼|0|X|O| |<br>
+￼-----------------<br>
+￼|1|X|O| |<br>
+￼-----------------<br>
+￼|2||||<br>
+￼-----------------<br>
+￼X's turn.<br>
+￼Where do you want your X placed?<br>
+￼Please enter row number and column number separated by a space.<br>
+￼20<br>
+￼You have entered row #2<br>
+￼and column #0<br>
+￼Thank you for your selection.<br>
+￼X IS THE WINNER!!!<br>
+￼-----------------<br>
+￼|R\C| 0 | 1 | 2 |<br>
+￼-----------------<br>
+￼|0|X|O| |<br>
+￼-----------------<br>
+￼|1|X|O| |<br>
+￼-----------------<br>
+￼|2|X| | |<br>
+￼-----------------<br>
+￼Another game? Enter Y or y for yes.<br>
+￼Y<br>
+￼<br>
+<br>
+My code is Below:<br>
+<br>
+#include&lt;iostream&gt;<br>
+#include&lt;cstdlib&gt;<br>
+using namespace std;<br>
+<br>
+<br>
+<br>
+<br>
+char square[11]={'0','1','2','3','4','5','6','7','8','9','\0'};<br>
+void board();<br>
+int win();<br>
+<br>
+<br>
+<br>
+int main()<br>
+{<br>
+    system("color 9a");<br>
+    char playagain='y';<br>
+    while(playagain=='y')<br>
+    {<br>
+        cout&lt;&lt;"Welcome in my Tic Tac Toe!!!\n\n\n"&lt;&lt;endl;<br>
+        int player=1;<br>
+        int i,choice;<br>
+        char mark;<br>
+        <br>
+        do<br>
+        {<br>
+            <br>
+            board();<br>
+            player=(player%2)?1:2;<br>
+            cout&lt;&lt;"Player "&lt;&lt;player&lt;&lt;" enter a number: ";<br>
+            cin&gt;&gt;choice;<br>
+            mark=(player==1)?'X':'O';<br>
+            <br>
+            if(choice==1 &amp;&amp; square[1]=='1')<br>
+                square[1]=mark;<br>
+            <br>
+            else if (choice == 2 &amp;&amp; square[2] == '2')<br>
+                <br>
+                square[2] = mark;<br>
+            else if (choice == 3 &amp;&amp; square[3] == '3')<br>
+                <br>
+                square[3] = mark;<br>
+            else if (choice == 4 &amp;&amp; square[4] == '4')<br>
+                <br>
+                square[4] = mark;<br>
+            else if (choice == 5 &amp;&amp; square[5] == '5')<br>
+                <br>
+                square[5] = mark;<br>
+            else if (choice == 6 &amp;&amp; square[6] == '6')<br>
+                <br>
+                square[6] = mark;<br>
+            else if (choice == 7 &amp;&amp; square[7] == '7')<br>
+                <br>
+                square[7] = mark;<br>
+            else if (choice == 8 &amp;&amp; square[8] == '8')<br>
+                <br>
+                square[8] = mark;<br>
+            else if (choice == 9 &amp;&amp; square[9] == '9')<br>
+                <br>
+                square[9] = mark;<br>
+            else<br>
+            {<br>
+                cout&lt;&lt;"\nINVALID MOVE \n\n";<br>
+                player--;<br>
+                <br>
+            }<br>
+            i=win();<br>
+            player++;<br>
+        }while(i==-1);<br>
+        board();<br>
+        if(i==1)<br>
+            cout&lt;&lt;"Player"&lt;&lt;--player&lt;&lt;" win";<br>
+        if(i==0)<br>
+            cout&lt;&lt;"Game draw";<br>
+        <br>
+        <br>
+        <br>
+        cout&lt;&lt;"\n\nWanna play again(y/n)?:";<br>
+        cin&gt;&gt;playagain;<br>
+        cout&lt;&lt;endl;<br>
+        <br>
+        if(playagain=='y')<br>
+        {<br>
+            cout&lt;&lt;"You choice to play again\n\n";<br>
+        }<br>
+        else if(playagain=='n')<br>
+        {<br>
+            cout&lt;&lt;"You choice not to play again\n\n";<br>
+        }<br>
+        else<br>
+        {<br>
+            cout&lt;&lt;"You didnt put an valid character so i will take it like(n),so the program will close.\n\n";<br>
+        }<br>
+        <br>
+        for(int c=0;c&lt;40;c++)<br>
+        {<br>
+            cout&lt;&lt;"****";<br>
+        }<br>
+        cout&lt;&lt;endl;<br>
+        <br>
+        square[1] = '1';<br>
+        square[2] = '2';<br>
+        square[3] = '3';<br>
+        square[4] = '4';<br>
+        square[5] = '5';<br>
+        square[6] = '6';<br>
+        square[7] = '7';<br>
+        square[8] = '8';<br>
+        square[9] = '9';<br>
+    }<br>
+}<br>
+<br>
+int win()<br>
+{<br>
+    if(square[1]==square[2]&amp;&amp;square[2]==square[3])<br>
+        return 1;<br>
+    <br>
+    else if(square[4]==square[5]&amp;&amp;square[5]==square[6])<br>
+        return 1;<br>
+    <br>
+    else if(square[7]==square[8]&amp;&amp;square[8]==square[9])<br>
+        return 1;<br>
+    <br>
+    else if(square[1]==square[4]&amp;&amp;square[4]==square[7])<br>
+        return 1;<br>
+    <br>
+    else if(square[2]==square[5]&amp;&amp;square[5]==square[8])<br>
+        return 1;<br>
+    <br>
+    else if(square[3]==square[6]&amp;&amp;square[6]==square[9])<br>
+        return 1;<br>
+    <br>
+    else if(square[1]==square[5]&amp;&amp;square[5]==square[9])<br>
+        return 1;<br>
+    <br>
+    else if(square[3]==square[5]&amp;&amp;square[5]==square[7])<br>
+        return 1;<br>
+    <br>
+    else if (square[1] != '1' &amp;&amp; square[2] != '2' &amp;&amp; square[3] != '3' &amp;&amp; square[4] != '4'&amp;&amp;square[5] != '5'<br>
+             &amp;&amp; square[6] != '6' &amp;&amp; square[7] != '7' &amp;&amp; square[8] != '8' &amp;&amp; square[9] != '9')<br>
+        return 0;<br>
+    <br>
+    else<br>
+        return -1;<br>
+    <br>
+}<br>
+<br>
+void board()<br>
+{<br>
+    <br>
+    <br>
+    cout&lt;&lt;"\tTic Tac Toe\t\t\n\n";<br>
+    cout&lt;&lt;"PLAYER 1(X)  ,  PLAYER 2(O)\n\n";<br>
+    cout&lt;&lt;square[1]&lt;&lt;"|"&lt;&lt;square[2]&lt;&lt;"|"&lt;&lt;square[3]&lt;&lt;endl;<br>
+    cout&lt;&lt;"-----"&lt;&lt;endl;<br>
+    cout&lt;&lt;square[4]&lt;&lt;"|"&lt;&lt;square[5]&lt;&lt;"|"&lt;&lt;square[6]&lt;&lt;endl;<br>
+    cout&lt;&lt;"-----"&lt;&lt;endl;<br>
+    cout&lt;&lt;square[7]&lt;&lt;"|"&lt;&lt;square[8]&lt;&lt;"|"&lt;&lt;square[9]&lt;&lt;endl;<br>
+    <br>
+    <br>
+}<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765905"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765910"><span title="765910,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765910" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmed3ff9faff" title="Mon, 20 Oct 2014 06:36:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmed3ff9faff');</script><noscript>Oct 20, 2014 at 6:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765910">
+seems to work... what problem are you having?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765910"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765918"><span title="765918,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765918" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf3da1a7ea4" title="Mon, 20 Oct 2014 06:51:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmf3da1a7ea4');</script><noscript>Oct 20, 2014 at 6:51am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765918">
+add computer opponent<br>
+<a href="../../../articles/1v07m4gy/default.htm">http://www.cplusplus.com/articles/1v07M4Gy/</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765918"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766056"><span title="766056,154987,255,8,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766056" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1c4906f8d7" title="Mon, 20 Oct 2014 16:40:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm1c4906f8d7');</script><noscript>Oct 20, 2014 at 4:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/japperx/default.htm"><b>japperx</b> (8)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766056">
+I need to have my game in a multidimensional array. my game box needs to state the rows and columns. Then the player has to type the row then the column number.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766056"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145451,0,154987,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~259.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

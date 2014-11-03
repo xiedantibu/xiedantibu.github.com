@@ -1,0 +1,911 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/143703/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Proper Windows Programming Design - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Proper Windows Programming Design</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Proper Windows Programming Design</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143703,root,0,-1,14,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg758031"><span title="758031,86348,3,210,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758031" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm34ad1d1ae4" title="Wed, 01 Oct 2014 01:07:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm34ad1d1ae4');</script><noscript>Oct 1, 2014 at 1:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758031">
+I want to know how to properly design a windows application.<br>
+<br>
+<br>
+Like in console programming creating .h and .cpp files was easy but feels like another paradigm almost when programming a windows app. <br>
+<br>
+<br>
+I want to see how code is organized. I want to create child window of a different color than the main like a black box inside a white window for instance. The code loos so sloppy when creating another window class to do this.<br>
+<br>
+I have no idea how to design this.<br>
+<br>
+Thanks for reading. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758031"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758211"><span title="758211,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758211" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm434a29d93d" title="Wed, 01 Oct 2014 10:02:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm434a29d93d');</script><noscript>Oct 1, 2014 at 10:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758211">
+I like to wrap everything up in classes with each class defined in a separate .h file and implemented in a corresponding .cpp file.<br>
+<br>
+I start with a base CWindow class which implements the functionality that all windows and controls have in common. This includes Create(), Move(), and Resize() methods, among others, and a private HWND data member.<br>
+<br>
+For every control my application uses I derive a new class from CWindow and add functionality specific to that control. For example, a list control would have InsertItem() and DeleteItem() methods.<br>
+<br>
+Top-level windows also derive from CWindow and implement their own window procedures. They also contain objects of the various control classes as private data members. Top-level windows are responsible for initializing and arranging the controls they contain.<br>
+<br>
+If I have multiple top-level windows I'll add functionality to each so they can communicate with each other where necessary. Sometimes I'll take it a step further and contain them all in a CApplication class, which I use to initialize and drive the entire application.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm737b4875ea" title="Wed, 01 Oct 2014 10:31:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm737b4875ea');</script><noscript>Oct 1, 2014 at 10:31am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758211"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758281"><span title="758281,105233,1023,103,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758281" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm48fb164c7f" title="Wed, 01 Oct 2014 14:02:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm48fb164c7f');</script><noscript>Oct 1, 2014 at 2:02pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/plexus/default.htm"><b>plexus</b> (103)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758281">
+The first important question is: which library / framework do you want to use?<br>
+<br>
+Classic Win32 SDK (the one with WinMain(), WindowProc(), GetMessage(), ...)<br>
+or<br>
+MFC (that uses CWinApp, CWnd, MESSAGE_MAP, ...)<br>
+or<br>
+.net (with System::Windows::Forms, Forms::Button, System::EventHandler(), ... )<br>
+or<br>
+worse?<br>
+<br>
+All of them usually use a slightly different approach.<br>
+In .net for example you usually implement most of the code in the .h files with one file per class.<br>
+With Win32 and MFC it's usually a more traditional approach with .h for interface and declaration and .cpp for implementation.<br>
+<br>
+So, which library is it?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758281"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758316"><span title="758316,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758316" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm467a959d40" title="Wed, 01 Oct 2014 15:49:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm467a959d40');</script><noscript>Oct 1, 2014 at 3:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758316">
+Thanks for the reply..I Haven't looked into libraries yet because I just want to get the basics of the win api down. <br>
+<br>
+So if I wanted to create a child window..I would program that window in a .h file and then call the function to have the window be displayed in the main.cpp file?<br>
+<br>
+And the child window would have its own winProc? 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0a8f485dda" title="Wed, 01 Oct 2014 15:50:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm0a8f485dda');</script><noscript>Oct 1, 2014 at 3:50pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn758316"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758335"><span title="758335,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758335" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm657e3e13cb" title="Wed, 01 Oct 2014 16:54:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm657e3e13cb');</script><noscript>Oct 1, 2014 at 4:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758335">
+There's a paradigm shift involved here.  Its harder than you think.  There are basics that have to be learned before you can even begin.  If you try to begin without learning the basics plan on a long time spinning your wheels, getting confused (as you obviously are now), getting nowhere, and heaven forbid, ending up using class frameworks because you can't get anything else to work.<br>
+<br>
+Most folks here recommend starting with some online tutorials.  One recommended here a lot is the Forger's Win32 Tutorial.  You can search on that and come up with a link.  I've written some getting started material and put it here ...<br>
+<br>
+<a href="../../../../www.jose.it-berater.org/smfforum/index.phptopic3389.0">http://www.jose.it-berater.org/smfforum/index.php?topic=3389.0</a><br>
+<br>
+All the old timers (like me) swear by Charles Petzold's "Programming Windows" book, but that is getting harder to get, I believe (its old).   <br>
+<br>
+Plexus above gave a succinct description of your options.  Knn9 described the Class Framework approach.  I personally do Win32 Api SDK style, with my own modifications of it.  It produces the smallest, fastest executables.  If you would work through the examples I've posted at the link above, plus perhaps something like the Forger's Win32 Tutorial, you would get it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758335"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758338"><span title="758338,9435,1023,4177,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758338" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfbbb8e8bcc" title="Wed, 01 Oct 2014 16:58:21 +0000"></span><script type="text/javascript">WhenId('CH_zTmfbbb8e8bcc');</script><noscript>Oct 1, 2014 at 4:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/grey_wolf/default.htm"><b>Grey Wolf</b> (4177)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758338">
+<table class="quote"><tr><td class="qd">All the old timers (like me) swear by Charles Petzold's "Programming Windows" book, but that is getting harder to get, I believe (its old). </td></tr></table>*Thumbs Up*
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758338"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758411"><span title="758411,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758411" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1ac9d5cb51" title="Wed, 01 Oct 2014 20:10:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm1ac9d5cb51');</script><noscript>Oct 1, 2014 at 8:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758411">
+<table class="quote"><tr><td class="qd">So if I wanted to create a child window..I would program that window in a .h file and then call the function to have the window be displayed in the main.cpp file?</td></tr></table><br>
+I don't know what function you're referring to but you don't put executable code in an .h file. Those are for function prototypes, class definitions, typedefs, etc.<br>
+<br>
+At the very least I would separate the implementation of each window into separate cpp files, E.g., mainwindow.cpp and childwindow.cpp. Put all of the functions related to each window in those files. Put all the function prototypes in mainwindow.h and childwindow.h. Include each of the .h files in the respective cpp file and both in main.cpp(the one with WinMain() and the message pump).<br>
+<br>
+<table class="quote"><tr><td class="qd">And the child window would have its own winProc? </td></tr></table><br>
+Not necessarily. If it's a control, Windows has a default window procedure, hence why you don't supply your own window class when you create them. <br>
+<br>
+It's possible for windows you create to share the same window procedure by passing the same window class to CreateWindowEx() for both windows. In the window procedure you get the handle of the window receiving the message. This is what I do when I use classes because it's possible to store a pointer to the CWindow object in the HWND itself and retrieve it in the window procedure.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2469096429" title="Wed, 01 Oct 2014 20:24:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm2469096429');</script><noscript>Oct 1, 2014 at 8:24pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn758411"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758471"><span title="758471,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758471" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbd8243b831" title="Thu, 02 Oct 2014 00:07:14 +0000"></span><script type="text/javascript">WhenId('CH_zTmbd8243b831');</script><noscript>Oct 2, 2014 at 12:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758471">
+I'll post the proper way code should be organized for Win32/64 SDK style apps.  The sample app created will perform the following functions...<br>
+<br>
+1) Create a Main Program Window containing three button controls with respective captions 'Option #1', 'Option #2', and 'Option #3';<br>
+<br>
+2) Clicking button Option #1 creates a new WS_OVERLAPPEDWINDOW top level window/dialog/form which is modal, i.e., it disables the main startup Form or Main Window;<br>
+<br>
+3) Clicking Option #2 creates a new WS_OVERLAPPEDWINDOW top level window which hides the main startup Form or main program window;<br>
+<br>
+4) Clicking Option #3 creates a new WS_OVERLAPPEDWINDOW top level window which neither disables the main window nor hides it.  Therefore you can click on the Option #3 button as long as you want and create as many of these as you want;<br>
+<br>
+5) All the windows/dialogs/forms use TextOut() to show displaying text on a form;<br>
+<br>
+6) The program shows how to create Child Window Controls;<br>
+<br>
+7) The program shows how to modularize one's code into event handling procedures.  This is to overcome the unscalability and ungainliness of the typical Window Procedure switch construct, which, in my opinion, shouldn't be used except for the very smallest of test or example code;<br>
+<br>
+8) Program shows how to code without global variables.  There are no global variables in this code;<br>
+<br>
+9) Program shows how to organize code into code modules of *.cpp and *.h files based on seperate Window Procedures;<br>
+<br>
+10) Program can be compiled either wide character or ansi, x86 or x64.  Tested with GNU GCC (old and x64 versions) and VC9;<br>
+<br>
+11) Program shows how to pass data among windows/dialogs/forms using the CREATESTRUCT params (last parameter of CreateWindow() call.<br>
+<br>
+Project has eight files as follows...<br>
+<br>
+Main.cpp<br>
+Main.h<br>
+Form1.cpp<br>
+Form1.h<br>
+Form2.cpp<br>
+Form2.h<br>
+Form3.cpp<br>
+Form3.h<br>
+<br>
+Copy code from forum and name files as such.  Put in project directory where you've created a blank Win32/64 project, and use IDE to add files to project....<br>
+<br>
+continued...<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758471"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758472"><span title="758472,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758472" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc56db1cb88" title="Thu, 02 Oct 2014 00:07:58 +0000"></span><script type="text/javascript">WhenId('CH_zTmc56db1cb88');</script><noscript>Oct 2, 2014 at 12:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758472">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br></code></pre></td>
+<td class="source"><pre><code><cite>//Main.cpp                //Program displays a main Form/Window/Dialog With Three Buttons on it to simulate</cite>
+<dfn>#include &lt;windows.h&gt;      </dfn><cite>//a program started from a main Form with three modules/options/modalities within</cite>
+<dfn>#include &lt;tchar.h&gt;        </dfn><cite>//which it operates.  When you click the top button a new Form/Window/Dialog is</cite>
+<dfn>#include &lt;stdio.h&gt;        </dfn><cite>//created with CreateWindow() of the "Form1" Window Class, and in the WM_CREATE</cite>
+<dfn>#include "Main.h"         </dfn><cite>//handler of this new window it disables the main form with the three buttons and</cite>
+<dfn>#include "Form1.h"        </dfn><cite>//therefore is an example of a modal dialog.  When you dismiss this modal dialog</cite>
+<dfn>#include "Form2.h"        </dfn><cite>//and click on Button/Option #2 on the Main Form, a CreateWindow() call creates a</cite>
+<dfn>#include "Form3.h"        </dfn><cite>//window of "Form2" Window Class, and in the WM_CREATE handler...</cite>
+
+
+<var>long</var> fnWndProc_OnCreate(lpWndEventArgs Wea) <cite>//...for this window it hides or makes invisible the main</cite>
+{                                           <cite>//window.  After dismssing this window you'll find that you</cite>
+ DWORD dwStyle=WS_CHILD|WS_VISIBLE;         <cite>//can click on the Option #3 button as many times as you like</cite>
+ TCHAR szClassName[16];                     <cite>//because the window-form-dialog it creates neither disables</cite>
+ WNDCLASSEX wc;                             <cite>//nor makes invisible the main window.  Further note that these</cite>
+                                            <cite>//Option #3 windows can be interacted with regardless of what-</cite>
+ Wea-&gt;hIns=((LPCREATESTRUCT)Wea-&gt;lParam)-&gt;hInstance; <cite>//ever is going on with the other windows.</cite>
+ CreateWindow(_T(<kbd>"button"</kbd>),_T(<kbd>"Option #1"</kbd>),dwStyle,65,15,120,25,Wea-&gt;hWnd,(HMENU)IDC_BUTTON_FORM1,Wea-&gt;hIns,0);
+ CreateWindow(_T(<kbd>"button"</kbd>),_T(<kbd>"Option #2"</kbd>),dwStyle,65,55,120,25,Wea-&gt;hWnd,(HMENU)IDC_BUTTON_FORM2,Wea-&gt;hIns,0);
+ CreateWindow(_T(<kbd>"button"</kbd>),_T(<kbd>"Option #3"</kbd>),dwStyle,65,95,120,25,Wea-&gt;hWnd,(HMENU)IDC_BUTTON_FORM3,Wea-&gt;hIns,0);
+
+ <cite>//Register Window Classes For Form1, Form2 and Form3</cite>
+ wc.cbSize=<var>sizeof</var>(WNDCLASSEX),                            wc.style=CS_HREDRAW | CS_VREDRAW;
+ wc.cbClsExtra=0,                                         wc.cbWndExtra=0;
+ wc.hInstance=Wea-&gt;hIns,                                  wc.hIcon=LoadIcon(NULL, IDI_APPLICATION);
+ wc.hIconSm=0,                                            wc.hCursor=LoadCursor(NULL, IDC_ARROW);
+ wc.hbrBackground=(HBRUSH)GetStockObject(WHITE_BRUSH),    wc.lpszMenuName=NULL;
+ _tcscpy(szClassName,_T(<kbd>"Form1"</kbd>)),                        wc.lpszClassName=szClassName;
+ wc.lpfnWndProc=fnForm1_WndProc;
+ RegisterClassEx(&amp;wc);
+
+ _tcscpy(szClassName,_T(<kbd>"Form2"</kbd>));
+ wc.lpfnWndProc=fnForm2_WndProc;
+ wc.lpszClassName=szClassName;                <cite>//Note that a WM_CREATE call is akin to a constructor call in typical</cite>
+ RegisterClassEx(&amp;wc);                        <cite>//C++ class architecture.  When you receive this call/message Windows</cite>
+                                              <cite>//has finished doing what it needs to support the Window object, and</cite>
+ _tcscpy(szClassName,_T(<kbd>"Form3"</kbd>));            <cite>//is 'passing the ball' to you.  In my apps with multiple windows I</cite>
+ wc.lpszClassName=szClassName;                <cite>//typically use the WM_CREATE handler to register any window classes</cite>
+ wc.lpfnWndProc=fnForm3_WndProc;              <cite>//I need in the app, so that I can make CreateWindow() calls when I</cite>
+ RegisterClassEx(&amp;wc);                        <cite>//need to instantiate a window of some type.</cite>
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> btnForm1_Click(lpWndEventArgs Wea)       <cite>//This is an 'Event Handler' for a click of the top button on the</cite>
+{                                             <cite>//main Form.  It uses CreateWindowEx() to instantiate a new Window</cite>
+ HWND hWnd;                                   <cite>//of class "Form1"  Note that the last parameter of the call is</cite>
+                                              <cite>//Wea-&gt;hWnd.  That is the HWND of the main program Window.  The</cite>
+ hWnd=CreateWindowEx                          <cite>//last parameter is the Creation Parameters parameter.  It can be</cite>
+ (                                            <cite>//retrieved (as can all the others) through the CREATIONSTRUCT a</cite>
+   0,                                         <cite>//pointer to which is received in the lParam of the WM_CREATE</cite>
+   _T(<kbd>"Form1"</kbd>),                               <cite>//message for the newly instantiating Window. </cite>
+   _T(<kbd>"Form1"</kbd>),
+   WS_OVERLAPPEDWINDOW,
+   50,25,310,185,
+   Wea-&gt;hWnd,
+   (HMENU)0,
+   GetModuleHandle(0),
+   Wea-&gt;hWnd
+ );
+ ShowWindow(hWnd,SW_SHOWNORMAL);
+ UpdateWindow(hWnd);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> btnForm2_Click(lpWndEventArgs Wea)
+{
+ HWND hWnd;
+
+ hWnd=CreateWindowEx
+ (
+   0,
+   _T(<kbd>"Form2"</kbd>),
+   _T(<kbd>"Form2"</kbd>),
+   WS_OVERLAPPEDWINDOW,
+   200,250,310,185,
+   Wea-&gt;hWnd,
+   (HMENU)0,
+   GetModuleHandle(0),
+   Wea-&gt;hWnd
+ );
+ ShowWindow(hWnd,SW_SHOWNORMAL);
+ UpdateWindow(hWnd);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> btnForm3_Click(lpWndEventArgs Wea)
+{
+ HWND hWnd;
+
+ hWnd=CreateWindowEx
+ (
+   0,
+   _T(<kbd>"Form3"</kbd>),
+   _T(<kbd>"Form3"</kbd>),
+   WS_OVERLAPPEDWINDOW,
+   CW_USEDEFAULT,CW_USEDEFAULT,300,260,
+   0,
+   (HMENU)0,
+   GetModuleHandle(0),
+   Wea-&gt;hWnd
+ );
+ ShowWindow(hWnd,SW_SHOWNORMAL);
+ UpdateWindow(hWnd);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnWndProc_OnCommand(lpWndEventArgs Wea)
+{
+ <var>switch</var>(LOWORD(Wea-&gt;wParam))
+ {
+    <var>case</var> IDC_BUTTON_FORM1:
+      <var>return</var> btnForm1_Click(Wea);
+    <var>case</var> IDC_BUTTON_FORM2:
+      <var>return</var> btnForm2_Click(Wea);
+    <var>case</var> IDC_BUTTON_FORM3:
+      <var>return</var> btnForm3_Click(Wea);
+ }
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnWndProc_OnClose(lpWndEventArgs Wea)       <cite>//Search And Destroy Mission For Any Form3</cite>
+{                                                <cite>//Windows Hanging Around.</cite>
+ HWND hForm;
+
+ <var>if</var>(MessageBox(Wea-&gt;hWnd,_T(<kbd>"Do You Wish To Exit?"</kbd>),_T(<kbd>"Exit App?"</kbd>),MB_YESNO)==IDYES)
+ {
+    <var>do</var>                                           <cite>//If FindWindow() returns something other</cite>
+    {                                            <cite>//than zero, it found a window matching</cite>
+      hForm=FindWindow(_T(<kbd>"Form3"</kbd>),_T(<kbd>"Form3"</kbd>)); <cite>//the description of what you are looking</cite>
+      <var>if</var>(hForm)                                  <cite>//for.  In that case, send a WM_CLOSE</cite>
+         SendMessage(hForm,WM_CLOSE,0,0);        <cite>//message.  If NULL is returned then just</cite>
+      <var>else</var>                                       <cite>//break out of the loop and terminate the</cite>
+         <var>break</var>;                                  <cite>//app.</cite>
+    }<var>while</var>(TRUE);
+    DestroyWindow(Wea-&gt;hWnd);
+    PostQuitMessage(0);
+ }
+
+ <var>return</var> 0;
+}
+
+
+LRESULT CALLBACK fnWndProc(HWND hwnd, <var>unsigned</var> <var>int</var> msg, WPARAM wParam,LPARAM lParam)
+{
+ WndEventArgs Wea;
+
+ <var>for</var>(<var>unsigned</var> <var>int</var> i=0; i&lt;dim(EventHandler); i++)
+ {
+     <var>if</var>(EventHandler[i].iMsg==msg)
+     {
+        Wea.hWnd=hwnd, Wea.lParam=lParam, Wea.wParam=wParam;
+        <var>return</var> (*EventHandler[i].fnPtr)(&amp;Wea);
+     }
+ }
+
+ <var>return</var> (DefWindowProc(hwnd, msg, wParam, lParam));
+}
+
+
+<var>int</var> WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevIns, LPSTR lpszArgument, <var>int</var> iShow)
+{
+ TCHAR szClassName[]=_T(<kbd>"Multiple Forms"</kbd>);
+ WNDCLASSEX wc={};
+ MSG messages;
+ HWND hWnd;
+
+ wc.lpszClassName=szClassName;                wc.lpfnWndProc=fnWndProc;
+ wc.cbSize=<var>sizeof</var> (WNDCLASSEX);               wc.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+ wc.hInstance=hInstance,                      wc.hCursor=LoadCursor(NULL,IDC_ARROW);
+ wc.hbrBackground=(HBRUSH)COLOR_BTNSHADOW;    
+ RegisterClassEx(&amp;wc);
+ hWnd=CreateWindowEx(0,szClassName,szClassName,WS_OVERLAPPEDWINDOW,250,500,260,170,HWND_DESKTOP,0,hInstance,0);
+ ShowWindow(hWnd,iShow);
+ <var>while</var>(GetMessage(&amp;messages,NULL,0,0))
+ {
+    TranslateMessage(&amp;messages);
+    DispatchMessage(&amp;messages);
+ }
+
+ <var>return</var> messages.wParam;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758472"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758473"><span title="758473,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758473" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9dd58cfdf9" title="Thu, 02 Oct 2014 00:08:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm9dd58cfdf9');</script><noscript>Oct 2, 2014 at 12:08am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758473">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br></code></pre></td>
+<td class="source"><pre><code><cite>//Main.h</cite>
+<dfn>#ifndef MAIN_H</dfn>
+<dfn>#define MAIN_H</dfn>
+<dfn>#define dim(x)             (sizeof(x) / sizeof(x[0]))</dfn>
+<dfn>#define IDC_BUTTON_FORM1   1600</dfn>
+<dfn>#define IDC_BUTTON_FORM2   1605</dfn>
+<dfn>#define IDC_BUTTON_FORM3   1610</dfn>
+
+<var>typedef</var> <var>struct</var>             WindowsEventArguments
+{
+ HWND                      hWnd;
+ WPARAM                    wParam;
+ LPARAM                    lParam;
+ HINSTANCE                 hIns;
+}WndEventArgs,             *lpWndEventArgs;
+
+<var>struct</var> EVENTHANDLER
+{
+ <var>unsigned</var> <var>int</var>              iMsg;
+ <var>long</var>                      (*fnPtr)(lpWndEventArgs);
+};
+
+<var>long</var> fnWndProc_OnCreate    (lpWndEventArgs Wea);  <cite>//We need foreward declarations of</cite>
+<var>long</var> fnWndProc_OnCommand   (lpWndEventArgs Wea);  <cite>//the various functions in a main</cite>
+<var>long</var> fnWndProc_OnClose     (lpWndEventArgs Wea);  <cite>//header file so that the event</cite>
+                                                  <cite>//handlers can be attached below.</cite>
+<var>long</var> fnForm1_OnCreate      (lpWndEventArgs);
+<var>long</var> fnForm1_OnPaint       (lpWndEventArgs);
+<var>long</var> fnForm1_OnClose       (lpWndEventArgs);
+
+<var>long</var> fnForm2_OnCreate      (lpWndEventArgs);
+<var>long</var> fnForm2_OnPaint       (lpWndEventArgs);
+<var>long</var> fnForm2_OnClose       (lpWndEventArgs);
+
+<var>long</var> fnForm3_OnCreate      (lpWndEventArgs);
+<var>long</var> fnForm3_OnPaint       (lpWndEventArgs);
+<var>long</var> fnForm3_OnClose       (lpWndEventArgs);
+
+<var>const</var> EVENTHANDLER         EventHandler[]=        <cite>//Since we foreward declared above</cite>
+{                                                 <cite>//the various event handling functions</cite>
+ {WM_CREATE,               fnWndProc_OnCreate},   <cite>//of the various forms, windows, dialogs</cite>
+ {WM_COMMAND,              fnWndProc_OnCommand},  <cite>//above, we can fill out the fields of</cite>
+ {WM_CLOSE,                fnWndProc_OnClose}     <cite>//our EVENTHANDLER structures for the</cite>
+};                                                <cite>//various objects.</cite>
+
+<var>const</var> EVENTHANDLER         Form1EventHandler[]=
+{
+ {WM_CREATE,               fnForm1_OnCreate},
+ {WM_PAINT,                fnForm1_OnPaint},
+ {WM_CLOSE,                fnForm1_OnClose}
+};
+
+<var>const</var> EVENTHANDLER         Form2EventHandler[]=
+{
+ {WM_CREATE,               fnForm2_OnCreate},
+ {WM_PAINT,                fnForm2_OnPaint},
+ {WM_CLOSE,                fnForm2_OnClose}
+};
+
+<var>const</var> EVENTHANDLER         Form3EventHandler[]=
+{
+ {WM_PAINT,                fnForm3_OnPaint},
+ {WM_CLOSE,                fnForm3_OnClose}
+};
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758473"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758474"><span title="758474,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758474" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb5e686fdbf" title="Thu, 02 Oct 2014 00:10:13 +0000"></span><script type="text/javascript">WhenId('CH_zTmb5e686fdbf');</script><noscript>Oct 2, 2014 at 12:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758474">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form1.cpp</cite>
+<dfn>#include  &lt;Windows.h&gt;</dfn>
+<dfn>#include  &lt;tchar.h&gt;</dfn>
+<dfn>#include  "Form1.h"</dfn>
+<dfn>#include  "Main.h"</dfn>
+
+
+<var>long</var> fnForm1_OnCreate(lpWndEventArgs Wea)
+{
+ CREATESTRUCT *pCreateStruct;
+ HWND hMain;
+
+ pCreateStruct=(CREATESTRUCT*)Wea-&gt;lParam;
+ hMain=(HWND)pCreateStruct-&gt;lpCreateParams;
+ SetWindowLongPtr(Wea-&gt;hWnd,GWLP_USERDATA,(LONG_PTR)hMain);
+ EnableWindow(hMain,FALSE);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnForm1_OnPaint(lpWndEventArgs Wea)
+{
+ PAINTSTRUCT ps;
+ HDC hDC;
+
+ hDC=BeginPaint(Wea-&gt;hWnd,&amp;ps);
+ TextOut(hDC,0,0,_T(<kbd>"This Is Form1.  It Disables The Main"</kbd>),36);
+ TextOut(hDC,0,16,_T(<kbd>"Window, And That Makes It Modal.  Note"</kbd>),38);
+ TextOut(hDC,0,32,_T(<kbd>"That We Passed The Handle Of The Main"</kbd>),37);
+ TextOut(hDC,0,48,_T(<kbd>"Window In The Last Parameter Of The"</kbd>),35);
+ TextOut(hDC,0,64,_T(<kbd>"CreateWindow() Call, And Retrieved It In"</kbd>),40);
+ TextOut(hDC,0,80,_T(<kbd>"fnForm1_OnCreate().  We Then Stored It So"</kbd>),41);
+ TextOut(hDC,0,96,_T(<kbd>"We Could EnableWindow(TRUE) The Main"</kbd>),36);
+ TextOut(hDC,0,112,_T(<kbd>"Window When This Modal Form Is"</kbd>),30);
+ TextOut(hDC,0,128,_T(<kbd>"Dismissed."</kbd>),10);
+ EndPaint(Wea-&gt;hWnd,&amp;ps);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnForm1_OnClose(lpWndEventArgs Wea)
+{
+ HWND hMain;
+
+ hMain=(HWND)GetWindowLongPtr(Wea-&gt;hWnd,GWLP_USERDATA);
+ EnableWindow(hMain,TRUE);
+ DestroyWindow(Wea-&gt;hWnd);
+ <var>return</var> 0;
+}
+
+
+LRESULT CALLBACK fnForm1_WndProc(HWND hWnd, <var>unsigned</var> <var>int</var> msg, WPARAM wParam, LPARAM lParam)
+{
+ WndEventArgs Wea;
+
+ <var>for</var>(<var>unsigned</var> <var>int</var> i=0; i&lt;dim(Form1EventHandler); i++)
+ {
+     <var>if</var>(Form1EventHandler[i].iMsg==msg)
+     {
+        Wea.hWnd=hWnd, Wea.lParam=lParam, Wea.wParam=wParam;
+        <var>return</var> (*Form1EventHandler[i].fnPtr)(&amp;Wea);
+     }
+ }
+
+ <var>return</var> (DefWindowProc(hWnd, msg, wParam, lParam));
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form1.h         //Needs to be included in Main.cpp because the WM_CREATE handler there</cite>
+<dfn>#ifndef FORM1_H   </dfn><cite>//references fnForm1_WndProc as the Window Procedure for the Form1 Class.</cite>
+<dfn>#define FORM1_H   </dfn><cite>//This would be needed to register the class.</cite>
+LRESULT CALLBACK fnForm1_WndProc(HWND, <var>unsigned</var> <var>int</var>, WPARAM, LPARAM);
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758474"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758475"><span title="758475,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758475" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5321a193d2" title="Thu, 02 Oct 2014 00:11:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm5321a193d2');</script><noscript>Oct 2, 2014 at 12:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758475">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form2.cpp</cite>
+<dfn>#include  &lt;Windows.h&gt;</dfn>
+<dfn>#include  &lt;tchar.h&gt;</dfn>
+<dfn>#include  "Main.h"</dfn>
+<dfn>#include  "Form2.h"</dfn>
+
+
+<var>long</var> fnForm2_OnCreate(lpWndEventArgs Wea)
+{
+ CREATESTRUCT *pCreateStruct;
+ HWND hMain;
+
+ pCreateStruct=(CREATESTRUCT*)Wea-&gt;lParam;
+ hMain=(HWND)pCreateStruct-&gt;lpCreateParams;
+ SetWindowLongPtr(Wea-&gt;hWnd,GWLP_USERDATA,(LONG_PTR)hMain);
+ ShowWindow(hMain,SW_HIDE);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnForm2_OnPaint(lpWndEventArgs Wea)
+{
+ PAINTSTRUCT ps;
+ HDC hDC;
+
+ hDC=BeginPaint(Wea-&gt;hWnd,&amp;ps);
+ TextOut(hDC,0,0,_T(<kbd>"This Is Form2.  It SW_HIDEs The Main"</kbd>),36);
+ TextOut(hDC,0,16,_T(<kbd>"Window, And SW_SHOWs It Upon Closing."</kbd>),37);
+ TextOut(hDC,0,32,_T(<kbd>"This Technique Can Be Used Similiarly"</kbd>),37);
+ TextOut(hDC,0,48,_T(<kbd>"To A Modal Dialog If It Isn't Necessary To"</kbd>),42);
+ TextOut(hDC,0,64,_T(<kbd>"View Simultaneously A Form Underneath The"</kbd>),41);
+ TextOut(hDC,0,80,_T(<kbd>"Dialog With Which You Can't Interact"</kbd>),36);
+ TextOut(hDC,0,96,_T(<kbd>"Anyway"</kbd>),6);
+ EndPaint(Wea-&gt;hWnd,&amp;ps);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnForm2_OnClose(lpWndEventArgs Wea)
+{
+ HWND hMain;
+
+ hMain=(HWND)GetWindowLongPtr(Wea-&gt;hWnd,GWLP_USERDATA);
+ EnableWindow(hMain,TRUE);
+ DestroyWindow(Wea-&gt;hWnd);
+ ShowWindow(hMain,TRUE);
+
+ <var>return</var> 0;
+}
+
+
+LRESULT CALLBACK fnForm2_WndProc(HWND hWnd, <var>unsigned</var> <var>int</var> msg, WPARAM wParam, LPARAM lParam)
+{
+ WndEventArgs Wea;
+
+ <var>for</var>(<var>unsigned</var> <var>int</var> i=0; i&lt;dim(Form2EventHandler); i++)
+ {
+     <var>if</var>(Form2EventHandler[i].iMsg==msg)
+     {
+        Wea.hWnd=hWnd, Wea.lParam=lParam, Wea.wParam=wParam;
+        <var>return</var> (*Form2EventHandler[i].fnPtr)(&amp;Wea);
+     }
+ }
+
+ <var>return</var> (DefWindowProc(hWnd, msg, wParam, lParam));
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form2.h        //Needs to be included in Main.cpp because the WM_CREATE handler there</cite>
+<dfn>#ifndef FORM2_H  </dfn><cite>//references fnForm2_WndProc as the Window Procedure for the Form1 Class.</cite>
+<dfn>#define FORM2_H  </dfn><cite>//This would be needed to register the class.</cite>
+LRESULT CALLBACK fnForm2_WndProc(HWND, <var>unsigned</var> <var>int</var>, WPARAM, LPARAM);
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758475"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758476"><span title="758476,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758476" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8bcca89ee9" title="Thu, 02 Oct 2014 00:12:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm8bcca89ee9');</script><noscript>Oct 2, 2014 at 12:12am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758476">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form3.cpp</cite>
+<dfn>#include  &lt;Windows.h&gt;</dfn>
+<dfn>#include  &lt;tchar.h&gt;</dfn>
+<dfn>#include  "Main.h"</dfn>
+<dfn>#include  "Form3.h"</dfn>
+
+
+<var>long</var> fnForm3_OnPaint(lpWndEventArgs Wea)
+{
+ PAINTSTRUCT ps;
+ HDC hDC;
+
+ hDC=BeginPaint(Wea-&gt;hWnd,&amp;ps);
+ TextOut(hDC,0,0,_T(<kbd>"This Is Form3.  Not Only Does It Neither"</kbd>),40);
+ TextOut(hDC,0,16,_T(<kbd>"Hide Nor Disable The Main Window, But"</kbd>),37);
+ TextOut(hDC,0,32,_T(<kbd>"You'll Find That You Can Create As Many"</kbd>),39);
+ TextOut(hDC,0,48,_T(<kbd>"Of These As You Like By Continually"</kbd>),35);
+ TextOut(hDC,0,64,_T(<kbd>"Clicking The Bottom Button On The Main"</kbd>),38);
+ TextOut(hDC,0,80,_T(<kbd>"Form.  However, You'll Have To Drag One"</kbd>),39);
+ TextOut(hDC,0,96,_T(<kbd>"From On Top Of The Other Because They"</kbd>),37);
+ TextOut(hDC,0,112,_T(<kbd>"All Appear In The Same Location (I"</kbd>),34);
+ TextOut(hDC,0,128,_T(<kbd>"Changed That).  You May Further Note"</kbd>),36);
+ TextOut(hDC,0,144,_T(<kbd>"That Since These Windows Are Neither"</kbd>),36);
+ TextOut(hDC,0,160,_T(<kbd>"Disabled Nor Hidden At Any Time, You"</kbd>),36);
+ TextOut(hDC,0,176,_T(<kbd>"May Interact With Them Irregardless Of"</kbd>),38);
+ TextOut(hDC,0,192,_T(<kbd>"The State Of Form1 Or Form2. Pretty"</kbd>),35);
+ TextOut(hDC,0,208,_T(<kbd>"Neat, Don't You Think?"</kbd>),22);
+ EndPaint(Wea-&gt;hWnd,&amp;ps);
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnForm3_OnClose(lpWndEventArgs Wea)
+{
+ HWND hMain;
+
+ MessageBox
+ (
+  Wea-&gt;hWnd,
+  _T(<kbd>"Good Way To Release Any Resources, Memory, etc., You May Have Allocated"</kbd>),
+  _T(<kbd>"Window Close Report!"</kbd>),
+  MB_OK
+ );
+ hMain=(HWND)GetWindowLongPtr(Wea-&gt;hWnd,GWLP_USERDATA);
+ EnableWindow(hMain,TRUE);
+ DestroyWindow(Wea-&gt;hWnd);
+ ShowWindow(hMain,TRUE);
+
+ <var>return</var> 0;
+}
+
+
+LRESULT CALLBACK fnForm3_WndProc(HWND hWnd, <var>unsigned</var> <var>int</var> msg, WPARAM wParam, LPARAM lParam)
+{
+ WndEventArgs Wea;
+
+ <var>for</var>(<var>unsigned</var> <var>int</var> i=0; i&lt;dim(Form3EventHandler); i++)
+ {
+     <var>if</var>(Form3EventHandler[i].iMsg==msg)
+     {
+        Wea.hWnd=hWnd, Wea.lParam=lParam, Wea.wParam=wParam;
+        <var>return</var> (*Form3EventHandler[i].fnPtr)(&amp;Wea);
+     }
+ }
+
+ <var>return</var> (DefWindowProc(hWnd, msg, wParam, lParam));
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form3.h        //Needs to be included in Main.cpp because the WM_CREATE handler there</cite>
+<dfn>#ifndef FORM3_H  </dfn><cite>//references fnForm3_WndProc as the Window Procedure for the Form1 Class.</cite>
+<dfn>#define FORM3_H  </dfn><cite>//This would be needed to register the class.</cite>
+LRESULT CALLBACK fnForm3_WndProc(HWND, <var>unsigned</var> <var>int</var>, WPARAM, LPARAM);
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758476"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758541"><span title="758541,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758541" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5783d94542" title="Thu, 02 Oct 2014 05:14:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm5783d94542');</script><noscript>Oct 2, 2014 at 5:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758541">
+Wow thank you guys so much for these responses! And thank you freddie! <br>
+<br>
+Ill have to read this tomorrow I am exhausted right now
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758541"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143703,0,86348,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~481.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

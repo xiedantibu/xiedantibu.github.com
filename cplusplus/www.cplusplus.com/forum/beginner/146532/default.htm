@@ -1,0 +1,242 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146532/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>do while statement - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">do while statement</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> do while statement</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146532,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770632"><span title="770632,151334,1023,27,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770632" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme56d4994d9" title="Sat, 01 Nov 2014 00:02:55 +0000"></span><script type="text/javascript">WhenId('CH_zTme56d4994d9');</script><noscript>Nov 1, 2014 at 12:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akai09/default.htm"><b>akai09</b> (27)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770632">
+Hi can anyone help me with this? so when i enter 0 i want no processing of any numbers and just end.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+<var>int</var> main()
+{
+   <var>int</var> number, product = 1, count = 0;
+   
+ <var>do</var>
+   {
+      cout &lt;&lt; <kbd>"Enter an integer number to be included in the product"</kbd>
+      &lt;&lt; endl &lt;&lt; <kbd>"or enter 0 to end the input: "</kbd>;
+      cin &gt;&gt; number;
+      product = product * number;
+      count++;
+      cout &lt;&lt; <kbd>"Enter an integer number to be included in the product"</kbd>
+         &lt;&lt; endl &lt;&lt; <kbd>"or enter 0 to end the input: "</kbd>;
+      cin &gt;&gt; number;
+ } <var>while</var> (number != 0);
+
+   <var>if</var> (count &gt; 0)
+   {
+      cout &lt;&lt; endl &lt;&lt; <kbd>"The product is "</kbd> &lt;&lt; product &lt;&lt; <kbd>"."</kbd> &lt;&lt; endl;
+   }
+   system(<kbd>"pause"</kbd>);
+   <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770632"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770637"><span title="770637,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770637" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcb28405b4e" title="Sat, 01 Nov 2014 00:10:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmcb28405b4e');</script><noscript>Nov 1, 2014 at 12:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770637">
+And does the program not exit when you enter 0? <br>
+it does. except that you have to enter 0 twice.<br>
+To remove this behavior, remove from line 14 to 16 inclusive
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770637"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770641"><span title="770641,151334,1023,27,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770641" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm18edde837b" title="Sat, 01 Nov 2014 00:17:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm18edde837b');</script><noscript>Nov 1, 2014 at 12:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akai09/default.htm"><b>akai09</b> (27)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770641">
+it making me to enter 0 twice. when enter 0 initially, i want the program to end without any process or error. sorry for the confusion. what i want is when i enter 3 or 4 number and 0 at the end it will sum it up and show answer and want program to end when i enter 0 instead greater than 0
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8ae1495f59" title="Sat, 01 Nov 2014 00:19:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm8ae1495f59');</script><noscript>Nov 1, 2014 at 12:19am UTC</noscript></span>
+<span class="dbtn" id="CH_btn770641"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770647"><span title="770647,122794,1023,251,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770647" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4a682141c6" title="Sat, 01 Nov 2014 00:30:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm4a682141c6');</script><noscript>Nov 1, 2014 at 12:30am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mobotus/default.htm"><b>mobotus</b> (251)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770647">
+You need to rethink your logic...<br>
+<br>
+number is your loop control variable... number is also used to calculate your product... <br>
+0 * anything is 0.<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770647"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770648"><span title="770648,146539,1023,312,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770648" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc16694a98b" title="Sat, 01 Nov 2014 00:36:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmc16694a98b');</script><noscript>Nov 1, 2014 at 12:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/shadowcode/default.htm"><b>shadowCODE</b> (312)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770648">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+<var>int</var> main()
+{
+   <var>int</var> number, product = 1, count = 0;
+   
+ <var>do</var>
+   {
+      cout &lt;&lt; <kbd>"Enter an integer number to be included in the product"</kbd>
+      &lt;&lt; endl &lt;&lt; <kbd>"or enter 0 to end the input: "</kbd>;
+      cin &gt;&gt; number;
+      product = product * number;
+      count++;
+ } <var>while</var> (number != 0);
+
+   <var>if</var> (count &gt; 0)
+   {
+      cout &lt;&lt; endl &lt;&lt; <kbd>"The product is "</kbd> &lt;&lt; product &lt;&lt; <kbd>"."</kbd> &lt;&lt; endl;
+   }
+   system(<kbd>"pause"</kbd>);
+   <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Fixes the need to input 0 twice but does not solve the logic problem.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770648"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146532,0,151334,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~246.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

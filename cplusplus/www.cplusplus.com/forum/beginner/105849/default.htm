@@ -1,0 +1,331 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/105849/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Trying to find the largest in an Array - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Trying to find the largest in an Array</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Trying to find the largest in an Array</h3><span id="CH_edttl"></span><span class="rootdatPost" title="105849,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg572013"><span title="572013,116362,1023,118,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572013" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmec61f12dfd" title="Sat, 06 Jul 2013 22:13:39 +0000"></span><script type="text/javascript">WhenId('CH_zTmec61f12dfd');</script><noscript>Jul 6, 2013 at 10:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leo255/default.htm"><b>leo255</b> (118)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572013">
+Hello,<br>
+<br>
+I'm trying to figure this thing out...I want to find the largest number in an array, but I also want to do it using a function/method in separate header and cpp files (i.e. class), so I can get some practice.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br></code></pre></td>
+<td class="source"><pre><code> <dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+
+<dfn>#include "FindMax.h"</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+
+
+<var>int</var> main()
+{
+
+    FindMax Obj;
+
+    <var>int</var>[] x = <var>new</var> <var>int</var>[] {5454, 333, 922929, 22, 39, 0, 122, 92, 92122, 9};
+
+    <var>int</var> y = Obj.findMax(x);
+
+    cout &lt;&lt; <kbd>"Largest number in the array is "</kbd> + y &lt;&lt; endl;
+
+    <var>return</var> 0;
+}
+
+<cite>//-----------------------------------------------------------------------------</cite>
+
+
+<dfn>#ifndef FINDMAX_H</dfn>
+<dfn>#define FINDMAX_H</dfn>
+
+
+<var>class</var> FindMax
+{
+    <var>public</var>:
+
+<var>int</var> findMax (<var>int</var>[] array){
+<var>int</var> temp = array[0];
+}
+    <var>private</var>:
+
+<dfn>#endif </dfn><cite>// FINDMAX_H</cite>
+
+
+<cite>//------------------------------------------------------------------------------</cite>
+
+<dfn>#include "FindMax.h"</dfn>
+
+FindMax::FindMax(<var>int</var>[] array)
+{
+
+    <var>for</var> (<var>int</var> i = 0; i &lt; array.length; i++){
+        <var>if</var> (array[i] &gt; temp){
+            temp = array[i];
+
+        }}
+
+    <var>return</var> temp
+
+}
+
+FindMax::~FindMax()
+{
+    <cite>//dtor</cite>
+}
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm01e6ae6b41" title="Sun, 07 Jul 2013 00:42:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm01e6ae6b41');</script><noscript>Jul 7, 2013 at 12:42am UTC</noscript></span>
+<span class="dbtn" id="CH_btn572013"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572020"><span title="572020,104819,1023,347,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572020" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd0339dce50" title="Sat, 06 Jul 2013 22:34:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmd0339dce50');</script><noscript>Jul 6, 2013 at 10:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rcast/default.htm"><b>rcast</b> (347)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572020">
+For one line 19 is supposed to be y not x. Where are you stuck?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0da4ea69da" title="Sat, 06 Jul 2013 22:48:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm0da4ea69da');</script><noscript>Jul 6, 2013 at 10:48pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn572020"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572035"><span title="572035,114769,1023,284,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572035" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmeebc67bdb1" title="Sat, 06 Jul 2013 23:30:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmeebc67bdb1');</script><noscript>Jul 6, 2013 at 11:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rechard3/default.htm"><b>Rechard3</b> (284)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572035">
+ok, in the <tt>FindMax.cpp</tt> file, would you take another look at the loop:<br>
+an int array doesn't contain a member variable called length, you might consider adding another argument to this function that represents the array length, and using that argument to control the loop, or if you see another solution better, it's your call.<br>
+before the loop you should initialize temp to some member of the array.<br>
+i think you need some more understanding on how classes work, and how to use them effectively.<br>
+one more thing, a constructor can't have a return statement.<br>
+i think you really need some more practice on classes.<br>
+if i may, i want to correct this class for you, my friend:<br>
+<br>
+<tt>FindMax.h</tt>:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br></code></pre></td>
+<td class="source"><pre><code><dfn>#ifndef FINDMAX</dfn>
+<dfn>#define FINDMAX</dfn>
+
+<var>class</var> FindMax
+{
+<var>public</var>:
+    <var>static</var> <var>int</var> max(<var>int</var> [], <var>int</var>);
+};
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<tt>FindMax.cpp</tt>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include "FindMax.h"</dfn>
+<var>int</var> FindMax::max( <var>int</var> [] a, <var>unsigned</var> <var>int</var> size)
+{
+    <var>int</var> temp = a[0];
+    <var>for</var>(<var>int</var> i=0 ; i&lt;size ; i++) <cite>//this will generate a warning,</cite>
+    {                           <cite>//you can either ignore it, or correct it.</cite>
+        <var>if</var>(a[i]&gt;temp)
+            temp = a[i];
+    }
+    <var>return</var> temp;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+you can call the function like this:<br>
+<span class="auto"><code class="source">FindMax::max(x,10);</code></span>  as an example.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572035"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572045"><span title="572045,79150,3,6539,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572045" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm10c8eda760" title="Sun, 07 Jul 2013 00:36:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm10c8eda760');</script><noscript>Jul 7, 2013 at 12:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vlad_from_moscow/default.htm"><b>vlad from moscow</b> (6539)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572045">
+It looka like you are mixing uo C++ with C#. There is no such a syntactic constrauction as<br>
+<br>
+int[] x = new int[] {5454, 333, 922929, 22, 39, 0, 122, 92, 92122, 9};<br>
+<br>
+<br>
+in C++.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme1a830ad29" title="Sun, 07 Jul 2013 00:38:39 +0000"></span><script type="text/javascript">WhenId('CH_zTme1a830ad29');</script><noscript>Jul 7, 2013 at 12:38am UTC</noscript></span>
+<span class="dbtn" id="CH_btn572045"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572046"><span title="572046,116362,1023,118,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572046" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm710f603c83" title="Sun, 07 Jul 2013 00:40:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm710f603c83');</script><noscript>Jul 7, 2013 at 12:40am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leo255/default.htm"><b>leo255</b> (118)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572046">
+Yeah I do agree with you...I definitely need more practice on classes. It's embarrassing, but I'm trying to get better.<br>
+<br>
+I understand how to use classes, methods, constructors, etc. pretty well in C#, but for some reason, C++ always trips me up with the separate header files and cpp files. That's why I'm here.<br>
+<br>
+<br>
+<br>
+I don't think this has anything to do with your answer, but I got the following error:<br>
+<br>
+fatal error: FindMax.h: No such file or directory<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4f08fcc0a4" title="Sun, 07 Jul 2013 00:42:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm4f08fcc0a4');</script><noscript>Jul 7, 2013 at 12:42am UTC</noscript></span>
+<span class="dbtn" id="CH_btn572046"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572047"><span title="572047,79150,3,6539,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572047" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9b2213b792" title="Sun, 07 Jul 2013 00:47:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm9b2213b792');</script><noscript>Jul 7, 2013 at 12:47am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vlad_from_moscow/default.htm"><b>vlad from moscow</b> (6539)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572047">
+To find the maximum element in an array you can use standard  algorithm std::max_elemnt. All what you need is to include header &lt;algorithm&gt; and maybe &lt;iterator&gt;
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572047"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(105849,1,116362,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~176.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

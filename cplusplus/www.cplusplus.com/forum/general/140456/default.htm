@@ -1,0 +1,530 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/140456/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How do I know if the classes in my progr - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">How do I know if the classes in my progr</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> How do I know if the classes in my program are being used?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="140456,root,0,-1,9,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg741998"><span title="741998,134920,1023,9,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg741998" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4b0d8bb592" title="Wed, 13 Aug 2014 15:19:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm4b0d8bb592');</script><noscript>Aug 13, 2014 at 3:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rosales5/default.htm"><b>rosales5</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i741998">
+In this program the intention is to create a menu driven program for a pizza restaurant. I have to use a class called Pizza and have to include at least three public functions; one is called SetSize, another one is called Display, and the last one is called ComputePrice. A small pizza is worth $10, a medium is $14, and a large is $17. Each topping is worth 2 dollars. I know that the program runs correctly, but I have doubts over the classes and function actually being utilized correctly or at all.<br>
+<br>
+Program:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br>229<br>230<br>231<br>232<br>233<br>234<br>235<br>236<br>237<br>238<br>239<br>240<br>241<br>242<br>243<br>244<br>245<br>246<br>247<br>248<br>249<br>250<br>251<br>252<br>253<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>class</var> Pizza
+{
+	<var>private</var>:
+
+			<var>int</var> size;
+			<var>int</var> style;
+			<var>int</var> quantity;
+			<var>int</var> toppings;
+			<var>int</var> initialcost;
+	<var>public</var>:
+
+			<var>void</var> setsize(<var>int</var>, <var>int</var>, <var>int</var>, <var>int</var>, <var>int</var>);
+			<var>void</var> computePrice(<var>int</var>, <var>int</var>, <var>int</var>, <var>int</var>, <var>double</var>, <var>double</var>);
+			<var>void</var> outputDescription(<var>int</var>, <var>int</var>, <var>int</var>, <var>int</var>, <var>double</var>, <var>double</var>);
+
+};
+
+<var>void</var> Pizza::setsize(<var>int</var> sz, <var>int</var> stl, <var>int</var> tppngs, <var>int</var> qty, <var>int</var> icost)
+{
+	size = sz;
+	style = stl;
+	toppings = tppngs;
+	quantity = qty;
+	initialcost = icost;
+}
+
+<var>void</var> Pizza::computePrice(<var>int</var> sz, <var>int</var> stl, <var>int</var> tppngs, <var>int</var> qty, <var>double</var> icost, <var>double</var> total)
+{
+
+	total = (icost + (tppngs*2)) * qty;
+	cout&lt;&lt;total&lt;&lt;endl;
+
+};
+
+<var>void</var> Pizza::outputDescription(<var>int</var> s, <var>int</var> stl, <var>int</var> tppngs, <var>int</var> qty, <var>double</var> icost, <var>double</var> total)
+{
+	cout&lt;&lt;<kbd>"The total is of: $"</kbd>;
+	computePrice(s,stl,tppngs,qty,icost,total);
+	cout&lt;&lt;endl;
+}
+
+<var>int</var> main()
+{
+
+	Pizza pizzapie;
+
+
+	<var>int</var> sz = 0, stl = 0, tppngs = 0, qty = 0, toppingc = 0, toppingp = 0;
+	<var>double</var> total = 0, icost = 0;
+	cout&lt;&lt;fixed&lt;&lt;showpoint&lt;&lt;setprecision(2);
+
+		cout&lt;&lt;setw(13)&lt;&lt;<kbd>"SIZES"</kbd>&lt;&lt;endl&lt;&lt;endl;		
+		cout&lt;&lt;<kbd>"1: Small Pizza"</kbd>&lt;&lt;endl;
+		cout&lt;&lt;<kbd>"2: Medium Pizza"</kbd>&lt;&lt;endl;
+		cout&lt;&lt;<kbd>"3: Large Pizza"</kbd>&lt;&lt;endl;
+		cout&lt;&lt;<kbd>"4: To Finish Order"</kbd>&lt;&lt;endl&lt;&lt;endl;
+		cout&lt;&lt;<kbd>"Enter your choice: "</kbd>;
+
+		cin&gt;&gt;sz;
+		cout&lt;&lt;endl;
+
+		<var>switch</var> (sz)
+		{
+				<var>case</var> 1:
+					cout&lt;&lt;setw(13)&lt;&lt;<kbd>"STYLES"</kbd>&lt;&lt;endl&lt;&lt;endl;	
+					cout&lt;&lt;<kbd>"1: Handtossed Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"2: Deepdish  Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"3: Pan Pizza"</kbd>&lt;&lt;endl&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"Enter the style of pizza you want: "</kbd>;
+					cin&gt;&gt;stl;
+					cout&lt;&lt;endl;
+					icost = 10;
+						<var>switch</var> (stl)
+						{
+							<var>case</var> 1:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+							<var>case</var> 2:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+							<var>case</var> 3:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+						}
+
+				<var>break</var>;
+
+			<var>case</var> 2:
+					cout&lt;&lt;setw(13)&lt;&lt;<kbd>"STYLES"</kbd>&lt;&lt;endl&lt;&lt;endl;	
+					cout&lt;&lt;<kbd>"1: Handtossed Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"2: Deepdish  Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"3: Pan Pizza"</kbd>&lt;&lt;endl&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"Enter the style of pizza you want: "</kbd>;
+					cin&gt;&gt;stl;
+					cout&lt;&lt;endl;
+					icost = 14;
+						<var>switch</var> (stl)
+						{
+							<var>case</var> 1:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+							<var>case</var> 2:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+							<var>case</var> 3:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+						}
+				<var>break</var>;
+
+			<var>case</var> 3:
+					cout&lt;&lt;setw(13)&lt;&lt;<kbd>"STYLES"</kbd>&lt;&lt;endl&lt;&lt;endl;	
+					cout&lt;&lt;<kbd>"1: Handtossed Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"2: Deepdish  Pizza"</kbd>&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"3: Pan Pizza"</kbd>&lt;&lt;endl&lt;&lt;endl;
+					cout&lt;&lt;<kbd>"Enter the style of pizza you want: "</kbd>;
+					cin&gt;&gt;stl;
+					cout&lt;&lt;endl;
+					icost = 17;
+						<var>switch</var> (stl)
+						{
+							<var>case</var> 1:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									
+									cout&lt;&lt;endl;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+								<var>break</var>;
+							<var>case</var> 2:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+									
+									cout&lt;&lt;endl;
+								<var>break</var>;
+							<var>case</var> 3:
+									cout&lt;&lt;<kbd>"Enter how many cheese toppings you want: "</kbd>;
+									cin&gt;&gt;toppingc;
+									cout&lt;&lt;<kbd>"Enter how many pepperoni toppings you want: "</kbd>;
+									cin&gt;&gt;toppingp;
+									cout&lt;&lt;endl;
+									
+									tppngs = toppingc + toppingp;
+									
+									cout&lt;&lt;<kbd>"How many pizzas of this kind do you want?: "</kbd>;
+									cin&gt;&gt;qty;
+									pizzapie.setsize(sz,stl,tppngs,qty,icost);
+									cout&lt;&lt;endl;
+								<var>break</var>;
+						}
+
+			<var>case</var> 4:
+				<var>break</var>;
+		}
+		
+		pizzapie.outputDescription(sz,stl,tppngs,qty,icost,total);
+
+
+	system(<kbd>"pause"</kbd>);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbcb246535a" title="Wed, 13 Aug 2014 20:58:54 +0000"></span><script type="text/javascript">WhenId('CH_zTmbcb246535a');</script><noscript>Aug 13, 2014 at 8:58pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn741998"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742069"><span title="742069,107125,1023,162,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742069" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm065c6af5c0" title="Wed, 13 Aug 2014 19:17:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm065c6af5c0');</script><noscript>Aug 13, 2014 at 7:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/khoshtip/default.htm"><b>khoshtip</b> (162)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742069">
+Try to use of <i>source code</i> tag for your code. This way it will be readable easily and you can get answers with a higher probability :-)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmff284fdb31" title="Wed, 13 Aug 2014 19:17:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmff284fdb31');</script><noscript>Aug 13, 2014 at 7:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn742069"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742076"><span title="742076,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742076" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7522bb4adc" title="Wed, 13 Aug 2014 19:32:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm7522bb4adc');</script><noscript>Aug 13, 2014 at 7:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742076">
+Line 28: Pizza::computePrice  Why are you passing in all these arguments?  You already called setsize which stored the value into your Pizzsa object.  Why not use the values you've stored?  Also, why are you passing total in as an argument.  It should be a local variable.<br>
+<br>
+Line 33:  Pizza::outputDescription  same comments. <br>
+<br>
+Line 39: main()  You have lots and lot of repeated code.  Any time you have repeated code, that is a good indication the code belongs in a function.<br>
+<br>
+Line 66:  Nested switch statements are ugly and very prone to error.  Much better to isolate nested switch statements to their own function.<br>
+<br>
+PLEASE USE CODE TAGS (the &lt;&gt; formatting button) when posting code.<br>
+It makes it easier to read your code and also easier to respond to your post. <br>
+<a href="../../../articles/jeywvcm9/default.htm">http://www.cplusplus.com/articles/jEywvCM9/</a><br>
+Hint: You can edit your post, highlight your code and press the &lt;&gt; formatting button.<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn742076"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742136"><span title="742136,134920,1023,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742136" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdfa53a193a" title="Thu, 14 Aug 2014 02:20:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmdfa53a193a');</script><noscript>Aug 14, 2014 at 2:20am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rosales5/default.htm"><b>rosales5</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742136">
+I used those functions to access the private members of the class. Then I passed the arguments so that they can be transferred to the private members. And the Display function is in case I would need a receipt; I just need to put ofstream to create a text file.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn742136"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742269"><span title="742269,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742269" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb6bc721545" title="Thu, 14 Aug 2014 13:26:43 +0000"></span><script type="text/javascript">WhenId('CH_zTmb6bc721545');</script><noscript>Aug 14, 2014 at 1:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742269">
+<table class="quote"><tr><td class="qd">I used those functions to access the private members of the class.</td></tr></table><br>
+<br>
+No, you're not.  setsize() transfers arguments to the private members.   That fine.  Once you've set the private members, there is no reason to pass them again as arguments to computePrice() and OutputDescription. <br>
+<br>
+computePrice() and outputDescription() are members of your class and should be using the private members of the class, NOT a long list of  arguments.  Those functions are using the arguments passed, not the private members of the class.  If you going to pass all those arguments to those two functions, why did you make them members of your class?<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm6ecac547a4" title="Thu, 14 Aug 2014 13:27:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm6ecac547a4');</script><noscript>Aug 14, 2014 at 1:27pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn742269"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742888"><span title="742888,134920,1023,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742888" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3c7bfd8100" title="Sat, 16 Aug 2014 02:40:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm3c7bfd8100');</script><noscript>Aug 16, 2014 at 2:40am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rosales5/default.htm"><b>rosales5</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742888">
+So is the class not being used at all?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn742888"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg742996"><span title="742996,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg742996" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc5a19339d7" title="Sat, 16 Aug 2014 13:41:52 +0000"></span><script type="text/javascript">WhenId('CH_zTmc5a19339d7');</script><noscript>Aug 16, 2014 at 1:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i742996">
+You're calling functions that are members of your class, but those functions are NOT using the variables that are part of your class.   Defeats the purpose of creating variables in your class. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn742996"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg743174"><span title="743174,148821,1023,6,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg743174" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2e41aaa68d" title="Sun, 17 Aug 2014 07:50:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm2e41aaa68d');</script><noscript>Aug 17, 2014 at 7:50am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/gamerguy314/default.htm"><b>gamerguy314</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i743174">
+For things like computePrice(), you should have it return the value of the pizza's price. You have an understanding of "set functions" try looking up get functions.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn743174"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg743323"><span title="743323,134920,1023,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg743323" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm68a6399f21" title="Sun, 17 Aug 2014 20:35:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm68a6399f21');</script><noscript>Aug 17, 2014 at 8:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rosales5/default.htm"><b>rosales5</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i743323">
+Cool thanks man, I'll definitely look into get functions.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn743323"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(140456,1,134920,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~444.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

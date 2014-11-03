@@ -1,0 +1,235 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/143496/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linked lists - insert function not sorti - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">Linked lists - insert function not sorti</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Linked lists - insert function not sorting right</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143496,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757053"><span title="757053,134408,1023,5,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757053" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1dc4ec979c" title="Sun, 28 Sep 2014 06:56:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm1dc4ec979c');</script><noscript>Sep 28, 2014 at 6:56am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/n30n/default.htm"><b>n30n</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757053">
+i made a linked list for video objects. i made an insert function to sort each video by title alphabet order.<br>
+<br>
+when i run the code and chose insert all my videos, i type print and it works for a b c d e but it sorts wrong for f,u, i, p (typed exactly same order) it still prints out f, u, p, i the same order. <br>
+<br>
+not sure why this is happening.<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code>main.cpp
+
+31   <var>while</var> (getline(cin, command))
+ 32   {
+ 33 
+ 34     <var>if</var>(command==<kbd>"insert"</kbd>)
+ 35     {
+ 36 
+ 37       getline(cin, title);
+ 38       getline(cin, url);
+ 39       getline(cin, comment);
+ 40       cin &gt;&gt; length;
+ 41       cin &gt;&gt; rating;
+ 42       cin.ignore();
+ 43 
+ 44       myVideo = <var>new</var> Video(title, url, comment, length,rating);
+ 45 
+ 46       list.insert(myVideo);
+ 47       <cite>// list.print();</cite>
+ 48       counter++;
+ 49 
+ 50      <cite>/* if(m_head-&gt;m_video-&gt;get_title() == video-&gt;get_title())
+ 51       {
+ 52 
+ 53         cerr &lt;&lt; "Title is already in the list" &lt;&lt; endl;
+ 54       }*/</cite>
+ 55     } </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br></code></pre></td>
+<td class="source"><pre><code>videolist.cpp
+
+27 <var>bool</var> Vlist::insert(Video *video)
+ 28 {
+ 29   <var>if</var>(m_head==NULL)
+ 30   {
+ 31     m_head=<var>new</var> Node(video, NULL);
+ 32     <var>return</var> <var>true</var>;
+ 33   }
+ 34 
+ 35   <cite>/* if( m_head-&gt;m_next-&gt;m_video-&gt;get_title() &gt;= video-&gt;get_title() )
+ 36      {
+ 37      */</cite>
+ 38 
+ 39   <var>if</var>(m_head-&gt;m_video-&gt;get_title() &gt;= video-&gt;get_title())
+ 40   {
+ 41     <var>if</var>(m_head-&gt;m_video-&gt;get_title() == video-&gt;get_title())
+ 42     {
+ 43 
+ 44       <var>return</var> <var>false</var>;
+ 45     }
+ 46 
+ 47     m_head=<var>new</var> Node(video, m_head);
+ 48     <var>return</var> <var>true</var>;
+ 49   }
+ 50 
+ 51   Node *ptr=m_head;
+ 52   <var>while</var>( (ptr-&gt;m_next!=NULL) &amp;&amp; ( video-&gt;get_title()&gt;=ptr-&gt;m_video-&gt;get_title() ) )
+ 53     <cite>//checking if first title is bigger than last</cite>
+ 54   {
+ 55     <var>if</var>(( video-&gt;get_title() == ptr-&gt;m_video-&gt;get_title() ) )
+ 56     {
+ 57       <cite>//error if same title</cite>
+ 58       <var>return</var> <var>false</var>;
+ 59     }
+ 60     ptr=ptr-&gt;m_next;
+ 61   }
+ 62   ptr-&gt;m_next=<var>new</var> Node(video, ptr-&gt;m_next);
+ 63 
+ 64   <var>return</var> <var>true</var>;
+ 65 }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm7324d141ed" title="Sun, 28 Sep 2014 06:59:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm7324d141ed');</script><noscript>Sep 28, 2014 at 6:59am UTC</noscript></span>
+<span class="dbtn" id="CH_btn757053"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757575"><span title="757575,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757575" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4849c4c4d7" title="Mon, 29 Sep 2014 16:13:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm4849c4c4d7');</script><noscript>Sep 29, 2014 at 4:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757575">
+We can't make sense of what you've posted without seeing the definitions of the variables you're using.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757575"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757860"><span title="757860,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757860" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme531656620" title="Tue, 30 Sep 2014 13:44:02 +0000"></span><script type="text/javascript">WhenId('CH_zTme531656620');</script><noscript>Sep 30, 2014 at 1:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757860">
+The code looks basically correct. What does Video::get_title() return?  Also do you want to do a case-sensitive comparison?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757860"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143496,1,134408,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~311.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

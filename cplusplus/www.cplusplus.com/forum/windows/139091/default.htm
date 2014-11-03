@@ -1,0 +1,669 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/139091/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Parsing Text File Contents - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Parsing Text File Contents</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Parsing Text File Contents</h3><span id="CH_edttl"></span><span class="rootdatPost" title="139091,root,0,-1,18,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg736013"><span title="736013,135435,1023,32,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736013" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm952d6e4f29" title="Thu, 24 Jul 2014 19:22:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm952d6e4f29');</script><noscript>Jul 24, 2014 at 7:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736013">
+Hello,<br>
+<br>
+I have the below script that I am trying to use to take each line of a text file to read the numerical value of each flag.state.  Everything compiles but I do not get a message box confirming whether any of the flags are checked or installed even though that if this script was working properly it should give me.  Is there something I am doing wrong with the below script?  I do have other code that opens the file in question and I do get confirmation that it has done so, that does not appear to be the problem.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br></code></pre></td>
+<td class="source"><pre><code>	std::string line1;
+			std::getline(ifs, line1);
+			
+			std::stringstream line1stream(line1);
+			<var>int</var> rsa;
+			line1stream &gt;&gt; rsa;
+				<var>if</var> (rsa == 1){
+				  RSAFlag.State = Checked;
+				  MessageBox(hwnd, <kbd>"RSA Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(rsa == 2){
+					   RSAFlag.State = Installed;
+					  }
+			
+			std::string line2;
+			std::getline(ifs, line2);
+			
+			std::stringstream line2stream(line2);
+			<var>int</var> chrome;
+			line2stream &gt;&gt; chrome;
+				<var>if</var> (chrome == 1){
+					CHROMEFlag.State = Checked;
+					MessageBox(hwnd, <kbd>"Chrome Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(chrome == 2){
+					   CHROMEFlag.State = Installed;
+				}
+			
+			std::string line3;
+			std::getline(ifs, line3);
+			
+			std::stringstream line3stream(line3);
+			<var>int</var> skype;
+			line3stream &gt;&gt; skype;
+				<var>if</var> (skype == 1){
+					SKYPEFlag.State = Checked;
+					MessageBox(hwnd, <kbd>"Skype Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(skype == 2){
+			           SKYPEFlag.State = Installed;	
+				}		</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736013"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736024"><span title="736024,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736024" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm097605597b" title="Thu, 24 Jul 2014 19:39:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm097605597b');</script><noscript>Jul 24, 2014 at 7:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736024">
+<table class="quote"><tr><td class="qd"> I do not get a message box confirming whether any of the flags are checked or installed</td></tr></table><br>
+This may not be the problem, but the code above only shows a messagebox for the "Checked" condition. There's no indication for "Installed". (and no action for the case where it is neither of these).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736024"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736026"><span title="736026,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736026" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmadb9f36230" title="Thu, 24 Jul 2014 19:43:58 +0000"></span><script type="text/javascript">WhenId('CH_zTmadb9f36230');</script><noscript>Jul 24, 2014 at 7:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736026">
+Yeah I am only doing the checked value for right now, even when there is a 1 in the text file it does not give me the message box.  Is there something wrong with the way that it's reading the file?  In the actual text document this is how it would show up:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>1
+
+1
+
+1</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736026"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736030"><span title="736030,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736030" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmef0b37ac9a" title="Thu, 24 Jul 2014 19:52:27 +0000"></span><script type="text/javascript">WhenId('CH_zTmef0b37ac9a');</script><noscript>Jul 24, 2014 at 7:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736030">
+I've not tried to run the code, but it looks reasonable (unless I miss the obvious, which is always possible).<br>
+<br>
+Your text file appears to have intervening blank lines (lines 2 and 4) which may affect things. Have you tried using a debugger to track the variables during execution. (or failing that, display or output to a file the values of  <span class="auto"><code class="source">line1</code></span> and <span class="auto"><code class="source">rsa</code></span> to check their contents).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736030"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736033"><span title="736033,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736033" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm59e0d36fcf" title="Thu, 24 Jul 2014 19:59:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm59e0d36fcf');</script><noscript>Jul 24, 2014 at 7:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736033">
+I haven't tried a debugger because I am not sure how that all works lol.  Yeah I have endl; but did remove that at one point blank lines and it still didn't want to work.  this is what I have to open the file which is right above the last chunk of code:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code>	std::ifstream ifs;
+	std::wstring str;
+	std::wstring str2 = L<kbd>"-finish"</kbd>;
+	str = GetCommandLineW();
+	size_t found;
+	found = str.find(str2);
+    MessageBoxW(NULL, GetCommandLineW(), NULL, MB_OK);
+    <var>if</var> (found != std::wstring::npos){
+    	ifs.open(<kbd>"E:\\StateFile.txt"</kbd>);
+		MessageBox(hwnd, <kbd>"StateFile Opened"</kbd>, NULL, MB_OK);	  	        				    			
+			}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+  
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736033"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736046"><span title="736046,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736046" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm925958f83d" title="Thu, 24 Jul 2014 20:35:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm925958f83d');</script><noscript>Jul 24, 2014 at 8:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736046">
+There is no actual check for the file opening properly.<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code>    std::ifstream ifs(<kbd>"E:\\StateFile.txt"</kbd>);
+    
+    <b><var>if</var> (ifs.is_open())</b> 
+        MessageBoxA(hwnd, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_OK);
+    <var>else</var>
+        MessageBoxA(hwnd, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm871b99f833" title="Thu, 24 Jul 2014 20:37:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm871b99f833');</script><noscript>Jul 24, 2014 at 8:37pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn736046"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736053"><span title="736053,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736053" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4a50fc3595" title="Thu, 24 Jul 2014 20:58:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm4a50fc3595');</script><noscript>Jul 24, 2014 at 8:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736053">
+Hmm says it couldn't be opened
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736053"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736065"><span title="736065,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736065" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm636ede3819" title="Thu, 24 Jul 2014 21:32:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm636ede3819');</script><noscript>Jul 24, 2014 at 9:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736065">
+Is that reasonable - are the path and filename correct?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736065"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736066"><span title="736066,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736066" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb4bf3e137d" title="Thu, 24 Jul 2014 21:32:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmb4bf3e137d');</script><noscript>Jul 24, 2014 at 9:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736066">
+Yeah they are the same, I am horribly confused now lol
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736066"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736068"><span title="736068,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736068" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm705288fb1c" title="Thu, 24 Jul 2014 21:39:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm705288fb1c');</script><noscript>Jul 24, 2014 at 9:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736068">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code>	std::ifstream ifs;
+	std::wstring str;
+	std::wstring str2 = L<kbd>"-finish"</kbd>;
+	str = GetCommandLineW();
+	size_t found;
+	found = str.find(str2);
+    MessageBoxW(NULL, GetCommandLineW(), NULL, MB_OK);
+    <var>if</var> (found != std::wstring::npos){  
+    	 ifs.open(<kbd>"E:\\StateFile.txt"</kbd>); 	        				    			
+			}  
+			
+	<var>if</var> (ifs.is_open()){
+		MessageBoxA(hwnd, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_OK);  
+    		}<var>else</var>{
+				MessageBoxA(hwnd, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);
+				 }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736068"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736077"><span title="736077,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736077" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm67450b63cf" title="Thu, 24 Jul 2014 21:55:56 +0000"></span><script type="text/javascript">WhenId('CH_zTm67450b63cf');</script><noscript>Jul 24, 2014 at 9:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736077">
+Then presumably the file is not open because the if statement at line 8 is false:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>    <var>if</var> (found != std::wstring::npos){</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736077"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736278"><span title="736278,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736278" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm087270cac9" title="Fri, 25 Jul 2014 13:09:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm087270cac9');</script><noscript>Jul 25, 2014 at 1:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736278">
+I did have a messagebox in that if statement though to verify that the statement was true, so it was finding the -finish.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736278"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736284"><span title="736284,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736284" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm45b9d057c0" title="Fri, 25 Jul 2014 13:26:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm45b9d057c0');</script><noscript>Jul 25, 2014 at 1:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736284">
+I see only this:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>    <var>if</var> (found != std::wstring::npos)
+    {
+        ifs.open(<kbd>"E:\\StateFile.txt"</kbd>); 	        				    			
+    }  </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+there's just a single statement between the opening and closing braces of the block controlled by that <span class="auto"><code class="source"><var>if</var></code></span> statement.<br>
+<br>
+Really, if that's the only place where the file is guaranteed to be opened, the rest of the code to handle the file should be part of that block too.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br></code></pre></td>
+<td class="source"><pre><code>    <var>if</var> (found != std::wstring::npos)
+    {
+        ifs.open(<kbd>"E:\\StateFile.txt"</kbd>); 
+        <var>if</var> (ifs.is_open())
+        { 
+            MessageBoxA(hwnd, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_OK);
+
+            std::string line1;
+            std::getline(ifs, line1);
+            std::stringstream line1stream(line1);
+            <var>int</var> rsa;
+            line1stream &gt;&gt; rsa;
+            <var>if</var> (rsa == 1)
+            {
+                RSAFlag.State = Checked;
+                MessageBox(hwnd, <kbd>"RSA Checked"</kbd>, NULL, MB_OK);
+            }
+            <var>else</var> <var>if</var>(rsa == 2)
+            {
+                RSAFlag.State = Installed;
+            }
+
+            <cite>// and the rest of the file accesses here</cite>
+
+        }
+        <var>else</var>
+            MessageBoxA(hwnd, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);
+    }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736284"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736293"><span title="736293,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736293" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme5326b4c47" title="Fri, 25 Jul 2014 13:55:15 +0000"></span><script type="text/javascript">WhenId('CH_zTme5326b4c47');</script><noscript>Jul 25, 2014 at 1:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736293">
+Ok I changed that all up, as for why it's not opening the statefile do you think it's because of the way it's written too?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code>std::ofstream fout(<kbd>"E:\\StateFile.txt"</kbd>, std::ios_base::trunc);
+								fout &lt;&lt; RSAFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+																						
+								fout &lt;&lt; CHROMEFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+															
+								fout &lt;&lt; SKYPEFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+								fout.close();	</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736293"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736300"><span title="736300,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736300" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm61c8f9fe91" title="Fri, 25 Jul 2014 14:14:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm61c8f9fe91');</script><noscript>Jul 25, 2014 at 2:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736300">
+There are two separate stages. One is to open the file. The next is to read from it. Even if the file is completely empty, so long as the path and name are correct, <b>and</b> the file is not currently in use by some other process, then it should be possible to open it. <br>
+<br>
+Since the code above  closes the file, <span class="auto"><code class="source">fout.close();</code></span>, it should not be flagged as "in use" so there should be no problem with opening it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736300"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736301"><span title="736301,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736301" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm24f21e53e5" title="Fri, 25 Jul 2014 14:20:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm24f21e53e5');</script><noscript>Jul 25, 2014 at 2:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736301">
+I hesitate to suggest this, as I might not like the answer. Maybe you could post the complete code, rather than just fragments of it. Or if it's very long, perhaps create a separate, trimmed-down version which is still complete and able to demonstrate the problem.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736301"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736316"><span title="736316,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736316" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma60c2bb8af" title="Fri, 25 Jul 2014 15:02:01 +0000"></span><script type="text/javascript">WhenId('CH_zTma60c2bb8af');</script><noscript>Jul 25, 2014 at 3:02pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736316">
+<span class="auto"><code class="source"></code></span>Ok here is a breakdown:<br>
+<br>
+In winMain:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br></code></pre></td>
+<td class="source"><pre><code>	std::ifstream ifs;
+	std::wstring str;
+	std::wstring str2 = L<kbd>"-finish"</kbd>;
+	str = GetCommandLineW();
+	size_t found;
+	found = str.find(str2);
+    MessageBoxW(NULL, GetCommandLineW(), NULL, MB_OK);
+    <var>if</var> (found != std::wstring::npos)
+	{ 
+		ifs.open(<kbd>"E:\\StateFile.txt"</kbd>, std::ios_base::trunc); 	
+		<var>if</var> (ifs.is_open())
+		{
+			MessageBoxA(hwnd, <kbd>"StateFile Opened"</kbd>, <kbd>"Information"</kbd>, MB_OK); 
+			
+			std::string line1;
+			std::getline(ifs, line1);
+			
+			std::stringstream line1stream(line1);
+			line1stream.str(<kbd>"\n"</kbd>);
+			<var>int</var> rsa;
+			line1stream &gt;&gt; rsa;
+				<var>if</var> (rsa == 1){
+				  RSAFlag.State = Checked;
+				  MessageBox(hwnd, <kbd>"RSA Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(rsa == 2){
+					   RSAFlag.State = Installed;
+					  }
+			
+			std::string line2;
+			std::getline(ifs, line2);
+			
+			std::stringstream line2stream(line2);
+			line2stream.str(<kbd>"\n"</kbd>);
+			<var>int</var> chrome;
+			line2stream &gt;&gt; chrome;
+				<var>if</var> (chrome == 1){
+					CHROMEFlag.State = Checked;
+					MessageBox(hwnd, <kbd>"Chrome Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(chrome == 2){
+					   CHROMEFlag.State = Installed;
+				}
+			
+			std::string line3;
+			std::getline(ifs, line3);
+			
+			std::stringstream line3stream(line3);
+			line1stream.str(<kbd>"\n"</kbd>);
+			<var>int</var> skype;
+			line3stream &gt;&gt; skype;
+				<var>if</var> (skype == 1){
+					SKYPEFlag.State = Checked;
+					MessageBox(hwnd, <kbd>"Skype Checked"</kbd>, NULL, MB_OK);
+				}<var>else</var> <var>if</var>(skype == 2){
+			           SKYPEFlag.State = Installed;	
+				}		
+    	}
+        <var>else</var>
+        	MessageBoxA(hwnd, <kbd>"StateFile could not be opened"</kbd>, <kbd>"Error"</kbd>, MB_ICONERROR);
+    }
+		      </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Example of Checkbox code:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code> <var>case</var> WM_CREATE:                                 
+             
+             {                              																					
+						<cite>/*  Create SecureID Checkbox  */</cite>
+                        CreateWindowW(L<kbd>"button"</kbd>, L<kbd>"SecureID"</kbd>,
+						WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX,
+						20, 240, 188, 35,
+						hwnd, (HMENU) ID_RSA, NULL, NULL);
+						
+						
+                      </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code>   <var>switch</var> (LOWORD(wParam))
+              {      								 						 					 																 
+					 						  					 
+					 <cite>/*  Identify If SecureID Is Checked  */</cite>
+                     <var>case</var> ID_RSA:
+                    	   
+						<var>if</var>(IsDlgButtonChecked(hwnd, ID_RSA) == BST_CHECKED){                        
+								RSAFlag.State = Checked;															    				           									  
+											  }	
+					 <var>break</var>;	</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+createprocess example:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br></code></pre></td>
+<td class="source"><pre><code> <var>case</var> ID_INSTALL:
+                         
+						 ShowWindow(hwnd, SW_MINIMIZE);                                                                             	
+                           	      	                          	      
+								  <cite>/*  Install RSA Secure ID  */</cite>															  										 								                        	  
+                           	   	  <var>if</var>(RSAFlag.State == Checked){
+								  CreateProcess(NULL,<kbd>"C:\\Windows\\System32\\msiexec /i E:\\programs\\RSA\\RSASecurIDToken400.msi /passive"</kbd>,
+												 NULL,NULL,FALSE,
+												 CREATE_NEW_CONSOLE,
+												 NULL,NULL,&amp;si,&amp;pi);						  						                                                                                     								  						         
+						  WaitForSingleObject( pi.hProcess, INFINITE );
+						           RSAFlag.State = Installed;						 						  						  							     	     
+								           }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Writing to file in the end of the program<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code>		<var>case</var> WM_DESTROY:
+            PostQuitMessage (0);       <cite>/* send a WM_QUIT to the message queue */</cite>
+            <var>break</var>;		
+		<var>default</var>:                      <cite>/* for messages that we don't deal with */</cite>
+            <var>return</var> DefWindowProc (hwnd, message, wParam, lParam);        
+    }                              
+      std::ofstream fout(<kbd>"E:\\StateFile.txt"</kbd>, std::ios_base::trunc);
+								fout &lt;&lt; RSAFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+																						
+								fout &lt;&lt; CHROMEFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+															
+								fout &lt;&lt; SKYPEFlag.State &lt;&lt; <kbd>"\n"</kbd>;
+							<cite>//	fout &lt;&lt; std::endl;</cite>
+								fout.close();		
+    <var>return</var> 0;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Almost forgot the createfile, this is in the very top:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>HANDLE StateFile = CreateFile(<kbd>"E:\\StateFile.txt"</kbd>, GENERIC_ALL, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, SECURITY_ANONYMOUS); </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736316"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg736319"><span title="736319,135435,1023,32,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg736319" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm78cc4ee6f5" title="Fri, 25 Jul 2014 15:12:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm78cc4ee6f5');</script><noscript>Jul 25, 2014 at 3:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/limburger/default.htm"><b>limburger</b> (32)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i736319">
+The background of this program is that at one point it restarts, uses runonce to start the program again, checks for the -finish from the runonce command line, reads the statefile, and continues where it left off.  Everything is good with the rebooting and checking for the -finish but the problem is the opening the statefile.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn736319"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(139091,1,135435,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~547.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

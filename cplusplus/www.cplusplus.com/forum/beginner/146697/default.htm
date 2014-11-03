@@ -1,0 +1,582 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146697/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to properly return an array of objec - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">How to properly return an array of objec</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> How to properly return an array of objects in c++ and use it main?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146697,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771279"><span title="771279,156316,255,1,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771279" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf20668d05a" title="Sun, 02 Nov 2014 18:20:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmf20668d05a');</script><noscript>Nov 2, 2014 at 6:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/usr101/default.htm"><b>usr101</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771279">
+Hi, first time here and I have a question after searching a lot of places including here. In my code I am trying to get a group of Critter objects to move every 2 seconds. Using an observer pattern and it works fine so far when I create one Critter but I am unable to successfully use an array of Critters.<br>
+<br>
+The problem starts when I try to use the generateCritter(int) on Line 151 method and get a linker error. I have tried a lot of things with no luck. <br>
+<br>
+The code is below or here to compile and run: <a href="../../../../ideone.com/t0vho5">http://ideone.com/t0Vho5</a><br>
+<br>
+Thanks!<br>
+<br>
+ <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br>229<br>230<br>231<br>232<br>233<br>234<br>235<br>236<br>237<br>238<br>239<br>240<br>241<br>242<br>243<br>244<br>245<br>246<br>247<br>248<br>249<br>250<br>251<br>252<br>253<br>254<br>255<br>256<br>257<br>258<br>259<br>260<br>261<br>262<br>263<br>264<br>265<br>266<br>267<br>268<br>269<br>270<br>271<br>272<br>273<br>274<br>275<br>276<br>277<br>278<br>279<br>280<br>281<br>282<br>283<br>284<br>285<br>286<br>287<br>288<br>289<br>290<br>291<br>292<br>293<br>294<br>295<br>296<br>297<br>298<br>299<br>300<br>301<br>302<br>303<br>304<br>305<br>306<br>307<br>308<br>309<br>310<br>311<br>312<br>313<br>314<br>315<br>316<br>317<br>318<br>319<br>320<br>321<br>322<br>323<br>324<br>325<br>326<br>327<br>328<br>329<br>330<br>331<br>332<br>333<br>334<br>335<br>336<br>337<br>338<br>339<br>340<br>341<br>342<br>343<br>344<br>345<br>346<br>347<br>348<br>349<br>350<br>351<br>352<br>353<br>354<br>355<br>356<br>357<br>358<br>359<br>360<br>361<br>362<br>363<br></code></pre></td>
+<td class="source"><pre><code> <cite>//CritterModel.h</cite>
+ 
+<dfn>#ifndef __CritterModelObserver__CritterModel__</dfn>
+<dfn>#define __CritterModelObserver__CritterModel__</dfn>
+ 
+<dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;iostream&gt; </dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+ 
+<cite>//IObserver.h</cite>
+ 
+<dfn>#ifndef CritterModelObserver_IObserver_h</dfn>
+<dfn>#define CritterModelObserver_IObserver_h</dfn>
+ 
+<var>class</var> IObserver {
+<var>public</var>:
+    <var>virtual</var> <var>void</var> update() = 0;
+};
+ 
+<dfn>#endif</dfn>
+ 
+<cite>//Observable.h</cite>
+ 
+<dfn>#ifndef __CritterModelObserver__Observable__</dfn>
+<dfn>#define __CritterModelObserver__Observable__</dfn>
+ 
+<dfn>#include &lt;stdio.h&gt;</dfn>
+ 
+<var>class</var> Observable {
+<var>public</var>:
+    Observable();
+    <var>virtual</var> ~Observable();
+    <var>void</var> addObserver(IObserver* ob);
+    <var>void</var> removeObserver(IObserver* ob);
+ 
+<var>protected</var>:
+    <var>void</var> notify() <var>const</var>;
+ 
+<var>private</var>:
+    IObserver** observers;
+    <var>static</var> <var>const</var> <var>int</var> maxObservers;
+    <var>int</var> numObservers;
+};
+ 
+<dfn>#endif </dfn><cite>/* defined(__CritterModelObserver__Observable__) */</cite><dfn></dfn>
+ 
+<var>class</var> CritterModel : <var>public</var> Observable {
+ 
+<var>public</var>:
+    CritterModel();
+    <var>virtual</var> ~CritterModel();
+    CritterModel(<var>int</var> x, <var>int</var> y);
+ 
+    <cite>// Getters</cite>
+    <var>inline</var> <var>int</var> getReward() <var>const</var> { <var>return</var> reward; }
+    <var>inline</var> <var>int</var> getHitPoint() <var>const</var> { <var>return</var> hitPoint; }
+    <var>inline</var> <var>int</var> getStrength() <var>const</var> { <var>return</var> strength; }
+    <var>inline</var> <var>int</var> getSpeeed() <var>const</var> { <var>return</var> speed; }
+    <var>inline</var> <var>int</var> getLevel() <var>const</var> { <var>return</var> level; }
+    <var>inline</var> <var>int</var> getXCoord() <var>const</var> { <var>return</var> x; }
+    <var>inline</var> <var>int</var> getYCoord() <var>const</var> { <var>return</var> y; }
+    <var>inline</var> <var>int</var> getDuration() <var>const</var> { <var>return</var> duration; }
+    <cite>// Setters</cite>
+    <var>void</var> setLevel(<var>int</var> l) {
+        level = l;
+    }
+ 
+    <var>void</var> setStrength(<var>int</var> s) {
+        strength = s;
+    }
+ 
+    <var>void</var> setHitPoint(<var>int</var> h) {
+        hitPoint = h;
+    }
+    <cite>/**
+    void setCellType(int c) {
+        cellType = c;
+    }
+    */</cite>
+    <var>void</var> setSpeed(<var>int</var> s) {
+        speed = s;
+    }
+ 
+    <var>void</var> setReward(<var>int</var> r) {
+        reward = r;
+    }
+ 
+    <var>void</var> setXCoord(<var>int</var> xC) {
+        x = xC;
+    }
+ 
+    <var>void</var> setYCoord(<var>int</var> yC) {
+        y = yC;
+    }
+ 
+    <var>void</var> setDuration(<var>int</var> d) {
+        duration = d;
+    }
+ 
+    <cite>// Other methods</cite>
+    <var>int</var> generateCritters(<var>int</var>);
+    std::string getCell();
+    <var>void</var> printCritters();
+    <var>void</var> moveCritter(<var>int</var>, <var>int</var>); <cite>// Undefined at the moment.</cite>
+    <var>void</var> shoot();
+    <var>void</var> timer();
+ 
+<var>private</var>:
+    <var>int</var> reward;
+    <var>int</var> hitPoint;
+    <var>int</var> strength;
+    <var>int</var> speed;
+    <var>int</var> level;
+    <var>int</var> duration;
+    <cite>//int cellType;</cite>
+    <var>int</var> x,y;
+    <cite>//Cell cell;</cite>
+ 
+ 
+};
+ 
+<dfn>#endif </dfn><cite>/* defined(__CritterModelObserver__CritterModel__) */</cite><dfn></dfn>
+ 
+ 
+<cite>//CritterModel.cpp</cite>
+<dfn>#include &lt;iostream&gt; </dfn>
+<dfn>#include &lt;time.h&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+ 
+<var>using</var> <var>namespace</var> std;
+ 
+CritterModel::CritterModel() : Observable() {
+    reward = 0;
+    hitPoint = 0;
+    strength = 0;
+    speed = 0;
+    level = 0;
+    y = 0;
+    x = 0;
+}
+ 
+CritterModel::~CritterModel() {
+ 
+}
+ 
+ 
+ 
+ 
+<cite>// Generate Critters</cite>
+CritterModel* generateCritters(<var>int</var> numCritters) {
+    CritterModel* critters = <var>new</var> CritterModel[numCritters];
+ 
+    <var>for</var> (<var>int</var> i=0; i &lt; numCritters; i++) {
+        critters[i] = CritterModel();
+    }
+    <var>return</var> critters;
+}
+ 
+ 
+<cite>// Move those critters</cite>
+<var>void</var> CritterModel::moveCritter(<var>int</var> xCoord, <var>int</var> yCoord) {
+    <var>bool</var> flag = <var>false</var>;
+    <var>if</var> (<var>this</var>-&gt;x != xCoord) {
+        x = xCoord;
+        flag = <var>true</var>;
+    }
+ 
+    <var>if</var> (<var>this</var>-&gt;y != yCoord) {
+        y = yCoord;
+        flag = <var>true</var>;
+    }
+ 
+    <var>if</var> (flag) {
+        notify();
+    }
+}
+ 
+ 
+<cite>//Observable.cpp</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+ 
+<var>const</var> <var>int</var> Observable::maxObservers = 5;
+ 
+Observable::Observable() {
+    observers = <var>new</var> IObserver* [maxObservers];
+    <var>for</var> (<var>int</var> i=0; i &lt; maxObservers; i++) {
+        observers[i] = NULL;
+        numObservers = 0;
+    }
+}
+    <cite>// Destructor</cite>
+    Observable::~Observable() {
+        <var>delete</var>[] observers;
+    }
+ 
+    <cite>// Add observer method</cite>
+    <var>void</var> Observable::addObserver(IObserver* ob) {
+        <cite>// Check if full</cite>
+        <var>if</var> (numObservers == maxObservers) {
+            <var>return</var>;
+        }
+         <cite>// Check if observer exists</cite>
+        <var>for</var> (<var>int</var> i=0; i &lt; maxObservers; i++) {
+            <var>if</var> (observers[i] == ob) {
+                <var>return</var>;
+            }
+        }
+ 
+        <cite>// Otherwise add the observer</cite>
+        observers[numObservers] = ob;
+        ++numObservers;
+    }
+ 
+<var>void</var> Observable::removeObserver(IObserver* ob) {
+    <cite>// ommitted</cite>
+}
+ 
+<var>void</var> Observable::notify() <var>const</var> {
+    <var>for</var> (<var>int</var> i=0; i &lt; numObservers; i++) {
+        observers[i]-&gt;update();
+    }
+}
+ 
+<cite>//CritterDisplay.h</cite>
+ 
+<dfn>#ifndef __CritterModelObserver__CritterDisplay__</dfn>
+<dfn>#define __CritterModelObserver__CritterDisplay__</dfn>
+ 
+<dfn>#include &lt;stdio.h&gt;</dfn>
+ 
+<var>class</var> CritterDisplay: <var>public</var> IObserver {
+ 
+<var>public</var>:
+    CritterDisplay(CritterModel* critterModel);
+    <var>virtual</var> ~CritterDisplay();
+    <var>void</var> update();
+ 
+<var>private</var>:
+    CritterModel* critterModel;
+};
+ 
+<dfn>#endif </dfn><cite>/* defined(__CritterModelObserver__CritterDisplay__) */</cite><dfn></dfn>
+ 
+<cite>//CritterDisplay.cpp</cite>
+<dfn>#include &lt;iostream&gt; </dfn>
+ 
+<var>using</var> <var>namespace</var> std;
+ 
+CritterDisplay::CritterDisplay(CritterModel* critterModel) {
+    <var>this</var>-&gt;critterModel = critterModel;
+}
+ 
+CritterDisplay::~CritterDisplay() {}
+ 
+<var>void</var> CritterDisplay::update() {
+ 
+    cout &lt;&lt;
+    <kbd>"================"</kbd> &lt;&lt; endl &lt;&lt;
+    <kbd>"Position: "</kbd> &lt;&lt; <kbd>"("</kbd> &lt;&lt; critterModel-&gt;getXCoord() &lt;&lt; <kbd>", "</kbd> &lt;&lt; critterModel-&gt;getYCoord() &lt;&lt; <kbd>")"</kbd> &lt;&lt; endl &lt;&lt;
+    <kbd>"Speed: "</kbd> &lt;&lt; critterModel-&gt;getSpeeed() &lt;&lt; endl &lt;&lt;
+    <kbd>"Strength: "</kbd> &lt;&lt; critterModel-&gt;getStrength() &lt;&lt; endl &lt;&lt;
+    <kbd>"Level: "</kbd> &lt;&lt; critterModel-&gt;getLevel() &lt;&lt; endl &lt;&lt;
+    <kbd>"Hit Points: "</kbd> &lt;&lt; critterModel-&gt;getHitPoint() &lt;&lt; endl &lt;&lt;
+    <kbd>"Reward: "</kbd> &lt;&lt; critterModel-&gt;getReward() &lt;&lt; endl &lt;&lt; <kbd>"\n"</kbd>;
+ 
+ 
+} 
+ 
+ 
+<cite>//Driver.cpp</cite>
+ 
+ 
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;time.h&gt;</dfn>
+<dfn>#include &lt;unistd.h&gt;</dfn>
+<dfn>#include &lt;limits&gt;</dfn>
+ 
+<var>using</var> <var>namespace</var> std;
+ 
+<var>void</var> PressEnterToBegin()
+{
+    std::cout &lt;&lt; <kbd>"Press ENTER to begin..."</kbd>; <cite>//&lt;&lt; &amp;fflush;</cite>
+    std::cin.ignore( std::numeric_limits &lt;std::streamsize&gt; ::max(), <kbd>'\n'</kbd> );
+}
+ 
+<var>int</var> main(<var>int</var> argc, <var>const</var> <var>char</var> * argv[]) {
+ 
+    <var>double</var> dif = 0.0;
+    <var>bool</var> flag = <var>true</var>;
+    <var>int</var> x,y = 0;
+ 
+    <cite>// Initialize players coin</cite>
+    <var>int</var> pCoin = 100;
+ 
+    <cite>// Initialize coin steal</cite>
+    <var>int</var> stealCoin = 0;
+ 
+    <cite>// Initialize reward</cite>
+    <var>int</var> reward = 0;
+ 
+    <cite>//CritterModel* critters;</cite>
+    CritterModel* critterModel = <var>new</var> CritterModel();
+ 
+    <cite>//CritterModel* critters = CritterModel::generateCritters(5);</cite>
+    <cite>//critters-&gt;generateCritters(5);</cite>
+ 
+    CritterDisplay* display = <var>new</var> CritterDisplay(critterModel);
+ 
+    critterModel-&gt;addObserver(display);
+    critterModel-&gt;setSpeed(2);
+    critterModel-&gt;setStrength(10);
+    critterModel-&gt;setLevel(1);
+    critterModel-&gt;setHitPoint(100);
+    critterModel-&gt;setReward(300);
+ 
+    <cite>// Welcome message</cite>
+    std::cout &lt;&lt; <kbd>"Welcome to the Critter game!\n"</kbd> &lt;&lt; <kbd>"You have $100 in your bank to begin with. If a Critter happens to get to the exit, \nit steals coin from your bank proportional to the Critters strength.\n\n"</kbd> &lt;&lt; <kbd>"Game play: \n1.) Game starts by a Critter wave being ready to enter the map.\n2.) Press ENTER to begin.\n3.) After the Critters enter, you will be notified that a timer will start.\n4.) Fire by pressing ENTER before time runs out and Critters exit the map.\n "</kbd> &lt;&lt; <kbd>"---------------------------------------------------------------------------\n\n"</kbd>;
+ 
+    PressEnterToBegin();
+ 
+    <cite>// Start timed loop</cite>
+    time_t start, end;
+    time(&amp;start);
+    <var>do</var>  {
+ 
+        <cite>// End simulation after dif &gt; 2</cite>
+        <var>if</var> (dif &gt; 2) {
+            flag = <var>false</var>;
+        }
+ 
+        <cite>// Otherwise move critter to next cell</cite>
+        critterModel-&gt;moveCritter(x, y);
+        ++x;
+        ++y;
+ 
+        time(&amp;end);
+        dif = difftime(end, start);
+        cout &lt;&lt; dif &lt;&lt; endl;
+ 
+        <cite>// Counter to simulate speed of critter. A critter moves every 2 seconds and the sleep method stops time which keeps dif &lt; 2 in the above if-statment</cite>
+        <var>if</var> (x &gt; 1 || y &gt; 1) {
+            sleep(2);
+        }
+ 
+        <cite>// If critter coordinates are at the exit, steal coin from player</cite>
+        <var>if</var> (critterModel-&gt;getXCoord() == 4 &amp;&amp; critterModel-&gt;getYCoord() == 4) {
+            stealCoin = stealCoin + critterModel-&gt;getStrength();
+            pCoin = pCoin - stealCoin;
+            std::cout &lt;&lt; <kbd>"A critter got through! You have $"</kbd> &lt;&lt; pCoin &lt;&lt; <kbd>" left in your bank.\n\n"</kbd>;
+        }
+ 
+    }<var>while</var> (flag);
+ 
+ 
+ 
+    <var>delete</var> display;
+    <var>delete</var> critterModel;
+ 
+    <var>return</var> 0;
+ 
+ 
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0e06f66b4a" title="Sun, 02 Nov 2014 18:21:56 +0000"></span><script type="text/javascript">WhenId('CH_zTm0e06f66b4a');</script><noscript>Nov 2, 2014 at 6:21pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771279"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771307"><span title="771307,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771307" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm62561d5db0" title="Sun, 02 Nov 2014 19:38:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm62561d5db0');</script><noscript>Nov 2, 2014 at 7:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771307">
+sorry couldn't read this big code. hope this will help..<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>class</var> dmy {
+	<var>private</var>:
+		<var>int</var> a;	
+		string s;
+		
+	<var>public</var>:
+		dmy() {	s = <kbd>"a test"</kbd>;}
+		dmy(<var>int</var> n) { <var>for</var>(<var>int</var> i=0; i&lt;n; i++) s+=<kbd>'$'</kbd>; };
+		<var>void</var> show () 
+		{	cout &lt;&lt; s;	}
+}ob1;
+
+dmy* called(){
+	dmy *obj = <var>new</var> dmy[10];
+	<var>return</var> obj;
+}
+
+
+<var>int</var> main() {
+
+	<var>auto</var> objects = called();
+	objects[3].show(); <cite>//output: a test</cite>
+	<var>delete</var>[] objects;
+
+	<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771307"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771310"><span title="771310,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771310" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2ad6330dfc" title="Sun, 02 Nov 2014 19:43:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm2ad6330dfc');</script><noscript>Nov 2, 2014 at 7:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771310">
+First, I have limited experience with object oriented design and programming.  So, I have some comments and questions for you, but take them in the light of my limited experience.  Hopefully, you can teach me something.  <br>
+<br>
+ You asked: <table class="quote"><tr><td class="qd">How to properly return an array of objects in c++ and use it main?</td></tr></table> In the normal case, why not create the objects in main and pass them as parameters to the methods which need to know about the objects.<br>
+<br>
+You have a class named <span class="auto"><code class="source">Observable</code></span>.  Observable is an adjective.  I would expect the class name to be a noun.  So looking at the other code, I would expect the class to be named Observers and objects of the class would be individual observers.  What am I not seeing?<br>
+<br>
+What can an Observe do? You show methods addObserver() and removeObserver().  Is not this the purpose of the constructor and destructor, respectively?  What actions can an observer take or be subject to?<br>
+  <br>
+Similarly you have a class named <span class="auto"><code class="source">CritterDisplay</code></span>.  I would expect that you would have a class named Critter which would include a method named Display.  What am I not seeing?<br>
+<br>
+You have a class named <span class="auto"><code class="source">CritterModel</code></span>.  Would a better name be CritterGame?  <br>
+<br>
+Can an individual critter be displayed?  Or does one display the entire CritterModel or CritterGame?<br>
+<br>
+This program seems to be based on time.  How are you going to model time?  Should current time be a characteristic of an object from the class CritterModel or class CritterGame?  How does time tick?  <br>
+<br>
+Does a CritterModel or CritterGame need to keep track of one or more Critters and Observers? Should the CritterModel or CritterGame be tracking the creation and removal of these.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771310"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146697,0,156316,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~221.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

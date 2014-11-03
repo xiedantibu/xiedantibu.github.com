@@ -1,0 +1,231 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/145513/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>COM - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">COM</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> COM</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145513,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg766210"><span title="766210,153796,1023,11,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766210" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb07e5ca0b7" title="Mon, 20 Oct 2014 22:45:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmb07e5ca0b7');</script><noscript>Oct 20, 2014 at 10:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jdmic/default.htm"><b>jdmic</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766210">
+Hi,<br>
+<br>
+I'm trying to do something like this...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br></code></pre></td>
+<td class="source"><pre><code>	LPVOID pClassObj;
+
+	<var>if</var> (condition 1)
+	{
+		CClass1 *pClassObj = <var>new</var> CClass1();
+	}
+	<var>else</var> <var>if</var> (condition 2)
+	{
+		CClass2 *pClassObj = <var>new</var> CClass2();
+	}
+	<var>else</var>
+	{
+		<var>return</var> ERROR
+	}
+
+	<var>if</var> (pClassObj == NULL) <var>return</var> ERROR;
+
+	pClassObj-&gt;Method1();
+	pClassObj-&gt;Method2();
+
+	<var>return</var> SUCCESS;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+But it can't compile ( pClassObj is not a class type )<br>
+Because <span class="auto"><code class="source">CClass *pClassObj = <var>new</var> CClass();</code></span> is between braces I guess (out of scope). Is there a way to do something like this ?<br>
+<br>
+Thanks<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766210"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766214"><span title="766214,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766214" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3c366dc1bd" title="Mon, 20 Oct 2014 23:16:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm3c366dc1bd');</script><noscript>Oct 20, 2014 at 11:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766214">
+<table class="quote"><tr><td class="qd">But it can't compile ( pClassObj is not a class type )</td></tr></table>It won't work either because pClassObj is not initialised.<br>
+<br>
+Is there a relationship between CClass1 and CClass2?  For example, are they derived from a common base class?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766214"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766234"><span title="766234,153796,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766234" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm45e687483d" title="Tue, 21 Oct 2014 00:39:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm45e687483d');</script><noscript>Oct 21, 2014 at 12:39am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jdmic/default.htm"><b>jdmic</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766234">
+<table class="quote"><tr><td class="qd">Is there a relationship between CClass1 and CClass2? For example, are they derived from a common base class?</td></tr></table><br>
+<br>
+No. Well they are COM objects so they derived from IUnknown but they are unrelated to each other except for 2 methods of the same name.<br>
+<br>
+I have a plan b which satisfy my needs but it would be a bit more elegant if it fits as plan a. I'm not a c++ guru so if it hits a limit I can do it some other way. Do not waste to much time on it  ;-)<br>
+<br>
+Thanks<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766234"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766318"><span title="766318,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766318" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9386ede2fc" title="Tue, 21 Oct 2014 07:17:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm9386ede2fc');</script><noscript>Oct 21, 2014 at 7:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766318">
+Ok, you can do it, but the code won't look like that.<br>
+<br>
+Clearly, you're expecting both objects to have Method1() and Method2() as the same offset.  If not, it won't work, you'll call the wrong functions.<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br></code></pre></td>
+<td class="source"><pre><code>IUnknown pClassObj = NULL;
+
+<var>if</var> (condition 1)
+{
+	CoCreateInstance(<cite>/* args */</cite>, &amp;pClassObj);
+}
+<var>else</var> <var>if</var> (condition 2)
+{
+	CoCreateInstance(<cite>/* args */</cite>, &amp;pClassObj);
+}
+<var>else</var>
+{
+	<var>return</var> ERROR
+}
+
+<var>if</var> (pClassObj == NULL)
+	<var>return</var> ERROR;
+
+((Class1*)pClassObj)-&gt;Method1();
+((Class1*)pClassObj)-&gt;Method2();
+<var>return</var> SUCCESS;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766318"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145513,0,153796,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~494.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/143716/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>No instance of overloaded function and c - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">No instance of overloaded function and c</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> No instance of overloaded function and cannot convert argument 2 from int * to int</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143716,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg758067"><span title="758067,143886,1023,17,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758067" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm839b3e9900" title="Wed, 01 Oct 2014 02:50:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm839b3e9900');</script><noscript>Oct 1, 2014 at 2:50am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/patbalm/default.htm"><b>PATBALM</b> (17)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758067">
+Hi, i'm currently in my 2nd computer science class in college. I have been writing a program that is supposed to give a menu for the user to choose an option 1-4 then add, update, or find info based on their choice. I have most the code written, and now I am left with 2 errors: Error	1	error C2664: 'void addcust(Customer [],int)' : cannot convert argument 2 from 'int *' to 'int'  and 	2	IntelliSense: no instance of overloaded function "addcust" matches the argument list argument types are: (Customer [30], int *)<br>
+<br>
+Heres my code: <br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+
+
+<var>const</var> <var>int</var> MAXCUST = 30;  <cite>// Constant value for the maximum number of customers possible</cite>
+
+<var>struct</var> Customer
+{
+	<var>int</var> id;    	<cite>// id</cite>
+	string name;    <cite>// Name</cite>
+	string zip;     <cite>// ZIP code</cite>
+	<var>double</var> balance; <cite>// Account balance</cite>
+	string lastPay; <cite>// Date of last payment</cite>
+};
+<var>int</var> menu();  <cite>// Function prototype for menu</cite>
+<var>void</var> addcust(Customer CD[MAXCUST], <var>int</var> NumCust);  <cite>// Function prototype for addcust (Add customer)</cite>
+<var>void</var> updatecust(Customer CD[MAXCUST], <var>int</var> NumCust); <cite>// Function prototype updatecust (Update customer)</cite>
+<var>void</var> displaycust(Customer CD[MAXCUST], <var>int</var> NumCust); <cite>// Function prototype for displaycust(Display customer)</cite>
+<var>int</var> findcust(Customer CD[MAXCUST], <var>int</var> id, <var>int</var> NumCust); <cite>// Function prototype findcust(Find customer)</cite>
+
+
+<var>int</var>  main(){
+	<var>int</var> NumCust;   <cite>// Declares NumCust, the number of customers in the array</cite>
+	<var>int</var> choice;  <cite>// Declares choice, the literal choice for the menu, 1-4</cite>
+	Customer CD[MAXCUST];  <cite>// Declares the array of structs at a size of MAXCUST which is = to 30</cite>
+	menu(); <cite>// Call for menu, which displays the menu</cite>
+	<var>while</var> (choice != 4){  <cite>// While loop to run the menu program untill 4 is returned</cite>
+
+
+		<var>if</var> (choice == 1){  <cite>// Option for choice 1</cite>
+			<var>if</var> (NumCust &lt; MAXCUST){  <cite>// Validation to make sure the array isnt full already</cite>
+
+				addcust(CD, &amp;NumCust);  <cite>// call for addcust</cite>
+
+			}
+			}
+			<var>else</var> <var>if</var> (choice == 2){
+				updatecust(CD, NumCust);  <cite>// call for update cust, which is called when 2 is chosen and thus returned by the menu function</cite>
+			}
+			<var>else</var> <var>if</var> (choice == 3){  
+				displaycust(CD, NumCust); <cite>// call for displaycust, which is called when 3 is chosen and thus returned by the menu function</cite>
+
+			}
+		}
+	<var>return</var> 0;
+	}
+
+
+
+<var>int</var> menu(){  <cite>// Function for menu</cite>
+
+	<var>int</var> NumCust;  <cite>// Declares NumCust</cite>
+	<var>int</var> choice;  <cite>// Declares choice</cite>
+
+	cout &lt;&lt; <kbd>"1. Enter new account information\n"</kbd>;
+	cout &lt;&lt; <kbd>"2. Change account information\n"</kbd>;
+	cout &lt;&lt; <kbd>"3. Display all account information\n"</kbd>;
+	cout &lt;&lt; <kbd>"4. Exit the program\n\n"</kbd>;
+	<cite>// The options displayed for the user to read</cite>
+	cout &lt;&lt; <kbd>"Enter your choice: "</kbd>;
+	cin &gt;&gt; choice;   <cite>// Allows for the user to input their choice</cite>
+	<var>if</var> (choice &gt;= 1 &amp;&amp; choice &lt;= 4)  <cite>// Validates that the choice is between 1 and 4</cite>
+
+		<var>return</var> choice;  <cite>// Returns the choice; a number between 1 and 4</cite>
+	<var>else</var>
+	{
+		cout &lt;&lt; <kbd>"Invalid choice, enter again"</kbd>;  <cite>// Displays if the choice is outside of the valid choices</cite>
+	}
+
+}
+
+	<var>void</var> addcust(Customer CD[MAXCUST], <var>int</var> &amp;NumCust){  <cite>// Function for addcust</cite>
+
+		<var>int</var> id;
+		string name;  <cite>// Declares id, name, zip, balance, and last pay</cite>
+		string zip;
+		<var>double</var> balance;
+		string lastPay;
+
+		cout &lt;&lt; <kbd>"Please enter ID number"</kbd>;  <cite>// Asks for ID number</cite>
+		cin &gt;&gt; CD[NumCust].id;   <cite>// Allows user to input id number which goes into the specific customer's struct</cite>
+		
+		cout &lt;&lt; <kbd>"Please enter name"</kbd>; <cite>// Asks for name</cite>
+		cin &gt;&gt; CD[NumCust].name;  <cite>// Allows user to input name which goes into the specific customer's struct</cite>
+		cout &lt;&lt; <kbd>"Please enter zipcode"</kbd>; <cite>// Asks for zipcode</cite>
+		cin &gt;&gt; CD[NumCust].zip;  <cite>// Allows user to input zip code which goes into the specific customer's struct</cite>
+		cout &lt;&lt; <kbd>"Enter account balance"</kbd>; <cite>// Asks for account balance</cite>
+		cin &gt;&gt; CD[NumCust].balance;   <cite>// Allows user to input balance which goes into the specific customer's struct</cite>
+		<var>if</var> (CD[NumCust].balance &lt;= 0){  <cite>// Validation to check that the balance is 0 or higher</cite>
+			cout &lt;&lt; <kbd>"Error, balance must be 0 or greater. Enter again"</kbd>;  <cite>// Error message that displays when a negative number is shown</cite>
+			cin &gt;&gt; CD[NumCust].balance;
+		}
+		cout &lt;&lt; <kbd>"Enter date of last payment"</kbd>; <cite>// Asks for date of last payment</cite>
+		cin &gt;&gt; CD[NumCust].lastPay;  <cite>// Allows user to input last payment date which goes into the specific customer's struct</cite>
+		cin.ignore();
+	}
+
+	<var>void</var> updatecust(Customer CD[MAXCUST], <var>int</var> NumCust){  <cite>// Function for updatecust</cite>
+		<var>int</var> id;
+		<var>int</var> temp;
+		cout &lt;&lt; <kbd>"Please enter ID number"</kbd>; <cite>// Asks for an id number (Pre-existing)</cite>
+		cin &gt;&gt; id;
+		temp = findcust(CD, id, NumCust); <cite>// Calls findcust and assigns its value to temp</cite>
+		
+		
+		cout &lt;&lt; <kbd>"Please enter name"</kbd>; <cite>// Asks for name</cite>
+		cin &gt;&gt; CD[NumCust].name;  <cite>// Allows user to input name which goes into the specific customer's struct</cite>
+		cout &lt;&lt; <kbd>"Please enter zipcode"</kbd>; <cite>// Asks for zipcode</cite>
+		cin &gt;&gt; CD[NumCust].zip;  <cite>// Allows user to input zip code which goes into the specific customer's struct</cite>
+		cout &lt;&lt; <kbd>"Enter account balance"</kbd>; <cite>// Asks for account balance</cite>
+		cin &gt;&gt; CD[NumCust].balance;   <cite>// Allows user to input balance which goes into the specific customer's struct</cite>
+		<var>if</var> (CD[NumCust].balance &lt;= 0){  <cite>// Validation to check that the balance is 0 or higher</cite>
+			cout &lt;&lt; <kbd>"Error, balance must be 0 or greater. Enter again"</kbd>;  <cite>// Error message that displays when a negative number is shown</cite>
+			cin &gt;&gt; CD[NumCust].balance;
+		}
+		cout &lt;&lt; <kbd>"Enter date of last payment"</kbd>; <cite>// Asks for date of last payment</cite>
+		cin &gt;&gt; CD[NumCust].lastPay;  <cite>// Allows user to input last payment date which goes into the specific customer's struct</cite>
+		cin.ignore();
+	}
+
+	<var>void</var> displaycust(Customer CD[MAXCUST], <var>int</var> NumCust){  <cite>//Function for display cust, which displays the customers and their info</cite>
+
+		cout &lt;&lt; left &lt;&lt; setw(15) &lt;&lt; <kbd>"Customer ID"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"Customer Name"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"Zip Code"</kbd>
+			&lt;&lt; setw(15) &lt;&lt; <kbd>"Balance"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"Date Last Paid"</kbd> &lt;&lt; setw(15) &lt;&lt; endl;
+		cout &lt;&lt; setw(15) &lt;&lt; <kbd>"---------"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"-----------"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"------"</kbd>
+			&lt;&lt; setw(15) &lt;&lt; <kbd>"-------"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"---------"</kbd> &lt;&lt; setw(15) &lt;&lt; <kbd>"----------"</kbd> &lt;&lt; endl;
+		cout &lt;&lt; CD[NumCust].id &lt;&lt; setw(15) &lt;&lt; CD[NumCust].name &lt;&lt; setw(15) &lt;&lt; CD[NumCust].zip &lt;&lt; setw(15);
+		cout &lt;&lt; CD[NumCust].balance &lt;&lt; setw(15) &lt;&lt; CD[NumCust].lastPay &lt;&lt; setw(15) &lt;&lt; endl;
+		cout &lt;&lt; <kbd>"-------------------------------------------------------------------------------------"</kbd> &lt;&lt; endl;
+	}
+
+
+	<var>int</var> findcust(Customer CD[MAXCUST], <var>int</var> id, <var>int</var> NumCust){  <cite>// Function for findcust, which finds an existing customer from their id</cite>
+		<var>int</var> temp = -1;
+
+		<var>for</var> (<var>int</var> k = 0; k &lt; NumCust; k++) {  <cite>// For loop to run through the existing information</cite>
+			<var>if</var> (id == CD[k].id){            <cite>//  Matches the id to an existing id if there is one</cite>
+				temp = k; <cite>// Assigns the subscript of the matching id to temp</cite>
+				
+			}
+		}
+		<var>return</var> temp;
+
+	}
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb5aac44c58" title="Wed, 01 Oct 2014 03:25:28 +0000"></span><script type="text/javascript">WhenId('CH_zTmb5aac44c58');</script><noscript>Oct 1, 2014 at 3:25am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758067"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758075"><span title="758075,21217,1023,459,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758075" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5f4c94a3d3" title="Wed, 01 Oct 2014 03:02:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm5f4c94a3d3');</script><noscript>Oct 1, 2014 at 3:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kemort/default.htm"><b>kemort</b> (459)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758075">
+<span class="auto"><code class="source">addcust(CD, NumCust);  <cite>// call for addcust </cite></code></span><br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> addcust(Customer*, <var>int</var>); <cite>//prototype</cite>
+<var>void</var> addcust(Customer* CD, <var>int</var> NumCust)   <cite>// Function for addcust </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758075"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758088"><span title="758088,143886,1023,17,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758088" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9e2ed91b14" title="Wed, 01 Oct 2014 03:18:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm9e2ed91b14');</script><noscript>Oct 1, 2014 at 3:18am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/patbalm/default.htm"><b>PATBALM</b> (17)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758088">
+I tried copying exactly what you said into my code and it solved the problem for a second, then it came right back, just with a few extra things. If I wasn't supposed to just change my words to what you put please let me know and explain what you wanted me to do. Thanks<br>
+<br>
+Btw, here are the errors now:<br>
+<br>
+Error	1	error C2664: 'void addcust(Customer [],int)' : cannot convert argument 2 from 'int *' to 'int'	C:\Users\Patrick\Desktop\Proj2\Proj2.cpp	43	1	Proj2<br>
+<br>
+	2	IntelliSense: more than one instance of overloaded function "addcust" matches the argument list:<br>
+            function "addcust(Customer *, int)"<br>
+            function "addcust(Customer *CD, int &amp;NumCust)"<br>
+            argument types are: (Customer[30], int)<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0d9346c469" title="Wed, 01 Oct 2014 03:19:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm0d9346c469');</script><noscript>Oct 1, 2014 at 3:19am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758088"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758094"><span title="758094,21217,1023,459,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758094" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd9f710578b" title="Wed, 01 Oct 2014 03:29:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmd9f710578b');</script><noscript>Oct 1, 2014 at 3:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kemort/default.htm"><b>kemort</b> (459)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758094">
+You must have some other error showing up.<br>
+<br>
+Your program with the changes I made above ran to the menu. After that, well it's over to you.<br>
+<br>
+The point I am making with the changes in my suggestions is you can't pass arrays the way you are attempting. Hence the pointer whereby you can. Make the changes and post here. I'll watch out for a short while.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758094"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758101"><span title="758101,143886,1023,17,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758101" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma202d77015" title="Wed, 01 Oct 2014 03:37:04 +0000"></span><script type="text/javascript">WhenId('CH_zTma202d77015');</script><noscript>Oct 1, 2014 at 3:37am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/patbalm/default.htm"><b>PATBALM</b> (17)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758101">
+I tried just taking out the &amp; on addcust(CD, NumCust); and now the "No instance of overloaded...." problem is gone. Now its just:<br>
+<br>
+error C2664: 'void addcust(Customer [],int)' : cannot convert argument 2 from 'int *' to 'int'<br>
+<br>
+This is what I currently have for those 3 parts:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>
+addcust(CD, NumCust);  <cite>// call for addcust</cite>
+
+<var>void</var> addcust(Customer, <var>int</var>);  <cite>// Function prototype for addcust</cite>
+
+<var>void</var> addcust(Customer CD[MAXCUST], <var>int</var> &amp;NumCust){  <cite>// Function for addcust</cite>
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758101"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758108"><span title="758108,21217,1023,459,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758108" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1d28dd8c58" title="Wed, 01 Oct 2014 03:50:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm1d28dd8c58');</script><noscript>Oct 1, 2014 at 3:50am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kemort/default.htm"><b>kemort</b> (459)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758108">
+Yeah, you still haven't got it. All you need to do is replace 3 lines in your original post with my suggestions for the reason I gave. That will result in you getting your menu to display.<br>
+<br>
+Except for the variable names your prototype should <i>exactly </i>conform to the function body/signature.<br>
+<br>
+You can't pass arrays unless you use a pointer to the array!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0fdc249e8e" title="Wed, 01 Oct 2014 03:53:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm0fdc249e8e');</script><noscript>Oct 1, 2014 at 3:53am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758108"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143716,1,143886,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~244.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

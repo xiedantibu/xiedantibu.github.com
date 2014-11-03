@@ -1,0 +1,639 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/106278/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>overriding operator () in class - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">overriding operator () in class</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> overriding operator () in class</h3><span id="CH_edttl"></span><span class="rootdatPost" title="106278,root,0,-1,13,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg575079"><span title="575079,73014,1023,15,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575079" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme8691fa7f6" title="Fri, 12 Jul 2013 19:22:54 +0000"></span><script type="text/javascript">WhenId('CH_zTme8691fa7f6');</script><noscript>Jul 12, 2013 at 7:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vezprog/default.htm"><b>vezprog</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575079">
+Hi,<br>
+<br>
+I am trying to finish a logging class and I am having trouble overriding the operator () (LogLevel leve). Basically, I open a text stream to a file stream data into the file using a singleton class for cross threading. <br>
+<br>
+Here is my format for creating the class in one of the threads (getting the singleton instance) and streaming data into the class.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>LOG = LoggerStream::instance();
+LOG(LOG_DEBUG3) &lt;&lt; <kbd>"Application started\n"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+where the () operator takes in the log level and prints the time and the log level on every message input<br>
+<br>
+Here's the override method in the class:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>LoggerStream&amp; LoggerStream::<var>operator</var> ()(LogLevel level);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+The the operator override method streams the current time and log level before the &lt;&lt; message is streamed into the file. where,<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br></code></pre></td>
+<td class="source"><pre><code>LoggerStream&amp; LoggerStream::<var>operator</var> () (LogLevels level)
+{
+    <cite>// check if file is open</cite>
+    <var>if</var> (!_isOpen)
+        <var>return</var> *<var>this</var>;
+
+    <cite>// create date / time stamp</cite>
+    QTime time = QTime::currentTime();
+    QDateTime dateTime = QDateTime::currentDateTime();
+
+    <cite>// create log string including the log level output</cite>
+    QString headerString = dateTime.date().toString() + <kbd>" "</kbd> + QVariant(time.hour()).toString() + <kbd>" "</kbd> + QVariant(time.minute()).toString()
+            + <kbd>" "</kbd> + QVariant(time.second()).toString() + <kbd>" "</kbd> + QVariant(time.msec()).toString() + <kbd>" "</kbd> + logLevelString(level);
+
+    <cite>// stream the data into the QTextStream</cite>
+    QString fileText = QString(<kbd>"["</kbd>) + headerString + QString(<kbd>"]: "</kbd>);
+    streamData(fileText);
+    <var>return</var> *<var>this</var>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+so for example:<br>
+LOG(LOG_DEBUG3) &lt;&lt; "Hello";<br>
+<br>
+output:<br>
+[Aug 22nd 2013 9:31:22:0988473 LOG_DEBUG3] Hello<br>
+<br>
+For some reason I am getting a compilation error at the LOG() operator:<br>
+<b>error: C2064: term does not evaluate to a function taking 1 arguments</b><br>
+<br>
+Is there anything wrong with using the () operator like I am to prepend to the message when the log level input?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm54ce0f9abf" title="Fri, 12 Jul 2013 19:26:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm54ce0f9abf');</script><noscript>Jul 12, 2013 at 7:26pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575079"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575111"><span title="575111,72446,1023,5917,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575111" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm894cf06b9f" title="Fri, 12 Jul 2013 20:17:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm894cf06b9f');</script><noscript>Jul 12, 2013 at 8:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/peter87/default.htm"><b>Peter87</b> (5917)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575111">
+I don't understand, what is LOG? An instance of LoggerStream? And then you assign the singleton instance to this object? Singleton classes are usually not copyable.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn575111"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575487"><span title="575487,73014,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575487" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmabf7053b81" title="Sat, 13 Jul 2013 14:57:52 +0000"></span><script type="text/javascript">WhenId('CH_zTmabf7053b81');</script><noscript>Jul 13, 2013 at 2:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vezprog/default.htm"><b>vezprog</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575487">
+Hi,<br>
+<br>
+Thank you for the reply. LoggerStream is a singleton class that has all of the operator overrides.<br>
+<br>
+Log is the instance of the singleton class (initialized in my main.cpp, and I would like my sub classes to use the same instance). The singleton class is located in a .dll so that multiple threads / .exe's can access the same instance of the class (mutex's exist).<br>
+<br>
+The format of the log message I am looking for is:<br>
+LOG(LOG_LEVEL) &lt;&lt; "message to stream in";<br>
+<br>
+Where LOG is the singleton instance, and LOG_LEVEL is an enum of the log levels.<br>
+<br>
+I thought that the () operator override would allow me to pass in the LOG_LEVEL in the parenthesis, but I am getting the compilation error as shown above...<br>
+<br>
+I have already overwritten the &lt;&lt; operator for all of the different types of streams into the class including QString, QVariant, ect.<br>
+<br>
+If it would help, I could post all of the code. It is a Qt class in a dll using a QTextStream and QFile for the streaming.<br>
+<br>
+Is my implementation of the () operator incorrect?<br>
+<br>
+Thank you!<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn575487"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575494"><span title="575494,38562,0,1035,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575494" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2265b22e26" title="Sat, 13 Jul 2013 15:20:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm2265b22e26');</script><noscript>Jul 13, 2013 at 3:20pm UTC</noscript></div>
+<div class="dwho">closed account (<i><a href="../../../user/closed_account_o1vk4in6/default.htm">o1vk4iN6</a></i>)</div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575494">
+Why not just do something like :<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>LOG &lt;&lt; LOG_DEBUG3 &lt;&lt; <kbd>"Application started"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+At least that's how the standard library allows you modify some of the streams, ie using hex or dec for numbers:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>std::cout &lt;&lt; hex &lt;&lt; 11;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+If for some reason you want output to do something like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>LOG(LOG_DEBUG3) &lt;&lt; <kbd>"some message"</kbd>;
+
+<cite>// do some calculations</cite>
+
+LOG(LOG_DEBUG3) &lt;&lt; <kbd>"this message should be continuous with the previous one"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm262e5c4bb4" title="Sat, 13 Jul 2013 15:22:29 +0000"></span><script type="text/javascript">WhenId('CH_zTm262e5c4bb4');</script><noscript>Jul 13, 2013 at 3:22pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575494"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575513"><span title="575513,62677,1023,3310,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575513" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm165f17b8e1" title="Sat, 13 Jul 2013 16:34:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm165f17b8e1');</script><noscript>Jul 13, 2013 at 4:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andywestken/default.htm"><b>andywestken</b> (3310)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575513">
+<table class="quote"><tr><td class="qd">Is my implementation of the () operator incorrect?</td></tr></table><br>
+Looks ok to me.<br>
+<br>
+But what type is LOG? Pointer? Reference? ??<br>
+<br>
+My toy version below works ok :-)<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>[16:33:50 ERROR]: Error message
+[16:33:50 WARN ]: Warning message
+[16:33:50 INFO ]: Informational message : 1 + 1 = 2
+[16:33:50 DEBUG]: Debug message</samp></pre></td></tr></table></div><br>
+<br>
+But it follows the lead of your posted code and does nothing to control whether or not output gets written (i.e. does not check the logging level, etc.)<br>
+<br>
+Also, is LoggerStream derived from std::ostream ??<br>
+<br>
+Andy<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;sstream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>enum</var> LogLevel {
+    ERROR,
+    WARN,
+    INFO,
+    DEBUG
+};
+
+<var>const</var> <var>char</var>* logLevelString(<var>int</var> level) {
+    <var>switch</var>(level) {
+        <var>case</var> ERROR: <var>return</var> <kbd>"ERROR"</kbd>;
+        <var>case</var> WARN : <var>return</var> <kbd>"WARN "</kbd>;
+        <var>case</var> INFO : <var>return</var> <kbd>"INFO "</kbd>;
+        <var>case</var> DEBUG: <var>return</var> <kbd>"DEBUG"</kbd>;
+        <var>default</var>: { <cite>/* do nothing */</cite> }
+    };
+
+    <var>return</var> <kbd>"???"</kbd>;
+}
+
+<var>class</var> LoggerStream {
+<var>private</var>:
+    <var>int</var> m_currentLevel;
+
+    LoggerStream() : m_currentLevel(WARN) {
+    }
+
+<var>public</var>:
+    <var>static</var> LoggerStream&amp; instance() {
+        <var>static</var> LoggerStream s_logStrm;
+        <var>return</var> s_logStrm;
+    }
+
+    <var>int</var> getLogLevel() <var>const</var> {
+        <var>return</var> m_currentLevel;
+    }
+
+    <var>int</var> setLogLevel(<var>int</var> level) {
+        swap(m_currentLevel, level);
+        <var>return</var> level;
+    }
+
+    LoggerStream&amp; <var>operator</var> () (LogLevel level);
+
+    <var>template</var>&lt;<var>typename</var> TData&gt;
+    <var>void</var> streamData(<var>const</var> TData&amp; data) {
+        cout &lt;&lt; data;
+    }
+};
+
+LoggerStream LOG = LoggerStream::instance();
+
+<var>template</var>&lt;<var>typename</var> TData&gt;
+LoggerStream&amp; <var>operator</var>&lt;&lt;(LoggerStream&amp; logStrm, <var>const</var> TData&amp; data) {
+    ostringstream oss;
+    oss &lt;&lt; data;
+    logStrm.streamData(oss.str());
+    <var>return</var> logStrm;
+}
+
+LoggerStream&amp; <var>operator</var>&lt;&lt;(LoggerStream&amp; logStrm, <var>const</var> <var>char</var>* data) {
+    logStrm.streamData(data);
+    <var>return</var> logStrm;
+}
+
+LoggerStream&amp; <var>operator</var>&lt;&lt;(LoggerStream&amp; logStrm, ostream&amp; (*pfn)(ostream&amp;)) {
+    logStrm.streamData(<kbd>"\n"</kbd>); <cite>// cheat (assume endl only manip we'll see)</cite>
+    <var>return</var> logStrm;
+}
+
+LoggerStream&amp; LoggerStream::<var>operator</var>() (LogLevel level) {
+    time_t timeNow = time(0);
+    <var>struct</var> tm* ptm = gmtime(&amp;timeNow);
+    <var>char</var> timeString[32] = <kbd>""</kbd>;
+    strftime(timeString, <var>sizeof</var>(timeString)/<var>sizeof</var>(<var>char</var>), <kbd>"%H:%M:%S"</kbd>, ptm);
+
+    string fileText = <kbd>"["</kbd>;
+    fileText += timeString;
+    fileText += <kbd>" "</kbd>;
+    fileText += logLevelString(level);
+    fileText += <kbd>"]: "</kbd>;
+
+    streamData(fileText);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>int</var> main() {
+    LOG(ERROR) &lt;&lt; <kbd>"Error message"</kbd>   &lt;&lt; endl;
+    LOG(WARN)  &lt;&lt; <kbd>"Warning message"</kbd> &lt;&lt; endl;
+    LOG(INFO)  &lt;&lt; <kbd>"Informational message : 1 + 1 = "</kbd> &lt;&lt; (1 + 1) &lt;&lt; endl;
+    LOG(DEBUG) &lt;&lt; <kbd>"Debug message"</kbd>   &lt;&lt; endl;
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm029b99092e" title="Sun, 14 Jul 2013 13:49:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm029b99092e');</script><noscript>Jul 14, 2013 at 1:49pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575513"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575530"><span title="575530,38562,0,1035,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575530" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5435047a32" title="Sat, 13 Jul 2013 18:06:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm5435047a32');</script><noscript>Jul 13, 2013 at 6:06pm UTC</noscript></div>
+<div class="dwho">closed account (<i><a href="../../../user/closed_account_o1vk4in6/default.htm">o1vk4iN6</a></i>)</div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575530">
+merely suggestioning a different approach to what you want to do.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn575530"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575770"><span title="575770,73014,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575770" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm49dcc8de08" title="Sun, 14 Jul 2013 14:20:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm49dcc8de08');</script><noscript>Jul 14, 2013 at 2:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vezprog/default.htm"><b>vezprog</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575770">
+Hi.<br>
+<br>
+My implementation is very similar to andywestken's example without the log level. Also, I am writing this in Qt (but I thought this was a general c++ question regarding operators, thats why I came here).<br>
+<br>
+Here is my class code (it is in a dll, so thats why you will see the export on the top). I added the ostream operator, I like the endl addition you did in your example.<br>
+<br>
+<a href="../../../../pastebin.com/cxa0vki9">http://pastebin.com/CXa0vKi9</a><br>
+<br>
+For some reason when I build, I am getting the following compilation error when implementing:<br>
+For some reason I am getting a compilation error at the LOG() operator:<br>
+error: C2064: term does not evaluate to a function taking 1 arguments<br>
+<br>
+Example:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code>    <cite>// create logger class</cite>
+    LoggerStream *LOG = LoggerStream::instance();
+    LOG-&gt;setFileName(fileName);
+    <var>if</var> (!LOG-&gt;open()){
+        QMessageBox err;
+        err.setWindowTitle(<kbd>"Error"</kbd>);
+        err.setText(<kbd>"Error opening streaming log file"</kbd>);
+        err.setInformativeText(<kbd>"Logging will not be enabled"</kbd>);
+        err.exec();
+    }
+
+    <cite>// create logger file</cite>
+    LOG = LoggerStream::instance();
+    LOG(LOG_DEBUG3) &lt;&lt; QString(<kbd>"Multi Process Data Collection application started"</kbd>) &lt;&lt; <kbd>"\n"</kbd>;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I see in your example, you have a reference to self in all of your operator overloads as your first parameter and you do not have a definition for each operator in your class header as public.<br>
+<br>
+Is this needed?<br>
+<br>
+Thank you again!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm118ba9b53b" title="Sun, 14 Jul 2013 14:35:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm118ba9b53b');</script><noscript>Jul 14, 2013 at 2:35pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575770"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575773"><span title="575773,72446,1023,5917,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575773" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm132b6714f8" title="Sun, 14 Jul 2013 14:36:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm132b6714f8');</script><noscript>Jul 14, 2013 at 2:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/peter87/default.htm"><b>Peter87</b> (5917)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575773">
+If LOG is a pointer you will have to dereference the pointer first. <span class="auto"><code class="source">(*LOG)(LOG_DEBUG3)</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn575773"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575778"><span title="575778,62677,1023,3310,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575778" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm15cc69b7a4" title="Sun, 14 Jul 2013 15:07:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm15cc69b7a4');</script><noscript>Jul 14, 2013 at 3:07pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andywestken/default.htm"><b>andywestken</b> (3310)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575778">
+As Peter87 has already said, operator() is defined for LoggerStream references, not pointers, so you need to dereference the pointer before using operator()<br>
+<br>
+You could, of course, use a macro to keep the usage tidy, such as<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>LoggerStream* plog_ = LoggerStream::instance();
+
+<dfn>#define LOG(LEVEL) if(0 != plog_) (*plog_)(LEVEL) </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+But once you're using a macro, you might as well use a normal function rather than operator(), and could even pass the file name and line number to it.<br>
+<br>
+Where LogStream has a method<br>
+<br>
+<span class="auto"><code class="source">LogStream&amp; getStream(LogLevel level, <var>const</var> <var>char</var>* filePath, <var>int</var> lineNum);</code></span><br>
+<br>
+the macro could become<br>
+<br>
+<span class="auto"><code class="source"><dfn>#define LOG(LEVEL) if(0 != plog_) plog_-&gt;getStream(LEVEL, __FILE__, __LINE__) </dfn></code></span><br>
+<br>
+<table class="quote"><tr><td class="qd">I see in your example, you have a reference to self in all of your operator overloads as your first parameter and you do not have a definition for each operator in your class header as public.<br>
+<br>
+Is this needed?</td></tr></table><br>
+No, it's just a stylistic thing. Coding them as member functions is equally valid.<br>
+<br>
+But I do usually code my insertion operators that way (as non-member functions) if I have a suitable method for the insertion operator to call to do the real work as it makes the class body less cluttered.<br>
+<br>
+<table class="quote"><tr><td class="qd">I like the endl addition you did in your example.</td></tr></table><br>
+Actually, it shouldn't be needed. If you derive your LoggerStream from std::ostream then you will get the handling of all the built-in types, std::string, and io manipulators as part of the deal.<br>
+<br>
+Andy
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1888380b73" title="Sun, 14 Jul 2013 15:19:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm1888380b73');</script><noscript>Jul 14, 2013 at 3:19pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575778"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575785"><span title="575785,73014,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575785" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmac4bbbbe34" title="Sun, 14 Jul 2013 15:27:22 +0000"></span><script type="text/javascript">WhenId('CH_zTmac4bbbbe34');</script><noscript>Jul 14, 2013 at 3:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vezprog/default.htm"><b>vezprog</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575785">
+I like the macro. <br>
+<br>
+The macro would also require that the instance name is LOG? It might be better to remove the pointer so that I don't have to use that macro everywhere I use the singleton.<br>
+<br>
+Dereferencing the pointer worked! Thank you so much!
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm40b05e6091" title="Sun, 14 Jul 2013 15:32:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm40b05e6091');</script><noscript>Jul 14, 2013 at 3:32pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn575785"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg575798"><span title="575798,62677,1023,3310,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg575798" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm496661aa9d" title="Sun, 14 Jul 2013 16:04:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm496661aa9d');</script><noscript>Jul 14, 2013 at 4:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andywestken/default.htm"><b>andywestken</b> (3310)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i575798">
+<table class="quote"><tr><td class="qd">The macro would also require that the instance name is LOG?</td></tr></table><br>
+The instance names I'm using is plog_<br>
+<br>
+LOG is the name of the macro.<br>
+<br>
+<table class="quote"><tr><td class="qd">It might be better to remove the pointer so that I don't have to use that macro everywhere I use the singleton.</td></tr></table><br>
+I don't quite understand this. Do you mean you'll change you code to use a reference rather than a pointer?<br>
+<br>
+Andy<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn575798"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg577063"><span title="577063,73014,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg577063" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbdcba20639" title="Wed, 17 Jul 2013 12:48:39 +0000"></span><script type="text/javascript">WhenId('CH_zTmbdcba20639');</script><noscript>Jul 17, 2013 at 12:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vezprog/default.htm"><b>vezprog</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i577063">
+I ended up keeping the pointer. The singleton class works great with the macro. I was a little confused with 'the big picture' of how the macro would be implemented while having multiple threads access the singleton (plus it was sunday, I have a hard time getting my brain going :) ). <br>
+<br>
+I thought I would need to get a pointer to the singleton instance in every thread and use the pointer, but the beauty of the macro made it so I didn't have to do that :)<br>
+<br>
+I do have one other question regarding the operators though.<br>
+<br>
+Is there a way to tell what is the LAST operator being executed on a single line? I am trying to come up with an elegant way to make is so a 'endl' or '\n' does not have to be included at the end of every LOG input.<br>
+<br>
+so right now I have to,<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>LOG(LOG_DEBUG3) &lt;&lt; <kbd>"Some log text"</kbd> &lt;&lt; std::endl;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I would really like,<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>LOG(LOG_DEBUG3) &lt;&lt; <kbd>"Some log text"</kbd>; <cite>// automatically append std::endl </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+It is known that in every log statement there will be the LOG(LOG_LEVEL), so I was going to start a sequence in the () operator, but there has to be some blocking until all of the operator overrides on that line have completed.<br>
+<br>
+And if I put an endl at the end of all of the &lt;&lt; operator overrides, then I will not be able to chain &lt;&lt; on the same line...<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn577063"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg578333"><span title="578333,62677,1023,3310,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg578333" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma2c10a35a3" title="Fri, 19 Jul 2013 16:59:27 +0000"></span><script type="text/javascript">WhenId('CH_zTma2c10a35a3');</script><noscript>Jul 19, 2013 at 4:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andywestken/default.htm"><b>andywestken</b> (3310)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i578333">
+<table class="quote"><tr><td class="qd">Is there a way to tell what is the LAST operator being executed on a single line?</td></tr></table><br>
+I didn't try to solve that problem as I want to be able to code stuff like<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>LOG(LOG_DEBUG3) &lt;&lt; <kbd>"Some log text"</kbd>;
+<var>if</var>(extra_stuff_about) 
+    LOG(LOG_DEBUG3) &lt;&lt; <kbd>" (more stuff"</kbd>);
+LOG(LOG_DEBUG3) &lt;&lt; std::endl;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+and have it logged on one line.<br>
+<br>
+I did wonder about returning a proxy object, rather than just the stream pointer from the logger which would automatically trigger a line end (if pending) when it went out of scope. (But didn't get round to doing it.) <br>
+<br>
+Andy<table class="quote"><tr><td class="qd"></td></tr></table>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm15f7bd2b90" title="Fri, 19 Jul 2013 16:59:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm15f7bd2b90');</script><noscript>Jul 19, 2013 at 4:59pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn578333"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(106278,1,73014,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~379.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

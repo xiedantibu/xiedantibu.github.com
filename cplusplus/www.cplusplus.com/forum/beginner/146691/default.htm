@@ -1,0 +1,258 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146691/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Printing only a certain section of a bin - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Printing only a certain section of a bin</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Printing only a certain section of a binary tree</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146691,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771269"><span title="771269,156312,255,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771269" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmba0c5a5ca5" title="Sun, 02 Nov 2014 17:48:23 +0000"></span><script type="text/javascript">WhenId('CH_zTmba0c5a5ca5');</script><noscript>Nov 2, 2014 at 5:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mattheww/default.htm"><b>MatthewW</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771269">
+Hello, I am having trouble with setting up a program to output the data values along a binary tree below a starting at a user defined point on the tree.<br>
+<br>
+The tree has the root at 5 and the tree is the numbers 2-8.<br>
+<br>
+If I want to start at 5, it will print everything but 5.<br>
+6 should output 7 and 8.<br>
+4 should output 3 and 2. etc.<br>
+ <br>
+I would think that some modification of an Inorder output would be the correct choice, but if it is I am unsure of the way to modify it.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+
+<cite>//tree should look like:</cite>
+<cite>//       5</cite>
+<cite>//      / \</cite>
+<cite>//     4   6</cite>
+<cite>//    /     \</cite>
+<cite>//   3       7</cite>
+<cite>//  /         \</cite>
+<cite>// 2           8</cite>
+
+<var>using</var> <var>namespace</var> std;
+<var>struct</var> Node{
+	<var>int</var> data;
+	Node *left;
+	Node *right;
+	Node *parent;
+};
+
+<var>void</var> Inorder(Node *root) {
+	<var>if</var> (root == NULL) <var>return</var>;
+	Inorder(root-&gt;left); <cite>//Visit left subtree</cite>
+	cout &lt;&lt; root-&gt;data &lt;&lt; <kbd>" "</kbd>;<cite>//Print data</cite>
+	Inorder(root-&gt;right); <cite>// Visit right subtree</cite>
+}
+
+Node* GetNewNode(<var>int</var> data){
+	Node* newNode = <var>new</var> Node();
+	newNode-&gt;data = data;
+	newNode-&gt;left = newNode-&gt;right = NULL; <cite>//create empty branches</cite>
+	<var>return</var> newNode;
+}
+
+Node* insert(Node* root, <var>int</var> data){
+	<var>if</var> (root == NULL) { <cite>//runs when tree is empty</cite>
+		root = GetNewNode(data);
+	}
+	<var>else</var> <var>if</var> (data &lt;= root-&gt;data){<cite>//will run when the next point has a lower value than the last</cite>
+		root-&gt;left = insert(root-&gt;left, data);
+	}
+	<var>else</var>{<cite>//will run when the next point has a higher value than the last</cite>
+		root-&gt;right = insert(root-&gt;right, data);
+	}
+	<var>return</var> root;
+}
+
+
+<var>int</var> main(){
+	<var>int</var> id;
+	Node* root = NULL;
+
+	root = insert(root, 5); <cite>//root node of the tree</cite>
+
+	<var>for</var> (<var>int</var> x = 4; x &gt; 1; x--){
+		root = insert(root, x);
+	}
+
+        <var>for</var> (<var>int</var> x = 6; x &lt; 9; x++){
+		root = insert(root, x);
+	}
+	cout &lt;&lt; <kbd>"Enter the value: "</kbd>;
+	cin &gt;&gt; id;
+
+	Inorder(root); <cite>//I'm not sure how to implement the id into this.</cite>
+	<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+This code allows me to print out the values in order, but how can I edit the Inorder function (or some other function) to print out everything staring from the point given by id in the tree? I have a feeling the solution is simple but I cannot put my finger on it.<br>
+(If the question is not clear enough ask what you need to know) 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8064edbe11" title="Sun, 02 Nov 2014 17:50:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm8064edbe11');</script><noscript>Nov 2, 2014 at 5:50pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771269"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771305"><span title="771305,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771305" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8be6e3738e" title="Sun, 02 Nov 2014 19:36:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm8be6e3738e');</script><noscript>Nov 2, 2014 at 7:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771305">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>allBut(Node *node)
+{
+    <var>if</var> (node) {
+        InOrder(node-&gt;left);
+        InOrder(node-&gt;right);
+    }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771305"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771317"><span title="771317,156312,255,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771317" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma841186b21" title="Sun, 02 Nov 2014 20:04:11 +0000"></span><script type="text/javascript">WhenId('CH_zTma841186b21');</script><noscript>Nov 2, 2014 at 8:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mattheww/default.htm"><b>MatthewW</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771317">
+Thank you. That is about half the problem solved, but I am still unsure of the way to start looking through the tree from a user defined point.<br>
+How would I change the node that I pass into allBut, so I can print parts of the tree instead of the whole thing? (Pass the node for 3 into allBut to get 2, but how do I select node 3?)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbbc2183569" title="Sun, 02 Nov 2014 20:40:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmbbc2183569');</script><noscript>Nov 2, 2014 at 8:40pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771317"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771422"><span title="771422,127909,1023,599,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771422" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0c88559f17" title="Mon, 03 Nov 2014 03:23:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm0c88559f17');</script><noscript>Nov 3, 2014 at 3:23am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dhayden/default.htm"><b>dhayden</b> (599)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771422">
+It sounds like you need a find() function to find a node with specific data.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771422"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146691,0,156312,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fbe~6.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

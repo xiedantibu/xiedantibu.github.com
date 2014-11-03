@@ -1,0 +1,217 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146590/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Maps Question - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Maps Question</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Maps Question</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146590,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770890"><span title="770890,124359,1023,17,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770890" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9b6ff72db0" title="Sat, 01 Nov 2014 18:43:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm9b6ff72db0');</script><noscript>Nov 1, 2014 at 6:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/evanweaksauce/default.htm"><b>EvanWeaksauce</b> (17)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770890">
+I am currently working on a homework assignment. A question asks....<br>
+    <br>
+   "Can a map be declared with int as the key data type (i.e. map&lt;int, sometype&gt;m)? Can a map be declared with a char as the key data type? Why or why not?"<br>
+<br>
+I cannot for the life of me find a definitive answer to this question, either in my book or online. Any help would be greatly appreciated. Thanks in advance.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770890"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770896"><span title="770896,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770896" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6c85087033" title="Sat, 01 Nov 2014 18:59:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm6c85087033');</script><noscript>Nov 1, 2014 at 6:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770896">
+Yes.<br>
+Yes.<br>
+Why not? Only requirements on keys is that they should be destructible and if you do not provide custom comparator, they should have operator&lt; providing strict weak ordering.<br>
+Other things like existence of a copy or parametrised constructors only changes how map can be used.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770896"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770907"><span title="770907,124359,1023,17,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770907" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbee9e6ced8" title="Sat, 01 Nov 2014 19:18:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmbee9e6ced8');</script><noscript>Nov 1, 2014 at 7:18pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/evanweaksauce/default.htm"><b>EvanWeaksauce</b> (17)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770907">
+thank you, can I use a custom class as the key data type then? ex. &lt;Point, string&gt;?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770907"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770920"><span title="770920,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770920" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme44b8fc86e" title="Sat, 01 Nov 2014 19:40:46 +0000"></span><script type="text/javascript">WhenId('CH_zTme44b8fc86e');</script><noscript>Nov 1, 2014 at 7:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770920">
+Yes if you can provide meaningful operator &lt; or custom comparator.<br>
+<br>
+<div class="auto"><table class="split"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;map&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+
+<var>class</var> Point
+{
+<var>public</var>:
+    Point(<var>int</var> x_, <var>int</var> y_) : x(x_), y(y_) {}
+<var>private</var>:
+    <var>int</var> x;
+    <var>int</var> y;
+    <var>friend</var> <var>class</var> point_order;
+};
+
+<cite>//We do not use operator&lt; because there is no sensible implementation for points</cite>
+
+<var>class</var> point_order <cite>//custom function object class</cite>
+{
+<var>public</var>:
+    <var>bool</var> <var>operator</var>()(<var>const</var> Point&amp; lhs, <var>const</var> Point&amp; rhs) <var>const</var>
+    {
+        <cite>//Orders by distance from center</cite>
+        <var>return</var> std::hypot(lhs.x, lhs.y) &lt; std::hypot(rhs.x, rhs.y);
+    }
+};
+
+<var>int</var> main()
+{
+    std::map&lt;Point, <var>int</var>, point_order&gt; foo; <cite>//map using custom comparator</cite>
+    Point x(1, 1);
+    Point y(2, 3); <cite>//farther from center than x</cite>
+    foo[x] = 10;
+    foo[y] = 20; <cite>//Would be shown second</cite>
+    foo[{1, 1}] = 30; <cite>//Overwriting value of 10</cite>
+    <var>for</var>(<var>auto</var> i: foo)
+        std::cout &lt;&lt; i.second &lt;&lt; <kbd>'\n'</kbd>;
+}</code></pre></td>
+<td class="output"><pre><samp>30
+20</samp></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm75fac86bb1" title="Sat, 01 Nov 2014 19:42:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm75fac86bb1');</script><noscript>Nov 1, 2014 at 7:42pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770920"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146590,0,124359,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~433.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html><!-- saved from url=(0060)http://www.cplusplus.com/forum/beginner/146607/2/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Add Movable Player to Map - C++ Forum (Page 2)</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../../v321/main.css">
+<script src="../../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../../default.htm">Forum</a></li>
+<li><a href="../../default.htm">Beginners</a></li>
+<li><a href="../default.htm">Add Movable Player to Map</a></li>
+<li class="here">Page 2</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Add Movable Player to Map</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <a href="../1/default.htm">1</a><span title="Current page">2</span></div><span class="rootdatPost" title="146607,root,0,-1,33,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771298"><span title="771298,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771298" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbcdef32cc5" title="Sun, 02 Nov 2014 19:26:56 +0000"></span><script type="text/javascript">WhenId('CH_zTmbcdef32cc5');</script><noscript>Nov 2, 2014 at 7:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771298">
+<table class="quote"><tr><td class="qd">Anyway, If it is feasible, I would like to stick with using a console application for now.</td></tr></table><br>
+<br>
+It's certainly feasible, it's just more difficult.  The console is not really designed for this kind of use.<br>
+<br>
+Libs like SFML actually make this kind of thing easier, not harder.  The tradeoff is you'll have to learn something new... so it might seem more difficult <i>at first</i> because it's new... but once you get familiar with it, you won't regret it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771298"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771304"><span title="771304,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771304" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9a1639cafb" title="Sun, 02 Nov 2014 19:36:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm9a1639cafb');</script><noscript>Nov 2, 2014 at 7:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771304">
+If you're using Visual Studio on Windows, this might work:<br>
+<a href="../../../general/51271/default.htm">http://www.cplusplus.com/forum/general/51271/</a><br>
+<br>
+one change to make it easier and more efficient would be to not redraw the whole map each time the player moves,  just redraw the character the player moved <i>from</i> with the original map character, then draw the player in the space they moved to.<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771304"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771314"><span title="771314,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771314" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb96f900862" title="Sun, 02 Nov 2014 19:58:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmb96f900862');</script><noscript>Nov 2, 2014 at 7:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771314">
+Esslercuffi, I don't suppose you could show me some example code as to how to redraw the character to different coordinates?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771314"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771318"><span title="771318,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771318" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc9b2916687" title="Sun, 02 Nov 2014 20:05:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmc9b2916687');</script><noscript>Nov 2, 2014 at 8:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771318">
+well here's a breakdown of what needs to be done.<br>
+<br>
+after you get the input for which way to move, call a function which takes the map array, the player's current coordinates, and the movement direction.<br>
+that function would do the following:<br>
+<br>
+-draw the map character for the character's current location (mapArray[playerX][playerY])<br>
+-update the player's coordinates based on direction.  (make sure they don't move off edge of map)<br>
+-draw the player character at the new location.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771318"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771328"><span title="771328,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771328" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0a07ecbbe2" title="Sun, 02 Nov 2014 20:33:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm0a07ecbbe2');</script><noscript>Nov 2, 2014 at 8:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771328">
+Just thought of a problem I overlooked before.  The displayMap() function would need to be reworked to display the map at known coordinates, otherwise you won't know which cursor position to move to.  Also, since windows consoles can be resized, this can get really flaky.  This is another reason 2D graphics can be easier to deal with.  you can set up fixed windows so you always know exactly what you're dealing with.  Back in the days of DOS, you could directly access the video card memory buffer and that made doing this kind of thing really simple.  These days, the windows console is really set up for streaming I/O.<br>
+<br>
+As others have said, doing this kind of thing in text mode is doable, but it gets sloppy and annoying. If you're doing this as an exercise to learn c++ language features, there's probably better exercises to tackle that won't distract you with system specific minutia like this.  If you're doing this as an exercise in game programming, then I'd recommend diving in with a graphics library.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771328"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771331"><span title="771331,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771331" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbfed33bf08" title="Sun, 02 Nov 2014 20:48:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmbfed33bf08');</script><noscript>Nov 2, 2014 at 8:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771331">
+I appreciate that using the console is not the most intuitive way to get player movement on a map to work. However, I would really like to do this, just so that I know I can. Then I can move on.<br>
+<br>
+I'm looking at your instructions and I'm sorry but I can't make sense of how to implement them. I would love it if you would demonstrate with some example code.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771331"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771332"><span title="771332,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771332" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb831612b00" title="Sun, 02 Nov 2014 20:52:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmb831612b00');</script><noscript>Nov 2, 2014 at 8:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771332">
+I suppose I could take a stab at it.  Not much goin' on today anyway :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771332"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771339"><span title="771339,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771339" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm90f2160a52" title="Sun, 02 Nov 2014 21:32:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm90f2160a52');</script><noscript>Nov 2, 2014 at 9:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771339">
+well, here's what I came up with:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;Windows.h&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> displayMap( <var>char</var> mapArray[MAP_ROWS][MAP_COLS] );
+<var>void</var> MovePlayer( <var>char</var> mapArray[MAP_ROWS][MAP_COLS], <var>int</var>&amp; plrX, <var>int</var>&amp; plrY, <var>char</var> Dir );
+
+
+<var>int</var> main()
+{
+	<var>int</var> playerX = 5;
+	<var>int</var> playerY = 5;
+	<var>char</var> playerMove = <kbd>' '</kbd>;
+
+	<var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+	{
+		{<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+		{<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+	};
+
+
+	displayMap( mapArray );
+
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD CurPos;
+
+	CurPos.X = 5;
+	CurPos.Y = MAP_ROWS + 3 ;
+	SetConsoleCursorPosition( console, CurPos );
+
+	cout &lt;&lt; <kbd>"Choose a direction to move (U, D, L, R): "</kbd>;
+
+	<var>while</var>( <var>true</var> )
+	{
+		CurPos.X = 46; <cite>// at end of prompt string</cite>
+		CurPos.Y = MAP_ROWS + 3 ;
+		SetConsoleCursorPosition( console, CurPos );
+
+		cin &gt;&gt; playerMove;
+
+		<var>if</var>( playerMove == <kbd>'q'</kbd> ) <cite>// Quit</cite>
+			<var>break</var>;
+		<var>else</var>
+			MovePlayer( mapArray, playerX, playerY, playerMove );
+	}
+
+	<var>return</var> 0;
+}
+
+
+<var>void</var> displayMap( <var>char</var> mapArray[MAP_ROWS][MAP_COLS] )
+{
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD CurPos;
+
+	<var>for</var>( <var>int</var> row = 0; row &lt; MAP_ROWS; row++ )
+	{
+		<cite>// moves the map in 5 chars from left and leave an empty row at top</cite>
+		CurPos.X = 5;
+		CurPos.Y = row + 1 ;
+		SetConsoleCursorPosition( console, CurPos );
+
+		<var>for</var>( <var>int</var> col = 0; col &lt; MAP_COLS; col++ )
+		{
+			cout &lt;&lt; mapArray[row][col];
+		}
+	}
+}
+
+
+
+<var>void</var> MovePlayer( <var>char</var> mapArray[MAP_ROWS][MAP_COLS], <var>int</var>&amp; plrX, <var>int</var>&amp; plrY, <var>char</var> Dir )
+{
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD CurPos;
+
+	<cite>// restore map tile at player's current location</cite>
+	CurPos.X = plrX + 5; 
+	CurPos.Y = plrY + 1 ;
+	SetConsoleCursorPosition( console, CurPos );
+	cout &lt;&lt; mapArray[plrY][plrX];
+
+	<cite>// Move the player</cite>
+	<var>switch</var>( Dir )
+	{
+		<var>case</var> <kbd>'U'</kbd>:
+		<var>case</var> <kbd>'u'</kbd>:
+			<var>if</var>( plrY &gt; 1 )
+				plrY--;
+			<var>break</var>;
+		<var>case</var> <kbd>'D'</kbd>:
+		<var>case</var> <kbd>'d'</kbd>:
+			<var>if</var>( plrY &lt; (MAP_ROWS - 2) )
+				plrY++;
+			<var>break</var>;
+		<var>case</var> <kbd>'L'</kbd>:
+		<var>case</var> <kbd>'l'</kbd>:
+			<var>if</var>( plrX &gt; 1 )
+				plrX--;
+			<var>break</var>;
+		<var>case</var> <kbd>'R'</kbd>:
+		<var>case</var> <kbd>'r'</kbd>:
+			<var>if</var>( plrX &lt; (MAP_COLS - 2) )
+				plrX++;
+			<var>break</var>;
+		<var>default</var>:
+			<cite>// ignore bad input</cite>
+			<var>break</var>;
+	}
+
+
+	<cite>// Draw character at new location</cite>
+	CurPos.X = plrX + 5; 
+	CurPos.Y = plrY + 1 ;
+	SetConsoleCursorPosition( console, CurPos );
+	cout &lt;&lt; <kbd>'@'</kbd>;
+
+	<var>return</var>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<del>There's a bug in there somewhere.  while moving around, I sometimes get a strange character left behind.</del><br>
+<br>
+Forgot to draw the player at initial location.  Should be easy enough to figure out how from here.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb7ba0f8b76" title="Sun, 02 Nov 2014 21:45:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmb7ba0f8b76');</script><noscript>Nov 2, 2014 at 9:45pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771339"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771341"><span title="771341,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771341" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm02e743d013" title="Sun, 02 Nov 2014 21:45:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm02e743d013');</script><noscript>Nov 2, 2014 at 9:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771341">
+I don't understand some of that, but I've got to say, you the man!<br>
+<br>
+Thank you very much for taking the time to do that for me. Now I just need to spend the next week trying to figure it out... :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771341"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771342"><span title="771342,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771342" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm72f80ba863" title="Sun, 02 Nov 2014 21:47:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm72f80ba863');</script><noscript>Nov 2, 2014 at 9:47pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771342">
+which parts don't you understand?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771342"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771344"><span title="771344,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771344" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma5aba4ec6b" title="Sun, 02 Nov 2014 21:58:55 +0000"></span><script type="text/javascript">WhenId('CH_zTma5aba4ec6b');</script><noscript>Nov 2, 2014 at 9:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771344">
+Things like:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>int</var>&amp; plrX
+HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE); 
+COORD CurPos; 
+CurPos.X
+SetConsoleCursorPosition( console, CurPos );</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771344"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771346"><span title="771346,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771346" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm77d93a4523" title="Sun, 02 Nov 2014 22:27:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm77d93a4523');</script><noscript>Nov 2, 2014 at 10:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771346">
+ok, in no particular order....<br>
+<br>
+HANDLE console = ....<br>
+This is a Windows thing that you really shouldn't concern yourself with too much at this point. Similar to the way you use a variable name to access a certain chunk of memory, like mapArray points to the block of memory which holds your character data, a HANDLE just creates a variable which points to the console window. Seems odd at this point, but when you realize that it is possible for a single program to spawn multiple individual console windows, you'll understand why they're needed.  For our purposes here, GetStdHandle( STD_OUTPUT_HANDLE ); just returns a handle to the current console window.<br>
+<br>
+SetConsoleCursorPosition() is a function which (as you may have guessed) moves the cursor to the position specified by CurPos within the console pointed to by our previously created colsole HANDLE.  The only reason the HANDLE is even created is so that we can pass it to this function.<br>
+<br>
+COORD CurPos is just a structure very similar to the one I showed you back at the beginning of the thread.  Again, we only use it here because the SetConsoleCursorPosition() function expects to get one as a parameter.  We set CurPos.X, and CurPos.Y to the position we want the cursor to be at, then pass the CurPos structure and the console HANDLE to SetConsoleCursorPosition() which does the actual cursor movement.  Now any output from cout will start at those coordinates.<br>
+<br>
+<br>
+All of the above stuff isn't anything that you should twist yourself into knots worrying about exactly what's going on until you get into Windows programming.  While still learning the basics of C++, just trust that it'll get the job done and move on.<br>
+<br>
+<br>
+The part that you should pay attention to is the <table class="quote"><tr><td class="qd">int&amp; plrX</td></tr></table><br>
+This is a nifty little thing we call 'passing by reference'.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> junkFunc1( <var>int</var> a );
+<var>void</var> junkFunc2( <var>int</var>&amp; a );
+
+
+<var>int</var> main()
+{
+	<var>int</var> x = 1;
+	<var>int</var> y = 1;
+
+	cout &lt;&lt; <kbd>"x = "</kbd> &lt;&lt; x &lt;&lt; endl;
+	cout &lt;&lt; <kbd>"y = "</kbd> &lt;&lt; y &lt;&lt; endl;
+
+	junkFunc1( x );
+	junkFunc2( y );
+
+	cout &lt;&lt; <kbd>"x = "</kbd> &lt;&lt; x &lt;&lt; endl;
+	cout &lt;&lt; <kbd>"y = "</kbd> &lt;&lt; y &lt;&lt; endl;
+}
+
+<var>void</var> junkFunc1( <var>int</var> a )
+{
+	a += 2;
+	<var>return</var>;
+}
+
+<var>void</var> junkFunc2( <var>int</var>&amp; a )
+{
+	a += 2;
+	<var>return</var>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+junkFunc1 passes its parameter by value.<br>
+junkFunc2 passes its parameter by reference.<br>
+<br>
+Passing by value gives a <b>copy</b> of the variable to the function.  the function therefore cannot change the value of the variable in main()<br>
+<br>
+Passing by reference gives the called function direct access to the same variable in main(). in junkFunc2()  'a' is just another name for 'y' in main(). both names refer to the same memory address.<br>
+<br>
+the output of the above program is:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>x = 1
+y = 1
+x = 1
+y = 3</samp></pre></td></tr></table></div>
+<b></b>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm878e6144d4" title="Sun, 02 Nov 2014 22:39:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm878e6144d4');</script><noscript>Nov 2, 2014 at 10:39pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771346"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771360"><span title="771360,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771360" title="Link to this post"><img src="../../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6a457e522b" title="Sun, 02 Nov 2014 23:16:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a457e522b');</script><noscript>Nov 2, 2014 at 11:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771360">
+Funkist posted:<br>
+<table class="quote"><tr><td class="qd">Here's a nice and explicit tutorial:<br>
+<br>
+<a href="../../../../../www.youtube.com/watchvkfrjvvgjtnq">http://www.youtube.com/watch?v=kfRjvvgjTNQ</a><br>
+<br>
+It helped me out back when i wanted to do the same thing.</td></tr></table><br>
+<br>
+I'm not gonna comment on the code in that 'tutorial', because I'm not even gonna look at it. What the hell is the point of making a video of someone typing?  Is delivering your code in tidy small text files just too convenient? Is he just concerned that I might not reach my ISPs bandwidth cap for the month and is trying to make sure I get full value for the money I pay them?<br>
+<br>
+If you're going to make a video tutorial,  at least speak and explain what you're doing rather than blasting metal tunes to show how hard-core your mad coding skillz are.  This is ridiculous.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771360"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <a href="../1/default.htm">1</a><span title="Current page">2</span></div><script type="text/javascript">new for_PostList(146607,0,144053,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../../thread.cgi','../../../post.cgi','../../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../../default.htm"><b>Beginners</b></a></li><li><a href="../../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../../default.htm">Home page</a> | <a href="../../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../../contact.doreferrerwww.cplusplus~159.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../../httpsssl/default.htm' : '../../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

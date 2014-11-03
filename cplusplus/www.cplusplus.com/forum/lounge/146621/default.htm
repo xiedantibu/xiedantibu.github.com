@@ -1,0 +1,259 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/lounge/146621/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Is this an overkill? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Lounge</a></li>
+<li class="here">Is this an overkill?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Is this an overkill?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146621,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770990"><span title="770990,63891,1023,2305,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770990" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc0418d28c0" title="Sat, 01 Nov 2014 23:24:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmc0418d28c0');</script><noscript>Nov 1, 2014 at 11:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770990">
+I've been rewrapping the entire OpenGL 4.5 api inside classes.<br>
+Long story short: Is it worth it? Will somebody find it useful?<br>
+Long story long:<br>
+Here's my testcase (which shows api and such): <a href="../../../../pastebin.com/wdxbueyd">http://pastebin.com/wDXbuEyd</a><br>
+The multiple iterations are simply used to calculate performance.<br>
+This (custom, huge, and procedurally generated from glcorearb.h) header is also required: <a href="../../../../pastebin.com/rse92plp">http://pastebin.com/rsE92pLP</a> (Implementation is somewhere else, this is a library in my project).<br>
+<br>
+For the more curious readers, the shader is a really simple 1-by-1 equivalent of the CPU version, as follows:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code><dfn>#version 430</dfn>
+layout (local_size_x=1, local_size_y=1) in;
+layout(std430, binding = 0) buffer Destination {
+	<var>float</var> result[];
+} dst;
+layout(std430, binding = 1) buffer SourceA {
+	<var>float</var> data[];
+} srca;
+layout(std430, binding = 2) buffer SourceB {
+	<var>float</var> data[];
+} srcb;
+uniform uint length;
+<var>void</var> main() {
+	<var>for</var>(uint i = 0; i &lt; length; ++i)
+		dst.result[i] = sqrt((sqrt(srca.data[i]) * sqrt(srcb.data[i])) *
+			sqrt(srca.data[i]*srcb.data[i]));
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Another note about the available customizations:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code><cite>/* These are all the configuration's defines:
+ *
+ * Debug Only (NDEBUG not defined):
+ *		GLPP_DEBUG_NO_COUNT
+ *			Avoid counting OpenGL objects
+ *		GLPP_DEBUG_COUNT_ALL
+ *			Count all OpenGL objects and interfaces
+ *		Neither one:
+ *			Count all OpenGL objects
+ * Release Only (NDEBUG defined):
+ * 
+ * Debug/Release Indipendent:
+ *		GLPP_NO_EXCEPTIONS
+ *			Do not throw exception or check glError every time a function is called.
+ *			This also does not throw an exception in case the context is destroyed.
+ *			You may want to define GLPP_NO_KEEP_CONTEXT too, for perfomance reasons.
+ *		GLPP_NO_KEEP_CONTEXT
+ *			Do not store context pointer state in OpenGL objects.
+ *			Note: Also defines GLPP_NO_CHECK_CONTEXT.
+ *		GLPP_NO_CHECK_CONTEXT
+ *			Do not check for context validity every time a function is called
+ *		GLPP_NO_CHECK_FUNCTIONS
+ *			Do not check for functions to be in the current context every time a
+ *			function is called. Only works for OpenGL objects.
+ *			Recommended for Release builds only.
+ * 
+ */</cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Back to the question: Is this an overkill?<br>
+All the required items in the snippet over do work, and the test's results are correct, but I had to change the implementation multiple times (context-checking, function-checking, error-checking) and I feel really tired about going through code I already changed to make other changes.<br>
+<small>Side note: -- what the hell AMD? I've tried doing the above test using a lot of memory, and you let the gfx card allocate that much memory. Not only it couldn't allocate 0xFFFFFF * 12 bytes of memory (3x67mb contiguous vram chunks), but the drivers also crashed, and the PC froze! Error checking anywhere?</small><br>
+<br>
+In case an error happens, an exception is correctly thrown, along with a (sadly) english-only description.<br>
+Localization not a priority right now, but GLPP_NO_EXCEPTIONS disables exception-throwing and all internal glError calls, even in form of GLContext::CheckErrors.<br>
+GLPP_NO_KEEP_CONTEXT disables reference counting, and only stores a plain pointer to the GLContext and GLFunctions.<br>
+GLPP_NO_CHECK_CONTEXT disables context checking. Basically only useful if GLPP_NO_KEEP_CONTEXT is disabled.<br>
+In case the context has been deleted, GLPP_CONTEXT_DELETED is the error-code.<br>
+GLPP_NO_CHECK_FUNCTIONS checks for functions before calling, and throws GLPP_NOT_IN_CONTEXT as error-code.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb6d6ec7f60" title="Sat, 01 Nov 2014 23:24:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmb6d6ec7f60');</script><noscript>Nov 1, 2014 at 11:24pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770990"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771035"><span title="771035,131601,1023,331,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771035" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc815574910" title="Sun, 02 Nov 2014 01:02:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmc815574910');</script><noscript>Nov 2, 2014 at 1:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/avilius/default.htm"><b>Avilius</b> (331)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771035">
+I don't really think it should be done, it's more on the overkill side. You're just adding unnecessary overhead if anything. Just create a generic renderer interface if you want to create a 3D app. It will ease your porting later, too. You'll avoid GL-specific details.<br>
+<br>
+I mean, if it's just for shits and giggles it's fine.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm5cf16881d5" title="Sun, 02 Nov 2014 01:04:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm5cf16881d5');</script><noscript>Nov 2, 2014 at 1:04am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771035"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771246"><span title="771246,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771246" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6a55e20364" title="Sun, 02 Nov 2014 16:31:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a55e20364');</script><noscript>Nov 2, 2014 at 4:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771246">
+When I used OpenGL I created classes to wrap things like glUseProgram with RAII semantics:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br></code></pre></td>
+<td class="source"><pre><code><var>namespace</var> gl {
+    <var>class</var> useProgram {
+    <var>public</var>:
+        <var>explicit</var> useProgram(GLint id)
+        {
+            glUseProgram(id);
+            m_current_program = <var>this</var>;
+        }
+
+        ~useProgram()
+        {
+            <var>if</var> (m_current_program == <var>this</var>) {
+                glUseProgram(0);
+                m_current_program = <var>nullptr</var>;
+            }
+        }
+    <var>private</var>:
+        <var>static</var> useProgram* m_current_program;
+    };
+
+    useProgram* useProgram::m_current_program = <var>nullptr</var>;
+}
+
+<cite>// ...</cite>
+
+<var>void</var> foo(GLint program_a, GLint program_b)
+{
+    gl::useProgram a(program_a); <cite>// Bind program A.</cite>
+    gl::useProgram b(program_b); <cite>// Bind program B, unbinding program A.</cite>
+    <cite>// ...</cite>
+    <cite>// A's destructor does nothing because A is not the current program. B will be unbound in its destructor.</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Of course, this is not thread-safe though it's trivial to make it such, but IIRC OpenGL contexts are not thread-safe so you wouldn't have two threads calling glUseProgram anyway.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm20e08b4d63" title="Sun, 02 Nov 2014 16:34:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm20e08b4d63');</script><noscript>Nov 2, 2014 at 4:34pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771246"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146621,0,63891,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li class="selected"><a href="../default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~635.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

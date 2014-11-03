@@ -1,0 +1,646 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/105850/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Updating Master Files - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Updating Master Files</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> Updating Master Files</h3><span id="CH_edttl"></span><span class="rootdatPost" title="105850,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg572018"><span title="572018,117447,1023,20,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572018" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm86f3dd955d" title="Sat, 06 Jul 2013 22:23:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm86f3dd955d');</script><noscript>Jul 6, 2013 at 10:23pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572018">
+Hello. I am in a C++ class and am working on a problem that is in our book where we need to make pseudocode and then translate it into C++, this chapter is on updating a master file from a transaction file. the pseudocode that i have completed and was told by my instructor was correct is <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br></code></pre></td>
+<td class="source"><pre><code>   Pseudocode PLD Chapter 7 <dfn>#6a pg. 301</dfn>
+ Start
+     Declarations
+         InputFile masterFile;
+         InputFile transactionFile;
+         OutputFile newMasterFile;
+         num mClientNumber, mtotalClientCost, tClientNumber, titemClientCost
+         string mClientfName, mClientlName 
+     output <kbd>"Master File Updating Starting"</kbd>
+     open masterFile <kbd>"Master.rtf"</kbd>
+     open transactionFile <kbd>"Transaction.rtf"</kbd>
+     open newMasterFile <kbd>"newMaster.rtf"</kbd>
+     read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile
+
+     read tClientNumber, titemClientCost from transactionFile
+     <var>while</var> ( transactionFile not EOF )
+         <var>while</var> (( masterFile not EOF) and (mClientNumber &lt; tClientNumber))
+
+   output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile
+
+  read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile
+
+         endwhile
+         <var>if</var> (masterFile is EOF)
+ output <kbd>"Error Client ID: "</kbd>, tClientNumber, <kbd>" not in Master File."</kbd>
+         <var>else</var> <var>if</var> (mClientNumber == tClientNumber) then
+             mtotalClientCost = mtotalClientCost + titemClientCost
+             output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile
+ read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile
+         <var>else</var> <var>if</var> (mClientNumber &gt; tClientNumber) then
+             output <kbd>"Error Client ID: "</kbd>, tClientNumber, <kbd>" not in Master File."</kbd>
+         endif
+         read tClientNumber, titemClientCost from transactionFile
+     endwhile
+     <var>while</var> (masterFile not EOF)
+
+output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile
+
+read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile
+
+   endwhile
+     output <kbd>"Master File Updating Complete"</kbd>
+     close masterFile
+   close transactionFile
+     close newMasterFile
+ Stop</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+any help translating this into C++ is very much welcome. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572018"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572021"><span title="572021,104819,1023,347,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572021" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma44d070f70" title="Sat, 06 Jul 2013 22:43:20 +0000"></span><script type="text/javascript">WhenId('CH_zTma44d070f70');</script><noscript>Jul 6, 2013 at 10:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rcast/default.htm"><b>rcast</b> (347)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572021">
+If you got that far in pseudocode I know that you have something to show us in C++ code. Have you attempted anything yet?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572021"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572411"><span title="572411,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572411" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm661264ffb6" title="Mon, 08 Jul 2013 01:18:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm661264ffb6');</script><noscript>Jul 8, 2013 at 1:18am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572411">
+I posted this right before I went to bed and i just got back from work. I have the declarations figured out but besides comparing similar statements to examples. No i havent attempted this code yet. Il post again in a short bit with some completed things. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572411"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg572412"><span title="572412,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg572412" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0ceeb308df" title="Mon, 08 Jul 2013 01:21:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm0ceeb308df');</script><noscript>Jul 8, 2013 at 1:21am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i572412">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;cstdlib&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+    ifstream MasterFile;
+    ifstream TransactionFile;
+    ofstream New_MasterFile;
+    <var>int</var> M_ClientNumber;
+    <var>int</var> M_TotalClientCost;
+    <var>int</var> T_ClientNumber;
+    <var>int</var> T_ItemClientCost;
+    string M_ClientName_F;
+    string M_ClientName_1;
+    
+    cout &lt;&lt; <kbd>"Master File Updating Starting"</kbd> &lt;&lt; endl;
+    MasterFile.open(<kbd>"Master.rtf"</kbd>);
+    TransasctionFile.open(<kbd>"Transaction.rtf"</kbd>);
+    New_MasterFile.open(<kbd>"newMaster.rtf"</kbd>);
+    
+    MasterFile &gt;&gt; M_ClientNumber;
+    MasterFile &gt;&gt; M_ClientName_F;
+    MasterFile &gt;&gt; M_TotalClientCost;
+    TransactionFile &gt;&gt; T_ClientNumber;
+    TransactionFile &gt;&gt; T_ItemClientCost
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+this is just up to the first while statement i believe. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn572412"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573039"><span title="573039,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573039" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm38ec318dd5" title="Tue, 09 Jul 2013 06:14:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm38ec318dd5');</script><noscript>Jul 9, 2013 at 6:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573039">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+    ifstream MasterFile;
+    ifstream TransactionFile;
+    ofstream New_MasterFile;
+    <var>int</var> mClientNumber;
+    <var>int</var> mtotalClientCost;
+    <var>int</var> tClientNumber;
+    <var>int</var> titemClientCost;
+    string mClientfName;
+    string mClientlName;
+    
+    cout &lt;&lt; <kbd>"Master File Updating Starting"</kbd> &lt;&lt; endl;
+    
+    MasterFile.open(<kbd>"Master.txt"</kbd>);
+    TransactionFile.open(<kbd>"Transaction.txt"</kbd>);
+    New_MasterFile.open(<kbd>"newMaster.txt"</kbd>);
+    
+    MasterFile &gt;&gt; mClientNumber;
+    MasterFile &gt;&gt; mClientfName;
+    MasterFile &gt;&gt; mtotalClientCost;
+    MasterFile &gt;&gt; mClientlName;
+    TransactionFile &gt;&gt; tClientNumber;
+    TransactionFile &gt;&gt; titemClientCost;
+    
+    <var>while</var>(!TransactionFile.eof())
+    {
+           <var>while</var> (( !MasterFile.eof()) and (mClientNumber &lt; tClientNumber))
+           {
+           cout &lt;&lt; mClientNumber &lt;&lt; mClientfName &lt;&lt; mClientlName &lt;&lt; mtotalClientCost &lt;&lt; endl;
+          
+           MasterFile &gt;&gt; mClientNumber;
+           MasterFile &gt;&gt; mClientlName;
+           MasterFile &gt;&gt; mClientfName;
+           MasterFile &gt;&gt; mtotalClientCost;
+           }   
+               <var>if</var> (!MasterFile.eof())
+              {         
+               cout &lt;&lt; <kbd>"ERROR Client ID: "</kbd> &lt;&lt; tClientNumber &lt;&lt; <kbd>" not in Master File. "</kbd> ;
+               <var>else</var> <var>if</var> (mClientNumber == tClientNumber)
+               {
+                 mtotalClientCost = mtotalClientCost + titemClientCost;  
+                    
+                  output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile  
+               }
+           
+              }
+               
+         
+    }
+    cout &lt;&lt; <kbd>"Master File Updating Complete "</kbd> &lt;&lt; endl;
+    
+    MasterFile.close();
+    TransactionFile.close();
+    New_MasterFile.close();
+    
+    
+    system(<kbd>"PAUSE"</kbd>);
+    <var>return</var> EXIT_SUCCESS;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+updated code.  stuck on the else if and i just realized that the output statments need to be directed to the MasterFile and im not sure how to send it specifically to that file. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn573039"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573052"><span title="573052,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573052" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0f4a4b15d3" title="Tue, 09 Jul 2013 06:58:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm0f4a4b15d3');</script><noscript>Jul 9, 2013 at 6:58am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573052">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+    ifstream MasterFile;
+    ifstream TransactionFile;
+    ofstream New_MasterFile;
+    <var>int</var> mClientNumber;
+    <var>int</var> mtotalClientCost;
+    <var>int</var> tClientNumber;
+    <var>int</var> titemClientCost;
+    string mClientfName;
+    string mClientlName;
+    
+    cout &lt;&lt; <kbd>"Master File Updating Starting"</kbd> &lt;&lt; endl;
+    
+    MasterFile.open(<kbd>"Master.txt"</kbd>);
+    TransactionFile.open(<kbd>"Transaction.txt"</kbd>);
+    New_MasterFile.open(<kbd>"newMaster.txt"</kbd>);
+    
+    MasterFile &gt;&gt; mClientNumber;
+    MasterFile &gt;&gt; mClientfName;
+    MasterFile &gt;&gt; mtotalClientCost;
+    MasterFile &gt;&gt; mClientlName;
+    TransactionFile &gt;&gt; tClientNumber;
+    TransactionFile &gt;&gt; titemClientCost;
+    
+    <var>while</var>(!TransactionFile.eof())
+    {
+           <var>while</var> (( !MasterFile.eof()) and (mClientNumber &lt; tClientNumber))
+           {
+    
+           New_MasterFile &lt;&lt; mClientNumber;
+           New_MasterFile &lt;&lt; mClientfName;
+           New_MasterFile &lt;&lt; mClientlName;
+           New_MasterFile &lt;&lt; mtotalClientCost;
+           
+           MasterFile &gt;&gt; mClientNumber;
+           MasterFile &gt;&gt; mClientfName;
+           MasterFile &gt;&gt; mClientlName;
+           MasterFile &gt;&gt; mtotalClientCost;
+           }   
+               <var>if</var> (!MasterFile.eof())
+           {         
+               cout &lt;&lt; <kbd>"ERROR Client ID: "</kbd> &lt;&lt; tClientNumber &lt;&lt; <kbd>" not in Master File. "</kbd> ;
+               <var>else</var> <var>if</var> (mClientNumber == tClientNumber)
+               {
+                 mtotalClientCost = mtotalClientCost + titemClientCost;  
+                    
+                  New_MasterFile &lt;&lt; mClientNumber;
+                  New_MasterFile &lt;&lt; mClientfName;
+                  New_MasterFile &lt;&lt; mClientlName;
+                  New_MasterFile &lt;&lt; mtotalClientCost;
+                  
+                  MasterFile &gt;&gt; mClientNumber;
+                  MasterFile &gt;&gt; mClientfName;
+                  MasterFile &gt;&gt; mClientlName;
+                  MasterFile &gt;&gt; mtotalClientCost; 
+               }
+                 <var>else</var> <var>if</var> (mClientNumber &gt; tClientNumber) 
+                      {
+                 cout &lt;&lt; <kbd>"Error Client ID: "</kbd>, tClientNumber, <kbd>" not in Master File."</kbd>;
+                      }             
+           TransactionFile &gt;&gt; tClientNumber;
+           TransactionFile &gt;&gt; titemClientCost;
+           }
+                           <var>while</var> (!MasterFile.eof())
+                           {
+                New_MasterFile &lt;&lt; mClientNumber;
+                New_MasterFile &lt;&lt; mClientfName;
+                New_MasterFile &lt;&lt; mClientlName;
+                New_MasterFile &lt;&lt; mtotalClientCost;
+                
+                MasterFile &gt;&gt; mClientNumber;
+                MasterFile &gt;&gt; mClientfName;
+                MasterFile &gt;&gt; mClientlName;
+                MasterFile &gt;&gt; mtotalClientCost;
+                               }  
+    }
+    cout &lt;&lt; <kbd>"Master File Updating Complete "</kbd> &lt;&lt; endl;
+    
+    MasterFile.close();
+    TransactionFile.close();
+    New_MasterFile.close();
+    
+    
+    system(<kbd>"PAUSE"</kbd>);
+    <var>return</var> EXIT_SUCCESS;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+ok i think this is the completed code but i am still getting errors on the else statements. The errors say that there is supposed to be a ; before the else but I cant figure out where Im still messing up. Any help would be much appreciated. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn573052"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573061"><span title="573061,72446,1023,5917,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573061" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc31c1eaee1" title="Tue, 09 Jul 2013 07:27:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmc31c1eaee1');</script><noscript>Jul 9, 2013 at 7:27am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/peter87/default.htm"><b>Peter87</b> (5917)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573061">
+These errors are easier to find if you make sure to indent the code properly. You have an opening bracket on line 42 but no closing bracket.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn573061"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573502"><span title="573502,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573502" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc4f1e10b63" title="Tue, 09 Jul 2013 21:20:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmc4f1e10b63');</script><noscript>Jul 9, 2013 at 9:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573502">
+I thought that i put the "end if" closing squigly mark before the TransactionFile is read on line 64. Let me try that and see if it works. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn573502"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573508"><span title="573508,72446,1023,5917,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573508" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5457003331" title="Tue, 09 Jul 2013 21:31:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm5457003331');</script><noscript>Jul 9, 2013 at 9:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/peter87/default.htm"><b>Peter87</b> (5917)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573508">
+I guess you are right. I wasn't looking at the whole code. I just assumed the else on line 44 was supposed to belong to the if statement on line 41.<br>
+<br>
+So the problem is that you have an else without an if. Maybe you don't want the else on line 44 at all. Only the if. I don't know for sure because I have only looked at the syntax without trying to understand the program logic.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc7b75b4b5f" title="Tue, 09 Jul 2013 21:35:19 +0000"></span><script type="text/javascript">WhenId('CH_zTmc7b75b4b5f');</script><noscript>Jul 9, 2013 at 9:35pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn573508"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg573518"><span title="573518,117447,1023,20,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg573518" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5aa6b8fe10" title="Tue, 09 Jul 2013 21:38:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm5aa6b8fe10');</script><noscript>Jul 9, 2013 at 9:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/hagfish88/default.htm"><b>hagfish88</b> (20)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i573518">
+I fixed the bracket problem and was getting garbage values when the program compiled. So I changed the int number values to double. Now its executing and saying that record 1 and record 5 are not in my source files. Didnt have that problem for the other values in the extra files so im not sure why that is giving me trouble but here is another updated version. <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// Pseudocode PLD Chapter 7 #6a pg. 301</cite>
+<cite>// Start</cite>
+<cite>//     Declarations</cite>
+<cite>//         InputFile masterFile;</cite>
+<cite>//         InputFile transactionFile;</cite>
+<cite>//         OutputFile newMasterFile;</cite>
+<cite>//         num mClientNumber, mtotalClientCost, tClientNumber, titemClientCost</cite>
+<cite>//         string mClientfName, mClientlName </cite>
+<cite>//     output "Master File Updating Starting"</cite>
+<cite>//     open masterFile "Master.rtf"</cite>
+<cite>//     open transactionFile "Transaction.rtf"</cite>
+<cite>//     open newMasterFile "newMaster.rtf"</cite>
+<cite>//     read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile</cite>
+<cite>//     read tClientNumber, titemClientCost from transactionFile</cite>
+<cite>//     while ( transactionFile not EOF )</cite>
+<cite>//         while (( masterFile not EOF) and (mClientNumber &lt; tClientNumber))</cite>
+<cite>//             output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile</cite>
+<cite>//             read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile</cite>
+<cite>//         endwhile</cite>
+<cite>//         if (masterFile is EOF)</cite>
+<cite>//             output "Error Client ID: ", tClientNumber, " not in Master File."</cite>
+<cite>//         else if (mClientNumber == tClientNumber) then</cite>
+<cite>//             mtotalClientCost = mtotalClientCost + titemClientCost</cite>
+<cite>//             output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile</cite>
+<cite>//             read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile</cite>
+<cite>//         else if (mClientNumber &gt; tClientNumber) then</cite>
+<cite>//             output "Error Client ID: ", tClientNumber, " not in Master File."</cite>
+<cite>//         endif</cite>
+<cite>//         read tClientNumber, titemClientCost from transactionFile</cite>
+<cite>//     endwhile</cite>
+<cite>//     while (masterFile not EOF)</cite>
+<cite>//         output mClientNumber, mClientfName, mClientlName, mtotalClientCost to newMasterFile</cite>
+<cite>//         read mClientNumber, mClientfName, mClientlName, mtotalClientCost from masterFile</cite>
+<cite>//     endwhile</cite>
+<cite>//     output "Master File Updating Complete"</cite>
+<cite>//     close masterFile</cite>
+<cite>//     close transactionFile</cite>
+<cite>//     close newMasterFile</cite>
+<cite>// Stop</cite>
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+    ifstream MasterFile;
+    ifstream TransactionFile;
+    ofstream New_MasterFile;
+    <var>int</var> mClientNumber;
+    <var>double</var> mtotalClientCost;
+    <var>int</var> tClientNumber;
+    <var>double</var> titemClientCost;
+    string mClientfName;
+    string mClientlName;
+    
+    cout &lt;&lt; <kbd>"Master File Updating Starting"</kbd> &lt;&lt; endl;
+    
+    MasterFile.open(<kbd>"Master.txt"</kbd>);
+    TransactionFile.open(<kbd>"Transaction.txt"</kbd>);
+    New_MasterFile.open(<kbd>"newMaster.txt"</kbd>);
+    
+    MasterFile &gt;&gt; mClientNumber;
+    MasterFile &gt;&gt; mClientfName;
+    MasterFile &gt;&gt; mtotalClientCost;
+    MasterFile &gt;&gt; mClientlName;
+    TransactionFile &gt;&gt; tClientNumber;
+    TransactionFile &gt;&gt; titemClientCost;
+    
+    <var>while</var>(!TransactionFile.eof())
+    {
+           <var>while</var> (( !MasterFile.eof()) and (mClientNumber &lt; tClientNumber))
+           {
+    
+           New_MasterFile &lt;&lt; mClientNumber;
+           New_MasterFile &lt;&lt; mClientfName;
+           New_MasterFile &lt;&lt; mClientlName;
+           New_MasterFile &lt;&lt; mtotalClientCost;
+           
+           MasterFile &gt;&gt; mClientNumber;
+           MasterFile &gt;&gt; mClientfName;
+           MasterFile &gt;&gt; mClientlName;
+           MasterFile &gt;&gt; mtotalClientCost;
+           }   
+               <var>if</var> (!MasterFile.eof())
+           {         
+               cout &lt;&lt; <kbd>"ERROR Client ID: "</kbd> &lt;&lt; tClientNumber &lt;&lt; <kbd>" not in Master File. "</kbd> ;
+               }
+               <var>else</var> <var>if</var> (mClientNumber == tClientNumber)
+               {
+                 mtotalClientCost = mtotalClientCost + titemClientCost;  
+                    
+                  New_MasterFile &lt;&lt; mClientNumber;
+                  New_MasterFile &lt;&lt; mClientfName;
+                  New_MasterFile &lt;&lt; mClientlName;
+                  New_MasterFile &lt;&lt; mtotalClientCost;
+                  
+                  MasterFile &gt;&gt; mClientNumber;
+                  MasterFile &gt;&gt; mClientfName;
+                  MasterFile &gt;&gt; mClientlName;
+                  MasterFile &gt;&gt; mtotalClientCost; 
+               }
+                 <var>else</var> <var>if</var> (mClientNumber &gt; tClientNumber) 
+                      {
+                 cout &lt;&lt; <kbd>"Error Client ID: "</kbd>, tClientNumber, <kbd>" not in Master File."</kbd>;
+                      }             
+           TransactionFile &gt;&gt; tClientNumber;
+           TransactionFile &gt;&gt; titemClientCost;
+           }
+                           <var>while</var> (!MasterFile.eof())
+                           {
+                New_MasterFile &lt;&lt; mClientNumber;
+                New_MasterFile &lt;&lt; mClientfName;
+                New_MasterFile &lt;&lt; mClientlName;
+                New_MasterFile &lt;&lt; mtotalClientCost;
+                
+                MasterFile &gt;&gt; mClientNumber;
+                MasterFile &gt;&gt; mClientfName;
+                MasterFile &gt;&gt; mClientlName;
+                MasterFile &gt;&gt; mtotalClientCost;
+                               }  
+    
+    cout &lt;&lt; <kbd>"Master File Updating Complete "</kbd> &lt;&lt; endl;
+    
+    MasterFile.close();
+    TransactionFile.close();
+    New_MasterFile.close();
+    
+    
+    system(<kbd>"PAUSE"</kbd>);
+    <var>return</var> EXIT_SUCCESS;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd19286aacb" title="Tue, 09 Jul 2013 21:39:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmd19286aacb');</script><noscript>Jul 9, 2013 at 9:39pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn573518"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(105850,1,117447,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~177.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

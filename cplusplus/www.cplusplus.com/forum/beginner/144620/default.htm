@@ -1,0 +1,1662 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/144620/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>New Help Moving out of Main using Functi - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">New Help Moving out of Main using Functi</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> New Help Moving out of Main using Functions</h3><span id="CH_edttl"></span><span class="rootdatPost" title="144620,root,0,-1,13,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg762274"><span title="762274,154069,1023,11,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762274" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf4078f8be" title="Sat, 11 Oct 2014 12:42:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf4078f8be');</script><noscript>Oct 11, 2014 at 12:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762274">
+Hi everyone,<br>
+<br>
+I'm only one month into learning c++ and need some assistance.  Main point: I need to move as much as I can out of main and utilize functions.  Here is what my program should calculate: pay, pre-tax IRA contribution and taxes based on the number of dependents.  It then calculates the net pay based on these calculations and finally, it should prompt the user to see if they are full time and, if so, their net pay should be deducted by 7%/<br>
+The user will be prompted for hours worked, number of dependents, full time status and wage.<br>
+<br>
+The below program is not working out... I will post my prior working code that I was using before I added full time status, medical costs and additional functions below this one.  Thanks so much for any hints or help.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// function for gross pay calculation</cite>
+<var>double</var> salary_function (<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>double</var> hourlyRate, <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> overTimePay, <var>double</var> doubleTimePay);
+
+<cite>// function for IRA deposits</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay, <var>double</var> iraDeductionAmount);
+
+<cite>//function for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay);
+
+<var>double</var> benefit_Status_function (<var>double</var> benefitStatus, <var>double</var> medicalBenefitCost);
+
+
+<var>int</var> main()
+
+{
+
+
+<var>int</var> hourlyRate, hoursWorked, overTime, doubleTime, overTimeHours, doubleTimeHours, dependents;
+<var>double</var> withold, netPay, medicalBenefitsCost, benefitStatus, iraDeductionAmount, basePay, overTimePay, doubleTimePay, grossPay, witholdCalc, modifiedGrossPay, modifiedNetPay;
+<var>char</var> fullTime;
+<var>bool</var> medicalBenefitAmount;
+
+
+<cite>// INPUT</cite>
+
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: "</kbd> &lt;&lt; endl;                             <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+
+cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of dependents</cite>
+cin &gt;&gt; dependents;
+
+cout &lt;&lt; <kbd>"Are you a full-time worker?  Enter Y for Yes or N for No., \n"</kbd>             <cite>//user inputs full-time status, if applicable</cite>
+     &lt;&lt; <kbd>"and then press return: "</kbd> &lt;&lt; endl;
+cin &gt;&gt; fullTime;
+{
+
+<cite>// OUTPUT</cite>
+
+
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;                                       <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hours are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hours are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"Your IRA deduction is: "</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependents is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;        <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your medical benefits cost is "</kbd> &lt;&lt; medicalBenefitsCost &lt;&lt; endl;                          <cite>// benefit cossts</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; modifiedNetPay &lt;&lt; endl;                                                     <cite>// amount of netpay</cite>
+
+<var>return</var> 0;
+
+
+}   <cite>// end of main</cite>
+
+<var>double</var> salary_function (<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>double</var> hourlyRate, <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> overTimePay, <var>double</var> doubleTimePay);
+
+
+{
+
+<var>double</var> grossPay;
+
+overTimeHours = 0;
+doubleTimeHours = 0;
+grossPay = 0;
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+    <var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+
+<var>return</var> (grossPay);
+}
+
+
+<var>double</var> benefit_Status_function (<var>double</var> medicalBenefitCost. <var>double</var>, medicalBenefitAmount)
+{
+<var>double</var> benefitStatus;
+  <var>while</var> (fullTime==<kbd>'y'</kbd>)
+    <var>if</var> (benefitStatus(fullTime)==<var>true</var>
+            medicalBenefitAmount = modifiedGrossPay - witholdCalc - medicalBenefitCost
+        <var>break</var>;
+    <var>else</var> <var>if</var> (benefitStatus(fullTime)==<var>false</var>)
+         medicalBenefitAmount = 0
+         <var>break</var>;
+    }
+<var>return</var> (benefitStatus)
+  }
+<var>bool</var> medicalBenefitsCost(<var>double</var> fullTime)
+{
+<var>if</var>(fulltime == y || (medicalBenefitsCost = netPay * .07))
+<var>return</var> <var>true</var>;
+	<var>else</var>
+<var>return</var> <var>false</var>;
+}
+
+
+<var>double</var> IRA_function (<var>double</var> grossPay, <var>double</var> iraDeductionAmount)                                                       <cite>// This function calculates the IRA deduction based on gross pay</cite>
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;=500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+        iraDeductionAmount = IRA_function(grossPay);                                        <cite>// IRA function</cite>
+modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay)                           <cite>// This function computes withholding based on dependents</cite>
+
+{
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+
+
+}
+witholdCalc = withold_function(dependents, modifiedGrossPay);                       <cite>// Withholding function</cite>
+modifiedNetPay = modifiedGrossPay - witholdCalc - medicalBenefitsCost;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+medicalBenefitsCost = netPay * .07;                                               <cite>// medical benefits function</cite>
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762274"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762275"><span title="762275,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762275" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma63c6c6743" title="Sat, 11 Oct 2014 12:43:50 +0000"></span><script type="text/javascript">WhenId('CH_zTma63c6c6743');</script><noscript>Oct 11, 2014 at 12:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762275">
+Here was the code I was working on for the last few weeks before doing additional modifications as needed above:<br>
+Working program:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// function for IRA deposits</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay);
+
+<cite>//function for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> grossPay);
+
+
+<var>int</var> main()
+{
+
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents;
+<var>double</var> withold, hourlyRate, basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay;
+
+overTimeHours = 0;
+doubleTimeHours = 0;
+
+
+<cite>// INPUT</cite>
+
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: "</kbd> &lt;&lt; endl;                             <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+
+cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of dependents</cite>
+cin &gt;&gt; dependents;
+
+
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+
+
+iraDeductionAmount = IRA_function(grossPay);                                        <cite>// IRA function</cite>
+modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+
+witholdCalc = withold_function(dependents, modifiedGrossPay);                       <cite>// Withholding function</cite>
+netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+
+<cite>// OUTPUT</cite>
+
+
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;                                       <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hours are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hours are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"Your IRA deduction is: "</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependents is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;        <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;                                                     <cite>// amount of netpay</cite>
+
+<var>return</var> 0;
+
+
+}   <cite>// end of main</cite>
+
+
+
+<var>double</var> IRA_function (<var>double</var> grossPay)                                                       <cite>// This function calculates the IRA deduction based on gross pay</cite>
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay)                           <cite>// This function computes withholding based on dependents</cite>
+
+{
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762275"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762280"><span title="762280,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762280" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9e1e36b9af" title="Sat, 11 Oct 2014 13:07:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm9e1e36b9af');</script><noscript>Oct 11, 2014 at 1:07pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762280">
+Hi,<br>
+<br>
+Some things to help out:<br>
+<br>
+MAKE SURE you initialise all of your variables to something at the same time as declaration - one per line.<br>
+<br>
+You haven't called any of your functions from main()<br>
+<br>
+<br>
+Only send the arguments you need to a function (that is, the numbers you need to do the calculation and the variables you want values assigned to as references)<br>
+<br>
+Don't re-declare the arguments as local variables inside the function - you already have access to them because they were arguments.<br>
+<br>
+Don't reset arguments to zero inside the function.<br>
+<br>
+The assignments to variables in functions don't automatically change the value of the variable in main unless you send arguments as references.<br>
+<br>
+Functions don't have access to variables outside the function unless you send them as arguments.<br>
+<br>
+Be careful with your variable names lines 107 - 126 are particularly confusing.<br>
+<br>
+Put white space after the end of function definitions. line 120<br>
+<br>
+This is not a complete list, I have to go to sleep now - hope it all works out.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762280"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762381"><span title="762381,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762381" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme1c88f87c6" title="Sat, 11 Oct 2014 18:21:07 +0000"></span><script type="text/javascript">WhenId('CH_zTme1c88f87c6');</script><noscript>Oct 11, 2014 at 6:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762381">
+Thanks for your help.  I tried to work on what I could.  As I stated, I'm new so I know this can be frustrated but I didn't 100% understand all the feedback.  Thanks!<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br></code></pre></td>
+<td class="source"><pre><code><cite>/*This program calculates pay, pre-tax IRA contribution,
+taxes based on the number of dependents and medical benefit costs for full-time employees.
+It then calculates the adjusted net pay based on these calculations.
+The user will be prompted for wage, hours worked, number of dependents and employment status.
+This program involves moving Main to individual functions. */</cite>
+
+<dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// void - function for User Input</cite>
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> dependents, <var>double</var> fullTime);
+
+<cite>// void - function to calculate Overtime Pay</cite>
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>double</var> &amp;overTimeHours, <var>double</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<cite>// function for IRA deposits</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay);
+
+<cite>//function for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> grossPay);
+
+<cite>// function for Payroll Output</cite>
+<var>double</var> outputPayrollInfo_function (<var>double</var> modifiedGrossPay, <var>double</var> modifiedNetPay);
+
+
+<var>int</var> main()
+{
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents;
+<var>double</var> hourlyRate, basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay, modifiedNetPay;
+}
+
+<cite>// function call for User Input</cite>
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> dependents, <var>double</var> fullTime);
+
+<cite>// function call to calculate Overtime Pay</cite>
+<var>double</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> basePay, <var>double</var> overTimeHours, <var>double</var> doubleTimeHours, <var>double</var> overTimePay, <var>double</var> grossPay, <var>double</var> doubleTimePay);
+
+<cite>// function call to output Payroll Info</cite>
+<var>double</var> outputPayrollInfo_function (<var>double</var> modifiedGrossPay, <var>double</var> modifiedNetPay);
+
+
+<cite>//function call for IRA function</cite>
+iraDeductionAmount = IRA_function (grossPay);
+modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+<cite>// function call for withholdings function</cite>
+withold = withold_function(dependents, modifiedGrossPay);
+netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+cout &lt;&lt; <kbd>"Are you a full-time employee? Enter 'Y' for yes or 'N' for no: "</kbd> &lt;&lt;endl;    <cite>// user inputs employment status</cite>
+cin &gt;&gt; employmentStatus;
+
+<var>if</var> (employmentStatus == <kbd>'Y'</kbd> || employmentStatus == <kbd>'y'</kbd>)
+
+medicalBenefitCost = netPay * .07;
+modifiedNetPay = netPay - medicalBenefitCost;                                        <cite>//net Pay adjusted for medical benefits</cite>
+
+}
+<cite>// end of main</cite>
+
+{
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> dependents, <var>double</var> fullTime);
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: "</kbd> &lt;&lt; endl;                             <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+
+cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of dependents</cite>
+cin &gt;&gt; dependents;
+
+}
+
+{
+
+<cite>// void - function to calculate Overtime Pay</cite>
+{
+
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>double</var> &amp;overTimeHours, <var>double</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+
+{
+
+<var>double</var> IRA_function(<var>double</var> grossPay);                <cite>// This function calculates the IRA deduction based on gross pay</cite>
+
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay);          <cite>// This function computes withholding based on dependents</cite>
+
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+
+}
+
+{
+
+<var>double</var> outputPayrollInfo_function (<var>double</var> modifiedGrossPay, <var>double</var> modifiedNetPay);
+
+cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;                                      <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hour(s) are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hour(s) are paid at double time."</kbd> &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your IRA deduction is: $"</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependent(s) is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;       <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"If you work full-time employee, you pay $"</kbd> &lt;&lt; medicalBenefitCost &lt;&lt; <kbd>" towards medical costs,"</kbd> &lt;&lt;endl;
+    cout &lt;&lt; <kbd>"so your adjusted net pay is now: $"</kbd> &lt;&lt; modifiedNetPay &lt;&lt; endl;                                         <cite>// for FT employees, adjusted net pay for medical                                                  // amount of netpay</cite>
+
+<var>return</var> 0;
+} }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762381"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762564"><span title="762564,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762564" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmef9502701d" title="Sun, 12 Oct 2014 06:49:20 +0000"></span><script type="text/javascript">WhenId('CH_zTmef9502701d');</script><noscript>Oct 12, 2014 at 6:49am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762564">
+Hi,<br>
+<br>
+A function definition must be enclosed in braces:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></code></pre></td>
+<td class="source"><pre><code><var>double</var> MyFunction(<var>double</var> MyDouble); <cite>// function declaration with semicolon</cite>
+
+<var>int</var> main() { <cite>// definition of main in braces</cite>
+
+
+<var>return</var> 0;
+
+}
+
+<var>double</var> MyFunction(<var>double</var> MyDouble) <cite>// function definition in braces</cite>
+{
+
+
+<var>return</var> MyDouble;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+For variables that are assigned values in a function <span class="auto"><code class="source">getUserInput</code></span> to be availble in main(), the variables must be passed as references:<br>
+<br>
+void getUserInput (int &amp;hoursWorked, double &amp;hourlyRate, double &amp;dependents, double &amp;fullTime);<br>
+<br>
+You should always initialse you r variables to something even if you immediately get input.<br>
+<br>
+Maybe you should start a new project which is just the same as this one but it only has one function apart from main. Get the concepts down for that, get it working, then start adding new functions after that.<br>
+<br>
+Cheers<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762564"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762698"><span title="762698,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762698" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm15b8d84982" title="Sun, 12 Oct 2014 17:05:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm15b8d84982');</script><noscript>Oct 12, 2014 at 5:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762698">
+Thanks a lot.  I redid my initial project and it ran with no errors  (I also redid my medical benefits function).  I went back through and did some tweeking but am still getting a few build errors.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+
+<cite>// void function declaration for User Input</cite>
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>int</var> employmentStatus, <var>double</var> hourlyRate, <var>double</var> dependents);
+
+<cite>// void function declaration to calculate Overtime Pay</cite>
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<cite>// function declaration for IRA deposits</cite>
+<var>double</var> IRA_function(<var>double</var> grossPay);
+
+<cite>//function declaration for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function(<var>int</var> dependents, <var>double</var> grossPay);
+
+<cite>// function declaration to calculate medical benefit cost</cite>
+<var>double</var> medical_cost_function(<var>int</var> employmentStatus, <var>double</var> netPay);
+
+<cite>// function declaration for Payroll Output</cite>
+<var>double</var> outputPayrollInfo_function (<var>double</var> modifiedGrossPay, <var>double</var> modifiedNetPay);
+
+
+<var>int</var> main()
+{
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents, employmentStatus;
+<var>double</var> hourlyRate, basePay, grossPay, netPay, overTimePay, doubleTimePay, modifiedGrossPay, modifiedNetPay, witholdCalc, iraDeductionAmount, medicalBenefitCost;
+
+cout.setf(ios::fixed);
+cout.setf(ios::showpoint);
+cout.precision(2);
+
+overTimeHours = 0;
+doubleTimeHours = 0;
+
+
+<cite>// function call for User Input</cite>
+getUserInput_function(hoursWorked, employmentStatus, hourlyRate, dependents);
+
+<cite>// function call to calculate Overtime Pay</cite>
+calculateOvertimePay_function(hoursWorked, overTimeHours, doubleTimeHours, hourlyRate, basePay,  overTimePay, grossPay, doubleTimePay);
+
+<cite>// function call to output Payroll Info</cite>
+outputPayrollInfo_function(modifiedGrossPay, modifiedNetPay);
+
+<cite>// function call for IRA</cite>
+iraDeductionAmount = IRA_function(grossPay);
+modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+ <cite>// function call for withholdings</cite>
+witholdCalc = withold_function(dependents, modifiedGrossPay);
+netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+<cite>// function call for medical benefits</cite>
+medicalBenefitCost = medical_cost_function(employmentStatus, netPay);
+modifiedNetPay = netPay - medicalBenefitCost;                                       <cite>//net Pay adjusted for medical benefits</cite>
+
+}
+
+<cite>// end of main</cite>
+
+<var>void</var> getUserInput_function(<var>int</var> &amp;hoursWorked, <var>double</var> &amp;hourlyRate, <var>double</var> &amp;dependents, <var>double</var> &amp;employmentStatus);
+
+{
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: $"</kbd> &lt;&lt; endl;                            <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+
+cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                        <cite>//user inputs number of dependents</cite>
+cin &gt;&gt; dependents;
+
+cout &lt;&lt; <kbd>"Enter 1 if you are a full-time employee and 0 for part time: "</kbd> &lt;&lt;endl;       <cite>// user inputs employment status</cite>
+cin &gt;&gt; employmentStatus;
+
+}
+
+<cite>// void - function to calculate Overtime Pay</cite>
+
+{
+
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>double</var> &amp;overTimeHours, <var>double</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+
+
+<cite>// IRA function definition.  Calculates deduction based on gross pay</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay)
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<cite>// Withholding function definition.  Calculates withholding based on # of dependents.</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay)
+
+{
+
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+
+}
+    <cite>// Medical benefit function definition.  Calculates medical benefits costs based on employment status (1 for FT, 0 for PT)</cite>
+    <var>double</var> medical_cost_function(<var>int</var> employmentStatus, <var>double</var> netPay)
+
+{
+    <var>double</var> medBenCost = 0;                       <cite>// initializing costs to zero to account for PT</cite>
+
+    <var>if</var> (employmentStatus == 1)
+        medBenCost = netPay * .07;
+
+    <var>return</var> (medBenCost);
+}
+
+<var>double</var> outputPayrollInfo_function (<var>double</var> modifiedGrossPay, <var>double</var> modifiedNetPay);
+
+{
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;                                      <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hour(s) are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hour(s) are paid at double time."</kbd> &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your IRA deduction is: $"</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+     cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependent(s) is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;       <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"If you work full-time employee, you pay $"</kbd> &lt;&lt; medicalBenefitCost &lt;&lt; <kbd>" towards medical costs,"</kbd> &lt;&lt;endl;
+    cout &lt;&lt; <kbd>"so your adjusted net pay is now: $"</kbd> &lt;&lt; modifiedNetPay &lt;&lt; endl;                                         <cite>// for FT employees, adjusted net pay for medical                                                  // amount of netpay</cite>
+
+<var>return</var> 0;
+} }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn762698"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762703"><span title="762703,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762703" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbc21531add" title="Sun, 12 Oct 2014 17:14:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmbc21531add');</script><noscript>Oct 12, 2014 at 5:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762703">
+Also, here is the errors:  <br>
+<br>
+<br>
+-------------- Build: Debug in Lab 6 (compiler: GNU GCC Compiler)---------------<br>
+<br>
+mingw32-g++.exe -Wall -fexceptions -g  -c "E:\CSE 110\Lab 6\main.cpp" -o obj\Debug\main.o<br>
+E:\CSE 110\Lab 6\main.cpp: In function 'int main()':<br>
+<br>
+LINE 40: <br>
+E:\CSE 110\Lab 6\main.cpp:47:134: error: invalid initialization of reference of type 'double&amp;' from expression of type 'int'<br>
+ calculateOvertimePay_function(hoursWorked, overTimeHours, doubleTimeHours, hourlyRate, basePay,  overTimePay, grossPay, doubleTimePay);<br>
+<br>
+LINE8:                                                                                                                                   <br>
+E:\CSE 110\Lab 6\main.cpp:15:6: error: in passing argument 3 of 'void calculateOvertimePay_function(int, double, double&amp;, int&amp;, int&amp;, double&amp;, double&amp;, double&amp;)'<br>
+ void calculateOvertimePay_function(int hoursWorked, double hourlyRate, double &amp;basePay, int &amp;overTimeHours, int &amp;doubleTimeHours, double &amp;overTimePay, double &amp;grossPay, double &amp;doubleTimePay);<br>
+      ^<br>
+E:\CSE 110\Lab 6\main.cpp: At global scope:<br>
+LINE 64: <br>
+E:\CSE 110\Lab 6\main.cpp:70:1: error: expected unqualified-id before '{' token<br>
+ {<br>
+ ^<br>
+LINE 82:<br>
+ E:\CSE 110\Lab 6\main.cpp:88:1: error: expected unqualified-id before '{' token<br>
+ {<br>
+ ^<br>
+Process terminated with status 1 (0 minute(s), 0 second(s))<br>
+4 error(s), 0 warning(s) (0 minute(s), 0 second(s))
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm7a5f659ca6" title="Sun, 12 Oct 2014 17:20:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm7a5f659ca6');</script><noscript>Oct 12, 2014 at 5:20pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn762703"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg762869"><span title="762869,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg762869" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma18650d6a0" title="Mon, 13 Oct 2014 01:11:47 +0000"></span><script type="text/javascript">WhenId('CH_zTma18650d6a0');</script><noscript>Oct 13, 2014 at 1:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i762869">
+Made some changes... I can now get this to run but get a bunch of garbage.  Help please.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+
+<cite>// void function declaration for User Input</cite>
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>int</var> dependents, <var>int</var> employmentStatus, <var>double</var> hourlyRate);
+
+<cite>// void function declaration to calculate Overtime Pay</cite>
+<var>void</var> calculateOvertimePay_function(<var>int</var> &amp;hoursWorked, <var>double</var> &amp;hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<cite>// function declaration for IRA deposits</cite>
+<var>double</var> IRA_function(<var>double</var> grossPay);
+
+<cite>//function declaration for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function(<var>int</var> &amp;dependents, <var>double</var> modifiedGrossPay);
+
+<cite>// function declaration to calculate medical benefit cost</cite>
+<var>double</var> medical_cost_function(<var>int</var> &amp;employmentStatus, <var>double</var> netPay, <var>double</var> &amp;modifiedNetPay);
+
+<cite>// function declaration for Payroll Output</cite>
+<var>double</var> outputPayrollInfo_function (<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>int</var> dependents, <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> &amp;modifiedGrossPay, <var>double</var> &amp;netPay, <var>double</var> modifiedNetPay, <var>double</var> overTimePay, <var>double</var> doubleTimePay, <var>double</var> &amp;witholdCalc, <var>double</var> &amp;iraDeductionAmount, <var>double</var> &amp;medicalBenefitCost);
+
+
+<var>int</var> main()
+{
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents, employmentStatus;
+<var>double</var> hourlyRate, basePay, grossPay, netPay, overTimePay, doubleTimePay, modifiedGrossPay, modifiedNetPay, witholdCalc, iraDeductionAmount, medicalBenefitCost;
+
+cout.setf(ios::fixed);
+cout.setf(ios::showpoint);
+cout.precision(2);
+
+overTimeHours = 0;
+doubleTimeHours = 0;
+
+
+<cite>// function call for User Input</cite>
+getUserInput_function(hoursWorked, dependents, employmentStatus, hourlyRate);
+
+<cite>// function call to calculate Overtime Pay</cite>
+calculateOvertimePay_function(hoursWorked, hourlyRate, basePay, overTimeHours, doubleTimeHours, overTimePay, grossPay, doubleTimePay);
+
+<cite>// function call to output Payroll Info</cite>
+outputPayrollInfo_function(hoursWorked, overTimeHours, doubleTimeHours, dependents, basePay, grossPay, modifiedGrossPay, netPay, modifiedNetPay, overTimePay, doubleTimePay, witholdCalc, iraDeductionAmount, medicalBenefitCost);
+
+<cite>// function call for IRA</cite>
+iraDeductionAmount = IRA_function(grossPay);
+modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+ <cite>// function call for withholdings</cite>
+witholdCalc = withold_function(dependents, modifiedGrossPay);
+netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+<cite>// function call for medical benefits</cite>
+medicalBenefitCost = medical_cost_function(employmentStatus, netPay, modifiedNetPay);
+modifiedNetPay = netPay - medicalBenefitCost;                                       <cite>//net Pay adjusted for medical benefits</cite>
+
+}  <cite>// end of main</cite>
+
+<var>void</var> getUserInput_function(<var>int</var> hoursWorked, <var>int</var> employmentStatus, <var>int</var> hourlyRate, <var>double</var> dependents)
+
+{
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: $"</kbd> &lt;&lt; endl;                            <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+
+cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                        <cite>//user inputs number of dependents</cite>
+cin &gt;&gt; dependents;
+
+cout &lt;&lt; <kbd>"Enter 1 if you are a full-time employee and 0 for part time: "</kbd> &lt;&lt;endl;       <cite>// user inputs employment status</cite>
+cin &gt;&gt; employmentStatus;
+}
+
+<cite>// void - function to calculate Overtime Pay</cite>
+
+<var>void</var> calculateOvertimePay_function(<var>int</var> &amp;hoursWorked, <var>double</var> &amp;hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay)
+
+{
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+}
+
+<cite>// IRA function definition.  Calculates deduction based on gross pay</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay)
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<cite>// Withholding function definition.  Calculates withholding based on # of dependents.</cite>
+<var>double</var> withold_function (<var>int</var> &amp;dependents, <var>double</var> modifiedGrossPay)
+
+{
+
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+
+}
+
+<cite>// Medical benefit function definition.  Calculates medical benefits costs based on employment status (1 for FT, 0 for PT)</cite>
+    <var>double</var> medical_cost_function(<var>int</var> &amp;employmentStatus, <var>double</var> netPay, <var>double</var> &amp;modifiedNetPay)
+
+{
+    <var>double</var> medBenCost = 0; 
+
+    <var>if</var> (employmentStatus == 1)
+        medBenCost = netPay * .07;
+
+    <var>return</var> (medBenCost);
+}
+
+<var>double</var> outputPayrollInfo_function(<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>int</var> dependents, <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> &amp;modifiedGrossPay, <var>double</var> &amp;netPay, <var>double</var> modifiedNetPay, <var>double</var> overTimePay, <var>double</var> doubleTimePay, <var>double</var> &amp;witholdCalc, <var>double</var> &amp;iraDeductionAmount, <var>double</var> &amp;medicalBenefitCost)
+
+{
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;                                     
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hour(s) are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hour(s) are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;              
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;               
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                       
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;   
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your IRA deduction is: $"</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependent(s) is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;       <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"If you work full-time employee, you pay $"</kbd> &lt;&lt; medicalBenefitCost &lt;&lt; <kbd>" towards medical costs,"</kbd> &lt;&lt;endl;
+    cout &lt;&lt; <kbd>"so your adjusted net pay is now: $"</kbd> &lt;&lt; modifiedNetPay &lt;&lt; endl;                       
+<var>return</var> 0;
+}
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm21a8e2fa62" title="Mon, 13 Oct 2014 01:51:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm21a8e2fa62');</script><noscript>Oct 13, 2014 at 1:51am UTC</noscript></span>
+<span class="dbtn" id="CH_btn762869"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763032"><span title="763032,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763032" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3ad0995ad3" title="Mon, 13 Oct 2014 10:16:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm3ad0995ad3');</script><noscript>Oct 13, 2014 at 10:16am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763032">
+Hi<br>
+<br>
+<table class="quote"><tr><td class="qd">Maybe you should start a new project which is just the same as this one but it only has one function apart from main. Get the concepts down for that, get it working, then start adding new functions after that.</td></tr></table><br>
+<br>
+<u><b>I strongly suggest you do this, we will get one function working, then you can apply lessons learnt from that to all the other functions.</b>
+</u><br>
+Some other stuff  ...<br>
+<br>
+When compiling turn on some other switches such as <span class="auto"><code class="source">-Wextra -pedantic</code></span> this will produce more warnings about things that will be a problem. You will have to sort out how to do this in your IDE. Look at the documentation to find out what they mean. <br>
+<br>
+Also, having <span class="auto"><code class="source"><var>using</var> <var>namespace</var> std;</code></span> is a bad idea - Google to see why. I wish authors &amp; lecturers would quit doing this.<br>
+<br>
+Function parameter lists (the arguments) must match between the function declaration and it's definition. Those errors came from specifying references in one but not in the other.<br>
+<br>
+Function definitions don't have a semicolon on the first line. for example remove the one on line 62.<br>
+<br>
+Make sure you understand what the different types are and how they work. C++ is a strongly typed language - the types must match up.<br>
+<br>
+Cheers
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763032"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763261"><span title="763261,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763261" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm60ca7aa686" title="Tue, 14 Oct 2014 03:29:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm60ca7aa686');</script><noscript>Oct 14, 2014 at 3:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763261">
+Thanks for the information.  I don't know that my lecturer is accepting other formats and I'm not familiar with switches yet.  I did some Googling and will continue to look into this.   I pulled my code apart so it's just simply input/some overtime/and output.  I'm not returning zeros.  I tried differing troubleshooting with using the change (&amp;) but still no where...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+
+<cite>// void function declaration for User Input</cite>
+<var>void</var> getUserInput_function(<var>int</var> &amp;hoursWorked, <var>int</var> &amp;dependents, <var>int</var> &amp;employmentStatus, <var>double</var> &amp;hourlyRate);
+
+<cite>// void function declaration to calculate Overtime Pay</cite>
+<var>void</var> calculateOvertimePay_function(<var>int</var> &amp;hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<cite>// function declaration for Payroll Output</cite>
+<var>double</var> outputPayrollInfo_function (<var>int</var> hoursWorked, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>int</var> dependents, <var>double</var> &amp;basePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;modifiedGrossPay, <var>double</var> &amp;netPay, <var>double</var> &amp;modifiedNetPay, <var>double</var> &amp;overTimePay, <var>double</var> &amp;doubleTimePay, <var>double</var> &amp;witholdCalc, <var>double</var> &amp;iraDeductionAmount, <var>double</var> &amp;medicalBenefitCost);
+
+<var>int</var> main()
+{
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents, employmentStatus;
+<var>double</var> hourlyRate, basePay, grossPay, netPay, overTimePay, doubleTimePay, modifiedGrossPay, modifiedNetPay, witholdCalc, iraDeductionAmount, medicalBenefitCost;
+
+cout.setf(ios::fixed);
+cout.setf(ios::showpoint);
+cout.precision(2);
+
+overTimeHours = 0;
+doubleTimeHours = 0;
+
+
+<cite>// function call for User Input</cite>
+getUserInput_function(hoursWorked, dependents, employmentStatus, hourlyRate);
+
+<cite>// function call to calculate Overtime Pay</cite>
+calculateOvertimePay_function(hoursWorked, hourlyRate, basePay, overTimeHours, doubleTimeHours, overTimePay, grossPay, doubleTimePay);
+
+<cite>// function call to output Payroll Info</cite>
+outputPayrollInfo_function(hoursWorked, overTimeHours, doubleTimeHours, dependents, basePay, grossPay, modifiedGrossPay, netPay, modifiedNetPay, overTimePay, doubleTimePay, witholdCalc, iraDeductionAmount, medicalBenefitCost);
+}
+
+<var>void</var> getUserInput_function(<var>int</var> &amp;hoursWorked, <var>int</var> &amp;employmentStatus, <var>int</var> &amp;hourlyRate, <var>double</var> &amp;dependents)
+{
+
+cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: $"</kbd> &lt;&lt; endl;                            <cite>//user inputs hourly rate</cite>
+cin &gt;&gt; hourlyRate;
+
+cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+cin &gt;&gt; hoursWorked;
+}
+
+<cite>// void - function to calculate Overtime Pay</cite>
+
+<var>void</var> calculateOvertimePay_function(<var>int</var> &amp;hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay)
+
+{
+
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+
+}
+
+<var>double</var> outputPayrollInfo_function (<var>int</var> hoursWorked, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours, <var>int</var> dependents, <var>double</var> &amp;basePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;modifiedGrossPay, <var>double</var> &amp;netPay, <var>double</var> &amp;modifiedNetPay, <var>double</var> &amp;overTimePay, <var>double</var> &amp;doubleTimePay, <var>double</var> &amp;witholdCalc, <var>double</var> &amp;iraDeductionAmount, <var>double</var> &amp;medicalBenefitCost)
+
+{
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;                                      <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hour(s) are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hour(s) are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"                                          "</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+
+<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763261"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763338"><span title="763338,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763338" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm235917c20e" title="Tue, 14 Oct 2014 07:49:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm235917c20e');</script><noscript>Oct 14, 2014 at 7:49am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763338">
+Starting from your "working" version in the second post.  Cleaned up the indentation and move the output to a new function named display_payroll_results() where all its parameters are passed by value:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// function for IRA deposits</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay);
+
+<cite>//function for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> grossPay);
+
+<cite>// Display Payroll Results</cite>
+<cite>// All parameters are inputs only so are passed "by value"</cite>
+<var>void</var> display_payroll_results(<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>int</var> dependents, 
+                             <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> overTimePay, 
+                             <var>double</var> doubleTimePay, <var>double</var> witholdCalc, <var>double</var> netPay, <var>double</var> iraDeductionAmount, <var>double</var> modifiedGrossPay
+)
+{
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;                                       <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hours are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hours are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"Your IRA deduction is: "</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependents is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;        <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;                                                     <cite>// amount of netpay</cite>
+}
+
+<var>int</var> main()
+{
+
+    <var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents;
+    <var>double</var> withold, hourlyRate, basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay;
+
+    overTimeHours = 0;
+    doubleTimeHours = 0;
+
+
+    <cite>// INPUT</cite>
+
+
+    cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: "</kbd> &lt;&lt; endl;                             <cite>//user inputs hourly rate</cite>
+    cin &gt;&gt; hourlyRate;
+
+    cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+    cin &gt;&gt; hoursWorked;
+
+    cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of dependents</cite>
+    cin &gt;&gt; dependents;
+
+
+
+    <var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+    {
+        basePay = hourlyRate * 40;
+        overTimeHours = hoursWorked - 40;
+    }
+    <var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+    {
+        doubleTimeHours = overTimeHours - 10;
+        overTimeHours = 10;
+        doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+        overTimePay = hourlyRate * 1.5 * overTimeHours;
+        grossPay = basePay + overTimePay + doubleTimePay;
+    }
+    <var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+    {
+        basePay = (hoursWorked - overTimeHours) * hourlyRate;
+        overTimePay = overTimeHours * (hourlyRate * 1.5);
+        grossPay = basePay + overTimePay + doubleTimePay;
+    }
+
+
+    iraDeductionAmount = IRA_function(grossPay);                                        <cite>// IRA function</cite>
+    modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+
+    witholdCalc = withold_function(dependents, modifiedGrossPay);                       <cite>// Withholding function</cite>
+    netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+
+    <cite>// Output</cite>
+    display_payroll_results(hoursWorked, overTimeHours, doubleTimeHours, dependents, 
+                            basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay);
+    <var>return</var> 0;
+
+
+}   <cite>// end of main</cite>
+
+
+
+<var>double</var> IRA_function (<var>double</var> grossPay)                                                       <cite>// This function calculates the IRA deduction based on gross pay</cite>
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> modifiedGrossPay)                           <cite>// This function computes withholding based on dependents</cite>
+
+{
+     <var>double</var> subtotal;
+
+     <var>double</var> withold = 0;
+
+     <var>if</var> (dependents &gt; 2)
+        withold = 0.15;
+
+     <var>else</var> <var>if</var> (dependents == 2)
+        withold = 0.18;
+
+     <var>else</var> <var>if</var> (dependents == 1)
+        withold = 0.2;
+
+     <var>else</var> <var>if</var> (dependents == 0)
+        withold = 0.28;
+
+    subtotal = modifiedGrossPay * withold;
+
+    <var>return</var> (subtotal);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+The compiler warns about that version having unused local variables or uninitialized local variables.  Do I fix them now or after I make a clean calculate_gross_pay function?  After.  
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn763338"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg763342"><span title="763342,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg763342" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcd502e07c0" title="Tue, 14 Oct 2014 08:17:29 +0000"></span><script type="text/javascript">WhenId('CH_zTmcd502e07c0');</script><noscript>Oct 14, 2014 at 8:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i763342">
+I should have said in my last posting that TheIdeasMan has been giving you excellent advice.  <br>
+<br>
+I added calculate_gross_pay() but not showing IRA_function() and withold_function() which are not changing: <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include&lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<cite>// function for IRA deposits</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay);
+
+<cite>//function for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function (<var>int</var> dependents, <var>double</var> grossPay);
+
+<cite>// Calculate Gross Pay</cite>
+<cite>// input parameters hourlyRate, hoursWorked are pass by value.  All the output parameters are pass by reference.  All will be set.</cite>
+<cite>// Function return value is the grossPay.  </cite>
+<var>double</var> calc_gross_pay(<var>double</var> hourlyRate, <var>int</var> hoursWorked, 
+                      <var>int</var> &amp; overTimeHours, <var>int</var> &amp; doubleTimeHours, <var>double</var> &amp; basePay, <var>double</var> &amp; overTimePay, <var>double</var> &amp; doubleTimePay)
+{
+    <var>double</var> grossPay = 0.0;
+
+    <var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+    {
+        basePay = hourlyRate * 40;
+        overTimeHours = hoursWorked - 40;
+    }
+    <var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+    {
+        doubleTimeHours = overTimeHours - 10;
+        overTimeHours = 10;
+        doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+        overTimePay = hourlyRate * 1.5 * overTimeHours;
+        grossPay = basePay + overTimePay + doubleTimePay;
+    }
+    <var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+    {
+        basePay = (hoursWorked - overTimeHours) * hourlyRate;
+        overTimePay = overTimeHours * (hourlyRate * 1.5);
+        grossPay = basePay + overTimePay + doubleTimePay;
+    }
+
+    <var>return</var> grossPay;
+}
+
+<cite>// Display Payroll Results</cite>
+<cite>// All parameters are inputs only so are passed "by value"</cite>
+<var>void</var> display_payroll_results(<var>int</var> hoursWorked, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours, <var>int</var> dependents, 
+                             <var>double</var> basePay, <var>double</var> grossPay, <var>double</var> overTimePay, 
+                             <var>double</var> doubleTimePay, <var>double</var> witholdCalc, <var>double</var> netPay, <var>double</var> iraDeductionAmount, <var>double</var> modifiedGrossPay
+)
+{
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;                                       <cite>// input is given to the user</cite>
+    cout &lt;&lt; <kbd>"You worked "</kbd> &lt;&lt; hoursWorked &lt;&lt; <kbd>" hours total this pay period."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; overTimeHours &lt;&lt; <kbd>" hours are paid at time and a half."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; doubleTimeHours &lt;&lt; <kbd>" hours are paid at double time."</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"******************************************"</kbd> &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your total base pay is: $"</kbd> &lt;&lt; basePay &lt;&lt; endl;                                             <cite>// this should calculate total base pay</cite>
+    cout &lt;&lt; <kbd>"Your overtime at time and a half is: $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;                            <cite>// this shows overtime, if applicable</cite>
+    cout &lt;&lt; <kbd>"Your overtime at double time is: $"</kbd> &lt;&lt;doubleTimePay &lt;&lt; endl;                               <cite>// this shows double time</cite>
+    cout &lt;&lt; <kbd>"Your total gross pay with all overtime is: $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;                         <cite>// this shows total gross, including overtime if applicable</cite>
+    cout &lt;&lt; <kbd>"Your IRA deduction is: "</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;                                    <cite>// adjusted netpay with IRA contributions</cite>
+    cout &lt;&lt; <kbd>"Your modified gross pay is: $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+    cout &lt;&lt; <kbd>"Your tax withholding amount with "</kbd> &lt;&lt; dependents &lt;&lt; <kbd>" dependents is: $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;        <cite>// amount of withholdings</cite>
+    cout &lt;&lt; <kbd>"Your modified net pay is now: $"</kbd> &lt;&lt; netPay &lt;&lt; endl;                                                     <cite>// amount of netpay</cite>
+}
+
+<var>int</var> main()
+{
+
+    <var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents;
+    <var>double</var> withold, hourlyRate, basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay;
+
+    overTimeHours = 0;
+    doubleTimeHours = 0;
+
+
+    <cite>// INPUT</cite>
+
+
+    cout &lt;&lt; <kbd>"Please enter your hourly rate of pay: "</kbd> &lt;&lt; endl;                             <cite>//user inputs hourly rate</cite>
+    cin &gt;&gt; hourlyRate;
+
+    cout &lt;&lt; <kbd>"Please enter how the number of hours worked: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of hours worked</cite>
+    cin &gt;&gt; hoursWorked;
+
+    cout &lt;&lt; <kbd>"Please enter how many dependents you have: "</kbd> &lt;&lt; endl;                      <cite>//user inputs number of dependents</cite>
+    cin &gt;&gt; dependents;
+
+    grossPay = calc_gross_pay(hourlyRate, hoursWorked, 
+        overTimeHours, doubleTimeHours, basePay, overTimePay, doubleTimePay);
+
+
+    iraDeductionAmount = IRA_function(grossPay);                                        <cite>// IRA function</cite>
+    modifiedGrossPay = grossPay - iraDeductionAmount;                                   <cite>// modified gross pay calculation prior to tax</cite>
+
+
+    witholdCalc = withold_function(dependents, modifiedGrossPay);                       <cite>// Withholding function</cite>
+    netPay = modifiedGrossPay - witholdCalc;                                            <cite>// net pay calculation of modified gross pay</cite>
+
+
+    <cite>// Output</cite>
+    display_payroll_results(hoursWorked, overTimeHours, doubleTimeHours, dependents, 
+                            basePay, grossPay, overTimePay, doubleTimePay, witholdCalc, netPay, iraDeductionAmount, modifiedGrossPay);
+    <var>return</var> 0;
+
+
+}   <cite>// end of main </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Now main() is small enough for me to understand.  <br>
+<br>
+I looked back and saw that you created a similar function calculateOvertimePay_function() in your later postings.  Your version does not return a value, but has a "call by reference" parameter grossPay.  Your version uses "call by reference" for all the parameters, even the ones that are only inputs.  However, with them all "call by reference" it is harder to see which you plan as inputs and which are outputs.  <br>
+<br>
+It is now easier see the execution paths through the calc_gross_pay() or the calculateOvertimePay_function().  There are several execution paths.  However, are all the output parameters set for all possible inputs? No.  In calc_gross_pay(), we needed a local variable named grossPay and I initialized it to 0.0 so the function return is always set.  In your version, grossPay is not always set.  What is the value of grossPay, basePay, and overTimeHours if the hoursWorked are less than or equal to 40?  <br>
+<br>
+I will leave it to you to fix calculateOvertimePay_function() or its cousin calc_gross_pay() so all the output parameters are set.  If I were you, I would consider making three distinct paths through the function which set all the output parameters: hoursWorked &lt;= 40, hoursWorked &lt;=50 (and more than 40), and hours worked &gt; 50.  Then you can explicitly set each of the output variables.  [Because I am not smart enough to handle complicated partial paths and still make sure they are all set.]
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm60f26afdb9" title="Tue, 14 Oct 2014 08:22:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm60f26afdb9');</script><noscript>Oct 14, 2014 at 8:22am UTC</noscript></span>
+<span class="dbtn" id="CH_btn763342"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771069"><span title="771069,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771069" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfd04d0cdc1" title="Sun, 02 Nov 2014 03:10:23 +0000"></span><script type="text/javascript">WhenId('CH_zTmfd04d0cdc1');</script><noscript>Nov 2, 2014 at 3:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771069">
+Thank you everyone for your help.  I got this up and running finally... thanks again.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771069"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(144620,0,154069,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~192.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/135107/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Why and how to make your own library? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Why and how to make your own library?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Why and how to make your own library?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="135107,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg721182"><span title="721182,135837,1023,48,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721182" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma7cc199221" title="Sun, 08 Jun 2014 17:55:21 +0000"></span><script type="text/javascript">WhenId('CH_zTma7cc199221');</script><noscript>Jun 8, 2014 at 5:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/just_me/default.htm"><b>Just Me</b> (48)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721182">
+I've learned C++ for some time now, and I've nearly finished my sensei test in the language. Rummaging through my stuff today, I found some papers from the "C++ without Fear" book, where it gave a brief note about preprocessor directives and <span class="auto"><code class="source"><dfn>#include </dfn></code></span>:<br>
+<table class="quote"><tr><td class="qd">If you’re new to C++, just remember you have to use #include to turn on<br>
+support for specific parts of the C++ standard library. Later, when we start<br>
+using math functions such as sqrt (square root), you’ll need to switch on<br>
+support for the math library:<br>
+#include &lt;cmath&gt;<br>
+Is this extra work? A little, yes. Include files originated because of a dis-<br>
+tinction between the C language and the standard runtime library. (Profes-<br>
+sional C/C++ programmers sometimes avoid the standard library and use<br>
+their own.)</td></tr></table><br>
+Let us concentrate on <table class="quote"><tr><td class="qd">Professional C/C++ programmers sometimes avoid the standard library and use<br>
+their own.</td></tr></table><br>
+Firstly, why would someone avoid things that professional programmers already set for him? And I think I would use my own library as a learning experience and some fun... So some pointers on how? Will I have to know some more C++:<br>
+<span class="auto"><code class="source">istream</code></span>,<span class="auto"><code class="source">ostream</code></span> etc.?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721182"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721185"><span title="721185,72044,1023,3663,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721185" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm327216f192" title="Sun, 08 Jun 2014 18:03:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm327216f192');</script><noscript>Jun 8, 2014 at 6:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cubbi/default.htm"><b>Cubbi</b> (3663)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721185">
+<table class="quote"><tr><td class="qd">Let us concentrate on<br>
+Professional C/C++ programmers sometimes avoid the standard library and use their own.</td></tr></table><br>
+That is a profoundly false statement.<br>
+<br>
+The grain of truth is that *some* components of the standard library may not be fitting the requirements of a project, in which case a programmer may have to write a library that does what they need.<br>
+<br>
+For example, Facebook wrote their own version of std::vector because they wanted to take advantage of  "relocatable types and jemalloc" (that is, they don't want to even call a move constructor when resizing a vector, if the object can survive memcpy, and their allocator can expand memory blocks in-place, so they make use of that too)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1e0530569c" title="Sun, 08 Jun 2014 18:06:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm1e0530569c');</script><noscript>Jun 8, 2014 at 6:06pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn721185"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721186"><span title="721186,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721186" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm08049433e8" title="Sun, 08 Jun 2014 18:03:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm08049433e8');</script><noscript>Jun 8, 2014 at 6:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721186">
+The standard library isn't always available for all environments, or the only implementation available is poorly optimized.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721186"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721386"><span title="721386,135837,1023,48,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721386" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm864a39008d" title="Mon, 09 Jun 2014 08:21:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm864a39008d');</script><noscript>Jun 9, 2014 at 8:21am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/just_me/default.htm"><b>Just Me</b> (48)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721386">
+Well, thanks for that, so what is C++ with no STL? Can I write a functional program without using the STL? Is the STL just a wrapper over actual C++? How can I make my own STL (calling it the Simple Template Library[STL] ;) )? How is it most C++ programmers only know the STL, and barely know what's underneath it (<span class="auto"><code class="source">ostream</code></span>, <span class="auto"><code class="source">istream</code></span>)?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721386"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721389"><span title="721389,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721389" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm32e6dacbad" title="Mon, 09 Jun 2014 08:30:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm32e6dacbad');</script><noscript>Jun 9, 2014 at 8:30am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721389">
+Most of the C++ Standard Library (not related to the STL, but borrows heavily from it) is just regular C++. There are only a few parts which cannot be implemented in C++ that require work on the compiler's end or which require you to directly interface with the operating system.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721389"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721454"><span title="721454,72044,1023,3663,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721454" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmead091dd0b" title="Mon, 09 Jun 2014 12:58:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmead091dd0b');</script><noscript>Jun 9, 2014 at 12:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cubbi/default.htm"><b>Cubbi</b> (3663)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721454">
+<table class="quote"><tr><td class="qd">How is it most C++ programmers only know the STL, and barely know what's underneath it (ostream, istream)?</td></tr></table><br>
+You'll have to clarify what you mean by "STL", since the infuential 1992 library known by that name was abandoned in 2000 or 2001, and had nothing to do with the I/O streams. The C++ standard makes no mention of STL or of anything called 'standard template library'.<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd81812a89a" title="Mon, 09 Jun 2014 12:59:28 +0000"></span><script type="text/javascript">WhenId('CH_zTmd81812a89a');</script><noscript>Jun 9, 2014 at 12:59pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn721454"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(135107,1,135837,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~329.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/beginner/14338/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to ask for temperature for x number  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">How to ask for temperature for x number </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> How to ask for temperature for x number of days?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="14338,root,0,-1,9,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg70093"><span title="70093,25575,1023,12,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70093" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmef6130930e" title="Mon, 14 Sep 2009 14:31:56 +0000"></span><script type="text/javascript">WhenId('CH_zTmef6130930e');</script><noscript>Sep 14, 2009 at 2:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/eiba/default.htm"><b>eiba</b> (12)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70093">
+I need to make a program that asks for how many days there are in a particular month, and then ask for the minimum and maximum temperature for each of the days.<br>
+So now i'm wondering how i'm supposed to make it ask for the temperature of exactly 30 days, and not 28 or 29 or 31, if it's 30 that i've entered.<br>
+<br>
+I don't know how clear i made myself there, but i hope someone can help me out :)<br>
+(i'm not asking anyone to write everything for me, but to just point me in the right direction)<br>
+Thanks!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70093"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70098"><span title="70098,12389,1023,166,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70098" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbfebb4cfc7" title="Mon, 14 Sep 2009 14:51:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmbfebb4cfc7');</script><noscript>Sep 14, 2009 at 2:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/aakanaar/default.htm"><b>Aakanaar</b> (166)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70098">
+have you got any code so far? post what you have, and we can try to help.<br>
+<br>
+Also, do you really want to specify how many days are in the month, or would you like to just specify which month and have it automatically know number of days (with perhaps exception of having to ask if it's leapyear or not for feburary)?<br>
+<br>
+You can hard code an array to contain that information.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70098"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70111"><span title="70111,25575,1023,12,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70111" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8d9beac654" title="Mon, 14 Sep 2009 16:42:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm8d9beac654');</script><noscript>Sep 14, 2009 at 4:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/eiba/default.htm"><b>eiba</b> (12)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70111">
+Thanks for replying.<br>
+<br>
+I don't really have any code yet. But what i was thinking is that there's gotta be an easier way to fill in the temperatures than what i've thought of, which is to make an int for every temperature (if that would work at all).<br>
+<br>
+<i>int mintemp1, mintemp2, mintemp3, mintemp4, mintemp5, mintemp6, mintemp7;<br>
+int mintemp8, mintemp9, mintemp10, mintemp11, mintemp12, mintemp13, mintemp14;<br>
+int mintemp15, mintemp16, mintemp17, mintemp18, mintemp19, mintemp20;<br>
+int mintemp21, mintemp22, mintemp23, mintemp24, mintemp25, mintemp26;<br>
+int mintemp27, mintemp28, mintemp29, mintemp30, mintemp31;</i><br>
+And the program should then ask me to fill in the temp. for the number of days that i type in, and forget about the rest of the ints/days.<br>
+<br>
+This is not how you would do it, right?<br>
+And yes, i have to specify the number of days, not just bringing up some pre-made calendar.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70111"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70122"><span title="70122,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70122" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma1c6f021c5" title="Mon, 14 Sep 2009 17:17:23 +0000"></span><script type="text/javascript">WhenId('CH_zTma1c6f021c5');</script><noscript>Sep 14, 2009 at 5:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70122">
+<table class="quote"><tr><td class="qd">int mintemp1, mintemp2, mintemp3, mintemp4, mintemp5, mintemp6, mintemp7;<br>
+int mintemp8, mintemp9, mintemp10, mintemp11, mintemp12, mintemp13, mintemp14;<br>
+int mintemp15, mintemp16, mintemp17, mintemp18, mintemp19, mintemp20;<br>
+int mintemp21, mintemp22, mintemp23, mintemp24, mintemp25, mintemp26;<br>
+int mintemp27, mintemp28, mintemp29, mintemp30, mintemp31;</td></tr></table>When you have this, it means it's time to use an array.<br>
+<span class="auto"><code class="source"><var>int</var> mintemp[31];</code></span><br>
+See <a href="../../../doc/tutorial/arrays/default.htm">http://www.cplusplus.com/doc/tutorial/arrays/</a> for more info.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70122"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70151"><span title="70151,25575,1023,12,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70151" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm515c9005ba" title="Mon, 14 Sep 2009 19:09:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm515c9005ba');</script><noscript>Sep 14, 2009 at 7:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/eiba/default.htm"><b>eiba</b> (12)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70151">
+Ok, i've discovered that i don't really need to store every temperature that i enter. It's enough that i just add them all together and divide on the number of days (i need to find the average temperature). So i won't need all those ints.<br>
+<br>
+What i need to find out now is how to make it ask for the temperature for only the entered number of days. You know, if i enter 28, then i will have to enter 28 temps.<br>
+<br>
+I'm guessing that a for-loop is needed here?<br>
+<br>
+I tried putting something together (this actually seems to work as intended):<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> days, mintemp, maxtemp, j, sumtemp;
+
+<var>int</var> main()
+{
+	cin &gt;&gt; days;
+	<var>for</var> (j = 1; j &lt; days+1; j++)
+	{
+		cin &gt;&gt; maxtemp;
+		sumtemp += maxtemp;
+	}	
+	cout &lt;&lt; sumtemp / days;
+
+
+<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Is there something better to replace <i>(j = 1; j &lt; <b>days+1</b>; j++)</i> with? Seems a little unprofessional.<br>
+And what does that "j++" thingy do, really?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70151"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70152"><span title="70152,21260,1023,195,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70152" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaf6e214d05" title="Mon, 14 Sep 2009 19:18:31 +0000"></span><script type="text/javascript">WhenId('CH_zTmaf6e214d05');</script><noscript>Sep 14, 2009 at 7:18pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bv202/default.htm"><b>Bv202</b> (195)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70152">
+Yes, replace it with:<br>
+<span class="auto"><code class="source"><var>for</var> (j = 0; j &lt; days; j++)</code></span><br>
+<br>
+j++ is the same as j = j + 1, so it just adds 1 to integer j.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70152"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70158"><span title="70158,25575,1023,12,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70158" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf10034d694" title="Mon, 14 Sep 2009 19:35:28 +0000"></span><script type="text/javascript">WhenId('CH_zTmf10034d694');</script><noscript>Sep 14, 2009 at 7:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/eiba/default.htm"><b>eiba</b> (12)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70158">
+Nice, thanks.<br>
+So does that mean that the j++ makes it count one and one from 0 to "days"?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70158"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70159"><span title="70159,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70159" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9f419760b7" title="Mon, 14 Sep 2009 19:35:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm9f419760b7');</script><noscript>Sep 14, 2009 at 7:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70159">
+By the way, when you need to do something n+1 times, check if &lt;=n, not &lt;n+1.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn70159"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg70286"><span title="70286,25575,1023,12,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg70286" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb8d4c86f98" title="Tue, 15 Sep 2009 16:36:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmb8d4c86f98');</script><noscript>Sep 15, 2009 at 4:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/eiba/default.htm"><b>eiba</b> (12)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i70286">
+Here's a part of my program now. Is this very bad code?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> days, mintemp, maxtemp,
+j, daymin, daymax, mm, daymm;
+<var>float</var> sumtemp1, sumtemp2, summm;
+
+daymin = 1;
+daymaks = 1;
+daymm = 1;
+
+cin &gt;&gt; days;
+	}
+	<var>for</var> (j = 0; j &lt; days; j++)
+	{
+		cout &lt;&lt; <kbd>"\nLowest temp for day: "</kbd>
+			 &lt;&lt; daymin++ &lt;&lt; <kbd>'\n'</kbd>;
+		cin &gt;&gt; mintemp;
+		<var>while</var> (mintemp &lt; -70 || mintemp &gt; 70)
+		{
+			cout &lt;&lt; <kbd>"\nLowest temp for day: "</kbd>
+				 &lt;&lt; daymin-1 &lt;&lt; <kbd>" (From -70\370C to 70\370C)\n"</kbd>;
+			cin &gt;&gt; mintemp;
+		}
+		sumtemp1 += mintemp;                                                            </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Also, i'm supposed to use consts for the max and min temperatures, instead of hard coding them everywhere like i've done here. But i don't understand why and how i'm supposed to use it, since they are a range from -70 to 70, and not a single number. Any ideas?<br>
+<br>
+Edit: nvm, figured it out
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm723c884459" title="Wed, 16 Sep 2009 10:14:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm723c884459');</script><noscript>Sep 16, 2009 at 10:14am UTC</noscript></span>
+<span class="dbtn" id="CH_btn70286"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(14338,1,25575,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~277.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

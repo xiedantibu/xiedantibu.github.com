@@ -1,0 +1,509 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/142235/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>upgrade stripped-down target industrial  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">upgrade stripped-down target industrial </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> upgrade stripped-down target industrial PC to instrumental for C++ console development</h3><span id="CH_edttl"></span><span class="rootdatPost" title="142235,root,0,-1,19,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg750771"><span title="750771,149536,1023,16,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg750771" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm86616b8fa7" title="Thu, 11 Sep 2014 10:38:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm86616b8fa7');</script><noscript>Sep 11, 2014 at 10:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i750771">
+I need to write a console application on a i386 machine with debian 2.2 to work with some programms installed on it. For that purpose I want to have C++ development tools there. <br>
+But the OS on the computer has been stripped down ( and is missing any components necessary for "sudo apt-get install build-essential" - which is what I want to do. <br>
+What (and how) do I need to install in order ot ensure presence of all the necessary tools?<br>
+I'm new to Linux and Debian. I don't know what to check for in which directories, how to add whatever is needed etc.<br>
+Any help would be greatly appreciated.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn750771"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg751176"><span title="751176,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg751176" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm98ff9d5089" title="Fri, 12 Sep 2014 16:35:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm98ff9d5089');</script><noscript>Sep 12, 2014 at 4:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i751176">
+Worst case is you'll need to install the gcc compiler source and it's dependencies and compile the compiler with C++ support. <br>
+<br>
+<table class="quote"><tr><td class="qd">But the OS on the computer has been stripped down ( and is missing any components necessary for "sudo apt-get install build-essential" - which is what I want to do. </td></tr></table><br>
+So what parts are missing? Is sudo installed? Is apt-get installed? What error messages do you get when you try your apt-get command?<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn751176"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg751889"><span title="751889,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg751889" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf044c0926" title="Mon, 15 Sep 2014 03:40:58 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf044c0926');</script><noscript>Sep 15, 2014 at 3:40am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i751889">
+Sorry, I've been out of town for 2 days.<br>
+When I type apt-get<br>
+<i>apt-get: command not found </i><br>
+When I type sudo<br>
+<i>sudo: command not found</i><br>
+So, there's a lot of  necessary parts that are missing, but is doesn't seem productive to try commands one by one in order to find out what's missing, or maybe I'm wrong and it's the only way?<br>
+I was hoping that there was a known (finite and comprehensible) list of distribution components that would definitely contain everything required for the development tools installation, and could be just added somehow.<br>
+If that's true, I'd appreciate any help from a person with suitable expertise on what and how should be done. <br>
+ 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4986dc7c9a" title="Mon, 15 Sep 2014 10:02:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm4986dc7c9a');</script><noscript>Sep 15, 2014 at 10:02am UTC</noscript></span>
+<span class="dbtn" id="CH_btn751889"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752060"><span title="752060,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752060" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmab27902205" title="Mon, 15 Sep 2014 16:03:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmab27902205');</script><noscript>Sep 15, 2014 at 4:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752060">
+This is the version of Linux you are running ?  It is 14 years old, why do you need it ?<br>
+<br>
+<a href="../../../../httpswww.debian.org/releases/potato/default.htm">https://www.debian.org/releases/potato/</a><br>
+<br>
+Even if apt-get is installed, it will not work because no mirror will host the necessary files anymore -&gt; this happens even for much recent versions of Linux, packages are deleted automatically after few years.<br>
+<br>
+<br>
+<br>
+If the application is simple enough, compile it on another machine using static linking and just try to run it on the target machine.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm022da097de" title="Mon, 15 Sep 2014 16:08:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm022da097de');</script><noscript>Sep 15, 2014 at 4:08pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn752060"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752067"><span title="752067,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752067" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb41ad676f0" title="Mon, 15 Sep 2014 16:22:51 +0000"></span><script type="text/javascript">WhenId('CH_zTmb41ad676f0');</script><noscript>Sep 15, 2014 at 4:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752067">
+Part of the problem, which you stated in the first post, is that this is a stripped down version. Without knowing anything about the hardware, such as the manufacturer, or who produced the distribution it's hard to tell you what software is present or is missing. And are you sure your system is based on Debian?<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752067"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752776"><span title="752776,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752776" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm89dfcfd4dd" title="Wed, 17 Sep 2014 03:09:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm89dfcfd4dd');</script><noscript>Sep 17, 2014 at 3:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752776">
+The industrial computer, running Potato, controls data acquisition system consisting of the modules developed in my company. But the author of the software has long been gone and can't be contacted, also, there's no documentation left. I need to develop a software for the Modbus RTU connection utilizing RS485 port that the computer has. I found C-based open source library for Modbus. In order to complete the job I decided that it would be better to leave the existing software without changes (as much as possible) and simply add Modbus support software to the same environment. That's why: <br>
+ - I decided not to change the OS, rather simply upgrade, to have it instrumental for the development, and <br>
+ - I don't know precisely, what exactly has been removed <br>
+I know that it's Debian, because <b>cat /etc/issue</b> gives me: <br>
+<i>Debian GNU/\s 2.2 \n \l</i> <br>
+and <b>uname -a</b> brings out:<br>
+<i>Linux thost001 2.4.17-rthal5 #23 Thu Nov 16 12:09:12 NOVT2006 i586 unknown</i> <br>
+So, it's Debian 2.2 and the kernel version is 2.4.17-rthal5.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752776"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752824"><span title="752824,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752824" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm62ee8d2359" title="Wed, 17 Sep 2014 04:02:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm62ee8d2359');</script><noscript>Sep 17, 2014 at 4:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752824">
+What does gcc --version report? What does g++ --version report? Do you have wget installed? <br>
+<br>
+Since you found a C-based open source library you might be better off sticking with C instead of C++, hopefully the C compiler is already installed. Since this appears to be a fairly old distribution if you need to install the compilers you'll need to install versions that are compatible with the versions of libc that are installed on your system. <br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752824"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752836"><span title="752836,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752836" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0a2e1f3f7a" title="Wed, 17 Sep 2014 04:35:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm0a2e1f3f7a');</script><noscript>Sep 17, 2014 at 4:35am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752836">
+<i>:/#</i> <b>gcc --version<br>
+</b><i>-bash: gcc: command not found</i><br>
+<br>
+<i>:/#</i> <b>g++ --version<br>
+</b><i>-bash: g++: command not found</i><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752836"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752838"><span title="752838,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752838" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1be2a8dd6f" title="Wed, 17 Sep 2014 04:38:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm1be2a8dd6f');</script><noscript>Sep 17, 2014 at 4:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752838">
+I agree, perhaps, I should stick with C.<br>
+But still, there seem to be no gcc either.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752838"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752904"><span title="752904,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752904" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9a2b381427" title="Wed, 17 Sep 2014 08:11:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm9a2b381427');</script><noscript>Sep 17, 2014 at 8:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752904">
+So, let's simplify the original question: what C development tools do I need to install and how?<br>
+In order to accomplish this:<br>
+<table class="quote"><tr><td class="qd">The industrial computer, running Potato, controls data acquisition system consisting of the modules developed in my company. But the author of the software has long been gone and can't be contacted, also, there's no documentation left. I need to develop a software for the Modbus RTU connection utilizing RS485 port that the computer has. I found C-based open source library for Modbus. In order to complete the job I decided that it would be better to leave the existing software without changes (as much as possible) and simply add Modbus support software to the same environment. That's why: <br>
+ - I decided not to change the OS, rather simply upgrade, to have it instrumental for the development, and <br>
+ - I don't know precisely, what exactly has been removed </td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752904"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752944"><span title="752944,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752944" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8f15b5b179" title="Wed, 17 Sep 2014 12:26:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm8f15b5b179');</script><noscript>Sep 17, 2014 at 12:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752944">
+Have you considered setting up a virtual box on a desktop computer, installing the operating system in question that has all the tools needed to for C development, and develop the "fix" on that computer? And "copy" the solution to the industrial PC when completed. The biggest problem at present is that the industrial PC doesn't have most of the required subsystems installed for development. <br>
+<br>
+One of the big hurdles for now is that you need to find a way of transferring the required files to the industrial PC. So since you don't have the apt system installed you'll need to try to find another way, wget perhaps, or perhaps there is some basic ftp client installed. What kind of hardware does this PC have as possible transfer routes, USB, CD, etc? <br>
+<br>
+If you want to develop the "fixes" on the industrial PC, you'll also need to determine if it has the adequate resources to do the development. For example does it have enough storage space to store the source code and temporary files needed to compile the C compiler? <br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752944"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg752981"><span title="752981,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg752981" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4b5d80016c" title="Wed, 17 Sep 2014 13:50:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm4b5d80016c');</script><noscript>Sep 17, 2014 at 1:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i752981">
+I've installed Debian7.6 into vmware player virtual machine on my windows 7 desktop. It works fine and has everything for the development. But I was unable to find loadable Debian2.2 image. These two are too far apart.<br>
+ As to industrial computer, it can read CF cards and has FTP client as well.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn752981"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753034"><span title="753034,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753034" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmce91da796c" title="Wed, 17 Sep 2014 16:12:27 +0000"></span><script type="text/javascript">WhenId('CH_zTmce91da796c');</script><noscript>Sep 17, 2014 at 4:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753034">
+Yes, finding a distribution that is over 10 years old can be challenging, but I did find this page: <br>
+<a href="../../../../mirror.debianforum.de/debian-iso-archive/potato/i386/default.htm">http://mirror.debianforum.de/debian-iso-archive/potato/i386/</a><br>
+and this page:<br>
+<a href="../../../../httpswww.debian.org/releases/potato/default.htm">https://www.debian.org/releases/potato/</a><br>
+Hopefully you can get this ancient operating system to work with your modern hardware. <br>
+<br>
+Since your industrial computer can read CF cards, does your development PC have the ability to read CF cards as well? This will probably be the easiest way of transferring files to your target, the fallback being the ftp client.<br>
+<br>
+Also you still haven't stated whether or not the industrial PC has wget installed. <br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn753034"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753051"><span title="753051,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753051" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm77bc312df7" title="Wed, 17 Sep 2014 16:58:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm77bc312df7');</script><noscript>Sep 17, 2014 at 4:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753051">
+I was away from the computer, just got back. Thank you for all your help, jlb! I have no access to the target system now, it's 11:56 pm here. Tomorrow (our time) I'll check the presence of wget, will try the links and report.<br>
+Thank you, again!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn753051"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753396"><span title="753396,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753396" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcdc25d28fb" title="Thu, 18 Sep 2014 09:59:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmcdc25d28fb');</script><noscript>Sep 18, 2014 at 9:59am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753396">
+Ok, there's no wget. No loadable potato image in the links.<br>
+I'm completely lost.<br>
+Will have to develop in 7.6 (installed into the vmware player virtual machine on win7 desktop). Statically build it and try to run on the target machine. <br>
+With no ability to debug it there. Promises no fun at all.<br>
+Unless somebody could share a better idea?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm07a7987efe" title="Thu, 18 Sep 2014 10:00:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm07a7987efe');</script><noscript>Sep 18, 2014 at 10:00am UTC</noscript></span>
+<span class="dbtn" id="CH_btn753396"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753482"><span title="753482,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753482" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb057636b69" title="Thu, 18 Sep 2014 16:39:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmb057636b69');</script><noscript>Sep 18, 2014 at 4:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753482">
+You may want to consider setting up a cross-compiler instead. There are so many differences between the target and the development machines that it will be difficult otherwise. If you do try to statically build your solution, don't forget you must also include the standard libraries in the static build. <br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn753482"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753704"><span title="753704,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753704" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme0b1d84db4" title="Fri, 19 Sep 2014 13:03:17 +0000"></span><script type="text/javascript">WhenId('CH_zTme0b1d84db4');</script><noscript>Sep 19, 2014 at 1:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753704">
+Could you advice me on a good tutorial that would suit my task better? As I see the options, they are:<br>
+1. GUI based environment.<br>
+    - running in windows and set up to create executables for i386 Debian 2.2<br>
+    - running on Debian 7.6 virtual machine  on windows set up for the same<br>
+2. Command line environment.<br>
+    - on Debian7.6 virtual machine in windows and set for i386Debian2.2<br>
+       target<br>
+    - on Windows (Cygwin) set for i386 Debian 2.2 target.<br>
+   <br>
+   My original hope was to upgrade the target machine and try to set up the cross-development in Visual Studio running on Windows desktop for remote Debian 2.2 machine via Visual GDB. Bul I guess, it's hopeless.<br>
+   Considering I'm not well-versed in Linux, what would be the easiest way to create a cross-platform toolset?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn753704"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg753750"><span title="753750,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg753750" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0b148ce74c" title="Fri, 19 Sep 2014 14:46:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm0b148ce74c');</script><noscript>Sep 19, 2014 at 2:46pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i753750">
+<br>
+<table class="quote"><tr><td class="qd">My original hope was to upgrade the target machine</td></tr></table><br>
+When you say "upgrade" do you mean upgrading the operating system, or just upgrading your application? <br>
+<br>
+My suggestion, at least at first, is to use the current Debian distribution, in either a virtual machine or an actual dedicated Debian machine and setup a cross-compiler to compile for the target machine. I wouldn't try to throw in the added complexity of Windows until you get something working with Debian. <br>
+<br>
+Without knowing more about your target system I suggest you see if the manufacturer of the target is still around and see if they still have available the operating system and development CDs and perhaps a copy of a manual. That's after I thoroughly searched for these items in every nook and cranny of the company, asking all the "old hats" if they have any idea where these items might be "stashed". <br>
+<br>
+Setting up a cross-compiler can be fairly tricky, especially since you will need some things that are specific to your target, for example you'll need the binutils that are the same as used by your target. I did find a location for the Debian 2.2 system <a href="../../../../archive.debian.org/debian/dists/debian-2.2/default.htm">http://archive.debian.org/debian/dists/Debian-2.2/</a> .<br>
+<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn753750"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg754760"><span title="754760,149536,1023,16,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg754760" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfd4ee9a3c7" title="Mon, 22 Sep 2014 09:09:43 +0000"></span><script type="text/javascript">WhenId('CH_zTmfd4ee9a3c7');</script><noscript>Sep 22, 2014 at 9:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/vikk/default.htm"><b>vikk</b> (16)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i754760">
+When I say "upgrade" I mean to set up development tools on the target machine. And the overall idea was to develop the code in Visual Studio (running on the Windows 7 desktop), but to have it compiled, run and debugged on my target machine in the remote machine development mode with Visual GDB. If I correctly understand what it does, this would've been possible if I had gcc, and the rest of development tools on my target machine.<br>
+The possibility to work in such a user friendly environment as Visual Studio directly for the target platform looked very attractive to me.<br>
+As I have already mentioned, my target is:<br>
+<table class="quote"><tr><td class="qd">cat /etc/issue gives me: <br>
+Debian GNU/\s 2.2 \n \l <br>
+ and uname -a brings out:<br>
+Linux thost001 2.4.17-rthal5 #23 Thu Nov 16 12:09:12 NOVT2006 i586 unknown <br>
+ So, it's Debian 2.2 and the kernel version is 2.4.17-rthal5</td></tr></table><br>
+That effort wasn't successful.      <br>
+     Therefore, now I'm trying just to set-up a cross-compiler in Debian 7.6 (running in the virtual vmware machine) for Debian 2.2. <br>
+Hence, I'm looking for an easy way to set it up (the cross-compiler).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn754760"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(142235,1,149536,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~293.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146680/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>not understanding errors - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">not understanding errors</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> not understanding errors</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146680,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771226"><span title="771226,152820,1023,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771226" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc410695329" title="Sun, 02 Nov 2014 15:17:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmc410695329');</script><noscript>Nov 2, 2014 at 3:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leelee/default.htm"><b>leelee</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771226">
+solved
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0709aaeff3" title="Sun, 02 Nov 2014 15:39:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm0709aaeff3');</script><noscript>Nov 2, 2014 at 3:39pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771226"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771228"><span title="771228,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771228" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm51884d6434" title="Sun, 02 Nov 2014 15:26:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm51884d6434');</script><noscript>Nov 2, 2014 at 3:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771228">
+Here I think i solved them:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+
+<var>void</var> validset(<var>int</var>,<var>int</var>,<var>int</var>);
+<var>int</var> main()
+{
+    <var>int</var> x,y,z;
+    <var>char</var> answer;
+
+    <var>do</var>  {
+         cout &lt;&lt;    <kbd>"Type in the first score"</kbd> &lt;&lt; endl;
+         cin &gt;&gt; x;
+         cout &lt;&lt;    <kbd>"Type in the second score"</kbd>;
+         cin &gt;&gt; y;
+         cout &lt;&lt;    <kbd>"Type in the third score"</kbd>;
+         cin &gt;&gt; z;
+         validset (x,y,z);
+         cout &lt;&lt;    <kbd>"Type c to continue; s to stop"</kbd>;
+         cin &gt;&gt; answer;
+         }<var>while</var> (answer == <kbd>'c'</kbd>);
+         <var>return</var> 0;
+)
+<var>void</var> validset(<var>int</var> x, <var>int</var> y, <var>int</var> z)
+{
+    <var>if</var> (x &lt; 0 || x &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var> <var>if</var> (y &lt; 0 || y &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var> <var>if</var> (z &lt; 0 || z &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var>
+        cout &lt;&lt; <kbd>"The group is valid"</kbd>;
+    <var>return</var> 0;
+    }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771228"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771229"><span title="771229,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771229" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6c03a33759" title="Sun, 02 Nov 2014 15:27:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm6c03a33759');</script><noscript>Nov 2, 2014 at 3:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771229">
+You used (...) instead of {...} on line 13 and line 26.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771229"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771231"><span title="771231,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771231" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm69bd6abea1" title="Sun, 02 Nov 2014 15:31:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm69bd6abea1');</script><noscript>Nov 2, 2014 at 3:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771231">
+Line 13,23:  These should be curly braces, not parens.  General ruile:  expressions  are surrounded by parens.  statement blocks are surrounded by curly braces.<br>
+<br>
+Line 25:  This should be a curly brace, not a close paren.<br>
+<br>
+Line 27,37:  Again these should be {}, not ()<br>
+<br>
+Line 36:  Your can't return 0 on a void function.  Since there is no meaningful return value, remove line 36.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771231"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771245"><span title="771245,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771245" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmea48930858" title="Sun, 02 Nov 2014 16:16:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmea48930858');</script><noscript>Nov 2, 2014 at 4:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771245">
+Please do not remove your posts after getting an answer.<br>
+Original post:<table class="quote"><tr><td class="qd">Write your question here.<br>
+Many of my errors were in the main program saying that "expected '(' before ';' token" <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;cmath&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+
+<var>void</var> validset(<var>int</var>,<var>int</var>,<var>int</var>);
+<var>int</var> main()
+{
+    <var>int</var> x,y,z;
+    <var>char</var> answer;
+
+    <var>do</var>  (
+         cout &lt;&lt;    <kbd>"Type in the first score"</kbd> &lt;&lt; endl;
+         cin &gt;&gt; x;
+         cout &lt;&lt;    <kbd>"Type in the second score"</kbd>;
+         cin &gt;&gt; y;
+         cout &lt;&lt;    <kbd>"Type in the third score"</kbd>;
+         cin &gt;&gt; z;
+         validset (x,y,z);
+         cout &lt;&lt;    <kbd>"Type c to continue; s to stop"</kbd>;
+         cin &gt;&gt; answer;
+         ) <var>while</var> (answer == <kbd>'c'</kbd>);
+         <var>return</var> 0;
+)
+<var>void</var> validset(<var>int</var> x, <var>int</var> y, <var>int</var> z)
+(
+    <var>if</var> (x &lt; 0 || x &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var> <var>if</var> (y &lt; 0 || y &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var> <var>if</var> (z &lt; 0 || z &gt; 300)
+        cout &lt;&lt; <kbd>"The group is invalid"</kbd>;
+    <var>else</var>
+        cout &lt;&lt; <kbd>"The group is valid"</kbd>;
+    <var>return</var> 0;
+    )</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+</td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771245"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146680,0,152820,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~213.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

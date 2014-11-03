@@ -1,0 +1,525 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/143379/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How do you output a Variable? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">How do you output a Variable?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> How do you output a Variable?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143379,root,0,-1,9,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg756474"><span title="756474,86348,3,210,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756474" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm53a7ae8c7e" title="Fri, 26 Sep 2014 17:48:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm53a7ae8c7e');</script><noscript>Sep 26, 2014 at 5:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756474">
+I want to see the values that are being passed...Just for my own curiosity I would like to see what the value for WM_CREATE is...I would like to output that to the screen.....<br>
+<br>
+for command line c++ for example <span class="auto"><code class="source">cout &lt;&lt; WM_CREATE &lt;&lt; endl;</code></span><br>
+<br>
+What is windows equivalent? <br>
+<br>
+Here is my winProc<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br></code></pre></td>
+<td class="source"><pre><code>WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	RECT rect;
+
+	<var>switch</var> (message)
+	{
+	<var>case</var> WM_CREATE:
+		
+		
+		<var>return</var> 0;
+	<var>case</var> WM_PAINT:
+		hdc = BeginPaint(hwnd, &amp;ps);
+		GetClientRect(hwnd, &amp;rect);
+		DrawText(hdc, TEXT(<kbd>"Hello, Windows 7!"</kbd>), -1, &amp;rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);
+		EndPaint(hwnd, &amp;ps);
+		<var>return</var> 0;
+	<var>case</var> WM_DESTROY:
+		PostQuitMessage(0);
+		<var>return</var> 0;
+	}
+
+	<var>return</var> DefWindowProc(hwnd, message, wParam,lParam);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8fb615e546" title="Fri, 26 Sep 2014 17:49:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm8fb615e546');</script><noscript>Sep 26, 2014 at 5:49pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn756474"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756495"><span title="756495,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756495" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9356a799ca" title="Fri, 26 Sep 2014 19:01:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm9356a799ca');</script><noscript>Sep 26, 2014 at 7:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756495">
+Two ways to go about it Novellof.<br>
+<br>
+1) Open an output/debug text file and use whatever functions you use to output to that - likely for you something from iostream, but I use old fashioned stdio;<br>
+<br>
+2) Open a console window using AllocConsole() in your WM_CREATE handler and write your output to the console screen in the same manner as #1 above.<br>
+<br>
+If you want I can demo both of these techniques for you.<br>
+<br>
+Fred
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756495"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756647"><span title="756647,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756647" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm621be7e9a4" title="Sat, 27 Sep 2014 03:10:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm621be7e9a4');</script><noscript>Sep 27, 2014 at 3:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756647">
+Thanks for the reply but is there anyway to use the DrawText function to display these variables...like use draw text as a cout &lt;&lt;  var &lt;&lt; endl;
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756647"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756655"><span title="756655,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756655" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd8e9a046a1" title="Sat, 27 Sep 2014 03:36:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmd8e9a046a1');</script><noscript>Sep 27, 2014 at 3:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756655">
+You'll need to convert the variable to a string.  If you are using C++11 then you'll have access to the to_string functions:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><cite>// Note:  I use DrawTextA instead of DrawText because I'm using a normal string and not a</cite>
+<cite>//    TCHAR string.</cite>
+std::string s = std::to_string(WM_CREATE);
+DrawTextA( hdc, s.c_str(), ...
+
+<cite>// ...or...  cram it into one line:</cite>
+
+DrawTextA( hdc, std::to_string(WM_CREATE).c_str(), ...</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+If you do not have C++11 available and you do not want to update your super-old outdated compiler for whatever reason... you can use stringstreams:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;sstream&gt;</dfn>
+
+std::stringstream s;
+s &lt;&lt; WM_CREATE;
+DrawTextA( hdc, s.str().c_str(), ...</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+or C-style sprintf:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;cstdio&gt;</dfn>
+
+<var>char</var> buffer[20];
+sprintf(buffer, <kbd>"%d"</kbd>, WM_CREATE);
+DrawTextA( hdc, buffer, ...</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756655"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756662"><span title="756662,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756662" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb7833af733" title="Sat, 27 Sep 2014 03:47:43 +0000"></span><script type="text/javascript">WhenId('CH_zTmb7833af733');</script><noscript>Sep 27, 2014 at 3:47am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756662">
+Thanks Disch...is there a way to just print the number itself without conversion? ....looks like sprintf does that prints out as a digit?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm736e3f62e8" title="Sat, 27 Sep 2014 03:49:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm736e3f62e8');</script><noscript>Sep 27, 2014 at 3:49am UTC</noscript></span>
+<span class="dbtn" id="CH_btn756662"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756668"><span title="756668,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756668" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme92f06ea18" title="Sat, 27 Sep 2014 04:10:29 +0000"></span><script type="text/javascript">WhenId('CH_zTme92f06ea18');</script><noscript>Sep 27, 2014 at 4:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756668">
+<table class="quote"><tr><td class="qd">Thanks Disch...is there a way to just print the number itself without conversion?</td></tr></table><br>
+<br>
+No.<br>
+<br>
+Numbers cannot be printed.  Only text can be printed.<br>
+<br>
+The only reason it works with cout is because ostream automatically does the conversion behind the scenes for you.  DrawText has no such functionality built into it -- so you have to do it yourself.<br>
+<br>
+<table class="quote"><tr><td class="qd">....looks like sprintf does that prints out as a digit? </td></tr></table><br>
+<br>
+For the record... sprintf was listed last for a reason -- it is my least favorite suggestion of all of those.  =P<br>
+<br>
+<br>
+But what do you mean by "prints out as a digit"?  Isn't that what you want?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756668"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756856"><span title="756856,86348,3,210,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756856" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1342587186" title="Sat, 27 Sep 2014 17:48:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm1342587186');</script><noscript>Sep 27, 2014 at 5:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/novellof/default.htm"><b>novellof</b> (210)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756856">
+thanks man<br>
+<br>
+<table class="quote"><tr><td class="qd">DrawTextA( hdc, std::to_string(WM_CREATE).c_str(), ...</td></tr></table><br>
+<br>
+<br>
+worked beautifully!! <br>
+<br>
+so what happens is wm_create gets turned into a string...then turned into a character string with c_str()?<br>
+<br>
+can you please explain how that works?<br>
+<br>
+Why cant DT_VCENTER work by itself? Why does it need another DT_SINGLELINE Flag?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd21866246a" title="Sat, 27 Sep 2014 18:01:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmd21866246a');</script><noscript>Sep 27, 2014 at 6:01pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn756856"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756877"><span title="756877,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756877" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc8a6966f7b" title="Sat, 27 Sep 2014 18:41:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmc8a6966f7b');</script><noscript>Sep 27, 2014 at 6:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756877">
+<table class="quote"><tr><td class="qd">so what happens is wm_create gets turned into a string...then turned into a character string with c_str()?<br>
+<br>
+can you please explain how that works?</td></tr></table><br>
+<br>
+<br>
+Your summary is correct.  <span class="auto"><code class="source">to_string</code></span> takes the given value and formats it into a string.  It then returns the std::string.<br>
+<br>
+<span class="auto"><code class="source">c_str()</code></span> returns a pointer to the data within that std::string.  c_str is available for this very reason:  ability to use std::string in libraries that use c-style strings.<br>
+<br>
+<table class="quote"><tr><td class="qd">Why cant DT_VCENTER work by itself? Why does it need another DT_SINGLELINE Flag?</td></tr></table><br>
+<br>
+I don't have an answer other than "Because that's what DrawText requires".<br>
+<br>
+If you read the reference page, it says that explicitly:<br>
+<br>
+<a href="../../../../msdn.microsoft.com/en-us/library/windows/desktop/dd162498%28vvs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/dd162498%28v=vs.85%29.aspx</a><br>
+<table class="quote"><tr><th class="qh"><strong>That page</strong> wrote:</th></tr><tr><td class="qd">
+<b>DT_VCENTER</b>    Centers text vertically. This value is used only with the DT_SINGLELINE value.<br>
+</td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756877"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756982"><span title="756982,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756982" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmec3230c7cf" title="Sun, 28 Sep 2014 02:09:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmec3230c7cf');</script><noscript>Sep 28, 2014 at 2:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756982">
+Really, if you are wanting to learn Windows Programming, DrawText(), TextOut(), and several other variants are useful and wonderful to know, but your original question seemed to concern debugging and learning how to determine the contents of your variables.  For that, those GUI output routines mentioned above are not the most useful.  Other than a stepping debugger, my original suggestions are still valid.  The vast majority of your coding will involve Windows with various child window controls decorating them.  In those situations DrawText() will be of no use.  Here is the output you seem to be requesting ...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br></code></pre></td>
+<td class="source"><pre><code>Entering WinMain()
+  Entering fnWndProc_OnCreate()
+    Wea.hWnd  = 0x0000000000140850
+    WM_CREATE = 1
+  Leaving fnWndProc_OnCreate()
+
+  hWnd        = 0x0000000000140850
+  szClassName = Form1
+
+  Entering fnWndProc_OnDestroy()
+    Wea.hWnd = 0x0000000000140850
+  Leaving fnWndProc_OnDestroy()
+Leaving WinMain()</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And here is an example of a program that produces that ...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br></code></pre></td>
+<td class="source"><pre><code><cite>//Form1.cpp</cite>
+<dfn>#ifndef  UNICODE</dfn>
+<dfn>#define  UNICODE</dfn>
+<dfn>#endif</dfn>
+<dfn>#ifndef  _UNICODE</dfn>
+<dfn>#define  _UNICODE</dfn>
+<dfn>#endif</dfn>
+<dfn>#define  MyDebug</dfn>
+<dfn>#include &lt;windows.h&gt;</dfn>
+<dfn>#include &lt;cstdio&gt;</dfn>
+<dfn>#include &lt;tchar.h&gt;</dfn>
+<dfn>#include "Form1.h"</dfn>
+<dfn>#ifdef MyDebug</dfn>
+FILE*    fp=NULL;
+<dfn>#endif</dfn>
+
+
+<var>long</var> fnWndProc_OnCreate(WndEventArgs&amp; Wea)
+{
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"  Entering fnWndProc_OnCreate()\n"</kbd>);
+ fprintf(fp,<kbd>"    Wea.hWnd  = 0x%p\n"</kbd>,Wea.hWnd);
+ fprintf(fp,<kbd>"    WM_CREATE = %d\n"</kbd>,WM_CREATE);
+ <dfn>#endif</dfn>
+ Wea.hIns=((LPCREATESTRUCT)Wea.lParam)-&gt;hInstance;
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"  Leaving fnWndProc_OnCreate()\n\n"</kbd>);
+ <dfn>#endif</dfn>
+
+ <var>return</var> 0;
+}
+
+
+<var>long</var> fnWndProc_OnDestroy(WndEventArgs&amp; Wea)
+{
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"  Entering fnWndProc_OnDestroy()\n"</kbd>);
+ fprintf(fp,<kbd>"    Wea.hWnd = 0x%p\n"</kbd>,Wea.hWnd);
+ <dfn>#endif</dfn>
+ PostQuitMessage(0);
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"  Leaving fnWndProc_OnDestroy()\n"</kbd>);
+ <dfn>#endif</dfn>
+
+ <var>return</var> 0;
+}
+
+
+
+LRESULT CALLBACK fnWndProc(HWND hwnd, <var>unsigned</var> <var>int</var> msg, WPARAM wParam, LPARAM lParam)
+{
+ WndEventArgs Wea;
+
+ <var>for</var>(<var>unsigned</var> <var>int</var> i=0; i&lt;dim(EventHandler); i++)
+ {
+     <var>if</var>(EventHandler[i].iMsg==msg)
+     {
+        Wea.hWnd=hwnd, Wea.lParam=lParam, Wea.wParam=wParam;
+        <var>return</var> (EventHandler[i].fnPtr)(Wea);
+     }
+ }
+
+ <var>return</var> (DefWindowProc(hwnd, msg, wParam, lParam));
+}
+
+
+<var>int</var> WINAPI WinMain(HINSTANCE hIns, HINSTANCE hPrevIns, LPSTR lpszArgument, <var>int</var> iShow)
+{
+ TCHAR szClassName[]=_T(<kbd>"Form1"</kbd>);
+ WNDCLASSEX wc={};
+ MSG messages;
+ HWND hWnd;
+
+ <dfn>#ifdef MyDebug</dfn>
+ fp=fopen(<kbd>"Output.txt"</kbd>,<kbd>"w"</kbd>);
+ <var>if</var>(fp)
+    fprintf(fp,<kbd>"Entering WinMain()\n"</kbd>);
+ <dfn>#endif</dfn>
+ wc.lpszClassName=szClassName;                wc.lpfnWndProc=fnWndProc;
+ wc.cbSize=<var>sizeof</var> (WNDCLASSEX);               wc.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+ wc.hInstance=hIns,                           wc.hCursor=LoadCursor(NULL,IDC_ARROW);
+ wc.hbrBackground=(HBRUSH)COLOR_BTNSHADOW;
+ RegisterClassEx(&amp;wc);
+ hWnd=CreateWindowEx(0,szClassName,szClassName,WS_OVERLAPPEDWINDOW,75,75,320,305,HWND_DESKTOP,0,hIns,0);
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"  hWnd        = 0x%p\n"</kbd>,hWnd);
+ _ftprintf(fp,_T(<kbd>"  szClassName = %S\n\n"</kbd>),szClassName);
+ <dfn>#endif</dfn>
+ ShowWindow(hWnd,iShow);
+ <var>while</var>(GetMessage(&amp;messages,NULL,0,0))
+ {
+    TranslateMessage(&amp;messages);
+    DispatchMessage(&amp;messages);
+ }
+ <dfn>#ifdef MyDebug</dfn>
+ fprintf(fp,<kbd>"Leaving WinMain()\n"</kbd>);
+ fclose(fp);
+ <dfn>#endif</dfn>
+
+ <var>return</var> messages.wParam;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And Form1.h<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br></code></pre></td>
+<td class="source"><pre><code><cite>//Main.h</cite>
+<dfn>#ifndef Form1_h</dfn>
+<dfn>#define Form1_h</dfn>
+
+<dfn>#define dim(x) (sizeof(x) / sizeof(x[0]))</dfn>
+
+<var>struct</var> WndEventArgs
+{
+ HWND                         hWnd;
+ WPARAM                       wParam;
+ LPARAM                       lParam;
+ HINSTANCE                    hIns;
+};
+
+<var>long</var> fnWndProc_OnCreate       (WndEventArgs&amp; Wea);
+<var>long</var> fnWndProc_OnDestroy      (WndEventArgs&amp; Wea);
+
+<var>struct</var> EVENTHANDLER
+{
+ <var>unsigned</var> <var>int</var>                 iMsg;
+ <var>long</var>                         (*fnPtr)(WndEventArgs&amp;);
+};
+
+<var>const</var> EVENTHANDLER EventHandler[]=
+{
+ {WM_CREATE,                  fnWndProc_OnCreate},
+ {WM_DESTROY,                 fnWndProc_OnDestroy}
+};
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756982"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143379,1,86348,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~536.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

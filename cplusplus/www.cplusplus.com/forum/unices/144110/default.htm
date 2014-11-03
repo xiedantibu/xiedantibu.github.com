@@ -1,0 +1,261 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/144110/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Printing all filenames and number of lin - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">Printing all filenames and number of lin</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Printing all filenames and number of lines/words</h3><span id="CH_edttl"></span><span class="rootdatPost" title="144110,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg759984"><span title="759984,145210,1023,29,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg759984" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8cdf562ec6" title="Sun, 05 Oct 2014 23:26:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm8cdf562ec6');</script><noscript>Oct 5, 2014 at 11:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tybalttheappleeater/default.htm"><b>tybalttheappleEater</b> (29)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i759984">
+Hi, I'm trying to print all the name of the files in the working directory as well as the number of lines and words that each file has next to them<br>
+<br>
+i.e <div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>
+    file1.txt 71 431
+    file2.bash 31 511</samp></pre></td></tr></table></div><br>
+<br>
+I tried using a script: <div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><dfn>#!/bin/bash</dfn>
+ls * ;
+wc -l ls *;
+wc -w ls *;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+But instead it prints <br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>
+wc: ls: No such file or directory
+  73 abc.txt
+   5 cin.bash
+  43 formula
+   6 chem
+ 127 total
+wc: ls: No such file or directory
+ 421 abc.txt
+  12 cin.bash
+ 136 formula
+  24 chem
+ 593 total
+
+</samp></pre></td></tr></table></div><br>
+<br>
+Can anyone tell me what I'm doing wrong or give some advice?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm3fe25ac014" title="Sun, 05 Oct 2014 23:27:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm3fe25ac014');</script><noscript>Oct 5, 2014 at 11:27pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn759984"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760228"><span title="760228,107585,1023,1370,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760228" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm13cec7bc50" title="Mon, 06 Oct 2014 15:17:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm13cec7bc50');</script><noscript>Oct 6, 2014 at 3:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mutexe/default.htm"><b>mutexe</b> (1370)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760228">
+Advice: if you want to ask a question about scripting you might want to try and find a scripting forum, rather than a C++ forum :)<br>
+<br>
+There are people on here that could help, but i'm just saying you might get more eyes on your problem on an appropriate forum.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760228"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760969"><span title="760969,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760969" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1bc4c68214" title="Wed, 08 Oct 2014 05:38:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm1bc4c68214');</script><noscript>Oct 8, 2014 at 5:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760969">
+You are asking to count the words in all the named files, including 'ls', which doesn't exist.<br>
+(Try creating a file named 'ls' to prove to yourself that it is the issue.)<br>
+<br>
+The 'ls' command is for humans. The shell properly handles wildcards for you, so you don't need to try to insert a command to do it. Chances are it would produce results unusable for the command anyway.<br>
+<br>
+Hope this helps.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760969"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760991"><span title="760991,111189,1023,3222,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760991" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4a9269bc5d" title="Wed, 08 Oct 2014 07:04:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm4a9269bc5d');</script><noscript>Oct 8, 2014 at 7:04am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/keskiverto/default.htm"><b>keskiverto</b> (3222)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760991">
+man bash:<br>
+<table class="quote"><tr><td class="qd"><b>EXPANSION</b><br>
+       Expansion is performed on the command line after it has been split into words.  There are<br>
+       seven kinds of expansion performed: brace expansion, tilde expansion, parameter and vari-<br>
+       able  expansion, command substitution, arithmetic expansion, word splitting, and pathname<br>
+       expansion.<br>
+<br>
+<b>Pathname Expansion</b><br>
+       After word splitting, unless the -f option has been set, bash scans  each  word  for  the<br>
+       characters *, ?, and [.  If one of these characters appears, then the word is regarded as<br>
+       a pattern, and replaced with an alphabetically sorted list of  file  names  matching  the<br>
+       pattern.</td></tr></table><br>
+man wc:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>NAME
+       wc - print newline, word, and byte counts for each file
+
+SYNOPSIS
+       wc [OPTION]... [FILE]...</samp></pre></td></tr></table></div><br>
+When you write <span class="auto"><code class="source">wc *</code></span> the wc never sees the *, unless bash fails to expand the word.  What wc does see, is filenames.  Note though that subdirectorynames are included.<br>
+<br>
+One could control that with a loop:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>for F in * ; do [[ -f "$F" ]] &amp;&amp; wc -lw "$F"; done</samp></pre></td></tr></table></div><br>
+C++ pseudo-equivalent:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>for</var> ( <var>auto</var> F : directorycontents ) {
+  <var>if</var> ( isRegularFile( F ) ) {
+    wc( F, WC::lines &amp; WC::words );
+  }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+The other thing; you did desire "name lines words", but the wc shows "lines words name". Mere bash parameter expansion could do this, but there are other ways too:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>wc -lw foo.txt | sed "s/ *\([^ ]\+\) *\([^ ]\+\) \(.*\)/\3 \t\2 \t\1/"</samp></pre></td></tr></table></div>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760991"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg761030"><span title="761030,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg761030" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm82bc821ed2" title="Wed, 08 Oct 2014 11:02:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm82bc821ed2');</script><noscript>Oct 8, 2014 at 11:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i761030">
+<table class="quote"><tr><td class="qd">Hi, I'm trying to print all the name of the files in the working directory as well as the number of lines and words that each file has next to them<br>
+<br>
+i.e<br>
+</td></tr></table>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>    file1.txt 71 431
+    file2.bash 31 511</samp></pre></td></tr></table></div><br>
+<br>
+Isn't that being really fussy?  You can swap the outputs with awk.  Assuming the filenames don't have spaces:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>wc -lw * | awk <kbd>'{printf("%s %s %s\n", $3, $1, $2)}'</kbd></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm6a3f240cd7" title="Wed, 08 Oct 2014 11:08:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a3f240cd7');</script><noscript>Oct 8, 2014 at 11:08am UTC</noscript></span>
+<span class="dbtn" id="CH_btn761030"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(144110,0,145210,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~291.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

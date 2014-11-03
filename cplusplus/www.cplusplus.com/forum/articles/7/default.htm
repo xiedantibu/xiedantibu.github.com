@@ -1,0 +1,577 @@
+<!DOCTYPE html><!-- saved from url=(0053)http://www.cplusplus.com/forum/articles/7/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Making Games in C++ - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Articles</a></li>
+<li class="here">Making Games in C++</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Making Games in C++</h3><span id="CH_edttl"></span><span class="rootdatPost" title="7,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg7"><span title="7,2047,1023,2,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg7" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm67b46a1880" title="Mon, 14 Jan 2008 13:37:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm67b46a1880');</script><noscript>Jan 14, 2008 at 1:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sacha/default.htm"><b>Sacha</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i7">
+In order to make a successful and user- friendly game in C++, we need to remember the following things:<br>
+First of all, simplicity is the key. Of course, if you are comfortable with the more advanced graphics capabilities of C++, you can go on to make a complex game such as Liero, but for now, the simpler the better.<br>
+Also, we need to remember that a game has to be the right difficulty- not too easy, not too hard. It needs also to have some sort of reward (e.g a colorful message) when you win, so the user is playing for some reason.<br>
+A game also needs to have a little more than plain text. For example, you could use a noughts and crosses board, or simply colorful text.<br>
+<br>
+When you are comfortable with these concepts, you can go on to actually making the game.<br>
+<br>
+If you are not familiar with outputting colored text, I suggest you learn how to do this before trying to make a game. It is actually very easy. First of all, just before you start the main process (before the <span class="auto"><code class="source"><var>int</var> main () {</code></span>), you need to add these lines:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> setcolor(<var>unsigned</var> <var>short</var> color)                 <cite>//The function that you'll use to</cite>
+{                                                   <cite>//set the colour</cite>
+    HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hcon,color);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+then, before the command to output the text, you set the color with the command:<br>
+<span class="auto"><code class="source">setcolor (x);</code></span><br>
+(replace the (x) with any number e.g. setcolor (7) will come out with the default color, white. <br>
+<br>
+Now, on to making the game. First of all, you need to have an idea of what kind of game you want to make. For the purpose of the tutorial, let us make a very simple game, called "Higher or Lower?". The user will be shown a number and asked if the next will be higher or lower.<br>
+<br>
+First of all, we need to declare our variables. We should have three unsigned short integers. These should be the first number, the second number, and the overall score. We should then also have a character, which will be the letter the user enters, "H" or "L", higher or lower. We can declare these like this:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main()
+{
+         <var>short</var> <var>unsigned</var> <var>int</var> score = 0;
+<var>short</var> <var>unsigned</var> <var>int</var> num = 0;
+<var>short</var> <var>unsigned</var> <var>int</var> num2 = 0;
+<var>char</var> letter;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now, in order to fully randomize the numbers which are outputted, we need to add in a few lines of code. These are as follows, with comments to explain which each line does.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>loop:  <cite>//This labels the code for quick reference later on.</cite>
+srand(time(NULL));  <cite>//Initialize random number generator</cite>
+    num = 1 + rand() % (6 - 1 + 1);  <cite>//Shows that num is a random integer between 1 and 6.</cite>
+    num2 = 1 + rand() % (6 - 1 + 1); <cite>//Shows that num2 is a random integer between 1 and 6. </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Once we have done this, we can start with the interface.<br>
+First of all, at the top of the program at all times, we should have the score being shown. We also want to have a quick explanation of the game, and then start the game itself:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br></code></pre></td>
+<td class="source"><pre><code>cout &lt;&lt;<kbd>"\nPoints: "</kbd>;
+    setcolor (10);
+    cout &lt;&lt; score &lt;&lt; endl;
+    setcolor (7);
+    cout &lt;&lt;<kbd>"Get to 5 points to win. The numbers range between 1 and 6.\n"</kbd>;
+    setcolor (12);
+    cout &lt;&lt; num;
+    setcolor (7);
+    cout &lt;&lt;<kbd>" is the first number. \nIs the next number going to be higher or lower? H or L?"</kbd> &lt;&lt; endl;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Then we can start the input sequence.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br></code></pre></td>
+<td class="source"><pre><code>cin &gt;&gt; letter;
+    <var>if</var> (letter == <kbd>'h'</kbd>||letter == <kbd>'H'</kbd>)
+    {
+               setcolor (12);
+    cout &lt;&lt; num2;
+    setcolor (7);
+    cout &lt;&lt;<kbd>" is the second number."</kbd>;
+    <var>if</var> (num2&gt;num) <var>goto</var> win;
+                 <var>else</var> <var>if</var> (num2&lt;num) <var>goto</var> lose;
+                 <var>else</var> <var>if</var> (num2==num) <var>goto</var> same;
+                 }
+                      <var>else</var>
+                      {
+                          setcolor (12);
+                           cout &lt;&lt; num2;
+                           setcolor (7);
+                           cout &lt;&lt;<kbd>" is the second number."</kbd>;
+                           <var>if</var> (num2&lt;num) <var>goto</var> win;
+                                        <var>else</var> <var>if</var> (num2&gt;num) <var>goto</var> lose;
+                                        <var>else</var> <var>if</var> (num2==num) <var>goto</var> same;
+                                        win:
+                                            {
+                                                <var>if</var> (score==4)
+                                                {
+                                                             setcolor (12);
+                                                             cout &lt;&lt;<kbd>" You completed the game! Well done!!!\n"</kbd>;
+                                                system (<kbd>"pause"</kbd>);
+                                                <var>return</var> 0;
+                                                }
+                                                <var>else</var>
+                                                {cout &lt;&lt;<kbd>"You win! Well done!\n"</kbd>;
+                                             system (<kbd>"pause"</kbd>);
+                                             score++;
+                                             <var>goto</var> loop;}
+                                             }
+                                             same:
+                                                  {<var>if</var> (score==4)
+                                                {
+                                                             setcolor (10);
+                                                             cout &lt;&lt;<kbd>" You completed the game! Well done!!!\n"</kbd>;
+                                                system (<kbd>"pause"</kbd>);
+                                                <var>return</var> 0;}
+                                                        <var>else</var>
+                                                        {cout &lt;&lt;<kbd>"The numbers were the same! What a coincidence! I think\n we can give you a point for that..."</kbd>;
+                                                        system (<kbd>"pause"</kbd>);
+                                                        score++;
+                                                        <var>goto</var> loop;}}
+                                             lose:
+                                                  {cout &lt;&lt;<kbd>"You lose...\n"</kbd>;
+                                                    system (<kbd>"pause"</kbd>);
+}}                                                    <var>return</var> 0;}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn7"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg8"><span title="8,2047,1023,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg8" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm782a1d6271" title="Mon, 14 Jan 2008 13:37:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm782a1d6271');</script><noscript>Jan 14, 2008 at 1:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sacha/default.htm"><b>Sacha</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i8">
+If we put this all together, this  is the finished project:<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;time.h&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<dfn>#include &lt;windows.h&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+<var>void</var> setcolor(<var>unsigned</var> <var>short</var> color)                 <cite>//The function that you'll use to</cite>
+{                                                   <cite>//set the colour</cite>
+    HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hcon,color);
+}
+<var>int</var> main()
+{
+         <var>short</var> <var>unsigned</var> <var>int</var> score = 0;
+<var>short</var> <var>unsigned</var> <var>int</var> num = 0;
+<var>short</var> <var>unsigned</var> <var>int</var> num2 = 0;
+<var>char</var> letter;
+loop:
+srand(time(NULL));
+<cite>//Initialize random number generator</cite>
+    num = 1 + rand() % (6 - 1 + 1);
+    num2 = 1 + rand() % (6 - 1 + 1);
+    cout &lt;&lt;<kbd>"\nPoints: "</kbd>;
+    setcolor (10);
+    cout &lt;&lt; score &lt;&lt; endl;
+    setcolor (7);
+    cout &lt;&lt;<kbd>"Get to 5 points to win. The numbers range between 1 and 6.\n"</kbd>;
+    setcolor (12);
+    cout &lt;&lt; num;
+    setcolor (7);
+    cout &lt;&lt;<kbd>" is the first number. \nIs the next number going to be higher or lower? H or L?"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; letter;
+    <var>if</var> (letter == <kbd>'h'</kbd>||letter == <kbd>'H'</kbd>)
+    {
+               setcolor (12);
+    cout &lt;&lt; num2;
+    setcolor (7);
+    cout &lt;&lt;<kbd>" is the second number."</kbd>;
+    <var>if</var> (num2&gt;num) <var>goto</var> win;
+                 <var>else</var> <var>if</var> (num2&lt;num) <var>goto</var> lose;
+                 <var>else</var> <var>if</var> (num2==num) <var>goto</var> same;
+                 }
+                      <var>else</var>
+                      {
+                          setcolor (12);
+                           cout &lt;&lt; num2;
+                           setcolor (7);
+                           cout &lt;&lt;<kbd>" is the second number."</kbd>;
+                           <var>if</var> (num2&lt;num) <var>goto</var> win;
+                                        <var>else</var> <var>if</var> (num2&gt;num) <var>goto</var> lose;
+                                        <var>else</var> <var>if</var> (num2==num) <var>goto</var> same;
+                                        win:
+                                            {
+                                                <var>if</var> (score==4)
+                                                {
+                                                             setcolor (12);
+                                                             cout &lt;&lt;<kbd>" You completed the game! Well done!!!\n"</kbd>;
+                                                system (<kbd>"pause"</kbd>);
+                                                <var>return</var> 0;
+                                                }
+                                                <var>else</var>
+                                                {cout &lt;&lt;<kbd>"You win! Well done!\n"</kbd>;
+                                             system (<kbd>"pause"</kbd>);
+                                             score++;
+                                             <var>goto</var> loop;}
+                                             }
+                                             same:
+                                                  {<var>if</var> (score==4)
+                                                {
+                                                             setcolor (10);
+                                                             cout &lt;&lt;<kbd>" You completed the game! Well done!!!\n"</kbd>;
+                                                system (<kbd>"pause"</kbd>);
+                                                <var>return</var> 0;}
+                                                        <var>else</var>
+                                                        {cout &lt;&lt;<kbd>"The numbers were the same! What a coincidence! I think\n we can give you a point for that..."</kbd>;
+                                                        system (<kbd>"pause"</kbd>);
+                                                        score++;
+                                                        <var>goto</var> loop;}}
+                                             lose:
+                                                  {cout &lt;&lt;<kbd>"You lose...\n"</kbd>;
+                                                    system (<kbd>"pause"</kbd>);
+}}                                                    <var>return</var> 0;}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn8"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg681"><span title="681,8716,255,1,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg681" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm99ccd52972" title="Fri, 01 Feb 2008 02:23:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm99ccd52972');</script><noscript>Feb 1, 2008 at 2:23am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/yjjlovewjf/default.htm"><b>yjjlovewjf</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i681">
+good job!<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn681"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg722"><span title="722,8744,1023,30,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg722" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6d64cd8d69" title="Fri, 01 Feb 2008 23:31:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm6d64cd8d69');</script><noscript>Feb 1, 2008 at 11:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dolorx/default.htm"><b>dolorx</b> (30)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i722">
+Good game but I had trouble following what the code did until I ran it. I think it would be more clear if you got rid of all of your goto statements and lined up your brackets.<br>
+<br>
+For Example:<br>
+<br>
+Instead of:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>if</var> (num2&gt;num) ...;
+                 <var>else</var> <var>if</var> (num2&lt;num) ...;
+                 <var>else</var> <var>if</var> (num2==num) ...;
+                 }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+I think this makes it easier to read.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code><var>if</var> ( num2 &gt; num )
+{
+  ...;
+}
+<var>else</var> <var>if</var> ( num2 &lt; num )
+{
+   ...;
+}
+<var>else</var> <var>if</var> ( num2 == num )
+{
+   ...;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Another thing I notice is that with multiple return statements its hard to follow where the program is being exited at. Try to have one return statement if possible. Sometimes using multiple return statements is more readable but that is another story.<br>
+<br>
+Try to reduce redundent code.<br>
+<br>
+Example - instead of this<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br></code></pre></td>
+<td class="source"><pre><code>    setcolor (10);
+    cout &lt;&lt; score &lt;&lt; endl;
+    setcolor (7);
+
+    cout &lt;&lt;<kbd>"Get to 5 points to win. The numbers range between 1 and 6.\n"</kbd>;
+
+    setcolor (12);
+    cout &lt;&lt; num;
+    setcolor (7);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+maybe this:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> printText(<var>unsigned</var> <var>short</var> textColor, string text, <var>unsigned</var> <var>short</var> textColorAfter)
+{
+     setColor( textColor );
+     cout &lt;&lt; text;
+     setColor( textColorAfter );     
+}
+
+....
+
+	string num, score;
+
+	printText( 10, score, 7);
+
+        cout &lt;&lt;<kbd>"Get to 5 points to win. The numbers range between 1 and 6.\n"</kbd>;
+
+	printText( 10, num, 7);      </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Now your only writing one line a of code every time you want to change your color.<br>
+<br>
+I believe by doing these few things it will make your code more readable and writable. Which will make you an even a better programmer.<br>
+<br>
+I did a quick refracting of your code and this is what I got.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;cstdlib&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;time.h&gt;</dfn>
+<dfn>#include &lt;windows.h&gt;</dfn>
+<dfn>#include &lt;cctype&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<cite>//Used to set Text Color</cite>
+<var>void</var> setColor(<var>unsigned</var> <var>short</var> color);
+<cite>//Print text in text color and sets the text color to textColotAfter when done</cite>
+<var>void</var> printText(<var>unsigned</var> <var>short</var> textColor, string text, <var>unsigned</var> <var>short</var> textColorAfter = 7);
+
+<var>bool</var> playHiLoGame( <var>void</var> );
+<var>void</var> printGame( <var>int</var> firstNumber );
+<var>bool</var> getResult( <var>int</var> firstNumber, <var>int</var> secondNumber, <var>char</var> yourGuess );
+
+string intToString( <var>int</var> number);
+
+<var>int</var> points = 0;
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[])
+{
+    srand(time(NULL));
+    <var>bool</var> hasWon = <var>false</var>;
+    
+    <var>int</var> round = 1;
+    <var>for</var>( round = 1; round &lt;= 5; round++)
+    {
+         hasWon = playHiLoGame();
+
+         <var>if</var>( hasWon == <var>false</var>)
+         {
+             cout &lt;&lt;<kbd>"You lose...\n"</kbd>;  
+             round = 6;
+         }
+         <var>else</var> <var>if</var>( round == 5)
+         {
+            printText( 12, <kbd>" You completed the game! Well done!!!\n"</kbd>);  
+         }
+    }
+    
+    system(<kbd>"PAUSE"</kbd>);
+    <var>return</var> EXIT_SUCCESS;
+}
+
+
+
+<var>void</var> setColor(<var>unsigned</var> <var>short</var> color)
+{                                  
+    HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hcon,color);
+}
+
+<var>void</var> printText(<var>unsigned</var> <var>short</var> textColor, string text, <var>unsigned</var> <var>short</var> textColorAfter)
+{
+     setColor( textColor );
+     cout &lt;&lt; text;
+     setColor( textColorAfter );     
+}
+
+
+<var>bool</var> playHiLoGame( <var>void</var> )
+{
+    <var>bool</var> youGuessedRight = <var>false</var>;
+    <cite>//generate random numbers</cite>
+    <var>int</var> firstNumber = (rand() % 6) + 1;
+    <var>int</var> secondNumber = (rand() % 6) + 1;
+    
+    printGame( firstNumber );
+    
+    <cite>//make sure input is either 'h' or 'l'</cite>
+    <var>char</var> letter = <kbd>' '</kbd>;
+    <var>while</var>( letter != <kbd>'h'</kbd> &amp;&amp; letter != <kbd>'l'</kbd>)
+    {
+       cin &gt;&gt; letter;    
+       letter = tolower(letter);
+    }
+    
+    youGuessedRight = getResult( firstNumber, secondNumber, letter );
+     
+    <var>return</var> youGuessedRight;
+}
+
+
+<var>void</var> printGame( <var>int</var> firstNumber )
+{ 
+<cite>//   char pointsString[5] = points + "\n";  </cite>
+   cout &lt;&lt; <kbd>"Points: "</kbd>;
+   printText(10,  intToString( points)+ <kbd>"\n"</kbd> ); <cite>//points</cite>
+   cout &lt;&lt; <kbd>"Get to 5 points to win. The numbers range between 1 and 6."</kbd> &lt;&lt; endl;
+   printText(12, intToString( firstNumber )); 
+   cout &lt;&lt; <kbd>" is the first number."</kbd> &lt;&lt; endl;
+   cout &lt;&lt; <kbd>"Is the next number going to be higher or lower? H or L?"</kbd> &lt;&lt; endl;
+}
+
+<var>bool</var> getResult( <var>int</var> firstNumber, <var>int</var> secondNumber, <var>char</var> yourGuess )
+{
+     <var>bool</var> hasWon = <var>false</var>;
+     
+     printText(12, intToString( secondNumber ) );
+     cout &lt;&lt; <kbd>" is the second number."</kbd> &lt;&lt; endl;      
+     
+     <var>if</var>( yourGuess == <kbd>'h'</kbd> &amp;&amp; secondNumber &gt;= firstNumber ||
+         yourGuess == <kbd>'l'</kbd> &amp;&amp; secondNumber &lt;= firstNumber )
+     {
+        cout &lt;&lt; <kbd>" You win! Well done!"</kbd> &lt;&lt; endl;
+        points++;
+        hasWon = <var>true</var>;
+     }
+
+     system (<kbd>"pause"</kbd>);
+     cout &lt;&lt; <kbd>"\n"</kbd>;
+     <var>return</var> hasWon;
+}
+
+
+string intToString( <var>int</var> number)
+{
+       <var>char</var> buffer[20];
+       sprintf(buffer, <kbd>"%d"</kbd>, number);
+       <var>return</var> buffer;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm987ee630e6" title="Fri, 01 Feb 2008 23:34:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm987ee630e6');</script><noscript>Feb 1, 2008 at 11:34pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn722"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg1232"><span title="1232,9109,1023,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg1232" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9de5964b34" title="Fri, 15 Feb 2008 23:50:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm9de5964b34');</script><noscript>Feb 15, 2008 at 11:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/leo/default.htm"><b>leo</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i1232">
+it is nice thanx but it is nearly a C code. Classes are important in programming games in C++.<span class="auto"><code class="source"></code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn1232"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(7,1,2047,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~597.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

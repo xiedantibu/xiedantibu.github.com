@@ -1,0 +1,188 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/130186/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Searching a MultiMap with Regex - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Searching a MultiMap with Regex</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Searching a MultiMap with Regex</h3><span id="CH_edttl"></span><span class="rootdatPost" title="130186,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg702738"><span title="702738,98349,1023,419,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg702738" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7e5740839f" title="Thu, 24 Apr 2014 19:08:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm7e5740839f');</script><noscript>Apr 24, 2014 at 7:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/usandfriends/default.htm"><b>usandfriends</b> (419)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i702738">
+Hello all,<br>
+<br>
+I have a multimap with over <b>300k</b> entries defined like so:<br>
+<span class="auto"><code class="source">std::multimap&lt;std::string, std::string&gt; filedata;</code></span><br>
+<br>
+Using the following code and <span class="auto"><code class="source">std::multimap::equal_range</code></span>, I am able to successfully search for a word in the multimap and get needed data:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><cite>// Data with strings.</cite>
+data = std::vector&lt;std::string&gt;();
+<cite>// Get iterators to matched pairs.</cite>
+std::pair &lt;std::multimap&lt;std::string, std::string&gt;::iterator, std::multimap&lt;std::string, std::string&gt;::iterator&gt; dat = filedata.equal_range(word);
+<cite>// Go through each matched pair and get needed info.</cite>
+<var>for</var> (std::multimap&lt;std::string, std::string&gt;::iterator iter = dat.first; iter != dat.second; iter++) {
+    data.push_back(iter-&gt;second);
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Now, I would like to search the multimap using regular expressions (EX: <span class="auto"><code class="source">std::regex(<kbd>"\\b[a-z][a-e]h\\b"</kbd>)</code></span>). What is the fastest way to do this? Example code may look like:<br>
+<span class="auto"><code class="source">std::pair &lt;std::multimap&lt;std::string, std::string&gt;::iterator, std::multimap&lt;std::string, std::string&gt;::iterator&gt; dat = filedata.equal_range<b>_with_regex</b>(<b>std::regex(<kbd>"\\b"</kbd> + </b>word<b> + <kbd>"\\b"</kbd>)</b>);</code></span>. <i>Pseudo-code / algorithms will be enough.</i><br>
+<br>
+Thank you so much,<br>
+~Usandfriends
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc2c6afbab8" title="Thu, 24 Apr 2014 19:18:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmc2c6afbab8');</script><noscript>Apr 24, 2014 at 7:18pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn702738"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg702788"><span title="702788,11526,1023,1169,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg702788" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme99a01217c" title="Thu, 24 Apr 2014 20:28:29 +0000"></span><script type="text/javascript">WhenId('CH_zTme99a01217c');</script><noscript>Apr 24, 2014 at 8:28pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kempofighter/default.htm"><b>kempofighter</b> (1169)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i702788">
+By fastest, do you mean getting the work done fast or performance?  Whatever people post, you know you'll have to profile to confirm what is or isn't the fastest approach in terms of performance.  Can you do it on your own at all?  If not, then first you need to do it somehow.  Then worry about optimizing it.<br>
+<br>
+By the way, typedef is your friend and mine too.  It'll make your example code much easier to read.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>typedef</var> std::multimap&lt;std::string, std::string&gt; TStrStrMM;
+std::pair&lt;TStrStrMM::iterator, TStrStrMM::iterator&gt; dat;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I don't really see how equal range could work with a regex, to be honest with you.  A regex match is not the same thing as equivalence between too strings, and the algorithm is designed to work on a sorted range.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm890f2b7c4f" title="Thu, 24 Apr 2014 20:35:52 +0000"></span><script type="text/javascript">WhenId('CH_zTm890f2b7c4f');</script><noscript>Apr 24, 2014 at 8:35pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn702788"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg702978"><span title="702978,98349,1023,419,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg702978" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf508263fdd" title="Fri, 25 Apr 2014 05:07:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmf508263fdd');</script><noscript>Apr 25, 2014 at 5:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/usandfriends/default.htm"><b>usandfriends</b> (419)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i702978">
+Hi <span class="auto"><code class="source">kempofighter</code></span>,<br>
+<br>
+I meant getting the work done fast (chrono). Thank you for your input and suggestions! Like you said, <span class="auto"><code class="source">equal_range</code></span> was not really useful in this case and I was forced to do it the old-fashioned, brute-force way and and iterate through the whole multimap and use <span class="auto"><code class="source">std::regex_match</code></span> to check each pair...<br>
+<br>
+Thank you for your time,<br>
+~Usandfriends
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0fde460211" title="Fri, 25 Apr 2014 05:07:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm0fde460211');</script><noscript>Apr 25, 2014 at 5:07am UTC</noscript></span>
+<span class="dbtn" id="CH_btn702978"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(130186,1,98349,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~352.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146647/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Template with a specialized template cla - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Template with a specialized template cla</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Template with a specialized template class parameter. How?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146647,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771120"><span title="771120,156271,255,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771120" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1f6726758a" title="Sun, 02 Nov 2014 06:01:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm1f6726758a');</script><noscript>Nov 2, 2014 at 6:01am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mrmonkey/default.htm"><b>mrmonkey</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771120">
+I think my problem is best explained with how I want the code to look. Only problem is it doesn't work (Line 11). I have some experience with templates but I'm not a pro.<br>
+<br>
+Basically I want the "Channels&lt;3&gt;" to be a type that I can use to specify a Cable with similar to vector&lt;float/int&gt; it would be Cable&lt;Channels&lt;2 or 3&gt;&gt;.<br>
+<br>
+What have I messed up with the syntax?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>template</var>&lt;<var>int</var> channel_count&gt;
+<var>struct</var> Channels {
+	<var>static</var> <var>const</var> <var>int</var> channels = channel_count;
+};
+
+<var>template</var>&lt; Channels&lt;<var>int</var>&gt; T &gt;
+<var>class</var> Cable
+{
+	<var>public</var>:
+	<var>const</var> <var>int</var> channels = T::channels
+	vector&lt;<var>float</var>&gt; audio[T::channels];
+	
+	Cable(){
+		<var>for</var>(<var>int</var> i = 0; i &lt; T::channels; i++){
+			<var>for</var>(<var>int</var> s = 0; s &lt; 5; s++){
+				audio[i].push_back(i);
+			}
+		}
+	}
+	
+};
+
+
+<var>int</var> main() {
+	
+	Cable&lt;Channels&lt;3&gt;&gt; c;
+	
+	cout &lt;&lt; <kbd>"num: "</kbd> &lt;&lt; c.channels &lt;&lt; endl;
+	<var>for</var>(<var>int</var> i = 0; i &lt; c.channels; i++){
+		cout &lt;&lt; i &lt;&lt; <kbd>": "</kbd>;
+		<var>for</var>(<var>int</var> s = 0; s &lt; c.audio[i].size(); s++){
+			cout &lt;&lt; <kbd>" "</kbd> &lt;&lt; c.audio[i][s];
+		}
+		cout &lt;&lt; endl;
+	}
+
+<cite>// I want this output:</cite>
+<cite>// 0: 0 0 0 0 0</cite>
+<cite>// 1: 1 1 1 1 1</cite>
+<cite>// 2: 2 2 2 2 2</cite>
+
+	<var>return</var> 0;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmde6e1a7aac" title="Sun, 02 Nov 2014 07:53:32 +0000"></span><script type="text/javascript">WhenId('CH_zTmde6e1a7aac');</script><noscript>Nov 2, 2014 at 7:53am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771120"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771126"><span title="771126,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771126" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6d55fb0c62" title="Sun, 02 Nov 2014 06:16:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm6d55fb0c62');</script><noscript>Nov 2, 2014 at 6:16am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771126">
+Three options:<br>
+1. <a href="../../../../coliru.stacked-crooked.com/a/e5f4783f874034b2">http://coliru.stacked-crooked.com/a/e5f4783f874034b2</a><br>
+2. <a href="../../../../coliru.stacked-crooked.com/a/c86d203a15a79ec1">http://coliru.stacked-crooked.com/a/c86d203a15a79ec1</a><br>
+3. <a href="../../../../coliru.stacked-crooked.com/a/efa3f315ef62f69a">http://coliru.stacked-crooked.com/a/efa3f315ef62f69a</a><br>
+ 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771126"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771130"><span title="771130,156271,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771130" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm58b569c745" title="Sun, 02 Nov 2014 06:33:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm58b569c745');</script><noscript>Nov 2, 2014 at 6:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mrmonkey/default.htm"><b>mrmonkey</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771130">
+Thanks JL.<br>
+<br>
+I don't really like the 2nd and 3rd because they don't have the syntax I would like. I really want the syntax  " Cable&lt;Static_Property&lt;value&gt;&gt; " for some really nice flexibility when things get more complicated.<br>
+<br>
+With the first solution, it breaks with any type that has a "channels" property...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code><var>template</var>&lt;<var>int</var> channel_count&gt;
+<var>struct</var> Channels {
+	<var>static</var> <var>const</var> <var>int</var> channels = channel_count;
+};
+
+<cite>//adding this...</cite>
+<var>template</var>&lt;<var>int</var> channel_count&gt;
+<var>struct</var> Tricked {
+    <var>static</var> <var>constexpr</var> <var>int</var> channels = channel_count;
+};
+
+<var>int</var> main() {
+        <cite>// compiles...</cite>
+        <cite>// but that makes no sense</cite>
+	Cable&lt; Tricked&lt;3&gt; &gt; c;
+        <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I want to add specialization later on based on Cable&lt;Channels&lt;2&gt;&gt;, Cable&lt;Channels&lt;3&gt;&gt;, etc that do specific mixing, or connections/io and at a minimum the number of channels have to match. It would be nice to catch that at compile time.<br>
+<br>
+So something like this would work...<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>
+Mixer&lt; Slots&lt;20&gt;, Cable&lt;Channels&lt;3&gt;&gt; &gt; m;
+Cable&lt;Channels&lt;2&gt;&gt; c2;
+Cable&lt;Channels&lt;3&gt;&gt; c3;
+m.add_to_mix(c3);  <cite>// ok</cite>
+m.add_to_mix(c2);  <cite>// should fail</cite>
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Is that possible?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm10b8426e96" title="Sun, 02 Nov 2014 07:14:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm10b8426e96');</script><noscript>Nov 2, 2014 at 7:14am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771130"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771181"><span title="771181,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771181" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm38a9d14f9b" title="Sun, 02 Nov 2014 11:10:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm38a9d14f9b');</script><noscript>Nov 2, 2014 at 11:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771181">
+&gt; I really want the syntax " Cable&lt;Static_Property&lt;value&gt;&gt; "<br>
+&gt; it breaks with any type that has a "channels" property...<br>
+&gt; It would be nice to catch that at compile time.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;type_traits&gt;</dfn>
+<dfn>#include &lt;vector&gt;</dfn>
+
+<var>template</var>&lt; <var>int</var> CHANNEL_COUNT &gt; <var>struct</var> Channels {
+
+    <var>static</var> <var>constexpr</var> <var>int</var> channels = CHANNEL_COUNT ;
+};
+
+<var>template</var>&lt; <var>typename</var> T, <var>int</var> = 0 &gt; <var>struct</var> is_channel_ : std::false_type {} ;
+<var>template</var>&lt; <var>int</var> N &gt; <var>struct</var> is_channel_&lt; Channels&lt;N&gt; &gt; : std::true_type {} ;
+<var>template</var>&lt; <var>typename</var> T &gt; <var>constexpr</var> <var>bool</var> is_channel() { <var>return</var> is_channel_&lt;T&gt;::value ; }
+
+<var>template</var>&lt; <var>typename</var> T &gt; <var>struct</var> Cable {
+
+    <var>static_assert</var>( is_channel&lt;T&gt;(), <kbd>"Cable must be intantiated with type Channels&lt;N&gt;"</kbd> ) ;
+
+    <var>static</var> <var>constexpr</var> <var>int</var> channels = T::channels;
+	std::vector&lt;<var>float</var>&gt; audio[channels];
+
+	Cable() {
+		<var>for</var>( <var>int</var> i = 0; i &lt; channels; ++i ) {
+			<var>for</var>( <var>int</var> s = 0; s &lt; 5; s++ ) audio[i].push_back(i);
+        }
+	}
+};
+
+<var>template</var>&lt;<var>int</var> channel_count&gt;
+<var>struct</var> Tricked {
+    <var>static</var> <var>constexpr</var> <var>int</var> channels = channel_count;
+};
+
+<var>int</var> main() {
+    Cable&lt; Channels&lt;3&gt; &gt; this_is_fine ;
+    std::cout &lt;&lt; <kbd>"ok\n\n"</kbd> ;
+    
+    <dfn>#ifdef NOT_OK</dfn>
+        Cable&lt; Tricked&lt;3&gt; &gt; this_is_not_ok ;
+    <dfn>#endif </dfn><cite>// NOT_OK</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>echo 'test Cable&lt; Channels&lt;3&gt; &gt;' &amp;&amp; clang++ -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ &amp;&amp; ./a.out
+
+echo 'test Cable&lt; Tricked&lt;3&gt; &gt;' &amp;&amp; clang++ -DNOT_OK -std=c++14 -stdlib=libc++ -O2 -Wall -Wextra -pedantic-errors -pthread main.cpp -lsupc++ &amp;&amp; ./a.out
+
+test Cable&lt; Channels&lt;3&gt; &gt;
+ok
+
+test Cable&lt; Tricked&lt;3&gt; &gt;
+main.cpp:16:5: error: static_assert failed "Cable must be intantiated with type Channels&lt;N&gt;"
+    static_assert( is_channel&lt;T&gt;(), "Cable must be intantiated with type Channels&lt;N&gt;" ) ;
+    ^              ~~~~~~~~~~~~~~~
+main.cpp:38:29: note: in instantiation of template class 'Cable&lt;Tricked&lt;3&gt; &gt;' requested here
+        Cable&lt; Tricked&lt;3&gt; &gt; this_is_not_ok ;
+                            ^
+1 error generated.</samp></pre></td></tr></table></div><br>
+<a href="../../../../coliru.stacked-crooked.com/a/5fb2c5169c3947f2">http://coliru.stacked-crooked.com/a/5fb2c5169c3947f2</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771181"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771325"><span title="771325,156271,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771325" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm56e7057e9d" title="Sun, 02 Nov 2014 20:19:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm56e7057e9d');</script><noscript>Nov 2, 2014 at 8:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mrmonkey/default.htm"><b>mrmonkey</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771325">
+Thanks again JLBorges. You introduced me to some new template ideas and solved my problem cleanly. Wizardly.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771325"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146647,0,156271,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fge~9.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

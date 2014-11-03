@@ -1,0 +1,562 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146683/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Binary search tree find function - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Binary search tree find function</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Binary search tree find function</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146683,root,0,-1,1,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771235"><span title="771235,112115,1023,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771235" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmec5b676b6b" title="Sun, 02 Nov 2014 15:56:19 +0000"></span><script type="text/javascript">WhenId('CH_zTmec5b676b6b');</script><noscript>Nov 2, 2014 at 3:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/filthy_mcnasty/default.htm"><b>Filthy McNasty</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771235">
+Once I create my binary search tree, there's a find function to find any number in the tree.  However, When searching for a particular number, the program kicks back a large number.  Here's the code:<br>
+<br>
+#include &lt;iostream&gt;<br>
+#include &lt;fstream&gt;<br>
+#include &lt;cstdlib&gt;<br>
+#include &lt;cstdio&gt;<br>
+#include &lt;algorithm&gt;<br>
+<br>
+using namespace std;<br>
+<br>
+struct node<br>
+    {<br>
+        int info;<br>
+        struct node *left;<br>
+        struct node *right;<br>
+    }*root;<br>
+<br>
+class BST<br>
+{<br>
+    public:<br>
+<br>
+        void find(int, node *, node *);    <br>
+        void insert(node *, node *);<br>
+        void del(int);<br>
+        void case_a(node *,node *);<br>
+        void case_b(node *,node *);<br>
+        void case_c(node *,node *);<br>
+        void preorder(node *);<br>
+        void inorder(node *);<br>
+        void postorder(node *);<br>
+        void display(node *, int);<br>
+        BST()<br>
+        {<br>
+           root = NULL;<br>
+        }<br>
+};<br>
+<br>
+<br>
+# include "TRP Class.h"<br>
+# include &lt;cstdlib&gt;<br>
+<br>
+using namespace std;<br>
+<br>
+<br>
+void BST::find(int item, node *loc, node *par)<br>
+<br>
+{<br>
+    node *ptr, *ptrsave;<br>
+    if (root == NULL)<br>
+    {<br>
+        par = NULL;<br>
+        loc = NULL;<br>
+        cout&lt;&lt;item&lt;&lt;" is not found."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    <br>
+    if (item == root-&gt;info)<br>
+    {<br>
+        loc = root;<br>
+        par = NULL;<br>
+        cout&lt;&lt;item&lt;&lt;" is found."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    <br>
+        <br>
+    if (item &lt; root-&gt;info)<br>
+        ptr = root-&gt;left;<br>
+    else<br>
+        ptr = root-&gt;right;<br>
+        ptrsave = root;<br>
+        <br>
+    cout&lt;&lt;item&lt;&lt;" is not found."&lt;&lt;endl;<br>
+            <br>
+    while (ptr != NULL)<br>
+    {<br>
+        if (item == ptr-&gt;info)<br>
+        {     <br>
+            loc = ptr;<br>
+            par = ptrsave;<br>
+            cout&lt;&lt;item&lt;&lt;" is found."&lt;&lt;endl;         <br>
+            return;<br>
+        }<br>
+        ptrsave = ptr;<br>
+        if (item &lt; ptr-&gt;info)<br>
+            ptr = ptr-&gt;left;<br>
+        else<br>
+	        ptr = ptr-&gt;right;<br>
+	        <br>
+        //cout&lt;&lt;item&lt;&lt;" is not found."&lt;&lt;endl;<br>
+      <br>
+    }<br>
+    loc = NULL;<br>
+    par = ptrsave;<br>
+    <br>
+    <br>
+    <br>
+}<br>
+<br>
+<br>
+// Inserting Element<br>
+<br>
+void BST::insert(node *tree, node *newnode)<br>
+<br>
+{<br>
+    if (root == NULL)<br>
+    {<br>
+        root = new node;<br>
+        root-&gt;info = newnode-&gt;info;<br>
+        root-&gt;left = NULL;<br>
+        root-&gt;right = NULL;<br>
+        cout&lt;&lt;"Root Node is Added."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    if (tree-&gt;info == newnode-&gt;info)<br>
+    {<br>
+        cout&lt;&lt;"It's already there, try again."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    if (tree-&gt;info &gt; newnode-&gt;info)<br>
+    {<br>
+        if (tree-&gt;left != NULL)<br>
+        {<br>
+            insert(tree-&gt;left, newnode);	<br>
+	}<br>
+	else<br>
+	{<br>
+            tree-&gt;left = newnode;<br>
+            (tree-&gt;left)-&gt;left = NULL;<br>
+            (tree-&gt;left)-&gt;right = NULL;<br>
+            cout&lt;&lt;"Node Added To Left."&lt;&lt;endl;<br>
+            return;<br>
+        }<br>
+    }<br>
+    else<br>
+    {<br>
+        if (tree-&gt;right != NULL)<br>
+        {<br>
+            insert(tree-&gt;right, newnode);<br>
+        }<br>
+        else<br>
+        {<br>
+            tree-&gt;right = newnode;<br>
+            (tree-&gt;right)-&gt;left = NULL;<br>
+            (tree-&gt;right)-&gt;right = NULL;<br>
+            cout&lt;&lt;"Node Added To Right."&lt;&lt;endl;<br>
+            return;<br>
+        }	<br>
+    }<br>
+}<br>
+<br>
+<br>
+//Delete Element<br>
+<br>
+void BST::del(int item)<br>
+<br>
+{<br>
+    node *parent, *location;<br>
+    if (root == NULL)<br>
+<br>
+    {<br>
+        cout&lt;&lt;"Tree empty."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    find(item, parent, location);<br>
+    if (location == NULL)<br>
+    {<br>
+        cout&lt;&lt;"Item not present in tree."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    if (location-&gt;left == NULL &amp;&amp; location-&gt;right == NULL)<br>
+        case_a(parent, location);<br>
+    if (location-&gt;left != NULL &amp;&amp; location-&gt;right == NULL)<br>
+        case_b(parent, location);<br>
+    if (location-&gt;left == NULL &amp;&amp; location-&gt;right != NULL)<br>
+        case_b(parent, location);<br>
+    if (location-&gt;left != NULL &amp;&amp; location-&gt;right != NULL)<br>
+        case_c(parent, location);<br>
+    free(location);<br>
+}<br>
+<br>
+ <br>
+<br>
+// Case A<br>
+<br>
+void BST::case_a(node *par, node *loc )<br>
+<br>
+{<br>
+    if (par == NULL)<br>
+    {<br>
+        root = NULL;<br>
+    }<br>
+    else<br>
+    {<br>
+        if (loc == par-&gt;left)<br>
+            par-&gt;left = NULL;<br>
+        else<br>
+            par-&gt;right = NULL;<br>
+    }<br>
+}<br>
+<br>
+ <br>
+<br>
+//  Case B<br>
+<br>
+void BST::case_b(node *par, node *loc)<br>
+<br>
+{<br>
+    node *child;<br>
+    if (loc-&gt;left != NULL)<br>
+        child = loc-&gt;left;<br>
+    else<br>
+        child = loc-&gt;right;<br>
+    if (par == NULL)<br>
+    {<br>
+        root = child;<br>
+    }<br>
+    else<br>
+    {<br>
+        if (loc == par-&gt;left)<br>
+            par-&gt;left = child;<br>
+        else<br>
+            par-&gt;right = child;<br>
+    }<br>
+}<br>
+<br>
+ <br>
+<br>
+//  Case C<br>
+<br>
+void BST::case_c(node *par, node *loc)<br>
+<br>
+{<br>
+    node *ptr, *ptrsave, *suc, *parsuc;<br>
+    ptrsave = loc;<br>
+    ptr = loc-&gt;right;<br>
+    while (ptr-&gt;left != NULL)<br>
+    {<br>
+        ptrsave = ptr;<br>
+        ptr = ptr-&gt;left;<br>
+    }<br>
+    suc = ptr;<br>
+    parsuc = ptrsave;<br>
+    if (suc-&gt;left == NULL &amp;&amp; suc-&gt;right == NULL)<br>
+        case_a(parsuc, suc);<br>
+    else<br>
+        case_b(parsuc, suc);<br>
+    if (par == NULL)<br>
+    {<br>
+        root = suc;<br>
+    }<br>
+    else<br>
+    {<br>
+        if (loc == par-&gt;left)<br>
+            par-&gt;left = suc;<br>
+        else<br>
+            par-&gt;right = suc;<br>
+    }<br>
+    suc-&gt;left = loc-&gt;left;<br>
+    suc-&gt;right = loc-&gt;right;<br>
+}<br>
+<br>
+ <br>
+//Preorder<br>
+<br>
+void BST::preorder(node *ptr)<br>
+{<br>
+    if (root == NULL)<br>
+    {<br>
+        cout&lt;&lt;"Tree is empty."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+    if (ptr != NULL)<br>
+    {<br>
+        cout&lt;&lt;ptr-&gt;info&lt;&lt;"  ";<br>
+        preorder(ptr-&gt;left);<br>
+        preorder(ptr-&gt;right);<br>
+    }<br>
+}<br>
+<br>
+// Inorder Traversal<br>
+<br>
+void BST::inorder(node *ptr)<br>
+{<br>
+    if (root == NULL)<br>
+    {<br>
+        cout&lt;&lt;"Tree is empty."&lt;&lt;endl;<br>
+        return;<br>
+    }<br>
+<br>
+    if (ptr != NULL)<br>
+    {<br>
+        inorder(ptr-&gt;left);<br>
+        cout&lt;&lt;ptr-&gt;info&lt;&lt;"  ";<br>
+        inorder(ptr-&gt;right);<br>
+    }<br>
+<br>
+}<br>
+<br>
+// Display<br>
+<br>
+void BST::display(node *ptr, int level)<br>
+<br>
+{<br>
+    int i;<br>
+    if (ptr != NULL)<br>
+    {<br>
+        display(ptr-&gt;right, level+1);<br>
+        cout&lt;&lt;endl;<br>
+        if (ptr == root)<br>
+            cout&lt;&lt;"Root-&gt;:  ";<br>
+        else<br>
+        {<br>
+            for (i = 0;i &lt; level;i++)<br>
+                cout&lt;&lt;"       ";<br>
+	}<br>
+        cout&lt;&lt;ptr-&gt;info;<br>
+        display(ptr-&gt;left, level+1);<br>
+    }<br>
+<br>
+}<br>
+<br>
+<br>
+# include &lt;iostream&gt;<br>
+# include "TRP Class2.h"<br>
+# include &lt;cstdlib&gt;<br>
+<br>
+using namespace std;<br>
+<br>
+int main()<br>
+<br>
+{<br>
+<br>
+    int choice, num;<br>
+    BST bst;<br>
+    node *temp, *find;<br>
+<br>
+    while (1)<br>
+<br>
+    {<br>
+<br>
+        cout&lt;&lt;endl;<br>
+        cout&lt;&lt;"Binary Search Tree"&lt;&lt;endl;<br>
+        cout&lt;&lt;endl;<br>
+        <br>
+        cout&lt;&lt;"1. Display"&lt;&lt;endl;<br>
+        cout&lt;&lt;"2. iNnsert"&lt;&lt;endl;<br>
+        cout&lt;&lt;"3. Find"&lt;&lt;endl;   <br>
+        cout&lt;&lt;"4. Delete"&lt;&lt;endl;<br>
+        cout&lt;&lt;"5. Inorder"&lt;&lt;endl;<br>
+        cout&lt;&lt;"6. Preorder"&lt;&lt;endl;<br>
+        cout&lt;&lt;"7. Quit"&lt;&lt;endl;<br>
+        cout&lt;&lt;"Enter your choice : ";<br>
+<br>
+        cin&gt;&gt;choice;<br>
+        cout&lt;&lt;endl;<br>
+        switch(choice)<br>
+<br>
+        {<br>
+        case 1:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            cout&lt;&lt;"Display BST:"&lt;&lt;endl;<br>
+            bst.display(root,1);<br>
+            cout&lt;&lt;endl;<br>
+            break;<br>
+<br>
+        case 2:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            temp = new node;<br>
+            cout&lt;&lt;"Enter the number.";<br>
+	        cin&gt;&gt;temp-&gt;info;<br>
+            bst.insert(root, temp);<br>
+            break;<br>
+        <br>
+        case 3:<br>
+        <br>
+            cout&lt;&lt;endl;<br>
+            temp = new node;<br>
+            cout&lt;&lt;"Which number?";<br>
+            cin&gt;&gt;num;<br>
+            num = temp-&gt;info;<br>
+            bst.find(num, root, temp);<br>
+            break;<br>
+                <br>
+        case 4:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            if (root == NULL)<br>
+            {<br>
+                cout&lt;&lt;"Tree is empty.  Try again."&lt;&lt;endl;<br>
+                continue;<br>
+            }<br>
+<br>
+            cout&lt;&lt;"Which one?";<br>
+            cin&gt;&gt;num;<br>
+            bst.del(num);<br>
+            break;<br>
+<br>
+        case 5:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            cout&lt;&lt;"Inorder:"&lt;&lt;endl;<br>
+            bst.inorder(root);<br>
+            cout&lt;&lt;endl;<br>
+            break;<br>
+<br>
+    	case 6:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            cout&lt;&lt;"Preorder:"&lt;&lt;endl;<br>
+            bst.preorder(root);<br>
+            cout&lt;&lt;endl;<br>
+            break;<br>
+<br>
+<br>
+        case 7:<br>
+<br>
+            exit(1);<br>
+<br>
+        default:<br>
+<br>
+            cout&lt;&lt;endl;<br>
+            cout&lt;&lt;"No.  Try again."&lt;&lt;endl;<br>
+<br>
+        }<br>
+<br>
+    }<br>
+<br>
+}<br>
+<br>
+<br>
+I would insert the number, then try to find the same number.  The number it would kick back is a giant one.  For example, I would enter 5, then it would kick back "6497696 is not found."  Am I pointing to the wrong node?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771235"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146683,0,112115,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~400.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

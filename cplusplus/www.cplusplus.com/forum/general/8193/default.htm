@@ -1,0 +1,430 @@
+<!DOCTYPE html><!-- saved from url=(0055)http://www.cplusplus.com/forum/general/8193/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using exceptions: a bad style?! - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Using exceptions: a bad style?!</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Using exceptions: a bad style?!</h3><span id="CH_edttl"></span><span class="rootdatPost" title="8193,root,0,-1,14,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg37893"><span title="37893,18635,1023,136,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37893" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9fcc9d6e9d" title="Fri, 27 Feb 2009 11:43:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm9fcc9d6e9d');</script><noscript>Feb 27, 2009 at 11:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/karlisrepsons/default.htm"><b>KarlisRepsons</b> (136)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37893">
+Good day again,<br>
+today I have a more general question about safe programming!<br>
+I will base it on a simple example about std::string: it MAY happen, there is not enough memory to construct it from some other character container, but constructors do not return any value. So, exceptions MUST be used to be sure, unless some "paranoid" comparing is done after construction (or operator= too!).<br>
+Well, why not, but it is a conclusion for me, that I MUST check for exceptions, which may seam a "waste of time" and seams strange for those having long programmed in C. For example Linus Torvalds is apparently not going to accept C++.<br>
+<br>
+And the question really is: why are there people, who say they are using C++, but not exceptions? Are they refraining from using string, vector etc? I found advices for Mozilla developers not to use exceptions, because they "are not portable"! (see <a href="../../../../httpsdeveloper.mozilla.org/en/c___portability_guide">https://developer.mozilla.org/En/C___Portability_Guide</a> )<br>
+<br>
+If exceptions can't be used, it turns out to me, considerable parts of C++ become useless. At lest unsafe. Your opinion?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37893"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37897"><span title="37897,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37897" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmadf95a1b0e" title="Fri, 27 Feb 2009 12:05:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmadf95a1b0e');</script><noscript>Feb 27, 2009 at 12:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37897">
+C++ provides a flexible environment.  It needs to do so to support a variety of environments.<br>
+<br>
+C++ does not enforce a particular paradigm or style or standard.  It allows you use a particular paradigm or style or standard.<br>
+<br>
+It's quite fine for a project to say, "I want this policy" or "I want that policy", and that's fine.  But C++ has a much larger scope than any one project and should not be subject to global constraints.<br>
+<br>
+For example, an environment that supports exceptions is more costly to implement than one that does not.  Just because you use C++ does not mean that you have to be saddled with this burden if you don't want it.<br>
+<br>
+RTTI is an extra cost too.  And again you have a choice.<br>
+<br>
+C++ apps shouldn't be constrained to running on a traditional OS' with multi-gigahetz processors and gigabytes of RAM.<br>
+<br>
+Mozilla is an old(ish) portable app that predates stable implementations of newer C++ features.  It's been ported to many OS' against different versions of the compiler.  We haven't always had the luxury of stable implementations of STL, exceptions, RTTI ...
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc61cbf5b67" title="Fri, 27 Feb 2009 12:16:27 +0000"></span><script type="text/javascript">WhenId('CH_zTmc61cbf5b67');</script><noscript>Feb 27, 2009 at 12:16pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn37897"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37906"><span title="37906,13288,1023,323,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37906" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbb92774f4a" title="Fri, 27 Feb 2009 12:54:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmbb92774f4a');</script><noscript>Feb 27, 2009 at 12:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/exception/default.htm"><b>exception</b> (323)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37906">
+You can use the nothrow new in order to avoid exceptions to be thrown by constructors (and most assignment operators, for that matter, as they are implemented by means of copy constructor and a (nothrow) swap). Exception safety is a major and nontrivial issue.<br>
+<table class="quote"><tr><td class="qd">If exceptions can't be used, it turns out to me, considerable parts of C++ become useless. At lest unsafe.</td></tr></table><br>
+That is certainly true. On that note, Mozilla's software isn't exactly the most stable I have encountered. However, if you know what exceptions could occur and under which circumstances, but you don't catch them explicitly, you can still write better (i.e., safer) code that if you have big "catch(...)"-blocks everywhere but don't really know what exceptions could occur and why (to quote Herb: "Exception safety doesn't mean 'try'-ing").<br>
+Considering your example: most memory allocation strategies of the operating system prevent the exception "bad_alloc" to be thrown when out of memory. Did you know? I guess not; so my code, even if I don't check for this particular exception (because it most likely isn't thrown anyways), might be safer, since I might expect the error to occur at another time with another symptom, and check for that. You might catch the exception and expect everything to be fine afterwards, which might be premature.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37906"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37907"><span title="37907,18635,1023,136,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37907" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm00c79a9e77" title="Fri, 27 Feb 2009 12:56:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm00c79a9e77');</script><noscript>Feb 27, 2009 at 12:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/karlisrepsons/default.htm"><b>KarlisRepsons</b> (136)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37907">
+<table class="quote"><tr><td class="qd">For example, an environment that supports exceptions is more costly to implement than one that does not. Just because you use C++ does not mean that you have to be saddled with this burden if you don't want it.</td></tr></table> Hey, but what choice do I have about std::string? Not to use it? Make some extra comparing?? They appear the two of other choices besides exceptions.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37907"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37909"><span title="37909,18635,1023,136,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37909" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmca5685293c" title="Fri, 27 Feb 2009 13:06:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmca5685293c');</script><noscript>Feb 27, 2009 at 1:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/karlisrepsons/default.htm"><b>KarlisRepsons</b> (136)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37909">
+<table class="quote"><tr><td class="qd">You might catch the exception and expect everything to be fine afterwards, which might be premature.</td></tr></table> Thank you. Well, this all makes me opposed to use std::string and other "nice" elements of STL. To hell, if I can't know easily if they work, why should I use them?! (Oh, I remind me Linus about this!) It appears then very clear about why are big codes using their own base types. For example OpenFOAM: it has its own string, label, various lists and tables and so on.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37909"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37913"><span title="37913,10532,1023,5804,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37913" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaae84d819b" title="Fri, 27 Feb 2009 13:51:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmaae84d819b');</script><noscript>Feb 27, 2009 at 1:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jsmith/default.htm"><b>jsmith</b> (5804)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37913">
+IMHO most people don't use exceptions either because they don't know about them or they don't know how to use them.  It is not easy to write exception-safe code.<br>
+<br>
+I would not say that projects use their own custom string class to avoid std::string's use of exceptions.  I've worked on many projects (professionally) and most of the time the decision is made for other reasons such as the need for a thread-safe string implementation, etc.<br>
+<br>
+The exceptions thrown by STL can probably be broadly classified into two categories:  1) out of memory, and 2) your own programming error.<br>
+<br>
+Your own custom code has to deal with out of memory conditions anyway, so you aren't buying anything there.  And the second one isn't even STL's fault, so again, you would have to deal with the error yourself anyway.  For example, accessing an element of a vector&lt;&gt; using at() that does not exist.  Your own custom vector&lt;&gt; class would need to give some kind of error back to the caller, so why not use an exception?<br>
+<br>
+In many cases programmers simply ignore out of memory conditions because there is little that can be done.  For example, printf( "Out of memory\n" ); may very well try to allocate memory which will itself fail.  Do I catch std::bad_alloc ever in my code?  No, for the above reason and also for the reason that helios mentioned above:  in Linux, for example, with overcommit_memory turned on, the act of allocating memory will fail ONLY if your process runs out of virtual address space.  Linux does not actually reserve physical memory for the allocation until you write to the pages you just allocated.<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37913"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37962"><span title="37962,19527,1023,27,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37962" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma196c5e893" title="Fri, 27 Feb 2009 19:34:09 +0000"></span><script type="text/javascript">WhenId('CH_zTma196c5e893');</script><noscript>Feb 27, 2009 at 7:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/skorj/default.htm"><b>Skorj</b> (27)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37962">
+There are two error handling styles that work for lagre projects:<br>
+<br>
+Style 1 - "C-style". Try not to throw exceptions.  *All* functions return a status code.  Check for error after *every* function call, ever.  In this style, every function call is normally 5-6 lines of code.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> frobby;
+<var>int</var> status;
+
+status = CheckForFrobs(thing, &amp;frobby);
+<var>if</var> ( status != SUCCESS )
+{
+    LOG_AN_ERROR(__FUNCTION__, __LINE__);
+    <var>goto</var> cleanup;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Note the goto.  You must either do RAII-style coding, or have a cleanup block at the bottom of every funtion, and never return from the middle (or you'll get memory leaks and handle leaks).<br>
+<br>
+<br>
+Style 2 - exception safe.  All functions must be exception safe.  All classes must automatically clean up after themselves (usually RAII style). This is hard to learn how to do correctly.  However, you can seriously shorten your code by 80%.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>bool</var> frobby;
+
+frobby = CheckForFrobs(thing);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Note how the logic flow is obvious here, but takes some work to spot in the C style.<br>
+<br>
+I'm convinced that there's a signiicant attachment to the C style by people who are measured by lines of code written, not results (which is far too common).<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmfb7e001529" title="Fri, 27 Feb 2009 19:35:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmfb7e001529');</script><noscript>Feb 27, 2009 at 7:35pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn37962"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38104"><span title="38104,18635,1023,136,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38104" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm90c7c799e6" title="Sat, 28 Feb 2009 18:43:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm90c7c799e6');</script><noscript>Feb 28, 2009 at 6:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/karlisrepsons/default.htm"><b>KarlisRepsons</b> (136)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38104">
+<table class="quote"><tr><td class="qd">most memory allocation strategies of the operating system prevent the exception "bad_alloc" to be thrown when out of memory. Did you know? I guess not;</td></tr></table> Just in case, I would like to ask if C malloc can be prevented from returning 0 after no memory has actually been allocated? (I am not meaning hardware errors)<br>
+<br>
+Also:<br>
+if I have a code like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> fx(){
+<var>int</var> i = 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ Is it possible that there is no memory for i?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm955f133ec2" title="Sat, 28 Feb 2009 18:50:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm955f133ec2');</script><noscript>Feb 28, 2009 at 6:50pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn38104"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38181"><span title="38181,18360,1023,12940,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38181" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmedb6ba57ea" title="Sun, 01 Mar 2009 03:17:01 +0000"></span><script type="text/javascript">WhenId('CH_zTmedb6ba57ea');</script><noscript>Mar 1, 2009 at 3:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12940)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38181">
+That's stack memory, not heap memory.  If you run out of stack memory I think your program will crash with a stack overflow error (not sure whether or not an exception is thrown).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn38181"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38257"><span title="38257,11177,1023,2730,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38257" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm174f826de0" title="Sun, 01 Mar 2009 20:22:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm174f826de0');</script><noscript>Mar 1, 2009 at 8:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zaita/default.htm"><b>Zaita</b> (2730)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38257">
+<span class="auto"><code class="source">IMHO most people don<kbd>'t use exceptions either because they don'</kbd>t know about them or they don<kbd>'t know how to use them. It is not easy to write exception-safe code. </kbd></code></span><br>
+<br>
++1<br>
+<br>
+@Karlis: No. If you declare the variable locally there should always be enough memory for it. The stack should grow to accomidate it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn38257"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38370"><span title="38370,18635,1023,136,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38370" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm469fc4f929" title="Mon, 02 Mar 2009 17:39:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm469fc4f929');</script><noscript>Mar 2, 2009 at 5:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/karlisrepsons/default.htm"><b>KarlisRepsons</b> (136)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38370">
+<table class="quote"><tr><td class="qd">Style 2 - exception safe. All functions must be exception safe. All classes must automatically clean up after themselves (usually RAII style). This is hard to learn how to do correctly. However, you can seriously shorten your code by 80%.</td></tr></table> To be honest, I have no idea what "exception safe" means. Maybe "for every throw there is a catch"? Also how about computation performance drop, if exceptions are used in some code with big executing redundancy? 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn38370"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38394"><span title="38394,11177,1023,2730,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38394" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm978ae5068e" title="Mon, 02 Mar 2009 20:42:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm978ae5068e');</script><noscript>Mar 2, 2009 at 8:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zaita/default.htm"><b>Zaita</b> (2730)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38394">
+Having execution safe code (entering a try block) is extremely slow. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn38394"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38426"><span title="38426,9435,1023,4177,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38426" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm841adfd40d" title="Mon, 02 Mar 2009 22:50:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm841adfd40d');</script><noscript>Mar 2, 2009 at 10:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/grey_wolf/default.htm"><b>Grey Wolf</b> (4177)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38426">
+<table class="quote"><tr><td class="qd">A piece of code is said to be exception-safe, if run-time failures within the code will not produce ill effects, such as memory leaks, garbled stored data, or invalid output. Exception-safe code must satisfy invariants placed on the code even if exceptions occur. There are several levels of exception safety:<br>
+<br>
+<b>Failure transparency</b>, also known as the <b>no throw guarantee</b>: Operations are guaranteed to succeed and satisfy all requirements even in presence of exceptional situations. If an exception occurs, it will not throw the exception further up. (Best level of exception safety.) <br>
+<br>
+<b>Commit or rollback semantics</b>, also known as <b>strong exception safety</b> or <b>no-change guarantee</b>: Operations can fail, but failed operations are guaranteed to have no side effects so all data retain original values. <br>
+<br>
+<b>Basic exception safety</b>: Partial execution of failed operations can cause side effects, but invariants on the state are preserved. Any stored data will contain valid values even if data has different values now from before the exception. <br>
+<br>
+<b>Minimal exception safety</b> also known as <b>no-leak guarantee</b>: Partial execution of failed operations may store invalid data but will not cause a crash, and no resources get leaked. <br>
+<br>
+<b>No exception safety</b>: No guarantees are made. (Worst level of exception safety)</td></tr></table> <br>
+from <b>Exception handling</b>
+<sup>From Wikipedia, the free encyclopedia</sup>
+<sup><a href="../../../../en.wikipedia.org/wiki/exception_handling">http://en.wikipedia.org/wiki/Exception_handling</a></sup>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0e51250b4a" title="Mon, 02 Mar 2009 22:53:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm0e51250b4a');</script><noscript>Mar 2, 2009 at 10:53pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn38426"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg38428"><span title="38428,19527,1023,27,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg38428" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma8b31f62ac" title="Mon, 02 Mar 2009 22:55:28 +0000"></span><script type="text/javascript">WhenId('CH_zTma8b31f62ac');</script><noscript>Mar 2, 2009 at 10:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/skorj/default.htm"><b>Skorj</b> (27)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i38428">
+Karlis:<br>
+<table class="quote"><tr><td class="qd">To be honest, I have no idea what "exception safe" means. Maybe "for every throw there is a catch"? </td></tr></table><br>
+An exception safe class is one that is guaranteed to clean up any resources that it allocates.  Exception-safe code uses only such classes, and never contains a "naked" new, malloc, file open, or anything else that requires a matching close/free.<br>
+<br>
+For example, if the class has a file handle, the destructor closes the handle; if the class allocates memory, the destructor frees memory.  Because this can be hard to get right 100% of the time, you build such classes from simple primitives, such as auto_ptr, shared_ptr, and a self-closing file handle.  Ideally, your destructor should have nothing to clean up, as all member variables should be self-cleaning.<br>
+<br>
+Putting classes like that on the stack (local variables) is exception safe.  There is never any "clean-up" code at the bottom of a function - ever.   Since all classes clean themselves up, you never have to care whether a function exits normally, exits with error, or something it calls throws.<br>
+<br>
+<br>
+Zaita:<br>
+<table class="quote"><tr><td class="qd">Having execution safe code (entering a try block) is extremely slow. </td></tr></table><br>
+I believe the total cost in the MS compiler of entering a try block is pushing one more argument on the stack.  I'd be interested to see evidence of "extremely slow".  Unwinding the stack on a throw can be costly, of course, but no mor so than returning normally "up the stack" would have been.<br>
+<br>
+In any case, if you have lots of try/catch blocks, you're doing it wrong.  The only places you should catch exceptions are at a "formal API boundary" (such as a dll boundary) or in those rare cases that you can actually do something about the problem that caused the exception.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn38428"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(8193,1,18635,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~458.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

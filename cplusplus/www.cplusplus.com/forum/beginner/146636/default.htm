@@ -1,0 +1,585 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146636/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>expected Unqualified id error - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">expected Unqualified id error</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> expected Unqualified id error</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146636,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771074"><span title="771074,156266,255,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771074" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm58cef8d9c0" title="Sun, 02 Nov 2014 03:28:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm58cef8d9c0');</script><noscript>Nov 2, 2014 at 3:28am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akula/default.htm"><b>Akula</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771074">
+not 100% sure what's going wrong or why it's stating the "expected unqaulfied id before 'int' the error is on line 20<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br></code></pre></td>
+<td class="source"><pre><code>  <cite>//Program by Garrett Mathew Demers</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> doOneSet();
+
+<var>int</var> main()
+    {
+        srand(time(0));
+        doOneSet();
+    }
+
+
+
+    <var>int</var> doOneSet()
+    {
+
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>int</var> userinput;
+    <var>int</var>
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt; cin &lt;&lt;answer endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    }
+    <var>int</var> num1=0, <var>int</var> num2=0, maximum100;
+    <var>for</var> (<var>int</var> count =0, count &lt;=5, count++)
+    {
+    num1=rand()% (maxnum+1);
+    num2=rand()% (maxnum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt;endl;
+    };
+
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771074"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771079"><span title="771079,155137,1023,5,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771079" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmae5c672e52" title="Sun, 02 Nov 2014 03:36:46 +0000"></span><script type="text/javascript">WhenId('CH_zTmae5c672e52');</script><noscript>Nov 2, 2014 at 3:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cs_student/default.htm"><b>CS Student</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771079">
+Ummm, I don't know what you're trying to do here. Try making your variable separate and not on one line like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> num1=0;
+<var>int</var> num2=0; 
+<var>int</var> maximum100; (or <var>int</var> maximum = 100)</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771079"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771085"><span title="771085,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771085" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbabbdca27e" title="Sun, 02 Nov 2014 03:56:59 +0000"></span><script type="text/javascript">WhenId('CH_zTmbabbdca27e');</script><noscript>Nov 2, 2014 at 3:56am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771085">
+Hi,<br>
+<br>
+Welcome to Cplusplus :+)<br>
+<br>
+First up, if you have compilation errors, then please post them in full. We like to see exactly what the compiler is saying.<br>
+<br>
+I understand you are a beginner so understand I am not trying to be harsh, it is just that I write in a terse fashion sometimes.<br>
+<br>
+There are a number of problems with your code:<br>
+<br>
+You have unused variables, uninitialised variables, and non-declared variables.<br>
+<br>
+What is the purpose of cin on line 27?<br>
+<br>
+You also have a lot of repeated code - can you figure out how to use another loop to reduce your code by about 50 lines? Or, put another way: How would you write the code to process 1000 numbers instead of only 8? Would you have 5000 lines of code?<br>
+<br>
+Which compiler are you using? Try  to sort out how to set the warnings to their maximum level. <br>
+<br>
+Don't have magic numbers like 5 in your code - make them const variables instead:<br>
+<br>
+<span class="auto"><code class="source"><var>const</var> <var>int</var> NumOfRandValues = 5;</code></span><br>
+<br>
+the normal idiom for a for loop is :<br>
+<br>
+<span class="auto"><code class="source"><var>for</var> (<var>int</var> count =0 <b>;</b> count <b>&lt;</b> NumOfRandValues <b>;</b> count++) {}</code></span><br>
+<br>
+If you use the &lt;= operator, it will run 1 more time than what you specify. In your case (had you used the semicolons) it would run 6 times.<br>
+<br>
+I strongly suggest you read the tutorial on this site - look at the link on the top left of this page.<br>
+<br>
+Hope all is well :+)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771085"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771095"><span title="771095,156266,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771095" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm933e07c677" title="Sun, 02 Nov 2014 04:28:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm933e07c677');</script><noscript>Nov 2, 2014 at 4:28am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akula/default.htm"><b>Akula</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771095">
+Sorry about that, thanks for being easy on me.<br>
+Here's the complete list of errors <br>
+||In function 'int doOneSet()':|<br>
+|25|error: expected unqualified-id before 'for'|<br>
+|31|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|31|error: expected unqualified-id before 'int'|<br>
+|32|error: expected initializer before '&lt;=' token|<br>
+|32|error: expected ';' before '&lt;=' token|<br>
+|32|error: expected primary-expression before '&lt;=' token|<br>
+|32|error: expected ';' before ')' token|<br>
+|34|error: 'maxnum' was not declared in this scope|<br>
+|38|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|38|error: expected unqualified-id before 'int'|<br>
+|39|error: expected initializer before '&lt;=' token|<br>
+|39|error: expected ';' before '&lt;=' token|<br>
+|39|error: expected primary-expression before '&lt;=' token|<br>
+|39|error: expected ';' before ')' token|<br>
+|41|error: 'maxnum' was not declared in this scope|<br>
+|45|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|45|error: expected unqualified-id before 'int'|<br>
+|46|error: expected initializer before '&lt;=' token|<br>
+|46|error: expected ';' before '&lt;=' token|<br>
+|46|error: expected primary-expression before '&lt;=' token|<br>
+|46|error: expected ';' before ')' token|<br>
+|48|error: 'maxnum' was not declared in this scope|<br>
+|52|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|52|error: expected unqualified-id before 'int'|<br>
+|53|error: expected initializer before '&lt;=' token|<br>
+|53|error: expected ';' before '&lt;=' token|<br>
+|53|error: expected primary-expression before '&lt;=' token|<br>
+|53|error: expected ';' before ')' token|<br>
+|55|error: 'maxnum' was not declared in this scope|<br>
+|59|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|59|error: expected unqualified-id before 'int'|<br>
+|60|error: expected initializer before '&lt;=' token|<br>
+|60|error: expected ';' before '&lt;=' token|<br>
+|60|error: expected primary-expression before '&lt;=' token|<br>
+|60|error: expected ';' before ')' token|<br>
+|62|error: 'maxnum' was not declared in this scope|<br>
+|66|error: redeclaration of 'int num1'|<br>
+|20|error: 'int num1' previously declared here|<br>
+|66|error: expected unqualified-id before 'int'|<br>
+|67|error: expected initializer before '&lt;=' token|<br>
+|67|error: expected ';' before '&lt;=' token|<br>
+|67|error: expected primary-expression before '&lt;=' token|<br>
+|67|error: expected ';' before ')' token|<br>
+|69|error: 'maxnum' was not declared in this scope|<br>
+|72|error: expected '}' at end of input|<br>
+||More errors follow but not being shown.|<br>
+||Edit the max errors limit in compiler options...|<br>
+||=== Build failed: 50 error(s), 0 warning(s) (0 minute(s), 0 second(s)) ===|<br>
+yikes:<br>
+the cin is for the user to input the answer the program itself is meant to generate random math problems and ask the user to solve them.<br>
+I'm using code blocks, I'll work on the loops.<br>
+i did as you suggested for the number of inputs
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771095"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771115"><span title="771115,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771115" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc52782a09c" title="Sun, 02 Nov 2014 05:42:39 +0000"></span><script type="text/javascript">WhenId('CH_zTmc52782a09c');</script><noscript>Nov 2, 2014 at 5:42am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771115">
+Hi,<br>
+<br>
+The errors don't match the line numbers with the code you posted.<br>
+<br>
+<table class="quote"><tr><td class="qd">25|error: expected unqualified-id before 'for'|</td></tr></table><br>
+<br>
+line 22 has a problem.<br>
+<br>
+<table class="quote"><tr><td class="qd">|31|error: redeclaration of 'int num1'|</td></tr></table><br>
+<br>
+One can only declare variables once. line 29<br>
+<br>
+<table class="quote"><tr><td class="qd">|31|error: expected unqualified-id before 'int'|</td></tr></table><br>
+you need semicolons between statements, as in :<br>
+<br>
+<span class="auto"><code class="source"><var>int</var> num1=0; <var>int</var> num2=0; <var>int</var>  maximum100;</code></span><br>
+<br>
+You probably meant to do this:<br>
+<br>
+<span class="auto"><code class="source"><var>int</var> num1 = num2 = 0;</code></span><br>
+<br>
+Better yet don't do that -  do this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> num1 = 0;
+<var>int</var> num2 = 0;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<table class="quote"><tr><td class="qd">|32|error: expected initializer before '&lt;=' token|<br>
+|32|error: expected ';' before '&lt;=' token|<br>
+|32|error: expected primary-expression before '&lt;=' token|<br>
+|32|error: expected ';' before ')' token|</td></tr></table><br>
+<br>
+<br>
+This is because of the comma's instead of semicolons in the for loop.<br>
+<br>
+<table class="quote"><tr><td class="qd">|34|error: 'maxnum' was not declared in this scope|<br>
+</td></tr></table><br>
+<br>
+as it says <span class="auto"><code class="source">maxnum </code></span>was not declared.<br>
+<br>
+<table class="quote"><tr><td class="qd">|72|error: expected '}' at end of input|</td></tr></table><br>
+<br>
+You are missing the closing brace for your function. Try to get your IDE to automatically add closing braces and parentheses brackets etc. Or get into the habit of typing <span class="auto"><code class="source">{}</code></span>, then going back to fill in.<br>
+<br>
+So think about what your program does: It generates 2 random numbers then it is supposed to add them (it doesn't) and output the result. It does this 5 times. Then it does what it has already done, 8 times.<br>
+<br>
+So you could have an outer loop that that does the inner loop 8 times.<br>
+<br>
+<table class="quote"><tr><td class="qd">the cin is for the user to input the answer the program itself is meant to generate random math problems and ask the user to solve them.<br>
+</td></tr></table><br>
+<br>
+Ok, that is not how you store a value - assign the value to a variable:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> answer = num1 + num2;
+cout &lt;&lt; num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt; answer &lt;&lt; sendl;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<table class="quote"><tr><td class="qd">I'm using code blocks</td></tr></table><br>
+<br>
+That is your IDE Integrated Development Environment which includes an editor, compiler, linker and debugger amongst other things. Your compiler is hopefully g++, if so set the warnings to <span class="auto"><code class="source">-Wall -Wextra -pedantic</code></span> you will have to try &amp; find out where in your system to do this.<br>
+<br>
+:+)<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm213a74632d" title="Sun, 02 Nov 2014 06:11:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm213a74632d');</script><noscript>Nov 2, 2014 at 6:11am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771115"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771118"><span title="771118,156266,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771118" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcb90f838ef" title="Sun, 02 Nov 2014 05:57:02 +0000"></span><script type="text/javascript">WhenId('CH_zTmcb90f838ef');</script><noscript>Nov 2, 2014 at 5:57am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akula/default.htm"><b>Akula</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771118">
+I'm not sure how I buggered the copy paste bit for the code.<br>
+I think i've fixed the Num1/num2 issues<br>
+<br>
+the goal of the program is to generate two random numbers and ask the user to perform an arithmetic function ( I started with addition) I will then elaborate  upon it with multiplication and subtraction <br>
+I've fixed my intitial issue but now the check doesn't work<br>
+ <div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br></code></pre></td>
+<td class="source"><pre><code><cite>//Program by Garrett Mathew Demers</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> doOneSet();
+
+<var>int</var> main()
+    {
+        srand(time(0));
+        doOneSet();
+    }
+
+
+
+    <var>int</var> doOneSet()
+    {
+
+    <var>int</var> num1=0;
+    <var>int</var> num2=0;
+    <var>int</var> maximum=100;
+    <var>int</var> userinput;
+    <var>int</var> answer;
+    <var>int</var> num3;
+    <var>const</var> <var>int</var> numofvalues = 5;
+    <var>for</var> (<var>int</var> count =0; count&lt;numofvalues; count++)
+    {
+    num1=rand()% (maximum+1);
+    num2=rand()% (maximum+1);
+    cout &lt;&lt;num1 &lt;&lt; <kbd>"+"</kbd> &lt;&lt;num2 &lt;&lt; <kbd>"="</kbd>&lt;&lt; endl;
+    cin&gt;&gt; answer;
+num3= num1 + num2;
+<var>if</var> ( num3 = answer){
+    cout &lt;&lt; <kbd>"correct"</kbd>&lt;&lt; endl; <cite>// i don't really understand what's happening here but i can't get the errors to stop</cite>
+<cite>// it just keeps putting correct regardless of whether or not it is</cite>
+} 
+    <var>else</var>{
+cout &lt;&lt; <kbd>"incorrect"</kbd> &lt;&lt; endl;
+}
+}
+    }
+
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmf0b215c6a5" title="Sun, 02 Nov 2014 05:59:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmf0b215c6a5');</script><noscript>Nov 2, 2014 at 5:59am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771118"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771125"><span title="771125,88654,1023,2981,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771125" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm900619b9a1" title="Sun, 02 Nov 2014 06:15:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm900619b9a1');</script><noscript>Nov 2, 2014 at 6:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/theideasman/default.htm"><b>TheIdeasMan</b> (2981)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771125">
+<span class="auto"><code class="source">= </code></span>is assignment always true<br>
+<br>
+<span class="auto"><code class="source">==</code></span> is equality comparison<br>
+<br>
+<b>Read the tutorial</b>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771125"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771206"><span title="771206,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771206" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm568ff07575" title="Sun, 02 Nov 2014 13:42:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm568ff07575');</script><noscript>Nov 2, 2014 at 1:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771206">
+That means you use == in 'if' statements and simple = to give a variable a value:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> i = 0;
+<var>if</var>(i == 0)
+{
+    [...]
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1bc884446a" title="Sun, 02 Nov 2014 13:43:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm1bc884446a');</script><noscript>Nov 2, 2014 at 1:43pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771206"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771254"><span title="771254,151348,1023,37,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771254" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm601aba7462" title="Sun, 02 Nov 2014 17:01:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm601aba7462');</script><noscript>Nov 2, 2014 at 5:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/srscode/default.htm"><b>srscode</b> (37)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771254">
+Line 20:<br>
+<span class="auto"><code class="source"><var>int</var> num1=0, <var>int</var> num2=0, maximum100;</code></span><br>
+<br>
+Should be:<br>
+<span class="auto"><code class="source"><var>int</var> num1=0; <var>int</var> num2=0; <var>int</var> maximum100;</code></span><br>
+<br>
+Or: <br>
+<span class="auto"><code class="source"><var>int</var> num1=0, num2=0, maximum100;</code></span>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm991e27a884" title="Sun, 02 Nov 2014 17:03:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm991e27a884');</script><noscript>Nov 2, 2014 at 5:03pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771254"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771260"><span title="771260,156266,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771260" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm21bd6d1dfb" title="Sun, 02 Nov 2014 17:13:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm21bd6d1dfb');</script><noscript>Nov 2, 2014 at 5:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/akula/default.htm"><b>Akula</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771260">
+The issues i was having with this segment of the program have been worked out, <br>
+Now i just have to workout how i'm going to make it perform the other operations with this style int main<br>
+  int main()<br>
+    {<br>
+        srand(time(0));    <br>
+        doOneSet('+');<br>
+        doOneSet('-');<br>
+        doOneSet('*');<br>
+    }<br>
+but that's separate issue<br>
+thanks for the help<br>
+-Garrett
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771260"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146636,0,156266,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~212.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

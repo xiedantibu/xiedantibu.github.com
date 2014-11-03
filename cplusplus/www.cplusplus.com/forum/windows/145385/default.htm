@@ -1,0 +1,215 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/145385/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Access a username/password protected url - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Access a username/password protected url</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Access a username/password protected url through C++</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145385,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg765649"><span title="765649,154927,255,1,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765649" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4349a55269" title="Sun, 19 Oct 2014 16:57:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm4349a55269');</script><noscript>Oct 19, 2014 at 4:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ruimac/default.htm"><b>ruimac</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765649">
+I'm an individual developer (not a professional developer. I'm a graphic designer who likes to code ) and I mainly code plugins for Cinema 4D (I don't know if anyone knows this application).<br>
+<br>
+I used to code in COFFEE (a javascript like language, only for Cinema 4D) and python.<br>
+But, recently, I started coding in C++.<br>
+<br>
+I start my development on a Mac, using Xcode. But then, to generate Windows versions of my plugins, I take my source code to Visual Studio, perform the necessary adjustments, and create Win32 and Win64 code.<br>
+<br>
+Lately, I was trying to devise a scheme to protect my plugins from being pirated. Yes, I know it is virtually impossible, but if I could make it harder for hackers to crack my plugins, it would be fine.<br>
+I made it work fine in python and in C++, but only in Xcode.<br>
+<br>
+In Windows it is a headache. I only need to be able to access a username/password protected folder in my server and check if there is a file there. I don't even need to read the content of the file (but it would be nice to be able to do that too).<br>
+<br>
+I started out using the cURL library but it is so complicated to make it work. I need 32 and 64 bit versions. Then I also have to include three .dll files in the folder of the application (that means that I would have to ask to the people who buy my plugins to copy three additional files to the main application folder... not a good thing )<br>
+<br>
+So, would anyone point me in the right direction to find a way to access a username/password protected folder on the net? (the username/password is generated in my code so, of course, I know what are the username/password to provide).<br>
+<br>
+Also, I would need a way for the code to be completely self-contained, meaning that the users would not have to manually add any other files (libraries), besides the folder containing my plugin.<br>
+<br>
+And, if the solution was free, it would be great. I'm a freelancer and I don't even sell my plugins for a lot of money.<br>
+<br>
+Thank you all, in advance. <br>
+<br>
+Rui Batista<br>
+<br>
+p.s. I was told that I could use WinInet because all the required .dll files are already included in Windows (from Windows 2000 upwards). Is that correct? If yes, could anyone point me to a simple working code snippet that would allow be to check for the existence of a file in a username/password protected folder in a URL?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765649"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766081"><span title="766081,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766081" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9f5d534e0b" title="Mon, 20 Oct 2014 17:36:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm9f5d534e0b');</script><noscript>Oct 20, 2014 at 5:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766081">
+If you already have this working on your Mac then the easiest solution maybe to just fix whatever is broken with the C++ part of your solution (although I question the idea of writing an authentication module in a plain text interpreted language like Python). <br>
+<br>
+So I guess the question is, what part of your code is breaking in a Windows environment?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766081"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766083"><span title="766083,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766083" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm30775a6e90" title="Mon, 20 Oct 2014 17:41:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm30775a6e90');</script><noscript>Oct 20, 2014 at 5:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766083">
+libcurl is the way to go, it works the same on Windows and Mac.<br>
+<a href="../../../../curl.haxx.se/libcurl/default.htm">http://curl.haxx.se/libcurl/</a><br>
+<br>
+You said using curl is complicated, but using WinInet will be a nightmare :)<br>
+Look at the most simple curl program:<br>
+<a href="../../../../curl.haxx.se/libcurl/c/simple.html">http://curl.haxx.se/libcurl/c/simple.html</a><br>
+<br>
+Solution 1:<br>
+To use a "username" and "password" just make the URL like this:<br>
+<br>
+original - www.example.com<br>
+with username and password: username:password@www.example.com<br>
+<br>
+Solution 2:<br>
+Use CURLOPT_USERNAME and CURLOPT_PASSWORD options to curl_easy_setopt() and leave the URL unchanged:<br>
+<a href="../../../../curl.haxx.se/libcurl/c/curlopt_username.html">http://curl.haxx.se/libcurl/c/CURLOPT_USERNAME.html</a><br>
+<a href="../../../../curl.haxx.se/libcurl/c/curlopt_password.html">http://curl.haxx.se/libcurl/c/CURLOPT_PASSWORD.html</a><br>
+<br>
+<br>
+Try to do this with WinInet if you can :)<br>
+<br>
+<br>
+As for DLL depedency, do you heard of static linking ? All code is compiled on a single binary, your DLL or EXE, no external library required to run.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2270c55334" title="Mon, 20 Oct 2014 17:45:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm2270c55334');</script><noscript>Oct 20, 2014 at 5:45pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn766083"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766097"><span title="766097,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766097" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm08f2d99dff" title="Mon, 20 Oct 2014 18:21:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm08f2d99dff');</script><noscript>Oct 20, 2014 at 6:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766097">
+I have nothing against Curl, it is probably the better solution. but as far as the DLL dependancy goes, I would opt for a proper Windows installer, i.e. an MSI over statically linking the libraries. This would keep things simple for your clients.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766097"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145385,0,154927,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~488.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

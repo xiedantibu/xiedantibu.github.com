@@ -1,0 +1,312 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/144218/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Delay function? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Delay function?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Delay function?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="144218,root,0,-1,8,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg760456"><span title="760456,153596,1023,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760456" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma63a960b29" title="Tue, 07 Oct 2014 01:54:16 +0000"></span><script type="text/javascript">WhenId('CH_zTma63a960b29');</script><noscript>Oct 7, 2014 at 1:54am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/stonixx/default.htm"><b>Stonixx</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760456">
+Hi all, I have just started to work with c++, and I was wondering if I could have a delay function. For instance:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code> <dfn>#include &lt;iostream&gt;</dfn>
+<var>int</var> main()
+{
+std::cout&lt;&lt;<kbd>"hello"</kbd>&lt;&lt;std::endl;
+--delay
+std::cout&lt;&lt;<kbd>"hello2&lt;&lt;std::endl;
+return 0
+} </kbd></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+What would I write out for "delay?"<br>
+<br>
+Thanks all :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760456"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760460"><span title="760460,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760460" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4e14251a96" title="Tue, 07 Oct 2014 02:00:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm4e14251a96');</script><noscript>Oct 7, 2014 at 2:00am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760460">
+Several options are available. See the last post here for C++. <br>
+<a href="../139609/default.htm">http://www.cplusplus.com/forum/beginner/139609/</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760460"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760474"><span title="760474,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760474" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm898cc45c21" title="Tue, 07 Oct 2014 02:37:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm898cc45c21');</script><noscript>Oct 7, 2014 at 2:37am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760474">
+found no essy example there. i got this essy one, though its not much preferable  cause it uses cpu instead "sitting idle"<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></code></pre></td>
+<td class="source"><pre><code><cite>//halt! uses cpu</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+
+<var>int</var> main()
+{
+    std::time_t start = time(0);
+    
+ 	std::cout &lt;&lt; <kbd>"hello "</kbd>;
+ 	
+    <var>while</var>( difftime(std::time(0), start) &lt;=3 ) ;    
+    
+ 	std::cout &lt;&lt; <kbd>"world"</kbd>;
+	  
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Edit: it worked in my Dev C++ and in Visual C++ 2012. <br>
+but not directly in online compilers - i dont know how about the exe file created by them
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc4ac3b5de4" title="Tue, 07 Oct 2014 02:50:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmc4ac3b5de4');</script><noscript>Oct 7, 2014 at 2:50am UTC</noscript></span>
+<span class="dbtn" id="CH_btn760474"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760539"><span title="760539,153549,0,216,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760539" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcedeb64896" title="Tue, 07 Oct 2014 04:46:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmcedeb64896');</script><noscript>Oct 7, 2014 at 4:46am UTC</noscript></div>
+<div class="dwho">closed account (<i><a href="../../../user/closed_account_1cfg1hu5/default.htm">1CfG1hU5</a></i>)</div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760539">
+<br>
+your language may have a delay function.<br>
+<br>
+delay(2000);  // 1000 milliseconds per second.<br>
+<br>
+in older languages is defined in dos.h<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760539"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760649"><span title="760649,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760649" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma4a2f8c0a9" title="Tue, 07 Oct 2014 14:03:30 +0000"></span><script type="text/javascript">WhenId('CH_zTma4a2f8c0a9');</script><noscript>Oct 7, 2014 at 2:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760649">
+<table class="quote"><tr><th class="qh"><strong>anup30</strong> wrote:</th></tr><tr><td class="qd">found no [easy] example there</td></tr></table><br>
+Only because you didn't bother to read the thread I linked. Otherwise you would have seen the short, 19-line example that'll work anywhere. <br>
+<br>
+Or, if you had even read the entirety of my 11-word post here, you would have known to look at the last post in that thread to find<br>
+<br>
+<span class="auto"><code class="source">this_thread.sleep_for( <i>N</i> )</code></span>.<br>
+<br>
+But you probably won't bother to click the search box at the top of this page and type in something like "sleep_for", which'll get you this:<br>
+<a href="../../../reference/thread/this_thread/sleep_for/kwsleep_for">http://www.cplusplus.com/reference/thread/this_thread/sleep_for/?kw=sleep_for</a><br>
+and lead to information like this:<br>
+<a href="../../../reference/chrono/duration/kwduration">http://www.cplusplus.com/reference/chrono/duration/?kw=duration</a><br>
+and this:<br>
+<a href="../../../reference/chrono/milliseconds/default.htm">http://www.cplusplus.com/reference/chrono/milliseconds/</a><br>
+<br>
+I imagine that <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;chrono&gt;</dfn>
+<dfn>#include &lt;thread&gt; </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>std::this_thread.sleep_for( std::chrono::milliseconds( 150 ) );</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+isn't easy enough?<br>
+<br>
+<br>
+<small><sub><sup>It just really hacks me off when you hand people an answer and they're too glossy-eyed to read it. Oh, but my CPU-chugging version is so much better!</sup></sub></small>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760649"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760663"><span title="760663,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760663" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaa2bc6c793" title="Tue, 07 Oct 2014 15:06:50 +0000"></span><script type="text/javascript">WhenId('CH_zTmaa2bc6c793');</script><noscript>Oct 7, 2014 at 3:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760663">
+^this post shows the exact example i wanted. yesterday i went to your link ...<br>
+actually tried your <span class="auto"><code class="source">this_thread.sleep_for( N )</code></span> (used 3 in N) but couldn't make it work. didn't search further branches as a beginner (hope you don't mind). searched some ctime reference in this site, couldn't make sleep() work. i didn't go to cppreference.com because that seems too technical for a beginner. <br>
+at last i thank you for providing reference to one line solution - which i was looking for. (my previous code isn't a solution actually, rather its a question in disguise - so it caught the required attention. now you may remove your subscripts, i have not read them - believe it or not :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760663"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760685"><span title="760685,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760685" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2d6d75ae12" title="Tue, 07 Oct 2014 16:04:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm2d6d75ae12');</script><noscript>Oct 7, 2014 at 4:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760685">
+<table class="quote"><tr><td class="qd">I didn't go to cppreference.com because that seems too technical for a beginner.</td></tr></table>Reference for programmers is what dictionary is for someone learning foreign language. It might looks intimidating ("What are those <tt>n</tt>, <tt>v</tt> or other leters near words?") but if you skip irrelevant information (like possible implementation) you will find it extremily useful. It provides complete answer to question "What that function do?"<br>
+<br>
+Bonus: In C++14 following is possible — <span class="auto"><code class="source">std::this_thread.sleep_for( 150ms );</code></span><br>
+<br>
+	<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760685"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg760693"><span title="760693,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg760693" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb810811ca1" title="Tue, 07 Oct 2014 16:39:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmb810811ca1');</script><noscript>Oct 7, 2014 at 4:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i760693">
+@<b>anup30</b><br>
+Sorry I was so grouchy.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn760693"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(144218,0,153596,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~263.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146620/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using ctime to measure the time for quic - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Using ctime to measure the time for quic</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Using ctime to measure the time for quicksort</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146620,root,0,-1,13,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770984"><span title="770984,121464,1023,41,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770984" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm380f3e982a" title="Sat, 01 Nov 2014 22:49:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm380f3e982a');</script><noscript>Nov 1, 2014 at 10:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/trevormoon/default.htm"><b>trevormoon</b> (41)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770984">
+Hey guys, I'm trying to figure out how to use ctime in order to measure the time that it takes for quicksort to sort some numbers. I've been reading on the internet trying to find the correct way to implement ctime, but can't seem to figure out how. The program always shows the time as 0. Any help would be greatly appreciated. <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<dfn>#include &lt;ctime&gt;</dfn>
+<dfn>#include &lt;fstream&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>const</var> <var>int</var> INPUT_SIZE = 10000;
+
+
+<var>void</var> print(<var>int</var> *input)
+{
+    <var>for</var> ( <var>int</var> i = 0; i &lt; INPUT_SIZE; i++ )
+        cout &lt;&lt; input[i] &lt;&lt; <kbd>" "</kbd>;
+    cout &lt;&lt; endl;
+}
+
+<cite>// The partition function</cite>
+<var>int</var> partition(<var>int</var>* input, <var>int</var> p, <var>int</var> r)
+{
+    <var>int</var> pivot = input[r];
+
+    <var>while</var> ( p &lt; r )
+    {
+        <var>while</var> ( input[p] &lt; pivot )
+            p++;
+
+        <var>while</var> ( input[r] &gt; pivot )
+            r--;
+
+        <var>if</var> ( input[p] == input[r] )
+            p++;
+        <var>else</var> <var>if</var> ( p &lt; r )
+        {
+            <var>int</var> tmp = input[p];
+            input[p] = input[r];
+            input[r] = tmp;
+        }
+    }
+
+    <var>return</var> r;
+}
+
+<var>void</var> quicksort(<var>int</var>* input, <var>int</var> p, <var>int</var> r)
+{
+    <var>if</var> ( p &lt; r )
+    {
+        quick++;
+        <var>int</var> j = partition(input, p, r);
+        quicksort(input, p, j-1);
+        quicksort(input, j+1, r);
+    }
+}
+
+<var>int</var> main()
+{
+      clock_t  clock1,clock2;
+      <var>int</var> input[INPUT_SIZE] = {};
+      <var>for</var>(<var>int</var> i = 0; i&lt;INPUT_SIZE; i++)
+         {
+             <var>int</var> random_num = rand() % 1000;
+             input[i] = random_num;
+
+         }
+   <cite>// int input[INPUT_SIZE] = {500, 700, 800, 100, 300, 200, 900, 400, 1000, 600};</cite>
+    cout &lt;&lt; <kbd>"Input: "</kbd>;
+    print(input);
+
+    clock1 = clock();
+      quicksort(input, 0, 9);
+    clock2 = clock();
+
+    cout&lt;&lt; <kbd>"Quicksort time "</kbd>&lt;&lt; (<var>float</var>)(clock2 - clock1)/ CLOCKS_PER_SEC &lt;&lt; <kbd>" "</kbd>&lt;&lt;endl;;
+
+    cout &lt;&lt; <kbd>"Output: "</kbd>;
+    cout &lt;&lt; <kbd>" "</kbd>;
+    cout &lt;&lt; <kbd>" "</kbd>;
+    print(input);
+    cout &lt;&lt;endl;
+    cout &lt;&lt;endl;
+  
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770984"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770986"><span title="770986,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770986" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6a8d27f483" title="Sat, 01 Nov 2014 22:58:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a8d27f483');</script><noscript>Nov 1, 2014 at 10:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770986">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;ctime&gt;</dfn>
+...
+
+	clock_t start, stop;
+	<var>double</var> totalTime;
+
+	start = clock();
+	<cite>// Do stuff here</cite>
+	stop = clock();
+	totalTime = (stop - start) / (<var>double</var>)CLOCKS_PER_SEC;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770986"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770996"><span title="770996,121464,1023,41,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770996" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmce64a4b397" title="Sat, 01 Nov 2014 23:39:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmce64a4b397');</script><noscript>Nov 1, 2014 at 11:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/trevormoon/default.htm"><b>trevormoon</b> (41)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770996">
+Hey Esslercuffi thanks for the help! I used your code and it still prints out 0 for totalTime. Any other ideas why it might not be working?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br></code></pre></td>
+<td class="source"><pre><code>
+<var>int</var> main()
+{
+      clock_t  start,end;
+      <var>double</var> totalTime;
+      <var>int</var> input[INPUT_SIZE] = {};
+
+      <var>int</var> input2[INPUT_SIZE] = {};
+      <var>for</var>(<var>int</var> i = 0; i&lt;INPUT_SIZE; i++)
+         {
+             <var>int</var> random_num = rand() % 1000;
+             input[i] = random_num;
+
+         }
+     <var>for</var>(<var>int</var> i =0; i&lt;INPUT_SIZE; i++)
+        {
+           input2[i] = input[i];
+        }
+
+
+  
+    cout &lt;&lt; <kbd>"Input: "</kbd>;
+    print(input);
+
+   cout &lt;&lt; <kbd>"input2 "</kbd>;
+   print(input2);
+
+    cout&lt;&lt;endl;
+ 
+  insertion_sort(input,INPUT_SIZE);
+   cout&lt;&lt;<kbd>"insertian sort done "</kbd>&lt;&lt;endl;
+      print(input);
+   start = clock();
+      quicksort(input, 0, INPUT_SIZE -1);
+    end = clock();
+    totalTime = (end - start)/ (<var>double</var>)CLOCKS_PER_SEC;
+    cout &lt;&lt;<kbd>"quicksort time is "</kbd> &lt;&lt; totalTime &lt;&lt;endl;
+
+    cout &lt;&lt; <kbd>"Output: "</kbd>;
+   
+   
+    print(input);
+    cout &lt;&lt;endl;
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770996"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770999"><span title="770999,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770999" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm242bc63ee0" title="Sat, 01 Nov 2014 23:41:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm242bc63ee0');</script><noscript>Nov 1, 2014 at 11:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770999">
+strange.  I've used that code many times in the past. I'm not currently at a computer with a compiler on it, so I can't really dig in and see what's goin' on right now.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770999"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771100"><span title="771100,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771100" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm33f9289b7e" title="Sun, 02 Nov 2014 04:46:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm33f9289b7e');</script><noscript>Nov 2, 2014 at 4:46am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771100">
+The clib clock only gives you resolution of seconds. Is your code running faster than one second?<br>
+<br>
+If you want a better idea of how much time your function is taking, you need to do at least one of two things:<br>
+<br>
+(1) run the test multiple times or using larger input<br>
+(2) a finer-resolution clock<br>
+<br>
+Here's for (2):<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;chrono&gt; </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code><cite>// When messing with the clocks in &lt;chrono&gt;, you almost always want to </cite>
+<cite>// make yourself some handy functions to help reduce typing later.</cite>
+
+<var>inline</var> 
+std::chrono::time_point &lt;std::chrono::high_resolution_clock&gt; 
+now() 
+{ 
+  <var>return</var> std::chrono::high_resolution_clock::now(); 
+}
+
+<var>template</var> &lt;<var>typename</var> T&gt;
+<var>inline</var> 
+std::chrono::milliseconds::rep
+milliseconds( T t ) 
+{ 
+  <var>return</var> std::chrono::duration_cast &lt;std::chrono::milliseconds&gt; ( t ).count();
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code>
+  <var>auto</var> start_time = now();
+
+  ...  <cite>// (remember not to do anything that involves I/O here)</cite>
+
+  <var>auto</var> stop_time = now();
+
+  <var>unsigned</var> <var>long</var> time_spent = milliseconds( stop_time - start_time );</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Hope this helps.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm04681d6466" title="Sun, 02 Nov 2014 04:46:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm04681d6466');</script><noscript>Nov 2, 2014 at 4:46am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771100"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771104"><span title="771104,121464,1023,41,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771104" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7066fcb2b1" title="Sun, 02 Nov 2014 04:57:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm7066fcb2b1');</script><noscript>Nov 2, 2014 at 4:57am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/trevormoon/default.htm"><b>trevormoon</b> (41)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771104">
+Thanks for the help Duoas! I increased the input size and the clb clock started to work. Thanks for the tip about chrono since I'm comparing 2 sort functions it seems to be the better way to go.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771104"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771106"><span title="771106,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771106" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma186ac0f47" title="Sun, 02 Nov 2014 05:03:20 +0000"></span><script type="text/javascript">WhenId('CH_zTma186ac0f47');</script><noscript>Nov 2, 2014 at 5:03am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771106">
+<a href="../../../reference/ctime/clock/default.htm">http://www.cplusplus.com/reference/ctime/clock/</a><br>
+<br>
+Actually, the resolution of clock() is system dependent, and usually much finer than seconds.  If seconds were the limit of its granularity, then the defined metric for it's use would be SECS_PER_CLOCK, rather than the other way around.  Even the example on the above page is measuring 0.143 second.<br>
+<br>
+That said, I see that the high_resolution_clock you have above, guarantees the finest time granularity your system can provide.  I wasn't even aware of it's existence.  I'll be using it from now on.  Thanks.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771106"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771119"><span title="771119,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771119" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7b4342d1ea" title="Sun, 02 Nov 2014 05:58:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm7b4342d1ea');</script><noscript>Nov 2, 2014 at 5:58am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771119">
+&gt; I see that the high_resolution_clock you have above, guarantees the finest time granularity...<br>
+<br>
+<tt>std::chrono::high_resolution_clock</tt> is a wall clock; do not use a wall clock to measure processor time. <br>
+<a href="../../../../coliru.stacked-crooked.com/a/7fc30e3b429b1c17">http://coliru.stacked-crooked.com/a/7fc30e3b429b1c17</a><br>
+<br>
+<tt>std::clock()</tt> gives a measure of approximate processor time; that is the right clock to use for this. For estimates with higher accuracy, increase the size of the sequence to be sorted, and take the average of multiple measurements.<br>
+<a href="../../../../coliru.stacked-crooked.com/a/0d3de457f5ba48b9">http://coliru.stacked-crooked.com/a/0d3de457f5ba48b9</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771119"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771124"><span title="771124,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771124" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmba40152026" title="Sun, 02 Nov 2014 06:09:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmba40152026');</script><noscript>Nov 2, 2014 at 6:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771124">
+I was just going from this: <a href="../../../reference/chrono/high_resolution_clock/default.htm">http://www.cplusplus.com/reference/chrono/high_resolution_clock/</a> I misinterpreted the "shortest tick period" to mean "shortest possible on system hardware".<br>
+<br>
+I was in the middle of working up my own comparison test when I saw your post.<br>
+<br>
+*edit* @JLBorges to be fair, your example isn't using the high_resolution_clock, but the steady_clock.  The page for the high_res clock says it "<i>may</i> be a synonym" for steady_clock, so I guess I'll finish my test to see if there's actually any difference on my system.<br>
+<br>
+*edit #2*  now I see your point is that it doesn't matter as the chrono clocks measure actual time elapsed regardless of which programs are recieving processing time, not time spend by this program on processing.  Sometimes it takes me a while to pull my head out of my ass :)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd5378ba65d" title="Sun, 02 Nov 2014 06:21:39 +0000"></span><script type="text/javascript">WhenId('CH_zTmd5378ba65d');</script><noscript>Nov 2, 2014 at 6:21am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771124"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771129"><span title="771129,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771129" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm97f269abd6" title="Sun, 02 Nov 2014 06:31:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm97f269abd6');</script><noscript>Nov 2, 2014 at 6:31am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771129">
+&gt; your example isn't using the high_resolution_clock, but the steady_clock.<br>
+<br>
+To measure time, we need a clock which does not to go back in time. <tt>std::chrono::high_resolution_clock::is_steady</tt> may not be <tt>true</tt>.<br>
+<br>
+Something like this is usually done to get the highest resolution clock suitable for measuring elapsed <b>wall clock</b> time: <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>using</var> wall_clock = <var>typename</var> std::conditional&lt; std::chrono::high_resolution_clock::is_steady,
+                                              std::chrono::high_resolution_clock,
+                                              std::chrono::steady_clock &gt;::type ;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+In any case, for measuring single-threaded in-memory sort performance, all the clocks in <tt>std::chrono</tt> are the wrong clocks.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771129"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771149"><span title="771149,9110,5119,8826,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771149" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0dc9e19749" title="Sun, 02 Nov 2014 08:07:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm0dc9e19749');</script><noscript>Nov 2, 2014 at 8:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/duoas/default.htm"><b>Duoas</b> (8826)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771149">
+Er, <tt>std::chrono::high_resolution_clock</tt> is <i>supposed</i> to be an interface to the highest-resolution clock on your system, and it doesn't suffer from the well-known problems that <tt>clock()</tt> has. If you are getting crappy performance out of it then you need to upgrade your compiler.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771149"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771183"><span title="771183,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771183" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm837ea55a48" title="Sun, 02 Nov 2014 11:34:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm837ea55a48');</script><noscript>Nov 2, 2014 at 11:34am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771183">
+<tt>std::chrono::high_resolution_clock</tt> does not measure processor time; it measures wall clock time.<br>
+<tt>std::chrono::high_resolution_clock</tt> is not required to be a monotonic clock; <tt>std::chrono::high_resolution_clock::is_steady</tt>  may not be <tt>true</tt>.<br>
+<br>
+<tt>std::chrono::steady_clock</tt> is a monotonic clock.<br>
+<table class="quote"><tr><td class="qd">Class std::chrono::steady_clock represents a monotonic clock. The time points of this clock cannot decrease as physical time moves forward. This clock is not related to wall clock time, and is best suitable for measuring intervals.<br>
+- <a href="../../../../en.cppreference.com/w/cpp/chrono/steady_clock">http://en.cppreference.com/w/cpp/chrono/steady_clock</a></td></tr></table><br>
+<br>
+<tt>std::clock_t clock()</tt> measures approximate processor time used by the process .<br>
+<table class="quote"><tr><td class="qd">std::clock_t clock();<br>
+Returns the approximate processor time used by the process since the beginning of an implementation-defined era related to the program's execution. To convert result value to seconds divide it by CLOCKS_PER_SEC. ... <br>
+<br>
+std::clock time may advance faster or slower than the wall clock, depending on the execution resources given to the program by the operating system. For example, if the CPU is shared by other processes, std::clock time may advance slower than wall clock. On the other hand, if the current process is multithreaded and more than one execution core is available, std::clock time may advance faster than wall clock.<br>
+- <a href="../../../../en.cppreference.com/w/cpp/chrono/c/clock">http://en.cppreference.com/w/cpp/chrono/c/clock</a></td></tr></table><br>
+<br>
+Boost chrono has a set of clocks which measure actual processor time, in addition to clocks similar to the ones found in <tt>std::chrono</tt>. On most platforms, <tt>boost::chrono::process_cpu_clock</tt> has a higher resolution than <tt>std::clock()</tt><br>
+<a href="../../../../www.boost.org/doc/libs/1_56_0/doc/html/chrono/reference.html#chrono.reference.other_clocks.process_cpu_clocks_hpp">http://www.boost.org/doc/libs/1_56_0/doc/html/chrono/reference.html#chrono.reference.other_clocks.process_cpu_clocks_hpp</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771183"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771227"><span title="771227,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771227" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm261f115032" title="Sun, 02 Nov 2014 15:25:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm261f115032');</script><noscript>Nov 2, 2014 at 3:25pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771227">
+@trevormoon, does your quick sort program run correctly? the code you posted isn't complete.  
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771227"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146620,0,121464,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~167.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

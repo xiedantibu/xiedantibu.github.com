@@ -1,0 +1,465 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/104404/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Permission denied - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Permission denied</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Permission denied</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a><a href="3/default.htm">3</a></div><span class="rootdatPost" title="104404,root,0,-1,54,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg562779"><span title="562779,116018,1023,33,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562779" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdedba72637" title="Thu, 13 Jun 2013 20:57:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmdedba72637');</script><noscript>Jun 13, 2013 at 8:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562779">
+Hi, for a weird reason, I get 1 error which says : Permission Denied.<br>
+I don't think the code is the problem because I've tried it with other legit codes and it still gives me this error.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br></code></pre></td>
+<td class="source"><pre><code> <dfn>#include &lt;iostream&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main()
+{
+string nom(<kbd>"x"</kbd>);
+cout &lt;&lt; <kbd>"Vous avez quel age ?"</kbd>;
+cin &gt;&gt; nom;
+cout &lt;&lt; <kbd>"Vous avez-vous donc"</kbd> &lt;&lt; nom &lt;&lt; <kbd>"ans?"</kbd> ;
+<var>return</var> 0 ;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Any idea how to stop this error? Thanks
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8b8a4908ce" title="Thu, 13 Jun 2013 21:00:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm8b8a4908ce');</script><noscript>Jun 13, 2013 at 9:00pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn562779"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562780"><span title="562780,105531,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562780" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbdc68066d0" title="Thu, 13 Jun 2013 21:05:16 +0000"></span><script type="text/javascript">WhenId('CH_zTmbdc68066d0');</script><noscript>Jun 13, 2013 at 9:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blanchy/default.htm"><b>Blanchy</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562780">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code> <dfn>#include &lt;iostream&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main()
+{
+string nom(<kbd>"x"</kbd>);
+cout &lt;&lt; <kbd>"Vous avez quel age ?\n"</kbd>;
+cin &gt;&gt; nom;
+cout &lt;&lt; <kbd>"Vous avez-vous donc "</kbd> &lt;&lt; nom &lt;&lt; <kbd>" ans?"</kbd> ;
+cin.get();
+cin.get();
+<var>return</var> 0 ;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I added cin.get(); for a pause at the end so you could see the results <br>
+I didn't get any errors compiling. can you post the actual error.<br>
+<br>
+Edit: I don't speak french.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme5a56d0b4f" title="Thu, 13 Jun 2013 21:07:05 +0000"></span><script type="text/javascript">WhenId('CH_zTme5a56d0b4f');</script><noscript>Jun 13, 2013 at 9:07pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn562780"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562781"><span title="562781,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562781" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc9cb0c3fd7" title="Thu, 13 Jun 2013 21:08:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmc9cb0c3fd7');</script><noscript>Jun 13, 2013 at 9:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562781">
+1d.exe , cannot open output file bin\Debug\test.exe permission denied
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562781"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562782"><span title="562782,105531,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562782" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0cf87c5d93" title="Thu, 13 Jun 2013 21:09:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm0cf87c5d93');</script><noscript>Jun 13, 2013 at 9:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blanchy/default.htm"><b>Blanchy</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562782">
+Check your task manager to see if serbest.exe is running.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562782"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562784"><span title="562784,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562784" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8df7bea3e3" title="Thu, 13 Jun 2013 21:17:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm8df7bea3e3');</script><noscript>Jun 13, 2013 at 9:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562784">
+nope, only my navigator and code block running...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562784"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562787"><span title="562787,105531,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562787" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm70b6a3cb71" title="Thu, 13 Jun 2013 21:28:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm70b6a3cb71');</script><noscript>Jun 13, 2013 at 9:28pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blanchy/default.htm"><b>Blanchy</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562787">
+It sounds like a windows security setting regarding .exe's have you turned any features on or off recently?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562787"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562790"><span title="562790,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562790" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd5eca13881" title="Thu, 13 Jun 2013 21:40:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmd5eca13881');</script><noscript>Jun 13, 2013 at 9:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562790">
+No, I don't think so. I was on code block and it suddenly happened ...<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562790"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562791"><span title="562791,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562791" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm51e5d6c3f7" title="Thu, 13 Jun 2013 21:48:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm51e5d6c3f7');</script><noscript>Jun 13, 2013 at 9:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562791">
+The weird thing is... I deleted everything and created a new project. The first try when I compiled my code, everything worked. (The Hello world message) <br>
+after, I added my own code, and it compiled again, the console showed up but the it didn't execute my code. Now, the console doesn't even show up, it says my permission is denied. :( What the... is happening ? In fact, my .exe even goes away, maybe that's the reason it's not working.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc8b41380e6" title="Thu, 13 Jun 2013 21:51:00 +0000"></span><script type="text/javascript">WhenId('CH_zTmc8b41380e6');</script><noscript>Jun 13, 2013 at 9:51pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn562791"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562796"><span title="562796,105531,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562796" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme5a2696904" title="Thu, 13 Jun 2013 22:20:56 +0000"></span><script type="text/javascript">WhenId('CH_zTme5a2696904');</script><noscript>Jun 13, 2013 at 10:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blanchy/default.htm"><b>Blanchy</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562796">
+Have you tried rerunning it with the couple lines of code I added? Not having a pause or cin.get(); at the end will cause it to close automatically
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562796"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562797"><span title="562797,11177,1023,2730,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562797" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma4529f4cc5" title="Thu, 13 Jun 2013 22:23:48 +0000"></span><script type="text/javascript">WhenId('CH_zTma4529f4cc5');</script><noscript>Jun 13, 2013 at 10:23pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zaita/default.htm"><b>Zaita</b> (2730)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562797">
+1d.exe , cannot open output file bin\Debug\test.exe permission denied<br>
+<br>
+This means the application is still running and the linker is unable to link to create a new one. You need to ensure it's not running.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562797"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562799"><span title="562799,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562799" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm40e4d80841" title="Thu, 13 Jun 2013 22:29:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm40e4d80841');</script><noscript>Jun 13, 2013 at 10:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562799">
+The code of Blanchy worked!  With the cin.get(); , it works perfectly.<br>
+<br>
+When I do not put it, the whole thing messes up and giving me the same problems... Even when I reput the cin.get(); , forget it, it stops working. Could anybody explain why ?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562799"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg562852"><span title="562852,105531,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg562852" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1682d7c7d3" title="Fri, 14 Jun 2013 03:01:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm1682d7c7d3');</script><noscript>Jun 14, 2013 at 3:01am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blanchy/default.htm"><b>Blanchy</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i562852">
+Idk man it sounds like you .exe files are having a hard time getting shutdown properly, if you get it up and running again try to manual end the process in your task manager and see if that helps.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn562852"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563094"><span title="563094,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563094" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0800f38ae8" title="Fri, 14 Jun 2013 19:25:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm0800f38ae8');</script><noscript>Jun 14, 2013 at 7:25pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563094">
+Nope, it still doesn't work. My .exe really disappears.... I don't know where xD
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563094"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563097"><span title="563097,106379,1023,3388,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563097" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd482bedd4e" title="Fri, 14 Jun 2013 19:32:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmd482bedd4e');</script><noscript>Jun 14, 2013 at 7:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/giblit/default.htm"><b>giblit</b> (3388)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563097">
+Go to the task manager and then go to processes and it is probably at the very bottom still running it more than likely wont be under applications where you looked I am guessing.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563097"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563102"><span title="563102,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563102" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm77911a5bac" title="Fri, 14 Jun 2013 19:54:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm77911a5bac');</script><noscript>Jun 14, 2013 at 7:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563102">
+Nope, no cb_console_runner  in process. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563102"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563104"><span title="563104,94088,1023,4423,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563104" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm296bc54d08" title="Fri, 14 Jun 2013 20:03:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm296bc54d08');</script><noscript>Jun 14, 2013 at 8:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chervil/default.htm"><b>Chervil</b> (4423)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563104">
+"cb_console_runner" isn't your program. It is a parent process which runs the program for you. The actual program will have a different name, "test.exe" I guess.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563104"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563109"><span title="563109,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563109" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4eafed08a6" title="Fri, 14 Jun 2013 20:24:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm4eafed08a6');</script><noscript>Jun 14, 2013 at 8:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563109">
+It's not here. :/<br>
+<br>
+THis want's to make me cry....(sarcastic)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563109"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563113"><span title="563113,106379,1023,3388,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563113" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd4f5980bf1" title="Fri, 14 Jun 2013 20:37:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmd4f5980bf1');</script><noscript>Jun 14, 2013 at 8:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/giblit/default.htm"><b>giblit</b> (3388)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563113">
+well I hope you were not actually looking for test.exe it is what ever you named your project.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563113"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563120"><span title="563120,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563120" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfa422eb526" title="Fri, 14 Jun 2013 21:01:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmfa422eb526');</script><noscript>Jun 14, 2013 at 9:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563120">
+In fact, that was the name I gave it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563120"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg563124"><span title="563124,116018,1023,33,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg563124" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd6290bdfd5" title="Fri, 14 Jun 2013 21:06:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmd6290bdfd5');</script><noscript>Jun 14, 2013 at 9:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chessman/default.htm"><b>chessman</b> (33)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i563124">
+Ah geeez, I did a copy of my .exe file on my desktop and recompiled my programm and it started doing the error. But the one on my desktop is still here, tried to put it back in my folder and it says I can't do that. (Im the administrator on my computer.)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn563124"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div id="CH_insNew"></div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a><a href="3/default.htm">3</a></div><script type="text/javascript">new for_PostList(104404,1,116018,0,'CH_PostList','CH_subscription',false,'CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~283.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

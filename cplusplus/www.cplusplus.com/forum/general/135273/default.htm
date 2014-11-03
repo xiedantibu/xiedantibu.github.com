@@ -1,0 +1,247 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/135273/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HTML parsing? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">HTML parsing?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> HTML parsing?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="135273,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg721807"><span title="721807,135837,1023,48,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721807" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme5286e59f8" title="Tue, 10 Jun 2014 12:26:10 +0000"></span><script type="text/javascript">WhenId('CH_zTme5286e59f8');</script><noscript>Jun 10, 2014 at 12:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/just_me/default.htm"><b>Just Me</b> (48)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721807">
+The title is a <i>little</i> misguiding, I have the following sample HTML:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br></code></pre></td>
+<td class="source"><pre><code>&lt;div <var>class</var>=<kbd>"directions"</kbd>&gt;
+&lt;h3&gt;Directions&lt;/h3&gt;
+
+    &lt;div <var>class</var>=<kbd>"directLeft"</kbd> itemprop=<kbd>"recipeInstructions"</kbd>&gt;
+        &lt;div id=<kbd>"msgDirections"</kbd> style=<kbd>"display:none"</kbd>&gt;&lt;/div&gt;
+            
+                &lt;ol&gt;
+            
+                &lt;li&gt;&lt;span <var>class</var>=<kbd>"plaincharacterwrap break"</kbd>&gt;example&lt;/span&gt;&lt;/li&gt;
+            
+                &lt;/ol&gt;
+            
+
+        &lt;a href=<kbd>"/recipe/easy-mac-n-cheese/kitchenview.aspx"</kbd>&gt;Kitchen-Friendly View&lt;/a&gt;
+
+    &lt;/div&gt;
+
+    &lt;div id=<kbd>"divRecipeTimesContainer"</kbd> <var>class</var>=<kbd>"right-aside preptime fl-right"</kbd>&gt;
+        &lt;ul id=<kbd>"ulReadyTime"</kbd>&gt;
+            &lt;li id=<kbd>"liPrep"</kbd>&gt;
+                PREP
+                
+                
+                &lt;span id=<kbd>"prepMinsSpan"</kbd>&gt;&lt;em&gt;2&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id=<kbd>"timePrep"</kbd> itemprop=<kbd>"prepTime"</kbd> datetime=<kbd>"PT2M"</kbd>&gt;&lt;/time&gt;
+            &lt;/li&gt;
+            &lt;li id=<kbd>"liCook"</kbd>&gt;
+                COOK
+                
+                
+                &lt;span id=<kbd>"cookMinsSpan"</kbd>&gt;&lt;em&gt;13&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id=<kbd>"timeCook"</kbd> itemprop=<kbd>"cookTime"</kbd> datetime=<kbd>"PT13M"</kbd>&gt;&lt;/time&gt;
+            &lt;/li&gt;
+            &lt;li id=<kbd>"liTotal"</kbd> <var>class</var>=<kbd>"no-border"</kbd>&gt;
+                READY IN
+                
+                
+                &lt;span id=<kbd>"totalMinsSpan"</kbd>&gt;&lt;em <var>class</var>=<kbd>"emp-orange"</kbd>&gt;15&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id=<kbd>"timeTotal"</kbd> itemprop=<kbd>"totalTime"</kbd> datetime=<kbd>"PT15M"</kbd>&gt;&lt;/time&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div <var>class</var>=<kbd>"clearfix ie7break"</kbd>&gt;&lt;/div&gt;
+
+&lt;/div&gt;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+I have the position of the <span class="auto"><code class="source">&lt;div <var>class</var>=<kbd>"directions"</kbd>&gt;</code></span>, but how can I get the HTML in it? There maybe more elements, if I try to <span class="auto"><code class="source">code.find(<kbd>"&lt;/div&gt;"</kbd>);</code></span> I may return the closing tag of a child of the div <span class="auto"><code class="source">directions</code></span>... A sample output I want of the previous input is:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>&lt;h3&gt;Directions&lt;/h3&gt;
+
+    &lt;div class="directLeft" itemprop="recipeInstructions"&gt;
+        &lt;div id="msgDirections" style="display:none"&gt;&lt;/div&gt;
+            
+                &lt;ol&gt;
+            
+                &lt;li&gt;&lt;span class="plaincharacterwrap break"&gt;example&lt;/span&gt;&lt;/li&gt;
+            
+                &lt;/ol&gt;
+            
+
+        &lt;a href="/recipe/easy-mac-n-cheese/kitchenview.aspx"&gt;Kitchen-Friendly View&lt;/a&gt;
+
+    &lt;/div&gt;
+
+    &lt;div id="divRecipeTimesContainer" class="right-aside preptime fl-right"&gt;
+        &lt;ul id="ulReadyTime"&gt;
+            &lt;li id="liPrep"&gt;
+                PREP
+                
+                
+                &lt;span id="prepMinsSpan"&gt;&lt;em&gt;2&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id="timePrep" itemprop="prepTime" datetime="PT2M"&gt;&lt;/time&gt;
+            &lt;/li&gt;
+            &lt;li id="liCook"&gt;
+                COOK
+                
+                
+                &lt;span id="cookMinsSpan"&gt;&lt;em&gt;13&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id="timeCook" itemprop="cookTime" datetime="PT13M"&gt;&lt;/time&gt;
+            &lt;/li&gt;
+            &lt;li id="liTotal" class="no-border"&gt;
+                READY IN
+                
+                
+                &lt;span id="totalMinsSpan"&gt;&lt;em class="emp-orange"&gt;15&lt;/em&gt; mins&lt;/span&gt;
+                &lt;time id="timeTotal" itemprop="totalTime" datetime="PT15M"&gt;&lt;/time&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div class="clearfix ie7break"&gt;&lt;/div&gt;
+</samp></pre></td></tr></table></div>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721807"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721824"><span title="721824,37152,1023,7003,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721824" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmec8ec4192f" title="Tue, 10 Jun 2014 13:21:35 +0000"></span><script type="text/javascript">WhenId('CH_zTmec8ec4192f');</script><noscript>Jun 10, 2014 at 1:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ne555/default.htm"><b>ne555</b> (7003)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721824">
+A similar problem. You've got a sequence of opening and closing parenthesis and want to find the matches<br>
+Example <span class="auto"><code class="source">()(<u>(</u>()(()())<u>)</u>()())</code></span><br>
+<br>
+Note that they are 4 opening parenthesis (and so 4 closing parenthesis) between them
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721824"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg721825"><span title="721825,135837,1023,48,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg721825" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0d37e89cff" title="Tue, 10 Jun 2014 13:24:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm0d37e89cff');</script><noscript>Jun 10, 2014 at 1:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/just_me/default.htm"><b>Just Me</b> (48)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i721825">
+@ne555 Ahhh... How dumb of me to miss that! And you've got me thinking!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn721825"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(135273,1,135837,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~327.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

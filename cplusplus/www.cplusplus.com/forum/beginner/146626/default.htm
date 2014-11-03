@@ -1,0 +1,292 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146626/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Help in char array - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Help in char array</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Help in char array</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146626,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771022"><span title="771022,156100,255,5,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771022" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmeff7e05deb" title="Sun, 02 Nov 2014 00:28:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmeff7e05deb');</script><noscript>Nov 2, 2014 at 12:28am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/williamlycan/default.htm"><b>WilliamLycan</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771022">
+Why the length of array y isn't 27?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include "util.h" </dfn><cite>// display()</cite>
+<dfn>#include "str.h" </dfn><cite>// strFill(), strLength</cite>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> letterToAlpha(<var>char</var>* letter, <var>char</var>* alphabet, <var>char</var>* voidalphabet){
+    <var>while</var>(*alphabet){
+        <var>if</var>(*letter == *alphabet){
+            *voidalphabet = *alphabet;
+        }
+        alphabet++;
+        voidalphabet++;
+    }
+}
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[]) {
+
+    <var>char</var> x[] = <kbd>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</kbd>;
+    <var>char</var> y[strLength(x)];
+    <var>char</var> c = <kbd>'C'</kbd>;
+
+    y[strLength(x) - 1] = <kbd>'\0'</kbd>;
+
+    strFill(y, <kbd>'_'</kbd>);
+
+    letterToAlpha(&amp;c, x, y);
+
+    display(<kbd>"\nFull alpha: "</kbd>);
+    display(x);
+    display(<kbd>"\n\nVoid alpha: "</kbd>);
+    display(y);
+    display(<kbd>"\n\nFull alpha length: "</kbd>);
+    display(strLength(x));
+    display(<kbd>"\n\nVoid alpha length: "</kbd>);
+    display(strLength(y));
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1513e6d9f4" title="Sun, 02 Nov 2014 04:12:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm1513e6d9f4');</script><noscript>Nov 2, 2014 at 4:12am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771022"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771023"><span title="771023,116586,1023,1024,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771023" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm251c26ba53" title="Sun, 02 Nov 2014 00:36:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm251c26ba53');</script><noscript>Nov 2, 2014 at 12:36am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/fr0zen1/default.htm"><b>Fr0zen1</b> (1024)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771023">
+The size of array can't be changed, its 25 because there are 25 letters that you have put into x.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771023"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771028"><span title="771028,156100,255,5,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771028" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme9e2659a97" title="Sun, 02 Nov 2014 00:45:38 +0000"></span><script type="text/javascript">WhenId('CH_zTme9e2659a97');</script><noscript>Nov 2, 2014 at 12:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/williamlycan/default.htm"><b>WilliamLycan</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771028">
+I'm not trying to change the size of array y, x is 27 chars long, I'm just declaring y with the size of x (27). The output of my program give me this:<br>
+<br>
+Full alpha: ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+<br>
+Void alpha: __C____<br>
+<br>
+Full alpha length: 27<br>
+<br>
+Void alpha length: 8<br>
+<br>
+Why is this happening? Why the lenth of y is 8 and not 27?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8172264b64" title="Sun, 02 Nov 2014 04:14:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm8172264b64');</script><noscript>Nov 2, 2014 at 4:14am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771028"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771113"><span title="771113,156196,255,2,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771113" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfc1f5b4d52" title="Sun, 02 Nov 2014 05:26:58 +0000"></span><script type="text/javascript">WhenId('CH_zTmfc1f5b4d52');</script><noscript>Nov 2, 2014 at 5:26am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/yokotsuno/default.htm"><b>YokoTsuno</b> (2)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771113">
+strFill probably detects a NULL halfway and stops filling out '_" at that location . Use memset instead or another method that ignores inadvertent NULLs <br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771113"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771205"><span title="771205,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771205" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8e943bf853" title="Sun, 02 Nov 2014 13:39:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm8e943bf853');</script><noscript>Nov 2, 2014 at 1:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771205">
+The error is most likely in the strFill() file.<br>
+without seeing the code i can't help.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771205"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771233"><span title="771233,156100,255,5,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771233" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaa4f87d9b5" title="Sun, 02 Nov 2014 15:53:43 +0000"></span><script type="text/javascript">WhenId('CH_zTmaa4f87d9b5');</script><noscript>Nov 2, 2014 at 3:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/williamlycan/default.htm"><b>WilliamLycan</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771233">
+Yes, maybe YokoTsuno is right, so I've changed my code to this and now it works fine. Thanks a lot =D<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include "util.h" </dfn><cite>// display()</cite>
+<dfn>#include "str.h" </dfn><cite>// strFill(), strLength</cite>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> letterToAlpha(<var>char</var>* letter, <var>char</var>* alphabet, <var>char</var>* voidalphabet){
+    <var>while</var>(*alphabet){
+        <var>if</var>(*letter == *alphabet){
+            *voidalphabet = *alphabet;
+        }
+        alphabet++;
+        voidalphabet++;
+    }
+}
+
+<var>int</var> main(<var>int</var> argc, <var>char</var> *argv[]) {
+
+    <var>char</var> x[] = <kbd>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</kbd>;
+    <var>char</var> y[] = <kbd>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</kbd>;
+    <var>char</var> c = <kbd>'C'</kbd>;
+
+    strFill(y, <kbd>'_'</kbd>);
+
+    letterToAlpha(&amp;c, x, y);
+
+    display(<kbd>"\nFull alpha: "</kbd>);
+    display(x);
+    display(<kbd>"\n\nVoid alpha: "</kbd>);
+    display(y);
+    display(<kbd>"\n\nFull alpha length: "</kbd>);
+    display(strLength(x));
+    display(<kbd>"\n\nVoid alpha length: "</kbd>);
+    display(strLength(y));
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771233"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146626,0,156100,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~210.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

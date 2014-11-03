@@ -1,0 +1,255 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146188/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>priority queue - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">priority queue</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> priority queue</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146188,root,0,-1,8,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769177"><span title="769177,152127,1023,63,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769177" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1c349d3c73" title="Tue, 28 Oct 2014 16:40:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm1c349d3c73');</script><noscript>Oct 28, 2014 at 4:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nightmaregiba/default.htm"><b>nightmaregiba</b> (63)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769177">
+I know queue but with priority queue i am really amateur.<br>
+can you help me implement some functions in priority queue. thanks in advance!<br>
+<br>
+  <div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>template</var> &lt;<var>class</var> T&gt; <var>class</var> PRIORITY_QUEUE {
+<var>private</var>:
+T *items; <cite>// array of queue items</cite>
+<var>int</var> rear;
+<var>int</var> maxSize; <cite>// maximum size of queue</cite>
+<var>void</var> heapify(<var>int</var> i); <cite>// adjust heap at position “i”</cite>
+<var>public</var>:
+PRIORITY_QUEUE(<var>int</var> size); <cite>// create queue with ‘size’ items</cite>
+PRIORITY_QUEUE(<var>const</var> PRIORITY_QUEUE &amp;aQueue);
+~PRIORITY_QUEUE(); <cite>// destructor</cite>
+<var>bool</var> isEmpty();
+<var>void</var> insert(T newItem);
+T deleteMin();
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+and what does heapify mean???
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769177"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769186"><span title="769186,152127,1023,63,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769186" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9931f3d51b" title="Tue, 28 Oct 2014 17:16:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm9931f3d51b');</script><noscript>Oct 28, 2014 at 5:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nightmaregiba/default.htm"><b>nightmaregiba</b> (63)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769186">
+and what i should know to implement it?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769186"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769206"><span title="769206,52082,1023,453,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769206" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5c675e7b7e" title="Tue, 28 Oct 2014 18:24:08 +0000"></span><script type="text/javascript">WhenId('CH_zTm5c675e7b7e');</script><noscript>Oct 28, 2014 at 6:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/doug4/default.htm"><b>doug4</b> (453)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769206">
+Try googling "heapify".  That will give you a number of pages that help explain it.  Essentially, a heap is a binary tree in which all child nodes of are less than the parent node, and all nodes in the tree.  Every sub-tree is a heap.  The wikipedia page (<a href="../../../../en.wikipedia.org/wiki/heapsort%29">http://en.wikipedia.org/wiki/Heapsort)</a> shows to implement this as an array.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769206"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769594"><span title="769594,152127,1023,63,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769594" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma4ecb77266" title="Wed, 29 Oct 2014 13:30:54 +0000"></span><script type="text/javascript">WhenId('CH_zTma4ecb77266');</script><noscript>Oct 29, 2014 at 1:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nightmaregiba/default.htm"><b>nightmaregiba</b> (63)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769594">
+i understand heapify but how to implement <br>
+<br>
+void heapify(int i); &gt;&gt;&gt;???
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769594"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769650"><span title="769650,52082,1023,453,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769650" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc0362926d2" title="Wed, 29 Oct 2014 15:30:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmc0362926d2');</script><noscript>Oct 29, 2014 at 3:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/doug4/default.htm"><b>doug4</b> (453)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769650">
+The pseudo-code on the wikipedia page is actually pretty clear.  It is more complete than something I would write up.  Read the Overview section (to understand how the tree is represented in the array) and the beginning of the Pseudocode section (for a description of heapsort(), heapify() and siftDown() ).  At the end of the Pseudocode section is an alternative method of heapify() using siftUp().  You can use whichever one you want to use.  The variable 'count' is the size of the array being heapified.  Your PRIORITY_QUEUE class should have that variable available somehow (maybe that's what maxSize is supposed to be?).<br>
+<br>
+BTW,  Sorry about the bad link in the previous post.  The closing ')' got mixed into the link somehow.<br>
+<br>
+<a href="../../../../en.wikipedia.org/wiki/heapsort">http://en.wikipedia.org/wiki/Heapsort</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769650"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769678"><span title="769678,16990,1023,2454,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769678" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdcd27d7a5a" title="Wed, 29 Oct 2014 16:34:33 +0000"></span><script type="text/javascript">WhenId('CH_zTmdcd27d7a5a');</script><noscript>Oct 29, 2014 at 4:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mikeyboy/default.htm"><b>MikeyBoy</b> (2454)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769678">
+<table class="quote"><tr><td class="qd">BTW, Sorry about the bad link in the previous post. The closing ')' got mixed into the link somehow.</td></tr></table><br>
+FYI, you can avoid that by having a space between the URL and the trailing punctuation (like this: <a href="../../../../en.wikipedia.org/wiki/heapsort">http://en.wikipedia.org/wiki/Heapsort</a> )<br>
+<br>
+It can also happen at the end of the sentence, so a space is needed there too: <a href="../../../../en.wikipedia.org/wiki/heapsort">http://en.wikipedia.org/wiki/Heapsort</a> .
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769678"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769693"><span title="769693,152127,1023,63,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769693" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm32444ad71b" title="Wed, 29 Oct 2014 17:10:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm32444ad71b');</script><noscript>Oct 29, 2014 at 5:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nightmaregiba/default.htm"><b>nightmaregiba</b> (63)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769693">
+thks
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769693"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770904"><span title="770904,152127,1023,63,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770904" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9712372b33" title="Sat, 01 Nov 2014 19:14:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm9712372b33');</script><noscript>Nov 1, 2014 at 7:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nightmaregiba/default.htm"><b>nightmaregiba</b> (63)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770904">
+int rear here mean the position of the last element? 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770904"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146188,0,152127,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~422.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

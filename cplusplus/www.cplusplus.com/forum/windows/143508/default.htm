@@ -1,0 +1,300 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/143508/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Handling messages in Windows - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Handling messages in Windows</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Handling messages in Windows</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143508,root,0,-1,11,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757092"><span title="757092,76935,1023,19,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757092" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd722472237" title="Sun, 28 Sep 2014 10:32:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmd722472237');</script><noscript>Sep 28, 2014 at 10:32am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/igor1985/default.htm"><b>igor1985</b> (19)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757092">
+hey guys, i wanna create an object of my own, that will proccess usual messages like WM_MOUSEMOVE, or WM_LBUTTONDOWN,how do i code a massage handler like this? for example if i draw a rect, and to make it get focus like an editbox.. with a caret and text within it.<br>
+i know i need to write a CALLBACK function but can i calculate a HWND to my object?<br>
+ps. i dont wanna use OwnerDraw methods.<br>
+<i>thanks in advance</i>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2e99dfa0ee" title="Sun, 28 Sep 2014 10:35:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm2e99dfa0ee');</script><noscript>Sep 28, 2014 at 10:35am UTC</noscript></span>
+<span class="dbtn" id="CH_btn757092"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757104"><span title="757104,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757104" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1b9e62c555" title="Sun, 28 Sep 2014 11:24:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm1b9e62c555');</script><noscript>Sep 28, 2014 at 11:24am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757104">
+Maybe subclass a static control?<br>
+<br>
+But I wonder if whatever you're trying to accomplish really calls for this sort of functionality? Your main input handler could simply parse input and pass it along to your object when necessary.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757104"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757120"><span title="757120,76935,1023,19,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757120" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9ec5ac2882" title="Sun, 28 Sep 2014 12:14:22 +0000"></span><script type="text/javascript">WhenId('CH_zTm9ec5ac2882');</script><noscript>Sep 28, 2014 at 12:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/igor1985/default.htm"><b>igor1985</b> (19)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757120">
+Subclassing is a great feature, but again, i wanna avoid creating WinAPI Windows, just using GDI Funcfions to draw rects, and give them life like Frankenstein! to make a rectangle and click it, and receive a message box "Rectangle Alive!!"
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757120"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757137"><span title="757137,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757137" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf888d64e96" title="Sun, 28 Sep 2014 13:10:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmf888d64e96');</script><noscript>Sep 28, 2014 at 1:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757137">
+When you click inside that rectangle (or not) you get mouse coordonates too. Compare that with your rect coordonates to see if it matches or not.<br>
+<br>
+Good luck reinventing these things, this is not a beginner job to do.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757137"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757142"><span title="757142,76935,1023,19,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757142" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm769551bf2f" title="Sun, 28 Sep 2014 13:33:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm769551bf2f');</script><noscript>Sep 28, 2014 at 1:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/igor1985/default.htm"><b>igor1985</b> (19)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757142">
+eventually i think all ways are leading to this solution, ok i will code it, and then will see where it goes from there. my vision was for the rectangle to send a WM_LBUTTONDOWN message, instead of the WM_LBUTTONDOWN message to check if its on the rectangle or not.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2b9d214085" title="Sun, 28 Sep 2014 13:34:41 +0000"></span><script type="text/javascript">WhenId('CH_zTm2b9d214085');</script><noscript>Sep 28, 2014 at 1:34pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn757142"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757162"><span title="757162,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757162" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5a1c37f9c8" title="Sun, 28 Sep 2014 15:14:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm5a1c37f9c8');</script><noscript>Sep 28, 2014 at 3:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757162">
+<table class="quote"><tr><td class="qd">my vision was for the rectangle to send a WM_LBUTTONDOWN message ...</td></tr></table><br>
+To send it where exactly? Call me crazy but shouldn't the rectangle be the recipient of the message? The rectangle should receive the message and react accordingly, there is no reason for it to say "Hey circle, look what I just got!", unless the circle is somehow involved in the response.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757162"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757195"><span title="757195,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757195" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6f830ce71b" title="Sun, 28 Sep 2014 16:52:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm6f830ce71b');</script><noscript>Sep 28, 2014 at 4:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757195">
+<table class="quote"><tr><td class="qd"><br>
+hey guys, i wanna create an object of my own, that will proccess usual messages like WM_MOUSEMOVE, or WM_LBUTTONDOWN,how do i code a massage handler like this? for example if i draw a rect, and to make it get focus like an editbox.. with a caret and text within it.<br>
+</td></tr></table><br>
+<br>
+I take it you are a beginner at Windows Programming, and are only beginning to learn proper nomenclature, so its hard for us more experienced types to understand your explanations of what you want.  But your above text makes me think you are wanting to make a 'custom control'.  The way you do that is by registering a 'Window Class' that you'll use for your control.  Actually, a custom control can have many Window Classes.  And by doing that you end up with a proper HWND.  There is no way you can manufacture a HWND -  its something only Windows the Operating System cam bestow upon you.  And in terms of receiving WM_LBUTTONDOWN messages as well as any and all others, your new registered Window Class will receive all of them through the Registered Window Procedure for your new class.  I posted code here a long time ago that showed how to get started writing your own edit control.  I could did that up again for you if you want it.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757195"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757323"><span title="757323,76935,1023,19,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757323" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm923f69bb8e" title="Sun, 28 Sep 2014 23:29:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm923f69bb8e');</script><noscript>Sep 28, 2014 at 11:29pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/igor1985/default.htm"><b>igor1985</b> (19)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757323">
+Ok, lets pretend that the Windows API functions dont exist, only the messages Functions such as GetMessage() and SendMessage() and the MSG structure, and All the rest Message related functions do exist, i wanna create my own "window" control to use the messages to communicate with each other.. is it programmaticly possible? i assume yes, if Microsoft done it, then is possible.. i know its not an easy task, my question is - how to start working on it. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757323"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757403"><span title="757403,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757403" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf8192194f" title="Mon, 29 Sep 2014 02:44:02 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf8192194f');</script><noscript>Sep 29, 2014 at 2:44am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757403">
+No.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757403"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757412"><span title="757412,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757412" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm065171aa8d" title="Mon, 29 Sep 2014 03:12:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm065171aa8d');</script><noscript>Sep 29, 2014 at 3:12am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757412">
+You can't get 'underneath' the Windows Api functions.  They are as 'low level' as you can get.  Even if you code strictly in assembler, that won't help you get below the level of the Windows Api functions.  If you want to code in assembler and create a window the only way you can do t is by calling CreateWindow() or CreateWindowEx().  No ifs, ands or buts.  That's it.<br>
+<br>
+You have to realize that Windows is an object oriented system, but was created before C++ came into widespread use.  So its a C based object oriented system.  When procedural languages such as C are used to create objects you'll generally have 'Create' type functions that do what Constructors do in C++ - they perform low level memory allocations and create the object.  Then they'll usually return a pointer to the created object.  That's exactly how CreateWindow() operates; the HWND returned from it references internal memory to which you have no access, you can only access it through the provided Api functions.  Also, you have to pass in a HWND to many other Api functions as the first parameter of the function call.  This is essentially a 'this' pointer to the internal object.<br>
+<br>
+So when you say you just want to just draw lines and do other fancy things to a part of your screen and have Windows recognize it as an object of your own you are just talking nonsense.  
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm13e8e5c52d" title="Mon, 29 Sep 2014 03:12:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm13e8e5c52d');</script><noscript>Sep 29, 2014 at 3:12am UTC</noscript></span>
+<span class="dbtn" id="CH_btn757412"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757415"><span title="757415,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757415" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm27b3032be1" title="Mon, 29 Sep 2014 03:20:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm27b3032be1');</script><noscript>Sep 29, 2014 at 3:20am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757415">
+But if you are willing to work 'inside the box' instead of out of it, and create your own child window control that exists within the context of another parent window, or even the Windows Desktop itself, then you are in business.  There are hundreds of Windows Api functions that you can use.  And you start by registering your own custom window class, and providing the address of a Window Procedure for it.  At that point you can use CreateWindowEx() to instantiate as many of these as your hearts desire.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757415"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143508,1,76935,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~540.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

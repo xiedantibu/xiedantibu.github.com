@@ -1,0 +1,382 @@
+<!DOCTYPE html><!-- saved from url=(0066)http://www.cplusplus.com/reference/regex/match_results/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>match_results - C++ Reference</title>
+<link rel="canonical" href="default.htm">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Reference</a></li>
+<li><a href="../default.htm">&lt;regex&gt;</a></li>
+<li class="here">match_results</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<div class="C_doc">
+<div id="I_type">class template</div>
+<div id="I_file">&lt;regex&gt;</div>
+<h1><span class="namespace" title="namespace std">std::</span>match_results<span class="C_ico cpp11warning" title="This page describes a feature introduced by the latest revision of the C++ standard (2011). Older compilers may not support it." alt="This page describes a feature introduced by the latest revision of the C++ standard (2011). Older compilers may not support it."></span></h1>
+<div class="C_prototype"><pre>template &lt; class BidirectionalIterator,           class Alloc = allocator&lt; sub_match&lt;BidirectionalIterator&gt; &gt; &gt;  class match_results;</pre></div><div id="I_description">Match results</div>
+<section id="description">
+Container-like class used to store the matches found on the target sequence of characters after a <i>regex matching operation</i>, each match being of the corresponding <a href="../../../sub_match">sub_match</a> type.<br>
+<br>
+It is automatically filled by <a href="../../../regex_match">regex_match</a>, <a href="../../../regex_search">regex_search</a> or a <a href="../../../regex_iterator">regex_iterator</a> with the results of the matching operation. The elements in <tt>match_results</tt> objects are const-qualified, and thus are not meant to be modified outside of these functions.<br>
+<br>
+When constructed, <tt>match_results</tt> objects have no result state (i.e., they are not <a href="../../../match_results_3a_3aready">ready</a>). Once they have been used as the proper argument in a call to either <a href="../../../regex_match">regex_match</a> or <a href="../../../regex_search">regex_search</a>, they acquire a established result state, and become <a href="../../../match_results_3a_3aready">ready</a> (this can be checked by calling member function <a href="../../../match_results_3a_3aready">match_results::ready</a>). Values returned by dereferencing a <a href="../../../regex_iterator">regex_iterator</a> that points to a valid location are always <a href="../../../match_results_3a_3aready">ready</a>.<br>
+<br>
+Once <a href="../../../match_results_3a_3aready">ready</a>, the object can either be <a href="../../../match_results_3a_3aempty">empty</a> or non-<a href="../../../match_results_3a_3aempty">empty</a>, depending on whether the target sequence was successfully matched against the expression. If successful, it is not <a href="../../../match_results_3a_3aempty">empty</a> and contains a series of <a href="../../../sub_match">sub_match</a> objects: the first <a href="../../../sub_match">sub_match</a> element corresponds to the entire match, and, if the <a href="../regex/default.htm">regex</a> expression contained sub-expressions to be matched (i.e., parentheses-delimited groups), their corresponding sub-matches are stored as successive <a href="../../../sub_match">sub_match</a> elements in the <tt>match_results</tt> object.<br>
+<br>
+These sub-matches can be accessed as if the <tt>match_results</tt> object were a container, or directly using members such as <a href="../../../match_results_3a_3astr">str</a>, <a href="../../../match_results_3a_3alength">length</a> or <a href="../../../match_results_3a_3aposition">position</a>.<br>
+<br>
+If the <tt>match_results</tt> object was used with <a href="../../../regex_search">regex_search</a>, the part of the target sequence that was not part of the match can be accessed using members <a href="../../../match_results_3a_3aprefix">prefix</a> and <a href="../../../match_results_3a_3asuffix">suffix</a>.<br>
+<br>
+Objects of <tt>match_results</tt> type that are <a href="../../../match_results_3a_3aready">ready</a> can also be used to <a href="../../../match_results_3a_3aformat">format</a> a character sequence using the information they contain by using member function <a href="../../../match_results_3a_3aformat">match_results::format</a>.<br>
+<br>
+The classes <a href="../cmatch/default.htm">cmatch</a> and <a href="../smatch/default.htm">smatch</a> are instantiations of this class for narrow characters (<tt>char</tt>). <a href="../../../wcmatch">wcmatch</a> and <a href="../../../wsmatch">wsmatch</a> are their respective wide character versions (<tt>wchar_t</tt>). Defined in the <tt>&lt;regex&gt;</tt> standard header as:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>typedef</var> match_results&lt;<var>const</var> <var>char</var>*&gt; cmatch;
+<var>typedef</var> match_results&lt;<var>const</var> <var>wchar_t</var>*&gt; wcmatch;
+<var>typedef</var> match_results&lt;string::const_iterator&gt; smatch;
+<var>typedef</var> match_results&lt;wstring::const_iterator&gt; wsmatch;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+</section>
+<br>
+<section id="parameters">
+<h3>Template parameters</h3>
+<dl>
+<dt>BidirectionalIterator</dt>
+<dd>A <a href="../../iterator/bidirectionaliterator/default.htm">bidirectional iterator type</a> that iterates on the target sequence of characters.</dd>
+<dt>Alloc</dt>
+<dd>Type of the allocator object used to define the storage allocation model. By default, the <a href="../../memory/allocator/default.htm">allocator</a> class template is used for elements of type <a href="../../../sub_match">sub_match</a>, which defines the simplest memory allocation model for these objects and is value-independent.<br>
+Aliased as member type <tt>match_results::allocator_type</tt>.</dd>
+</dl>
+</section>
+<br>
+<section id="instantiations">
+<h3>Template instantiations</h3>
+<dl class="links"><dt><a href= "../cmatch/default.htm"><b>cmatch</b></a></dt><dd>match_results for string literals <span class="typ">(class)</span></dd></dl><dl class="links"><dt><a href= "../smatch/default.htm"><b>smatch</b></a></dt><dd>match_results for string objects <span class="typ">(class)</span></dd></dl><dl class="links"><dt><a href= "../wcmatch/default.htm"><b>wcmatch</b></a></dt><dd>match_results for wide string literals <span class="typ">(class)</span></dd></dl><dl class="links"><dt><a href= "../wsmatch/default.htm"><b>wsmatch</b></a></dt><dd>match_results for wide string objects <span class="typ">(class)</span></dd></dl>
+</section>
+<br>
+<section id="types">
+<h3>Member types</h3>
+The following aliases are member types of <tt>match_results</tt>. They are widely used as parameter and return types by member functions:<br>
+<br>
+<div class="C_SwitchCases">
+<div title="C++11">
+<table class="boxed">
+<tr><th>member type</th><th>definition</th><th>notes</th></tr>
+<tr><td><tt>value_type</tt></td><td><tt>sub_match&lt;BidirectionalIterator&gt;</tt></td><td>Type of the elements stored (<a href="../../../sub_match">sub_match</a>).</td></tr>
+<tr><td><tt>char_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::value_type</tt></td><td>Type of the characters in the sequence.</td></tr>
+<tr><td><tt>string_type</tt></td><td><tt>basic_string&lt;char_type&gt;</tt></td><td>Type of <a href="../../string/string/default.htm">string</a> for the characters type.</td></tr>
+<tr><td><tt>allocator_type</tt></td><td>the second template parameter (<tt>Alloc</tt>)</td><td>defaults to: <tt><a href="../../memory/allocator/default.htm">allocator</a>&lt;value_type&gt;</tt></td></tr>
+<tr><td><tt>reference</tt></td><td><tt>const value_type&</tt></td><td></td></tr>
+<tr><td><tt>const_reference</tt></td><td><tt>const value_type&</tt></td><td></td></tr>
+<tr><td><tt>iterator</tt></td><td>a <a href="../../iterator/forwarditerator/default.htm">forward iterator</a> to <tt>const value_type</tt></td><td></td></tr>
+<tr><td><tt>const_iterator</tt></td><td>a <a href="../../iterator/forwarditerator/default.htm">forward iterator</a> to <tt>const value_type</tt></td><td>The same as <code>iterator</code></td></tr>
+<tr><td><tt>size_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::difference_type</tt></td><td>usually the same as <a href="../../cstddef/size_t/default.htm">size_t</a></td></tr>
+<tr><td><tt>difference_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::size_type</tt></td><td>usually the same as <a href="../../cstddef/ptrdiff_t/default.htm">ptrdiff_t</a></td></tr>
+</table>
+</div>
+<div title="C++14">
+<table class="boxed">
+<tr><th>member type</th><th>definition</th><th>notes</th></tr>
+<tr><td><tt>value_type</tt></td><td><tt>sub_match&lt;BidirectionalIterator&gt;</tt></td><td>Type of the elements stored (<a href="../../../sub_match">sub_match</a>).</td></tr>
+<tr><td><tt>char_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::value_type</tt></td><td>Type of the characters in the sequence.</td></tr>
+<tr><td><tt>string_type</tt></td><td><tt>basic_string&lt;char_type&gt;</tt></td><td>Type of <a href="../../string/string/default.htm">string</a> for the characters type.</td></tr>
+<tr><td><tt>allocator_type</tt></td><td>the second template parameter (<tt>Alloc</tt>)</td><td>defaults to: <tt><a href="../../memory/allocator/default.htm">allocator</a>&lt;value_type&gt;</tt></td></tr>
+<tr><td><tt>reference</tt></td><td><tt>value_type&</tt></td><td></td></tr>
+<tr><td><tt>const_reference</tt></td><td><tt>const value_type&</tt></td><td></td></tr>
+<tr><td><tt>iterator</tt></td><td>a <a href="../../iterator/forwarditerator/default.htm">forward iterator</a> to <tt>const value_type</tt></td><td></td></tr>
+<tr><td><tt>const_iterator</tt></td><td>a <a href="../../iterator/forwarditerator/default.htm">forward iterator</a> to <tt>const value_type</tt></td><td>The same as <code>iterator</code></td></tr>
+<tr><td><tt>size_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::difference_type</tt></td><td>usually the same as <a href="../../cstddef/size_t/default.htm">size_t</a></td></tr>
+<tr><td><tt>difference_type</tt></td><td><tt>iterator_traits&lt;BidirectionalIterator&gt;::size_type</tt></td><td>usually the same as <a href="../../cstddef/ptrdiff_t/default.htm">ptrdiff_t</a></td></tr>
+</table>
+</div>
+</div>
+</section>
+<br>
+<section id="functions">
+<h3>Member functions</h3>
+<dl class="links"><dt><a href= "match_results/default.htm"><b>(constructor)</b></a></dt><dd>Construct match_results <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "~match_results/default.htm"><b>(destructor)</b></a></dt><dd>Destroy match_results <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Capacity</h4>
+<dl class="links"><dt><a href= "empty/default.htm"><b>empty</b></a></dt><dd>Test whether object has no matches <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "size/default.htm"><b>size</b></a></dt><dd>Return number of matches <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "max_size/default.htm"><b>max_size</b></a></dt><dd>Return maximum size <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Iterators</h4>
+<dl class="links"><dt><a href= "begin/default.htm"><b>begin</b></a></dt><dd>Return iterator to beginning <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "end/default.htm"><b>end</b></a></dt><dd>Return iterator to end <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "cbegin/default.htm"><b>cbegin</b></a></dt><dd>Return const_iterator to beginning <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "cend/default.htm"><b>cend</b></a></dt><dd>Return const_iterator to end <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Element access</h4>
+<dl class="links"><dt><a href= "operator/default.htm"><b>operator[]</b></a></dt><dd>Return match <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "prefix/default.htm"><b>prefix</b></a></dt><dd>Return prefix <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "suffix/default.htm"><b>suffix</b></a></dt><dd>Return suffix <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "length/default.htm"><b>length</b></a></dt><dd>Return length of match <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "position/default.htm"><b>position</b></a></dt><dd>Return position of match <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "str/default.htm"><b>str</b></a></dt><dd>Return match as a string <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Formatting</h4>
+<dl class="links"><dt><a href= "format/default.htm"><b>format</b></a></dt><dd>Format replacement string <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Swap</h4>
+<dl class="links"><dt><a href= "swap/default.htm"><b>swap</b></a></dt><dd>Swap contents <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h4>Observers</h4>
+<dl class="links"><dt><a href= "get_allocator/default.htm"><b>get_allocator</b></a></dt><dd>Get allocator <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h3>Non-member functions</h3>
+<dl class="links"><dt><a href= "operators/default.htm"><b>operators (match_results)</b></a></dt><dd>Relational operators for match_results <span class="typ">(function template)</span></dd></dl><dl class="links"><dt><a href= "swap%28global%29/default.htm"><b>swap (match_results)</b></a></dt><dd>Swap contents of two match_result objects <span class="typ">(function template)</span></dd></dl>
+</section>
+</div><div id="CH_bb"></div></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder selected reference"><a href="../../default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder forum"><a href="../../../forum/default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="../../default.htm">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable collapsed"><h4><a href="../../clibrary/default.htm">C library:</a></h4><ul>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cassert/default.htm"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cctype/default.htm"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cerrno/default.htm"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cfenv/default.htm"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cfloat/default.htm"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cinttypes/default.htm"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ciso646/default.htm"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../climits/default.htm"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../clocale/default.htm"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cmath/default.htm"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csetjmp/default.htm"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csignal/default.htm"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdarg/default.htm"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cstdbool/default.htm"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstddef/default.htm"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cstdint/default.htm"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdio/default.htm"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdlib/default.htm"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstring/default.htm"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../ctgmath/default.htm"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ctime/default.htm"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cuchar/default.htm"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cwchar/default.htm"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cwctype/default.htm"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../stl/default.htm">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../array/default.htm"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../deque/default.htm"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../forward_list/default.htm"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../list/default.htm"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../map/default.htm"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../queue/default.htm"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../set/default.htm"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stack/default.htm"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_map/default.htm"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_set/default.htm"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../vector/default.htm"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../iolibrary/default.htm">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../fstream/default.htm"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iomanip/default.htm"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ios/default.htm"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iosfwd/default.htm"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iostream/default.htm"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../istream/default.htm"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ostream/default.htm"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../sstream/default.htm"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../streambuf/default.htm"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../multithreading/default.htm">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../atomic/default.htm"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../condition_variable/default.htm"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../future/default.htm"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../mutex/default.htm"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../thread/default.htm"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4><a href="../../std/default.htm">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../algorithm/default.htm"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../bitset/default.htm"><span>&lt;bitset&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../chrono/default.htm"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../codecvt/default.htm"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../complex/default.htm"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../exception/default.htm"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../functional/default.htm"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../initializer_list/default.htm"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iterator/default.htm"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../limits/default.htm"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../locale/default.htm"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../memory/default.htm"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../new/default.htm"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../numeric/default.htm"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../random/default.htm"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../ratio/default.htm"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 selected folder"><a href="../default.htm"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stdexcept/default.htm"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../string/default.htm"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../system_error/default.htm"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../tuple/default.htm"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../typeindex/default.htm"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../typeinfo/default.htm"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../type_traits/default.htm"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../utility/default.htm"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../valarray/default.htm"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect cpp11" id="regex_box">
+<h3><b><a href="../default.htm">&lt;regex&gt;</a></b></h3>
+<ul>
+<li class="cpp11"><a href="../ecmascript/default.htm"><span>ECMAScript syntax</span></a></li>
+<li class="cpp11"><a href="../regex_constants/default.htm"><span>regex_constants</span></a></li>
+<li class="C_Collapsable"><h4>classes (basic):</h4><ul>
+<li class="cpp11 folder"><a href="../basic_regex/default.htm"><span>basic_regex</span></a></li>
+<li class="cpp11 selected folder"><a href="default.htm"><span>match_results</span></a></li>
+<li class="cpp11 folder"><a href="../regex_error/default.htm"><span>regex_error</span></a></li>
+<li class="cpp11 folder"><a href="../regex_iterator/default.htm"><span>regex_iterator</span></a></li>
+<li class="cpp11 folder"><a href="../regex_token_iterator/default.htm"><span>regex_token_iterator</span></a></li>
+<li class="cpp11 folder"><a href="../regex_traits/default.htm"><span>regex_traits</span></a></li>
+<li class="cpp11 folder"><a href="../sub_match/default.htm"><span>sub_match</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>classes (template instantiations):</h4><ul>
+<li class="cpp11"><a href="../cmatch/default.htm"><span>cmatch</span></a></li>
+<li class="cpp11"><a href="../csub_match/default.htm"><span>csub_match</span></a></li>
+<li class="cpp11"><a href="../regex/default.htm"><span>regex</span></a></li>
+<li class="cpp11"><a href="../smatch/default.htm"><span>smatch</span></a></li>
+<li class="cpp11"><a href="../ssub_match/default.htm"><span>ssub_match</span></a></li>
+<li class="cpp11"><a href="../wcmatch/default.htm"><span>wcmatch</span></a></li>
+<li class="cpp11"><a href="../wcsub_match/default.htm"><span>wcsub_match</span></a></li>
+<li class="cpp11"><a href="../wregex/default.htm"><span>wregex</span></a></li>
+<li class="cpp11"><a href="../wsmatch/default.htm"><span>wsmatch</span></a></li>
+<li class="cpp11"><a href="../wssub_match/default.htm"><span>wssub_match</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>functions:</h4><ul>
+<li class="cpp11"><a href="../regex_match/default.htm"><span>regex_match</span></a></li>
+<li class="cpp11"><a href="../regex_replace/default.htm"><span>regex_replace</span></a></li>
+<li class="cpp11"><a href="../regex_search/default.htm"><span>regex_search</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect cpp11" id="match_results_box">
+<h3><b><a href="default.htm">match_results</a></b></h3>
+<ul>
+<li class="cpp11"><a href="match_results/default.htm"><span>match_results::match_results</span></a></li>
+<li class="cpp11"><a href="~match_results/default.htm"><span>match_results::~match_results</span></a></li>
+<li class="C_Collapsable"><h4>member functions:</h4><ul>
+<li class="cpp11"><a href="begin/default.htm"><span>match_results::begin</span></a></li>
+<li class="cpp11"><a href="cbegin/default.htm"><span>match_results::cbegin</span></a></li>
+<li class="cpp11"><a href="cend/default.htm"><span>match_results::cend</span></a></li>
+<li class="cpp11"><a href="empty/default.htm"><span>match_results::empty</span></a></li>
+<li class="cpp11"><a href="end/default.htm"><span>match_results::end</span></a></li>
+<li class="cpp11"><a href="format/default.htm"><span>match_results::format</span></a></li>
+<li class="cpp11"><a href="get_allocator/default.htm"><span>match_results::get_allocator</span></a></li>
+<li class="cpp11"><a href="length/default.htm"><span>match_results::length</span></a></li>
+<li class="cpp11"><a href="max_size/default.htm"><span>match_results::max_size</span></a></li>
+<li class="cpp11"><a href="operator/default.htm"><span>match_results::operator=</span></a></li>
+<li class="cpp11"><a href="operator/default.htm"><span>match_results::operator[]</span></a></li>
+<li class="cpp11"><a href="position/default.htm"><span>match_results::position</span></a></li>
+<li class="cpp11"><a href="prefix/default.htm"><span>match_results::prefix</span></a></li>
+<li class="cpp11"><a href="ready/default.htm"><span>match_results::ready</span></a></li>
+<li class="cpp11"><a href="size/default.htm"><span>match_results::size</span></a></li>
+<li class="cpp11"><a href="str/default.htm"><span>match_results::str</span></a></li>
+<li class="cpp11"><a href="suffix/default.htm"><span>match_results::suffix</span></a></li>
+<li class="cpp11"><a href="swap/default.htm"><span>match_results::swap</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>non-member functions:</h4><ul>
+<li class="cpp11"><a href="operators/default.htm"><span>operators (match_results)</span></a></li>
+<li class="cpp11"><a href="swap%28global%29/default.htm"><span>swap (match_results)</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~1976.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			el.appendChild(btn('New Page','New Page','new','../../new.cgiaregexmatch_results'));
+			el.appendChild(btn('Edit Page','Edit Page','edit','../../edit.cgiaregexmatch_results'));
+			
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='../../delete.cgiaregexmatch_results'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

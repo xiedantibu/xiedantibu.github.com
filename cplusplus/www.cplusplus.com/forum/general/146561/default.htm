@@ -1,0 +1,277 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146561/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Binary search Tree adding this-&gt;root giv - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Binary search Tree adding this-&gt;root giv</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Binary search Tree adding this-&gt;root gives segment fault</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146561,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770757"><span title="770757,142758,1023,161,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770757" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm38e3bb7815" title="Sat, 01 Nov 2014 09:04:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm38e3bb7815');</script><noscript>Nov 1, 2014 at 9:04am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770757">
+Hello I am getting an error when I add this-&gt;root in all my functions:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code>bst::hwareItem* bst:: findNode(hwareItem*&amp; root, <var>char</var> barcode[]){
+
+    <var>if</var>(<var>this</var>-&gt;root==NULL)
+        <var>return</var> NULL;
+    <var>else</var> <var>if</var> (strcmp(<var>this</var>-&gt;root-&gt;barcode, barcode)==0)
+        <var>return</var> <var>this</var>-&gt;root;
+    <var>else</var> <var>if</var>(strcmp(<var>this</var>-&gt;root-&gt;barcode, barcode)&lt;0){
+
+        findNode(root-&gt;left, barcode);}
+    <var>else</var>{
+
+            findNode(root-&gt;right, barcode);}
+
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+says segmentation fault..but without adding this-&gt; i dont get error..why?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm90f9bbc4c4" title="Sat, 01 Nov 2014 09:04:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm90f9bbc4c4');</script><noscript>Nov 1, 2014 at 9:04am UTC</noscript></span>
+<span class="dbtn" id="CH_btn770757"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770760"><span title="770760,127332,1023,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770760" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm50d28d71b7" title="Sat, 01 Nov 2014 09:33:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm50d28d71b7');</script><noscript>Nov 1, 2014 at 9:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/konstantin2/default.htm"><b>Konstantin2</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770760">
+This is because this-&gt;root is zero and parameter root is not zero.<br>
+Rewrite<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>bst::hwareItem* bst:: findNode(hwareItem*&amp; root, <var>char</var> barcode[]){</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+as<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>bst::hwareItem* bst:: findNode(hwareItem*&amp; root2, <var>char</var> barcode[]){</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+and check your logic, where you should write "this-&gt;root" as simple "root" and where you should write "root2".
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770760"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770763"><span title="770763,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770763" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm576a7895fc" title="Sat, 01 Nov 2014 09:38:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm576a7895fc');</script><noscript>Nov 1, 2014 at 9:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770763">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> bst ::updateItem(hwareItem*&amp; root, <var>char</var> bar[]){
+
+    <var>char</var> newBar[10];
+
+    <var>if</var>(root==NULL){
+        cout&lt;&lt;<kbd>"Item does not exist"</kbd>&lt;&lt;endl;
+        <var>return</var> 0;
+        }
+    <var>else</var> <var>if</var> (strcmp(root-&gt;barcode, bar)==0){
+        cout&lt;&lt;<kbd>"Enter new Barcode: "</kbd>;
+
+        cin.getline(newBar, 10);
+        strcpy(root-&gt;barcode, newBar);
+        cout&lt;&lt;root-&gt;barcode&lt;&lt;endl;<cite>//////////////////Here it shows right answer</cite>
+                                                /but doesnot update item when function exit            
+        <var>return</var> 0;
+
+    }
+    <var>else</var> <var>if</var>(strcmp(root-&gt;barcode, bar)&lt;0){
+
+        updateItem(root-&gt;left, bar);}
+    <var>else</var>{
+
+            updateItem(root-&gt;right, bar);}
+
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770763"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770770"><span title="770770,127332,1023,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770770" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm42b309a47a" title="Sat, 01 Nov 2014 10:02:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm42b309a47a');</script><noscript>Nov 1, 2014 at 10:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/konstantin2/default.htm"><b>Konstantin2</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770770">
+May be you should write line 13 as <span class="auto"><code class="source">strcpy(<var>this</var>-&gt;root-&gt;barcode, newBar);</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770770"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770773"><span title="770773,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770773" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7d671ff435" title="Sat, 01 Nov 2014 10:20:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d671ff435');</script><noscript>Nov 1, 2014 at 10:20am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770773">
+I did but the first value deletes..new value is added also<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code>in Main()
+strcpy(item.bar, <kbd>"5505505"</kbd>);<cite>//adds</cite>
+    val.addNode(item);
+    strcpy(item.bar, <kbd>"1010101"</kbd>);<cite>//adds</cite>
+    val.addNode(item);
+    <cite>//cout&lt;&lt;val.findNode("1010101")&lt;&lt;endl;//outputs 1</cite>
+    val.updateItem(<kbd>"1010101"</kbd>);<cite>//I add 99999</cite>
+    cout&lt;&lt;val.findNode(<kbd>"5505505"</kbd>)&lt;&lt;endl;<cite>//this value is deleted</cite>
+    cout&lt;&lt;val.findNode(<kbd>"99999"</kbd>)&lt;&lt;endl;<cite>//this value is found</cite>
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm106d71ea8f" title="Sat, 01 Nov 2014 10:23:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm106d71ea8f');</script><noscript>Nov 1, 2014 at 10:23am UTC</noscript></span>
+<span class="dbtn" id="CH_btn770773"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770776"><span title="770776,142758,1023,161,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770776" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm68b8affeed" title="Sat, 01 Nov 2014 10:45:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm68b8affeed');</script><noscript>Nov 1, 2014 at 10:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/csstudent123/default.htm"><b>csstudent123</b> (161)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770776">
+Thanks guys I solved it...<br>
+<br>
+The logic was messing up because I was replacing the key node value to separate right node from left...Actually I am not supposed to update key node value but other values which do not separate left and right subtrees based on lesser and greater equality<br>
+<br>
+Struct  node{<br>
+<br>
+     keyvalue; //this is needed to position nodes in the respective tree..<br>
+     //other values;//these values could be changed but not keyvalue<br>
+<br>
+}
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm86dc8fad88" title="Sat, 01 Nov 2014 10:47:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm86dc8fad88');</script><noscript>Nov 1, 2014 at 10:47am UTC</noscript></span>
+<span class="dbtn" id="CH_btn770776"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146561,0,142758,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~428.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

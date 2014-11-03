@@ -1,0 +1,280 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/143588/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>running powerpnt.exe with button click - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">running powerpnt.exe with button click</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> running powerpnt.exe with button click</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143588,root,0,-1,8,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757509"><span title="757509,84728,1023,64,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757509" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0c125e73d5" title="Mon, 29 Sep 2014 11:15:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm0c125e73d5');</script><noscript>Sep 29, 2014 at 11:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757509">
+Hi,<br>
+<br>
+Is there a straight forward way to run powerpnt.exe (or any other office program for that matter) via a windows from program.<br>
+<br>
+e.g. Form1 has one button. When the button is clicked, powerpnt.exe (or ideally a *.ppt file) loads.<br>
+<br>
+I was hoping that using system() inside a button click event would work.... It doesn't unfortunately. Or at least I couldn't get it to work.<br>
+<br>
+Cheers,<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4d017d21bc" title="Mon, 29 Sep 2014 12:10:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm4d017d21bc');</script><noscript>Sep 29, 2014 at 12:10pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn757509"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757533"><span title="757533,112063,1023,10,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757533" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm30a2037eb8" title="Mon, 29 Sep 2014 12:33:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm30a2037eb8');</script><noscript>Sep 29, 2014 at 12:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chinchu/default.htm"><b>chinchu</b> (10)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757533">
+<a href="../../../../www.codeproject.com/articles/34998/ms-office-ole-automation-using-c">http://www.codeproject.com/Articles/34998/MS-Office-OLE-Automation-Using-C</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757533"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757552"><span title="757552,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757552" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7d9155cc1a" title="Mon, 29 Sep 2014 14:00:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d9155cc1a');</script><noscript>Sep 29, 2014 at 2:00pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757552">
+See ShellExecute.<br>
+<a href="../../../../msdn.microsoft.com/en-gb/library/windows/desktop/bb762153%28vvs.85%29.aspx">http://msdn.microsoft.com/en-gb/library/windows/desktop/bb762153%28v=vs.85%29.aspx</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757552"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757647"><span title="757647,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757647" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc91d4bbb0e" title="Mon, 29 Sep 2014 20:57:56 +0000"></span><script type="text/javascript">WhenId('CH_zTmc91d4bbb0e');</script><noscript>Sep 29, 2014 at 8:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757647">
+Thanks chinchu and kbw.<br>
+<br>
+I'll take a look at your suggestions. Since posting my question I also came across this:<br>
+<a href="../../../../support2.microsoft.com/kb/222960">http://support2.microsoft.com/kb/222960</a><br>
+<br>
+My office version and vc++ is more up to date than this but I'm hoping that this will get me a little closer to what I want to do.<br>
+<br>
+I'll return with an update soon....<br>
+<br>
+<br>
+Cheers.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757647"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757842"><span title="757842,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757842" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9954a9735f" title="Tue, 30 Sep 2014 12:21:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm9954a9735f');</script><noscript>Sep 30, 2014 at 12:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757842">
+That's using the automation interface to use PowerPoint at runtime from within your application.<br>
+<br>
+If all you want to do is run it, ShellExecute is what you need.  It opens a file and does "something" to it.  The verb is a parameter you specify.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757842"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757847"><span title="757847,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757847" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm79eddd3904" title="Tue, 30 Sep 2014 12:36:50 +0000"></span><script type="text/javascript">WhenId('CH_zTm79eddd3904');</script><noscript>Sep 30, 2014 at 12:36pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757847">
+Thanks kbw,<br>
+<br>
+I am still trying to get my head around ShellExecute. Thanks for the link and advice... Ideally, this is what I want from what I understand. A button is clicked and the power point file loads no matter where POWERPNT.EXE is located (i think this is the idea behind ShellExecute()). I'm still learning.<br>
+<br>
+<br>
+I have stumbled upon a site / example but it was in another language (lucky the code is in english).<br>
+<br>
+This works but will not work is one of the computers has a different location for POWERPNT.EXE:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>using</var> <var>namespace</var> System::Diagnostics;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And for the button click event:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code><var>private</var>: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Process^ ps = gcnew Process();
+				 ps-&gt;StartInfo-&gt;FileName = <kbd>"C:\\Program Files\\Microsoft Office\\Office14\\POWERPNT.EXE"</kbd>;
+				 ps-&gt;Start(<kbd>"C:\\Test.pptx"</kbd>); 
+			 }</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+However, I can't seem to get the switch for PowerPoint right. I'm after the 'start as slideshow' which would be the follow at a command prompt:<br>
+<br>
+"C:\Program Files\Microsoft Office\Office14\POWERPNT.EXE" /S "C:\Test.pptx";<br>
+<br>
+Can't get around having too many inverted commas.<br>
+<br>
+Cheers,<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757847"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757896"><span title="757896,39669,1023,1988,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757896" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm74e79e6557" title="Tue, 30 Sep 2014 17:09:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm74e79e6557');</script><noscript>Sep 30, 2014 at 5:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/modoran/default.htm"><b>modoran</b> (1988)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757896">
+Use "open" verb and as file name use only ""test.pptx", ShellExecute will automatically launch associated application (the same behaviour as you double-click the file from explorer)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757896"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757908"><span title="757908,13185,1023,1084,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757908" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2bf5558818" title="Tue, 30 Sep 2014 18:10:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm2bf5558818');</script><noscript>Sep 30, 2014 at 6:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/freddie1/default.htm"><b>freddie1</b> (1084)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757908">
+Like kbw said, if all you need to do is open PowerPoint, then ShellExecute() is real easy.  But now you seem to be talking about invoking various methods within the interfaces exposed by PowerPoint.  That's going to get complicated real fast, as you'll need to call the automation interface methods.  However, its doable.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757908"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143588,1,84728,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~541.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

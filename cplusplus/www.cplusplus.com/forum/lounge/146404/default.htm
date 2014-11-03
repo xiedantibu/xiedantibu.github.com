@@ -1,0 +1,201 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/lounge/146404/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linking in VS 2013 - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Lounge</a></li>
+<li class="here">Linking in VS 2013</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Linking in VS 2013</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146404,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770097"><span title="770097,80614,1023,1501,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770097" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb313d025ff" title="Thu, 30 Oct 2014 16:40:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmb313d025ff');</script><noscript>Oct 30, 2014 at 4:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lowest0ne/default.htm"><b>Lowest0ne</b> (1501)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770097">
+I recently got Windows 7 and I can't get visual studio to link for the life of me.<br>
+<br>
+Trying to get SFML working, which I've compiled from source.  The example executables work just fine.<br>
+<br>
+I've followed the steps on this page:<br>
+<a href="../../../../www.sfml-dev.org/tutorials/2.0/start-vc.php">http://www.sfml-dev.org/tutorials/2.0/start-vc.php</a><br>
+<br>
+I get link errors for the obvious things, sf::RenderWindow(), sf::VideoMode(), sf::String().<br>
+<br>
+Thinking maybe it was an SFML thing, I build SDL too.  Same problems.<br>
+<br>
+Thinking I simply missed a step in VS, I used CMake to build the solution for me, no luck.<br>
+<br>
+Has anyone used VS 2013 ( 64bit ) and can tell me how to get this thing to link?<br>
+<br>
+Another thing, if I spell the libraries wrong on purpose, I get the error that the libraries can't be found.  To me, this means that when I spell them right, they are found.  That means that VS is finding the libs, it's just not freaking linking them!<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770097"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770116"><span title="770116,103613,1023,89,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770116" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma4eed99cf1" title="Thu, 30 Oct 2014 17:37:22 +0000"></span><script type="text/javascript">WhenId('CH_zTma4eed99cf1');</script><noscript>Oct 30, 2014 at 5:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/z_e_r_e_o/default.htm"><b>Z e r e o</b> (89)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770116">
+Are you linking statically? I have found SFML and VS2013 don't really play well when trying to link statically and it takes quite a bit of work to get it to work. I might be able to help guide you the through the process through the process if that is the case, though it would probably be a lot easier to link dynamically to them.<br>
+<br>
+Though  could you paste the exact errors you are getting in a pastebin, might give some clue as to the problems.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770116"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770140"><span title="770140,80614,1023,1501,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770140" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd69f36c6be" title="Thu, 30 Oct 2014 18:34:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmd69f36c6be');</script><noscript>Oct 30, 2014 at 6:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lowest0ne/default.htm"><b>Lowest0ne</b> (1501)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770140">
+Thanks.  While putting together some answers I got it to link dynamically.  I had a 32bit project, but I compiled SFML 64bit.  This makes me wonder why the CMake attempt didn't work, I'm sure that was a 64bit project.<br>
+<br>
+Static linking does appear to be some work though, I get link errors with at least glew.  I'll have to download it at some point, I guess.<br>
+<br>
+When I do download it, and for the libraries/headers in SFML, do you have a suggestion for where I should put them?  So far I just made a folder in My Documents with separate include and lib directories.<br>
+<br>
+One more thing, sfml-main.  I'm not linking to it, it gets named the same for both dynamic and static builds ( but has different file sizes ), do I need it?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770140"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770155"><span title="770155,103613,1023,89,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770155" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2c77cd3f7d" title="Thu, 30 Oct 2014 19:09:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm2c77cd3f7d');</script><noscript>Oct 30, 2014 at 7:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/z_e_r_e_o/default.htm"><b>Z e r e o</b> (89)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770155">
+<table class="quote"><tr><td class="qd">One more thing, sfml-main. I'm not linking to it, it gets named the same for both dynamic and static builds ( but has different file sizes ), do I need it?</td></tr></table><br>
+<br>
+Depends on your preference. It is mainly there so you don't have to use the standard WinMain entry point and can instead use main() as the entry instead. <br>
+<br>
+<table class="quote"><tr><td class="qd">Thanks. While putting together some answers I got it to link dynamically. I had a 32bit project, but I compiled SFML 64bit. This makes me wonder why the CMake attempt didn't work, I'm sure that was a 64bit project.</td></tr></table><br>
+<br>
+Yeah same thing happened to me. CMake wouldn't complain just because it is using the 64 bit compiler to build the SFML library and that is it. Which then produces a 64bit binary which isn't compatible with your 32bit project.<br>
+<br>
+<table class="quote"><tr><td class="qd">When I do download it, and for the libraries/headers in SFML, do you have a suggestion for where I should put them? So far I just made a folder in My Documents with separate include and lib directories.</td></tr></table><br>
+<br>
+Doesn't really matter to much where you put them. I usually keep a central storage of all my libraries that I have and update them every now and then. Then whenever I create a project I just copy the ones I need over to the project folder to use.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770155"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146404,0,80614,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li class="selected"><a href="../default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~661.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

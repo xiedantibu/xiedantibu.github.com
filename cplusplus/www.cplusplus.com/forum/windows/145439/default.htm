@@ -1,0 +1,364 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/145439/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>replace \ with \\ in string - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">replace \ with \\ in string</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> replace \ with \\ in string</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145439,root,0,-1,10,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg765873"><span title="765873,84728,1023,64,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765873" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm66ab4681e9" title="Mon, 20 Oct 2014 04:29:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm66ab4681e9');</script><noscript>Oct 20, 2014 at 4:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765873">
+Hi,<br>
+<br>
+I have a file's location stored in a System::String. E.g.<br>
+<br>
+<span class="auto"><code class="source">String^ str = <kbd>"C:\Test Folder\Test.rtf"</kbd>;</code></span><br>
+<br>
+Note, this pathname is actually stored in a text file. I have the code sorted for calling this information and storing it in a string.<br>
+<br>
+I have a richTextBox1 that needs to display the contents of Test.rtf. However, I cannot use richTextBox1-&gt;LoadFile(str) because of the slashes being seen as \ not \\.<br>
+<br>
+Is there a quick an easy way to convert this string or to find and replace \ with \\ for the LoadFile() to work?<br>
+<br>
+Cheers,
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmcca81766fb" title="Mon, 20 Oct 2014 04:30:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmcca81766fb');</script><noscript>Oct 20, 2014 at 4:30am UTC</noscript></span>
+<span class="dbtn" id="CH_btn765873"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765982"><span title="765982,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765982" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbb4da6b425" title="Mon, 20 Oct 2014 11:30:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmbb4da6b425');</script><noscript>Oct 20, 2014 at 11:30am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765982">
+You shouldn't need to do anything.<br>
+<br>
+<span class="auto"><code class="source">\\</code></span> is just the way you express the <span class="auto"><code class="source">\</code></span> character in C/C++.  If you specify <span class="auto"><code class="source">\</code></span>, that means expect some special code.  For example, <span class="auto"><code class="source">\t</code></span> is tab, <span class="auto"><code class="source">\r</code></span> is carriage return, <span class="auto"><code class="source">\n</code></span> is line feed and <span class="auto"><code class="source">\\</code></span> is <span class="auto"><code class="source">\</code></span>.<br>
+<br>
+If you read a file that has the string: <span class="auto"><code class="source">C:\Temp\names.txt</code></span>, you can pass that to a file method directly.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765982"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766253"><span title="766253,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766253" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm78e57d226e" title="Tue, 21 Oct 2014 02:18:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm78e57d226e');</script><noscript>Oct 21, 2014 at 2:18am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766253">
+Hi kbw,<br>
+<br>
+Thanks for your reply. I understand the idea of escape sequences e.g. \t etc.<br>
+<br>
+And unfortunately, the load file function will only accept \\, not \.<br>
+<br>
+E.g. This works:<br>
+<br>
+<span class="auto"><code class="source">richTextBox1-&gt;LoadFile(<kbd>"C:\\Test Folder\\Test.rtf"</kbd>);</code></span><br>
+<br>
+but this doesn't:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code> String^ str = <kbd>"C:\Test Folder\Test.rtf"</kbd>;
+richTextBox1-&gt;LoadFile(str);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+nor does this:<br>
+<span class="auto"><code class="source">richTextBox1-&gt;LoadFile(<kbd>"C:\Test Folder\Test.rtf"</kbd>)</code></span>;<br>
+<br>
+Remember, str is actually a line of text from a text file that stores the pathname.<br>
+<br>
+The error message I get is:<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>An unhandled exception of type 'System.IO.FileNotFoundException' occurred in mscorlib.dll
+
+Additional information: Could not find file 'C:\Test Folder\Test.rtf'.</samp></pre></td></tr></table></div><br>
+<br>
+Am I using the LoadFile() incorrectly perhaps?<br>
+<br>
+Cheers,<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm31cec3a2dd" title="Tue, 21 Oct 2014 02:22:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm31cec3a2dd');</script><noscript>Oct 21, 2014 at 2:22am UTC</noscript></span>
+<span class="dbtn" id="CH_btn766253"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766255"><span title="766255,11103,1023,4148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766255" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5541e32cf2" title="Tue, 21 Oct 2014 02:37:40 +0000"></span><script type="text/javascript">WhenId('CH_zTm5541e32cf2');</script><noscript>Oct 21, 2014 at 2:37am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zhuge/default.htm"><b>Zhuge</b> (4148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766255">
+If you are writing a string literal, '\\' represents a backslash. I don't see why you need to do this programmatically, though. Just use the search &amp; replace function of whatever you favorite editor is to make those changes to the source.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766255"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766260"><span title="766260,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766260" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdf4bcefbe5" title="Tue, 21 Oct 2014 03:09:18 +0000"></span><script type="text/javascript">WhenId('CH_zTmdf4bcefbe5');</script><noscript>Oct 21, 2014 at 3:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766260">
+Hi Zhuge,<br>
+<br>
+Thanks for your reply.<br>
+<br>
+Are you suggesting something like this?:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code>String^ str = <kbd>"C:\Test Folder\Test.rtf"</kbd>;
+std::size_t found = str.find_first_of(<kbd>"\\"</kbd>);
+<var>while</var> (found!=std::string::npos)
+{
+	str[found] = <kbd>'\\\\'</kbd>;
+	found = str.find_first_of(<kbd>"\\"</kbd>, found + 1);
+}
+richTextBox1-&gt;LoadFile(str);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+This doesn't work. I may have the coding wrong from lines 2 to 7 but I'm pretty sure it's because the string is a System::String when I'm finding / replacing using a std::string method.... I'm unsure how to convert a System::String to a std::string (I know how to do it the other way around thought). I assume this could work if I convert from System to std?<br>
+<br>
+Thanks.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766260"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766316"><span title="766316,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766316" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc08e1b5c42" title="Tue, 21 Oct 2014 07:08:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmc08e1b5c42');</script><noscript>Oct 21, 2014 at 7:08am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766316">
+That's a different question.  You asked about reading content from a file, now you're describing a literal.<br>
+<br>
+You can't do that because <span class="auto"><code class="source">String^ str = <kbd>"C:\Test Folder\Test.rtf"</kbd>;</code></span> is incorrect.<br>
+<br>
+The literal <u>must</u> be written as: <span class="auto"><code class="source">String^ str = <kbd>"C:\\Test Folder\\Test.rtf"</kbd>;</code></span><br>
+<br>
+I feel like I'm repeating myself here.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm97f5496f70" title="Tue, 21 Oct 2014 07:20:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm97f5496f70');</script><noscript>Oct 21, 2014 at 7:20am UTC</noscript></span>
+<span class="dbtn" id="CH_btn766316"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766329"><span title="766329,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766329" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2ba2416bab" title="Tue, 21 Oct 2014 08:00:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm2ba2416bab');</script><noscript>Oct 21, 2014 at 8:00am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766329">
+Thanks kbw,<br>
+<br>
+Sorry if I haven't been clear. Essentially I'm trying to use a pathname that is stored within a text file which uses single backslashes. I know how to retrieve this and store it as a string (perhaps this approach isn't the right one). I see how the pathname needs to be a literal for the LoadFile() and I'm hoping I'm using the correct terminology here. But the line of text that I'm retrieving has single backslashes. I need to make this pathname so that it uses two.<br>
+<br>
+Some background information that might assist.... I have two programs; one that writes info to a text file, the other reads from this text file. In the first program, there is a button used to ask the user to select a file. It opens a dialog box, the user selects the file (a rtf file in this case) and this pathname is then written to a particular line in the text file. The other program (the one that reads) has a richTextBox. When this program loads the richTextBox displays the rtf file.<br>
+<br>
+I hope this makes it a little clearer.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766329"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766332"><span title="766332,11103,1023,4148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766332" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1cab75455b" title="Tue, 21 Oct 2014 09:07:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm1cab75455b');</script><noscript>Oct 21, 2014 at 9:07am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zhuge/default.htm"><b>Zhuge</b> (4148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766332">
+If you are reading a line of text from a file, as kbw said, it will be fine if you just use it directly. The text file uses backslashes, therefore backslashes will be in the string that holds the data you read.<br>
+<br>
+If you are using a string literal in code, you must escape the backslashes because string literals (not any string, nor string variable, just string literals) use backslashes for special purposes (escape characters).<br>
+<br>
+That's all there is to it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766332"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766334"><span title="766334,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766334" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma53222da70" title="Tue, 21 Oct 2014 09:15:09 +0000"></span><script type="text/javascript">WhenId('CH_zTma53222da70');</script><noscript>Oct 21, 2014 at 9:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766334">
+Thanks Zhuge and kbw,<br>
+<br>
+I get this and this was initial thought but because it wasn't working I thought that there was some other issue. There must be something wrong my code somewhere. I'll investigate...<br>
+<br>
+Cheers.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766334"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766339"><span title="766339,84728,1023,64,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766339" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9cde79ed83" title="Tue, 21 Oct 2014 10:34:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm9cde79ed83');</script><noscript>Oct 21, 2014 at 10:34am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sambos/default.htm"><b>sambos</b> (64)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766339">
+Hi Zhuge and kwb,<br>
+<br>
+I believe I have solved my problem.<br>
+<br>
+I am using ifstream to open the text file that has the pathname.<br>
+<br>
+I had the code:<br>
+<span class="auto"><code class="source">richTextBox1-&gt;LoadFile(str);</code></span><br>
+<br>
+placed before I closed the stream. Placing this line of code after I have closed the file made it work... Not sure if I understand why this is needed but it works. Thanks for your support and getting me to look at my coding again.<br>
+<br>
+Cheers,
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766339"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145439,0,84728,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~491.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

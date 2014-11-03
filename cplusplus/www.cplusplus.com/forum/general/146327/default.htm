@@ -1,0 +1,191 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146327/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>When to use exceptions, asserts, general - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">When to use exceptions, asserts, general</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> When to use exceptions, asserts, general error messages or even something else?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146327,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769823"><span title="769823,154646,1023,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769823" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc230d1f915" title="Wed, 29 Oct 2014 22:43:40 +0000"></span><script type="text/javascript">WhenId('CH_zTmc230d1f915');</script><noscript>Oct 29, 2014 at 10:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/begha/default.htm"><b>begha</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769823">
+This is something I still don't seem to understand. When do I use each of these options? <br>
+<br>
+For example when the pre-condition of an interface is not met. Apparently this is the optimal place to use an exception, but I don't see the point of it. Let's say I'm working on an interface and in that interface, the pre-condition of function B is that function A must be executed before B. So if I throw an exception, how can I trust that something out in the other side of the interface catches it? Especially considering that the rest of the program is not made by me as I'm only doing the interface and its implementation. Since calling B before A is illegal, what should I actually do? Call an assert?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769823"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769825"><span title="769825,118111,1023,1119,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769825" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm58bff3b6c0" title="Wed, 29 Oct 2014 22:55:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm58bff3b6c0');</script><noscript>Oct 29, 2014 at 10:55pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/nt3/default.htm"><b>NT3</b> (1119)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769825">
+As always, you can choose.<br>
+<br>
+However, that doesn't mean there are better options. An <tt>assert</tt> is very good for debugging purposes - though it crashes the program and gives you information, on release builds (with <tt>NDEBUG</tt> defined) it completely disappears.<br>
+<br>
+Even so, its a bit heavy-handed, and on release builds will give you no error reporting at all. In that case, often exceptions are a good idea. Of course, they should be used as the 'exception' to the rule. So, if A must be called before B, an exception is a good thing to put in B to check. Either the above code catches it and fixes something, or it lets it go through and the exception behaves a bit like an assert. <br>
+<br>
+Of course, its never a good thing to just let B keep going, because if it needs A to be in a valid state than otherwise you have some weird things going on. So an exception or a premature return is the best thing. <br>
+<br>
+Nevertheless, its all down to personal opinion. No one is telling you to use exceptions - they are just sometimes a good tool for the job. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769825"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769828"><span title="769828,154646,1023,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769828" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3b56ec55f7" title="Wed, 29 Oct 2014 23:10:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm3b56ec55f7');</script><noscript>Oct 29, 2014 at 11:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/begha/default.htm"><b>begha</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769828">
+So would it be bad practice to just check the condition in the beginning, give a debug message and return the function prematurely? The situation where B gets called before A is something that only happens in the actual programming phase and if it happens, the program crashes anyway (B modifies information that A has needs to initialize). It's something that can never happen during  the actual run time, given that the program works as intended, so I don't really see the point of exceptions in this case.<br>
+<br>
+Should I use exceptions, who would catch the exception? It seems kinda counter-intuitive to have the caller catch an exception after the caller has made an illegal function call. Or is this exactly how it should be done (or rather, recommended)?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme9f628403c" title="Wed, 29 Oct 2014 23:11:17 +0000"></span><script type="text/javascript">WhenId('CH_zTme9f628403c');</script><noscript>Oct 29, 2014 at 11:11pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769828"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769850"><span title="769850,72044,1023,3663,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769850" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6003635b10" title="Thu, 30 Oct 2014 00:33:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm6003635b10');</script><noscript>Oct 30, 2014 at 12:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cubbi/default.htm"><b>Cubbi</b> (3663)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769850">
+First, let's look at the situations where exceptions are supposed to be thrown:<br>
+1. Failure to establish a postcondition. For example, a function or an operator returns an object by value, but it has no valid value to return. Extreme case of this are the constructors: they always throw exceptions on errors, which interact with a few more language features  resulting in RAII.<br>
+2. Failure to re-establish a class invariant (only applies to non-private member functions). It's normal for a member function to temporarily break an invariant, but it has to guarantee to put it back before returning.<br>
+3. Failure to satisfy the preconditions of some other functions that has to be called.<br>
+<br>
+Those are errors, errors for which exceptions exist. The program cannot continue and has to roll back (or quit)<br>
+<br>
+What you're talking about are contracts: wide-contract functions accept every input, but throw exceptions if they don't like it (e.g. vector::at). They bear the cost of always checking the input, even though in the expected usage the check is supposed to be pretty much always redundant.<br>
+Narrow-contract functions have preconditions: the behavior is only defined for a subset of all possible inputs (e.g. vector::operator[] and pretty much every C library function. Narrow contract functions typically have asserts for debug builds.<br>
+<br>
+Note that some precondition checks may be so costly, they would render the function useless, like calling is_sorted to check if binary_search may proceed. There is nothing wrong with debug-only asserts.<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm9c6a308093" title="Thu, 30 Oct 2014 02:10:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm9c6a308093');</script><noscript>Oct 30, 2014 at 2:10am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769850"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146327,0,154646,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~331.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146681/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Struggling with Day of the Year Program - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Struggling with Day of the Year Program</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Struggling with Day of the Year Program</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146681,root,0,-1,13,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771232"><span title="771232,153597,1023,15,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771232" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7e7e010ad7" title="Sun, 02 Nov 2014 15:52:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm7e7e010ad7');</script><noscript>Nov 2, 2014 at 3:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771232">
+My assignment is to "write a class  named  DayOfYear that takes an integer  representing a day of the year and translates it to a string  consisting of the month followed by day of the month."<br>
+<br>
+Program should have one constructor that takes the day of the year as a parameter and another one that takes the month and day as two parameters. We are supposed to overload the prefix and postfix decrement and increment operators as well.<br>
+<br>
+I have spent a lot of time working with the code so far, but I still can't get anything but the default constructor to run. I know I am supposed to call the two constructors in the main method, but everything I try results in compiler errors.<br>
+<br>
+Can anyone offer some advice that could point me in the right direction? Any help would be appreciated. Thank you!<br>
+<br>
+Here's what I have so far:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include&lt;iostream&gt;</dfn>
+<dfn>#include&lt;string&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>class</var> DayOfYear
+{
+    <var>private</var>:
+
+        <var>static</var> string month;
+
+    <var>public</var>:
+        <var>int</var> day;
+        DayOfYear();
+        DayOfYear(<var>int</var> d);
+        DayOfYear(string m, <var>int</var> d);
+        
+        <var>void</var> print();
+        
+        DayOfYear&amp; <var>operator</var>++();
+        DayOfYear <var>operator</var>++(<var>int</var>);
+        DayOfYear&amp; <var>operator</var>--();
+        DayOfYear <var>operator</var>--(<var>int</var>);
+};
+
+string DayOfYear::month;
+
+<cite>//Overloaded Operators</cite>
+DayOfYear&amp; DayOfYear::<var>operator</var>++()
+{
+	<var>if</var> (<var>this</var>-&gt;day == 365)
+		<var>this</var>-&gt;day = 1;
+	<var>else</var>
+		<var>this</var>-&gt;day++;
+	<var>return</var> *<var>this</var>;
+}
+
+DayOfYear DayOfYear::<var>operator</var>++(<var>int</var>)
+{
+	DayOfYear tmp(*<var>this</var>);
+	<var>operator</var>++();
+	<var>return</var> tmp;
+}
+
+DayOfYear&amp; DayOfYear::<var>operator</var>--()
+{
+	<var>if</var> (<var>this</var>-&gt;day == 1)
+		<var>this</var>-&gt;day = 365;
+	<var>else</var>
+		<var>this</var>-&gt;day--;
+	<var>return</var> *<var>this</var>;
+}
+
+DayOfYear DayOfYear::<var>operator</var>--(<var>int</var>)
+{
+	DayOfYear tmp(*<var>this</var>);
+	<var>operator</var>--();
+	<var>return</var> tmp;
+}
+
+DayOfYear::DayOfYear(string m, <var>int</var> d) {
+    month = m;
+    day = d;
+
+    <var>if</var> (m == <kbd>"January"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"February"</kbd> &amp;&amp; d &gt; 28) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"March"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"April"</kbd> &amp;&amp; d &gt; 30) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"May"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"June"</kbd> &amp;&amp; d &gt; 30) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"July"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"August"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"September"</kbd> &amp;&amp; d &gt; 30) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"October"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"November"</kbd> &amp;&amp; d &gt; 30) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    } <var>else</var> <var>if</var> (m == <kbd>"December"</kbd> &amp;&amp; d &gt; 31) {
+        cout &lt;&lt; <kbd>"Invalid input, terminating program."</kbd> &lt;&lt; endl;
+        exit(0);
+    }
+    cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day &lt;&lt; endl;
+}
+
+DayOfYear::DayOfYear()
+{
+    cout &lt;&lt; <kbd>"Enter the a day of the year (1-365), to print out the month and day\n"</kbd>
+     <kbd>"or enter a number &lt;=0 to end:"</kbd> &lt;&lt; endl;
+    cin &gt;&gt; day;
+    print();
+}
+
+DayOfYear::DayOfYear(<var>int</var> d)
+{
+    day = d;
+
+    <var>while</var> (d &gt; 365 || d &lt; 1) {
+        cout &lt;&lt; <kbd>"Day cannot be &gt; 365 or &lt; 1. "</kbd> &lt;&lt; endl;
+        cin &gt;&gt; d;
+        day = d;
+    }
+    print();
+}
+
+
+<var>void</var> DayOfYear::print() {
+    <var>if</var>( day &gt; 365){
+        cout &lt;&lt; <kbd>"Invalid input, terminating program. Day is greater than 365."</kbd> &lt;&lt; endl;
+        exit(0);
+    }
+    <var>else</var> <var>if</var>( day &lt; 1){
+        cout &lt;&lt; <kbd>"Invalid input, terminating program. Day is less than 1."</kbd> &lt;&lt; endl;
+        exit(0);
+    }
+    <var>else</var> <var>if</var> (day &gt; 0 &amp;&amp; day &lt; 32)
+    {
+        month = <kbd>"January"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; 31 + day - 31 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 31 &amp;&amp; day &lt; 60)
+    {
+        month = <kbd>"February"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 31  &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 59 &amp;&amp; day &lt; 91)
+    {
+        month = <kbd>"March"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 59 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 90 &amp;&amp; day &lt; 121)
+    {
+        month = <kbd>"April"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 90 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 120 &amp;&amp; day &lt; 152)
+    {
+        month = <kbd>"May"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 120 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 151 &amp;&amp; day &lt; 182)
+    {
+        month = <kbd>"June"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 151 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 181 &amp;&amp; day &lt; 213)
+    {
+        month = <kbd>"July"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 181 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 212 &amp;&amp; day &lt; 244)
+    {
+        month = <kbd>"August"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 212 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 243 &amp;&amp; day &lt; 274)
+    {
+        month = <kbd>"September"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 243 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 273 &amp;&amp; day &lt; 305)
+    {
+        month = <kbd>"October"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 273 &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 304 &amp;&amp; day &lt; 335)
+    {
+        month = <kbd>"November"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 304  &lt;&lt; endl;
+    }
+    <var>else</var> <var>if</var> (day &gt; 334 &amp;&amp; day &lt; 366)
+    {
+        month = <kbd>"December"</kbd>;
+        cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day - 334 &lt;&lt; endl;
+    }
+}
+
+<var>int</var> main()
+{
+
+    DayOfYear day;
+
+    <cite>//DayOfYear *dayOfYear = new DayOfYear(day);</cite>
+    <cite>//DayOfYear *dayOfYear = new DayOfYear(month, day);</cite>
+    <cite>//DayOfYear::DayOfYear(string m, int d)</cite>
+
+    system(<kbd>"PAUSE"</kbd>);
+    <var>return</var> 0;
+}
+
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771232"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771253"><span title="771253,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771253" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma0dd70d2b1" title="Sun, 02 Nov 2014 16:56:48 +0000"></span><script type="text/javascript">WhenId('CH_zTma0dd70d2b1');</script><noscript>Nov 2, 2014 at 4:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771253">
+<table class="quote"><tr><td class="qd">but everything I try results in compiler errors.</td></tr></table><br>
+What are the errors?<br>
+<br>
+What does the following display?<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>DayOfYear * dayOfYear001 = <var>new</var> DayOfYear(1,1);
+dayOfYear001-&gt;print();</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771253"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771255"><span title="771255,153597,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771255" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6dcd7bb51f" title="Sun, 02 Nov 2014 17:04:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm6dcd7bb51f');</script><noscript>Nov 2, 2014 at 5:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771255">
+Invalid conversion from int to const char*
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771255"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771261"><span title="771261,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771261" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1ce53fa3a3" title="Sun, 02 Nov 2014 17:14:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm1ce53fa3a3');</script><noscript>Nov 2, 2014 at 5:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771261">
+What compiler errors?<br>
+What does it say?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771261"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771262"><span title="771262,153597,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771262" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme937b0240c" title="Sun, 02 Nov 2014 17:19:11 +0000"></span><script type="text/javascript">WhenId('CH_zTme937b0240c');</script><noscript>Nov 2, 2014 at 5:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771262">
+Invalid conversions
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771262"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771270"><span title="771270,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771270" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfc5f1b9568" title="Sun, 02 Nov 2014 17:48:44 +0000"></span><script type="text/javascript">WhenId('CH_zTmfc5f1b9568');</script><noscript>Nov 2, 2014 at 5:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771270">
+Which line number is listed in the error?  Which filename is listed in the error?<br>
+<br>
+This is why it is recommended that you cut and paste the entire error message when seeking help from others.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771270"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771271"><span title="771271,122794,1023,251,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771271" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7e858c7f1d" title="Sun, 02 Nov 2014 17:48:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm7e858c7f1d');</script><noscript>Nov 2, 2014 at 5:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mobotus/default.htm"><b>mobotus</b> (251)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771271">
+<table class="quote"><tr><td class="qd">What does the following display?<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>DayOfYear * dayOfYear001 = <var>new</var> DayOfYear(1,1);
+dayOfYear001-&gt;print();</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+</td></tr></table><br>
+<br>
+I don't believe there is a valid constructor for that. It would have to be<br>
+<br>
+<span class="auto"><code class="source"><var>new</var> DayofYear(<kbd>"march"</kbd>, 1);<cite>//Something like this </cite></code></span> 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771271"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771273"><span title="771273,153897,1023,51,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771273" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm23e8c30f99" title="Sun, 02 Nov 2014 17:52:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm23e8c30f99');</script><noscript>Nov 2, 2014 at 5:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pheininger/default.htm"><b>pheininger</b> (51)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771273">
+mobotus:  Thanks for the correction.  You are correct.<br>
+<br>
+:-) I guess I want to add a new constructor <span class="auto"><code class="source">DayOfYear::DayOfYear(<var>int</var> month, <var>int</var> day);</code></span> :-)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm6b244ea2e0" title="Sun, 02 Nov 2014 17:54:59 +0000"></span><script type="text/javascript">WhenId('CH_zTm6b244ea2e0');</script><noscript>Nov 2, 2014 at 5:54pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771273"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771280"><span title="771280,153597,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771280" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm744f8e880a" title="Sun, 02 Nov 2014 18:23:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm744f8e880a');</script><noscript>Nov 2, 2014 at 6:23pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771280">
+I got the program to compile! Thanks again to all. <br>
+<br>
+Mobotus this is the second time you've helped me on this same program, much appreciated!<br>
+<br>
+<br>
+My plan is to nest more if statements in this constructor so it will ultimately convert the month and day passed into the parameter into a int day of the year. (ie (January, 1) will return 1) <br>
+<br>
+<br>
+Now that I've got the constructor running, when I call<br>
+<br>
+    DayOfYear * dayOfYear001 = new DayOfYear("July", 4);<br>
+    dayOfYear001-&gt;print();<br>
+<br>
+It prints July 4 to the console then January 4. Any clue as to what's happening here?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771280"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771284"><span title="771284,150048,1023,259,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771284" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma668ced3a1" title="Sun, 02 Nov 2014 18:33:12 +0000"></span><script type="text/javascript">WhenId('CH_zTma668ced3a1');</script><noscript>Nov 2, 2014 at 6:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/anup30/default.htm"><b>anup30</b> (259)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771284">
+expand it ...<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>class</var> dmy {
+	<var>private</var>:
+		<var>int</var> total;
+		<var>int</var> month;
+		<var>int</var> day;		
+		string s;
+		
+	<var>public</var>:
+		dmy() {	}
+		dmy(<var>int</var> n);
+		<cite>//dmy(int n1, int n2) { //...	}</cite>
+
+		<var>void</var> show () 
+		{
+			cout &lt;&lt; s;
+		}
+};
+
+dmy::dmy(<var>int</var> n) {
+	total =n;
+
+	<var>while</var> (<var>true</var>)
+	{
+		<var>if</var> (total &lt;=31){
+			s= <kbd>"January "</kbd> + to_string(total);  <var>break</var>;
+		}
+		
+		<var>else</var> <var>if</var> (total &lt;=59){  <cite>//31+28 = 59</cite>
+			s= <kbd>"February "</kbd> + to_string(total - 31);  <var>break</var>;
+		}
+		
+		<var>else</var> <var>if</var> (total &lt;=90){  <cite>//59+31 = 90</cite>
+			s= <kbd>"March "</kbd> + to_string(total - 59);  <var>break</var>;
+		}
+
+		<var>else</var> <var>if</var> (total &lt;=120){  <cite>//90+30 =120</cite>
+			s= <kbd>"April "</kbd> + to_string(total - 90);  <var>break</var>;
+		}
+
+		<cite>//... other months</cite>
+		
+	}
+
+}
+
+<var>int</var> main() {
+
+	dmy ob1(115); <cite>// april 25</cite>
+
+	<cite>//dmy ob2(2,28); // february 28</cite>
+	
+	ob1.show();
+	cout &lt;&lt; <kbd>"\n\n"</kbd>;	
+
+	<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771284"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771286"><span title="771286,153597,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771286" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7526b88119" title="Sun, 02 Nov 2014 18:45:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm7526b88119');</script><noscript>Nov 2, 2014 at 6:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771286">
+Thanks anup! My first try was not quite as organized but it does work:<br>
+<br>
+I added this to the bottom of my two arg constructor<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br></code></pre></td>
+<td class="source"><pre><code>    <var>if</var> (m == <kbd>"January"</kbd>)
+    {
+        dayOfYear = d;
+    }
+     <var>else</var> <var>if</var> (m == <kbd>"February"</kbd>)
+    {
+        dayOfYear = (d + 31);
+    }
+     <var>else</var> <var>if</var> (m == <kbd>"March"</kbd>)
+    {
+        dayOfYear = (d + 31+28);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"April"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"May"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"June"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"July"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"August"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30+31);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"September"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30+31+31);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"October"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30+31+31+30);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"November"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30+31+31+30+31);
+    }
+    <var>else</var> <var>if</var> (m == <kbd>"December"</kbd>)
+    {
+        dayOfYear = (d + 31+28+31+30+31+30+31+31+30+31+30);
+    }
+
+    cout &lt;&lt; month &lt;&lt; <kbd>" "</kbd> &lt;&lt; day &lt;&lt; <kbd>" is day number "</kbd> &lt;&lt; dayOfYear &lt;&lt; <kbd>" of the year."</kbd> &lt;&lt;endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+It works, but it is still printing January  "X" to output after the result. I know the source is the print function but still trying to figure it out.. 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm711b7621af" title="Sun, 02 Nov 2014 18:47:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm711b7621af');</script><noscript>Nov 2, 2014 at 6:47pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771286"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771287"><span title="771287,122794,1023,251,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771287" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2fbfc97690" title="Sun, 02 Nov 2014 18:48:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm2fbfc97690');</script><noscript>Nov 2, 2014 at 6:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mobotus/default.htm"><b>mobotus</b> (251)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771287">
+<table class="quote"><tr><td class="qd">It prints July 4 to the console then January 4. Any clue as to what's happening here?</td></tr></table><br>
+<br>
+Look at your print method.<br>
+<br>
+<span class="auto"><code class="source">DayOfYear * dayOfYear001 = <var>new</var> DayOfYear(<kbd>"July"</kbd>, 4);</code></span><br>
+cout is used in the constructor and month and day are printed<br>
+day is assigned 4<br>
+<br>
+<span class="auto"><code class="source">dayOfYear001-&gt;print();</code></span><br>
+Print is called on the obj. and we figure out what to print based on the day var. which was assigned 4 in the previous statement
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm553be334d2" title="Sun, 02 Nov 2014 18:49:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm553be334d2');</script><noscript>Nov 2, 2014 at 6:49pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771287"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771289"><span title="771289,153597,1023,15,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771289" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5e4c9fd8c7" title="Sun, 02 Nov 2014 18:57:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm5e4c9fd8c7');</script><noscript>Nov 2, 2014 at 6:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/blairtch/default.htm"><b>blairtch</b> (15)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771289">
+You da man mobotus!<br>
+<br>
+Thanks to all for the help, couldn't have done it without your advice. It's finally starting to come together nicely.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771289"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146681,0,153597,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~214.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

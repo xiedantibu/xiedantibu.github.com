@@ -1,0 +1,208 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/146720/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Error C2036 (unknown size) when creating - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Error C2036 (unknown size) when creating</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Error C2036 (unknown size) when creating default structure</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146720,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771376"><span title="771376,156338,255,1,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771376" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm32b48e48ee" title="Mon, 03 Nov 2014 00:10:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm32b48e48ee');</script><noscript>Nov 3, 2014 at 12:10am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cybermonkeyso/default.htm"><b>cybermonkeyso</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771376">
+I am porting the server-list of a game to my own system in order for players to connect to gameservers (since the old GameSpy system shut down in June).<br>
+I am having to access a function inside a class that currently does not have a default constructor, so I created it with <span class="auto"><code class="source">CMultiPlayerMenu() {};</code></span>, but however I am now getting this error:<br>
+<span class="auto"><code class="source"> Error	1	error C2036: <kbd>'SStoredServer *'</kbd> : unknown size	C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vector	1628	1	GameDll</code></span><br>
+<br>
+I have not touched the source file where this variable (a struct) is declared in, and I have absolutely no idea why I am recieving this error.<br>
+I've searched this on the internet, but however didn't find anything relevant to my issue- what exactly is wrong and how do I fix this?<br>
+<br>
+MultiplayerMenu.h:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br></code></pre></td>
+<td class="source"><pre><code><dfn>#ifndef __MULTIPLAYERMENU_H__</dfn>
+<dfn>#define __MULTIPLAYERMENU_H__</dfn>
+
+<dfn>#pragma once</dfn>
+
+<dfn>#include "IFlashPlayer.h"</dfn>
+<dfn>#include "MPHub.h"</dfn>
+
+<var>struct</var>  IServerBrowser;
+<var>struct</var>  INetworkChat;
+<var>class</var>   CGameNetworkProfile;
+<dfn>#include "MPLobbyUI.h"</dfn>
+<var>struct</var>  SStoredServer;
+
+<var>class</var> CMultiPlayerMenu
+{
+<var>public</var>:
+  <var>struct</var> SGSBrowser;
+  <var>struct</var> SGSNetworkProfile;
+  <var>struct</var> SChat;
+  <var>struct</var> SCreateGame;
+
+  <var>class</var>  CUI;
+<var>public</var>:
+	CMultiPlayerMenu(<var>bool</var> lan, IFlashPlayer* plr, CMPHub* hub);
+	~CMultiPlayerMenu();
+	CMultiPlayerMenu() {};
+	<var>bool</var> HandleFSCommand(EGsUiCommand cmd, <var>const</var> <var>char</var>* pArgs);
+	std::auto_ptr&lt;CUI&gt; GetLobbyUI() { <var>return</var> m_ui; };
+  <var>void</var> OnUIEvent(<var>const</var> SUIEvent&amp; event);
+  <var>void</var>    DisplayServerList();
+  <var>void</var>    SetServerListPos(<var>double</var> sb_pos);
+  <var>void</var>    ChangeServerListPos(<var>int</var> dir);<cite>//either +1 or -1</cite>
+  <var>void</var>    UpdateServerList();
+  <var>void</var>    StopServerListUpdate();
+  <var>void</var>    SelectServer(<var>int</var> id);
+  <var>void</var>    JoinServer();
+	<var>void</var>    ServerListUpdated();
+	<var>void</var>    OnRefreshComplete(<var>bool</var> ok);
+  
+  IServerBrowser*             m_browser;
+  CGameNetworkProfile*        m_profile;
+  INetworkChat*               m_chat;
+  std::auto_ptr&lt;CUI&gt;          m_ui;
+  std::auto_ptr&lt;SGSBrowser&gt;   m_serverlist;
+  std::auto_ptr&lt;SChat&gt;        m_chatlist;
+  std::auto_ptr&lt;SGSNetworkProfile&gt; m_buddylist;
+  std::auto_ptr&lt;SCreateGame&gt;  m_creategame;
+  <var>bool</var>                        m_lan;
+  std::vector&lt;SStoredServer&gt;  m_favouriteServers;
+  std::vector&lt;SStoredServer&gt;  m_recentServers;
+  CMPHub*                     m_hub;
+	<var>bool</var>												m_joiningServer;
+  
+  EChatCategory               m_selectedCat;
+  <var>int</var>                         m_selectedId;
+};
+<dfn>#endif </dfn><cite>/*__MULTIPLAYERMENU_H__*/</cite><dfn> </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<span class="auto"><code class="source">SStoredServer</code></span> is not used in the MultiplayerMenu.cpp file.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771376"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771384"><span title="771384,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771384" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm814ea32b1d" title="Mon, 03 Nov 2014 00:25:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm814ea32b1d');</script><noscript>Nov 3, 2014 at 12:25am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771384">
+Sounds like std::vector wants to know its size.<br>
+Can you include SStoredServer's header at the top?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771384"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146720,0,156338,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fwi~2.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

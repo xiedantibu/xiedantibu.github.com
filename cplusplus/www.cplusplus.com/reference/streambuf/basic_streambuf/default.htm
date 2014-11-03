@@ -1,0 +1,382 @@
+<!DOCTYPE html><!-- saved from url=(0072)http://www.cplusplus.com/reference/streambuf/basic_streambuf/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>basic_streambuf - C++ Reference</title>
+<link rel="canonical" href="default.htm">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Reference</a></li>
+<li><a href="../default.htm">&lt;streambuf&gt;</a></li>
+<li class="here">basic_streambuf</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<div class="C_doc">
+<div id="I_type">class template</div>
+<div id="I_file">&lt;streambuf&gt; &lt;iostream&gt;</div>
+<h1><span class="namespace" title="namespace std">std::</span>basic_streambuf</h1>
+<div class="C_prototype"><pre>template &lt;class charT, class traits = char_traits&lt;charT&gt; &gt;  class basic_streambuf;</pre></div><div id="I_description">Base buffer class for streams</div>
+<section id="description">
+<div class="hierarchy">
+<ul>
+<li><b>basic_streambuf</b></li>
+<li><b><a href="../../fstream/basic_filebuf/default.htm">basic_filebuf</a></b><b><a href="../../../basic_stringbuf">basic_stringbuf</a></b></li>
+</ul>
+</div>
+<br>
+This template is designed as base virtual class for all <i>stream buffer</i> classes.<br>
+<br>
+A <dfn>stream buffer</dfn> is an object in charge of performing the reading and writing operations of the <i>stream</i> object it is associated with: the stream delegates all such operations to its associated <i>stream buffer</i> object, which is an intermediary between the <i>stream</i> and its <i>controlled input and output sequences</i>.<br>
+<br>
+All <i>stream</i> objects, no matter whether buffered or unbuffered, have an associated <i>stream buffer</i>: Some <i>stream buffer</i> types may then be set to either use an intermediate <i>buffer</i> or not.<br>
+<br>
+<i>Stream buffer</i> objects keep internally, at least:<br>
+<ul>
+<li>A <samp><a href="../../locale/locale/default.htm">locale</a></samp> object, used for locale-dependent operations.</li>
+<li>A set of internal pointers to keep an input buffer: <samp><a href="../../../basic_streambuf_3a_3aeback">eback</a></samp>, <samp><a href="../../../basic_streambuf_3a_3agptr">gptr</a></samp>, <samp><a href="../../../basic_streambuf_3a_3aegptr">egptr</a></samp>.</li>
+<li>A set of internal pointers to keep an output buffer: <samp><a href="../../../basic_streambuf_3a_3apbase">pbase</a></samp>, <samp><a href="../../../basic_streambuf_3a_3apptr">pptr</a></samp>, <samp><a href="../../../basic_streambuf_3a_3aepptr">epptr</a></samp>.</li>
+</ul>
+<br>
+Internally, the <samp>basic_streambuf</samp> class is an elaborated base class designed to provide a uniform public interface for all derived classes: These public functions call virtual protected members that derived classes may override to implement specific behavior. These overridden virtual functions have access to the internals of the <samp>basic_streambuf</samp> class by means of a set of protected functions (see below).<br>
+</section>
+<br>
+<section id="parameters">
+<h3>Template parameters</h3>
+<dl>
+<dt>charT</dt>
+<dd>Character type.<br>
+This shall be a non-array <a href="../../type_traits/is_pod/default.htm">POD type</a>.<br>
+Aliased as member type <samp>basic_streambuf::char_type</samp>.</dd>
+<dt>traits</dt>
+<dd><a href="../../string/char_traits/default.htm">Character traits</a> class that defines essential properties of the characters used by stream objects (see <samp><a href="../../string/char_traits/default.htm">char_traits</a></samp>).<br>
+<samp>traits::char_type</samp> shall be the same as <samp>charT</samp>.<br>
+Aliased as member type <samp>basic_streambuf::traits_type</samp>.</dd>
+</dl>
+</section>
+<br>
+<section id="instantiations">
+<h3>Template instantiations</h3>
+<dl class="links"><dt><a href= "../streambuf/default.htm"><b>streambuf</b></a></dt><dd>Base buffer class for streams <span class="typ">(class)</span></dd></dl><dl class="links"><dt><a href= "../wstreambuf/default.htm"><b>wstreambuf</b></a></dt><dd>Base buffer class for streams (wide) <span class="typ">(class)</span></dd></dl>
+These instantiations are declared in <samp><a href="../../../_5f3cstreambufgt">&lt;streambuf&gt;</a></samp>, which is included by reference in <samp><a href="../../../ovr0/_5f3ciostreamgt.htm">&lt;iostream&gt;</a></samp>.<br>
+</section>
+<br>
+<section id="types">
+<h3>Member types</h3>
+<table class="boxed">
+<tr><th>member type</th><th>definition</th><th>notes</th></tr>
+<tr><td><samp>char_type</samp></td><td>The first template parameter (<samp>charT</samp>)</td><td></td></tr>
+<tr><td><samp>traits_type</samp></td><td>The second template parameter (<samp>traits</samp>)</td><td>defaults to: <code><a href="../../string/char_traits/default.htm">char_traits</a>&lt;charT&gt;</code></td></tr>
+<tr><td><samp>int_type</samp></td><td><code><a href="../../string/char_traits/default.htm">traits_type</a>::int_type</code></td><td></td></tr>
+<tr><td><samp>pos_type</samp></td><td><code><a href="../../string/char_traits/default.htm">traits_type</a>::pos_type</code></td><td>generally, the same as <samp><a href="../../ios/streampos/default.htm">streampos</a></samp></td></tr>
+<tr><td><samp>off_type</samp></td><td><code><a href="../../string/char_traits/default.htm">traits_type</a>::off_type</code></td><td>generally, the same as <samp><a href="../../ios/streamoff/default.htm">streamoff</a></samp></td></tr>
+</table>
+</section>
+<br>
+<section id="functions">
+<h3>Public member functions</h3>
+The common functionality for all stream buffers is provided through the following public member functions:<br>
+<dl class="links"><dt><a href= "basic_streambuf/default.htm"><b>(constructor)</b></a></dt><dd>Construct object <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "~basic_streambuf/default.htm"><b>(destructor)</b></a></dt><dd>Destroy object <span class="typ">(public member function)</span></dd></dl>
+<br>
+<b>Locales</b>:<br>
+<dl class="links"><dt><a href= "pubimbue/default.htm"><b>pubimbue</b></a></dt><dd>Imbue locale <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "getloc/default.htm"><b>getloc</b></a></dt><dd>Get current locale <span class="typ">(public member function)</span></dd></dl>
+<b>Buffer management and positioning</b>:<br>
+<dl class="links"><dt><a href= "pubsetbuf/default.htm"><b>pubsetbuf</b></a></dt><dd>Set buffer array <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "pubseekoff/default.htm"><b>pubseekoff</b></a></dt><dd>Set internal position pointer to relative position <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "pubseekpos/default.htm"><b>pubseekpos</b></a></dt><dd>Set internal position pointer to absolute position <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "pubsync/default.htm"><b>pubsync</b></a></dt><dd>Synchronize stream buffer <span class="typ">(public member function)</span></dd></dl>
+<b>Input functions (get)</b>:<br>
+<dl class="links"><dt><a href= "in_avail/default.htm"><b>in_avail</b></a></dt><dd>Get number of character available to read <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "snextc/default.htm"><b>snextc</b></a></dt><dd>Advance to next position and get character <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sbump/default.htm"><b>sbumpc</b></a></dt><dd>Get current character and advance to next position <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sgetc/default.htm"><b>sgetc</b></a></dt><dd>Get current character <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sgetn/default.htm"><b>sgetn</b></a></dt><dd>Get sequence of characters <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sputbackc/default.htm"><b>sputbackc</b></a></dt><dd>Put character back <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sungetc/default.htm"><b>sungetc</b></a></dt><dd>Decrease current position <span class="typ">(public member function)</span></dd></dl>
+<b>Output functions (put)</b>:<br>
+<dl class="links"><dt><a href= "sputc/default.htm"><b>sputc</b></a></dt><dd>Put character and advance to next position <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "sputn/default.htm"><b>sputn</b></a></dt><dd>Put sequence of characters <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h3>Protected member functions</h3>
+The public functions do not perform their operations directly on the <i>controlled input and output sequences</i>, but mostly rely on two arrays accessible by a set of internal pointers:<br>
+<br>
+<table class="boxed">
+<tr><th> </th><th>beginning<br>
+(<i>beginning pointers</i>)</th><th>current position<br>
+(<i>get/put pointer</i>)</th><th>end<br>
+(<i>end pointers</i>)</th></tr>
+<tr><td>Input sequence</td><td><samp><a href="../../../basic_streambuf_3a_3aeback">eback</a></samp></td><td><samp><a href="../../../basic_streambuf_3a_3agptr">gptr</a></samp></td><td><samp><a href="../../../basic_streambuf_3a_3aegptr">egptr</a></samp></td></tr>
+<tr><td>Output sequence</td><td><samp><a href="../../../ovr0/bsic_streambuf_3a_3apbase.htm">pbase</a></samp></td><td><samp><a href="../../../basic_streambuf_3a_3apptr">pptr</a></samp></td><td><samp><a href="../../../basic_streambuf_3a_3aepptr">epptr</a></samp></td></tr>
+</table>
+<br>
+The following protected member functions provide access to these pointers:<br>
+<br>
+<b>Input sequence (get)</b>:<br>
+<dl class="links"><dt><a href= "eback/default.htm"><b>eback</b></a></dt><dd>Pointer to beginning of input sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "gptr/default.htm"><b>gptr</b></a></dt><dd>Pointer to current position of input sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "egptr/default.htm"><b>egptr</b></a></dt><dd>Pointer to end of input sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "gbump/default.htm"><b>gbump</b></a></dt><dd>Advance get pointer <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "setg/default.htm"><b>setg</b></a></dt><dd>Set input sequence pointers <span class="typ">(protected member function)</span></dd></dl>
+<b>Output sequence (put)</b>:<br>
+<dl class="links"><dt><a href= "pbase/default.htm"><b>pbase</b></a></dt><dd>Pointer to beginning of output sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "pptr/default.htm"><b>pptr</b></a></dt><dd>Pointer to current position of output sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "epptr/default.htm"><b>epptr</b></a></dt><dd>Pointer to end of output sequence <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "pbump/default.htm"><b>pbump</b></a></dt><dd>Increase put pointer <span class="typ">(protected member function)</span></dd></dl><dl class="links"><dt><a href= "setp/default.htm"><b>setp</b></a></dt><dd>Set output sequence pointers <span class="typ">(protected member function)</span></dd></dl>
+<b>Copying</b>:<br>
+<dl class="links"><dt><a href= "operator/default.htm"><b>operator= <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Stream buffer assignment <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "swap/default.htm"><b>swap <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Swap stream buffers <span class="typ">(public member function)</span></dd></dl>
+<br>
+<h3>Virtual protected member functions</h3>
+Each <tt>streambuf</tt>-derived class shall define members that keep the validity of the pointers above with respect to their own type of <i>controlled sequence</i>; Modifying the values of the pointers, reallocating the sequences themselves and perfoming all necessary synchronizations with the <i>associated character sequence</i>.<br>
+<br>
+With this design, the core functionality involving the process of reading and writing directly to the specific <i>associated character sequence</i> and to manage the <i>controlled sequences</i> is provided by means of virtual functions, which are overriden as necessary by derived classes:<br>
+<br>
+<b>Locales</b>:<br>
+<dl class="links"><dt><a href= "imbue/default.htm"><b>imbue</b></a></dt><dd>Imbue locale <span class="typ">(protected virtual member function)</span></dd></dl>
+<br>
+<b>Buffer management and positioning</b>:<br>
+<dl class="links"><dt><a href= "setbuf/default.htm"><b>setbuf</b></a></dt><dd>Set buffer <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "seekoff/default.htm"><b>seekoff</b></a></dt><dd>Set internal position pointer to relative position <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "seekpos/default.htm"><b>seekpos</b></a></dt><dd>Set internal position pointer to absolute position <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "sync/default.htm"><b>sync</b></a></dt><dd>Synchronize stream buffer <span class="typ">(protected virtual member function)</span></dd></dl>
+<br>
+<b>Input functions (get)</b>:<br>
+<dl class="links"><dt><a href= "showmanyc/default.htm"><b>showmanyc</b></a></dt><dd>Get number of characters available <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "xsgetn/default.htm"><b>xsgetn</b></a></dt><dd>Get sequence of characters <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "underflow/default.htm"><b>underflow</b></a></dt><dd>Get character on underflow <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "uflow/default.htm"><b>uflow</b></a></dt><dd>Get character on underflow and advance position <span class="typ">(protected virtual member function)</span></dd></dl><dl class="links"><dt><a href= "pbackfail/default.htm"><b>pbackfail</b></a></dt><dd>Put character back on underflow <span class="typ">(protected virtual member function)</span></dd></dl>
+<br>
+<b>Output functions (put)</b>:<br>
+<dl class="links"><dt><a href= "xsputn/default.htm"><b>xsputn</b></a></dt><dd>Put sequence of characters <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "overflow/default.htm"><b>overflow</b></a></dt><dd>Put character on overflow <span class="typ">(protected virtual member function)</span></dd></dl>
+</section></div><div id="CH_bb"></div></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder selected reference"><a href="../../default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder forum"><a href="../../../forum/default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="../../default.htm">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable collapsed"><h4><a href="../../clibrary/default.htm">C library:</a></h4><ul>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cassert/default.htm"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cctype/default.htm"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cerrno/default.htm"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cfenv/default.htm"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cfloat/default.htm"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cinttypes/default.htm"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ciso646/default.htm"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../climits/default.htm"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../clocale/default.htm"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cmath/default.htm"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csetjmp/default.htm"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../csignal/default.htm"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdarg/default.htm"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cstdbool/default.htm"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstddef/default.htm"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../cstdint/default.htm"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdio/default.htm"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstdlib/default.htm"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cstring/default.htm"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../../ctgmath/default.htm"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../ctime/default.htm"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="../../cuchar/default.htm"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cwchar/default.htm"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../../cwctype/default.htm"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../stl/default.htm">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../array/default.htm"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../deque/default.htm"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../forward_list/default.htm"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../list/default.htm"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../map/default.htm"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../queue/default.htm"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../set/default.htm"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stack/default.htm"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_map/default.htm"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../unordered_set/default.htm"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../vector/default.htm"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4><a href="../../iolibrary/default.htm">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../fstream/default.htm"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iomanip/default.htm"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ios/default.htm"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iosfwd/default.htm"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iostream/default.htm"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../istream/default.htm"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../ostream/default.htm"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../sstream/default.htm"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 selected folder"><a href="../default.htm"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../multithreading/default.htm">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="../../atomic/default.htm"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../condition_variable/default.htm"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../future/default.htm"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../mutex/default.htm"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../thread/default.htm"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../../std/default.htm">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../../algorithm/default.htm"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../bitset/default.htm"><span>&lt;bitset&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../chrono/default.htm"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../codecvt/default.htm"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../complex/default.htm"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../exception/default.htm"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../functional/default.htm"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../initializer_list/default.htm"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../iterator/default.htm"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../limits/default.htm"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../locale/default.htm"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../memory/default.htm"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../new/default.htm"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../numeric/default.htm"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../random/default.htm"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../ratio/default.htm"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../regex/default.htm"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../stdexcept/default.htm"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../string/default.htm"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../system_error/default.htm"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../tuple/default.htm"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../typeindex/default.htm"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../typeinfo/default.htm"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../../type_traits/default.htm"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../utility/default.htm"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../../valarray/default.htm"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect cpp98 cpp11" id="streambuf_box">
+<h3><b><a href="../default.htm">&lt;streambuf&gt;</a></b></h3>
+<ul>
+<li class="cpp98 cpp11 selected folder"><a href="default.htm"><span>basic_streambuf</span></a></li>
+<li class="arm cpp98 cpp11 folder"><a href="../streambuf/default.htm"><span>streambuf</span></a></li>
+<li class="cpp98 cpp11"><a href="../wstreambuf/default.htm"><span>wstreambuf</span></a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect cpp98 cpp11" id="basic_streambuf_box">
+<h3><b><a href="default.htm">basic_streambuf</a></b></h3>
+<ul>
+<li class="cpp98 cpp11"><a href="basic_streambuf/default.htm"><span>basic_streambuf::basic_streambuf</span></a></li>
+<li class="cpp98 cpp11"><a href="~basic_streambuf/default.htm"><span>basic_streambuf::~basic_streambuf</span></a></li>
+<li class="C_Collapsable"><h4>public members:</h4><ul>
+<li class="cpp98 cpp11"><a href="getloc/default.htm"><span>basic_streambuf::getloc</span></a></li>
+<li class="cpp98 cpp11"><a href="in_avail/default.htm"><span>basic_streambuf::in_avail</span></a></li>
+<li class="cpp98 cpp11"><a href="pubimbue/default.htm"><span>basic_streambuf::pubimbue</span></a></li>
+<li class="cpp98 cpp11"><a href="pubseekoff/default.htm"><span>basic_streambuf::pubseekoff</span></a></li>
+<li class="cpp98 cpp11"><a href="pubseekpos/default.htm"><span>basic_streambuf::pubseekpos</span></a></li>
+<li class="cpp98 cpp11"><a href="pubsetbuf/default.htm"><span>basic_streambuf::pubsetbuf</span></a></li>
+<li class="cpp98 cpp11"><a href="pubsync/default.htm"><span>basic_streambuf::pubsync</span></a></li>
+<li class="cpp98 cpp11"><a href="sbump/default.htm"><span>basic_streambuf::sbumpc</span></a></li>
+<li class="cpp98 cpp11"><a href="sgetc/default.htm"><span>basic_streambuf::sgetc</span></a></li>
+<li class="cpp98 cpp11"><a href="sgetn/default.htm"><span>basic_streambuf::sgetn</span></a></li>
+<li class="cpp98 cpp11"><a href="snextc/default.htm"><span>basic_streambuf::snextc</span></a></li>
+<li class="cpp98 cpp11"><a href="sputbackc/default.htm"><span>basic_streambuf::sputbackc</span></a></li>
+<li class="cpp98 cpp11"><a href="sputc/default.htm"><span>basic_streambuf::sputc</span></a></li>
+<li class="cpp98 cpp11"><a href="sputn/default.htm"><span>basic_streambuf::sputn</span></a></li>
+<li class="cpp98 cpp11"><a href="sungetc/default.htm"><span>basic_streambuf::sungetc</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>protected members:</h4><ul>
+<li class="cpp98 cpp11"><a href="eback/default.htm"><span>basic_streambuf::eback</span></a></li>
+<li class="cpp98 cpp11"><a href="egptr/default.htm"><span>basic_streambuf::egptr</span></a></li>
+<li class="cpp98 cpp11"><a href="epptr/default.htm"><span>basic_streambuf::epptr</span></a></li>
+<li class="cpp98 cpp11"><a href="gbump/default.htm"><span>basic_streambuf::gbump</span></a></li>
+<li class="cpp98 cpp11"><a href="gptr/default.htm"><span>basic_streambuf::gptr</span></a></li>
+<li class="cpp11"><a href="operator/default.htm"><span>basic_streambuf::operator=</span></a></li>
+<li class="cpp98 cpp11"><a href="pbase/default.htm"><span>basic_streambuf::pbase</span></a></li>
+<li class="cpp98 cpp11"><a href="pbump/default.htm"><span>basic_streambuf::pbump</span></a></li>
+<li class="cpp98 cpp11"><a href="pptr/default.htm"><span>basic_streambuf::pptr</span></a></li>
+<li class="cpp98 cpp11"><a href="setg/default.htm"><span>basic_streambuf::setg</span></a></li>
+<li class="cpp98 cpp11"><a href="setp/default.htm"><span>basic_streambuf::setp</span></a></li>
+<li class="cpp11"><a href="swap/default.htm"><span>basic_streambuf::swap</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>virtual protected members:</h4><ul>
+<li class="cpp98 cpp11"><a href="imbue/default.htm"><span>basic_streambuf::imbue</span></a></li>
+<li class="cpp98 cpp11"><a href="overflow/default.htm"><span>basic_streambuf::overflow</span></a></li>
+<li class="cpp98 cpp11"><a href="pbackfail/default.htm"><span>basic_streambuf::pbackfail</span></a></li>
+<li class="cpp98 cpp11"><a href="seekoff/default.htm"><span>basic_streambuf::seekoff</span></a></li>
+<li class="cpp98 cpp11"><a href="seekpos/default.htm"><span>basic_streambuf::seekpos</span></a></li>
+<li class="cpp98 cpp11"><a href="setbuf/default.htm"><span>basic_streambuf::setbuf</span></a></li>
+<li class="cpp98 cpp11"><a href="showmanyc/default.htm"><span>basic_streambuf::showmanyc</span></a></li>
+<li class="cpp98 cpp11"><a href="sync/default.htm"><span>basic_streambuf::sync</span></a></li>
+<li class="cpp98 cpp11"><a href="uflow/default.htm"><span>basic_streambuf::uflow</span></a></li>
+<li class="cpp98 cpp11"><a href="underflow/default.htm"><span>basic_streambuf::underflow</span></a></li>
+<li class="cpp98 cpp11"><a href="xsgetn/default.htm"><span>basic_streambuf::xsgetn</span></a></li>
+<li class="cpp98 cpp11"><a href="xsputn/default.htm"><span>basic_streambuf::xsputn</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~1729.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			el.appendChild(btn('New Page','New Page','new','../../new.cgiastreambufbasic_streambuf'));
+			el.appendChild(btn('Edit Page','Edit Page','edit','../../edit.cgiastreambufbasic_streambuf'));
+			
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='../../delete.cgiastreambufbasic_streambuf'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

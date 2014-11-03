@@ -1,0 +1,707 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/articles/36873/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Powerful Console in Windows/VC++ (Color, - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Articles</a></li>
+<li class="here">Powerful Console in Windows/VC++ (Color,</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Powerful Console in Windows/VC++ (Color, Cursor, ...)</h3><span id="CH_edttl"></span><span class="rootdatPost" title="36873,root,0,-1,9,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg199662"><span title="199662,52368,255,7,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199662" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc02565214e" title="Tue, 22 Feb 2011 12:08:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmc02565214e');</script><noscript>Feb 22, 2011 at 12:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/masoud/default.htm"><b>Masoud</b> (7)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199662">
+Powerful Console in Windows/VC++ (Color, Cursor, ...)<br>
+<br>
+Console.h<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br></code></pre></td>
+<td class="source"><pre><code><cite>//</cite>
+<cite>// Console for Windows, Tested in Visual C++ 6</cite>
+<cite>//</cite>
+
+<dfn>#ifndef __Console__</dfn>
+<dfn>#define __Console__</dfn>
+<dfn>#include &lt;windows.h&gt;</dfn>
+<dfn>#include &lt;stdio.h&gt;</dfn>
+
+<var>const</var> <var>char</var> el = <kbd>'\n'</kbd>;
+
+<var>class</var> Console
+{
+<var>public</var>:
+    Console(<var>const</var> <var>char</var> *title = <kbd>""</kbd>, <var>int</var> x = 0, <var>int</var> y = 0, <var>int</var> w = 100, <var>int</var> h = 100);
+    <var>virtual</var> ~Console();
+
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>bool</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>const</var> <var>char</var> *);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>const</var> <var>unsigned</var> <var>char</var> *);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>const</var> <var>signed</var> <var>char</var> *);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>char</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>unsigned</var> <var>char</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>signed</var> <var>char</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>short</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>unsigned</var> <var>short</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>int</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>unsigned</var> <var>int</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>long</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>unsigned</var> <var>long</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>float</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>double</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>long</var> <var>double</var>);
+    <var>inline</var> Console &amp; <var>operator</var>&lt;&lt;(<var>const</var> <var>void</var> *);
+
+    <var>void</var> setCursor(<var>int</var> x, <var>int</var> y);
+    <var>void</var> setColor(<var>int</var> textcolor, <var>int</var> backcolor);
+    <var>void</var> clear(<var>char</var> ch = <kbd>' '</kbd>);
+    <var>bool</var> flush();
+    <var>bool</var> allocate();
+    <var>bool</var> setTitle(<var>const</var> <var>char</var> *title);
+    <var>bool</var> free();
+    <var>void</var> fillColor(<var>int</var> x, <var>int</var> y, <var>int</var> w, <var>int</var> h, <var>char</var> ch = 0);
+    <var>void</var> box(<var>int</var> x, <var>int</var> y, <var>int</var> w, <var>int</var> h);
+    <var>void</var> setCursorSize(<var>unsigned</var> size, <var>bool</var> visible);
+    CONSOLE_SCREEN_BUFFER_INFO getInfo();
+    <var>bool</var> writeActive;
+
+<var>private</var>:
+    <var>inline</var> <var>void</var> write(<var>const</var> <var>char</var> *buffer, <var>int</var> size, <var>bool</var> flushW = <var>false</var>);
+    <var>inline</var> <var>void</var> write(<var>const</var> <var>unsigned</var> <var>char</var> ch, <var>bool</var> flushW = <var>false</var>);
+    <var>inline</var> <var>void</var> write(<var>const</var> <var>char</var> *str, <var>bool</var> flushW = <var>false</var>);
+    <var>inline</var> <var>void</var> writeln(<var>const</var> <var>char</var> *str, <var>bool</var> flushW = <var>false</var>);
+
+    <var>static</var> HANDLE cConsole;
+    CONSOLE_SCREEN_BUFFER_INFO cCSBI;
+    <var>bool</var> busy;
+    <var>int</var> cTextColor, cBackColor;
+};
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>const</var> <var>char</var> *x)
+{
+    write(x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>const</var> <var>unsigned</var> <var>char</var> *x)
+{
+    write((<var>const</var> <var>char</var> *) x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>const</var> <var>signed</var> <var>char</var> *x)
+{
+    write((<var>const</var> <var>char</var> *) x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>bool</var> x)
+{
+    write(x ? <kbd>"True"</kbd> : <kbd>"False"</kbd>);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>char</var> x)
+{
+    write(x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>unsigned</var> <var>char</var> x)
+{
+    write(x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>signed</var> <var>char</var> x)
+{
+    write(x);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>short</var> x)
+{
+    <var>char</var> a[20];
+    itoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>unsigned</var> <var>short</var> x)
+{
+    <var>char</var> a[20];
+    itoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>int</var> x)
+{
+    <var>char</var> a[50];
+    itoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>unsigned</var> <var>int</var> x)
+{
+    <var>char</var> a[50];
+    itoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>long</var> x)
+{
+    <var>char</var> a[50];
+    ltoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>unsigned</var> <var>long</var> x)
+{
+    <var>char</var> a[50];
+    _ultoa(x, a, 10);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>float</var> x)
+{
+    <var>char</var> a[50];
+    sprintf(a, <kbd>"%f"</kbd>, x);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>double</var> x)
+{
+    <var>char</var> a[70];
+    sprintf(a, <kbd>"%f"</kbd>, x);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>long</var> <var>double</var> x)
+{
+    <var>char</var> a[70];
+    sprintf(a, <kbd>"%f"</kbd>, x);
+    write(a);
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> Console&amp; Console::<var>operator</var>&lt;&lt;(<var>const</var> <var>void</var> *x)
+{
+    <var>return</var> *<var>this</var>;
+}
+
+<var>inline</var> <var>void</var> Console::write(<var>const</var> <var>char</var> *buffer, <var>int</var> size, <var>bool</var> flushW)
+{
+    <var>if</var> (!writeActive)
+        <var>return</var>;
+
+    <var>unsigned</var> <var>long</var> <var>int</var> wr;
+    WriteConsole(cConsole, buffer, size, &amp;wr, NULL);
+
+    <var>if</var> (flushW)
+        flush();
+}
+
+<var>inline</var> <var>void</var> Console::writeln(<var>const</var> <var>char</var> *str, <var>bool</var> flushW)
+{
+    <var>if</var> (!writeActive)
+        <var>return</var>;
+
+    <var>unsigned</var> <var>long</var> <var>int</var> wr;
+    WriteConsole(cConsole, str, strlen(str), &amp;wr, NULL);
+    WriteConsole(cConsole, <kbd>"\n"</kbd>, 1, &amp;wr, NULL);
+
+    <var>if</var> (flushW)
+        flush();
+}
+
+<var>inline</var> <var>void</var> Console::write(<var>const</var> <var>unsigned</var> <var>char</var> ch, <var>bool</var> flushW)
+{
+    <var>if</var> (!writeActive)
+        <var>return</var>;
+
+    <var>unsigned</var> <var>long</var> <var>int</var> wr;
+    WriteConsole(cConsole, &amp;ch, 1, &amp;wr, NULL);
+
+    <var>if</var> (flushW)
+        flush();
+}
+
+<var>inline</var> <var>void</var> Console::write(<var>const</var> <var>char</var> *str, <var>bool</var> flushW)
+{
+    <var>if</var> (!writeActive)
+        <var>return</var>;
+
+    <var>unsigned</var> <var>long</var> <var>int</var> wr;
+    WriteConsole(cConsole, str, strlen(str), &amp;wr, NULL);
+
+    <var>if</var> (flushW)
+        flush();
+}
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm14a714d9bd" title="Tue, 22 Feb 2011 12:15:19 +0000"></span><script type="text/javascript">WhenId('CH_zTm14a714d9bd');</script><noscript>Feb 22, 2011 at 12:15pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn199662"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199665"><span title="199665,52368,255,7,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199665" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm71acbc1ef1" title="Tue, 22 Feb 2011 12:15:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm71acbc1ef1');</script><noscript>Feb 22, 2011 at 12:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/masoud/default.htm"><b>Masoud</b> (7)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199665">
+Console.cpp<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include "Console.h"</dfn>
+
+HANDLE Console::cConsole = NULL;
+
+BOOL WINAPI consoleHandler(DWORD dwCtrlType)
+{
+    <var>return</var> <var>true</var>;
+}
+
+Console::Console(<var>const</var> <var>char</var> *title, <var>int</var> x, <var>int</var> y, <var>int</var> w, <var>int</var> h)
+{
+    allocate();
+    <var>if</var> (!cConsole)
+    {
+        cConsole =
+            CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE,
+                                      FILE_SHARE_READ | FILE_SHARE_READ,
+                                      NULL, CONSOLE_TEXTMODE_BUFFER, 0);
+    }
+    COORD coord = {w, h};
+    SetConsoleScreenBufferSize(cConsole, coord);
+    SMALL_RECT conWin = {x, y, w, h};
+    SetConsoleWindowInfo(cConsole, <var>true</var>, &amp;conWin);
+    SetConsoleCtrlHandler(consoleHandler, <var>true</var>);
+    getInfo();
+    setTitle(title);
+    SetConsoleActiveScreenBuffer(cConsole);
+    writeActive = <var>true</var>;
+    busy = <var>false</var>;
+}
+
+Console::~Console()
+{
+    free();
+    CloseHandle(cConsole);
+}
+
+<var>void</var> Console::setCursor(<var>int</var> x, <var>int</var> y)
+{
+    COORD coord = {x, y};
+    SetConsoleCursorPosition(cConsole, coord);
+}
+
+<var>void</var> Console::setColor(<var>int</var> textcolor, <var>int</var> backcolor)
+{
+    WORD wAttributes = ((<var>unsigned</var> <var>int</var>) backcolor &lt;&lt; 4) | (<var>unsigned</var> <var>int</var>) textcolor;
+    SetConsoleTextAttribute(cConsole, wAttributes);
+}
+
+<var>void</var> Console::clear(<var>char</var> ch)
+{
+    DWORD cCharsWritten;
+    DWORD size = cCSBI.dwSize.X * cCSBI.dwSize.Y;
+    COORD coord = {0, 0};
+    FillConsoleOutputCharacter(cConsole, ch, size, coord, &amp;cCharsWritten),
+            FillConsoleOutputAttribute(cConsole, cCSBI.wAttributes, size, coord, &amp;cCharsWritten),
+            SetConsoleCursorPosition(cConsole, coord);
+}
+
+<var>bool</var> Console::flush()
+{
+    SetConsoleActiveScreenBuffer(cConsole);
+    <var>return</var> (FlushConsoleInputBuffer(cConsole) == TRUE) ? <var>true</var> : <var>false</var>;
+}
+
+<var>bool</var> Console::allocate()
+{
+    <var>return</var> (AllocConsole() == TRUE) ? <var>true</var> : <var>false</var>;
+}
+
+<var>bool</var> Console::free()
+{
+    <var>return</var> (FreeConsole() == TRUE) ? <var>true</var> : <var>false</var>;
+}
+
+<var>void</var> Console::fillColor(<var>int</var> x, <var>int</var> y, <var>int</var> w, <var>int</var> h, <var>char</var> ch)
+{
+    DWORD cCharsWritten;
+    COORD coord;
+    coord.X = x;
+    getInfo();
+    <var>for</var> (<var>int</var> i = 0; i &lt; h; i++)
+    {
+        coord.Y = i + y;
+        <var>if</var> (ch)
+            FillConsoleOutputCharacter(cConsole, ch, w, coord, &amp;cCharsWritten);
+        FillConsoleOutputAttribute(cConsole, cCSBI.wAttributes, w, coord, &amp;cCharsWritten);
+    }
+}
+
+<var>void</var> Console::box(<var>int</var> x, <var>int</var> y, <var>int</var> w, <var>int</var> h)
+{
+    <var>int</var> k;
+    <var>if</var> (!h &amp;&amp; !w)
+        <var>return</var>;
+    setCursor(x, y);
+    <var>if</var> (!h)
+    {
+        <var>for</var> (k = 0; k &lt; w; k++)
+        {
+            setCursor(x + k, y);
+            write(196, <var>false</var>);
+        }
+
+        <var>return</var>;
+    }
+    <var>else</var>
+        <var>if</var> (!w)
+    {
+        <var>for</var> (k = 0; k &lt; h; k++)
+        {
+            setCursor(x, y + k);
+            write(179, <var>false</var>);
+        }
+
+        <var>return</var>;
+    }
+
+    write(218, <var>false</var>);
+
+    <var>for</var> (k = 1; k &lt; w - 1; k++)
+    {
+        setCursor(x + k, y);
+        write(196, <var>false</var>);
+        setCursor(x + k, y + h - 1);
+        write(196, <var>false</var>);
+    }
+    write(217, <var>false</var>);
+    <var>for</var> (k = 1; k &lt; h - 1; k++)
+    {
+        setCursor(x, y + k);
+        write(179, <var>false</var>);
+        setCursor(x + w - 1, y + k);
+        write(179, <var>false</var>);
+    }
+    setCursor(x + w - 1, y);
+    write(191, <var>false</var>);
+    setCursor(x, y + h - 1);
+    write(192, <var>false</var>);
+
+    flush();
+}
+
+<var>void</var> Console::setCursorSize(<var>unsigned</var> size, <var>bool</var> visible)
+{
+    CONSOLE_CURSOR_INFO cursorInfo;
+    cursorInfo.bVisible = visible;
+    cursorInfo.dwSize = (size &lt; 100) ? size : 100;
+    SetConsoleCursorInfo(cConsole, &amp;cursorInfo);
+}
+
+<var>bool</var> Console::setTitle(<var>const</var> <var>char</var> *title)
+{
+    <var>return</var> (SetConsoleTitle(title) == TRUE) ? <var>true</var> : <var>false</var>;
+}
+
+CONSOLE_SCREEN_BUFFER_INFO Console::getInfo()
+{
+    GetConsoleScreenBufferInfo(cConsole, &amp;cCSBI);
+    <var>return</var> cCSBI;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Usage:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include "Console.h"</dfn>
+<var>int</var> main()
+{
+   Console console;
+
+   console.setColor(14, 0);
+   console.setCursor(23, 13);
+   console &lt;&lt; <kbd>"Console"</kbd> &lt;&lt; 123 &lt;&lt; <kbd>'.'</kbd>;
+   console.setColor(10, 0);
+   console.box(0, 14, 65, 0);
+   <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Masoud
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn199665"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199807"><span title="199807,49339,0,3549,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199807" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmae240c2384" title="Tue, 22 Feb 2011 19:33:23 +0000"></span><script type="text/javascript">WhenId('CH_zTmae240c2384');</script><noscript>Feb 22, 2011 at 7:33pm UTC</noscript></div>
+<div class="dwho">closed account (<i><a href="../../../user/closed_account_zb0s216c/default.htm">zb0S216C</a></i>)</div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199807">
+This isn't an article. You should of posted this in either the lounge or the general C++ programming forum. 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmef86bbbdb8" title="Tue, 22 Feb 2011 19:33:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmef86bbbdb8');</script><noscript>Feb 22, 2011 at 7:33pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn199807"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199843"><span title="199843,52368,255,7,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199843" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc1f91f6402" title="Tue, 22 Feb 2011 22:04:39 +0000"></span><script type="text/javascript">WhenId('CH_zTmc1f91f6402');</script><noscript>Feb 22, 2011 at 10:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/masoud/default.htm"><b>Masoud</b> (7)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199843">
+Tested in Visual C++ 6 and above
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn199843"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199848"><span title="199848,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199848" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9666ac740c" title="Tue, 22 Feb 2011 22:50:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm9666ac740c');</script><noscript>Feb 22, 2011 at 10:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199848">
+I don't like that it's not cross-platform...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn199848"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199874"><span title="199874,11103,1023,4148,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199874" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm31f44c7690" title="Wed, 23 Feb 2011 00:11:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm31f44c7690');</script><noscript>Feb 23, 2011 at 12:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zhuge/default.htm"><b>Zhuge</b> (4148)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199874">
+To be fair, TC did say Windows in the title.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn199874"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg199877"><span title="199877,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg199877" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbe78544f00" title="Wed, 23 Feb 2011 00:16:31 +0000"></span><script type="text/javascript">WhenId('CH_zTmbe78544f00');</script><noscript>Feb 23, 2011 at 12:16am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i199877">
+I know, I just believe everything should be cross-platform. I almost never use a library that only works on one platform. If it doesn't work on Windows AND Linux AND BSD AND Mac OS I usually won't use it. There are exceptions (e.g. when the program I'm writing doesn't need to support other OSes or when I'm writing something simple to play around).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn199877"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg204717"><span title="204717,38911,1023,1236,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg204717" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm34823394b6" title="Mon, 07 Mar 2011 03:53:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm34823394b6');</script><noscript>Mar 7, 2011 at 3:53am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sohguanh/default.htm"><b>sohguanh</b> (1236)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i204717">
+<table class="quote"><tr><td class="qd">I know, I just believe everything should be cross-platform. I almost never use a library that only works on one platform. If it doesn't work on Windows AND Linux AND BSD AND Mac OS I usually won't use it. There are exceptions (e.g. when the program I'm writing doesn't need to support other OSes or when I'm writing something simple to play around).</td></tr></table><br>
+<br>
+It depends. If you are working for your employer and they dictate it has to be Windows only then you got to do it, isn't it ?<br>
+<br>
+It is only when the project is your own or hobby can you have the luxury to make a choice. This also explain why a lot of retirees can finally have something they can call their own for which they don't have when they are still working employees.<br>
+<br>
+The irony of life I guess.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn204717"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg206777"><span title="206777,36522,1023,359,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg206777" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd99fe98dda" title="Sat, 12 Mar 2011 02:44:14 +0000"></span><script type="text/javascript">WhenId('CH_zTmd99fe98dda');</script><noscript>Mar 12, 2011 at 2:44am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pimaster/default.htm"><b>PiMaster</b> (359)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i206777">
+That huge chunk of &lt;&lt; overloads could be simplified by including the stringstream library.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></code></pre></td>
+<td class="source"><pre><code><var>template</var>&lt;<var>typename</var> T&gt;
+<var>inline</var> console&amp; <var>operator</var>&lt;&lt;(T&amp; rhs){
+    stringstream sstream(stringstring::in|stringstream::out);
+    sstream&lt;&lt;rhs;
+    string buff;
+    sstream.str(buff);
+    write(buff.c_str(),buff.length(),<cite>/* ? */</cite>);
+    <var>return</var> *<var>this</var>;}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+For the flush you could make a flush variable in console, make an overload for a function pointer, and have a something like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br></code></pre></td>
+<td class="source"><pre><code><var>inline</var> console&amp; <var>operator</var>&lt;&lt;(<var>void</var>(*func)(console&amp;)){
+    func(*<var>this</var>);
+    <var>return</var> *<var>this</var>;}
+
+<var>void</var> flush_on(console&amp; cons){
+    cons.doflush=<var>true</var>;}
+
+<var>void</var> flush_off(console&amp; cons){
+    cons.doflush=<var>false</var>;}
+
+<cite>//I'm not really sure how to return function pointers, so I'll do this</cite>
+<var>typedef</var> <var>void</var>(*flush_type)(console&amp;);
+
+flush_type flush(<var>bool</var> doflush){
+    <var>if</var>(doflush){
+        <var>return</var> flush_on;}
+    <var>else</var>{
+        <var>return</var> flush_off;}}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn206777"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(36873,1,52368,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~563.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

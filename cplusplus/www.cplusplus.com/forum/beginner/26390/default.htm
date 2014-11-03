@@ -1,0 +1,539 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/beginner/26390/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to write pixels to the screen? - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">How to write pixels to the screen?</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> How to write pixels to the screen?</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><span class="rootdatPost" title="26390,root,0,-1,28,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg140844"><span title="140844,37115,1023,58,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140844" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmab3dbdb2df" title="Tue, 20 Jul 2010 14:50:37 +0000"></span><script type="text/javascript">WhenId('CH_zTmab3dbdb2df');</script><noscript>Jul 20, 2010 at 2:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140844">
+Subject:  Writing pixels to computer screen<br>
+Platform:  Windows 7 Pro 64-bit<br>
+     IDE:  Visual Studio 2010 Premium<br>
+<br>
+How can we write pixels to a screen using C++?  In other words, there's a specific point on my monitor that I want to have a specific color.  What is the code to make that specific point a specific color?<br>
+<br>
+Every time I've looked for a solution, I get some long bit about how Windows can make bitmaps through XYZ, transfer bitmaps or do other operations on them through YAX, etc, etc.  (To add insult to injury, I'm still not sure how to even display a bitmap.)  I just don't care about that stuff.  I want an unmanaged method that Windows doesn't even touch, or failing that, touches minimally.<br>
+<br>
+Computers have been displaying pixels before the first line of Windows 1.0 was even written, so there has to be a way to do this.  What is it?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140844"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140846"><span title="140846,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140846" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf00d500bf" title="Tue, 20 Jul 2010 14:59:20 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf00d500bf');</script><noscript>Jul 20, 2010 at 2:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140846">
+No (modern) operating system will let you touch video memory directly.<br>
+<br>
+The only way would be to use something like OpenGL (cross-platform, FOSS) or DirectX (Windows-only, closed source) to create a window for rendering·
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140846"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140849"><span title="140849,7098,1023,82,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140849" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6a66a3ac66" title="Tue, 20 Jul 2010 15:16:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm6a66a3ac66');</script><noscript>Jul 20, 2010 at 3:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chris/default.htm"><b>chris</b> (82)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140849">
+If I understand you correctly then I suggest you check out this link: <a href="../../../../msdn.microsoft.com/en-us/library/dd145078%28vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/dd145078%28VS.85%29.aspx</a><br>
+<br>
+It's fairly straight forward what to do from the explanations on that page (I hope).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140849"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140855"><span title="140855,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140855" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0864faf9eb" title="Tue, 20 Jul 2010 15:32:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm0864faf9eb');</script><noscript>Jul 20, 2010 at 3:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140855">
+Chrisname,<br>
+If Windows won't let me mess with the video memory directly, is there some other system that will?  Or a way to work without a system, or something?<br>
+<br>
+I just need this program to crunch some numbers for me and keep me up-to-date with a graphical display showing the evolving data in a plot; no need for it to work on other machines or be user friendly.<br>
+<br>
+Chris,<br>
+That's really a lot like what I'm looking for.  However, I hear that that specific method is pretty slow (I'm guessing it makes a lot of calls internally).  Would you know if there was a faster one?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140855"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140857"><span title="140857,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140857" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmad788d0227" title="Tue, 20 Jul 2010 15:35:08 +0000"></span><script type="text/javascript">WhenId('CH_zTmad788d0227');</script><noscript>Jul 20, 2010 at 3:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140857">
+In that case, couldn't you just plot them on a console screen and use ncurses instead?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140857"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140863"><span title="140863,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140863" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3e6c4eff18" title="Tue, 20 Jul 2010 15:44:48 +0000"></span><script type="text/javascript">WhenId('CH_zTm3e6c4eff18');</script><noscript>Jul 20, 2010 at 3:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140863">
+Sure, plotting to the console screen would work.  Could you tell me how to do that?<br>
+<br>
+Ideally, it'd be an efficient operation since the CPU is going to be pretty much consumed crunching the math.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4a36100244" title="Tue, 20 Jul 2010 15:46:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm4a36100244');</script><noscript>Jul 20, 2010 at 3:46pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140863"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140868"><span title="140868,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140868" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm23b093045a" title="Tue, 20 Jul 2010 15:49:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm23b093045a');</script><noscript>Jul 20, 2010 at 3:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140868">
+@Chemical Engineer<br>
+<br>
+Use ncurses:<br>
+Download: <a href="../../../../pdcurses.sourceforge.net/default.htm">http://pdcurses.sourceforge.net/</a> (ncurses works on windows but you'd probably have to compile it yourself)<br>
+Tutorial: <a href="../../../../tldp.org/howto/ncurses-programming-howto/default.htm">http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/</a><br>
+<br>
+If you want to do your number crunching and handle your GUI at the same time, you could put the UI in a separate thread.<br>
+<br>
+Windows threading tutorial: <a href="../../../../www.bartosz.com/win32/active.html">http://www.bartosz.com/win32/active.html</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140868"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140869"><span title="140869,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140869" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd69b96b640" title="Tue, 20 Jul 2010 15:56:20 +0000"></span><script type="text/javascript">WhenId('CH_zTmd69b96b640');</script><noscript>Jul 20, 2010 at 3:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140869">
+chrisname,<br>
+<br>
+Thanks, I'll look into the ncurses.<br>
+<br>
+I'm a bit confused, though.  How does ncurses itself modify a pixel?  And why shouldn't I just use that method instead of ncurses?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140869"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140873"><span title="140873,36705,1023,199,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140873" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdb88758f97" title="Tue, 20 Jul 2010 16:12:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmdb88758f97');</script><noscript>Jul 20, 2010 at 4:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/binarybob350/default.htm"><b>binarybob350</b> (199)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140873">
+If you are in a windows app use the windows GDI function SetPixel
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140873"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140877"><span title="140877,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140877" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme191ebc733" title="Tue, 20 Jul 2010 16:26:06 +0000"></span><script type="text/javascript">WhenId('CH_zTme191ebc733');</script><noscript>Jul 20, 2010 at 4:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140877">
+ncurses doesn't handle that. It stores what you print in a buffer (called a backbuffer) and then you call the refresh() function to switch what's on the screen (in the forebuffer) into the backbuffer and vice versa. It's a technique called double buffering. It reduces tearing and flicker on a screen and allows you to display all your data in one go (or, you can refresh() the screen after each print, it doesn't matter).<br>
+<br>
+The way writing to a console window works is something like this:<br>
+1. You call a library routine (say, printf()) to write to standard output (stdout) (which is a file on UNIX systems and, IIRC, on Windows too)<br>
+2. If "cooked mode" is on, then the output is actually stored in a buffer until either a newline ('\n') appears or the buffer is filled. When that happens the buffer is "flushed" (written to the file and emptied). If "raw mode" is on, then the output is written directly to the file.<br>
+3. The terminal emulator (e.g. xterm, gnome-terminal, cmd.exe (I think cmd is the terminal emulator but I'm not sure)) gets the contents of the file (usually through a pipe) and sends the text to a graphics library (such as the windows API, SFML, SDL, DirectX or OpenGL) to be rendered on the screen<br>
+4. The rendering library turns the text into raw data and writes it to a buffer and sends it to the graphics driver<br>
+5. The graphics driver plots the pixels on the screen in the appropriate places<br>
+6. The video card turns the data in it's memory into an analogue signal and sends it to the monitor<br>
+7. The monitor writes on the screen (sometimes you have an Analogue-to-Digital Converter (ADC) for digital monitors). Different monitors write to the screen in a different way (CRT (Cathode Ray Tube) monitors write each pixel one-by-one, horizontally (the time it takes to do this a line is the H(orizontal)Blank or HSync period) and then vertically (the time it takes to display the entire signal is the V(ertical)Blank or VSync period); (most) LCD monitors display the entire thing at once).<br>
+<br>
+And all this happens (usually) 60 times per second (sometimes higher). What (I think) you're trying to do is skin steps 1-4 and send data straight to the graphics driver (or possibly straight to the video card). You can do this, but there are libraries (OpenGL, DirectX) that do this for you. So you might as well use them.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140877"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140888"><span title="140888,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140888" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma2c9d0728a" title="Tue, 20 Jul 2010 17:16:09 +0000"></span><script type="text/javascript">WhenId('CH_zTma2c9d0728a');</script><noscript>Jul 20, 2010 at 5:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140888">
+chrisname,<br>
+<br>
+Thanks for the explanation of how it works.<br>
+<br>
+Say, for whatever reason, I don't want to use those libraries.  Rather, I want to use the base methods that those libraries call.  How could I do this?<br>
+<br>
+<i>To note it:<br>
+Honestly, I just don't have the time or patience to go through and learn a bunch of idioms and memorize how specific libraries want me to call them and what they do.  I just want the bare functions, which will be easy enough to get to perform any song and dance I want to as soon as I can figure out what they are.  However, I just can't seem to find anyone who actually knows how to skip to the drivers or video card.<br>
+<br>
+Everyone I've asked on this subject since I started the project a month ago has been telling me to use this library or that, this method or that.  And I get it- libraries are great tools in many situations.  However, they are not what I need, and, bluntly, I'm just so tired of no one giving me a straight answer.  It's obvious that it can be done; I just want to know how.<br>
+<br>
+Part of me suspects that people have been using the libraries for so long that most programmers today don't know how to do the basics without the libraries.  Which is cool if that's what they need, but it does leave me unsure of how to find out what I need to know.</i>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm27c71a1240" title="Tue, 20 Jul 2010 17:17:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm27c71a1240');</script><noscript>Jul 20, 2010 at 5:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140888"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140892"><span title="140892,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140892" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm970be9896c" title="Tue, 20 Jul 2010 17:39:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm970be9896c');</script><noscript>Jul 20, 2010 at 5:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140892">
+It would take you far more effort to learn how to do that.<br>
+<br>
+<table class="quote"><tr><td class="qd"><i>Part of me suspects that people have been using the libraries for so long that most programmers today don't know how to do the basics without the libraries</i></td></tr></table><br>
+Then who writes the libraries? Most programmers could, in theory, do anything that any other programmer can do. Maybe not as elegantly or as efficiently, but with the same resources they could. But why reinvent the wheel?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140892"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140893"><span title="140893,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140893" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf6ec7348c8" title="Tue, 20 Jul 2010 17:46:19 +0000"></span><script type="text/javascript">WhenId('CH_zTmf6ec7348c8');</script><noscript>Jul 20, 2010 at 5:46pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140893">
+I said that I don't think <i>most</i> programmers can.  And I think this because no one's telling me how.  They're obviously helpful people, and if they're not helping me, it makes sense that it's because they can't.  And I can understand why most programmers don't mess with the low-level coding; it's just impractical for many projects these days.<br>
+<br>
+However, I do have to mess with the low-level stuff.  Do I really need to explain why?<br>
+<br>
+Please, if you know, tell me.  If you don't know how to mess with pixels without going through libraries, but you have an idea of where I can ask or look it up, that'd help, too.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm65d66e97c5" title="Tue, 20 Jul 2010 17:54:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm65d66e97c5');</script><noscript>Jul 20, 2010 at 5:54pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140893"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140894"><span title="140894,18360,1023,12940,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140894" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3762f17f2b" title="Tue, 20 Jul 2010 17:53:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm3762f17f2b');</script><noscript>Jul 20, 2010 at 5:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12940)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140894">
+Modern hardware is built for multitasking.  In order to make that work you have one and only one program managing the display (typically the OS), and all other programs go through the OS and access the data indirectly.<br>
+<br>
+This allows the OS to do things like window layering, and prevents conflicts.  What would happen if two programs were trying to draw data to same part of the screen at the same time?  Which would "win"?<br>
+<br>
+This is why everything is done through libraries.  Direct access to the hardware is simply impractical.  Not because it's too complicated, but because it is prone to conflict and doesn't play well with other programs.<br>
+<br>
+There is almost never a practical reason to bypass this pipeline.  And I'm really wondering why you would even want to consider doing it.  Why wouldn't using a library work for your needs?  Why do you feel you need to skip the middle-man?<br>
+<br>
+Unless you're looking to write your own OS, I really don't see the point here.<br>
+<br>
+EDIT:<br>
+<br>
+<table class="quote"><tr><th class="qh"><strong>Chemical Engineer</strong> wrote:</th></tr><tr><td class="qd">And I think this because no one's telling me how. I don't think that they're trying to push me around and mess with me - it's more likely that they just don't know.</td></tr></table><br>
+<br>
+To address this:  I don't know how.  I've never had the need.<br>
+<br>
+I question whether you really have the need, or if you just think you have the need.<br>
+<br>
+<table class="quote"><tr><td class="qd">However, I do have to mess with the plumming. Do I really need to explain why?</td></tr></table><br>
+<br>
+I suppose you don't.  It would certainly satisfy my curiosity, which would be appreciated, but it wouldn't put me any closer to give you the answer you're looking for.<br>
+<br>
+At best if you could explain why you think you need it, we might be able to explain why you really don't, and be able to suggest an alternative way to do what you want that has the same end result.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmaa3949692a" title="Tue, 20 Jul 2010 18:03:25 +0000"></span><script type="text/javascript">WhenId('CH_zTmaa3949692a');</script><noscript>Jul 20, 2010 at 6:03pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140894"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140895"><span title="140895,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140895" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmff694c67b3" title="Tue, 20 Jul 2010 17:54:16 +0000"></span><script type="text/javascript">WhenId('CH_zTmff694c67b3');</script><noscript>Jul 20, 2010 at 5:54pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140895">
+You want to plot pixels to the screen. You can't do this directly (because of memory protection) on a modern (assuming AMD/Intel hardware, anything that runs on a newer CPU than the 8086) OS. So, you have to ask the operating system. Therefore, you should probably use the SetPixel() function.<br>
+<br>
+Edit: Damn you Disch.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm721cd2e116" title="Tue, 20 Jul 2010 17:54:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm721cd2e116');</script><noscript>Jul 20, 2010 at 5:54pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140895"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140897"><span title="140897,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140897" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb475f4ec31" title="Tue, 20 Jul 2010 18:02:09 +0000"></span><script type="text/javascript">WhenId('CH_zTmb475f4ec31');</script><noscript>Jul 20, 2010 at 6:02pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140897">
+Disch,<br>
+<br>
+I want to cut out the middle man because the program itself is very resource intensive.  It's a program which performs complex regressions - many of them.  I'd give a number, but in truth, I'd like it to perform infinitely many.  Since that's not actually possible, I'm going to set the cut-off at some extremely high yet still possible number.<br>
+<br>
+The OS and other operations would just slow this process down, and I'd have to have the program run for longer to get the same amount of calculation done.  That's highly impractical.  I don't need the computer to do anything else while this process is running, so I'd even go without the OS if that's possible.<br>
+<br>
+In short, I want the computer to act as a giant calculator.  I want to mess with pixels so that I can have it printout plots of what it's doing while it's running so that I can keep track of its progress.<br>
+<br>
+PS-  If you're really curious, I'm working on my Ph.D. in Chemical Engineering.  I've already earned some undergrad degrees in various subjects - this isn't a simple project.  At this point, I have the math, physics, chemistry, engineering, etc. mostly figured out.  I need a computer to crunch the equations as best it can, since doing them by hand would take longer than my natural life span.<br>
+<br>
+I need to have a basic graphical output which will represent plots that will really only make sense to me, since I'm the one who designed it.  The graphs won't be in English and I am using the word "graph" loosely.  But, long story short, I only recently learned the bit of programming that I know.  I don't have time to learn a million libraries, nor can I afford to lose processing power.<br>
+<br>
+However, I can very strong when it comes to manipulating data, and given the secret handshake that I need to perform to get the computer to use the monitor, I'll be able to make this work.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm8d7681e9cf" title="Tue, 20 Jul 2010 18:07:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm8d7681e9cf');</script><noscript>Jul 20, 2010 at 6:07pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140897"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140898"><span title="140898,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140898" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm76999c84ad" title="Tue, 20 Jul 2010 18:04:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm76999c84ad');</script><noscript>Jul 20, 2010 at 6:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140898">
+In that case, why not run the UI in a separate thread like I suggested before?<br>
+<br>
+Edit:<br>
+<br>
+Actually, if you want the computer to be focused solely on your program and not doing anything else, you could add it to the Windows boot menu (or better yet, the GRUB boot menu) and have the Windows bootloader (or GRUB) load your program. It would mean doing EVERYTHING yourself, however.<br>
+<br>
+<a href="../../../../wiki.osdev.org/expanded_main_page">http://wiki.osdev.org/Expanded_Main_Page</a><br>
+Take a look at the articles on here. Depending on your skill you may be able to follow the articles there and write the code you need to write to the screen yourself. If not, I've been working on writing as much operating system code as I can [understand] over the last month or two and I can give you what I've done so far. Then you could add your code and have your program running at the lowest level possible.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm61e629f23e" title="Tue, 20 Jul 2010 18:10:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm61e629f23e');</script><noscript>Jul 20, 2010 at 6:10pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140898"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140899"><span title="140899,37115,1023,58,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140899" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9e39af542a" title="Tue, 20 Jul 2010 18:10:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm9e39af542a');</script><noscript>Jul 20, 2010 at 6:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chemical_engineer/default.htm"><b>Chemical Engineer</b> (58)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140899">
+chrisname,<br>
+<br>
+I'm not sure if running the UI in a separate thread would really free up all of the processing that I want.  Plus then I'd still have to figure out how to mess with the graphical output.<br>
+<br>
+I don't know how quickly my screen updates - 60Hz, I'd guess? - but I'd like to be able to have the calculations update and print at that speed without significantly impairing the CPU.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140899"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140900"><span title="140900,36967,1023,186,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140900" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5aa1b37e8e" title="Tue, 20 Jul 2010 18:14:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm5aa1b37e8e');</script><noscript>Jul 20, 2010 at 6:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/moooce/default.htm"><b>Moooce</b> (186)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140900">
+Put MS-DOS on a floppy disk, boot to that and use a copy of Microsoft visual C++ 1.5 ( if you can find it) and write a DOS  program. The screen RAM can be directly addressed as address $A000 onwards if i remember correctly on a 320x200 screen palette of 256 colors. Anything else is going to require you to work with the OS. If you build your own OS, you're going to need to talk to the hardware you have in the language <b>it</b> understands. That's what drivers are for, to convert the OS way of talking, to the hardware way of talking.<br>
+Personally I think your best bet is to look up some directX code for writing directly to the back buffer, you'll need to use the DIRECTX SDK library, reference to the Lock() meathod.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn140900"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg140901"><span title="140901,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg140901" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcc3114102d" title="Tue, 20 Jul 2010 18:15:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmcc3114102d');</script><noscript>Jul 20, 2010 at 6:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i140901">
+In that case, I can give you the code I've written.<br>
+<br>
+It's not fantastic and is probably riddled with bugs but it will work well enough for your purposes. It's very unfinished (I have theoretical support for multiple virtual terminals but no dynamic memory allocator so in practice there is only one buffer and therefore only one terminal); at the moment all it can do is boot, print messages and load the IDT and GDT.<br>
+<br>
+Also it only runs in text mode; so you wouldn't be able to change the colour of specific pixels. You would only be able to draw ASCII characters in 16 colours.<br>
+<br>
+Edit: Also, I should mention that my implementation of the C string library hasn't been tested at all (except the itoa() function, that one has been tested thoroughly).
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbb567bffb5" title="Tue, 20 Jul 2010 18:21:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmbb567bffb5');</script><noscript>Jul 20, 2010 at 6:21pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn140901"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div id="CH_insNew"></div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><script type="text/javascript">new for_PostList(26390,1,37115,0,'CH_PostList','CH_subscription',false,'CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~279.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

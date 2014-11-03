@@ -1,0 +1,265 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/143303/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>video linked list insert funciton - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">video linked list insert funciton</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> video linked list insert funciton</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143303,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg756087"><span title="756087,134408,1023,5,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756087" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm628ab114ff" title="Thu, 25 Sep 2014 17:09:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm628ab114ff');</script><noscript>Sep 25, 2014 at 5:09pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/n30n/default.htm"><b>n30n</b> (5)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756087">
+trying to create a linked list for video object to take in insert, remove, lookup, and print command. i keep getting an error in my insert function:<br>
+<br>
+<br>
+main.cpp:46:25: error: no matching function for call to 'Vlist::insert(Video&amp;)'<br>
+       list.insert(*video);<br>
+                         ^<br>
+main.cpp:46:25: note: candidate is:<br>
+In file included from main.cpp:8:0:<br>
+vlist.h:17:10: note: void Vlist::insert(Video*)<br>
+     void insert(Video *video);<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br></code></pre></td>
+<td class="source"><pre><code>  Videolist.h
+
+  5 <dfn>#include &lt;iostream&gt;</dfn>
+  6 <dfn>#ifndef VLIST_H</dfn>
+  7 <dfn>#define VLIST_H</dfn>
+  8 <dfn>#include &lt;string&gt;</dfn>
+  9 <dfn>#include "video.h"</dfn>
+ 10 
+ 11 <var>using</var> <var>namespace</var> std;
+ 12 
+ 13 <var>class</var> Vlist
+ 14 {
+ 15   <var>public</var>:
+ 16     Vlist();
+ 17     <var>void</var> insert(Video *video);
+ 18     <var>void</var> insert_end();
+ 19     <var>void</var> print();
+ 20 
+ 21 <var>private</var>:
+ 22     <var>class</var> Node
+ 23     {
+ 24       <var>public</var>:
+ 25         Node(Video *video, Node *next)
+ 26         {
+ 27           m_video=video; m_next=next;}
+ 28         Video* m_video;
+ 29         Node *m_next;
+ 30     };
+ 31 
+ 32    Node *m_head;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br></code></pre></td>
+<td class="source"><pre><code>
+  Videolist.cpp
+
+5 <dfn>#include &lt;iostream&gt;</dfn>
+  6 <dfn>#include "vlist.h"</dfn>
+  7 <dfn>#include&lt;string&gt;</dfn>
+  8 <dfn>#include "video.h"</dfn>
+
+
+   28 <var>void</var> Vlist::insert(Video *video)
+ 29 {
+ 30 
+ 31 <var>if</var>(m_head==NULL)
+ 32   {
+ 33     m_head=<var>new</var> Node(video, NULL);
+ 34   }
+ 35   <var>else</var>
+ 36   {
+ 37     Node *ptr=m_head;
+ 38     <var>while</var>(video-&gt;get_title()&gt;ptr-&gt;m_next -&gt; m_video-&gt; get_title())
+ 39     {
+ 40       ptr=ptr-&gt;m_next;
+ 41     }
+ 42     ptr-&gt;m_next=<var>new</var> Node(*video, ptr-&gt;m_next);
+ 43   }
+ 44 
+ 45 
+ 46 }
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br></code></pre></td>
+<td class="source"><pre><code>
+main.cpp
+
+ 5 <dfn>#include &lt;iostream&gt;</dfn>
+  6 <dfn>#include &lt;string&gt;</dfn>
+  7 <dfn>#include "video.h"</dfn>
+  8 <dfn>#include "vlist.h"</dfn>
+  9 <dfn>#include &lt;stdio.h&gt;</dfn>
+
+
+  string command;
+ 25   Vlist list;
+ 26   Video *video;
+ 27   <cite>// sort.insert(value);  </cite>
+ 28 
+ 29   <var>while</var> (getline(cin, command))
+ 30   {
+ 31     <var>if</var>(command==<kbd>"insert"</kbd>)
+ 32     {
+ 33       getline(cin, title);
+ 34       getline(cin, url);
+ 35       getline(cin, comment);
+ 36       cin &gt;&gt; length;
+ 37       cin &gt;&gt; rating;
+ 38       cin.ignore();
+ 39 
+
+ 46       list.insert(*video);
+ 47       counter++;
+ 48     }
+ 49     <var>else</var> <var>if</var>(command==<kbd>"remove"</kbd>)
+ 50     {
+ 51       getline(cin, url);
+ 52       getline(cin, comment);
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756087"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756131"><span title="756131,61098,1023,4288,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756131" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm69facca556" title="Thu, 25 Sep 2014 19:37:17 +0000"></span><script type="text/javascript">WhenId('CH_zTm69facca556');</script><noscript>Sep 25, 2014 at 7:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/residentbiscuit/default.htm"><b>ResidentBiscuit</b> (4288)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756131">
+<span class="auto"><code class="source">list.insert(*video);</code></span><br>
+should be<br>
+<span class="auto"><code class="source">list.insert(video);</code></span><br>
+<br>
+The method takes a pointer, but you were dereferencing the pointer before passing it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756131"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143303,1,134408,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~308.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

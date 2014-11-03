@@ -1,0 +1,361 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/general/78358/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C++11 - Using move semantics in a for lo - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">C++11 - Using move semantics in a for lo</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> C++11 - Using move semantics in a for loop?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="78358,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg422291"><span title="422291,71739,1023,43,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422291" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2ba2411dfc" title="Mon, 03 Sep 2012 14:13:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm2ba2411dfc');</script><noscript>Sep 3, 2012 at 2:13pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/henri_korpela/default.htm"><b>Henri Korpela</b> (43)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422291">
+Hi, there!<br>
+<br>
+Yes, you read the title correctly. But why, you may ask now. Well, allow me to demonstrate:<br>
+<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var> i = 0; i &lt; vector.size(); i++)</code></span><br>
+<br>
+As you can see, this is a basic for loop to iterate over elements of a vector.<br>
+But did you know there's also a bit faster way to iterate over the elements, like this:<br>
+<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var> i = vector.size(); i--;)</code></span><br>
+<br>
+Yep, it works, but I'd like to go to even more extremes. Check out this piece of code:<br>
+<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var>&amp;&amp; i = vector.size(); i--;)</code></span><br>
+<br>
+But now the ultimate question is, does it work properly?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm47cb44de2d" title="Mon, 03 Sep 2012 14:14:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm47cb44de2d');</script><noscript>Sep 3, 2012 at 2:14pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn422291"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg422312"><span title="422312,84457,1023,1468,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422312" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm49ea16dcaf" title="Mon, 03 Sep 2012 15:44:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm49ea16dcaf');</script><noscript>Sep 3, 2012 at 3:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/script_coder/default.htm"><b>Script Coder</b> (1468)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422312">
+do you not mean:<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var> i = vector.size();; i--)</code></span><br>
+and <br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var>&amp;&amp; i = vector.size();; i--)</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn422312"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg422325"><span title="422325,49545,1023,200,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422325" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm29edd6b6af" title="Mon, 03 Sep 2012 16:08:30 +0000"></span><script type="text/javascript">WhenId('CH_zTm29edd6b6af');</script><noscript>Sep 3, 2012 at 4:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/caligulaminus/default.htm"><b>Caligulaminus</b> (200)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422325">
+<table class="quote"><tr><th class="qh"><strong>Script Coder</strong> wrote:</th></tr><tr><td class="qd"><br>
+do you not mean:<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var> i = vector.size();; i--)</code></span><br>
+and<br>
+<span class="auto"><code class="source"><var>for</var>(<var>unsigned</var> <var>int</var>&amp;&amp; i = vector.size();; i--)</code></span>
+</td></tr></table><br>
+<br>
+How would those loops end?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn422325"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg422459"><span title="422459,77869,1023,595,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422459" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf93f654e04" title="Mon, 03 Sep 2012 21:24:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmf93f654e04');</script><noscript>Sep 3, 2012 at 9:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zephilinox/default.htm"><b>Zephilinox</b> (595)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422459">
+They don't, or at least if they do its implementation (un?)defined, subtracting 1 from an unsigned int of value 0 (i.e making it negative) sets it to its highest value on my system.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd935e0ed32" title="Mon, 03 Sep 2012 21:24:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmd935e0ed32');</script><noscript>Sep 3, 2012 at 9:24pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn422459"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg422460"><span title="422460,72044,1023,3663,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422460" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1808af70db" title="Mon, 03 Sep 2012 21:24:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm1808af70db');</script><noscript>Sep 3, 2012 at 9:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cubbi/default.htm"><b>Cubbi</b> (3663)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422460">
+<table class="quote"><tr><td class="qd">did you know there's also a bit faster way to iterate over the elements</td></tr></table><br>
+Taking a look at gcc and clang as the most readily-available compilers, yes, there is an improvement in case of Clang, not as good as switching to iterators though. Iterators are what most people expect to see, and that's what the compilers optimize for.<br>
+<br>
+<table class="quote"><tr><td class="qd">Check out this piece of code:<br>
+<br>
+for(unsigned int&amp;&amp; i = vector.size(); i--;)<br>
+<br>
+But now the ultimate question is, does it work properly?</td></tr></table><br>
+It works properly, but it is exactly identical to your previous loop. Binding an rvalue reference to a size_t temporary doesn't involve anything that could be called "move semantics".<br>
+<br>
+<br>
+<div class="auto"><table class="split"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;vector&gt;</dfn>
+std::vector&lt;<var>int</var>&gt; v(100);
+<var>volatile</var> <var>int</var> sink;
+<var>int</var> main()
+{
+    <var>for</var>(<var>unsigned</var> <var>int</var> i = 0; i &lt; v.size(); i++)
+    {
+            sink += v[i];
+    }
+}
+<cite>// GCC loop:</cite>
+.L6:
+        movl    sink(%rip), %eax
+        addl    $1, %edx
+        addl    (%rdi,%rcx,4), %eax
+        movl    %edx, %ecx
+        cmpq    %rsi, %rcx
+        movl    %eax, sink(%rip)
+        jb      .L6
+<cite>// CLang loop</cite>
+.LBB1_2:
+        movl    (%rax,%rsi,4), %esi
+        addl    %esi, sink(%rip)
+        movl    %edx, %esi
+        incl    %edx
+        cmpq    %rcx, %rsi
+        jb      .LBB1_2</code></pre></td>
+<td class="output"><pre><samp>#include &lt;vector&gt;
+std::vector&lt;int&gt; v(100);
+volatile int sink;
+int main()
+{
+    for(unsigned int i = v.size(); i--; )
+    {
+            sink += v[i];
+    }
+}
+// GCC loop
+.L8:
+        movl    sink(%rip), %edx
+        movl    %eax, %ecx
+        subl    $1, %eax
+        addl    (%rsi,%rcx,4), %edx
+        cmpl    $-1, %eax
+        movl    %edx, sink(%rip)
+        jne     .L8
+
+// Clang loop
+.LBB1_2:
+        movl    (%rcx), %edx
+        addl    %edx, sink(%rip)
+        addq    $-4, %rcx
+        incl    %eax
+        jne     .LBB1_2
+</samp></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+<div class="auto"><table class="split"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;vector&gt;</dfn>
+std::vector&lt;<var>int</var>&gt; v(100);
+<var>volatile</var> <var>int</var> sink;
+<var>int</var> main()
+{
+    <var>for</var>(<var>unsigned</var> <var>int</var>&amp;&amp; i = v.size(); i--; )
+    {
+            sink += v[i];
+    }
+}
+<cite>// GCC loop</cite>
+.L8:
+        movl    sink(%rip), %edx
+        movl    %eax, %ecx
+        subl    $1, %eax
+        addl    (%rsi,%rcx,4), %edx
+        cmpl    $-1, %eax
+        movl    %edx, sink(%rip)
+        jne     .L8
+<cite>// Clang loop</cite>
+.LBB1_2:
+        movl    (%rcx), %edx
+        addl    %edx, sink(%rip)
+        addq    $-4, %rcx
+        incl    %eax
+        jne     .LBB1_2
+</code></pre></td>
+<td class="output"><pre><samp>#include &lt;vector&gt;
+std::vector&lt;int&gt; v(100);
+volatile int sink;
+int main()
+{
+    for(auto i = v.begin(); i!=v.end(); ++i)
+    {
+            sink += *i;
+    }
+}
+// GCC loop
+.L8:
+        movl    sink(%rip), %edx
+        addl    (%rax), %edx
+        addq    $4, %rax
+        cmpq    %rax, %rcx
+        movl    %edx, sink(%rip)
+        jne     .L8
+// Clang loop
+.LBB1_1:
+        movl    (%rcx), %edx
+        addl    %edx, sink(%rip)
+        addq    $4, %rcx
+        cmpq    %rcx, %rax
+        jne     .LBB1_1
+</samp></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm18f4e8ebfd" title="Mon, 03 Sep 2012 21:33:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm18f4e8ebfd');</script><noscript>Sep 3, 2012 at 9:33pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn422460"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg422584"><span title="422584,71739,1023,43,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg422584" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2f15d5dfdd" title="Tue, 04 Sep 2012 04:59:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm2f15d5dfdd');</script><noscript>Sep 4, 2012 at 4:59am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/henri_korpela/default.htm"><b>Henri Korpela</b> (43)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i422584">
+Thank you for the replies! I didn't come to think of it that compilers would most likely optimize for loops this well. Assembly output convinced me.<br>
+<br>
+I'm trying to get the gist of move semantics, so that's why I was wondering, if declaring variable "i" as an rvalue reference had some performance gain. From what I can understand, GCC compiler does optimization best in the last test. No rvalue references required.<br>
+<br>
+Thanks a lot for the help!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn422584"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(78358,1,71739,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~338.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

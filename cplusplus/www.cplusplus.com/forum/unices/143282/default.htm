@@ -1,0 +1,464 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/unices/143282/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Script communication with pipes in a qsu - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">UNIX/Linux Programming</a></li>
+<li class="here">Script communication with pipes in a qsu</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Script communication with pipes in a qsub context</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143282,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg755982"><span title="755982,152541,255,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg755982" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm52d753470a" title="Thu, 25 Sep 2014 09:06:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm52d753470a');</script><noscript>Sep 25, 2014 at 9:06am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/smunier/default.htm"><b>smunier</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i755982">
+Hi all,<br>
+<br>
+I am coding a script that needs to run several 'children' scripts and communicate with them. Basically, the parent script does an iteration loop in which each children has a job to do. Each iteration must end when all the children jobs are done.<br>
+<br>
+A simplified code is given bellow.<br>
+<br>
+parent.c<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;memory.h&gt;</dfn>
+<dfn>#include &lt;unistd.h&gt;</dfn>
+<dfn>#include &lt;stdlib.h&gt;</dfn>
+
+<var>int</var> main( <var>int</var> argc, <var>char</var> ** argv )
+{
+  <var>int</var> ***pfd;
+  <var>int</var> N,Ne;
+  <var>char</var> buffer[BUFSIZ];
+  <var>int</var> i,ie;
+  
+  <cite>// Read arguments</cite>
+  <var>if</var> (argc&lt;3) <var>return</var> 1;
+  sscanf(argv[1],<kbd>"%i"</kbd>,&amp;Ne); <cite>// Number of children</cite>
+  sscanf(argv[2],<kbd>"%i"</kbd>,&amp;N);  <cite>// Number of iterations</cite>
+  
+  <cite>// Create pipes</cite>
+  pfd = (<var>int</var>***)malloc(Ne*<var>sizeof</var>(<var>int</var>**));
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    pfd[ie] = (<var>int</var>**)malloc(2*<var>sizeof</var>(<var>int</var>*));
+    pfd[ie][0] = (<var>int</var>*)malloc(2*<var>sizeof</var>(<var>int</var>));
+    pfd[ie][1] = (<var>int</var>*)malloc(2*<var>sizeof</var>(<var>int</var>));
+    pipe(pfd[ie][0]);
+    pipe(pfd[ie][1]);
+  }
+  
+  <cite>// Run children</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    sprintf(buffer,<kbd>"./child %i %i %i &amp;"</kbd>,ie,pfd[ie][0][0],pfd[ie][1][1]);
+    system(buffer);
+  }
+  
+  <cite>// Iteration loop</cite>
+  <var>for</var> (i=0;i&lt;N;i++) {
+    printf(<kbd>"%i: "</kbd>,i); fflush(stdout);
+    sprintf(buffer,<kbd>"%i "</kbd>,i);
+    <cite>// Send new iteration order to children</cite>
+    <var>for</var> (ie=0;ie&lt;Ne;ie++) write(pfd[ie][0][1],buffer,strlen(buffer));
+    <cite>// Wait for children reply</cite>
+    <var>for</var> (ie=0;ie&lt;Ne;ie++) read(pfd[ie][1][0],buffer,BUFSIZ);
+    printf(<kbd>" -&gt; OK\n"</kbd>);
+  }
+  
+  <cite>// Send ending order to children</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) write(pfd[ie][0][1],<kbd>"done"</kbd>,5);
+  
+  <cite>// Deallocate</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    free(pfd[ie][0]);
+    free(pfd[ie][1]);
+    free(pfd[ie]);
+  }
+  free(pfd);
+  
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+child.c<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;memory.h&gt;</dfn>
+<dfn>#include &lt;unistd.h&gt;</dfn>
+
+<var>int</var> main( <var>int</var> argc, <var>char</var> ** argv )
+{
+  <var>int</var> pfd[2],ie;
+  <var>char</var> buffer[BUFSIZ];
+  
+  <cite>// Read arguments</cite>
+  <var>if</var> (argc&lt;4) <var>return</var> 1;
+  sscanf(argv[1],<kbd>"%i"</kbd>,&amp;ie);     <cite>// Child number</cite>
+  sscanf(argv[2],<kbd>"%i"</kbd>,&amp;pfd[0]);
+  sscanf(argv[3],<kbd>"%i"</kbd>,&amp;pfd[1]);
+  
+  <cite>// Wait for first order</cite>
+  read(pfd[0],buffer,BUFSIZ);
+  <var>while</var> (strcmp(buffer,<kbd>"done"</kbd>)) {
+    printf(<kbd>" %i"</kbd>,ie); fflush(stdout);
+    <cite>// Send "iteration done" to parent</cite>
+    write(pfd[1],<kbd>"done"</kbd>,5);
+    <cite>// Wait for next order</cite>
+    read(pfd[0],buffer,BUFSIZ);
+  }
+  
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+The code works well, eg with the following command: <span class="auto"><code class="source">./parent 3 5</code></span><br>
+<br>
+My problem is that I want to cluster the children jobs using qsub. I first tryed to replace the call './child ...' by 'qsub ./child ...'. Jobs are well put into the qsub queue, but then the program blocks, as if the parent and children codes do not communicate via pipes.<br>
+<br>
+I also tryed to use named pipes (via mknod). There again, the program works well without qsub, but not with qsub.<br>
+<br>
+Does anyone faced this problem? Or has an idea to correct my code?<br>
+<br>
+Thanks in advance
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn755982"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756004"><span title="756004,17129,1023,7248,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756004" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5df0fedc4d" title="Thu, 25 Sep 2014 11:13:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm5df0fedc4d');</script><noscript>Sep 25, 2014 at 11:13am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kbw/default.htm"><b>kbw</b> (7248)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756004">
+<table class="quote"><tr><td class="qd">Each iteration must end when all the children jobs are done.</td></tr></table>That means you can't start them with system(), you have to use an exec() function and wait for it with waitpid().
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756004"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756022"><span title="756022,152541,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756022" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1335a2af67" title="Thu, 25 Sep 2014 13:34:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm1335a2af67');</script><noscript>Sep 25, 2014 at 1:34pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/smunier/default.htm"><b>smunier</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756022">
+Thanks, but I'm not sure that the exec() function is really adapted to my situation. I'll try to be more specific. First, I have to execute the children scripts on the cluster, so I have to use the qsub command. Second, for some reasons, I don't want to run qsub at each iteration (I did it once successfully, but have other troubles with that solution), and I prefer to run it once at the beginning and than pass a new argument at each iteration. That's why I think that piping does exactly what I need. And it works perfectely well without qsub. The cluster does have an access to my filesytem, so it should be able to read/write into "named pipe" files. Am I wrong on this point?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756022"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756151"><span title="756151,111189,1023,3222,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756151" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3785458032" title="Thu, 25 Sep 2014 21:31:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm3785458032');</script><noscript>Sep 25, 2014 at 9:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/keskiverto/default.htm"><b>keskiverto</b> (3222)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756151">
+<table class="quote"><tr><td class="qd">Jobs are well put into the qsub queue, but then the program blocks, as if the parent and children codes do not communicate via pipes.</td></tr></table><br>
+Named pipe between different machines? I don't think so.<br>
+<a href="../../../../stackoverflow.com/questions/1038788/cant-write-to-fifo-file-mouted-via-nfs">http://stackoverflow.com/questions/1038788/cant-write-to-fifo-file-mouted-via-nfs</a><br>
+<br>
+How about MPI?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756151"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756307"><span title="756307,152541,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756307" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3edbdb8618" title="Fri, 26 Sep 2014 07:27:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm3edbdb8618');</script><noscript>Sep 26, 2014 at 7:27am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/smunier/default.htm"><b>smunier</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756307">
+Ok, this answers my question. I'll read about MPI, or try the netcat option suggested in the above link.<br>
+For people who might be interested, I'll post the solution when I find it.<br>
+Thanks a lot.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756307"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg756346"><span title="756346,152541,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg756346" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm075e83dd7c" title="Fri, 26 Sep 2014 11:17:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm075e83dd7c');</script><noscript>Sep 26, 2014 at 11:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/smunier/default.htm"><b>smunier</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i756346">
+Well, I finally made my script work using sockets. Here is my solution:<br>
+<br>
+parent.c<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;stdlib.h&gt;</dfn>
+<dfn>#include &lt;string.h&gt;</dfn>
+<dfn>#include &lt;netinet/in.h&gt;</dfn>
+
+<dfn>#define PORTSTART 10000</dfn>
+
+<var>int</var> main( <var>int</var> argc, <var>char</var> ** argv )
+{
+  <var>int</var> N,Ne;
+  <var>char</var> buffer[BUFSIZ];
+  <var>int</var> i,ie;
+  <var>int</var> *sockfd,*newsockfd,*portno;
+  <var>int</var> portcount = PORTSTART;
+  socklen_t clilen = <var>sizeof</var>(<var>struct</var> sockaddr_in);
+  <var>struct</var> sockaddr_in *serv_addr,*cli_addr;
+  
+  <cite>// Read arguments</cite>
+  <var>if</var> (argc&lt;3) <var>return</var> 1;
+  sscanf(argv[1],<kbd>"%i"</kbd>,&amp;Ne);
+  sscanf(argv[2],<kbd>"%i"</kbd>,&amp;N);
+  
+  <cite>// Allocate memory</cite>
+  sockfd = (<var>int</var>*)malloc(Ne*<var>sizeof</var>(<var>int</var>));
+  portno = (<var>int</var>*)malloc(Ne*<var>sizeof</var>(<var>int</var>));
+  newsockfd = (<var>int</var>*)malloc(Ne*<var>sizeof</var>(<var>int</var>));
+  serv_addr = (<var>struct</var> sockaddr_in*)malloc(Ne*<var>sizeof</var>(<var>struct</var> sockaddr_in));
+  cli_addr = (<var>struct</var> sockaddr_in*)malloc(Ne*<var>sizeof</var>(<var>struct</var> sockaddr_in));
+  
+  <cite>// Create sockets</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    printf(<kbd>"Setting %2i:"</kbd>,ie); fflush(stdout);
+    sockfd[ie] = socket(AF_INET,SOCK_STREAM,0);
+    bzero((<var>char</var>*)&amp;serv_addr[ie],<var>sizeof</var>(serv_addr[ie]));
+    serv_addr[ie].sin_family = AF_INET;
+    serv_addr[ie].sin_addr.s_addr = INADDR_ANY;
+    <cite>// Loop to find available ports</cite>
+    <var>do</var> {
+      portno[ie] = portcount;
+      serv_addr[ie].sin_port = htons(portno[ie]);
+      <var>if</var> (portcount&gt;PORTSTART+100) {
+        printf(<kbd>"Port error: all ports tested\n"</kbd>);
+        <var>return</var> 1;
+      }
+      portcount++;
+    } <var>while</var> (bind(sockfd[ie],(<var>struct</var> sockaddr *) &amp;serv_addr[ie],<var>sizeof</var>(serv_addr[ie])) &lt; 0);
+    printf(<kbd>" on port %i"</kbd>,portno[ie]); fflush(stdout);
+    listen(sockfd[ie],5);
+    <cite>// Ready to run child</cite>
+    sprintf(buffer,<kbd>"./child %i %i &amp;"</kbd>,ie,portno[ie]);
+    system(buffer);
+    printf(<kbd>" -&gt; OK\n"</kbd>);
+  }
+  
+  <cite>// Wait for children connection</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    newsockfd[ie] = accept(sockfd[ie],(<var>struct</var> sockaddr *) &amp;cli_addr[ie],&amp;clilen);
+  }
+  
+  <cite>// Iteration loop</cite>
+  <var>for</var> (i=0;i&lt;N;i++) {
+    printf(<kbd>"%i: "</kbd>,i); fflush(stdout);
+    <cite>// Run new children iteration</cite>
+    <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+      sprintf(buffer,<kbd>"%i"</kbd>,ie);
+      write(newsockfd[ie],buffer,strlen(buffer));
+    }
+    <cite>// Wait for children processes</cite>
+    <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+      read(newsockfd[ie],buffer,BUFSIZ);
+    }
+    printf(<kbd>" -&gt; OK\n"</kbd>);
+  }
+  
+  <cite>// Make children exit</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    write(newsockfd[ie],<kbd>"done"</kbd>,4);
+  }
+  
+  <cite>// Close sockets and deallocate memory</cite>
+  <var>for</var> (ie=0;ie&lt;Ne;ie++) {
+    close(newsockfd[ie]);
+    close(sockfd[ie]);
+  }
+  free(sockfd);
+  free(portno);
+  free(newsockfd);
+  free(serv_addr);
+  free(cli_addr);
+  
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+child.c<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;stdio.h&gt;</dfn>
+<dfn>#include &lt;string.h&gt;</dfn>
+<dfn>#include &lt;netdb.h&gt;</dfn>
+
+<var>int</var> main( <var>int</var> argc, <var>char</var> ** argv )
+{
+  <var>char</var> buffer[BUFSIZ];
+  <var>char</var> servername[BUFSIZ];
+  <var>int</var> ie,sockfd,portno;
+  <var>struct</var> sockaddr_in serv_addr;
+  <var>struct</var> hostent *server;
+  
+  <cite>// Put the name of the host server</cite>
+  strcpy(servername,<kbd>"localhost"</kbd>);
+  
+  <cite>// Read arguments</cite>
+  <var>if</var> (argc&lt;3) <var>return</var> 1;
+  sscanf(argv[1],<kbd>"%i"</kbd>,&amp;ie);
+  portno = atoi(argv[2]);
+  
+  <cite>// Create socket and connect with server</cite>
+  sockfd = socket(AF_INET,SOCK_STREAM,0);
+  server = gethostbyname(servername);
+  bzero((<var>char</var> *) &amp;serv_addr, <var>sizeof</var>(serv_addr));
+  serv_addr.sin_family = AF_INET;
+  bcopy((<var>char</var> *)server-&gt;h_addr,(<var>char</var> *)&amp;serv_addr.sin_addr.s_addr,server-&gt;h_length);
+  serv_addr.sin_port = htons(portno);
+  connect(sockfd,(<var>struct</var> sockaddr *) &amp;serv_addr,<var>sizeof</var>(serv_addr));
+  
+  <cite>// Iteration loop</cite>
+  read(sockfd,buffer,BUFSIZ);
+  <var>while</var> (strcmp(buffer,<kbd>"done"</kbd>)) {
+    printf(<kbd>" %i"</kbd>,ie); fflush(stdout);
+    usleep(500000); <cite>// Or other processes</cite>
+    write(sockfd,<kbd>"done"</kbd>,4);
+    read(sockfd,buffer,BUFSIZ);
+  }
+  
+  <cite>// Close when finished</cite>
+  close(sockfd);
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+I tested the script locally (both parent and children on the same machine, servername="localhost"), and on a cluster using qsub. There may be some possible improvement, but as it is it works as expected.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn756346"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143282,1,152541,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li class="selected"><a href="../default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~307.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

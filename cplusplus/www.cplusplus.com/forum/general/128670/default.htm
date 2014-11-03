@@ -1,0 +1,298 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/128670/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Operator Overloading / Printing - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Operator Overloading / Printing</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Operator Overloading / Printing</h3><span id="CH_edttl"></span><span class="rootdatPost" title="128670,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg695280"><span title="695280,54483,1023,803,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695280" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd73321a8c3" title="Wed, 09 Apr 2014 19:41:13 +0000"></span><script type="text/javascript">WhenId('CH_zTmd73321a8c3');</script><noscript>Apr 9, 2014 at 7:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ciphermagi/default.htm"><b>ciphermagi</b> (803)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695280">
+Test code<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main(){
+    Status_List s_list;
+
+    s_list.add_status(<kbd>"Blind"</kbd>, 2);
+    s_list.add_status(<kbd>"Stun"</kbd>, 5);
+    s_list.add_status(<kbd>"Deaf"</kbd>, 3);
+    s_list.add_status(<kbd>"Weak"</kbd>, 4);
+    print_status(s_list);
+
+    <var>for</var>(<var>int</var> i = 0; i &lt; 5; ++i){
+        --s_list;
+        print_status(s_list);
+    }
+
+    <var>return</var> 0;
+}
+
+<var>void</var> print_status(Status_List s_list){
+    <var>for</var>(<var>int</var> i = 0; i &lt; s_list.status.size(); ++i){
+        std::cout &lt;&lt; s_list.status[i]-&gt;get_eff() &lt;&lt; <kbd>", "</kbd> &lt;&lt; s_list.status[i]-&gt;get_dur() &lt;&lt; std::endl;
+    }
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Relevant functions<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br></code></pre></td>
+<td class="source"><pre><code>Status_List&amp; Status_List::<var>operator</var>--(){
+    <var>int</var> i = 0;
+
+    <var>while</var>(i &lt; status.size()){
+        <var>if</var>(status[i]-&gt;get_dur() &lt;= 1)
+            rem_status(i);
+        <var>else</var>{
+            status[i]-&gt;dec();
+            ++i;
+        }
+    }
+
+    <var>return</var> *<var>this</var>;
+}
+
+Status_List Status_List::<var>operator</var>--(<var>int</var>){
+    Status_List tmp(*<var>this</var>);
+    <var>operator</var>--();
+    <var>return</var> tmp;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Classes<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> Status{
+ <var>public</var>:
+	Status(std::string eff = <kbd>""</kbd>, <var>short</var> dur = 0) : effect(eff), duration(dur) {}
+
+	<var>void</var> dec() {duration--;}
+	<var>short</var> get_dur() {<var>return</var> duration;}
+	std::string get_eff() {<var>return</var> effect;}
+
+ <var>private</var>:
+	std::string effect;
+	<var>short</var> duration;
+};
+
+<var>class</var> Status_List{
+ <var>public</var>:
+	~Status_List();
+
+	<var>void</var> add_status(std::string, <var>short</var>);
+	Status_List&amp; <var>operator</var>--();
+	Status_List <var>operator</var>--(<var>int</var>);
+
+	<var>friend</var> <var>void</var> print_status(Status_List);
+
+ <var>private</var>:
+	std::vector&lt;Status *&gt; status;
+
+	<var>void</var> rem_status(<var>int</var>);
+};
+
+...
+
+<var>void</var> Status_List::rem_status(<var>int</var> index){
+	Status * stat = status[index];
+	status.erase(status.begin() + index);
+	<var>delete</var> stat;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Output<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="output"><pre><samp>./a.out 
+Blind, 2
+Stun, 5
+Deaf, 3
+Weak, 4
+Segmentation fault (core dumped)
+</samp></pre></td></tr></table></div><br>
+<br>
+The above code gives the above output. Using various methods of testing (valgrind, gdb, and good old diagnostic cout), I have determined that the segmentation fault occurs after the completion of <span class="auto"><code class="source">--s_list;</code></span> but before the modified list has completed printing. I believe I may have messed up the operator overload functions, but I don't see how I did it. If anybody has any insight into what's going on here, I would love to hear it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695280"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695284"><span title="695284,35710,1023,2838,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695284" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9a5f6bae13" title="Wed, 09 Apr 2014 19:52:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm9a5f6bae13');</script><noscript>Apr 9, 2014 at 7:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/abstractionanon/default.htm"><b>AbstractionAnon</b> (2838)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695284">
+In <span class="auto"><code class="source">Status_List&amp; Status_List::<var>operator</var>--()</code></span> you get the size of the vector only once (line 4).  If you delete an entry, the size of the vector decreases by one, but you're still using the original size of the vector as the upper limit.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695284"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695292"><span title="695292,54483,1023,803,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695292" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc6ace0a2ff" title="Wed, 09 Apr 2014 19:57:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmc6ace0a2ff');</script><noscript>Apr 9, 2014 at 7:57pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ciphermagi/default.htm"><b>ciphermagi</b> (803)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695292">
+Two questions:<br>
+1) Since I'm using that as the test, wouldn't that mean it retrieves that information every time it is tested?<br>
+2) How would that cause a segmentation fault in the case (as this case is) when no elements have been removed?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695292"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695325"><span title="695325,11526,1023,1169,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695325" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0d82494846" title="Wed, 09 Apr 2014 21:18:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm0d82494846');</script><noscript>Apr 9, 2014 at 9:18pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/kempofighter/default.htm"><b>kempofighter</b> (1169)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695325">
+Looks to me like rem_status will remove more than just one item.  it erases from the beginning to the index which could be multiple things.  That could result in a memory leak.  Overall, this design is horrendous.  First of all, an operator-- should not be destroying memory.  Although you can overload operators to do whatever you want, it is not advisable to design them to do nonsensical, or unintuitive things.  (e.g., operator+ should add, operator- should substract, operator* should multiply or dereference).  Of course, you could write your operator+ to do all kinds of crazy and unintuitive things.  The compiler won't stop you from doing dumb things.<br>
+<br>
+You have no posted the code in a way that would allow others to easily compile and run.  I recommend that you stop into this with the debugger and monitor the variables.  The debugger should easily be able to tell you the root cause.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695325"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg695329"><span title="695329,54483,1023,803,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg695329" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4f4e9aaeae" title="Wed, 09 Apr 2014 21:39:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm4f4e9aaeae');</script><noscript>Apr 9, 2014 at 9:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ciphermagi/default.htm"><b>ciphermagi</b> (803)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i695329">
+@kemptofighter<br>
+The first line of <a href="../../../reference/vector/vector/erase/default.htm">http://www.cplusplus.com/reference/vector/vector/erase/</a> makes your entire post nonsensical. The rem_status function specifically tracks memory like an iterator does, removes that ONE element from the vector, and then uses the temporary pointer to deallocate the memory properly. The purpose of the operator-- is to reduce the value of duration in every element. Removing an element when the lifetime of that element has expired is one of the crucial elements of the program, and I'm not bout to leave it up to the user to clean up. That type of design is uh...what was the word? Oh, "horrendous.'
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn695329"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(128670,1,54483,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~351.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

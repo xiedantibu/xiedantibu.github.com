@@ -1,0 +1,221 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146671/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bad allocation error  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">bad allocation error </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> bad allocation error </h3><span id="CH_edttl"></span><span class="rootdatPost" title="146671,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771207"><span title="771207,150326,1023,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771207" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm11570da6fc" title="Sun, 02 Nov 2014 13:43:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm11570da6fc');</script><noscript>Nov 2, 2014 at 1:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mateusreversing/default.htm"><b>mateusReversing</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771207">
+The code below is giving me a bad allocation error, I think it may be due to the size which is 4294965747.<br>
+<br>
+<span class="auto"><code class="source"><var>char</var> * array  = <var>new</var> <var>char</var>[size]</code></span><br>
+<br>
+Where am I going wrong, can a char array be the required size and if not what other data structure should I use.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771207"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771212"><span title="771212,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771212" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc747ea7e7a" title="Sun, 02 Nov 2014 13:53:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmc747ea7e7a');</script><noscript>Nov 2, 2014 at 1:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771212">
+You are trying to allocate 4 GB of memory. Do you ahve that much spare memory avaliable? Do you have 64 bit system to allow to use that much memory?<br>
+<br>
+Either way I doubt that you will have continuous 4GB of memory avaliable due to memory fragmentation.<br>
+<br>
+You can try std::deque as it allows non-contiguous memory while retaining almos all speed of arrays.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771212"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771217"><span title="771217,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771217" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7d6185c603" title="Sun, 02 Nov 2014 14:21:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d6185c603');</script><noscript>Nov 2, 2014 at 2:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771217">
+What do you need so much memory for?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771217"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771236"><span title="771236,131601,1023,331,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771236" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc6f4251ba6" title="Sun, 02 Nov 2014 15:56:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmc6f4251ba6');</script><noscript>Nov 2, 2014 at 3:56pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/avilius/default.htm"><b>Avilius</b> (331)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771236">
+<table class="quote"><tr><td class="qd">You can try std::deque as it allows non-contiguous memory while retaining almos all speed of arrays.</td></tr></table>Cache coherency can be a bitch sometimes, and not having it can really slow down a program. I wouldn't say "almost" the speed, because the difference can be a lot.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771236"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771241"><span title="771241,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771241" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcf2685056e" title="Sun, 02 Nov 2014 16:05:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf2685056e');</script><noscript>Nov 2, 2014 at 4:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771241">
+<table class="quote"><tr><td class="qd">Cache coherency can be a bitch sometimes, and not having it can really slow down a program. I wouldn't say "almost" the speed, because the difference can be a lot. Cache coherency </td></tr></table>Depending on one block size. Generally, proper deques are optimised to minimize perfomance impact.<br>
+<br>
+No matter what, he is not going to have 4GB array. Deque is as close as he is going to get (sequental, random access)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771241"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771247"><span title="771247,150326,1023,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771247" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm57754db893" title="Sun, 02 Nov 2014 16:32:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm57754db893');</script><noscript>Nov 2, 2014 at 4:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mateusreversing/default.htm"><b>mateusReversing</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771247">
+Thanks guys some other part of the code actually needs that much, I didn't realise must be an something wrong.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771247"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771293"><span title="771293,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771293" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma6caad5d4a" title="Sun, 02 Nov 2014 19:15:25 +0000"></span><script type="text/javascript">WhenId('CH_zTma6caad5d4a');</script><noscript>Nov 2, 2014 at 7:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771293">
+<table class="quote"><tr><td class="qd">some other part of the code actually needs that much</td></tr></table>At the same time? I do not believe that you cannot separate calculations on several steps and have only relatively small amount of data in memory at the time. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771293"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146671,0,150326,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fge~8.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

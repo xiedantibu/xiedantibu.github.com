@@ -1,0 +1,291 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146260/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Please, help me to fix optimized value r - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Please, help me to fix optimized value r</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Please, help me to fix optimized value result in crash issue</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146260,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769523"><span title="769523,155546,1023,14,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769523" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc67511b6fe" title="Wed, 29 Oct 2014 10:11:15 +0000"></span><script type="text/javascript">WhenId('CH_zTmc67511b6fe');</script><noscript>Oct 29, 2014 at 10:11am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/djhyun0001/default.htm"><b>djhyun0001</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769523">
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br></code></pre></td>
+<td class="source"><pre><code>Security sec;
+	Security secl [100];
+	SecurityList secList;
+	<var>while</var>(!token.isEndOfInput()){
+		<var>if</var> (token.isTransaction()){
+			tran.action = token.getAction();
+			tran.price = token.getPrice();
+			tran.security = token.getSecurity();
+			tran.share = token.getQuantity();
+			tran.intTransactionDate = token.getYear()*10000
+									+ token.getMonth()*100
+									+ token.getDay();
+			tran.transactionDate = to_string(tran.intTransactionDate);
+			tranList.insert(tran);
+
+
+			sec.security = token.getSecurity();
+			<var>int</var> num = 0;
+			<var>for</var>(<var>int</var> i = 0; i &lt; 100; i++)
+			{
+				<var>if</var>(secl[i].security == sec.security){
+					secl[i].tranList.insert(tran);
+					<var>break</var>;
+				}
+				<var>else</var> <var>if</var>(secl[i].security != sec.security &amp;&amp; i == 99){
+					secl[num].security = sec.security;
+					secl[num].tranList.insert(tran);
+				}
+			}
+			++num;
+
+			cout &lt;&lt; <kbd>"Tokenized transaction:"</kbd> &lt;&lt; endl;
+			cout &lt;&lt; <kbd>"Transaction, Year: "</kbd> &lt;&lt; token.getYear();
+			cout &lt;&lt; <kbd>", Month: "</kbd> &lt;&lt; token.getMonth();
+			cout &lt;&lt; <kbd>", Day: "</kbd> &lt;&lt; token.getDay();
+			cout &lt;&lt; <kbd>", Action: "</kbd> &lt;&lt; token.getAction();
+			cout &lt;&lt; <kbd>", Security: "</kbd> &lt;&lt; token.getSecurity();
+			cout &lt;&lt; <kbd>", Number of Shares: "</kbd> &lt;&lt; token.getQuantity();
+			cout &lt;&lt; <kbd>", Price: "</kbd> &lt;&lt; token.getPrice() &lt;&lt; endl;
+		}
+		token.nextLine();
+	}
+
+	<var>for</var> (<var>int</var> i = 0; i &lt; 100; i++){
+		secList.insert(secl[i]);
+	}
+
+
+<var>void</var> SecurityList::insert(Security sec){
+	<var>if</var> (ssize &lt; 100){
+		slist[ssize] = sec; <cite>//'sec' BECOMES OPTIMIZED</cite>
+		ssize++;
+	}
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+when it's inserting the security object to security list, security value becomes optimized and terminates the program. any help would be appreciated.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbfa1e3c547" title="Wed, 29 Oct 2014 10:16:47 +0000"></span><script type="text/javascript">WhenId('CH_zTmbfa1e3c547');</script><noscript>Oct 29, 2014 at 10:16am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769523"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769526"><span title="769526,16990,1023,2454,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769526" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfaf2b27c20" title="Wed, 29 Oct 2014 10:15:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmfaf2b27c20');</script><noscript>Oct 29, 2014 at 10:15am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mikeyboy/default.htm"><b>MikeyBoy</b> (2454)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769526">
+What do you mean by "optimized"?  What actually happens to <b>sec</b>?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769526"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769530"><span title="769530,155546,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769530" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb1ebd94adb" title="Wed, 29 Oct 2014 10:20:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmb1ebd94adb');</script><noscript>Oct 29, 2014 at 10:20am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/djhyun0001/default.htm"><b>djhyun0001</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769530">
+I am a c++ newbie, so I don't even know what optimized actually means. it's just my debugger telling me the value is optimized. 'sec' holds a string and transaction list. but when it's trying to assign sec to securityList on line 51, sec values are not available.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769530"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769535"><span title="769535,155546,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769535" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma38a229dcb" title="Wed, 29 Oct 2014 10:29:12 +0000"></span><script type="text/javascript">WhenId('CH_zTma38a229dcb');</script><noscript>Oct 29, 2014 at 10:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/djhyun0001/default.htm"><b>djhyun0001</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769535">
+Program received signal SIGSEGV, Segmentation fault.<br>
+0x00007fff88b1c222 in std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;::~basic_string() () from /usr/lib/libc++.1.dylib<br>
+<br>
+better debugging info
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769535"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769546"><span title="769546,16990,1023,2454,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769546" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0ecca4ea4b" title="Wed, 29 Oct 2014 11:08:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm0ecca4ea4b');</script><noscript>Oct 29, 2014 at 11:08am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mikeyboy/default.htm"><b>MikeyBoy</b> (2454)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769546">
+<table class="quote"><tr><td class="qd">I am a c++ newbie, so I don't even know what optimized actually means. it's just my debugger telling me the value is optimized.</td></tr></table><br>
+That's probably just the debugger telling you that it can't tell you what the values contained in <b>sec</b> are, because you're running an executable that was built with optimization on - commonly known as a "release" build.  To get the full info you need for proper debugging, you'll want to build a "debug" build, with optimization switched off and debugging symbols included.<br>
+<br>
+Consult your compiler/IDE documentation for details on how to do this.<br>
+<br>
+Looking at your code, I notice that at lines 21 - 28, you're attempting to use a value from the <b>secl</b> array, but at that point you haven't initialized the array or assigned any values to it.  This means that the value of <b>secl[i]</b> is undefined.  This will almost certainly lead to bugs in your code.<br>
+<br>
+This may well mean that the objects being passed into <b>SecurityList::insert()</b> are in an undefined state, causing the crash you're seeing.<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmf899076a93" title="Wed, 29 Oct 2014 11:08:43 +0000"></span><script type="text/javascript">WhenId('CH_zTmf899076a93');</script><noscript>Oct 29, 2014 at 11:08am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769546"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769748"><span title="769748,155546,1023,14,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769748" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf7755107db" title="Wed, 29 Oct 2014 19:00:30 +0000"></span><script type="text/javascript">WhenId('CH_zTmf7755107db');</script><noscript>Oct 29, 2014 at 7:00pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/djhyun0001/default.htm"><b>djhyun0001</b> (14)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769748">
+thank you so much, initializing secl array with values did solve this issue.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769748"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769770"><span title="769770,16990,1023,2454,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769770" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm68aefee969" title="Wed, 29 Oct 2014 19:42:54 +0000"></span><script type="text/javascript">WhenId('CH_zTm68aefee969');</script><noscript>Oct 29, 2014 at 7:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/mikeyboy/default.htm"><b>MikeyBoy</b> (2454)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769770">
+You're welcome!  Glad it worked out.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769770"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146260,0,155546,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~443.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

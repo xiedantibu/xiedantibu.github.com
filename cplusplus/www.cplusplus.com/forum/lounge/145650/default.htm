@@ -1,0 +1,560 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/lounge/145650/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>main is not a function - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Lounge</a></li>
+<li class="here">main is not a function</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> main is not a function</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><span class="rootdatPost" title="145650,root,0,-1,22,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg766753"><span title="766753,38387,1023,10731,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766753" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6669db1d6a" title="Wed, 22 Oct 2014 14:17:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm6669db1d6a');</script><noscript>Oct 22, 2014 at 2:17pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766753">
+When this program is compiled, how many functions will there be?<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> f(){}
+
+<var>int</var> g();
+
+<var>int</var> main()
+{
+}
+
+<var>int</var> g()
+{
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+If my understanding is correct, the answer is 2 because <tt>main</tt> is (technically) not a function and cannot be called like normal functions. But, should this technicality be considered when answering this question? (I made up this question, I didn't come across it anywhere).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766753"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766754"><span title="766754,97037,1023,816,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766754" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6d8ac12eb4" title="Wed, 22 Oct 2014 14:25:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm6d8ac12eb4');</script><noscript>Oct 22, 2014 at 2:25pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlb/default.htm"><b>jlb</b> (816)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766754">
+But main() is a function:<br>
+<table class="quote"><tr><td class="qd"><br>
+WG14 N1494                        Committee Draft — June 25, 2010                            ISO/IEC 9899:201x<br>
+<br>
+5.1.2.2.1 Program startup<br>
+1. The function called at program startup is named main. The implementation declares no<br>
+prototype for this function.<br>
+</td></tr></table><br>
+It may be special but it is a function none the less.<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766754"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766770"><span title="766770,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766770" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm53fbee3a99" title="Wed, 22 Oct 2014 15:27:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm53fbee3a99');</script><noscript>Oct 22, 2014 at 3:27pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766770">
+C++<br>
+<table class="quote"><tr><td class="qd">3.6.1 Main function <br>
+<br>
+A program shall contain a global function called main, which is the designated start of the program.<br>
+...<br>
+An implementation shall not predefine the main function. This function shall not be overloaded. <br>
+...<br>
+The function main shall not be used within a program<br>
+- ISO/IEC 14882:2011(E)</td></tr></table><br>
+<br>
+<br>
+&gt; how many functions will there be?<br>
+&gt; should this technicality be considered when answering this question?<br>
+<br>
+I don't have a strong opinion either way; I suppose it depends on what the questioner means by 'function'.  The identifier <tt>::main</tt> is not an ' lvalue that refers to a function'; so is it a function? 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm4f1efd9e48" title="Wed, 22 Oct 2014 16:11:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm4f1efd9e48');</script><noscript>Oct 22, 2014 at 4:11pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn766770"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766791"><span title="766791,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766791" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf7e28d8fe6" title="Wed, 22 Oct 2014 16:33:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmf7e28d8fe6');</script><noscript>Oct 22, 2014 at 4:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766791">
+I would have to say that main is technically a function. The only arguments against that idea is that you can't call it and that it can't be overloaded*. Otherwise it follows every other restriction in place on functions as far as scope, object lifetime etc. It seems to me that the restrictions on put on main are there so that C\C++ binaries can meet the PE\COFF file format standards for what an entry point is.<br>
+<br>
+<br>
+<br>
+*:  Does that second point seem a bit redundant to anyone else in light of the first requirement?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766791"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766800"><span title="766800,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766800" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm05f052a4f7" title="Wed, 22 Oct 2014 16:53:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm05f052a4f7');</script><noscript>Oct 22, 2014 at 4:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766800">
+<table class="quote"><tr><td class="qd"> Does that second point seem a bit redundant to anyone else in light of the first requirement? </td></tr></table>Nope, or this would be legal:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> main()
+{
+    <var>return</var> EXIT_SUCCESS;
+}
+
+<var>int</var> main(<var>int</var> argc, <var>char</var>** argv)
+{
+    <var>return</var> EXIT_FAILIRE;
+}
+<cite>//What will be called? </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766800"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766809"><span title="766809,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766809" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1885ba5591" title="Wed, 22 Oct 2014 17:12:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm1885ba5591');</script><noscript>Oct 22, 2014 at 5:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766809">
+But if it can't ever be called, then why would you ever need to overload it? After it's compiled any exported names are decorated, so nothing after that point would have an issue with ambiguity in the name resolution. Overloading is a convenience for the programmer while they are writing the code. It's not like a template where the call might have to be resolved at run time.<br>
+<br>
+It's just a weird thought that I had, not really anything I can argue in depth about.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766809"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766811"><span title="766811,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766811" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm818a14a848" title="Wed, 22 Oct 2014 17:15:49 +0000"></span><script type="text/javascript">WhenId('CH_zTm818a14a848');</script><noscript>Oct 22, 2014 at 5:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766811">
+I always considered <tt>main</tt> to be a special <i>thing</i> that just re-uses existing syntax and semantics so as to not need to invent new syntax and semantics. If the standard calls it a function, I guess it is (I somehow got it in my head that it didn't).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766811"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766815"><span title="766815,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766815" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6e09e48af3" title="Wed, 22 Oct 2014 17:20:25 +0000"></span><script type="text/javascript">WhenId('CH_zTm6e09e48af3');</script><noscript>Oct 22, 2014 at 5:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766815">
+It has got nothing to do with PE\COFF file formats for executable images; they do not require anything more than the address of an entry point. <br>
+<br>
+IIRC, C allows a program to call <tt>main()</tt>.<br>
+Presumably, in C, the implementation may have to do something under the hood to be able to distinguish the initial call to main from subsequent calls to main.<br>
+<a href="../../../../coliru.stacked-crooked.com/a/3719795e93385fee">http://coliru.stacked-crooked.com/a/3719795e93385fee</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766815"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766827"><span title="766827,29924,1023,4823,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766827" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm93d61948ab" title="Wed, 22 Oct 2014 17:40:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm93d61948ab');</script><noscript>Oct 22, 2014 at 5:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/computergeek01/default.htm"><b>Computergeek01</b> (4823)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766827">
+<table class="quote"><tr><td class="qd">It has got nothing to do with PE\COFF file formats for executable images; they do not require anything more than the address of an entry point. <br>
+</td></tr></table><br>
+Right, and the standard says that the address placed in that field will be the address of main. My assumption was that this was the decision made in order to provide some standardization on where a human being should start reading the code. I suppose the standard could say that defining an entry point as an argument to the compiler is good enough, but they don't. I hadn't realized that about C though.<br>
+<br>
+I had noticed that both standards made it a point to state that neither one is strictly necessary in an environment that would not require it (like stubs). Maybe that last idea is what led me to draw a false correlation? There has to be some reason right?<br>
+<br>
+<del>Your link is defaulting to C++ for me by the way. Compiler settings for that site seem to be saved locally.</del><br>
+<br>
+EDIT: Good catch <b>LB</b>.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm644466d0e9" title="Wed, 22 Oct 2014 17:47:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm644466d0e9');</script><noscript>Oct 22, 2014 at 5:47pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn766827"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766829"><span title="766829,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766829" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5570848744" title="Wed, 22 Oct 2014 17:44:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm5570848744');</script><noscript>Oct 22, 2014 at 5:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766829">
+<table class="quote"><tr><th class="qh"><strong>Computergeek01</strong> wrote:</th></tr><tr><td class="qd">You link is defaulting to C++ for me by the way. Compiler settings for that site seem to be saved locally.</td></tr></table><a href="../../../../i.imgur.com/wvxlrgw.png">http://i.imgur.com/WvXlRgW.png</a><br>
+The command line is saved with the code.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmd4a569f312" title="Wed, 22 Oct 2014 17:44:46 +0000"></span><script type="text/javascript">WhenId('CH_zTmd4a569f312');</script><noscript>Oct 22, 2014 at 5:44pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn766829"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766872"><span title="766872,131990,1023,811,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766872" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf8b693fc58" title="Wed, 22 Oct 2014 19:32:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmf8b693fc58');</script><noscript>Oct 22, 2014 at 7:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/little_bobby_tables/default.htm"><b>Little Bobby Tables</b> (811)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766872">
+<del>well in gcc at any rate, when i do gcc -O0 test.c -S it generates an assembly file with main in it:<br>
+<a href="../../../../paste.ubuntu.com/8631338/default.htm">http://paste.ubuntu.com/8631338/</a><br>
+<br>
+and then with g++ -O0 test.cpp -S it still has a main:<br>
+<a href="../../../../paste.ubuntu.com/8631360/default.htm">http://paste.ubuntu.com/8631360/</a><br>
+<br>
+is my assembly rusty? is that not actually a routine? or does it just disappear when its assembled into an ELF/COM/PE/MACH-O file?</del>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm1545c78cef" title="Thu, 23 Oct 2014 00:35:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm1545c78cef');</script><noscript>Oct 23, 2014 at 12:35am UTC</noscript></span>
+<span class="dbtn" id="CH_btn766872"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766956"><span title="766956,132337,1023,415,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766956" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm51ccfdfdd9" title="Wed, 22 Oct 2014 23:50:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm51ccfdfdd9');</script><noscript>Oct 22, 2014 at 11:50pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/noxzema/default.htm"><b>NoXzema</b> (415)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766956">
+How are we defining a function? <br>
+If it's as a set of instructions for a specific task, pretty sure main fits the bill.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766956"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766967"><span title="766967,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766967" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7699a0da3b" title="Thu, 23 Oct 2014 00:24:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm7699a0da3b');</script><noscript>Oct 23, 2014 at 12:24am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766967">
+@xkcdreference: that's just a label; there is no language-level support for procedures in assembly.<br>
+<br>
+@NoXzema: my point is not to rethink the definition of a function, but instead to observe how <tt>main</tt> deviates in semantics from other functions.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766967"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766973"><span title="766973,131990,1023,811,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766973" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb890d8dc69" title="Thu, 23 Oct 2014 00:35:46 +0000"></span><script type="text/javascript">WhenId('CH_zTmb890d8dc69');</script><noscript>Oct 23, 2014 at 12:35am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/little_bobby_tables/default.htm"><b>Little Bobby Tables</b> (811)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766973">
+@LB: ah yes i remember now... that would be a label. i guess my assembly is rusty after all.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766973"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767143"><span title="767143,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767143" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm521a5ee979" title="Thu, 23 Oct 2014 10:49:47 +0000"></span><script type="text/javascript">WhenId('CH_zTm521a5ee979');</script><noscript>Oct 23, 2014 at 10:49am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767143">
+<table class="quote"><tr><th class="qh"><strong>LB</strong> wrote:</th></tr><tr><td class="qd">When this program is compiled, how many functions will there be?</td></tr></table><br>
+It depends on the implementation you use. For example, the standard <i>says</i> main is the entry point, but with the GNU toolchain, it actually isn't. (Usually the standard allows such deviations when the programmer can't tell the difference.) The dynamic loader calls _start, _start calls _init (which calls the global constructors), then main, then _fini (which calls the global destructors), then _exit which calls syscall_exit. Other toolchains most likely do something similar. Also, since f and g are never called, the compiler will almost certainly remove them. So in all likelihood that program has about five functions.<br>
+<br>
+<table class="quote"><tr><th class="qh"><strong>LB</strong> wrote:</th></tr><tr><td class="qd">that's just a label; there is no language-level support for procedures in assembly.</td></tr></table><br>
+It's no more "just a label" in assembly than in C/C++; don't forget that C/C++ will be compiled to assembly, and then your main function will be "just a label". Labels in C/C++ are less useful than labels in assembly languages because C and C++ only allow jumping within a stack frame (unless you use setjmp and longjmp or something similar).<br>
+<br>
+Assembly languages usually do have special support for procedures. x86 has call and return, ARM has bl, etc. which are special cases of jump/branch instructions specifically to support procedures. You can't do procedures in x86 without call and return, because you can't otherwise read or write the instruction pointer.<br>
+<br>
+Main is definitely a function/procedure/whatever, whether I write it in assembly or C.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmdfa71515d0" title="Thu, 23 Oct 2014 12:09:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmdfa71515d0');</script><noscript>Oct 23, 2014 at 12:09pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn767143"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767224"><span title="767224,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767224" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma77fad257a" title="Thu, 23 Oct 2014 16:38:27 +0000"></span><script type="text/javascript">WhenId('CH_zTma77fad257a');</script><noscript>Oct 23, 2014 at 4:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767224">
+@chrisname: we are not considering any implementation or machine, only an embedded environment as defined by the standard. For all we know the C++ could be interpreted as if it were a scripting language, no assembly involved.<br>
+<br>
+To put some perspective on what I mean:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br></code></pre></td>
+<td class="source"><pre><code><var>template</var>&lt;<var>typename</var> T&gt;
+T &amp;f(T &amp;t)
+{
+    <var>return</var> t;
+}
+
+<cite>//currently 0 functions exist</cite>
+
+<var>int</var> x = f(7);
+
+<cite>//currently 1 function exists</cite>
+
+<var>int</var> y = f&lt;<var>int</var>&gt;(6);
+
+<cite>//currently 1 function exists</cite>
+
+<var>int</var> z = f&lt;<var>short</var>&gt;(2);
+
+<cite>//currently 2 functions exist </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+At the end of compiling the program there are 2 functions, but if we removed x, y, and z, there would be 0 functions. In other words, you need to be able to take the address of it for it to be a function by my definition. Can you take the address of <tt>main</tt>? My definition probably conflicts with the standard's.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0df9d28c8a" title="Thu, 23 Oct 2014 16:39:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm0df9d28c8a');</script><noscript>Oct 23, 2014 at 4:39pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn767224"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767308"><span title="767308,21799,1023,7305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767308" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm90bc42813f" title="Thu, 23 Oct 2014 20:18:16 +0000"></span><script type="text/javascript">WhenId('CH_zTm90bc42813f');</script><noscript>Oct 23, 2014 at 8:18pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/chrisname/default.htm"><b>chrisname</b> (7305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767308">
+<table class="quote"><tr><th class="qh"><strong>LB</strong> wrote:</th></tr><tr><td class="qd"> At the end of compiling the program there are 2 functions, but if we removed x, y, and z, there would be 0 functions.</td></tr></table><br>
+But that wouldn't be a valid program according to the standard because it has no main function. (A library isn't a valid program until it's linked, statically or dynamically, with something that is. A library is basically a special case of object files.)<br>
+<br>
+<table class="quote"><tr><td class="qd">In other words, you need to be able to take the address of it for it to be a function by my definition. </td></tr></table><br>
+Earlier you said that assembly labels aren't procedures, but you can take the address of them. In fact the assembler converts any label references to addresses (whether absolute or relative).<br>
+<br>
+<table class="quote"><tr><td class="qd">Can you take the address of main?</td></tr></table><br>
+Probably not according to the standard, but almost certainly in practice, although the compiler might warn you, and the optimiser is free to remove any undefined behaviour without issuing a warning.<br>
+<br>
+Your definition of a function doesn't really make sense though. "Something you can take the address of" includes literally any object in a C++ program, and in functional languages, "Something that is callable" is ambiguous, because code and data are considered equal yet you wouldn't really talk about "callable data". Also, on a non-Von Neumann computer, it's possible that functions don't have addresses in the same way variables do. The Harvard architecture, for example, explicitly separates code and data. I don't think any Harvard architecture computers are actually in use but the standard is written with them in mind - that's why it says casting a function pointer to uintptr_t is undefined (although POSIX defines it, so a POSIX-compliant compiler will not remove that behaviour).<br>
+<br>
+The mathematical definition of a function is something like "something that maps values from one set [the domain] to another [the range]" but that doesn't really apply to languages that aren't functionally pure, since they don't have to return values, and they can modify global state.<br>
+<br>
+Generally, for non-functional languages, a function is something that's callable, and for a purely functional one, it's something that maps values from its domain to its range. main is callable, just not by you, so I would say it's a function.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767308"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767330"><span title="767330,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767330" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm411d9c390b" title="Thu, 23 Oct 2014 21:14:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm411d9c390b');</script><noscript>Oct 23, 2014 at 9:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767330">
+I am incapable of explaining what I mean. That's why I marked the topic as solved earlier. I guess I should not have tried once again to explain what I mean when I know I cannot.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm48d67a2868" title="Thu, 23 Oct 2014 21:15:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm48d67a2868');</script><noscript>Oct 23, 2014 at 9:15pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn767330"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767409"><span title="767409,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767409" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm02e8fb0662" title="Fri, 24 Oct 2014 04:12:56 +0000"></span><script type="text/javascript">WhenId('CH_zTm02e8fb0662');</script><noscript>Oct 24, 2014 at 4:12am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767409">
+The way to determine if some entity in C++ is a function or not is embarrassingly simple:<br>
+<br>
+Look at its declaration <b>in the C++ code</b>.<br>
+Verbiage about anything that is not present in the source code is utterly irrelevant.<br>
+<br>
+<table class="quote"><tr><td class="qd">8.3.5 Functions<br>
+<br>
+In a declaration <b>T D</b> where <b>D</b> has the form<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>D1 ( parameter-declaration-clause ) cv-qualifier-seq opt 
+    ref-qualifier opt exception-specification opt attribute-specifier-seq opt</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ and ... &lt;elided&gt; ....<br>
+<br>
+In a declaration <b>T D</b> where <b>D</b> has the form<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>D1 ( parameter-declaration-clause ) cv-qualifier-seq opt 
+    ref-qualifier opt exception-specification opt attribute-specifier-seq opt trailing-<var>return</var>-type</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ and ...  <b>T</b> shall be the single type-specifier <b>auto</b> ....<br>
+<br>
+A type of either form is a function type.</td></tr></table>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767409"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767416"><span title="767416,38387,1023,10731,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767416" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm03f2159b90" title="Fri, 24 Oct 2014 04:43:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm03f2159b90');</script><noscript>Oct 24, 2014 at 4:43am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lb/default.htm"><b>LB</b> (10731)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767416">
+@JLBporges: what is the difference between a function template and its instantiations?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767416"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div id="CH_insNew"></div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><script type="text/javascript">new for_PostList(145650,0,38387,1,'CH_PostList','CH_subscription',false,'CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li class="selected"><a href="../default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~636.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

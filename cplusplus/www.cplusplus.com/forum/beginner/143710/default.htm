@@ -1,0 +1,278 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/143710/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>using new and delete causing program to  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">using new and delete causing program to </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> using new and delete causing program to crash?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143710,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg758055"><span title="758055,151746,1023,46,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758055" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm06ded2d960" title="Wed, 01 Oct 2014 02:23:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm06ded2d960');</script><noscript>Oct 1, 2014 at 2:23am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bryan177mcsc/default.htm"><b>bryan177mcsc</b> (46)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758055">
+Why is this code causing my program to crash? Also, if anyone could clarify how do I use <span class="auto"><code class="source"> <var>new</var> </code></span> keyword with functions that return pointers? I am trying to understand this since a pointer is supposed to point at the memory address <b>but</b> how could it point at something that no longer exists due to scope. <br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br></code></pre></td>
+<td class="source"><pre><code>  <dfn>#include &lt;iostream&gt;</dfn>
+  <dfn>#include "Character.h"</dfn>
+
+<var>using</var> <var>namespace</var> std;
+<var>double</var> * test();
+<var>int</var> main()
+{
+    <var>double</var> * ptr = <var>new</var> <var>double</var>;
+    ptr = test();
+    cout &lt;&lt; ptr &lt;&lt; endl ;
+    cout &lt;&lt; *ptr &lt;&lt; endl ;
+    <var>delete</var> ptr ; <cite>//why does my program crash when I insert this line?</cite>
+
+    <var>return</var> 0;
+}
+<var>double</var> * test()
+{
+    <var>double</var> salary = 56.88;
+    <var>return</var> &amp;salary;
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Another quick question that is relevant to this, how could I return a pointer after using the new keyword in a function? Does that mean I would have to use <span class="auto"><code class="source"><var>delete</var> </code></span> on the return value ? Since functions do not read past the <span class="auto"><code class="source"><var>return</var></code></span> keyword.<br>
+<br>
+Basically what I'm asking is: <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>double</var> * test()
+{
+<var>double</var> * ptr = <var>new</var> <var>double</var>;
+*ptr = 450;
+<var>return</var> ptr; <cite>//after this where could I delete this??</cite>
+<var>delete</var> ptr; <cite>// can't do it here right cause it won't even read it.</cite>
+}
+
+<var>int</var> main()
+{
+test();
+<var>delete</var> ptr; <cite>// but if I do it here how will main know what ptr is?</cite>
+}
+</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb67064dae1" title="Wed, 01 Oct 2014 02:29:26 +0000"></span><script type="text/javascript">WhenId('CH_zTmb67064dae1');</script><noscript>Oct 1, 2014 at 2:29am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758055"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758060"><span title="758060,116481,1023,377,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758060" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7303023f41" title="Wed, 01 Oct 2014 02:39:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm7303023f41');</script><noscript>Oct 1, 2014 at 2:39am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ganado/default.htm"><b>Ganado</b> (377)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758060">
+<u>For the first part:</u><br>
+Your test() function is trying to return the address of a local variable. This is essentially junk after the function is over, and you should not do this.<br>
+<br>
+When you first allocated ptr to hold the double, this allocates memory. You then reassign ptr to point to a static object (not dynamically allocated). As soon as you do this, the <i>link</i> to your dynamically allocated memory is lost, AKA a memory leak.<br>
+<br>
+When you now call <span class="auto"><code class="source"><var>delete</var> ptr</code></span>, ptr is currently pointing to some statically-allocated memory, and you can't delete that. What you were <i>trying</i> to delete was already lost on line 9.<br>
+<br>
+<br>
+<u>Second question part:</u><br>
+<br>
+Perhaps you should read into what the scope of a variable is. the variable "ptr" only exists in your test function. That being said, the <i>memory</i> it points to is dynamically allocated and therefore still exists after the test() function ends.<br>
+<br>
+In your main function, when you call test(), you do <i>nothing</i> with its return value. This is another memory leak. Instead, you'd want to assign it to something (it's returning a pointer to a double, right?).<br>
+<br>
+To properly return and delete something, you'd do<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code><var>double</var>* test()
+{
+    <var>double</var> * ptr = <var>new</var> <var>double</var>(42);
+    <var>return</var> ptr;
+}
+
+<var>int</var> main()
+{
+    <var>double</var> * dptr = test();
+    <var>delete</var> dptr; <cite>// no memory leak now!</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+_______________________________<br>
+The downside to this is that now the user of the the test function has to know what's inside it, and has to remember to manually, explicitly delete it. Not sure how much C++ you know, but one of the amazing things about classes are destructors, where written calls to delete will be done automatically once an object goes out of scope.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmbc8764bccb" title="Wed, 01 Oct 2014 02:47:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmbc8764bccb');</script><noscript>Oct 1, 2014 at 2:47am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758060"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758063"><span title="758063,151746,1023,46,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758063" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm30cff0cbba" title="Wed, 01 Oct 2014 02:47:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm30cff0cbba');</script><noscript>Oct 1, 2014 at 2:47am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bryan177mcsc/default.htm"><b>bryan177mcsc</b> (46)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758063">
+<table class="quote"><tr><td class="qd">the variable "ptr" only exists in your test function. That being said, the memory it points to is dynamically allocated and therefore still exists after the test() function ends.</td></tr></table> OMG thank you, this sentence just made it all click in my head. <br>
+<br>
+<br>
+however, for the first part:<br>
+after I messed around with it a bit I decided to do <span class="auto"><code class="source"><var>delete</var> &amp;ptr;</code></span>  and it            worked and the program stopped crashing, does that mean that there was no longer any memory leak or was the leak still there?<br>
+<br>
+Thank you, the second part makes 100% sense, I had that little question in my mind for a while now and It had not been properly addressed until now. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758063"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758079"><span title="758079,116481,1023,377,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758079" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6cdfe6f6bd" title="Wed, 01 Oct 2014 03:04:32 +0000"></span><script type="text/javascript">WhenId('CH_zTm6cdfe6f6bd');</script><noscript>Oct 1, 2014 at 3:04am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ganado/default.htm"><b>Ganado</b> (377)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758079">
+You're welcome. &amp;ptr is the address of the pointer variable itself (the address of the pointer, which is also an address, if that makes any sense), I can't think of a reason when this would be done, off the top of my head.<br>
+<br>
+So no, there <i>is</i> still a memory leak. If I understand correctly, ptr is at this point still pointing to a statically allocated memory block, and the pointer itself is statically allocated, so delete &amp;ptr would still be trying to delete something that shouldn't be deleted.<br>
+<br>
+When I compiled the program to delete &amp;ptr, it still crashed for me, so it is in fact undefined behavior.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm5b9a5156dd" title="Wed, 01 Oct 2014 03:06:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm5b9a5156dd');</script><noscript>Oct 1, 2014 at 3:06am UTC</noscript></span>
+<span class="dbtn" id="CH_btn758079"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758127"><span title="758127,151746,1023,46,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758127" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmef392fa286" title="Wed, 01 Oct 2014 04:42:53 +0000"></span><script type="text/javascript">WhenId('CH_zTmef392fa286');</script><noscript>Oct 1, 2014 at 4:42am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bryan177mcsc/default.htm"><b>bryan177mcsc</b> (46)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758127">
+Okay my friend, thank you so much :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758127"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143710,1,151746,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~240.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

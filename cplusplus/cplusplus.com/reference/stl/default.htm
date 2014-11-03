@@ -1,0 +1,341 @@
+<!DOCTYPE html><!-- saved from url=(0046)http://cplusplus.com/reference/stl/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Containers - C++ Reference</title>
+<link rel="canonical" href="../../../www.cplusplus.com/reference/stl/default.htm">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../v321/main.css">
+<script src="../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../default.htm">Reference</a></li>
+<li class="here">Containers</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<div class="C_doc">
+<div id="I_type">library</div>
+<h1>Containers</h1>
+<div id="I_description">Standard Containers</div>
+A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows a great flexibility in the types supported as elements.<br>
+<br>
+The container manages the storage space for its elements and provides member functions to access them, either directly or through iterators (reference objects with similar properties to pointers).<br>
+<br>
+Containers replicate structures very commonly used in programming: dynamic arrays (<a href="../../vector">vector</a>), queues (<a href="../../queue">queue</a>), stacks (<a href="../../stack">stack</a>), heaps (<a href="../../priority_queue">priority_queue</a>), linked lists (<a href="../../list">list</a>), trees (<a href="../../set">set</a>), associative arrays (<a href="../../map">map</a>)...<br>
+<br>
+Many containers have several member functions in common, and share functionalities. The decision of which type of container to use for a specific need does not generally depend only on the functionality offered by the container, but also on the efficiency of some of its members (complexity). This is especially true for sequence containers, which offer different trade-offs in complexity between inserting/removing elements and accessing them.<br>
+<br>
+<a href="../../stack">stack</a>, <a href="../../queue">queue</a> and <a href="../../priority_queue">priority_queue</a> are implemented as <i>container adaptors</i>. Container adaptors are not full container classes, but classes that provide a specific interface relying on an object of one of the container classes (such as <a href="../../deque">deque</a> or <a href="../../list">list</a>) to handle the elements. The underlying container is encapsulated in such a way that its elements are accessed by the members of the <i>container adaptor</i> independently of the underlying <i>container</i> class used.<br>
+<br>
+<h3>Container class templates</h3>
+<b>Sequence containers</b>:<br>
+<dl class="links"><dt><a href= "../array/array/default.htm"><b>array <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Array class <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../vector/vector/default.htm"><b>vector</b></a></dt><dd>Vector <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../deque/deque/default.htm"><b>deque</b></a></dt><dd>Double ended queue <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../forward_list/forward_list/default.htm"><b>forward_list <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Forward list <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../list/list/default.htm"><b>list</b></a></dt><dd>List <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Container adaptors</b>:<br>
+<dl class="links"><dt><a href= "../stack/stack/default.htm"><b>stack</b></a></dt><dd>LIFO stack <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../queue/queue/default.htm"><b>queue</b></a></dt><dd>FIFO queue <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../queue/priority_queue/default.htm"><b>priority_queue</b></a></dt><dd>Priority queue <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Associative containers</b>:<br>
+<dl class="links"><dt><a href= "../set/set/default.htm"><b>set</b></a></dt><dd>Set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../set/multiset/default.htm"><b>multiset</b></a></dt><dd>Multiple-key set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../map/map/default.htm"><b>map</b></a></dt><dd>Map <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../map/multimap/default.htm"><b>multimap</b></a></dt><dd>Multiple-key map <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Unordered associative containers</b>:<br>
+<dl class="links"><dt><a href= "../unordered_set/unordered_set/default.htm"><b>unordered_set <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Set <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../unordered_set/unordered_multiset/default.htm"><b>unordered_multiset <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Multiset <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../unordered_map/unordered_map/default.htm"><b>unordered_map <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Map <span class="typ">(class template)</span></dd></dl><dl class="links"><dt><a href= "../unordered_map/unordered_multimap/default.htm"><b>unordered_multimap <b class="C_cpp11" title="C++11 only"></b></b></a></dt><dd>Unordered Multimap <span class="typ">(class template)</span></dd></dl>
+<br>
+<b>Other</b>:<br>
+Two class templates share certain properties with containers, and are sometimes classified with them: <samp><a href="../../bitset">bitset</a></samp> and <samp><a href="../../valarray">valarray</a></samp>.<br>
+<br>
+<h3>Member map</h3>
+This is a comparison chart with the different member functions present on each of the different containers:<br>
+<br>
+<b>Legend</b>:<br>
+<table class="boxed containers">
+<tr><th class="cpp98">C++98</th><td class="cpp98">Available since C++98</td></tr>
+<tr><th class="cpp11">C++11</th><td class="cpp11">New in C++11</td></tr>
+</table>
+<br>
+<h4>Sequence containers</h4>
+<table class="boxed containers">
+<tr><td colspan="2">Headers</td><th class="cpp11"><tt><a href="../../_5f3carraygt">&lt;array&gt;</a></tt></th><th class="cpp98"><tt><a href="../../_5f3cvectorgt">&lt;vector&gt;</a></tt></th><th class="cpp98"><tt><a href="../../_5f3cdequegt">&lt;deque&gt;</a></tt></th><th class="cpp11"><tt><a href="../../_5f3cforward_listgt">&lt;forward_list&gt;</a></tt></th><th class="cpp98"><tt><a href="../../_5f3clistgt">&lt;list&gt;</a></tt></th></tr>
+<tr><td colspan="2">Members</td><th class="cpp11"><a href="../../array">array</a></th><th class="cpp98"><a href="../../vector">vector</a></th><th class="cpp98"><a href="../../deque">deque</a></th><th class="cpp11"><a href="../../forward_list">forward_list</a></th><th class="cpp98"><a href="../../list">list</a></th></tr>
+<tr><td rowspan="3"> </td><td><i>constructor</i></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="../../vector_3a_3avector">vector</a></td><td class="cpp98"><a href="../../deque_3a_3adeque">deque</a></td><td class="cpp11"><a href="../../forward_list_3a_3aforward_list">forward_list</a></td><td class="cpp98"><a href="../../list_3a_3alist">list</a></td></tr>
+<tr><td><i>destructor</i></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="../../vector_3a_3a~vector">~vector</a></td><td class="cpp98"><a href="../../deque_3a_3a~deque">~deque</a></td><td class="cpp11"><a href="../../forward_list_3a_3a~forward_list">~forward_list</a></td><td class="cpp98"><a href="../../list_3a_3a~list">~list</a></td></tr>
+<tr><td><tt>operator=</tt></td><td class="cpp11"><i>implicit</i></td><td class="cpp98"><a href="../../vector_3a_3aoperator">operator=</a></td><td class="cpp98"><a href="../../deque_3a_3aoperator">operator=</a></td><td class="cpp11"><a href="../../forward_list_3a_3aoperator">operator=</a></td><td class="cpp98"><a href="../../list_3a_3aoperator">operator=</a></td></tr>
+<tr><td rowspan="4">iterators</td><td><tt>begin</tt></td><td class="cpp11"><a href="../../array_3a_3abegin">begin</a></td><td class="cpp98"><a href="../../vector_3a_3abegin">begin</a></td><td class="cpp98"><a href="../../deque_3a_3abegin">begin</a></td><td class="cpp11"><a href="../../forward_list_3a_3abegin">begin</a><br><a href="../../forward_list_3a_3abefore_begin">before_begin</a></td><td class="cpp98"><a href="../../list_3a_3abegin">begin</a></td></tr>
+<tr><td><tt>end</tt></td><td class="cpp11"><a href="../../array_3a_3aend">end</a></td><td class="cpp98"><a href="../../vector_3a_3aend">end</a></td><td class="cpp98"><a href="../../deque_3a_3aend">end</a></td><td class="cpp11"><a href="../../forward_list_3a_3aend">end</a></td><td class="cpp98"><a href="../../list_3a_3aend">end</a></td></tr>
+<tr><td><tt>rbegin</tt></td><td class="cpp11"><a href="../../array_3a_3arbegin">rbegin</a></td><td class="cpp98"><a href="../../vector_3a_3arbegin">rbegin</a></td><td class="cpp98"><a href="../../deque_3a_3arbegin">rbegin</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3arbegin">rbegin</a></td></tr>
+<tr><td><tt>rend</tt></td><td class="cpp11"><a href="../../array_3a_3arend">rend</a></td><td class="cpp98"><a href="../../vector_3a_3arend">rend</a></td><td class="cpp98"><a href="../../deque_3a_3arend">rend</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3arend">rend</a></td></tr>
+<tr><td rowspan="4">const iterators</td><td><tt>begin</tt></td><td class="cpp11"><a href="../../array_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../vector_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../deque_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../forward_list_3a_3acbegin">cbegin</a><br><a href="../../forward_list_3a_3acbefore_begin">cbefore_begin</a></td><td class="cpp11"><a href="../../list_3a_3acbegin">cbegin</a></td></tr>
+<tr><td><tt>cend</tt></td><td class="cpp11"><a href="../../array_3a_3acend">cend</a></td><td class="cpp11"><a href="../../vector_3a_3acend">cend</a></td><td class="cpp11"><a href="../../deque_3a_3acend">cend</a></td><td class="cpp11"><a href="../../forward_list_3a_3acend">cend</a></td><td class="cpp11"><a href="../../list_3a_3acend">cend</a></td></tr>
+<tr><td><tt>crbegin</tt></td><td class="cpp11"><a href="../../array_3a_3acrbegin">crbegin</a></td><td class="cpp11"><a href="../../vector_3a_3acrbegin">crbegin</a></td><td class="cpp11"><a href="../../deque_3a_3acrbegin">crbegin</a></td><td class="none"> </td><td class="cpp11"><a href="../../list_3a_3acrbegin">crbegin</a></td></tr>
+<tr><td><tt>crend</tt></td><td class="cpp11"><a href="../../array_3a_3acrend">crend</a></td><td class="cpp11"><a href="../../vector_3a_3acrend">crend</a></td><td class="cpp11"><a href="../../deque_3a_3acrend">crend</a></td><td class="none"> </td><td class="cpp11"><a href="../../list_3a_3acrend">crend</a></td></tr>
+<tr><td rowspan="7">capacity</td><td><tt>size</tt></td><td class="cpp11"><a href="../../array_3a_3asize">size</a></td><td class="cpp98"><a href="../../vector_3a_3asize">size</a></td><td class="cpp98"><a href="../../deque_3a_3asize">size</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3asize">size</a></td></tr>
+<tr><td><tt>max_size</tt></td><td class="cpp11"><a href="../../array_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../vector_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../deque_3a_3amax_size">max_size</a></td><td class="cpp11"><a href="../../forward_list_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../list_3a_3amax_size">max_size</a></td></tr>
+<tr><td><tt>empty</tt></td><td class="cpp11"><a href="../../array_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../vector_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../deque_3a_3aempty">empty</a></td><td class="cpp11"><a href="../../forward_list_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../list_3a_3aempty">empty</a></td></tr>
+<tr><td><tt>resize</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3aresize">resize</a></td><td class="cpp98"><a href="../../deque_3a_3aresize">resize</a></td><td class="cpp11"><a href="../../forward_list_3a_3aresize">resize</a></td><td class="cpp98"><a href="../../list_3a_3aresize">resize</a></td></tr>
+<tr><td><tt>shrink_to_fit</tt></td><td class="none"> </td><td class="cpp11"><a href="../../vector_3a_3ashrink_to_fit">shrink_to_fit</a></td><td class="cpp11"><a href="../../deque_3a_3ashrink_to_fit">shrink_to_fit</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>capacity</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3acapacity">capacity</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>reserve</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3areserve">reserve</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">element access</td><td><tt>front</tt></td><td class="cpp11"><a href="../../array_3a_3afront">front</a></td><td class="cpp98"><a href="../../vector_3a_3afront">front</a></td><td class="cpp98"><a href="../../deque_3a_3afront">front</a></td><td class="cpp11"><a href="../../forward_list_3a_3afront">front</a></td><td class="cpp98"><a href="../../list_3a_3afront">front</a></td></tr>
+<tr><td><tt>back</tt></td><td class="cpp11"><a href="../../array_3a_3aback">back</a></td><td class="cpp98"><a href="../../vector_3a_3aback">back</a></td><td class="cpp98"><a href="../../deque_3a_3aback">back</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3aback">back</a></td></tr>
+<tr><td><tt>operator[]</tt></td><td class="cpp11"><a href="../../../www.cplusplus.com/reference/array/array/operator/default.htm">operator[]</a></td><td class="cpp98"><a href="../../../www.cplusplus.com/reference/vector/vector/operator/default.htm">operator[]</a></td><td class="cpp98"><a href="../../../www.cplusplus.com/reference/deque/deque/operator/default.htm">operator[]</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>at</tt></td><td class="cpp11"><a href="../../array_3a_3aat">at</a></td><td class="cpp98"><a href="../../vector_3a_3aat">at</a></td><td class="cpp98"><a href="../../deque_3a_3aat">at</a></td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="12">modifiers</td><td><tt>assign</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3aassign">assign</a></td><td class="cpp98"><a href="../../deque_3a_3aassign">assign</a></td><td class="cpp11"><a href="../../forward_list_3a_3aassign">assign</a></td><td class="cpp98"><a href="../../list_3a_3aassign">assign</a></td></tr>
+<tr><td><tt>emplace</tt></td><td class="none"> </td><td class="cpp11"><a href="../../vector_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../deque_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../forward_list_3a_3aemplace_after">emplace_after</a></td><td class="cpp11"><a href="../../list_3a_3aemplace">emplace</a></td></tr>
+<tr><td><tt>insert</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3ainsert">insert</a></td><td class="cpp98"><a href="../../deque_3a_3ainsert">insert</a></td><td class="cpp11"><a href="../../forward_list_3a_3ainsert_after">insert_after</a></td><td class="cpp98"><a href="../../list_3a_3ainsert">insert</a></td></tr>
+<tr><td><tt>erase</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3aerase">erase</a></td><td class="cpp98"><a href="../../deque_3a_3aerase">erase</a></td><td class="cpp11"><a href="../../forward_list_3a_3aerase_after">erase_after</a></td><td class="cpp98"><a href="../../list_3a_3aerase">erase</a></td></tr>
+<tr><td><tt>emplace_back</tt></td><td class="none"> </td><td class="cpp11"><a href="../../vector_3a_3aemplace_back">emplace_back</a></td><td class="cpp11"><a href="../../deque_3a_3aemplace_back">emplace_back</a></td><td class="none"> </td><td class="cpp11"><a href="../../list_3a_3aemplace_back">emplace_back</a></td></tr>
+<tr><td><tt>push_back</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3apush_back">push_back</a></td><td class="cpp98"><a href="../../deque_3a_3apush_back">push_back</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3apush_back">push_back</a></td></tr>
+<tr><td><tt>pop_back</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3apop_back">pop_back</a></td><td class="cpp98"><a href="../../deque_3a_3apop_back">pop_back</a></td><td class="none"> </td><td class="cpp98"><a href="../../list_3a_3apop_back">pop_back</a></td></tr>
+<tr><td><tt>emplace_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../deque_3a_3aemplace_front">emplace_front</a></td><td class="cpp11"><a href="../../forward_list_3a_3aemplace_front">emplace_front</a></td><td class="cpp11"><a href="../../list_3a_3aemplace_front">emplace_front</a></td></tr>
+<tr><td><tt>push_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="../../deque_3a_3apush_front">push_front</a></td><td class="cpp11"><a href="../../forward_list_3a_3apush_front">push_front</a></td><td class="cpp98"><a href="../../list_3a_3apush_front">push_front</a></td></tr>
+<tr><td><tt>pop_front</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="../../deque_3a_3apop_front">pop_front</a></td><td class="cpp11"><a href="../../forward_list_3a_3apop_front">pop_front</a></td><td class="cpp98"><a href="../../list_3a_3apop_front">pop_front</a></td></tr>
+<tr><td><tt>clear</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3aclear">clear</a></td><td class="cpp98"><a href="../../deque_3a_3aclear">clear</a></td><td class="cpp11"><a href="../../forward_list_3a_3aclear">clear</a></td><td class="cpp98"><a href="../../list_3a_3aclear">clear</a></td></tr>
+<tr><td><tt>swap</tt></td><td class="cpp11"><a href="../../array_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../vector_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../deque_3a_3aswap">swap</a></td><td class="cpp11"><a href="../../forward_list_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../list_3a_3aswap">swap</a></td></tr>
+<tr><td rowspan="7">list operations</td><td><tt>splice</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3asplice_after">splice_after</a></td><td class="cpp98"><a href="../../list_3a_3asplice">splice</a></td></tr>
+<tr><td><tt>remove</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3aremove">remove</a></td><td class="cpp98"><a href="../../list_3a_3aremove">remove</a></td></tr>
+<tr><td><tt>remove_if</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3aremove_if">remove_if</a></td><td class="cpp98"><a href="../../list_3a_3aremove_if">remove_if</a></td></tr>
+<tr><td><tt>unique</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3aunique">unique</a></td><td class="cpp98"><a href="../../list_3a_3aunique">unique</a></td></tr>
+<tr><td><tt>merge</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3amerge">merge</a></td><td class="cpp98"><a href="../../list_3a_3amerge">merge</a></td></tr>
+<tr><td><tt>sort</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3asort">sort</a></td><td class="cpp98"><a href="../../list_3a_3asort">sort</a></td></tr>
+<tr><td><tt>reverse</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../forward_list_3a_3areverse">reverse</a></td><td class="cpp98"><a href="../../list_3a_3areverse">reverse</a></td></tr>
+<tr><td rowspan="2">observers</td><td><tt>get_allocator</tt></td><td class="none"> </td><td class="cpp98"><a href="../../vector_3a_3aget_allocator">get_allocator</a></td><td class="cpp98"><a href="../../deque_3a_3aget_allocator">get_allocator</a></td><td class="cpp11"><a href="../../forward_list_3a_3aget_allocator">get_allocator</a></td><td class="cpp98"><a href="../../list_3a_3aget_allocator">get_allocator</a></td></tr>
+<tr><td><tt>data</tt></td><td class="cpp11"><a href="../../array_3a_3adata">data</a></td><td class="cpp11"><a href="../../vector_3a_3adata">data</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+</table>
+<br>
+<h4>Associative containers</h4>
+<table class="boxed containers">
+<tr><td colspan="2">Headers</td><th colspan="2"><tt><a href="../../_5f3csetgt">&lt;set&gt;</a></tt></th><th colspan="2"><tt><a href="../../_5f3cmapgt">&lt;map&gt;</a></tt></th><th colspan="2"><tt><a href="../../_5f3cunordered_setgt">&lt;unordered_set&gt;</a></tt></th><th colspan="2"><tt><a href="../../_5f3cunordered_mapgt">&lt;unordered_map&gt;</a></tt></th></tr>
+<tr><td colspan="2">Members</td><th><a href="../../set">set</a></th><th><a href="../../multiset">multiset</a></th><th><a href="../../map">map</a></th><th><a href="../../multimap">multimap</a></th><th><a href="../../unordered_set">unordered_set</a></th><th><a href="../../unordered_multiset">unordered_multiset</a></th><th><a href="../../unordered_map">unordered_map</a></th><th><a href="../../unordered_multimap">unordered_multimap</a></th></tr>
+<tr><td rowspan="3"> </td><td><i>constructor</i></td><td class="cpp98"><a href="../../set_3a_3aset">set</a></td><td class="cpp98"><a href="../../multiset_3a_3amultiset">multiset</a></td><td class="cpp98"><a href="../../map_3a_3amap">map</a></td><td class="cpp98"><a href="../../multimap_3a_3amultimap">multimap</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aunordered_set">unordered_set</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aunordered_multiset">unordered_multiset</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aunordered_map">unordered_map</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aunordered_multimap">unordered_multimap</a></td></tr>
+<tr><td><i>destructor</i></td><td class="cpp98"><a href="../../set_3a_3a~set">~set</a></td><td class="cpp98"><a href="../../multiset_3a_3a~multiset">~multiset</a></td><td class="cpp98"><a href="../../map_3a_3a~map">~map</a></td><td class="cpp98"><a href="../../multimap_3a_3a~multimap">~multimap</a></td><td class="cpp11"><a href="../../unordered_set_3a_3a~unordered_set">~unordered_set</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3a~unordered_multiset">~unordered_multiset</a></td><td class="cpp11"><a href="../../unordered_map_3a_3a~unordered_map">~unordered_map</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3a~unordered_multimap">~unordered_multimap</a></td></tr>
+<tr><td><i>assignment</i></td><td class="cpp98"><a href="../../set_3a_3aoperator">operator=</a></td><td class="cpp98"><a href="../../multiset_3a_3aoperator">operator=</a></td><td class="cpp98"><a href="../../map_3a_3aoperator">operator=</a></td><td class="cpp98"><a href="../../multimap_3a_3aoperator">operator=</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aoperator">operator=</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aoperator">operator=</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aoperator">operator=</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aoperator">operator=</a></td></tr>
+<tr><td rowspan="4">iterators</td><td><tt>begin</tt></td><td class="cpp98"><a href="../../set_3a_3abegin">begin</a></td><td class="cpp98"><a href="../../multiset_3a_3abegin">begin</a></td><td class="cpp98"><a href="../../map_3a_3abegin">begin</a></td><td class="cpp98"><a href="../../multimap_3a_3abegin">begin</a></td><td class="cpp11"><a href="../../unordered_set_3a_3abegin">begin</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3abegin">begin</a></td><td class="cpp11"><a href="../../unordered_map_3a_3abegin">begin</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3abegin">begin</a></td></tr>
+<tr><td><tt>end</tt></td><td class="cpp98"><a href="../../set_3a_3aend">end</a></td><td class="cpp98"><a href="../../multiset_3a_3aend">end</a></td><td class="cpp98"><a href="../../map_3a_3aend">end</a></td><td class="cpp98"><a href="../../multimap_3a_3aend">end</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aend">end</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aend">end</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aend">end</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aend">end</a></td></tr>
+<tr><td><tt>rbegin</tt></td><td class="cpp98"><a href="../../set_3a_3arbegin">rbegin</a></td><td class="cpp98"><a href="../../multiset_3a_3arbegin">rbegin</a></td><td class="cpp98"><a href="../../map_3a_3arbegin">rbegin</a></td><td class="cpp98"><a href="../../multimap_3a_3arbegin">rbegin</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>rend</tt></td><td class="cpp98"><a href="../../set_3a_3arend">rend</a></td><td class="cpp98"><a href="../../multiset_3a_3arend">rend</a></td><td class="cpp98"><a href="../../map_3a_3arend">rend</a></td><td class="cpp98"><a href="../../multimap_3a_3arend">rend</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">const iterators</td><td><tt>cbegin</tt></td><td class="cpp11"><a href="../../set_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../multiset_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../map_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../multimap_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../unordered_set_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../unordered_map_3a_3acbegin">cbegin</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3acbegin">cbegin</a></td></tr>
+<tr><td><tt>cend</tt></td><td class="cpp11"><a href="../../set_3a_3acend">cend</a></td><td class="cpp11"><a href="../../multiset_3a_3acend">cend</a></td><td class="cpp11"><a href="../../map_3a_3acend">cend</a></td><td class="cpp11"><a href="../../multimap_3a_3acend">cend</a></td><td class="cpp11"><a href="../../unordered_set_3a_3acend">cend</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3acend">cend</a></td><td class="cpp11"><a href="../../unordered_map_3a_3acend">cend</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3acend">cend</a></td></tr>
+<tr><td><tt>crbegin</tt></td><td class="cpp11"><a href="../../set_3a_3acrbegin">crbegin</a></td><td class="cpp11"><a href="../../multiset_3a_3acrbegin">crbegin</a></td><td class="cpp11"><a href="../../map_3a_3acrbegin">crbegin</a></td><td class="cpp11"><a href="../../multimap_3a_3acrbegin">crbegin</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>crend</tt></td><td class="cpp11"><a href="../../set_3a_3acrend">crend</a></td><td class="cpp11"><a href="../../multiset_3a_3acrend">crend</a></td><td class="cpp11"><a href="../../map_3a_3acrend">crend</a></td><td class="cpp11"><a href="../../multimap_3a_3acrend">crend</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="4">capacity</td><td><tt>size</tt></td><td class="cpp98"><a href="../../set_3a_3asize">size</a></td><td class="cpp98"><a href="../../multiset_3a_3asize">size</a></td><td class="cpp98"><a href="../../map_3a_3asize">size</a></td><td class="cpp98"><a href="../../multimap_3a_3asize">size</a></td><td class="cpp11"><a href="../../unordered_set_3a_3asize">size</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3asize">size</a></td><td class="cpp11"><a href="../../unordered_map_3a_3asize">size</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3asize">size</a></td></tr>
+<tr><td><tt>max_size</tt></td><td class="cpp98"><a href="../../set_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../multiset_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../map_3a_3amax_size">max_size</a></td><td class="cpp98"><a href="../../multimap_3a_3amax_size">max_size</a></td><td class="cpp11"><a href="../../unordered_set_3a_3amax_size">max_size</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3amax_size">max_size</a></td><td class="cpp11"><a href="../../unordered_map_3a_3amax_size">max_size</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3amax_size">max_size</a></td></tr>
+<tr><td><tt>empty</tt></td><td class="cpp98"><a href="../../set_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../multiset_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../map_3a_3aempty">empty</a></td><td class="cpp98"><a href="../../multimap_3a_3aempty">empty</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aempty">empty</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aempty">empty</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aempty">empty</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aempty">empty</a></td></tr>
+<tr><td><tt>reserve</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3areserve">reserve</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3areserve">reserve</a></td><td class="cpp11"><a href="../../unordered_map_3a_3areserve">reserve</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3areserve">reserve</a></td></tr>
+<tr><td rowspan="2">element access</td><td><tt>at</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../map_3a_3aat">at</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_map_3a_3aat">at</a></td><td class="none"> </td></tr>
+<tr><td><tt>operator[]</tt></td><td class="none"> </td><td class="none"> </td><td class="cpp98"><a href="../../../www.cplusplus.com/reference/map/map/operator/default.htm">operator[]</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../../www.cplusplus.com/reference/unordered_map/unordered_map/operator/default.htm">operator[]</a></td><td class="none"> </td></tr>
+<tr><td rowspan="6">modifiers</td><td><tt>emplace</tt></td><td class="cpp11"><a href="../../set_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../multiset_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../map_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../multimap_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aemplace">emplace</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aemplace">emplace</a></td></tr>
+<tr><td><tt>emplace_hint</tt></td><td class="cpp11"><a href="../../set_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../multiset_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../map_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../multimap_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aemplace_hint">emplace_hint</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aemplace_hint">emplace_hint</a></td></tr>
+<tr><td><tt>insert</tt></td><td class="cpp98"><a href="../../set_3a_3ainsert">insert</a></td><td class="cpp98"><a href="../../multiset_3a_3ainsert">insert</a></td><td class="cpp98"><a href="../../map_3a_3ainsert">insert</a></td><td class="cpp98"><a href="../../multimap_3a_3ainsert">insert</a></td><td class="cpp11"><a href="../../unordered_set_3a_3ainsert">insert</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3ainsert">insert</a></td><td class="cpp11"><a href="../../unordered_map_3a_3ainsert">insert</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3ainsert">insert</a></td></tr>
+<tr><td><tt>erase</tt></td><td class="cpp98"><a href="../../set_3a_3aerase">erase</a></td><td class="cpp98"><a href="../../multiset_3a_3aerase">erase</a></td><td class="cpp98"><a href="../../map_3a_3aerase">erase</a></td><td class="cpp98"><a href="../../multimap_3a_3aerase">erase</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aerase">erase</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aerase">erase</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aerase">erase</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aerase">erase</a></td></tr>
+<tr><td><tt>clear</tt></td><td class="cpp98"><a href="../../set_3a_3aclear">clear</a></td><td class="cpp98"><a href="../../multiset_3a_3aclear">clear</a></td><td class="cpp98"><a href="../../map_3a_3aclear">clear</a></td><td class="cpp98"><a href="../../multimap_3a_3aclear">clear</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aclear">clear</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aclear">clear</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aclear">clear</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aclear">clear</a></td></tr>
+<tr><td><tt>swap</tt></td><td class="cpp98"><a href="../../set_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../multiset_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../map_3a_3aswap">swap</a></td><td class="cpp98"><a href="../../multimap_3a_3aswap">swap</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aswap">swap</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aswap">swap</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aswap">swap</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aswap">swap</a></td></tr>
+<tr><td rowspan="5">operations</td><td><tt>count</tt></td><td class="cpp98"><a href="../../set_3a_3acount">count</a></td><td class="cpp98"><a href="../../multiset_3a_3acount">count</a></td><td class="cpp98"><a href="../../map_3a_3acount">count</a></td><td class="cpp98"><a href="../../multimap_3a_3acount">count</a></td><td class="cpp11"><a href="../../unordered_set_3a_3acount">count</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3acount">count</a></td><td class="cpp11"><a href="../../unordered_map_3a_3acount">count</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3acount">count</a></td></tr>
+<tr><td><tt>find</tt></td><td class="cpp98"><a href="../../set_3a_3afind">find</a></td><td class="cpp98"><a href="../../multiset_3a_3afind">find</a></td><td class="cpp98"><a href="../../map_3a_3afind">find</a></td><td class="cpp98"><a href="../../multimap_3a_3afind">find</a></td><td class="cpp11"><a href="../../unordered_set_3a_3afind">find</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3afind">find</a></td><td class="cpp11"><a href="../../unordered_map_3a_3afind">find</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3afind">find</a></td></tr>
+<tr><td><tt>equal_range</tt></td><td class="cpp98"><a href="../../set_3a_3aequal_range">equal_range</a></td><td class="cpp98"><a href="../../multiset_3a_3aequal_range">equal_range</a></td><td class="cpp98"><a href="../../map_3a_3aequal_range">equal_range</a></td><td class="cpp98"><a href="../../multimap_3a_3aequal_range">equal_range</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aequal_range">equal_range</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aequal_range">equal_range</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aequal_range">equal_range</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aequal_range">equal_range</a></td></tr>
+<tr><td><tt>lower_bound</tt></td><td class="cpp98"><a href="../../set_3a_3alower_bound">lower_bound</a></td><td class="cpp98"><a href="../../multiset_3a_3alower_bound">lower_bound</a></td><td class="cpp98"><a href="../../map_3a_3alower_bound">lower_bound</a></td><td class="cpp98"><a href="../../multimap_3a_3alower_bound">lower_bound</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>upper_bound</tt></td><td class="cpp98"><a href="../../set_3a_3aupper_bound">upper_bound</a></td><td class="cpp98"><a href="../../multiset_3a_3aupper_bound">upper_bound</a></td><td class="cpp98"><a href="../../map_3a_3aupper_bound">upper_bound</a></td><td class="cpp98"><a href="../../multimap_3a_3aupper_bound">upper_bound</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td rowspan="5">observers</td><td><tt>get_allocator</tt></td><td class="cpp98"><a href="../../set_3a_3aget_allocator">get_allocator</a></td><td class="cpp98"><a href="../../multiset_3a_3aget_allocator">get_allocator</a></td><td class="cpp98"><a href="../../map_3a_3aget_allocator">get_allocator</a></td><td class="cpp98"><a href="../../multimap_3a_3aget_allocator">get_allocator</a></td><td class="cpp11"><a href="../../unordered_set_3a_3aget_allocator">get_allocator</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aget_allocator">get_allocator</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aget_allocator">get_allocator</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aget_allocator">get_allocator</a></td></tr>
+<tr><td><tt>key_comp</tt></td><td class="cpp98"><a href="../../set_3a_3akey_comp">key_comp</a></td><td class="cpp98"><a href="../../multiset_3a_3akey_comp">key_comp</a></td><td class="cpp98"><a href="../../map_3a_3akey_comp">key_comp</a></td><td class="cpp98"><a href="../../multimap_3a_3akey_comp">key_comp</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>value_comp</tt></td><td class="cpp98"><a href="../../set_3a_3avalue_comp">value_comp</a></td><td class="cpp98"><a href="../../multiset_3a_3avalue_comp">value_comp</a></td><td class="cpp98"><a href="../../map_3a_3avalue_comp">value_comp</a></td><td class="cpp98"><a href="../../multimap_3a_3avalue_comp">value_comp</a></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td></tr>
+<tr><td><tt>key_eq</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3akey_eq">key_eq</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3akey_eq">key_eq</a></td><td class="cpp11"><a href="../../unordered_map_3a_3akey_eq">key_eq</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3akey_eq">key_eq</a></td></tr>
+<tr><td><tt>hash_function</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3ahash_function">hash_function</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3ahash_function">hash_function</a></td><td class="cpp11"><a href="../../unordered_map_3a_3ahash_function">hash_function</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3ahash_function">hash_function</a></td></tr>
+<tr><td rowspan="4">buckets</td><td><tt>bucket</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3abucket">bucket</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3abucket">bucket</a></td><td class="cpp11"><a href="../../unordered_map_3a_3abucket">bucket</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3abucket">bucket</a></td></tr>
+<tr><td><tt>bucket_count</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3abucket_count">bucket_count</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3abucket_count">bucket_count</a></td><td class="cpp11"><a href="../../unordered_map_3a_3abucket_count">bucket_count</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3abucket_count">bucket_count</a></td></tr>
+<tr><td><tt>bucket_size</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3abucket_size">bucket_size</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3abucket_size">bucket_size</a></td><td class="cpp11"><a href="../../unordered_map_3a_3abucket_size">bucket_size</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3abucket_size">bucket_size</a></td></tr>
+<tr><td><tt>max_bucket_count</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3amax_bucket_count">max_bucket_count</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3amax_bucket_count">max_bucket_count</a></td><td class="cpp11"><a href="../../unordered_map_3a_3amax_bucket_count">max_bucket_count</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3amax_bucket_count">max_bucket_count</a></td></tr>
+<tr><td rowspan="3">hash policy</td><td><tt>rehash</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3arehash">rehash</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3arehash">rehash</a></td><td class="cpp11"><a href="../../unordered_map_3a_3arehash">rehash</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3arehash">rehash</a></td></tr>
+<tr><td><tt>load_factor</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3aload_factor">load_factor</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3aload_factor">load_factor</a></td><td class="cpp11"><a href="../../unordered_map_3a_3aload_factor">load_factor</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3aload_factor">load_factor</a></td></tr>
+<tr><td><tt>max_load_factor</tt></td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="none"> </td><td class="cpp11"><a href="../../unordered_set_3a_3amax_load_factor">max_load_factor</a></td><td class="cpp11"><a href="../../unordered_multiset_3a_3amax_load_factor">max_load_factor</a></td><td class="cpp11"><a href="../../unordered_map_3a_3amax_load_factor">max_load_factor</a></td><td class="cpp11"><a href="../../unordered_multimap_3a_3amax_load_factor">max_load_factor</a></td></tr>
+</table></div><div id="CH_bb"></div></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../doc/default.htm">Tutorials</a></li>
+<li class="folder selected reference"><a href="../default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../articles/default.htm">Articles</a></li>
+<li class="folder forum"><a href="../../forum/default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="../default.htm">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable collapsed"><h4><a href="../clibrary/default.htm">C library:</a></h4><ul>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cassert/default.htm"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cctype/default.htm"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cerrno/default.htm"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../cfenv/default.htm"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cfloat/default.htm"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../cinttypes/default.htm"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../ciso646/default.htm"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../climits/default.htm"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../clocale/default.htm"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cmath/default.htm"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../csetjmp/default.htm"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../csignal/default.htm"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cstdarg/default.htm"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="../cstdbool/default.htm"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cstddef/default.htm"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../cstdint/default.htm"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cstdio/default.htm"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cstdlib/default.htm"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cstring/default.htm"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="../ctgmath/default.htm"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../ctime/default.htm"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="../cuchar/default.htm"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cwchar/default.htm"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="../cwctype/default.htm"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4 class="selected"><a href="default.htm">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="../array/default.htm"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../deque/default.htm"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../forward_list/default.htm"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../list/default.htm"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../map/default.htm"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../queue/default.htm"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../set/default.htm"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../stack/default.htm"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../unordered_map/default.htm"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../unordered_set/default.htm"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../vector/default.htm"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../iolibrary/default.htm">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../fstream/default.htm"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../iomanip/default.htm"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../ios/default.htm"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../iosfwd/default.htm"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../iostream/default.htm"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../istream/default.htm"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../ostream/default.htm"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../sstream/default.htm"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../streambuf/default.htm"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../multithreading/default.htm">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="../atomic/default.htm"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../condition_variable/default.htm"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../future/default.htm"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../mutex/default.htm"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../thread/default.htm"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="../std/default.htm">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="../algorithm/default.htm"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../bitset/default.htm"><span>&lt;bitset&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../chrono/default.htm"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../codecvt/default.htm"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../complex/default.htm"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../exception/default.htm"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../functional/default.htm"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../initializer_list/default.htm"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../iterator/default.htm"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../limits/default.htm"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../locale/default.htm"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../memory/default.htm"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../new/default.htm"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../numeric/default.htm"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../random/default.htm"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../ratio/default.htm"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../regex/default.htm"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../stdexcept/default.htm"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../string/default.htm"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../system_error/default.htm"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../tuple/default.htm"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../typeindex/default.htm"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../typeinfo/default.htm"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="../type_traits/default.htm"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../utility/default.htm"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="../valarray/default.htm"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../default.htm">Home page</a> | <a href="../../privacy.do">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../contact.doreferrerwww.cplusplus.com_252freference_252fstl_252f">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			el.appendChild(btn('New Page','New Page','new','../new.cgiastl'));
+			el.appendChild(btn('Edit Page','Edit Page','edit','../edit.cgiastl'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='../delete.cgiastl'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../httpsssl/default.htm' : '../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

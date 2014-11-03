@@ -1,0 +1,264 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/143813/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Help with my code - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Help with my code</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Help with my code</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143813,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg758517"><span title="758517,152644,1023,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758517" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm87fefb60b9" title="Thu, 02 Oct 2014 03:05:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm87fefb60b9');</script><noscript>Oct 2, 2014 at 3:05am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jtrackers/default.htm"><b>jtrackers</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758517">
+BigInteger.h<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br></code></pre></td>
+<td class="source"><pre><code><dfn>#ifndef BIG_INTEGER_H</dfn>
+<dfn>#define BIG_INTEGER_H</dfn>
+
+<dfn>#include "BigIntegerException.h"</dfn>
+
+<cite>/**
+Recall from integer type that covers largest range is 
+long long, which is from –9,223,372,036,854,775,808 to 
+9,223,372,036,854,775,807. You don't want these limitation
+on how large number you can use.
+
+Your task is to design this BigInteger class and implement
+its operators to overcome this limitation of long long type.
+Here are your tasks:
+1. constructors:
+  a. default constructor: should store number 0
+  b. constructor with one string argument: store value
+and throw NumberFormatException if argument is 
+a empty string or string with non-numeric characters
+  c. copy construtor: to clone a copy of an object instead
+of just a pointer (see shadow copy behavior)
+
+2. destructor: as a rule of thumb, when you allocate memory, 
+clean up memory.
+
+3. toString: return the number in a string format
+
+4. operator+: to add two BigInteger objects
+
+5. operator*: to multiply two BigInteger objects
+
+With all above requirements, design an internal/private data 
+members that are approriate to all above functions. See the
+test cases (BigIntegerTest) to see its expected usage.
+*/</cite>
+<var>class</var> BigInteger {
+<var>private</var>:
+	string *ptr;
+	string *temp;
+
+<var>public</var>:
+	<cite>// default constructor</cite>
+	BigInteger();
+
+	<cite>// constructor with one string argument</cite>
+	BigInteger(string value) <var>throw</var> (NumberFormatException);
+
+	<cite>// copy constructor</cite>
+	BigInteger(<var>const</var> BigInteger&amp; bigInt);
+
+	<cite>// assignment operator</cite>
+	BigInteger&amp; <var>operator</var>=(<var>const</var> BigInteger&amp; bigInt);
+
+	<cite>// destructor</cite>
+	~BigInteger();
+
+	<cite>// print the number without leading zero</cite>
+	std::string toString();
+
+	<cite>// addition operator</cite>
+	<var>friend</var> BigInteger <var>operator</var>+(<var>const</var> BigInteger&amp; leftNum, <var>const</var> BigInteger&amp; rightNum);
+
+	<cite>// multiplication operator</cite>
+	<var>friend</var> BigInteger <var>operator</var>*(<var>const</var> BigInteger&amp; leftNum, <var>const</var> BigInteger&amp; rightNum);
+};
+
+<dfn>#endif </dfn></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+BigInteger.cpp<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include "BigInteger.h"</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+<cite>// view the header files and implement all the functions</cite>
+
+BigInteger::BigInteger(){
+	<var>for</var> (<var>int</var> i = 0; i &lt; 500; i++)
+	{
+		ptr[i] = <kbd>"0"</kbd>;
+		temp[i] = <kbd>"0"</kbd>;
+	}
+}
+
+BigInteger::BigInteger(string value) <var>throw</var> (NumberFormatException)
+{
+	<var>for</var> (<var>int</var> k = 0; k &lt; value.size(); k++)
+	{
+		ptr[k] = value.at(k);
+	}
+}
+
+BigInteger::BigInteger(<var>const</var> BigInteger&amp; bigInt){
+	ptr = bigInt.ptr;
+	temp = bigInt.temp;
+}
+
+BigInteger&amp; BigInteger::<var>operator</var>=(<var>const</var> BigInteger&amp; bigInt){
+	<var>for</var> (<var>int</var> i = 0; i &lt; 500; i++)
+	{
+		bigInt.ptr[i] = ptr[i];
+	}
+	<var>return</var> *<var>this</var>;
+};
+
+BigInteger::~BigInteger(){
+	<var>delete</var> ptr;
+	<var>delete</var> temp;
+}
+
+string BigInteger::toString(){
+
+	<var>return</var> 0;
+}
+
+BigInteger <var>operator</var>+(<var>const</var> BigInteger&amp; leftNum, <var>const</var> BigInteger&amp; rightNum){
+
+	<var>return</var> BigInteger(*leftNum.ptr + *rightNum.ptr);
+}
+
+BigInteger <var>operator</var>*(<var>const</var> BigInteger&amp; leftNum, <var>const</var> BigInteger&amp; rightNum){
+	<var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+I need two big numbers to be added and multiplied. I'm trying to convert them to a string so I can do this easier but I'm having problems doing the constructors right now. Can anyone comment on what I have so far? Thanks.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758517"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758536"><span title="758536,109286,1023,591,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758536" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm07b70e7bc2" title="Thu, 02 Oct 2014 04:32:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm07b70e7bc2');</script><noscript>Oct 2, 2014 at 4:32am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/ispil/default.htm"><b>Ispil</b> (591)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758536">
+It would be far easier to use arrays of integers. That way, multiplying and adding isn't nearly as much of a challenge.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758536"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143813,0,152644,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~447.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

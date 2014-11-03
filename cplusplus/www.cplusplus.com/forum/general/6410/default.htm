@@ -1,0 +1,578 @@
+<!DOCTYPE html><!-- saved from url=(0055)http://www.cplusplus.com/forum/general/6410/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>a C++ algorithm problem- skyscrapers - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">a C++ algorithm problem- skyscrapers</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> a C++ algorithm problem- skyscrapers</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><span class="rootdatPost" title="6410,root,0,-1,23,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg29323"><span title="29323,17399,255,9,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29323" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2ed92652d8" title="Mon, 15 Dec 2008 20:08:55 +0000"></span><script type="text/javascript">WhenId('CH_zTm2ed92652d8');</script><noscript>Dec 15, 2008 at 8:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29323">
+Hi can someone plz take a look at this skyscrapers problem in SPOJ:<br>
+<a href="../../../../www.spoj.pl/problems/cepc08b/default.htm">http://www.spoj.pl/problems/CEPC08B/</a><br>
+<br>
+The time limit is although 10s, but still not enough for the given ranges. We need a really efficient algorithm, i tried using 3 different algos,but everyone exceeded the time limit !<br>
+<br>
+Can some one tell me an efficient algorithm to solve this problem ??<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmeea25a890e" title="Tue, 16 Dec 2008 17:43:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmeea25a890e');</script><noscript>Dec 16, 2008 at 5:43pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29323"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29327"><span title="29327,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29327" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2f77c515dc" title="Mon, 15 Dec 2008 20:38:58 +0000"></span><script type="text/javascript">WhenId('CH_zTm2f77c515dc');</script><noscript>Dec 15, 2008 at 8:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29327">
+You can't solve this in under 10 secs? Are there any constraints on the power of the CPU? This should be solvable in any modern desktop in under a second without a fancy algorithm.<br>
+What did you try?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29327"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29330"><span title="29330,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29330" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb3a5e3cbaf" title="Mon, 15 Dec 2008 21:10:14 +0000"></span><script type="text/javascript">WhenId('CH_zTmb3a5e3cbaf');</script><noscript>Dec 15, 2008 at 9:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29330">
+hey common..did u see the ranges...<br>
+each test case contains as many as 1000000 buildings&amp;1000000 days and the height of each building can be as much as 1000000000 units(which means the upper limit of days also).<br>
+<br>
+so now u see...anyways,i suggest u try it out urself and see if ur solution is accepted....plz chk it out
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme418717526" title="Wed, 17 Dec 2008 17:58:10 +0000"></span><script type="text/javascript">WhenId('CH_zTme418717526');</script><noscript>Dec 17, 2008 at 5:58pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29330"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29335"><span title="29335,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29335" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm97852fae0c" title="Mon, 15 Dec 2008 22:05:56 +0000"></span><script type="text/javascript">WhenId('CH_zTm97852fae0c');</script><noscript>Dec 15, 2008 at 10:05pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29335">
+It says here t&lt;=15 test cases, n buildings, and d&lt;=1000000 days. This means that the longest the entire calculation could take is (time for one day)*15000000. In order to exceed the limit, each day would have to take longer than... 1/3 of a microsecond? Is that even possible?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29335"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29352"><span title="29352,11296,1023,677,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29352" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9e47aff16a" title="Tue, 16 Dec 2008 02:19:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm9e47aff16a');</script><noscript>Dec 16, 2008 at 2:19am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/incubbus/default.htm"><b>Incubbus</b> (677)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29352">
+dont be so sarcastic helios xD...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29352"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29354"><span title="29354,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29354" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm58ddb4c75f" title="Tue, 16 Dec 2008 03:42:28 +0000"></span><script type="text/javascript">WhenId('CH_zTm58ddb4c75f');</script><noscript>Dec 16, 2008 at 3:42am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29354">
+Actually, I was being totally serious. 1/3 of a microsecond for something that requires an unknown amount of comparisons (there can be any number of buildings, according to that page) is very little, I think.<br>
+<br>
+I suppose there must be a solution in logarithmic time...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29354"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29392"><span title="29392,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29392" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc08b012415" title="Tue, 16 Dec 2008 09:13:09 +0000"></span><script type="text/javascript">WhenId('CH_zTmc08b012415');</script><noscript>Dec 16, 2008 at 9:13am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29392">
+hey helios, i  really appreciate ur detailed analysis of this problem.. but i'd suggest y dont u go on &amp; solve the problem &amp; try to submit it , n see if it passes the time limit..<br>
+<br>
+besides,i'd like to make some correction in ur analysis..<br>
+<br>
+i) the number of days &lt;= 10^6  BUT the length of day is &lt;= 10^9.<br>
+<br>
+ii) ur evaluation is correct that the total time wud b around : (time of 1 day)*15000000 , however, the TIME for calculating the ans for 1 day again depends on how many times do u hav to go thru the loop ( which depends on the algo u chose).And that'll easily take the time beyond the limit.<br>
+<br>
+So try it out first !<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29392"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29402"><span title="29402,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29402" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm06ebc29560" title="Tue, 16 Dec 2008 12:14:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm06ebc29560');</script><noscript>Dec 16, 2008 at 12:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29402">
+As much as this may surprise you, some people are actually busy, and don't have the time to join contests.<br>
+<br>
+A simple algorithm involves going through the number of buildings once, seeing which are above the water (a building is above the water if its height is greater than the day), and counting regions.<br>
+I can't imagine how could this loop be done more than once, or what it means for a day to have "length", as the region count is supposed to be done just once a day.<br>
+<br>
+There is a fourth number, but it doesn't say what it means. It just says that it's inputted. <br>
+<br>
+Finally, I said that, with the greatest number of test cases, days, and height of buildings, the average maximum time for each day without passing the limit is 1/3 of a microsecond.<br>
+Of course each day could take more or less, but the calculation is for average time, not actual time.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29402"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29463"><span title="29463,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29463" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1eb056b70e" title="Tue, 16 Dec 2008 18:01:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm1eb056b70e');</script><noscript>Dec 16, 2008 at 6:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29463">
+This algorithm, though is simple, but is the most inefficient solution of this problem. I'll bet this algorithm can never pass the given time constraints.<br>
+<br>
+Helios, I think u've overlooked one of the most important aspect of this problem. For any given test case, the number of days(for which we have to calculate regions) can be as much as 10^6. Now, if you are trying to run the loop each time FOREACH of the day FOREACH testcase, then you'll end up nowhere. Because, the total number of comparisons will be :<br>
+<br>
+(no.of testcases)*(no.of days)*(length of each forloop) = 15*10^12 + (additional comparisons required for separating regions).<br>
+<br>
+NOW an average 2 GHz processor can perform 14500 million instructions per second , which means that one instruction takes 69*10^(-12) seconds.<br>
+<br>
+NOW EVEN IF WE IGNORE THE *ADDITIONAL* comparisons, the TOTAL TIME WILL BE = 15*10^12*69*10^(-12) = 1035 seconds !!!!<br>
+<br>
+<br>
+<br>
+reference of MIPS value of 2 GHz processor : <a href="../../../../en.wikipedia.org/wiki/instructions_per_second#Timeline_of_instructions_per_second">http://en.wikipedia.org/wiki/Instructions_per_second#Timeline_of_instructions_per_second</a><br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc2441d0a30" title="Wed, 17 Dec 2008 17:58:41 +0000"></span><script type="text/javascript">WhenId('CH_zTmc2441d0a30');</script><noscript>Dec 17, 2008 at 5:58pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29463"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29467"><span title="29467,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29467" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfac088834c" title="Tue, 16 Dec 2008 18:45:32 +0000"></span><script type="text/javascript">WhenId('CH_zTmfac088834c');</script><noscript>Dec 16, 2008 at 6:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29467">
+Why are you reacting like that? I'm not arguing with you.<br>
+I'm saying what you're saying. In average, each day (regardless of the operations inside) can take no more than a third of a microsecond. Got that? <b>The calculation of each day.</b> I didn't add more factors because: a) the problem doesn't give an upper limit to n (the number of buildings). <del>and b) there is another variable of unknown meaning. What the hell is t<sub>[1;d&lt;10^9]</sub>? It says d is the number of days, so what does t<sub>d</sub> do?</del><br>
+I did say I considered that <b>impossible</b> in linear time (O(n)).<br>
+<br>
+After re-reading it, I understand what t<sub>i</sub> means. In that case, each day should take no more than 1/3 of a nanosecond. Now, <i>that</i> is impossible in linear time.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0b4f7d43ed" title="Tue, 16 Dec 2008 18:46:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm0b4f7d43ed');</script><noscript>Dec 16, 2008 at 6:46pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29467"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29469"><span title="29469,13099,1023,1282,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29469" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma479f220cc" title="Tue, 16 Dec 2008 19:04:05 +0000"></span><script type="text/javascript">WhenId('CH_zTma479f220cc');</script><noscript>Dec 16, 2008 at 7:04pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/return_0/default.htm"><b>Return 0</b> (1282)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29469">
+Helios, I don't know why you're even bothering to help this guy.  Let him figure it out on his own with that attitude.  You're taking time out of your day to assist.  He needs to show a little respect!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29469"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29472"><span title="29472,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29472" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm368d61f148" title="Tue, 16 Dec 2008 19:18:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm368d61f148');</script><noscript>Dec 16, 2008 at 7:18pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29472">
+ohk ohk...my apologies...sorry if i was too rude...didnt mean to..<br>
+anyways, its fine.. i'll try to figure it out on my own..thanks for ur help...<br>
+i just came here to discuss bcoz i already tried 3 algorithms :<br>
+1) the simpleone which u told<br>
+2) using recursion<br>
+3) using dynamic programming...<br>
+everytime,i made it more efficient bt stil it was "time limit exceeded" in each case.<br>
+so i thot of discussing wit u ppl...bt thr's no point in arguing on an algo question.. <br>
+it wud hav been gr8 if u cud try it out urslf...it wud tak just 15-20 minutes to solve tht problem &amp; get it submitted...bt since ur a busy man,i understand..<br>
+<br>
+bt thnks for ur help, anyways.... :) <br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29472"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29476"><span title="29476,13288,1023,323,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29476" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf065b3bfa8" title="Tue, 16 Dec 2008 19:31:50 +0000"></span><script type="text/javascript">WhenId('CH_zTmf065b3bfa8');</script><noscript>Dec 16, 2008 at 7:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/exception/default.htm"><b>exception</b> (323)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29476">
+<table class="quote"><tr><td class="qd">We need a really efficient algorithm, i tried using 3 different algos</td></tr></table><br>
+Which algorithm (paradigms) with which (asymptotic) running time did you try? Looking at the problem, a plane sweep seems intuitive, but divide&amp;conquer should work nicely, too. (Actually, the "Watershed Transformation" from image processing, namely segmentation, is a similar problem in two dimensions (with several water sources). You might find efficient algorithms and implementations under that term).<br>
+<br>
+Looking at an upper bound, let's denote the number of buildings b, the number of days d, and the number of segments s. Then we can determine the order of event points in a plane sweep algorithm in O(b*log(b)). For each event point we have to access the region information. Given a suitable DS this is possible in O(log s). We have to do this for every event point, in the worst case this is b. So we have, all in all, an O(b*log(b)+b*log(s)) upper bound. However, s is obviously bounded by b, so the bound becomes O(b*log(b)). Um, the number of days isn't even important, so these "The calculation of each day" statements are... useless. (As for a lower bound, Ω(b) is pretty much obvious. I'm quite sure that it is Ω(n log(n)) (otherwise, my outlined algorithm would be suboptimal, which cannot be as it is from myself, end of proof!).<br>
+<br>
+On a personal note: why won't people accept that Big-Oh-calculus is more important than stupid "can-do-n-calculations-per-second" stuff when it comes to efficiency? In the time looking that crap up you could have solved the problem. And in practice you won't get these values for your problem anyways.<br>
+<br>
+Oh, and Return 0: this guy has a problem and the answers he gets are unusable... wouldn't you get angry if people would react this way to your problems? I know I would...
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29476"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29479"><span title="29479,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29479" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2f3368bee9" title="Tue, 16 Dec 2008 19:48:10 +0000"></span><script type="text/javascript">WhenId('CH_zTm2f3368bee9');</script><noscript>Dec 16, 2008 at 7:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29479">
+hi thnks for ur help.... <br>
+<br>
+u wud be surprised to know that my implementation using dynamic programming was very much similar to what you said, with the complexity of O(n log(n)).<br>
+<br>
+But I'd like to make a counter-point of ur saying: "why won't people accept that Big-Oh-calculus is more important than stupid "can-do-n-calculations-per-second" stuff when it comes to efficiency?"<br>
+<br>
+My point is : Complexity(Big-O) represents the "efficiency" of a problem(i.e. how much the program's running time wil increase, when inp. is increased)... however, that is very different from "performance" of a program ( which actually represents the running time for a fixed input).<br>
+ <br>
+What I mean to say is that the Big-O notation IGNORES the *constant factor*.<br>
+I've seen algorithms with lower complexity but poor performance on normal inputs.<br>
+<br>
+Take HeapSort only, it has a worstcase complexity -O(n*log n).BUT, quicksort having worstcase O(n^2), is preferred over HeapSort due to the "SMALLER CONSTANT FACTOR" hidden in quicksort complexity.<br>
+Definitely, HeapSort is gud for large inputs, but for average or smaller inputs, quick sort is better.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29479"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29485"><span title="29485,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29485" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm09c933de7e" title="Tue, 16 Dec 2008 20:00:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm09c933de7e');</script><noscript>Dec 16, 2008 at 8:00pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29485">
+Here's my code-<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br></code></pre></td>
+<td class="source"><pre><code>VI calcRegions(VI hts,VI dts)
+{
+                 <var>int</var> cur=0;
+                 VI dp,ans;
+                 dp.assign(1000000001,0);
+                 REP(i,hts.size())
+                 {
+                    
+                                  <var>if</var>(hts[i]&gt;=cur)                            
+                                   cur=hts[i]-1;
+                                  <var>else</var>
+                                  {         
+                                      <var>for</var>(<var>int</var> j=hts[i];j&lt;=cur;j++)
+                                       ++dp[j];
+                                      cur=hts[i]-1;
+                                  }
+                 }
+                 REP(i,cur+1)
+                  ++dp[i];          
+                 REP(i,dts.size())
+                  ans.pb(dp[dts[i]]);
+                 <var>return</var> ans;
+} </code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+hts - vector containing the heights of the buildings as given in a testcase<br>
+dts - vector containing the dates for which we have to find the regions<br>
+<br>
+ans - solution vector containing the "number of regions" on each day of the dts vector<br>
+<br>
+<br>
+As u can see, I've to go through the forloop only once, and yes, the number of days isnt important, bcoz going thru the loop just once, i was actually able to find out the number of regions of every possible day...<br>
+<br>
+Now u wud also notice this : "dp[1000000001]" ... this is too big for an avg. pc to handle and so this program wil consume very large memory (bt thr are no constraints on memory)...<br>
+<br>
+But still, i implemented the same algorithm using maps and i found out the solution of only "required" days and not "Every possible" day. the memory <br>
+consumption was reduced dramatically, even the complexity was increased, bt still not fast enough to pass the time constraint of 10s. Looks like the constant factor is too big !!<br>
+<br>
+Can u find out errors/improvements/suggest a new precise algo ??<br>
+Meanwhile, i'll google on Watershed Trasnformation as u said.<br>
+<br>
+Really, thanks for ur assistance !! :)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm5b31e86d3a" title="Tue, 16 Dec 2008 20:01:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm5b31e86d3a');</script><noscript>Dec 16, 2008 at 8:01pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29485"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29491"><span title="29491,13288,1023,323,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29491" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4b882ebd77" title="Tue, 16 Dec 2008 20:47:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm4b882ebd77');</script><noscript>Dec 16, 2008 at 8:47pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/exception/default.htm"><b>exception</b> (323)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29491">
+I agree that there are (rare) cases where the O notation isn't very helpful - e.g. the simplex algorithm actually being efficient despite its O(n<sup>3</sup>) time complexity, or the linear-time polygon triangulation with a ~10<sup>150</sup> constant (by Chazelle, the Clarkson/Seidel O(n log n) algorithm is faster for any polygon that fits into your RAM, that's for sure).<br>
+<br>
+But in this case there are no hidden constants, and the O notation gives better results than your 2GHz-assumptions. (Or do you know what exactly is performed (data-)parallel, what kinds of pipelining optimizations can (not) be performed, if the amount of operations includes comparisons or only arithmetic operations, what the impact of the cache size and data locality is, how fast your FPU is and what can be performed parallel on it while the CPU does something else, ...? The factor you will be off is most likely &gt; 100. The factor you will be off with the Big-Oh-calculus is in the same order, but it is (a) comparable (b) independent of hardware assumptions and (c) you see that the number of days is not important, while you were needlessly arguing with this value above. Plus, if it isn't "good enough", you can always count calculations, conditional statements etc. seperately. Or you could approximate constants. No matter what, you'll have something better than your wild guessing.<br>
+<br>
+<table class="quote"><tr><td class="qd">Take HeapSort only, it has a worstcase complexity -O(n*log n).BUT, quicksort having worstcase O(n^2), is preferred over HeapSort due to the "SMALLER CONSTANT FACTOR" hidden in quicksort complexity</td></tr></table><br>
+What you describe has nothing to do with the "hidden constant", you compare different scenarios. Quicksort has an average case upper bound of O(n log n), and the O(n<sup>2</sup>) case occurs with a probability of 1/n! (independent of the input, since the median determination it is based on the Monte-Carlo-method). Therefore it has about no impact on the average case, which is log(n!) = O(n log(n)) and occurring with a probability of ~1-1/n!. If you compare, please compare the same scenarios (and yes, QS is worse than HS in the worst case scenario. But not only in the Big-Oh-notation, also in reality).<br>
+In the analysis I gave, these cases are pretty much the same (worst case: all buildings have a different height, best case: all buildings have the same height, average case: the heights are uniformly distributed over the given range, which will result in ~b<sup>2</sup>/(max height-min height) collisions - to few to mention in the given ranges, i.e. same as worst case).<br>
+<br>
+If I read it right, your algorithm has one loop running b times, and an inner loop running "height" times, which might be a (quite large) value. It's obvious that this is painfully slow (as you will see if you perform some Big-Oh-calculations...).
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29491"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29493"><span title="29493,17399,255,9,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29493" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm21c54bb1d4" title="Tue, 16 Dec 2008 21:03:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm21c54bb1d4');</script><noscript>Dec 16, 2008 at 9:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jereme/default.htm"><b>jereme</b> (9)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29493">
+yes ur right...my point was same only that not always can the Big-O notation predicts the "performance", but in most cases,yes it does. So its fine.<br>
+<br>
+The outer loop is running hts.size() times which is nothing but the "number of buildings" - b.<br>
+<br>
+The inner loop operates ONLYIF there is a DROP in height of the building as we move along and it runs the number of times the value of that DROP in height.<br>
+<br>
+So the worst case is O(b^2) while the average case looks like O(b*log b) to me (correct me if i'm wrong).<br>
+<br>
+But still the program doesnt passes the 10s line. Can u suggest some improvements/modifications ?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29493"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29495"><span title="29495,10532,1023,5804,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29495" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbccca5e358" title="Tue, 16 Dec 2008 21:35:36 +0000"></span><script type="text/javascript">WhenId('CH_zTmbccca5e358');</script><noscript>Dec 16, 2008 at 9:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jsmith/default.htm"><b>jsmith</b> (5804)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29495">
+Compile with optimization turned on.<br>
+<br>
+Unroll your first loop into two loops to avoid the if-else check for every iteration.<br>
+<br>
+use vector::reserve() before all the push_backs.<br>
+<br>
+++j instead of j++<br>
+<br>
+...<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29495"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29503"><span title="29503,13288,1023,323,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29503" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcc5192de95" title="Tue, 16 Dec 2008 22:15:37 +0000"></span><script type="text/javascript">WhenId('CH_zTmcc5192de95');</script><noscript>Dec 16, 2008 at 10:15pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/exception/default.htm"><b>exception</b> (323)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29503">
+You give me an analysis then. How often do the loops run? (i.e., given the values b, d, s and h (for height), how often is, say <span class="auto"><code class="source">++dp[j];</code></span> executed?) I was pretty sure that hts.size() is the size of the "vector containing the heights of the buildings as given in a testcase", which I denoted by the number of buildings b. (On another note, I highly doubt that your algorithm is even correct, and whatever "REP" is, as long as you don't comment/explain it or give its implementation, there is no telling. But as I said, I highly doubt it).<br>
+<br>
+<table class="quote"><tr><td class="qd">So the worst case is O(b^2) while the average case looks like O(b*log b) to me (correct me if i'm wrong).</td></tr></table><br>
+Um, it's your algorithm. You go and analyze it. (Hint: wild guessing isn't considered a legitimate method in complexity analysis. I "guessed" of the lower bound mainly because I suppose that you don't know Ben-Or's theorem or the theory behind algebraic decision trees, which makes lower bound argumentations somewhat difficult. But that doesn't mean that you can save yourself the work of going through your algorithm and actually determining its complexity, if you want to improve it).<br>
+<br>
+Edit<br>
+@jsmith: I don't want to be rude or something, but perhaps you should take a look at the thread before writing a reply...
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmced8d239a4" title="Tue, 16 Dec 2008 22:16:50 +0000"></span><script type="text/javascript">WhenId('CH_zTmced8d239a4');</script><noscript>Dec 16, 2008 at 10:16pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn29503"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg29585"><span title="29585,10532,1023,5804,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg29585" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm22ab01b6eb" title="Wed, 17 Dec 2008 16:39:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm22ab01b6eb');</script><noscript>Dec 17, 2008 at 4:39pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jsmith/default.htm"><b>jsmith</b> (5804)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i29585">
+I did, exception.  <br>
+<br>
+The number in the original post was off by 2 orders of magnitude.  Compiling with optimizations will likely by back 1/2 to 1 order of magnitude.<br>
+<br>
+For the rest it seems like a vector is the wrong kind of data structure.  Seems to me like a tree representation might be in order.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn29585"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div id="CH_insNew"></div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><script type="text/javascript">new for_PostList(6410,1,17399,0,'CH_PostList','CH_subscription',false,'CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~459.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

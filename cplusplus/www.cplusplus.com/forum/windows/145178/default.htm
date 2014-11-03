@@ -1,0 +1,279 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/145178/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GetAsyncKeyState uses all CPU - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">GetAsyncKeyState uses all CPU</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> GetAsyncKeyState uses all CPU</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145178,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg764817"><span title="764817,154706,255,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764817" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm9faf6e4d5d" title="Fri, 17 Oct 2014 09:48:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm9faf6e4d5d');</script><noscript>Oct 17, 2014 at 9:48am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tarzan1337/default.htm"><b>tarzan1337</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764817">
+Hello!<br>
+<br>
+I'm a beginner in C++ programming and I want to program a simulator for a little car on a racetrack. I have some problems with the keyboard input.<br>
+<br>
+I use <b>GetAsyncKeyState</b> to read the keyboard input. This works fine except that it freezes when I hold down a button for a long time. This is because <b>GetAsyncKeyState</b> uses all the CPU...<br>
+<br>
+I also tried with <b>ReadConsoleInput</b> but it only takes one keystroke at a time, so i can't press W and A att the same time, so I can't drive forward and make a left turn at the same time...<br>
+<br>
+How can I solve this problem? I'm sure it's not too hard. <br>
+<br>
+Thanks in advance!<br>
+<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br></code></pre></td>
+<td class="source"><pre><code>  <var>if</var> (cMode == c_manual)
+		{
+			wPress = GetAsyncKeyState(87) &amp; 0x8000;
+			aPress = GetAsyncKeyState(65) &amp; 0x8000;
+			sPress = GetAsyncKeyState(83) &amp; 0x8000;
+			dPress = GetAsyncKeyState(68) &amp; 0x8000;
+
+			throttleActive = <var>false</var>;
+			steerActive = <var>false</var>;
+
+			<var>if</var> (aPress &amp;&amp; !dPress) <cite>// Left turn</cite>
+			{
+				<var>if</var> (us &lt; 1.0f)
+					us += 0.1f;
+				steerActive = <var>true</var>;
+			}
+			<var>if</var> (dPress &amp;&amp; !aPress) <cite>// Right turn</cite>
+			{
+				<var>if</var> (us &gt; -1.0f)
+					us += -0.1f;
+				steerActive = <var>true</var>;
+			}
+			<var>if</var> (wPress &amp;&amp; !sPress) <cite>// Gas</cite>
+			{
+				<var>if</var> (ug &lt; 1.0f)
+					ug += 0.1f;
+				throttleActive = <var>true</var>;
+			}
+			<var>if</var> (sPress &amp;&amp; !wPress) <cite>// Brake</cite>
+			{
+				<var>if</var> (ug &gt; -1.0f)
+					ug += -0.1f;
+				throttleActive = <var>true</var>;
+			}
+			<var>if</var> (!steerActive)
+				us = 0;
+			<var>if</var> (!throttleActive)
+				ug = 0;
+
+			Sleep(10);
+		}   <cite>//Close if(mMode) </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764817"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg764891"><span title="764891,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg764891" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm218541b8d0" title="Fri, 17 Oct 2014 15:52:53 +0000"></span><script type="text/javascript">WhenId('CH_zTm218541b8d0');</script><noscript>Oct 17, 2014 at 3:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i764891">
+<table class="quote"><tr><td class="qd">This is because GetAsyncKeyState uses all the CPU...</td></tr></table><br>
+<br>
+Nope.  GetAsyncKeyState is nonblocking so it returns immediately regardless of whether or not the key is being pressed.<br>
+<br>
+You are misdiagnosing the problem.  The deadlock must be caused by something else in your code.<br>
+<br>
+<br>
+Also... on a side note... why the magic numbers?  Why not just use the character?  Much easier and much more clear:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>wPress = GetAsyncKeyState(<kbd>'W'</kbd>) &amp; 0x8000; <cite>// &lt;- 'W' instead of 87</cite>
+aPress = GetAsyncKeyState(<kbd>'A'</kbd>) &amp; 0x8000; <cite>// &lt;- 'A' instead of 65</cite>
+sPress = GetAsyncKeyState(<kbd>'S'</kbd>) &amp; 0x8000; <cite>// &lt;- 'S' instead of 83</cite>
+dPress = GetAsyncKeyState(<kbd>'D'</kbd>) &amp; 0x8000; <cite>// &lt;- 'D' instead of 68 </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn764891"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765699"><span title="765699,154706,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765699" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma629ea3fa0" title="Sun, 19 Oct 2014 19:10:08 +0000"></span><script type="text/javascript">WhenId('CH_zTma629ea3fa0');</script><noscript>Oct 19, 2014 at 7:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tarzan1337/default.htm"><b>tarzan1337</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765699">
+Thanks for your answer.<br>
+<br>
+I still think this is the problem in my code.<br>
+<br>
+The code I posted is inside of a while-loop that runs all the time. The problem is e.g. when I hold down W a long time (2 seconds), the program freezes. I read somewhere that this is becouse GetAsyncKeyState() returns values all the time, putting it into some buffer, and blocking my drawing program from drawing.<br>
+<br>
+Do you think this would be solved if I made the drawing program run with higher priority than the input-part of the program?<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765699"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765702"><span title="765702,154706,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765702" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5d790336e8" title="Sun, 19 Oct 2014 19:12:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm5d790336e8');</script><noscript>Oct 19, 2014 at 7:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tarzan1337/default.htm"><b>tarzan1337</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765702">
+And I didn't know it could be done as simply as GetAsyncKeyState('W'), makes the code easier to understand, thanks for that!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765702"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg765707"><span title="765707,18360,1023,12939,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg765707" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4a57ab5617" title="Sun, 19 Oct 2014 19:20:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm4a57ab5617');</script><noscript>Oct 19, 2014 at 7:20pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/disch/default.htm"><b>Disch</b> (12939)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i765707">
+<table class="quote"><tr><td class="qd">The code I posted is inside of a while-loop that runs all the time.</td></tr></table><br>
+<br>
+??  Are you processing incoming messages?  How are you drawing if you never leave that loop?<br>
+<br>
+<table class="quote"><tr><td class="qd">I read somewhere that this is becouse GetAsyncKeyState() returns values all the time, putting it into some buffer, and blocking my drawing program from drawing.</td></tr></table><br>
+<br>
+GetAsyncKeyState returns immediately.  As soon as you call it, it returns and gives you the key state.  It does not block your program from doing anything.<br>
+<br>
+This problem has nothing to do with GetAsyncKeyState.  Put this function out of your mind.  The problem must be elsewhere in your program.<br>
+<br>
+<table class="quote"><tr><td class="qd">Do you think this would be solved if I made the drawing program run with higher priority than the input-part of the program?</td></tr></table><br>
+<br>
+Increasing priority is kind of ambiguous unless you are multithreading (which you really, really shouldn't be).  And no, I don't think that would solve your problem.<br>
+<br>
+If your program is deadlocking it must be because you have a logic deadlock somewhere.  IE, you're getting stuck in an infinite loop.<br>
+<br>
+<br>
+<br>
+<br>
+It's hard to comment without seeing more of the program.  One thing I can say for sure is that this problem has absolutely nothing to do with GetAsyncKeyState.<br>
+<br>
+It would help if you uploaded the full source somewhere so I can take a look.  Can you zip it up and put it on DropBox or something?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn765707"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145178,0,154706,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~485.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

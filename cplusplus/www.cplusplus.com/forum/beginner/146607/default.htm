@@ -1,0 +1,815 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/146607/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Add Movable Player to Map - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">Add Movable Player to Map</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Add Movable Player to Map</h3><span id="CH_edttl"></span><div class="C_pages">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><span class="rootdatPost" title="146607,root,0,-1,33,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770949"><span title="770949,144053,1023,60,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770949" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm875a72dca1" title="Sat, 01 Nov 2014 21:16:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm875a72dca1');</script><noscript>Nov 1, 2014 at 9:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770949">
+I have just created a 15 x 20 map using a 2D-array. I am trying to add a movable player, but I can't figure out how. If at all possible, this is something I would like to do without having to add new header files outside of Code::Blocks existing set, use functions I haven't made myself, or use classes.<br>
+<br>
+Does anyone think they could help me with this?<br>
+<br>
+Here's the code so far:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main()
+{
+    <cite>// char player = '@';</cite>
+    <var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+    {
+        {<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+    };
+
+    <var>for</var>(<var>int</var> i = 0; i &lt; MAP_ROWS; i++)
+    {
+        <var>for</var>(<var>int</var> j = 0; j &lt; MAP_COLS; j++)
+        {
+            cout &lt;&lt; mapArray[i][j];
+        }
+        cout &lt;&lt; <kbd>"\n"</kbd>;
+    }
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm25354e654e" title="Sun, 02 Nov 2014 12:50:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm25354e654e');</script><noscript>Nov 2, 2014 at 12:50pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770949"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770954"><span title="770954,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770954" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm1ae2e3305a" title="Sat, 01 Nov 2014 21:30:31 +0000"></span><script type="text/javascript">WhenId('CH_zTm1ae2e3305a');</script><noscript>Nov 1, 2014 at 9:30pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770954">
+create a player structure which holds the player's x,y coordinates.<br>
+<br>
+in the display loop, check if the current position is the players position.<br>
+if so, display player character, otherwise display map character
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770954"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770961"><span title="770961,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770961" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm67814cf493" title="Sat, 01 Nov 2014 21:43:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm67814cf493');</script><noscript>Nov 1, 2014 at 9:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770961">
+Thank you for the feedback, but how do I create a player structure to hold the x and y coordinates?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770961"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770964"><span title="770964,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770964" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm5dda83c091" title="Sat, 01 Nov 2014 21:49:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm5dda83c091');</script><noscript>Nov 1, 2014 at 9:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770964">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<cite>// This defines a new type called Player</cite>
+<var>struct</var> Player{
+    <var>int</var> x;
+    <var>int</var> y;
+};
+
+
+<var>int</var> main()
+{
+    <cite>// char player = '@';</cite>
+    
+    Player player;  <cite>// This creates an instance of the type Player named player</cite>
+    player.x = 5;
+    player.y = 6;
+    <var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+    {
+        {<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+    };
+
+    <var>for</var>(<var>int</var> i = 0; i &lt; MAP_ROWS; i++)
+    {
+        <var>for</var>(<var>int</var> j = 0; j &lt; MAP_COLS; j++)
+        {
+            <var>if</var>( i == player.x  &amp;&amp; j = player.y )
+                cout &lt;&lt; <kbd>'@'</kbd>;
+            <var>else</var>
+                cout &lt;&lt; mapArray[i][j];
+        }
+        cout &lt;&lt; <kbd>"\n"</kbd>;
+    }
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+If you don't understand structures and classes yet, this may be jumping ahead for you a bit.<br>
+<br>
+For something this simple, you could also do it by just having individual variables for the player's x and y coordinates rather than using a struct.  just have something like: <span class="auto"><code class="source"><var>int</var> plr_x = 5,  plr_y = 6;</code></span> 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme383a83221" title="Sat, 01 Nov 2014 21:55:18 +0000"></span><script type="text/javascript">WhenId('CH_zTme383a83221');</script><noscript>Nov 1, 2014 at 9:55pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770964"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770980"><span title="770980,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770980" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm27e0be53f5" title="Sat, 01 Nov 2014 22:32:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm27e0be53f5');</script><noscript>Nov 1, 2014 at 10:32pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770980">
+Alright, so a struct is like a class, is it?<br>
+<br>
+Without using a struct, this is what I have so far:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main()
+{
+    <var>int</var> playerX = 0;
+    <var>int</var> playerY = 0;
+    <var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+    {
+        {<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+    };
+
+    cout &lt;&lt; <kbd>"Player Starting Position\n"</kbd>;
+    cout &lt;&lt; <kbd>"X Coordinate (1 - 13): "</kbd>;
+    cin &gt;&gt; playerX;
+    cout &lt;&lt; <kbd>"Y Coordinate (1 - 18): "</kbd>;
+    cin &gt;&gt; playerY;
+
+    <var>for</var>(<var>int</var> i = 0; i &lt; MAP_ROWS; i++)
+    {
+        <var>for</var>(<var>int</var> j = 0; j &lt; MAP_COLS; j++)
+        {
+            <var>if</var>(playerX == i &amp;&amp; playerY == j)
+            {
+                cout &lt;&lt; <kbd>'@'</kbd>;
+            }
+            <var>else</var>
+            {
+                cout &lt;&lt; mapArray[i][j];
+            }
+        }
+        cout &lt;&lt; <kbd>"\n"</kbd>;
+    }
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+So how would I add player movement? Is this where things get tricky?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm0486325ccc" title="Sat, 01 Nov 2014 22:35:23 +0000"></span><script type="text/javascript">WhenId('CH_zTm0486325ccc');</script><noscript>Nov 1, 2014 at 10:35pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770980"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770987"><span title="770987,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770987" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfc4b1eb0ee" title="Sat, 01 Nov 2014 23:01:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmfc4b1eb0ee');</script><noscript>Nov 1, 2014 at 11:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770987">
+First, I'd break out the display code into a function.  then in main have a loop where the player inputs movement commands and updates coordinates, then call the display function.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770987"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770988"><span title="770988,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770988" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm368939bb7a" title="Sat, 01 Nov 2014 23:12:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm368939bb7a');</script><noscript>Nov 1, 2014 at 11:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770988">
+If I make the display code a function, then I have to drag <span class="auto"><code class="source"><var>int</var> mapArray[MAP_ROWS][MAP_COLS]</code></span>with it. That would make the map local to the function. Would that be a problem?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770988"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770989"><span title="770989,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770989" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm92650cc9c6" title="Sat, 01 Nov 2014 23:21:26 +0000"></span><script type="text/javascript">WhenId('CH_zTm92650cc9c6');</script><noscript>Nov 1, 2014 at 11:21pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770989">
+No problem. You can pass the array as an argument (arrays pass by reference by default) so overhead is minimal.<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> DrawMap( map[] ); <cite>// prototype</cite>
+
+<var>int</var> main()
+{
+    ...
+    DrawMap( mapArray );
+    ...
+    
+}
+
+<var>void</var> DrawMap( map[] )
+{
+    <cite>//draw it here</cite>
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770989"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770992"><span title="770992,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770992" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmaab82c69e7" title="Sat, 01 Nov 2014 23:33:34 +0000"></span><script type="text/javascript">WhenId('CH_zTmaab82c69e7');</script><noscript>Nov 1, 2014 at 11:33pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770992">
+I don't know what I'm doing wrong here:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> displayMap(<var>int</var> x, <var>int</var> y, <var>char</var> mapArray)
+{
+    <var>for</var>(<var>int</var> i = 0; i &lt; MAP_ROWS; i++)
+    {
+        <var>for</var>(<var>int</var> j = 0; j &lt; MAP_COLS; j++)
+        {
+            <var>if</var>(x == i &amp;&amp; y == j)
+            {
+                cout &lt;&lt; <kbd>'@'</kbd>;
+            }
+            <var>else</var>
+            {
+                cout &lt;&lt; mapArray[i][j];
+            }
+        }
+        cout &lt;&lt; <kbd>"\n"</kbd>;
+    }
+}
+
+<var>int</var> main()
+{
+    <var>int</var> playerX = 0;
+    <var>int</var> playerY = 0;
+    <var>char</var> playerMove = <kbd>' '</kbd>;
+
+    <var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+    {
+        {<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+    };
+
+    cout &lt;&lt; <kbd>"Player Starting Position\n"</kbd>;
+    cout &lt;&lt; <kbd>"X Coordinate (1 - 13): "</kbd>;
+    cin &gt;&gt; playerX;
+    cout &lt;&lt; <kbd>"Y Coordinate (1 - 18): "</kbd>;
+    cin &gt;&gt; playerY;
+
+    displayMap(playerX, playerY, mapArray[MAP_ROWS][MAP_COLS]);
+
+    <cite>/*
+    cout &lt;&lt; "Choose a direction to move (U, D, L, R): ";
+
+    while(1 &gt; 0)
+    {
+        cin &gt;&gt; playerMove;
+
+        switch(playerMove)
+        {
+            case 'U':
+                playerY++;
+                break;
+            case 'D':
+                playerY--;
+                break;
+            case 'L':
+                playerX--;
+                break;
+            case 'R':
+                playerX++;
+                break;
+            default:
+                return 0;
+        }
+    }
+    */</cite>
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770992"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770993"><span title="770993,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770993" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme9f356d28a" title="Sat, 01 Nov 2014 23:37:18 +0000"></span><script type="text/javascript">WhenId('CH_zTme9f356d28a');</script><noscript>Nov 1, 2014 at 11:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770993">
+line 7 should be: <span class="auto"><code class="source"><var>void</var> displayMap(<var>int</var> x, <var>int</var> y, <var>char</var> mapArray[] )</code></span><br>
+<br>
+without the [] it thinks it's just receiving a regular char variable.<br>
+<br>
+line 57 can just be <span class="auto"><code class="source">displayMap( playerX, playerY, mapArray );</code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770993"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg770997"><span title="770997,126163,1023,62,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770997" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb3d5a1f50e" title="Sat, 01 Nov 2014 23:40:06 +0000"></span><script type="text/javascript">WhenId('CH_zTmb3d5a1f50e');</script><noscript>Nov 1, 2014 at 11:40pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sherre02/default.htm"><b>sherre02</b> (62)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770997">
+Well are you familiar with using a "keyListener"?<br>
+<br>
+I think that's something you should familiarize yourself with.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn770997"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771000"><span title="771000,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771000" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm6d200311da" title="Sat, 01 Nov 2014 23:41:46 +0000"></span><script type="text/javascript">WhenId('CH_zTm6d200311da');</script><noscript>Nov 1, 2014 at 11:41pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771000">
+I'm looking for help, not smart comments.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771000"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771006"><span title="771006,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771006" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm68c7316173" title="Sat, 01 Nov 2014 23:49:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm68c7316173');</script><noscript>Nov 1, 2014 at 11:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771006">
+lol... Sherre wasn't being a smart ass. He/She was actually trying to help.  A keyListener is a method for trapping and translating keyboard input.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771006"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771011"><span title="771011,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771011" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm253b8ad727" title="Sat, 01 Nov 2014 23:59:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm253b8ad727');</script><noscript>Nov 1, 2014 at 11:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771011">
+D'oh! My apologies sherre02, my ignorance was showing.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771011"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771012"><span title="771012,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771012" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8257d3d69e" title="Sun, 02 Nov 2014 00:02:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm8257d3d69e');</script><noscript>Nov 2, 2014 at 12:02am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771012">
+So, something is starting to happen now. The problem is getting it to stay on one grid. Any ideas on how I can get it to stay on one grid, rather than repeating the grid over and over?<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#define MAP_ROWS 15</dfn>
+<dfn>#define MAP_COLS 20</dfn>
+
+<var>using</var> <var>namespace</var> std;
+
+<var>void</var> displayMap(<var>int</var> x, <var>int</var> y, <var>char</var> mapArray[MAP_ROWS][MAP_COLS])
+{
+    <var>for</var>(<var>int</var> i = 0; i &lt; MAP_ROWS; i++)
+    {
+        <var>for</var>(<var>int</var> j = 0; j &lt; MAP_COLS; j++)
+        {
+            <var>if</var>(x == i &amp;&amp; y == j)
+            {
+                cout &lt;&lt; <kbd>'@'</kbd>;
+            }
+            <var>else</var>
+            {
+                cout &lt;&lt; mapArray[i][j];
+            }
+        }
+        cout &lt;&lt; <kbd>"\n"</kbd>;
+    }
+}
+
+<var>int</var> main()
+{
+    <var>int</var> playerX = 0;
+    <var>int</var> playerY = 0;
+    <var>char</var> playerMove = <kbd>' '</kbd>;
+
+    <var>char</var> mapArray[MAP_ROWS][MAP_COLS] =
+    {
+        {<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>' '</kbd>,<kbd>'|'</kbd>},
+        {<kbd>'|'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'_'</kbd>,<kbd>'|'</kbd>}
+    };
+
+    cout &lt;&lt; <kbd>"Player Starting Position\n"</kbd>;
+    cout &lt;&lt; <kbd>"X Coordinate (1 - 13): "</kbd>;
+    cin &gt;&gt; playerX;
+    cout &lt;&lt; <kbd>"Y Coordinate (1 - 18): "</kbd>;
+    cin &gt;&gt; playerY;
+
+    displayMap(playerX, playerY, mapArray);
+
+
+    cout &lt;&lt; <kbd>"Choose a direction to move (U, D, L, R): "</kbd>;
+
+    <var>while</var>(1 &gt; 0)
+    {
+        cin &gt;&gt; playerMove;
+
+        <var>switch</var>(playerMove)
+        {
+            <var>case</var> <kbd>'U'</kbd>:
+                playerX--;
+                <var>break</var>;
+            <var>case</var> <kbd>'D'</kbd>:
+                playerX++;
+                <var>break</var>;
+            <var>case</var> <kbd>'L'</kbd>:
+                playerY--;
+                <var>break</var>;
+            <var>case</var> <kbd>'R'</kbd>:
+                playerY++;
+                <var>break</var>;
+            <var>default</var>:
+                <var>return</var> 0;
+        }
+
+    displayMap(playerX, playerY, mapArray);
+
+    }
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm727693423e" title="Sun, 02 Nov 2014 00:26:09 +0000"></span><script type="text/javascript">WhenId('CH_zTm727693423e');</script><noscript>Nov 2, 2014 at 12:26am UTC</noscript></span>
+<span class="dbtn" id="CH_btn771012"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771168"><span title="771168,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771168" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc881b2278c" title="Sun, 02 Nov 2014 09:31:08 +0000"></span><script type="text/javascript">WhenId('CH_zTmc881b2278c');</script><noscript>Nov 2, 2014 at 9:31am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771168">
+Does anyone know how to keep the output on one grid?<br>
+<br>
+Edit:<br>
+Okay, I added this to line 84:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>cout &lt;&lt; string(50, <kbd>'\n'</kbd>);
+displayMap(playerX, playerY, mapArray);</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+This sort of makes it look like it's staying on one grid. It's very flickery though and not really what I am trying to achieve as it's not actually staying on the one grid. Any suggestions?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmda19c33bdb" title="Sun, 02 Nov 2014 12:49:16 +0000"></span><script type="text/javascript">WhenId('CH_zTmda19c33bdb');</script><noscript>Nov 2, 2014 at 12:49pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771168"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771204"><span title="771204,156234,255,18,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771204" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd9e3d83c2c" title="Sun, 02 Nov 2014 13:38:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmd9e3d83c2c');</script><noscript>Nov 2, 2014 at 1:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/funkist/default.htm"><b>Funkist</b> (18)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771204">
+Here's a nice and explicit tutorial:<br>
+<br>
+<a href="../../../../www.youtube.com/watchvkfrjvvgjtnq">http://www.youtube.com/watch?v=kfRjvvgjTNQ</a><br>
+<br>
+It helped me out back when i wanted to do the same thing.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771204"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771243"><span title="771243,131601,1023,331,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771243" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm377e4be65b" title="Sun, 02 Nov 2014 16:10:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm377e4be65b');</script><noscript>Nov 2, 2014 at 4:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/avilius/default.htm"><b>Avilius</b> (331)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771243">
+Is there a reason why you are using the console for an interactive game? I can understand if it's for a homework assignment, but if not then I have to strongly suggest to move onto a graphical library. They certainly aren't harder than writing a console game (by far). They're much easier than they seem.<br>
+<br>
+Start with either SFML 2.1 or SDL 2.0. After that then you can move onto OpenGL or Direct3D. <br>
+<br>
+I personally prefer SDL 2.0. It's written in C and is a bit more low-level than SFML, but with that simplicity you get a very small executable size (making it suitable for Android and iOS apps). It's fairly API agnostic, and you can get an OpenGL or Direct3D context relatively easily.<br>
+<br>
+SFML 2.1 is written in C++ and is a bit more high-level, and it's written in C++ (which sounds like a good thing, but that's not always true). The executable size is bigger, but it trades off with providing a nice interface for the programmer. It isn't very API agnostic though (centered around OpenGL), and afaik it doesn't easily allow creation of modern OpenGL contexts. I haven't seen anyone actually create a Direct3D based application with it and the creator doesn't have any intention of supporting one (<a href="../../../../en.sfml-dev.org/forums/index.phptopic3719.0">http://en.sfml-dev.org/forums/index.php?topic=3719.0</a> ).
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm320357777f" title="Sun, 02 Nov 2014 16:11:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm320357777f');</script><noscript>Nov 2, 2014 at 4:11pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771243"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771292"><span title="771292,144053,1023,60,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771292" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb3d00a6d81" title="Sun, 02 Nov 2014 19:14:44 +0000"></span><script type="text/javascript">WhenId('CH_zTmb3d00a6d81');</script><noscript>Nov 2, 2014 at 7:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bogeyman/default.htm"><b>Bogeyman</b> (60)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771292">
+Thank you for the advice Avilius.<br>
+<br>
+I am using a console application because it is what I am familiar with. I wanted to see if I could make a map with a movable player that can interact with other objects on the map. It shouldn't be necessary to involve a graphics library for something like this, but maybe I'm underestimating the difficulty of implementing my ideas. Anyway, If it is feasible, I would like to stick with using a console application for now.<br>
+<br>
+If it's definitely not, then I will look into graphics libraries. For two dimensional interactivity, which is all I would be interested in, would you recommend SFML 2.1 or SDL 2.0?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771292"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771297"><span title="771297,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771297" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm36be691de0" title="Sun, 02 Nov 2014 19:25:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm36be691de0');</script><noscript>Nov 2, 2014 at 7:25pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771297">
+I think trying to set up and use a graphics library could be a bit overwhelming, and distracting if you're just doing this as a learning exercise.<br>
+<br>
+As to your question, are you trying to figure out how to move your character around the map without redrawing the map each frame and scrolling the last frame off the top of the console?<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771297"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div id="CH_insNew"></div><div id="CH_subscription"></div><div class="rootedtNew"></div><div class="C_pages right">Pages: <span title="Current page">1</span><a href="2/default.htm">2</a></div><script type="text/javascript">new for_PostList(146607,0,144053,0,'CH_PostList','CH_subscription',false,'CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~158.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

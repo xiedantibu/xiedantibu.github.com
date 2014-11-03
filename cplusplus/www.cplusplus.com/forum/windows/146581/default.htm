@@ -1,0 +1,148 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/146581/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Can't change window size in WM_NCCREATE - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">Can't change window size in WM_NCCREATE</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Can't change window size in WM_NCCREATE</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146581,root,0,-1,2,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg770852"><span title="770852,133863,1023,34,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg770852" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmea0436966b" title="Sat, 01 Nov 2014 16:59:45 +0000"></span><script type="text/javascript">WhenId('CH_zTmea0436966b');</script><noscript>Nov 1, 2014 at 4:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tec23/default.htm"><b>tec23</b> (34)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i770852">
+I tried this code in WM_NCCREATE<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>case</var> WM_NCCREATE:
+{
+LPCREATESTRUCT lpCs = (LPCREATESTRUCT)lParam;
+lpCs-&gt;cx = 90;
+...
+}
+<var>return</var> TRUE;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+to change the width of the window, but it doesn't work, the window still gets created with the width that I specified in CreateWindowEx().<br>
+Can you change the window size in WM_NCCREATE by changing the values of the CREATESTRUCT before the window is displayed?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm7d6713eb40" title="Sat, 01 Nov 2014 23:32:45 +0000"></span><script type="text/javascript">WhenId('CH_zTm7d6713eb40');</script><noscript>Nov 1, 2014 at 11:32pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn770852"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771043"><span title="771043,102234,1023,172,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771043" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmfca9bd5a99" title="Sun, 02 Nov 2014 01:24:55 +0000"></span><script type="text/javascript">WhenId('CH_zTmfca9bd5a99');</script><noscript>Nov 2, 2014 at 1:24am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/zoran404/default.htm"><b>zoran404</b> (172)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771043">
+<span class="auto"><code class="source">SetWindowPos(hwnd, HWND_TOP, 0, 0, width, height, SWP_NOMOVE); </code></span>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771043"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146581,0,133863,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fw~16.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

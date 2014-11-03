@@ -1,0 +1,201 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/145553/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BitBlt() Bug with Backbuffer - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">BitBlt() Bug with Backbuffer</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> BitBlt() Bug with Backbuffer</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145553,root,0,-1,4,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg766366"><span title="766366,126678,1023,38,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766366" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb4b242913d" title="Tue, 21 Oct 2014 14:23:11 +0000"></span><script type="text/javascript">WhenId('CH_zTmb4b242913d');</script><noscript>Oct 21, 2014 at 2:23pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sixtsevn/default.htm"><b>SixTsevN</b> (38)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766366">
+Hey there,<br>
+I have a window with a backbuffer and it's doing something strange and I don't understand how.<br>
+<br>
+When I present the backbuffer to the window it has a dark grey border around the edge of the client area, which is being produced by the backbuffer.<br>
+<br>
+I cannot figure out where this border is coming from. It doesn't make sense because my BitBlt() is:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>BitBlt(hWndDC, 0, 0, ClientWidth, ClientHeight,
+       hSrcDC, 0, 0,
+       SRCCOPY); <cite>// just an example </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ (Where the backbuffer is the same demensions as the client area)<br>
+<br>
+The border is equal all the way around the client area, which is the most confusing of all. If I had simply got the width and height of the client area wrong, it wouldn't have an equal edge all the way round...<br>
+<br>
+Here's a image of the window:<br>
+<a href="../../../../i233.photobucket.com/albums/ee74/lightfooted/public/windowerror.jpg">http://i233.photobucket.com/albums/ee74/Lightfooted/Public/windowError.jpg</a><br>
+<br>
+You'll notice the slightly thicker than normal client area border.<br>
+What could cause this?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766366"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766368"><span title="766368,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766368" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4fe2811344" title="Tue, 21 Oct 2014 14:31:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm4fe2811344');</script><noscript>Oct 21, 2014 at 2:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766368">
+You're not drawing to a control or anything that has a border style?<br>
+<br>
+How are you clearing the backbuffer?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766368"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766370"><span title="766370,126678,1023,38,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766370" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf25314c3d7" title="Tue, 21 Oct 2014 14:38:05 +0000"></span><script type="text/javascript">WhenId('CH_zTmf25314c3d7');</script><noscript>Oct 21, 2014 at 2:38pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sixtsevn/default.htm"><b>SixTsevN</b> (38)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766370">
+After fiddling around a bit, I found I had to increase the size of the backbuffer to two pixels larger that the client window in both demensions.<br>
+<br>
+And then: <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>BitBlt(hWndDC, -1, -1, ClientWidth +2, ClientWidth + 2,
+       hSrcDC,  0,  0,
+       SRCCOPY); <cite>// just an example </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+ Strange.<br>
+<br>
+I do seem to remember something about the client area always being +1 in both dimensions, when you retrieve the client area.<br>
+<br>
+Why is that the case?<br>
+                   
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn766370"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg766388"><span title="766388,119232,1023,158,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg766388" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4466af0dcd" title="Tue, 21 Oct 2014 15:16:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm4466af0dcd');</script><noscript>Oct 21, 2014 at 3:16pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/knn9/default.htm"><b>knn9</b> (158)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i766388">
+It's probably just for convenience.<br>
+<br>
+But this is not normal behavior, so I suspect there's something wrong elsewhere in your code.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc37793795e" title="Tue, 21 Oct 2014 15:17:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmc37793795e');</script><noscript>Oct 21, 2014 at 3:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn766388"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145553,0,126678,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~496.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

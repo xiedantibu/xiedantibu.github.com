@@ -1,0 +1,262 @@
+<!DOCTYPE html><!-- saved from url=(0056)http://www.cplusplus.com/forum/lounge/146253/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How does the OS keep control - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Lounge</a></li>
+<li class="here">How does the OS keep control</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> How does the OS keep control</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146253,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769492"><span title="769492,84272,1023,700,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769492" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm06eeac24d0" title="Wed, 29 Oct 2014 08:18:04 +0000"></span><script type="text/javascript">WhenId('CH_zTm06eeac24d0');</script><noscript>Oct 29, 2014 at 8:18am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/satsumabenji/default.htm"><b>SatsumaBenji</b> (700)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769492">
+I only know the basics about the core of program's and operating systems so at the moment I can't really see how this is do-able.<br>
+<br>
+I understand that program's are compiled to binary instructions and when run are loaded into ram, and the clock address starts at the top of the program and follows it down executing each instruction.<br>
+I understand that an operating system is just another program and when other program's are ran on top of this the OS sets the start of the program in a variable or registry somewhere and while the program is running it uses virtual address offset from its start point.<br>
+<br>
+I could understand that on OS could hand full control over to a program and then regain control after by jumping to the program and when the program end it returns to the OS from the address plaed in stack on the jump<br>
+<br>
+But how is an OS capable of loading a program in to be executed while also continuing to be executed itself, and possible other programs/threads too?<br>
+<br>
+<br>
+I've had a good think and a good look and can't come up with much.<br>
+Thanks
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769492"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769498"><span title="769498,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769498" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm17f49dc95b" title="Wed, 29 Oct 2014 08:26:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm17f49dc95b');</script><noscript>Oct 29, 2014 at 8:26am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769498">
+<a href="../../../../en.wikipedia.org/wiki/preemption_%28computing%29#Preemptive_multitasking">http://en.wikipedia.org/wiki/Preemption_(computing)#Preemptive_multitasking</a><br>
+<br>
+It's also instructive to know about processor interrupts.  Without them, your computer would just be a really expensive box that generates warm air.<br>
+<br>
+<a href="../../../../en.wikipedia.org/wiki/interrupt">http://en.wikipedia.org/wiki/Interrupt</a><br>
+<br>
+To really understand how it all works you'd need to know more detail about how microprocessors in general work.  I'll try to give a brief overview. Some of this info may be quite dated and obsolete (I'm an old fart and haven't delved into assembly programming in quite some time), but the basic principals are still valid.<br>
+<br>
+Your microprocessor contains several registers which hold information about it's current operating state.  Among these are pointers to the current instruction of the currently executing program, a pointer to the memory stack of the current program (where variables, function call addresses and suchlike are kept), and other stuff that's relevant only to the currently running program.<br>
+<br>
+Your OS kernel is the primary program running on your computer. It manages running multiple other programs, seemingly simultaneously, by first, storing all the processor state info relevant to it's only operation, then loading in the processor state info for say an application that is running, then the applications instructions run for a while, oblivious to the OS kernel and any other program running.<br>
+<br>
+How control gets switched back to the OS is generally handled through what is called an interrupt.  An interrupt is basically a way for something (usually a hardware trigger for something external to the processor itself) to interrupt the main processor's current program.  When an interrupt occurs, the processor saves its own state off, and jumps to a small program that has been loaded into memory called an interrupt handler.  These interrupt handlers are usually supplied by your OS and loaded into memory when you boot up. <br>
+<br>
+Things that commonly generate processor interrupts are any input device (your keyboard generates one every time you press or release a key) or certain other chips on your motherboard like the UART chip which contains the system clock that ticks off an interrupt every microsecond or so.<br>
+<br>
+One of the interrupt handlers that your OS sets up is tied to the system clock and is designed to interrupt any running program after a short span of time and return control to the main kernel.  The kernel can then let another program run for a bit.<br>
+<br>
+This series of program switching happens very fast.  Because processors are so much faster, it appears to us to be simultaneous, but it's really just an incredibly complex juggling act going on and most people don't have the slightest clue about the amount of pure genius that went in to making their phone work.<br>
+<br>
+Don't know if this made any sense... It's really late for me.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm95c4d24c85" title="Wed, 29 Oct 2014 09:07:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm95c4d24c85');</script><noscript>Oct 29, 2014 at 9:07am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769498"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769718"><span title="769718,84272,1023,700,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769718" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0c15412dee" title="Wed, 29 Oct 2014 18:03:35 +0000"></span><script type="text/javascript">WhenId('CH_zTm0c15412dee');</script><noscript>Oct 29, 2014 at 6:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/satsumabenji/default.htm"><b>SatsumaBenji</b> (700)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769718">
+That made perfect sense, thanks a lot... I will also read up on the links you sent as well as soon as I can.<br>
+<br>
+My best guess (knowing of interrupts existing but not knowing how they're used) was that possibly the OS is capable of scanning the upcoming code of a program and choosing somewhere after let's say the closest to 100 cycles and a safe position, not on a jump or a variable, etc. then copy the upcoming code into a local position to the OS and executing it.<br>
+This is rather ill-thought and inefficient for time, memory and security to me though.<br>
+<br>
+Anyways what you said about on an interrupt the CPU saves it's current state, I would imagine that the OS is able to specify where to save the state on next interrupt (say when you open a new process you don't want this writing over the state of another process on interrupt) and also which state to load from?<br>
+<br>
+EDIT: Also the behaviour of the CPU on interrupt (unless you're going to make me do some searching/reading), I know it may be different for different CPU but generally do CPUs tend to finish a half complete instruction on interrupt? Let's say the processor has read an ADD and receives an interrupt signal when it should be readying the first address. At a guess I'd expect the current operation to finish and be in a "safe" state?
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmcf8a420cc6" title="Wed, 29 Oct 2014 18:10:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmcf8a420cc6');</script><noscript>Oct 29, 2014 at 6:10pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769718"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769749"><span title="769749,17960,1023,799,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769749" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc3b60394c8" title="Wed, 29 Oct 2014 19:01:00 +0000"></span><script type="text/javascript">WhenId('CH_zTmc3b60394c8');</script><noscript>Oct 29, 2014 at 7:01pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tition/default.htm"><b>tition</b> (799)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769749">
+<table class="quote"><tr><td class="qd">I would imagine that the OS is able to specify where to save the state on next interrupt</td></tr></table><br>
+<br>
+I am not an expert but according to: <br>
+<br>
+<a href="../../../../www.cs.toronto.edu/~demke/469f.06/lectures/lecture6.pdf">http://www.cs.toronto.edu/~demke/469F.06/Lectures/Lecture6.pdf</a><br>
+<br>
+"Interrupted process state is saved in process structure". If I understood well, the state is saved<del> within the running process' memory</del>. My guess is that should be done automatically by the hardware: the interrupt handler needs access to the CPU's registers for its own use, so the CPU must free those automatically.<br>
+<br>
+When loaded into memory, every process has a fixed "memory window" in which it can write. I am fairly certain that on modern hardware, this is enforced in hardware. So, <del>if the above slides are correct, CPU state is saved into the memory of the original process, which in turn is constrained to a certain memory window and cannot overwrite other process' states</del>.<br>
+<br>
+Some processes have unlimited access to memory, and those can clearly overwrite the state of other tasks. That is indeed done by the kernel of your system. Such "omnipotent" processes are, I believe, marked with a special flag (kept in a register on most modern hardware, according to <a href="../../../../en.wikipedia.org/wiki/protection_ring">http://en.wikipedia.org/wiki/Protection_ring</a> ). That flag is the "ring" of the process.  "Ring 0" processes are the omnipotent ones that can mess with the memory/state of other processes. <br>
+<br>
+Apologies if any of the above is incorrect, feel free to point out any mistakes you see. 
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm2997606e56" title="Wed, 29 Oct 2014 21:17:18 +0000"></span><script type="text/javascript">WhenId('CH_zTm2997606e56');</script><noscript>Oct 29, 2014 at 9:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769749"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769786"><span title="769786,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769786" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm14c404074a" title="Wed, 29 Oct 2014 20:26:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm14c404074a');</script><noscript>Oct 29, 2014 at 8:26pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769786">
+<table class="quote"><tr><td class="qd">If I understood well, the state is saved within the running process' memory.</td></tr></table>No, context goes in kernel memory.<br>
+<br>
+<table class="quote"><tr><td class="qd">My guess is that should be done automatically by the hardware: the interrupt handler needs access to the CPU's registers for its own use, so the CPU must free those automatically.</td></tr></table>Context switches are performed manually by the interrupt handler. Not sure where the PC goes, though. Maybe that's pushed.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769786"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769817"><span title="769817,153338,1023,272,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769817" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2be33e40bd" title="Wed, 29 Oct 2014 22:22:38 +0000"></span><script type="text/javascript">WhenId('CH_zTm2be33e40bd');</script><noscript>Oct 29, 2014 at 10:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/esslercuffi/default.htm"><b>Esslercuffi</b> (272)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769817">
+Back in the DOS days (when I actually screwed around with this stuff) interrupt handlers were basically responsible for ensuring that they didn't trash anything else and saved/restored whatever state info it felt necessary to execute and return to the running program without stepping on its toes.  For example, if an interrupt handler didn't do anything which affects the CX or DX registers, then it wouldn't bother saving them at all. It would just leave them alone, do it's business, then restore the registers that it did save off and return.  I don't know if modern protected mode systems are still this haphazard.  I doubt it, there could be some serious security problems and exploits if it did.<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm021de6624f" title="Wed, 29 Oct 2014 22:23:57 +0000"></span><script type="text/javascript">WhenId('CH_zTm021de6624f');</script><noscript>Oct 29, 2014 at 10:23pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769817"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146253,0,84272,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li class="selected"><a href="../default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~660.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

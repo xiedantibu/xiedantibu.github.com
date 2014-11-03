@@ -1,0 +1,281 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146238/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Help with loop for Averaging  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Help with loop for Averaging </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div> Help with loop for Averaging </h3><span id="CH_edttl"></span><span class="rootdatPost" title="146238,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg769431"><span title="769431,155867,255,4,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769431" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmda8b88aaa1" title="Wed, 29 Oct 2014 03:53:33 +0000"></span><script type="text/javascript">WhenId('CH_zTmda8b88aaa1');</script><noscript>Oct 29, 2014 at 3:53am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lgeorge/default.htm"><b>lgeorge</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769431">
+I'm having trouble figuring out how to average the numbers 1-N where N is the user's input. All of which to construct the code from what we have learned from chapter 5 and 6.<br>
+The question is: For a number N input by the user, <br>
+ Print the average of all numbers from 1 to N, <br>
+ Print the average of all even numbers from 1 to N, and <br>
+ Print the average of all odd numbers from 1 to N.<br>
+ Print the highest average value<br>
+ Print the least average value<br>
+<br>
+here is what I have so far, anything can help me. Thank you in advance!<br>
+<br>
+#include &lt;iostream&gt;<br>
+#include &lt;iomanip&gt;<br>
+using namespace std;<br>
+<br>
+int even =0;<br>
+int odd =0;<br>
+int number =0;<br>
+<br>
+int main()<br>
+{<br>
+ int i=0; //holds index for the loop<br>
+ int input=0;<br>
+ int eventotal=0;<br>
+ int oddtotal=0;<br>
+<br>
+do<br>
+ {<br>
+  cout&lt;&lt;"Enter a number: "<br>
+  cin&gt;&gt;number;<br>
+ <br>
+ if((number%2 ==0) &amp;&amp; (number&gt;0))<br>
+  (<br>
+   even++;<br>
+   eventotal= eventotal+number;<br>
+  }<br>
+ else if(number&gt;0)<br>
+  {<br>
+   odd++;<br>
+   oddtotal= oddtotal+number;<br>
+  }<br>
+while(number !=0)<br>
+  int oddavg= 0; //stores average of odd numbers<br>
+  if(oddtotal !=0)<br>
+    oddavg= oddtotal/odd;<br>
+<br>
+  int evenavg= 0; //stores average of even numbers<br>
+  if(eventotal !=0)<br>
+    evenavg= evenavg/even;<br>
+<br>
+  cout&lt;&lt;"Average of odd numbers: " &lt;&lt;oddavg&lt;&lt;endl;<br>
+  cout&lt;&lt;"Average of even numbers: "&lt;&lt;evenavg&lt;&lt;endl; <br>
+ }<br>
+<br>
+return 0;<br>
+}<br>
+<br>
+Above is the averages of the odd and even numbers between numbers 1 and whatever number the user decides to enter. <br>
+i honestly do not know why i am stuck on this, but it is really frustrating! once again, if the code is completely wrong, i am a beginner so sorry if there is any confusion. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769431"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769433"><span title="769433,147573,1023,41,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769433" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTma0ca490917" title="Wed, 29 Oct 2014 04:09:58 +0000"></span><script type="text/javascript">WhenId('CH_zTma0ca490917');</script><noscript>Oct 29, 2014 at 4:09am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/oleg9419/default.htm"><b>oleg9419</b> (41)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769433">
+if the user must input only 1 time then think where should that 'cin' be placed,<br>
+in this code, you stop taking input , only when input  =  0
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc44daa59e6" title="Wed, 29 Oct 2014 04:10:49 +0000"></span><script type="text/javascript">WhenId('CH_zTmc44daa59e6');</script><noscript>Oct 29, 2014 at 4:10am UTC</noscript></span>
+<span class="dbtn" id="CH_btn769433"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769461"><span title="769461,155867,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769461" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm353dfbf10c" title="Wed, 29 Oct 2014 06:17:37 +0000"></span><script type="text/javascript">WhenId('CH_zTm353dfbf10c');</script><noscript>Oct 29, 2014 at 6:17am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lgeorge/default.htm"><b>lgeorge</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769461">
+So put it before the "Do" right? And then what do I do in order to calculate the average of all the numbers between 1 and whatever they input? 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769461"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769515"><span title="769515,147573,1023,41,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769515" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmc0a3e2de5e" title="Wed, 29 Oct 2014 09:45:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmc0a3e2de5e');</script><noscript>Oct 29, 2014 at 9:45am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/oleg9419/default.htm"><b>oleg9419</b> (41)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769515">
+1 .yes<br>
+2. start a for(or while) loop from 1 to (user input); and check each value you get while going through this loop. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769515"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769603"><span title="769603,155867,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769603" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd935e2ad3d" title="Wed, 29 Oct 2014 13:52:12 +0000"></span><script type="text/javascript">WhenId('CH_zTmd935e2ad3d');</script><noscript>Oct 29, 2014 at 1:52pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lgeorge/default.htm"><b>lgeorge</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769603">
+Would that be:<br>
+<br>
+If(i !=0; i &lt;= number; i++)<br>
+  {<br>
+   sum= sum+ i;<br>
+   average= sum/i;<br>
+  cout&lt;&lt;"The Average of all numbers between 1 and the number you";<br>
+  cour&lt;&lt;" Entered: "&lt;&lt;average&lt;&lt;endl;<br>
+  }<br>
+<br>
+Or does that not make any sense at all. 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769603"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769606"><span title="769606,155867,255,4,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769606" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmed5bc4aa69" title="Wed, 29 Oct 2014 13:58:48 +0000"></span><script type="text/javascript">WhenId('CH_zTmed5bc4aa69');</script><noscript>Oct 29, 2014 at 1:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/lgeorge/default.htm"><b>lgeorge</b> (4)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769606">
+Well take out the "!" In "i !=0" And just put "i=0;"
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769606"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771274"><span title="771274,156315,255,1,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771274" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdc8b230f8c" title="Sun, 02 Nov 2014 17:53:42 +0000"></span><script type="text/javascript">WhenId('CH_zTmdc8b230f8c');</script><noscript>Nov 2, 2014 at 5:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/tdog1995/default.htm"><b>Tdog1995</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771274">
+How would you find the average of all even and odd numbers?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771274"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146238,0,155867,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fge~3.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

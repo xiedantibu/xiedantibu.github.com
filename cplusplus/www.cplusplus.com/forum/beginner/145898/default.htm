@@ -1,0 +1,239 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/145898/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>System::Object issue - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">System::Object issue</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> System::Object issue</h3><span id="CH_edttl"></span><span class="rootdatPost" title="145898,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg767912"><span title="767912,155505,1023,6,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767912" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme52f406ab3" title="Sat, 25 Oct 2014 13:59:34 +0000"></span><script type="text/javascript">WhenId('CH_zTme52f406ab3');</script><noscript>Oct 25, 2014 at 1:59pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/amontes65/default.htm"><b>amontes65</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767912">
+Hi,<br>
+I did a reference to a DLL and I am trying to use a method that requires a System::Object^ as a parameter.<br>
+<br>
+When I create the variable and call the method, I get an error saying that is expecting a IStream Object.<br>
+<br>
+When I create the IStream variable and add it to the method the intellisense tells me that is no conversion from std::istringstream to system::object^<br>
+<br>
+The help on the DLL says this:<br>
+<b>Currently, this must pass an object that supports IStream<br>
+</b><br>
+Can anybody explain how to do this?<br>
+<br>
+Thank you,<br>
+Antonio<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767912"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg767927"><span title="767927,147028,1023,134,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg767927" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm24878aa39a" title="Sat, 25 Oct 2014 15:10:06 +0000"></span><script type="text/javascript">WhenId('CH_zTm24878aa39a');</script><noscript>Oct 25, 2014 at 3:10pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andy1992/default.htm"><b>andy1992</b> (134)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i767927">
+Hi if you dont mind <span class="auto"><code class="source">I did a reference to a DLL </code></span> I will appreciate if you help me understand<br>
+How to go about dlls I am interested but know nothing about them .    Thanks
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn767927"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769072"><span title="769072,155505,1023,6,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769072" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm710f2ebf5f" title="Tue, 28 Oct 2014 11:26:51 +0000"></span><script type="text/javascript">WhenId('CH_zTm710f2ebf5f');</script><noscript>Oct 28, 2014 at 11:26am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/amontes65/default.htm"><b>amontes65</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769072">
+Hi<br>
+I added a referente to the project in visual studio, you right click browse to the DLL and just add it.  Then just add it to the class with the "using"<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769072"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769112"><span title="769112,147028,1023,134,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769112" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm4ebc5e0759" title="Tue, 28 Oct 2014 13:03:01 +0000"></span><script type="text/javascript">WhenId('CH_zTm4ebc5e0759');</script><noscript>Oct 28, 2014 at 1:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andy1992/default.htm"><b>andy1992</b> (134)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769112">
+@amnotes65 for the direction but eeeh,  do you hard code the dlls yourself. ... ? just curious  thanks
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme80d206b97" title="Tue, 28 Oct 2014 13:04:07 +0000"></span><script type="text/javascript">WhenId('CH_zTme80d206b97');</script><noscript>Oct 28, 2014 at 1:04pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769112"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769117"><span title="769117,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769117" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7f4b2a8d62" title="Tue, 28 Oct 2014 13:19:44 +0000"></span><script type="text/javascript">WhenId('CH_zTm7f4b2a8d62');</script><noscript>Oct 28, 2014 at 1:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769117">
+andy1992: Please don't hijack threads to ask your own questions.<br>
+<br>
+amontes65: You're programming in C++/CLI, not C++. You can ask this question in the Windows board.<br>
+<a href="../../windows/default.htm">http://www.cplusplus.com/forum/windows/</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769117"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769129"><span title="769129,155505,1023,6,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769129" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm36138715f3" title="Tue, 28 Oct 2014 13:45:43 +0000"></span><script type="text/javascript">WhenId('CH_zTm36138715f3');</script><noscript>Oct 28, 2014 at 1:45pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/amontes65/default.htm"><b>amontes65</b> (6)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769129">
+@helios...<br>
+Upss.. thank you...<br>
+<br>
+I am new to C++, I been developing on VB for 20 years and now I am jumping the pond... I did some Turbo C in the 90's but now is totally different...<br>
+<br>
+I will move to that forum.<br>
+Thanks,<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769129"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769133"><span title="769133,147028,1023,134,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769133" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmd1556350d1" title="Tue, 28 Oct 2014 13:51:18 +0000"></span><script type="text/javascript">WhenId('CH_zTmd1556350d1');</script><noscript>Oct 28, 2014 at 1:51pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/andy1992/default.htm"><b>andy1992</b> (134)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769133">
+Ooh sorry for that 
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769133"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(145898,0,155505,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~271.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

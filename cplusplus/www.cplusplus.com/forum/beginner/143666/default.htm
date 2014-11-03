@@ -1,0 +1,239 @@
+<!DOCTYPE html><!-- saved from url=(0058)http://www.cplusplus.com/forum/beginner/143666/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>My first RegExp - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Beginners</a></li>
+<li class="here">My first RegExp</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> My first RegExp</h3><span id="CH_edttl"></span><span class="rootdatPost" title="143666,root,0,-1,6,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg757899"><span title="757899,80187,1023,105,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757899" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf1cc17e4f8" title="Tue, 30 Sep 2014 17:22:38 +0000"></span><script type="text/javascript">WhenId('CH_zTmf1cc17e4f8');</script><noscript>Sep 30, 2014 at 5:22pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/observer/default.htm"><b>Observer</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757899">
+Hello!<br>
+<br>
+Why doesn't my program search "Ben"?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;regex&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+
+<var>int</var> main()
+{
+    std::string s = <kbd>"Hello, my name is Ben. Please visit"</kbd>
+                    <kbd>"my website at <a href="../../../../forta.com/default.htm"">http://forta.com/."</a></kbd>;
+
+    std::regex e( <kbd>"Ben"</kbd>, std::regex_constants::basic );
+    std::smatch m;
+
+    <var>while</var>( std::regex_search( s, m, e ) ) {
+        std::cout &lt;&lt; <kbd>"Hello"</kbd> &lt;&lt; std::endl;
+        std::cout &lt;&lt; m[1] &lt;&lt; std::endl;
+    }
+
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757899"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757909"><span title="757909,78419,1023,5718,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757909" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm651546b473" title="Tue, 30 Sep 2014 18:11:21 +0000"></span><script type="text/javascript">WhenId('CH_zTm651546b473');</script><noscript>Sep 30, 2014 at 6:11pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/cire/default.htm"><b>cire</b> (5718)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757909">
+Why do you believe your program doesn't work and what do you expect <tt>m[1]</tt> to contain?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757909"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757911"><span title="757911,80187,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757911" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm400a0df144" title="Tue, 30 Sep 2014 18:19:02 +0000"></span><script type="text/javascript">WhenId('CH_zTm400a0df144');</script><noscript>Sep 30, 2014 at 6:19pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/observer/default.htm"><b>Observer</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757911">
+I don't see "Hello" string. But I found why: <a href="../134744/default.htm">http://www.cplusplus.com/forum/beginner/134744/</a><br>
+<br>
+I cannot use std::regex because I have MinGW 4.8 with Qt. I will you VS C++ for studying std::regex and QRegExp in Qt. I will wait when I will be able to use std::regex in Qt too.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757911"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757913"><span title="757913,75536,1023,5443,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757913" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmb93b905174" title="Tue, 30 Sep 2014 18:24:17 +0000"></span><script type="text/javascript">WhenId('CH_zTmb93b905174');</script><noscript>Sep 30, 2014 at 6:24pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jlborges/default.htm"><b>JLBorges</b> (5443)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757913">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;regex&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+
+<var>int</var> main()
+{
+    <var>const</var> std::string s = <kbd>"Hello, my name is Ben. Please visit "</kbd>
+                          <kbd>"my website at <a href="../../../../forta.com/default.htm"">http://forta.com/."</a></kbd>;
+
+    <var>const</var> std::regex e( <kbd>"Ben"</kbd>, std::regex_constants::basic );
+    std::smatch m;
+
+    <cite>/*while*/</cite><var>if</var>( std::regex_search( s, m, e ) )  
+                 std::cout &lt;&lt; <kbd>"Hello "</kbd> &lt;&lt; m[ <cite>/*1*/</cite> 0 ] &lt;&lt; <kbd>'\n'</kbd> ;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<a href="../../../../coliru.stacked-crooked.com/a/936a7f96da2c81d1">http://coliru.stacked-crooked.com/a/936a7f96da2c81d1</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757913"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg757914"><span title="757914,80187,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg757914" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3347503515" title="Tue, 30 Sep 2014 18:31:56 +0000"></span><script type="text/javascript">WhenId('CH_zTm3347503515');</script><noscript>Sep 30, 2014 at 6:31pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/observer/default.htm"><b>Observer</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i757914">
+Thank you! But this code doesn't work in Qt: <a href="../../../../i7.pixs.ru/storage/7/0/5/377png_8934928_14058705.png">http://i7.pixs.ru/storage/7/0/5/377png_8934928_14058705.png</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn757914"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg758131"><span title="758131,80187,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg758131" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm75db0062f5" title="Wed, 01 Oct 2014 04:57:20 +0000"></span><script type="text/javascript">WhenId('CH_zTm75db0062f5');</script><noscript>Oct 1, 2014 at 4:57am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/observer/default.htm"><b>Observer</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i758131">
+JLBorges, it works fine in VSC++2010! Thank you for showing mistakes and for using const and m[0]!
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn758131"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(143666,1,80187,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li class="selected"><a href="../default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~228.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

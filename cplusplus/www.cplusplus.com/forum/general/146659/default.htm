@@ -1,0 +1,212 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146659/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Get value from String containing Variabl - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Get value from String containing Variabl</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico solved" title="solved">&nbsp;</div> Get value from String containing Variable Name?</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146659,root,0,-1,5,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771170"><span title="771170,79266,1023,133,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771170" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7a27e3b081" title="Sun, 02 Nov 2014 09:51:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm7a27e3b081');</script><noscript>Nov 2, 2014 at 9:51am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dominover/default.htm"><b>dominover</b> (133)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771170">
+As written in the title, I want to be able to extract a variable value from a string containing the variable's name.  I know one can use associative containers such as maps but is there another more direct way?<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code>eg:
+
+<var>int</var> variable = 5;
+
+string str = <kbd>"variable"</kbd>;
+<cite>// how do I get the value of 5 out of the string containing the variable name? </cite></code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+<br>
+If I am correct, this is called 'Reflection', correct me if I'm wrong.<br>
+<br>
+I know C++ has no inbuilt 'Reflection' class or anything like that so I was wondering if there is a workaround for this kind of thing or is there a library out there which can do this?  (that's if I have the name right).<br>
+<br>
+I have found a library called Boost Reflection which sounds like it could do this but I just wanted to make sure that reflection is actually what I am talking about and whether C++ can do what I'm trying to do?  I'm not sure how.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771170"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771173"><span title="771173,99948,1023,5455,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771173" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmecbe3bc24a" title="Sun, 02 Nov 2014 10:14:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmecbe3bc24a');</script><noscript>Nov 2, 2014 at 10:14am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/miinipaa/default.htm"><b>MiiNiPaa</b> (5455)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771173">
+<table class="quote"><tr><td class="qd">is there another more direct way?</td></tr></table><br>
+<br>
+No. Because there is no entity named <i>variable</i> in resulting code. Variable names is just aliases to make it easy to work with them. Even if reflection would be part of language (there are proposals), (1) it would work on types and its members and not on variable names and (2) it would not work on builtin types anyway.<br>
+<br>
+Every language allowing lookup of the variable by its name is managing map of names/memory locations of variables internally. You just not see it.<br>
+<br>
+Using custom classes you can achieve something like:<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>managed_var&lt;<var>int</var>&gt;(<kbd>"variable"</kbd>);
+lookup&lt;<var>int</var>&gt; str = <kbd>"variable"</kbd>;
+*str = 5;
+std::cout &lt;&lt; *str;</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771173"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771175"><span title="771175,79266,1023,133,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771175" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme3f4bb20c7" title="Sun, 02 Nov 2014 10:38:04 +0000"></span><script type="text/javascript">WhenId('CH_zTme3f4bb20c7');</script><noscript>Nov 2, 2014 at 10:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dominover/default.htm"><b>dominover</b> (133)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771175">
+Yep,, Associative container, as I thought.  <br>
+Was hoping there was another way though the map is fine. <br>
+<br>
+Thanks
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771175"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771182"><span title="771182,125848,1023,35,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771182" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdf72d06715" title="Sun, 02 Nov 2014 11:22:07 +0000"></span><script type="text/javascript">WhenId('CH_zTmdf72d06715');</script><noscript>Nov 2, 2014 at 11:22am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/pured/default.htm"><b>Pured</b> (35)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771182">
+<a href="../../../../stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c">http://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c</a><br>
+That's another way you could do it, and the way I do it.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771182"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771197"><span title="771197,79266,1023,133,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771197" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTme03dfca736" title="Sun, 02 Nov 2014 13:12:09 +0000"></span><script type="text/javascript">WhenId('CH_zTme03dfca736');</script><noscript>Nov 2, 2014 at 1:12pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dominover/default.htm"><b>dominover</b> (133)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771197">
+You've misinterpreted the question.  Back the front :)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771197"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146659,0,79266,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~397.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

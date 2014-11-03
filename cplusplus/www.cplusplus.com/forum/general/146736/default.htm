@@ -1,0 +1,187 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146736/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Why is my string outputting twice?  - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">Why is my string outputting twice? </li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> Why is my string outputting twice? </h3><span id="CH_edttl"></span><span class="rootdatPost" title="146736,root,0,-1,1,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771430"><span title="771430,156350,255,1,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771430" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7982233677" title="Mon, 03 Nov 2014 03:56:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm7982233677');</script><noscript>Nov 3, 2014 at 3:56am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/sirlukepotter/default.htm"><b>sirlukepotter</b> (1)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771430">
+Hey guys! <br>
+<br>
+I'm working an an assignment for C++, and I've almost got it figured out--except for one little glitch. When I run the program, the prompt I am giving the user before I collect their data, shows up twice in row. Here's the part of the code I'm referring to:<br>
+<br>
+<br>
+#include &lt;iostream&gt;<br>
+#include &lt;string&gt;<br>
+#include &lt;algorithm&gt;<br>
+<br>
+using namespace std;<br>
+<br>
+ // method prototypes<br>
+void characterInstructions();<br>
+void phraseInstructions(); //<br>
+char getCharacter();<br>
+ string getString(); //<br>
+string maskLetter(char keyCharacter, string theString); //<br>
+string removeCharacter(char keyCharacter, string theString); //<br>
+int countKey(char keyCharacter, string theString);//<br>
+string newStr1;<br>
+string newStr2;<br>
+<br>
+//intialize main sequence<br>
+int main()<br>
+{<br>
+   characterInstructions();<br>
+   char keyCharacter = getCharacter();<br>
+   cout &lt;&lt; keyCharacter;<br>
+   phraseInstructions();<br>
+   string theString = getString();<br>
+   cout &lt;&lt; theString &lt;&lt;endl;<br>
+   string maskStr = maskLetter(keyCharacter, theString);<br>
+   cout &lt;&lt; "mask string is:"&lt;&lt;maskStr&lt;&lt;endl;<br>
+   string removeStr = removeCharacter(keyCharacter, theString);<br>
+   cout &lt;&lt; "remove string is:"&lt;&lt;removeStr &lt;&lt;endl;<br>
+}<br>
+<br>
+<br>
+<br>
+//... blah blah blah, this is a bunch of other code that works fine... <br>
+<br>
+<br>
+<br>
+<br>
+//states phrase instructions for character<br>
+void phraseInstructions()<br>
+{<br>
+   string instructions;<br>
+   instructions =<br>
+   "\nPlease enter a phrase or sentence &gt;= 4 characters: \n";<br>
+   cout &lt;&lt; instructions;<br>
+}<br>
+<br>
+//get theString from user<br>
+string getString()<br>
+{<br>
+   string theString;<br>
+   //while the phrase is less than or equal to four characters in length, keep user in the loop<br>
+   cin &gt;&gt; theString;<br>
+   while (theString.length() &lt;=4)<br>
+   {<br>
+      phraseInstructions();<br>
+      cin &gt;&gt; theString;<br>
+   }<br>
+   return theString;<br>
+}<br>
+  
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn771430"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146736,0,156350,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fge~2.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

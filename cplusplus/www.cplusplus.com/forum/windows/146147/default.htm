@@ -1,0 +1,457 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/windows/146147/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>I have a problem in polymorphism with li - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">Windows Programming</a></li>
+<li class="here">I have a problem in polymorphism with li</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> I have a problem in polymorphism with list STL</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146147,root,0,-1,7,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg768975"><span title="768975,155762,255,3,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg768975" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3688ff0cbb" title="Tue, 28 Oct 2014 05:29:13 +0000"></span><script type="text/javascript">WhenId('CH_zTm3688ff0cbb');</script><noscript>Oct 28, 2014 at 5:29am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rishardcarranza/default.htm"><b>rishardcarranza</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i768975">
+Please help me with a problem to solutions the polymorphism in this case...<br>
+<br>
+I have iterator of class Cliente and the class ClienteJuridico and ClienteNatural inherit of super class Cliente the method MostrarTipo().<br>
+<br>
+Class Cliente<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>virtual</var> <var>void</var> MostrarTipo(){
+  cout &lt;&lt; <kbd>"Tipo no definido"</kbd>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Class ClienteJuridico <br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> MostrarTipo(){
+  cout &lt;&lt; <kbd>"Persona Natural"</kbd>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+Class ClienteNatural<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>void</var> MostrarTipo(){
+  cout &lt;&lt; <kbd>"Persona Juridica"</kbd>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+... however, in the main function I implement class list and use the follow iterator<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br></code></pre></td>
+<td class="source"><pre><code> <var>if</var>(!lstClientes.empty()){
+     list&lt;Cliente&gt;::iterator ptroCliente;
+     ptroCliente = lstClientes.begin();
+     system(<kbd>"cls"</kbd>); <cite>// EN WINDOWS</cite>
+     cout &lt;&lt; <kbd>"------------------------------------------------------------------------------\n"</kbd>;
+     cout &lt;&lt; <kbd>"ID\t"</kbd>;cout &lt;&lt; <kbd>"NOMBRE\t\t"</kbd>;cout &lt;&lt; <kbd>"TIPO CLIENTE\n"</kbd>;
+     cout &lt;&lt; <kbd>"------------------------------------------------------------------------------\n"</kbd>;
+     <var>while</var>(ptroCliente != lstClientes.end()){
+             cout &lt;&lt; ptroCliente-&gt;geIdCliente();cout&lt;&lt; <kbd>"\t"</kbd>;
+             ptroCliente-&gt;MostrarNombre();cout&lt;&lt; <kbd>" "</kbd>;ptroCliente-&gt;MostrarApellido();
+             cout&lt;&lt; <kbd>"\t"</kbd>;
+             ptroCliente-&gt;MostrarTipoCliente();
+             cout &lt;&lt; endl;
+             ptroCliente++;
+      }
+}<var>else</var>{
+      cout &lt;&lt; endl &lt;&lt; <kbd>"No hay Clientes!"</kbd> &lt;&lt; endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+But de result is "Tipo no definido..."<br>
+<br>
+Please help me ! ...<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm723a5d4472" title="Tue, 28 Oct 2014 20:17:14 +0000"></span><script type="text/javascript">WhenId('CH_zTm723a5d4472');</script><noscript>Oct 28, 2014 at 8:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn768975"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769127"><span title="769127,127684,1023,25,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769127" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdca09956b7" title="Tue, 28 Oct 2014 13:43:58 +0000"></span><script type="text/javascript">WhenId('CH_zTmdca09956b7');</script><noscript>Oct 28, 2014 at 1:43pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/fcantoro/default.htm"><b>fcantoro</b> (25)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769127">
+As far as I know, in your case lstClientes must contain pointers, because std::list stores a copy of the object.<br>
+In your case, lstClientes contains objects of type Cliente, even if you push_back ClienteJuridico or ClienteNatural.<br>
+Changing lstClientes to list&lt;Cliente*&gt; will solve your problem.<br>
+Obviously, be careful of memory leaks.<br>
+Maybe you would use manager pointers: see <a href="../../../reference/memory/default.htm">http://www.cplusplus.com/reference/memory/</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769127"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769130"><span title="769130,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769130" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf0b3386ef4" title="Tue, 28 Oct 2014 13:46:18 +0000"></span><script type="text/javascript">WhenId('CH_zTmf0b3386ef4');</script><noscript>Oct 28, 2014 at 1:46pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769130">
+You can also try to make it a virtual member.<br>
+Remember to make the destructor virtual, too, if you choose this path.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769130"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769235"><span title="769235,155762,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769235" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm59256c04bd" title="Tue, 28 Oct 2014 20:14:42 +0000"></span><script type="text/javascript">WhenId('CH_zTm59256c04bd');</script><noscript>Oct 28, 2014 at 8:14pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rishardcarranza/default.htm"><b>rishardcarranza</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769235">
+Yes EssGeEich, i already tried to make the virtual method of super class Clientes.<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>virtual</var> <var>void</var> MostrarTipo(){
+  cout &lt;&lt; <kbd>"Tipo no definido"</kbd>;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+But the problem is how to say fcantoro, lstCliente store a copy of the object. Then i probed the following code...<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code>    Cliente *cte2,*cte3;
+    cte2 = <var>new</var> ClientePersonaJuridica(1,<kbd>"Asociados"</kbd>,<kbd>""</kbd>,<kbd>"123456789"</kbd>);
+    Fecha fn(8,2,1988);
+    cte3 = <var>new</var> ClientePersonaNatural(1,<kbd>"Ricardo"</kbd>,<kbd>"Carranza"</kbd>,<kbd>"123456"</kbd>,fn);
+    cte2-&gt;MostrarTipoCliente();
+    cout &lt;&lt; endl;
+    cte3-&gt;MostrarTipoCliente();</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And the answer is correct...<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>Persona Juridica
+Persona Natural</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+But when i using a iterator of class list lstClientes, the answer is ...<br>
+<br>
+<span class="auto"><code class="source">Tipo no definido</code></span><br>
+<br>
+:-/
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmc604cf567f" title="Tue, 28 Oct 2014 20:17:00 +0000"></span><script type="text/javascript">WhenId('CH_zTmc604cf567f');</script><noscript>Oct 28, 2014 at 8:17pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769235"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769258"><span title="769258,108990,1023,591,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769258" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmbb59f4d53f" title="Tue, 28 Oct 2014 21:44:22 +0000"></span><script type="text/javascript">WhenId('CH_zTmbb59f4d53f');</script><noscript>Oct 28, 2014 at 9:44pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/booradley60/default.htm"><b>booradley60</b> (591)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769258">
+Here's an example to serve the point <b>fcantoro</b> made:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br></code></pre></td>
+<td class="source"><pre><code><dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;list&gt;</dfn>
+
+<var>class</var> Cliente
+{
+<var>public</var>:
+    <var>virtual</var> <var>void</var> MostrarTipo()
+    {
+        std::cout &lt;&lt; <kbd>"Tipo no definido"</kbd>;
+    }
+};
+
+<var>class</var> ClienteJuridico : <var>public</var> Cliente
+{
+<var>public</var>:
+    <var>virtual</var> <var>void</var> MostrarTipo()
+    {
+        std::cout &lt;&lt; <kbd>"Persona Juridica"</kbd>;
+    }
+};
+
+<var>class</var> ClienteNatural : <var>public</var> Cliente
+{
+<var>public</var>:
+    <var>virtual</var> <var>void</var> MostrarTipo()
+    {
+        std::cout &lt;&lt; <kbd>"Persona Natural"</kbd>;
+    }
+};
+
+<var>int</var> main(<var>int</var> argc, <var>char</var>* argv[])
+{
+    std::list&lt;Cliente&gt; cList;
+    cList.emplace_back(ClienteJuridico());
+    cList.emplace_back(ClienteNatural());
+
+    std::cout &lt;&lt; <kbd>"Using list of objects\n"</kbd>;
+    <var>for</var>(std::list&lt;Cliente&gt;::iterator it = cList.begin();
+                                     it != cList.end();
+                                     ++it)
+    {
+        (*it).MostrarTipo();
+        std::cout &lt;&lt; std::endl;
+    }
+
+
+    std::list&lt;Cliente*&gt; cPtrList;
+    cPtrList.emplace_back(<var>new</var> ClienteJuridico());
+    cPtrList.emplace_back(<var>new</var> ClienteNatural());
+    std::cout &lt;&lt; <kbd>"\nUsing list of pointers to objects\n"</kbd>;
+    <var>for</var>(std::list&lt;Cliente*&gt;::iterator it = cPtrList.begin();
+                                     it != cPtrList.end();
+                                     ++it)
+    {
+        (*it)-&gt;MostrarTipo();
+        std::cout &lt;&lt; std::endl;
+    }
+    <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769258"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769259"><span title="769259,63891,1023,2305,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769259" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7a94cd0a5d" title="Tue, 28 Oct 2014 21:48:36 +0000"></span><script type="text/javascript">WhenId('CH_zTm7a94cd0a5d');</script><noscript>Oct 28, 2014 at 9:48pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/essgeeich/default.htm"><b>EssGeEich</b> (2305)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769259">
+You must make the base's class a virtual method.<br>
+About copying, you should store pointers instead of objects (if you are allowed to).<br>
+This is kind of what you should have:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br></code></pre></td>
+<td class="source"><pre><code><var>class</var> BaseClient {
+<var>public</var>:
+    <var>virtual</var> <var>void</var> Display() =0;
+    <var>virtual</var> ~BaseClient() {} <cite>// Important!</cite>
+    <cite>// If you split header/source, put the (empty) body in the source file.</cite>
+};
+
+<var>class</var> JurClient : <var>public</var> BaseClient {
+<var>public</var>:
+    <var>virtual</var> <var>void</var> Display() { std::cout &lt;&lt; <kbd>"Jur. Client"</kbd>; }
+};
+
+<var>class</var> NatClient : <var>public</var> BaseClient {
+<var>public</var>:
+    <var>virtual</var> <var>void</var> Display() { std::cout &lt;&lt; <kbd>"Nat. Client"</kbd>; }
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And the rest of the code should be like this:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code>std::list&lt;std::unique_ptr&lt;BaseClient&gt;&gt; clients;
+clients.push_back(std::unique_ptr&lt;BaseClient&gt;(<var>new</var> JurClient()));
+clients.push_back(std::unique_ptr&lt;BaseClient&gt;(<var>new</var> NatClient()));
+
+<var>unsigned</var> <var>int</var> ClientID = 0;
+<var>for</var>(<var>auto</var> <var>const</var>&amp; it : clients)
+{
+    std::cout &lt;&lt; <kbd>"Client nr. "</kbd> &lt;&lt; ++ClientID &lt;&lt; <kbd>" is a "</kbd>;
+    it-&gt;Display();
+    std::cout &lt;&lt; std::endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+Some of the code uses C++11 features (such as std::unique_ptr and range-for.<br>
+<br>
+If you really want to follow a different approach, store all the infos in a single class as follows:<br>
+<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br></code></pre></td>
+<td class="source"><pre><code><var>enum</var> ClientType {
+    CT_NATURAL = 0, <cite>// = 0 is important</cite>
+    CT_JURIDICA,
+
+    CT_AMOUNT <cite>// must be the last one, tells us how many types are there</cite>
+};
+<var>class</var> Client {
+    ClientType m_ClientType;
+<var>public</var>:
+    Client(ClientType t = CT_NATURAL) <cite>// If no ClientType is provided, use CT_NATURAL.</cite>
+        : m_ClientType(t) {}
+    <var>void</var> Display() <var>const</var> { <cite>// Note: Marked as const, since it doesn't modify Client itself.</cite>
+        <cite>// static: initialized once</cite>
+        <cite>// const: does not change</cite>
+        <var>static</var> <var>const</var> std::string TypeToName[CT_AMOUNT] = {
+            <kbd>"Persona Natural"</kbd>,
+            <kbd>"Persona Juridica"</kbd>
+        };
+        <var>if</var>(m_ClientType &lt; 0 || m_ClientType &gt;= CT_AMOUNT)
+            std::cout &lt;&lt; <kbd>"Tipo no definido"</kbd>;
+        <var>else</var>
+            std::cout &lt;&lt; TypeToName[m_ClientType];
+    }
+};</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+<br>
+And use as follows:<br>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code>std::list&lt;Client&gt; clients;
+clients.push_back(Client(CT_NATURAL));
+clients.push_back(Client(CT_JURIDICA));
+clients.push_back(Client(ClientType(42))); <cite>// client type of id 42? it does not exist, and will print Tipo no definido.</cite>
+
+<var>unsigned</var> <var>int</var> ClientID = 0;
+<var>for</var>(<var>auto</var> <var>const</var>&amp; it : clients)
+{
+    std::cout &lt;&lt; <kbd>"Client nr. "</kbd> &lt;&lt; ++ClientID &lt;&lt; <kbd>" is a "</kbd>;
+    it.Display();
+    std::cout &lt;&lt; std::endl;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn769259"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg769279"><span title="769279,155762,255,3,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg769279" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf5ccd11837" title="Tue, 28 Oct 2014 22:06:52 +0000"></span><script type="text/javascript">WhenId('CH_zTmf5ccd11837');</script><noscript>Oct 28, 2014 at 10:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/rishardcarranza/default.htm"><b>rishardcarranza</b> (3)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i769279">
+Heeeeey !!! yes ! this is a solution, thaks <b>booradley60</b> and <b>fcantoro</b> ! and parnerts ! Here's an image with the result:<br>
+<br>
+<a href="../../../../httpswww.dropbox.com/s/rfln4q9w3p547du/cplusplus_cliente.pngdl0">https://www.dropbox.com/s/rfln4q9w3p547du/cplusplus_cliente.png?dl=0</a><br>
+<br>
+Thanks for your time ! :-)
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTma78eb1d95f" title="Tue, 28 Oct 2014 22:09:54 +0000"></span><script type="text/javascript">WhenId('CH_zTma78eb1d95f');</script><noscript>Oct 28, 2014 at 10:09pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn769279"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146147,0,155762,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li class="selected"><a href="../default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li><a href="../../general/default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus.com_252fforum_252fwi~4.htm">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

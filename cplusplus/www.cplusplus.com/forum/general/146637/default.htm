@@ -1,0 +1,523 @@
+<!DOCTYPE html><!-- saved from url=(0057)http://www.cplusplus.com/forum/general/146637/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WHILE Loop Error / instreaming data file - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">WHILE Loop Error / instreaming data file</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico default" title="post">&nbsp;</div> WHILE Loop Error / instreaming data file (w/functions)</h3><span id="CH_edttl"></span><span class="rootdatPost" title="146637,root,0,-1,3,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg771078"><span title="771078,154069,1023,11,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771078" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm713d1c0688" title="Sun, 02 Nov 2014 03:33:07 +0000"></span><script type="text/javascript">WhenId('CH_zTm713d1c0688');</script><noscript>Nov 2, 2014 at 3:33am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771078">
+I have a working lab project with a loop error. Code posted in second post. Here's the requirements:<br>
+<br>
+*<br>
+- program has to be able to handle file failure<br>
+- must loop (prefer to use a while loop here), read in the data, calculates values, etc. and then output the results.<br>
+<br>
+* <br>
+The input data file includes<br>
+<br>
+1. a 1 or a 0 indicating that there is a set of employee data following<br>
+<br>
+2. the hourly rate of the employee<br>
+<br>
+3. the humber of hours worked<br>
+<br>
+4. the number of dependents<br>
+<br>
+5. a 1 or a 0 indicating whether the employee is full time (1=full time).<br>
+<br>
+Problem: At first I wouldn't loop back... so I moved the curly brace above the return0; <br>
+<br>
+Now, however, it just runs forever.<br>
+<br>
+Can anyone provide any feedback?  <br>
+<br>
+<br>
+Thanks.
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm69cb64e316" title="Sun, 02 Nov 2014 21:00:27 +0000"></span><script type="text/javascript">WhenId('CH_zTm69cb64e316');</script><noscript>Nov 2, 2014 at 9:00pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771078"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771081"><span title="771081,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771081" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0313523222" title="Sun, 02 Nov 2014 03:38:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm0313523222');</script><noscript>Nov 2, 2014 at 3:38am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771081">
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br>100<br>101<br>102<br>103<br>104<br>105<br>106<br>107<br>108<br>109<br>110<br>111<br>112<br>113<br>114<br>115<br>116<br>117<br>118<br>119<br>120<br>121<br>122<br>123<br>124<br>125<br>126<br>127<br>128<br>129<br>130<br>131<br>132<br>133<br>134<br>135<br>136<br>137<br>138<br>139<br>140<br>141<br>142<br>143<br>144<br>145<br>146<br>147<br>148<br>149<br>150<br>151<br>152<br>153<br>154<br>155<br>156<br>157<br>158<br>159<br>160<br>161<br>162<br>163<br>164<br>165<br>166<br>167<br>168<br>169<br>170<br>171<br>172<br>173<br>174<br>175<br>176<br>177<br>178<br>179<br>180<br>181<br>182<br>183<br>184<br>185<br>186<br>187<br>188<br>189<br>190<br>191<br>192<br>193<br>194<br>195<br>196<br>197<br>198<br>199<br>200<br>201<br>202<br>203<br>204<br>205<br>206<br>207<br>208<br>209<br>210<br>211<br>212<br>213<br>214<br>215<br>216<br>217<br>218<br>219<br>220<br>221<br>222<br>223<br>224<br>225<br>226<br>227<br>228<br>229<br>230<br>231<br>232<br>233<br>234<br>235<br>236<br>237<br>238<br>239<br>240<br>241<br>242<br>243<br>244<br>245<br></code></pre></td>
+<td class="source"><pre><code>
+<dfn>#include &lt;fstream&gt;</dfn>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;iomanip&gt;</dfn>
+<dfn>#include &lt;cstdlib&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+ifstream in_stream;
+ofstream out_stream;
+
+
+<cite>// void open files</cite>
+<var>void</var> open_files ();
+
+<cite>// void function declaration to calculate Overtime Pay</cite>
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours,
+                                   <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay);
+
+<cite>// function declaration for IRA deposits</cite>
+<var>double</var> IRA_function(<var>double</var> grossPay);
+
+<cite>//function declaration for tax withholdings based on # of dependents</cite>
+<var>double</var> withold_function(<var>int</var> &amp;dependents, <var>double</var> modifiedGrossPay);
+
+<cite>// function declaration to calculate medical benefit cost</cite>
+<var>double</var> medical_cost_function(<var>int</var> &amp;employmentStatus, <var>double</var> netPay, <var>double</var> &amp;modifiedNetPay);
+
+<cite>// function declaration for Payroll Output</cite>
+<var>void</var> outputPayrollInfo_function(<var>int</var> recordNumber, <var>int</var> hoursWorked, <var>int</var> hourlyRate, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours,
+				<var>int</var> dependents, <var>double</var> basePay, <var>double</var> overTimePay, <var>double</var> doubleTimePay,
+				<var>double</var> grossPay, <var>double</var> witholdCalc, <var>double</var> modifiedGrossPay, <var>double</var> iraDeductionAmount,
+				<var>double</var> medicalBenefitCost, <var>double</var> modifiedNetPay);
+
+<cite>//void output</cite>
+<var>void</var> cout_Function ();
+
+
+
+<cite>//start of main</cite>
+<var>int</var> main()
+
+{
+<var>int</var> hoursWorked, overTimeHours, doubleTimeHours, dependents, employmentStatus, dataFlag, recordNumber = 0;
+<var>double</var> hourlyRate, basePay, grossPay, netPay, overTimePay, doubleTimePay, modifiedGrossPay, modifiedNetPay, witholdCalc, iraDeductionAmount,
+medicalBenefitCost;
+
+  open_files ();
+
+  in_stream &gt;&gt; dataFlag;
+
+
+<var>while</var> (dataFlag == 1)
+  {
+  recordNumber = recordNumber + 1;
+
+  in_stream &gt;&gt; hourlyRate &gt;&gt; hoursWorked &gt;&gt; dependents &gt;&gt; employmentStatus &gt;&gt; dataFlag;
+
+
+<cite>// function call to calculate Overtime Pay</cite>
+calculateOvertimePay_function(hoursWorked, hourlyRate, basePay, overTimeHours,
+doubleTimeHours, overTimePay, grossPay, doubleTimePay);
+
+<cite>// function call for IRA</cite>
+iraDeductionAmount = IRA_function(grossPay);
+modifiedGrossPay = grossPay - iraDeductionAmount;                 <cite>// modified gross pay calculation prior to tax</cite>
+
+ <cite>// function call for withholdings</cite>
+witholdCalc = withold_function(dependents, modifiedGrossPay);
+netPay = modifiedGrossPay - witholdCalc;                        <cite>// net pay calculation of modified gross pay</cite>
+
+<cite>// function call for medical benefits</cite>
+medicalBenefitCost = medical_cost_function(employmentStatus, netPay, modifiedNetPay);
+modifiedNetPay = netPay - medicalBenefitCost;                  <cite>//net Pay adjusted for medical benefits</cite>
+
+<cite>// function call to output Payroll Info</cite>
+outputPayrollInfo_function(recordNumber, hoursWorked, hourlyRate, overTimeHours, doubleTimeHours,
+                            dependents, basePay, overTimePay, doubleTimePay, grossPay,
+                            witholdCalc, modifiedGrossPay, iraDeductionAmount, medicalBenefitCost, modifiedNetPay);
+<cite>// output function</cite>
+cout_Function();
+
+  }
+  
+<var>return</var> 0;
+
+}
+<cite>//end of main</cite>
+
+
+
+<var>void</var> open_files()                                                                                                         <cite>// Open File Function</cite>
+{
+    in_stream.open(<kbd>"employeeData.dat"</kbd>);
+  <var>if</var> (in_stream.fail())
+    {
+        cout &lt;&lt; <kbd>"Input file opening has failed.\n"</kbd>;
+        exit(1);
+    }
+
+
+    out_stream.open(<kbd>"payrollData.dat"</kbd>);
+  <var>if</var> (out_stream.fail())
+    {
+        cout &lt;&lt; <kbd>"Output file opening has failed.\n"</kbd>;
+        exit(1);
+    }
+}
+
+
+<cite>// void - function to calculate Overtime Pay</cite>
+
+<var>void</var> calculateOvertimePay_function(<var>int</var> hoursWorked, <var>double</var> hourlyRate, <var>double</var> &amp;basePay, <var>int</var> &amp;overTimeHours, <var>int</var> &amp;doubleTimeHours,
+                                   <var>double</var> &amp;overTimePay, <var>double</var> &amp;grossPay, <var>double</var> &amp;doubleTimePay)
+{
+  basePay = 0, overTimeHours = 0, overTimePay = 0, doubleTimeHours= 0, doubleTimePay = 0;
+
+
+<var>if</var> (hoursWorked &gt; 40)                                                                 <cite>//calculating if hours are over 40</cite>
+{
+    basePay = hourlyRate * 40;
+    overTimeHours = hoursWorked - 40;
+}
+<var>if</var> (overTimeHours &gt; 10)                                                               <cite>//calculating overtime and double time hours</cite>
+{
+    doubleTimeHours = overTimeHours - 10;
+    overTimeHours = 10;
+    doubleTimePay = hourlyRate * 2 * doubleTimeHours;                                 <cite>// calculating rates for over and double time</cite>
+    overTimePay = hourlyRate * 1.5 * overTimeHours;
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+<var>else</var>                                                                                    <cite>//accounting for over time below 10 hours</cite>
+{
+    basePay = (hoursWorked - overTimeHours) * hourlyRate;
+    overTimePay = overTimeHours * (hourlyRate * 1.5);
+    grossPay = basePay + overTimePay + doubleTimePay;
+}
+}
+
+
+<cite>// IRA function definition.  Calculates deduction based on gross pay</cite>
+<var>double</var> IRA_function (<var>double</var> grossPay)
+
+{
+    <var>double</var> iraDeductionAmount;
+
+    <var>if</var>(grossPay &gt;= 500)
+        iraDeductionAmount = grossPay * 0.10;
+
+    <var>else</var> <var>if</var> (grossPay &gt; 400)
+        iraDeductionAmount = grossPay * 0.05;
+
+    <var>else</var>
+        iraDeductionAmount = 0;
+
+    <var>return</var>(iraDeductionAmount);
+
+}
+
+
+
+<cite>// Withholding function definition.  Calculates withholding based on # of dependents.</cite>
+<var>double</var> withold_function (<var>int</var> &amp;dependents, <var>double</var> modifiedGrossPay)
+
+{
+
+ <var>double</var> subtotal;
+
+ <var>double</var> withold = 0;
+
+ <var>if</var> (dependents &gt; 2)
+    withold = 0.15;
+
+ <var>else</var> <var>if</var> (dependents == 2)
+    withold = 0.18;
+
+ <var>else</var> <var>if</var> (dependents == 1)
+    withold = 0.2;
+
+ <var>else</var> <var>if</var> (dependents == 0)
+    withold = 0.28;
+
+subtotal = modifiedGrossPay * withold;
+
+<var>return</var> (subtotal);
+
+}
+
+
+
+<cite>// Medical benefit function definition.  Calculates medical benefits costs based on employment status (1 for FT, 0 for PT)</cite>
+    <var>double</var> medical_cost_function(<var>int</var> &amp;employmentStatus, <var>double</var> netPay, <var>double</var> &amp;modifiedNetPay)
+
+{
+    <var>double</var> medBenCost = 0;                       <cite>// initializing costs to zero to account for PT</cite>
+
+    <var>if</var> (employmentStatus == 1)
+        medBenCost = netPay * .07;
+
+    <var>return</var> (medBenCost);
+}
+
+
+<var>void</var> outputPayrollInfo_function(<var>int</var> recordNumber, <var>int</var> hoursWorked, <var>int</var> hourlyRate, <var>int</var> overTimeHours, <var>int</var> doubleTimeHours,
+				<var>int</var> dependents, <var>double</var> basePay, <var>double</var> overTimePay, <var>double</var> doubleTimePay,
+				<var>double</var> grossPay, <var>double</var> witholdCalc, <var>double</var> modifiedGrossPay, <var>double</var> iraDeductionAmount,
+				<var>double</var> medicalBenefitCost, <var>double</var> modifiedNetPay)
+
+{
+  out_stream.setf(ios::fixed);
+  out_stream.setf(ios::showpoint);
+  out_stream.precision(2);
+  out_stream.setf(ios::right);
+
+
+out_stream &lt;&lt; <kbd>"************************************************"</kbd> &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    EMPLOYEE RECORD NUMBER  "</kbd> &lt;&lt; recordNumber &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"                        "</kbd> &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Total Hours Worked = "</kbd> &lt;&lt; hoursWorked &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Hourly Pay Rate    = $"</kbd> &lt;&lt; hourlyRate &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Base Pay Rate      = $"</kbd> &lt;&lt; basePay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"                        "</kbd> &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Overtime hours at time and a half = "</kbd> &lt;&lt; overTimeHours &lt;&lt;endl;
+out_stream &lt;&lt; <kbd>"    Overtime pay at time and half     = $"</kbd> &lt;&lt; overTimePay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Overtime hours at double time     = "</kbd> &lt;&lt; doubleTimeHours &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Overtime pay at double time is    = $"</kbd> &lt;&lt; doubleTimePay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"                         "</kbd> &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Gross Pay ...........  = $"</kbd> &lt;&lt; grossPay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    IRA Deduction Amount   = $"</kbd> &lt;&lt; witholdCalc &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Modified Gross Pay     = $"</kbd> &lt;&lt; modifiedGrossPay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Taxes Withheld         = $"</kbd> &lt;&lt; iraDeductionAmount &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Medical Benefit Deduct = $"</kbd> &lt;&lt; medicalBenefitCost &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"    Net Pay .............  = $"</kbd> &lt;&lt; modifiedNetPay &lt;&lt; endl;
+out_stream &lt;&lt; <kbd>"************************************************"</kbd> &lt;&lt; endl &lt;&lt; endl &lt;&lt; endl &lt;&lt;endl;
+}
+
+
+
+<var>void</var> cout_Function()                                  <cite>// Cout Function</cite>
+{
+    cout &lt;&lt; <kbd>"**********************"</kbd> &lt;&lt; endl
+         &lt;&lt; <kbd>"Successful Completion!"</kbd> &lt;&lt; endl
+         &lt;&lt; <kbd>"**********************"</kbd> &lt;&lt; endl;
+  in_stream.close();
+  out_stream.close();
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTm502517f679" title="Sun, 02 Nov 2014 20:57:39 +0000"></span><script type="text/javascript">WhenId('CH_zTm502517f679');</script><noscript>Nov 2, 2014 at 8:57pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771081"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg771082"><span title="771082,154069,1023,11,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg771082" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmebb6c91fe2" title="Sun, 02 Nov 2014 03:40:04 +0000"></span><script type="text/javascript">WhenId('CH_zTmebb6c91fe2');</script><noscript>Nov 2, 2014 at 3:40am UTC</noscript></div>
+<div class="dwho"><a href="../../../user/dontmakeascene320/default.htm"><b>dontmakeascene320</b> (11)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i771082">
+<br>
+Information from data file that will be read from "employeeData.dat" and then output to "payrollData.dat":<br>
+1<br>
+10<br>
+40<br>
+1<br>
+1<br>
+1<br>
+10<br>
+40<br>
+2<br>
+1<br>
+1<br>
+10<br>
+39<br>
+0<br>
+0<br>
+1<br>
+10<br>
+50<br>
+3<br>
+1<br>
+1<br>
+10<br>
+41<br>
+3<br>
+1<br>
+1<br>
+10<br>
+39<br>
+2<br>
+0<br>
+1<br>
+10<br>
+39<br>
+3<br>
+1<br>
+1<br>
+15<br>
+39<br>
+2<br>
+1<br>
+1<br>
+15<br>
+40<br>
+3<br>
+1<br>
+1<br>
+10<br>
+41<br>
+0<br>
+1<br>
+1<br>
+10<br>
+49<br>
+2<br>
+1<br>
+1<br>
+10<br>
+49<br>
+3<br>
+1<br>
+1<br>
+10<br>
+50<br>
+1<br>
+1<br>
+1<br>
+10<br>
+51<br>
+2<br>
+1<br>
+1<br>
+10<br>
+51<br>
+3<br>
+1<br>
+1<br>
+15<br>
+41<br>
+2<br>
+1<br>
+0<br>
+255<br>
+255<br>
+255<br>
+255<br>
+<br>
+
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTmb70e907513" title="Sun, 02 Nov 2014 20:58:22 +0000"></span><script type="text/javascript">WhenId('CH_zTmb70e907513');</script><noscript>Nov 2, 2014 at 8:58pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn771082"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Registered users can post here. <a href="../../../user/default.htm">Sign in or register</a> to post.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(146637,0,154069,0,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~390.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>

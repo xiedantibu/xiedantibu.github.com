@@ -1,0 +1,468 @@
+<!DOCTYPE html><!-- saved from url=(0055)http://www.cplusplus.com/forum/general/8129/default.htm --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>To solve 4th Order equation - C++ Forum</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../v321/main.css">
+<script src="../../../v321/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="../../../default.htm" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="../../default.htm">Forum</a></li>
+<li><a href="../default.htm">General C++ Programming</a></li>
+<li class="here">To solve 4th Order equation</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support"><script type="text/javascript"><!--
+if (!cookieGet("hspt31")) {
+  document.write('<div class="C_DonateBox"></div>');
+}
+//-->
+</script><div class="C_ad728"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div><div class="C_supportbottom"></div></div><div id="I_content">
+<h3><div class="C_ico question" title="question">&nbsp;</div><div class="C_ico solved" title="solved">&nbsp;</div> To solve 4th Order equation</h3><span id="CH_edttl"></span><span class="rootdatPost" title="8129,root,0,-1,11,0"></span><div id="CH_PostList"><div class="C_forPost" id="msg37611"><span title="37611,10444,1023,105,1"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37611" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmdb614da431" title="Wed, 25 Feb 2009 16:37:00 +0000"></span><script type="text/javascript">WhenId('CH_zTmdb614da431');</script><noscript>Feb 25, 2009 at 4:37pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37611">
+Hello<br>
+<br>
+Is there a built-in function in C++ to solve a 4th order equation of the format:-<br>
+Ax^4+Bx^3+Cx^2+Dx+E=0<br>
+<br>
+Any tips or hints?<br>
+<br>
+Thanks in advance.
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37611"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37613"><span title="37613,13114,1023,6281,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37613" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmcd8dcd3099" title="Wed, 25 Feb 2009 16:42:00 +0000"></span><script type="text/javascript">WhenId('CH_zTmcd8dcd3099');</script><noscript>Feb 25, 2009 at 4:42pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bazzy/default.htm"><b>Bazzy</b> (6281)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37613">
+There isn't a built in function.<br>
+Try Googling <a href="../../../../www.google.com/searchqequationsolvingc">http://www.google.com/search?q=equation+solving+C%2B%2B</a>
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37613"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37614"><span title="37614,10444,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37614" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTmf129d4d6ed" title="Wed, 25 Feb 2009 16:49:57 +0000"></span><script type="text/javascript">WhenId('CH_zTmf129d4d6ed');</script><noscript>Feb 25, 2009 at 4:49pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37614">
+Thanks bazzy. I found a code, but am not able to understand what IMAX does in this code.. Can anybody help me with that?<br>
+<br>
+#include&lt;iostream.h&gt;<br>
+#include&lt;math.h&gt;<br>
+#include&lt;conio.h&gt;<br>
+#include&lt;stdlib.h&gt;<br>
+#include&lt;graphics.h&gt;<br>
+<br>
+const int IMAX = 800;<br>
+<br>
+class coeffs<br>
+{<br>
+ public :<br>
+          float a, b, c, d, e, x, y, p, q, r, z;<br>
+<br>
+          void getdata(void);<br>
+          void divide(void);<br>
+          void chkrealcmplx(void);<br>
+          void dispreal(float, float, float);<br>
+          void dispcomplx(float, float, float);<br>
+};<br>
+<br>
+<br>
+void coeffs :: getdata()<br>
+{<br>
+  cout&lt;&lt;"Enter coefficients 'a' through 'e' :<br>
+&lt;BR&gt;;<br>
+  cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d&gt;&gt;e;<br>
+}<br>
+<br>
+void coeffs :: divide(void)<br>
+{<br>
+  int i;<br>
+  float y1,z1;<br>
+<br>
+  b = b/a; c = c/a; d = d/a; e = e/a;<br>
+  a = 1;<br>
+  y = d/c; z = e/c;<br>
+  x = 1;<br>
+<br>
+  for(i=1;i&lt;=IMAX;i++)<br>
+  {<br>
+   y1 = (d-z*(b-y))/((c-z)-y*(b-y));<br>
+   z1 = e/((c-z)-y*(b-y));<br>
+   y = y1;<br>
+   z = z1;<br>
+<br>
+   p = 1;<br>
+   q = b-y;<br>
+   r = (c-z)-y*(b-y);<br>
+  }<br>
+}<br>
+<br>
+<br>
+void coeffs :: chkrealcmplx(void)<br>
+{<br>
+ float delta1,delta2;<br>
+ delta1 = q*q - 4*p*r;<br>
+ delta2 = y*y - 4*x*z;<br>
+<br>
+ if(delta1&lt;0)<br>
+  {<br>
+   cout&lt;&lt;"<br>
+Roots R1 and R2 are complex&lt;BR&gt;;<br>
+   cout&lt;&lt;"Roots are :<br>
+&lt;BR&gt;;<br>
+   dispcomplx(delta1,p,q);<br>
+  }<br>
+ if(delta2&lt;0)<br>
+  {<br>
+   cout&lt;&lt;"<br>
+Roots R3 and R4 are complex&lt;BR&gt;;<br>
+   cout&lt;&lt;"Roots are :<br>
+&lt;BR&gt;;<br>
+   dispcomplx(delta2,x,y);<br>
+  }<br>
+  if(delta1&gt;=0)<br>
+  {<br>
+   cout&lt;&lt;"<br>
+Roots R1 and R2 are real&lt;BR&gt;;<br>
+   cout&lt;&lt;"Roots are :<br>
+&lt;BR&gt;;<br>
+   dispreal(delta1,p,q);<br>
+  }<br>
+  if(delta2&gt;=0)<br>
+  {<br>
+   cout&lt;&lt;"<br>
+Roots R3 and R4 are real&lt;BR&gt;;<br>
+   cout&lt;&lt;"Roots are :<br>
+&lt;BR&gt;;<br>
+   dispreal(delta2,x,y);<br>
+  }<br>
+}<br>
+<br>
+void coeffs :: dispreal(float delta,float A,float B)<br>
+{<br>
+ float r1,r2;<br>
+<br>
+ r1 = (-B+sqrt(delta))/(2*A);<br>
+ r2 = (-B-sqrt(delta))/(2*A);<br>
+<br>
+ cout&lt;&lt;r1&lt;&lt;endl;<br>
+ cout&lt;&lt;r2&lt;&lt;endl;<br>
+}<br>
+<br>
+void coeffs :: dispcomplx(float delta,float A,float B)<br>
+{<br>
+ float rp,ip;<br>
+<br>
+ delta = -delta;<br>
+ rp = -B/(2*A);<br>
+ ip = (sqrt(delta))/(2*A);<br>
+<br>
+ cout&lt;&lt;rp&lt;&lt;" +j "&lt;&lt;ip&lt;&lt;endl;<br>
+ cout&lt;&lt;rp&lt;&lt;" -j "&lt;&lt;ip&lt;&lt;endl;<br>
+<br>
+}<br>
+<br>
+void line()<br>
+{<br>
+ char t = 0XC4;<br>
+ for(int i = 1;i&lt;=80;i++)<br>
+   cout&lt;&lt;t;<br>
+}<br>
+<br>
+<br>
+void main()<br>
+<br>
+ {<br>
+  clrscr();<br>
+<br>
+  int gdriver = EGA, gmode = VGAHI, errorcode;<br>
+  initgraph(&amp;gdriver, &amp;gmode, "c:\tc\bgi");<br>
+  setbkcolor(BLUE);<br>
+  coeffs coefficients;<br>
+  line();<br>
+  cout&lt;&lt;"        PROGRAM TO SOLVE A FOURTH ORDER ALGEBRAIC EQUATION        ";<br>
+  line();<br>
+  coefficients.getdata();<br>
+  line();<br>
+  line();<br>
+  coefficients.divide();<br>
+  coefficients.chkrealcmplx();<br>
+  line();<br>
+  line();<br>
+  getch();<br>
+  closegraph();<br>
+ }<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37614"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37616"><span title="37616,10444,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37616" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm33be9ca959" title="Wed, 25 Feb 2009 16:53:05 +0000"></span><script type="text/javascript">WhenId('CH_zTm33be9ca959');</script><noscript>Feb 25, 2009 at 4:53pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37616">
+I guess its not the best method as IMAX specifies the number of iterations, for the calculation of the approximate value.<br>
+<br>
+Higher the value of IMAX, better the approximation.<br>
+<br>
+Any Mathematicians here?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37616"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37618"><span title="37618,13114,1023,6281,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37618" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm80d253e6f7" title="Wed, 25 Feb 2009 16:58:00 +0000"></span><script type="text/javascript">WhenId('CH_zTm80d253e6f7');</script><noscript>Feb 25, 2009 at 4:58pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/bazzy/default.htm"><b>Bazzy</b> (6281)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37618">
+That value can be modified easily, that ( I think ) is the reason for declaring IMAX at the beginning of the code.<br>
+<br>
+A higher value can lead to a higher precision but even to a longer execution time
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37618"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37619"><span title="37619,13171,1023,11788,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37619" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7c6d78ee40" title="Wed, 25 Feb 2009 17:08:12 +0000"></span><script type="text/javascript">WhenId('CH_zTm7c6d78ee40');</script><noscript>Feb 25, 2009 at 5:08pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/helios/default.htm"><b>helios</b> (11788)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37619">
+<a href="../../../../en.wikipedia.org/wiki/quartic_equation">http://en.wikipedia.org/wiki/Quartic_equation</a><br>
+<br>
+If I understand this correctly,<br>
+<tt>x1=(3*a^2)/(8*a^2)+c/a;<br>
+x2=b^3/(8*a^3)-(b*c)/(2*a^2)+d/a;<br>
+x3=(-3*b^4)/(256*a^4)+(c*b^2)/(16*a^3)-(b*d)/(4*a^2)+e/a;<br>
+//"(+-)" means "plus or minus"<br>
+if !x2 then<br>
+	x4=-b/(4*a)(+-)((-x1(+-)(x1^2-4*x3)^.5)/2)^.5<br>
+else<br>
+	//Too long. You get the general idea.</tt>
+</div>
+<div class="dhow">
+<span class="sedited">Last edited on <span id="CH_zTme428fb3899" title="Wed, 25 Feb 2009 17:20:37 +0000"></span><script type="text/javascript">WhenId('CH_zTme428fb3899');</script><noscript>Feb 25, 2009 at 5:20pm UTC</noscript></span>
+<span class="dbtn" id="CH_btn37619"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37697"><span title="37697,10532,1023,5804,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37697" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm2969238f99" title="Thu, 26 Feb 2009 13:06:11 +0000"></span><script type="text/javascript">WhenId('CH_zTm2969238f99');</script><noscript>Feb 26, 2009 at 1:06pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/jsmith/default.htm"><b>jsmith</b> (5804)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37697">
+Alternatively there are a variety of root-finding algorithms for n-th order polynomials -- bisection method, secant method, newton-rhapson method, etc, all of which are explained in detail in Wikipedia.<br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37697"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg37908"><span title="37908,13288,1023,323,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg37908" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm7b05fb73cb" title="Fri, 27 Feb 2009 13:02:03 +0000"></span><script type="text/javascript">WhenId('CH_zTm7b05fb73cb');</script><noscript>Feb 27, 2009 at 1:02pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/exception/default.htm"><b>exception</b> (323)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i37908">
+Do you want to approximate the roots (numerically) or do you want to solve the equation (algebraically)? (The latter is still possible, since the degree isn't 5 or above, in which case you'd be out of luck...)
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn37908"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg41994"><span title="41994,10444,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg41994" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm3600cfc897" title="Mon, 23 Mar 2009 12:35:15 +0000"></span><script type="text/javascript">WhenId('CH_zTm3600cfc897');</script><noscript>Mar 23, 2009 at 12:35pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i41994">
+Hi above<br>
+<br>
+I am sorry, I did not check the forum for a month due to examinations! I still have this work pending.<br>
+<br>
+I need to implement a program which is very fast to solve this equation. So I guess an approximated value would also do! I cannot afford to use programs which runs iterations 1000 times to get the corrrect value. Speed of calculation is of utmost importance.<br>
+<br>
+@Exception<br>
+<br>
+Are you still there? Can you offer any help?
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn41994"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg47340"><span title="47340,10444,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg47340" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm8e2f724a6c" title="Mon, 20 Apr 2009 15:03:33 +0000"></span><script type="text/javascript">WhenId('CH_zTm8e2f724a6c');</script><noscript>Apr 20, 2009 at 3:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i47340">
+I found the solution for this. There is a perfect code for it in Google-codes and it runs splendidly. If anybody wants to use a function which analytically solves 4th order equations, use this :-<br>
+<br>
+<a href="../../../../www.google.com/codesearch/phlde#rmG-ZVXP6CY/geant4.8.2.p01/source/global/HEPNumerics/src/G4AnalyticalPolSolver.cc&amp;q=QuarticRoots">http://www.google.com/codesearch/p?hl=de#rmG-ZVXP6CY/geant4.8.2.p01/source/global/HEPNumerics/src/G4AnalyticalPolSolver.cc&amp;q=QuarticRoots</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn47340"></span>
+
+</div>
+</div>
+</div>
+<div class="C_forPost" id="msg47341"><span title="47341,10444,1023,105,0"></span>
+<div class="box">
+<div class="boxtop">
+<div class="dwhen"><a href="#msg47341" title="Link to this post"><img src="../../../img/link.png" width="16" height="8"></a> <span id="CH_zTm0bd476e471" title="Mon, 20 Apr 2009 15:03:34 +0000"></span><script type="text/javascript">WhenId('CH_zTm0bd476e471');</script><noscript>Apr 20, 2009 at 3:03pm UTC</noscript></div>
+<div class="dwho"><a href="../../../user/luckycusp/default.htm"><b>luckycusp</b> (105)</a></div>
+</div>
+<div class="dwhat" colspan="2" id="CH_i47341">
+I found the solution for this. There is a perfect code for it in Google-codes and it runs splendidly. If anybody wants to use a function which analytically solves 4th order equations, use this :-<br>
+<br>
+<a href="../../../../www.google.com/codesearch/phlde#rmG-ZVXP6CY/geant4.8.2.p01/source/global/HEPNumerics/src/G4AnalyticalPolSolver.cc&amp;q=QuarticRoots">http://www.google.com/codesearch/p?hl=de#rmG-ZVXP6CY/geant4.8.2.p01/source/global/HEPNumerics/src/G4AnalyticalPolSolver.cc&amp;q=QuarticRoots</a><br>
+
+</div>
+<div class="dhow">
+<span class="dbtn" id="CH_btn47341"></span>
+
+</div>
+</div>
+</div>
+</div><div class="rootinsMore"></div><div class="rootbtnMore"></div><div class="rootinsNew"></div><div class="rootbtnNew"></div><div id="CH_insNew"></div><div id="CH_reply">Topic archived. No new replies allowed.</div><div id="CH_subscription"></div><div class="rootedtNew"></div><script type="text/javascript">new for_PostList(8129,1,10444,1,'CH_PostList','CH_subscription','CH_reply','CH_insNew','CH_edttl','../../thread.cgi','../../post.cgi','../../myposts.cgi.htm',64,32,512,256,1024,16);</script></div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7973859818";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="../../../default.htm">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="../../../info/default.htm">Information</a></li>
+<li class="folder doc"><a href="../../../doc/default.htm">Tutorials</a></li>
+<li class="folder reference"><a href="../../../reference/default.htm">Reference</a></li>
+<li class="folder articles"><a href="../../../articles/default.htm">Articles</a></li>
+<li class="folder selected forum"><a href="../../default.htm">Forum</a></li>
+</ul>
+</div>
+<div class="sect">
+<h3><b><a href="../../default.htm">Forum</a></b></h3>
+<ul>
+<li><a href="../../beginner/default.htm"><b>Beginners</b></a></li><li><a href="../../windows/default.htm"><b>Windows Programming</b></a></li><li><a href="../../unices/default.htm"><b>UNIX/Linux Programming</b></a></li><li class="selected"><a href="../default.htm"><b>General C++ Programming</b></a></li><li><a href="../../lounge/default.htm"><b>Lounge</b></a></li><li><a href="../../jobs/default.htm"><b>Jobs</b></a></li></ul>
+</div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7688470879129516";
+google_ad_slot = "7445514729";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<acript type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="../../../default.htm">Home page</a> | <a href="../../../privacy.do.htm">Privacy policy</a><br>&copy; cplusplus.com, 2000-2014 - All rights reserved - <i>v3.1</i><br><a href="../../../contact.doreferrerwww.cplusplus~457.com_">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function NavFor(us) {document.getElementById('I_subnav').innerHTML=us.ok?'<div class="sect"><h3><b><a href="../../../user/default.htm">'+us.user+'</a></b></h3><ul><li><a href="../../myposts.cgi.htm">My topics</a></li></ul></div>':'';}onSession(NavFor);ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '../../../../httpsssl/default.htm' : '../../../../www/default.htm') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+</body>
+</html>
