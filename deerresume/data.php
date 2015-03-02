@@ -12,9 +12,9 @@ if( strlen( $viewpass ) > 0 && trim($_REQUEST['vpass']) != $viewpass )
 {
 	$data['errno'] = '0';
 	$data['show'] = 0;
-	$data['title'] = '';
-	$data['subtitle'] = '';
-	$data['content'] = '';
+	$data['title'] = '测试';
+	$data['subtitle'] = '测试';
+	$data['content'] = '大家哈大家哈大家大家';
 }
 else
 {
