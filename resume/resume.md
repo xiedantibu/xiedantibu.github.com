@@ -8,13 +8,12 @@ cocos2d-x游戏开发工程师
 - 电子邮箱: <xiedantibu@126.com>
 - 个人博客: [xiedantibu](http://blog.xulingmin.com)
 - Github : [xiedantibu](http://github.com/xiedantibu)
-- 豆瓣书单: [黑桃杰克](http://book.douban.com/people/wuchong1014/)
 
 
 Summary
 -------
 
-北京理工大学的在读研究生，平时以 Mac OS X 为日常操作系统，喜欢 Linux 技术和分布式技术。关注一些开源项目，也会在 Github 上分享自己的代码。行走在追寻技术的道路上，喜欢将自己的学习经验分享在博客上。拥有较强的实践能力，能够独立完成小型的产品和项目。
+2012年毕业于中国药科大学,目前就职于游久时代。平时喜欢捣鼓技术,关注一些开源项目,偶尔也会在Github上分析自己的代码。行走在追寻技术的道路上，喜欢将自己的学习经验分享在博客上。
 
 
 Skills & Expertise
@@ -23,11 +22,11 @@ Skills & Expertise
 
 ### Programming Languages
 
-- [Java](http://developer.mozilla.org/en/JavaScript)^†^
-- [Python](https://www.python.org/)^†^
-- [C/C++]()
-- [Shell](http://zh.wikipedia.org/wiki/Unix_shell)
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [C/C++]()^†^
+- [Java]()^†^
+- [Lua]()
+- [Python]()
+- [Object-C]()
 - [HTML]()
 
 
@@ -104,8 +103,7 @@ Projects
 Education
 ---------
 
-2013.09 - 2015.07 ，[北京理工大学](http://www.bit.edu.cn/)，软件学院，研究生（保研）  
-2009.09 - 2013.07 ，[北京理工大学](http://www.bit.edu.cn/)，软件学院，本科生
+2008.09 - 2012.07 ，[中国药科大学](http://www.cpu.edu.cn/)，信息系统与信息管理专业，本科生
 
 
 Honors and Awards
