@@ -1,13 +1,13 @@
-伍 翀
+徐 灵 敏
 =============
 
 研发工程师
 -----------------------
 
-- 联系电话: [180-****-5187](tel://180-****-5187)
-- 电子邮箱: <imjark@gmail.com>
-- 个人博客: [wuchong.me](http://wuchong.me)
-- Github : [wuchong](http://github.com/wuchong)
+- 联系电话: [131-2792-1825](tel://131-2792-1825)
+- 电子邮箱: <xiedantibu@126.com>
+- 个人博客: [xiedantibu](http://blog.xulingmin.com)
+- Github : [xiedantibu](http://github.com/xiedantibu)
 - 豆瓣书单: [黑桃杰克](http://book.douban.com/people/wuchong1014/)
 
 
