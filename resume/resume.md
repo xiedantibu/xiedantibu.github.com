@@ -30,28 +30,7 @@ Skills & Expertise
 - [HTML]()
 
 
-### Frameworks & APIs
 
-- [Hadoop](http://hadoop.apache.org/)
-- [MapReduce](http://zh.wikipedia.org/wiki/MapReduce)
-- [Grails](https://grails.org/)
-- [ASP.NET](http://www.asp.net/)
-- [Hibernate](http://hibernate.org/)
-- [Bootstrap](http://getbootstrap.com/2.3.2/)
-
-
-### Software & Tools
-
-- [Mac OS X](http://apple.com/macosx)^†^
-- [Vim](http://www.vim.org)^†^
-- [Git](http://git-scm.com)^†^
-- [Eclipse](http://www.eclipse.org/)^†^
-- [IntelliJ IDEA](http://www.jetbrains.com/idea/)
-- [Ubuntu Linux](http://ubuntu.com)
-- [Sublime Text](http://www.sublimetext.com)
-- [Subversion](http://svn.apache.org)
-- [MySQL](http://mysql.com)
-- [SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server/)
 
 
 
