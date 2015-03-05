@@ -18,7 +18,7 @@ tags : [cocos2d-x]
  
  --- 
 <a id='jnienv' name='jnienv'> </a>
->####[JNIEnv*环境变量的获取](#top)
+####[JNIEnv*环境变量的获取](#top)
 ---
 
 	 JNIEnv* JniHelper::getEnv() {
@@ -30,7 +30,7 @@ tags : [cocos2d-x]
     
  --- 
 <a id='jstringtostring' name='jstringtostring'> </a>
->####[jstring以及std::string之间的转换](#top)
+####[jstring以及std::string之间的转换](#top)
 ---
 
 *	**jstring转成std::string**
@@ -80,7 +80,7 @@ tags : [cocos2d-x]
 		}
  --- 
 <a id='getMethodInfo' name='getMethodInfo'> </a>
->####[获取方法的信息](#top)
+####[获取方法的信息](#top)
 ---
 
 *	获取静态方法信息`static bool getStaticMethodInfo(JniMethodInfo &methodinfo,
@@ -93,11 +93,29 @@ tags : [cocos2d-x]
                                     const char *methodName,
                                     const char *paramCode);`
 
-	>className表示的是包名+类名,methodName表示的是调用的方法名,paramCode表示的是传入参数以及返回值类型,不管是常规还是静态方法最终都把相关信息保存在methodinfo中.
+	>className表示的是包名+类名,methodName表示的是调用的方法名,paramCode表示的是传入参数以及返回值类型,它的格式为：(参数)返回类型 ,不管是常规还是静态方法最终都把相关信息保存在methodinfo中.
+	
+*	**paramCode参数类型书写格式对应表**
+
+参数类型 | 参数简写 |    
+------------ | ------------- |   
+boolean	| Z	|
+byte |	B	|
+char |	C	|
+short |	S	|
+int |	I	|
+long |	J	|
+float |	F	|
+double |	D	|
+void |	V	|
+Object |	Ljava/lang/String; 	|
+Array	| [Ljava/lang/String;	|
+
+>	注意Object以及Array两种类型之后的分号。示例：(IIII)V //表示传入参数是4个整数，返回值为void。ILjava/lang/String;I //表示的是传入参数为(int,string,int)
 	
  --- 
 <a id='CallMethod' name='CallMethod'> </a>
->####[回调静态方法以及普通方法](#top)
+####[C++回调JAVA的静态方法以及普通方法](#top)
 ---
 
 JNIEvn\*有一系列的CallStatic[返回类型]Method、Call[返回类型]Method方法，针对不同的函数返回类型选择性调用。 
@@ -168,7 +186,7 @@ Double | jdouble 	|
 	
  --- 
 <a id='NativeMethod' name='NativeMethod'> </a>
->####[java回调c++实现的方法](#top)
+####[java回调c++实现的方法](#top)
 ---
 
 *	**没有返回值的回调**
