@@ -1,5 +1,4 @@
-本简历主题 fork 自 Stephen Tudor 的 [Resume](https://github.com/smt/resume)。 自己稍加了修改，能更好地支持中文。
-
+本简历主题 fork 自 wuchong 的 [Resume](https://github.com/wuchong/resume)。 
 ##准备环境
 本简历是使用 [Pandoc](http://johnmacfarlane.net/pandoc/releases.html) 生成的，所以需要去官网下载自己需要的版本安装。
 
