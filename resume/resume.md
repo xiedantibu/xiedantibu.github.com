@@ -8,10 +8,11 @@ cocos2d-x游戏开发工程师
 - 电子邮箱: <xiedantibu@126.com>
 - 个人博客: [blog.xulingmin](http://blog.xulingmin.com)
 - Github : [xiedantibu](http://github.com/xiedantibu) 
-- QQ: [804322011]()
+- QQ: [804322011]()	
 - 籍贯 :[浙江江山]()
 - 出生年月 : [1989-03-28]()
 - 政治面貌 : [中共党员]()
+- <a href="./resume_xlm.pdf" style="font-size: 18px;color: RED;font-weight: bold;text-decoration: none;margin-top:2px;text-align:center;">PDF简历下载</a> 
 
 
 Summary
