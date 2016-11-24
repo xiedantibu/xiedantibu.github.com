@@ -1,5 +1,5 @@
 markdown: redcarpet
-redcarpet: 
+redcarpet:
     extensions: ["tables"]
 permalink: /:title/
 url: http://blog.xulingmin.com/
@@ -8,10 +8,11 @@ author: xiedantibu
 qq: 804322011
 email: xiedantibu@hotmail.com
 duoshuo: xiedantibu
-beian: 
+beian:
 weibo: 1701186332
 github: xiedantibu
-pygments: true
+highlighter: true
 safe: true
 paginate: 20
 about: "博客开张了啊"
+gems: [jekyll-paginate]
